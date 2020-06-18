@@ -88,6 +88,7 @@ return array(
     'Drupal\\Console\\Core\\' => array($vendorDir . '/drupal/console-core/src'),
     'Drupal\\Console\\Composer\\Plugin\\' => array($vendorDir . '/drupal/console-extend-plugin/src'),
     'Drupal\\Console\\' => array($vendorDir . '/drupal/console/src'),
+    'Drupal\\Composer\\Plugin\\Scaffold\\' => array($vendorDir . '/drupal/core-composer-scaffold'),
     'Drupal\\Component\\' => array($baseDir . '/docroot/core/lib/Drupal/Component'),
     'Drupal\\' => array($vendorDir . '/drupal/coder/coder_sniffer/Drupal'),
     'DrupalPractice\\' => array($vendorDir . '/drupal/coder/coder_sniffer/DrupalPractice'),

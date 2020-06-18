@@ -73,6 +73,7 @@ final class Versions
   'drupal/consumer_image_styles' => '3.0.0@8.x-3.0',
   'drupal/consumers' => '1.11.0@8.x-1.11',
   'drupal/core' => '8.9.1@e8ee964c562870381876e85d3f5eaaf8c8ecc9ee',
+  'drupal/core-composer-scaffold' => '8.9.1@07cdfe2799789fc0c2d0e3e1ba64cb5e2a973ece',
   'drupal/core-recommended' => '8.9.1@41042f9eaa35b027e6b2c42fa03edcb85da54a06',
   'drupal/crop' => '2.1.0@8.x-2.1',
   'drupal/ctools' => '3.4.0@8.x-3.4',
@@ -232,7 +233,6 @@ final class Versions
   'dmore/behat-chrome-extension' => '1.3.0@6279986ef85ac179f055460502e9b11c3784146c',
   'dmore/chrome-mink-driver' => '2.7.0@d66765fb7f448e8b2bca2b899308a4a6d8a69264',
   'doctrine/instantiator' => '1.3.1@f350df0268e904597e3bd9c4685c53e0e333feea',
-  'drupal-composer/drupal-scaffold' => '2.6.1@13c1ffc7dd4925cb03707759128b85c0cd6276f8',
   'drupal/drupal-driver' => 'v1.4.0@919c6a39ef6a17bdcaf81dcff97b117ecfb6061c',
   'drupal/drupal-extension' => 'v3.4.1@50ff0f413f0dc4732f49638e743f86f45e835e50',
   'fabpot/goutte' => 'v3.2.3@3f0eaf0a40181359470651f1565b3e07e3dd31b8',
@@ -278,7 +278,7 @@ final class Versions
   'symfony/var-exporter' => 'v4.4.10@f311af6e44fefedbd4f1e23e97607ef0f917bfcc',
   'textalk/websocket' => '1.3.1@fe348408a43cc646d08a3ae73e7877370441c7ee',
   'theseer/tokenizer' => '1.1.3@11336f6f84e16a720dae9d8e6ed5019efa85a0f9',
-  'ifthen/uccqe' => 'dev-master@0aba15cc892b74eee4b0f10fb3bbfdcb51c7a99c',
+  'ifthen/uccqe' => 'dev-master@8f6f724cb8bd5383335e73908d5dcb4f565b0457',
 );
 
     private function __construct()

@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit9ec476cc0fcbd12d0d50f389ebef8fa2
+class ComposerStaticInit93fa501ef94c7ef4c2ddd87d1bb1bf4b
 {
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
@@ -187,6 +187,7 @@ class ComposerStaticInit9ec476cc0fcbd12d0d50f389ebef8fa2
             'Drupal\\Console\\Core\\' => 20,
             'Drupal\\Console\\Composer\\Plugin\\' => 31,
             'Drupal\\Console\\' => 15,
+            'Drupal\\Composer\\Plugin\\Scaffold\\' => 32,
             'Drupal\\Component\\' => 17,
             'Drupal\\' => 7,
             'DrupalPractice\\' => 15,
@@ -555,6 +556,10 @@ class ComposerStaticInit9ec476cc0fcbd12d0d50f389ebef8fa2
         'Drupal\\Console\\' => 
         array (
             0 => __DIR__ . '/..' . '/drupal/console/src',
+        ),
+        'Drupal\\Composer\\Plugin\\Scaffold\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/drupal/core-composer-scaffold',
         ),
         'Drupal\\Component\\' => 
         array (
@@ -1857,6 +1862,29 @@ class ComposerStaticInit9ec476cc0fcbd12d0d50f389ebef8fa2
         'Drupal\\Component\\Uuid\\Uuid' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Component/Uuid/Uuid.php',
         'Drupal\\Component\\Uuid\\UuidInterface' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Component/Uuid/UuidInterface.php',
         'Drupal\\Component\\Version\\Constraint' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Component/Version/Constraint.php',
+        'Drupal\\Composer\\Plugin\\Scaffold\\AllowedPackages' => __DIR__ . '/..' . '/drupal/core-composer-scaffold/AllowedPackages.php',
+        'Drupal\\Composer\\Plugin\\Scaffold\\CommandProvider' => __DIR__ . '/..' . '/drupal/core-composer-scaffold/CommandProvider.php',
+        'Drupal\\Composer\\Plugin\\Scaffold\\ComposerScaffoldCommand' => __DIR__ . '/..' . '/drupal/core-composer-scaffold/ComposerScaffoldCommand.php',
+        'Drupal\\Composer\\Plugin\\Scaffold\\GenerateAutoloadReferenceFile' => __DIR__ . '/..' . '/drupal/core-composer-scaffold/GenerateAutoloadReferenceFile.php',
+        'Drupal\\Composer\\Plugin\\Scaffold\\Git' => __DIR__ . '/..' . '/drupal/core-composer-scaffold/Git.php',
+        'Drupal\\Composer\\Plugin\\Scaffold\\Handler' => __DIR__ . '/..' . '/drupal/core-composer-scaffold/Handler.php',
+        'Drupal\\Composer\\Plugin\\Scaffold\\Interpolator' => __DIR__ . '/..' . '/drupal/core-composer-scaffold/Interpolator.php',
+        'Drupal\\Composer\\Plugin\\Scaffold\\ManageGitIgnore' => __DIR__ . '/..' . '/drupal/core-composer-scaffold/ManageGitIgnore.php',
+        'Drupal\\Composer\\Plugin\\Scaffold\\ManageOptions' => __DIR__ . '/..' . '/drupal/core-composer-scaffold/ManageOptions.php',
+        'Drupal\\Composer\\Plugin\\Scaffold\\Operations\\AbstractOperation' => __DIR__ . '/..' . '/drupal/core-composer-scaffold/Operations/AbstractOperation.php',
+        'Drupal\\Composer\\Plugin\\Scaffold\\Operations\\AppendOp' => __DIR__ . '/..' . '/drupal/core-composer-scaffold/Operations/AppendOp.php',
+        'Drupal\\Composer\\Plugin\\Scaffold\\Operations\\OperationData' => __DIR__ . '/..' . '/drupal/core-composer-scaffold/Operations/OperationData.php',
+        'Drupal\\Composer\\Plugin\\Scaffold\\Operations\\OperationFactory' => __DIR__ . '/..' . '/drupal/core-composer-scaffold/Operations/OperationFactory.php',
+        'Drupal\\Composer\\Plugin\\Scaffold\\Operations\\OperationInterface' => __DIR__ . '/..' . '/drupal/core-composer-scaffold/Operations/OperationInterface.php',
+        'Drupal\\Composer\\Plugin\\Scaffold\\Operations\\ReplaceOp' => __DIR__ . '/..' . '/drupal/core-composer-scaffold/Operations/ReplaceOp.php',
+        'Drupal\\Composer\\Plugin\\Scaffold\\Operations\\ScaffoldFileCollection' => __DIR__ . '/..' . '/drupal/core-composer-scaffold/Operations/ScaffoldFileCollection.php',
+        'Drupal\\Composer\\Plugin\\Scaffold\\Operations\\ScaffoldResult' => __DIR__ . '/..' . '/drupal/core-composer-scaffold/Operations/ScaffoldResult.php',
+        'Drupal\\Composer\\Plugin\\Scaffold\\Operations\\SkipOp' => __DIR__ . '/..' . '/drupal/core-composer-scaffold/Operations/SkipOp.php',
+        'Drupal\\Composer\\Plugin\\Scaffold\\Plugin' => __DIR__ . '/..' . '/drupal/core-composer-scaffold/Plugin.php',
+        'Drupal\\Composer\\Plugin\\Scaffold\\PostPackageEventListenerInterface' => __DIR__ . '/..' . '/drupal/core-composer-scaffold/PostPackageEventListenerInterface.php',
+        'Drupal\\Composer\\Plugin\\Scaffold\\ScaffoldFileInfo' => __DIR__ . '/..' . '/drupal/core-composer-scaffold/ScaffoldFileInfo.php',
+        'Drupal\\Composer\\Plugin\\Scaffold\\ScaffoldFilePath' => __DIR__ . '/..' . '/drupal/core-composer-scaffold/ScaffoldFilePath.php',
+        'Drupal\\Composer\\Plugin\\Scaffold\\ScaffoldOptions' => __DIR__ . '/..' . '/drupal/core-composer-scaffold/ScaffoldOptions.php',
         'Drupal\\Console\\Annotations\\DrupalCommand' => __DIR__ . '/..' . '/drupal/console/src/Annotations/DrupalCommand.php',
         'Drupal\\Console\\Annotations\\DrupalCommandAnnotationReader' => __DIR__ . '/..' . '/drupal/console/src/Annotations/DrupalCommandAnnotationReader.php',
         'Drupal\\Console\\Application' => __DIR__ . '/..' . '/drupal/console/src/Application.php',
@@ -6970,11 +6998,11 @@ class ComposerStaticInit9ec476cc0fcbd12d0d50f389ebef8fa2
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit9ec476cc0fcbd12d0d50f389ebef8fa2::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit9ec476cc0fcbd12d0d50f389ebef8fa2::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit9ec476cc0fcbd12d0d50f389ebef8fa2::$prefixesPsr0;
-            $loader->fallbackDirsPsr0 = ComposerStaticInit9ec476cc0fcbd12d0d50f389ebef8fa2::$fallbackDirsPsr0;
-            $loader->classMap = ComposerStaticInit9ec476cc0fcbd12d0d50f389ebef8fa2::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit93fa501ef94c7ef4c2ddd87d1bb1bf4b::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit93fa501ef94c7ef4c2ddd87d1bb1bf4b::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit93fa501ef94c7ef4c2ddd87d1bb1bf4b::$prefixesPsr0;
+            $loader->fallbackDirsPsr0 = ComposerStaticInit93fa501ef94c7ef4c2ddd87d1bb1bf4b::$fallbackDirsPsr0;
+            $loader->classMap = ComposerStaticInit93fa501ef94c7ef4c2ddd87d1bb1bf4b::$classMap;
 
         }, null, ClassLoader::class);
     }

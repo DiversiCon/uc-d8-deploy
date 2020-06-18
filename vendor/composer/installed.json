@@ -4084,6 +4084,55 @@
         "description": "Drupal is an open source content management platform powering millions of websites and applications."
     },
     {
+        "name": "drupal/core-composer-scaffold",
+        "version": "8.9.1",
+        "version_normalized": "8.9.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/drupal/core-composer-scaffold.git",
+            "reference": "07cdfe2799789fc0c2d0e3e1ba64cb5e2a973ece"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/drupal/core-composer-scaffold/zipball/07cdfe2799789fc0c2d0e3e1ba64cb5e2a973ece",
+            "reference": "07cdfe2799789fc0c2d0e3e1ba64cb5e2a973ece",
+            "shasum": ""
+        },
+        "require": {
+            "composer-plugin-api": "^1 || ^2",
+            "php": ">=7.0.8"
+        },
+        "conflict": {
+            "drupal-composer/drupal-scaffold": "*"
+        },
+        "require-dev": {
+            "composer/composer": "^1.8@stable"
+        },
+        "time": "2020-05-29T11:36:27+00:00",
+        "type": "composer-plugin",
+        "extra": {
+            "class": "Drupal\\Composer\\Plugin\\Scaffold\\Plugin",
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Drupal\\Composer\\Plugin\\Scaffold\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "description": "A flexible Composer project scaffold builder.",
+        "homepage": "https://www.drupal.org/project/drupal",
+        "keywords": [
+            "drupal"
+        ]
+    },
+    {
         "name": "drupal/core-recommended",
         "version": "8.9.1",
         "version_normalized": "8.9.1.0",
