@@ -1,0 +1,9 @@
+uuid: 3cf80ccd-2834-4d77-a37a-a7bd8a6e7291
+langcode: en
+status: true
+dependencies: {  }
+id: events_list_featured
+label: 'Events List, Featured'
+icon_uuid: null
+description: 'Display the first four featured events, with a searchable list of featured events below.'
+behavior_plugins: {  }

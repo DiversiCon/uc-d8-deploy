@@ -1,0 +1,30 @@
+uuid: 62725c14-00d0-481f-b53e-2c1d0e1be8ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.video
+    - field.storage.reusable.field_eck_title
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: reusable.video.field_eck_title
+field_name: field_eck_title
+entity_type: reusable
+bundle: video
+label: Credit
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

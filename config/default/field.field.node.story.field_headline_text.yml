@@ -1,0 +1,28 @@
+uuid: 534573c6-ac0e-4f89-9b21-1ad5baaf6128
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_headline_text
+    - node.type.story
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    smartbody: '0'
+    basic_html: '0'
+    plain_text: '0'
+id: node.story.field_headline_text
+field_name: field_headline_text
+entity_type: node
+bundle: story
+label: Headline
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

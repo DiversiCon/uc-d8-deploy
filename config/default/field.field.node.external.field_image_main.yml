@@ -1,0 +1,29 @@
+uuid: d7b8c58d-e8ed-4717-ac11-d5e3ff33da17
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image_main
+    - media.type.image
+    - node.type.external
+id: node.external.field_image_main
+field_name: field_image_main
+entity_type: node
+bundle: external
+label: Image
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: changed
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

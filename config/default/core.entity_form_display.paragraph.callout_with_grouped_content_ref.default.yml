@@ -1,0 +1,25 @@
+uuid: db71d0e2-f05e-44ee-be19-9bd53b7fb2d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.callout_with_grouped_content_ref.field_eck_reference
+    - paragraphs.paragraphs_type.callout_with_grouped_content_ref
+id: paragraph.callout_with_grouped_content_ref.default
+targetEntityType: paragraph
+bundle: callout_with_grouped_content_ref
+mode: default
+content:
+  field_eck_reference:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden:
+  created: true
+  status: true

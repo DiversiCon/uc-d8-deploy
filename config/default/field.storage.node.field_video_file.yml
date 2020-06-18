@@ -1,0 +1,23 @@
+uuid: b3fb6c9f-c560-4156-8b25-73ce0975321a
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - node
+id: node.field_video_file
+field_name: field_video_file
+entity_type: node
+type: file
+settings:
+  display_field: false
+  display_default: false
+  uri_scheme: public
+  target_type: file
+module: file
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

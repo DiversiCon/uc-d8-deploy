@@ -1,0 +1,69 @@
+{#
+/**
+ * teaser Twig Partial
+ *
+ */
+#}
+
+{% if content.datasource %}
+
+  <uc-teaser
+    heading="The Latest News from UChicago"
+    topic="UChicago News"
+    topic-url="#"
+    {% if content.mobileslider %} :mobileslider="{{ content.mobileslider }}" {% endif %}
+    {% if content.mobileonly %} :mobileonly="{{ content.mobileonly }}" {% endif %}
+    datasource="{{ content.datasource }}">
+  </uc-teaser>
+
+{% else %}
+
+<section class="c-teaser l-stripe {% if content.istile %}c-teaser--istile{% endif %} {% if content.mobileonly %} hide-for-medium {% endif %}">
+  {% if content.topic %}
+    <h2 class="t-heading--topic"><a href="{{ content.topiclink }}">{{ content.topic }}</a></h2>
+    
+    {% if content.heading %}
+      <h3 class="t-heading--medium">{{ content.heading }}</h3>
+    {% endif %}
+  
+  {% else %} {# if no topic, use h2 for heading instead of h3 #}
+    {% if content.heading %}
+      <h2 class="t-heading--medium">{{ content.heading }}</h2>
+    {% endif %}
+  
+  {% endif %}
+
+
+  {% if content.mobileslider %}<uc-slider v-cloak>{% endif %}
+  <ul>
+    {% for teaser in content.teasers %}
+    <li>
+
+      <div class="c-teaser__img">
+        <a href="{{ teaser.link }}">
+          {% if teaser.icon %}
+            <div class="c-media-icon">
+              <svg class="c-icon c-icon--{{ teaser.icon }}">
+                <use xlink:href="/themes/custom/uccollege/dist/icons.svg#{{ teaser.icon }}"></use>
+              </svg>
+            </div>
+          {% endif %}
+          <img src="{{ teaser.image }}" alt="{{ teaser.title }}">
+        </a>
+      </div>
+
+      {% if teaser.topic and not teaser.istile %}
+        <h4 class="c-teaser__topic"><a href="{{ teaser.link }}">{{ teaser.topic }}</a></h4>
+      {% endif %}
+
+      <a class="c-teaser__link" href="{{ teaser.link }}">{{ teaser.title }}</a>
+      {% if teaser.subtitle %}
+        <div class="c-teaser__subtitle">{{ teaser.subtitle }}</div>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+    {% if content.mobileslider %}</uc-slider>{% endif %}
+</section>
+
+{% endif %}

@@ -1,0 +1,58 @@
+langcode: en
+status: true
+id: migrate_content_story_quote
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: legacy
+label: 'Content: Story/Pullquote'
+source:
+  plugin: d7_node_story
+  node_type: uniquely_chicago
+  constants:
+    format: 'plain'
+    parent_type: 'paragraph'
+    parent_field_name: 'field_smartbody_components'
+process:
+  skip:
+    plugin: skip_on_empty
+    source: field_pullquote
+    method: row
+  skip_value:
+    plugin: skip_on_value
+    not_equals: false
+    source: has_quote
+    method: row
+    message: 'Uh-oh!'
+    value:
+    - TRUE
+#  status_message:
+#    plugin: debug_migrate
+#    source: nid
+#  status_message2:
+#    plugin: debug_migrate
+#    source: field_citation_name
+  parent_id: nid
+  parent_type: constants/parent_type
+  parent_field_name: constants/parent_field_name
+  field_subheadline_text/value: quote_attribution
+  field_subheadline_text/format: constants/format
+  field_body/value: quote_text
+  field_body/format: constants/format
+destination:
+  plugin: 'entity_reference_revisions:paragraph'
+  default_bundle: pullquote
+
+migration_dependencies:
+  required: { }
+  optional:
+    - d7_field_instance
+dependencies:
+  module:
+    - uc_migrate
+  enforced:
+    module:
+      - uc_migrate

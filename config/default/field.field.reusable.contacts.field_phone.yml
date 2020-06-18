@@ -1,0 +1,21 @@
+uuid: a3a1efdc-8d72-48dc-a4ed-b23be0f5363f
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.contacts
+    - field.storage.reusable.field_phone
+  module:
+    - telephone
+id: reusable.contacts.field_phone
+field_name: field_phone
+entity_type: reusable
+bundle: contacts
+label: Phone
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

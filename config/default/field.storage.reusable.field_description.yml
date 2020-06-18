@@ -1,0 +1,20 @@
+uuid: 4678e8f9-7a95-4fc9-8ced-b6ba09e9cb79
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - text
+id: reusable.field_description
+field_name: field_description
+entity_type: reusable
+type: text
+settings:
+  max_length: 255
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,20 @@
+uuid: 427f2dff-16a7-4364-926f-8c9562750d51
+langcode: en
+status: true
+dependencies:
+  theme:
+    - admin_uccollege
+_core:
+  default_config_hash: Z3nlZUh2mSJP3apMrJWt-duS-aLyP79rcfu_0wpPmDs
+id: admin_uccollege_page_title
+theme: admin_uccollege
+region: content
+weight: 0
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,25 @@
+uuid: a36e4c5b-736c-430e-a1aa-282593440ff9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.card_grid_insert.field_par_paragraph_single
+    - paragraphs.paragraphs_type.card_grid_insert
+  module:
+    - entity_reference_revisions
+id: paragraph.card_grid_insert.default
+targetEntityType: paragraph
+bundle: card_grid_insert
+mode: default
+content:
+  field_par_paragraph_single:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

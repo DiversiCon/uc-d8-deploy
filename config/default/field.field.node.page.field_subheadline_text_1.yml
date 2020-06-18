@@ -1,0 +1,30 @@
+uuid: fec57b40-d354-43b1-8c4b-21707d93bb22
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subheadline_text_1
+    - node.type.page
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: node.page.field_subheadline_text_1
+field_name: field_subheadline_text_1
+entity_type: node
+bundle: page
+label: 'Video Headline'
+description: 'Optional text to overlay on top the video.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

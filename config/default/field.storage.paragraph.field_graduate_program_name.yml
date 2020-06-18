@@ -1,0 +1,21 @@
+uuid: eb13609b-70a4-4803-8e2d-1a9b765c5a2a
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_graduate_program_name
+field_name: field_graduate_program_name
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

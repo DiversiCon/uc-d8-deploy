@@ -1,0 +1,44 @@
+gallery:
+  title: Photo Gallery
+  description: Displays a full-width slideshow photo gallery.
+  type: component
+  attributes:
+    category: Images & Media
+  variants:
+    -
+      title: Photo Gallery
+      caption: Displays a full-width slideshow photo gallery.
+      content:
+        title: "Photo Gallery"
+        photos:
+        -
+          imgFull: "/themes/custom/uccollege/it_showcase/images/gallery1.jpg"
+          imgLarge: "/themes/custom/uccollege/it_showcase/images/gallery1-1024.jpg"
+          imgMedium: "/themes/custom/uccollege/it_showcase/images/gallery1-768.jpg"
+          imgSmall: "/themes/custom/uccollege/it_showcase/images/gallery1-480.jpg"
+          description: The Harper Theater anchors the 53rd Street business district
+          alt: "this is alt text"
+        -
+          imgFull: "/themes/custom/uccollege/it_showcase/images/gallery2.jpg"
+          imgLarge: "/themes/custom/uccollege/it_showcase/images/gallery2-1024.jpg"
+          imgMedium: "/themes/custom/uccollege/it_showcase/images/gallery2-768.jpg"
+          imgSmall: "/themes/custom/uccollege/it_showcase/images/gallery2-480.jpg"
+          description: "This is a <strong>caption</strong> with <a href=\"#\">HTML included</a>."
+          credit: Lloyd DeGrane
+          alt: "this is alt text"
+        -
+          imgFull: "/themes/custom/uccollege/it_showcase/images/gallery3.jpg"
+          imgLarge: "/themes/custom/uccollege/it_showcase/images/gallery3-1024.jpg"
+          imgMedium: "/themes/custom/uccollege/it_showcase/images/gallery3-768.jpg"
+          imgSmall: "/themes/custom/uccollege/it_showcase/images/gallery3-480.jpg"
+          credit: John Smith
+          alt: "this is alt text"
+
+gallery.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: gallery.component
+    index_hide: true
+    file: themes/custom/uccollege/components/gallery/README.md

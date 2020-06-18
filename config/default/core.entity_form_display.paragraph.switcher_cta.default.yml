@@ -1,0 +1,72 @@
+uuid: 18ce7b58-3b1e-47c5-a08c-e1bca7f62ac1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.switcher_cta.field_par_paragraph_single_0
+    - field.field.paragraph.switcher_cta.field_par_paragraph_single_1
+    - paragraphs.paragraphs_type.switcher_cta
+  module:
+    - field_group
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_aff:
+      children:
+        - field_par_paragraph_single_1
+      parent_name: ''
+      weight: 20
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: true
+        required_fields: true
+      label: 'Affiliate Content'
+      region: content
+    group_normal_anonymous_content:
+      children:
+        - field_par_paragraph_single_0
+      parent_name: ''
+      weight: 20
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: true
+        required_fields: true
+      label: 'Normal (anonymous) Content'
+      region: content
+id: paragraph.switcher_cta.default
+targetEntityType: paragraph
+bundle: switcher_cta
+mode: default
+content:
+  field_par_paragraph_single_0:
+    weight: 101
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: cta_block
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_par_paragraph_single_1:
+    weight: 102
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

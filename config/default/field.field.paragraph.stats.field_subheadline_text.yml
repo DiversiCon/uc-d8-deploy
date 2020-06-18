@@ -1,0 +1,30 @@
+uuid: 5034ad54-a64d-41d2-b101-74ed10b755ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_subheadline_text
+    - paragraphs.paragraphs_type.stats
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.stats.field_subheadline_text
+field_name: field_subheadline_text
+entity_type: paragraph
+bundle: stats
+label: Sub-headline
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

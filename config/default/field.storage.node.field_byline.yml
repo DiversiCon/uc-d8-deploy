@@ -1,0 +1,20 @@
+uuid: a94fb844-9d5a-4d44-bb11-c33864c52e88
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - node
+id: node.field_byline
+field_name: field_byline
+entity_type: node
+type: entity_reference
+settings:
+  target_type: reusable
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

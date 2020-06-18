@@ -1,0 +1,162 @@
+uuid: 8e3997c4-90f2-4a22-a48b-e31e1127c774
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.media_entity_browser
+    - field.field.paragraph.quotator_item.field_faculty_reference
+    - field.field.paragraph.quotator_item.field_headline_text
+    - field.field.paragraph.quotator_item.field_image_main
+    - field.field.paragraph.quotator_item.field_label_text
+    - field.field.paragraph.quotator_item.field_single_link
+    - field.field.paragraph.quotator_item.field_subheadline_text
+    - paragraphs.paragraphs_type.quotator_item
+  module:
+    - allowed_formats
+    - entity_browser
+    - field_group
+    - text
+    - uc_cdr_client
+third_party_settings:
+  field_group:
+    group_faculty_reference:
+      children:
+        - field_faculty_reference
+      parent_name: group_grouping
+      weight: 2
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: 'Faculty Reference'
+      region: content
+    group_quote_information:
+      children:
+        - field_subheadline_text
+        - field_label_text
+        - field_image_main
+      parent_name: group_grouping
+      weight: 3
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: 'Quote Information'
+      region: content
+    group_quote_text:
+      children:
+        - field_headline_text
+        - field_single_link
+      parent_name: ''
+      weight: 0
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Quote Text and Link'
+      region: content
+    group_grouping:
+      children:
+        - group_faculty_reference
+        - group_quote_information
+      parent_name: ''
+      weight: 1
+      format_type: html_element
+      format_settings:
+        element: div
+        show_label: true
+        label_element: strong
+        required_fields: true
+        attributes: 'style="padding: 0.95em 1.45em;"'
+        effect: none
+        speed: fast
+        id: ''
+        classes: seven-details
+      label: 'Filling out the Faculty Reference will override any manually entered quote information.'
+      region: content
+id: paragraph.quotator_item.default
+targetEntityType: paragraph
+bundle: quotator_item
+mode: default
+content:
+  field_faculty_reference:
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    type: uc_cdr_client_faculty_autocomplete
+    region: content
+  field_headline_text:
+    weight: 1
+    settings:
+      size: 40
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_image_main:
+    weight: 5
+    settings:
+      entity_browser: media_entity_browser
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: eb_thumb
+      field_widget_replace: false
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  field_label_text:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_single_link:
+    weight: 2
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        target: target
+        id: 0
+        name: 0
+        rel: 0
+        class: 0
+        accesskey: 0
+        aria-label: 0
+        title: 0
+    third_party_settings: {  }
+    type: link_external_reference_with_attributes
+    region: content
+  field_subheadline_text:
+    weight: 3
+    settings:
+      size: 40
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

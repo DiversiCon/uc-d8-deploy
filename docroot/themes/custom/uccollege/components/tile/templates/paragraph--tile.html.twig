@@ -1,0 +1,46 @@
+{#
+/**
+ * @file
+ * Tile template.
+ * @TODO: deal with homepage .c-tile wrapper and create a paragraph--tile-insert.html.twig to handle
+ * @see components/homepage/templates/paragraph--home-page-grid.html.twig
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set section = content.field_section %}
+{% set body = content.field_body %}
+{% set headline = content.field_headline_text %}
+{% set image = content.field_image_main %}
+{% set link = content.field_headline_link %}
+{% set link_url = link.0['#url'] %}
+{% set link_tgt = link.0['#options']['attributes']['target'] %}
+
+{% block paragraph %}
+  {% block content %}
+
+      <div class="c-tile__img">
+        {% if link_url %}
+          <a href="{{ link_url }}" target="{{ link_tgt }}">{{ image }}</a>
+        {% else %}
+          {{ image }}
+        {% endif %}
+      </div>
+
+      <div class="c-tile__content">
+
+          {% if link_url %}
+            <h2 class="c-tile__title"><a href="{{ link_url }}" target="{{ link_tgt }}">{{ headline }}</a></h2>
+          {% else %}
+            <h2 class="c-tile__title">{{ headline }}</h2>
+          {% endif %}
+        
+
+        {{ body }}
+
+      </div>
+
+  {% endblock %}
+{% endblock paragraph %}

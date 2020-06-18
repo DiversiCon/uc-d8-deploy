@@ -1,0 +1,98 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - search form component
+
+.c-searchform-container {
+  position: relative;
+  z-index: 1;
+}
+
+.c-searchform {
+  color: $color-primary;
+  margin: 0 auto;
+
+  &:not(.c-searchform--inverted):not(.c-alphalist__searchform):not(.c-pub-list__searchform):not(.c-grouplist__searchform) {
+    @include breakpoint(medium) {
+      max-width: rem-calc(545);
+    }
+
+    @include breakpoint(large) {
+      max-width: 45.5%;
+    }
+  }
+
+  &__input_container {
+    position: relative;
+    margin: 0 auto;
+
+    input {
+      @include font-sans();
+      @include placeholder($color-dkgrey, rem-calc(22), 400);
+      @include font-sizes(22, 30);
+      display: block;
+      width: 100%;
+      padding-bottom: rem-calc(10);
+      padding-right: rem-calc(45);
+      background-color: transparent;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-bottom: solid $color-primary rem-calc(1);
+      border-radius: 0;
+      outline: none;
+      margin-top: rem-calc(35);
+      margin-bottom: rem-calc(35);
+
+      @include breakpoint(medium) {
+        @include placeholder($color-mdgrey, rem-calc(30), 400);
+      }
+    }
+    button,
+    .btn__search {
+      position: absolute;
+      background-color: inherit;
+      border: none;
+      right: 0;
+      top: 0.5rem;
+      .c-icon {
+        height: rem-calc(20);
+        width: rem-calc(20);
+      }
+    }
+  }
+
+  // for full-screen overlay
+  &--inverted {
+    margin: 0 auto;
+
+    input {
+      @include font-sans;
+      @include placeholder(rgba($color-white, 1)); //to meet AAA color contrast
+      border-bottom: solid $color-white rem-calc(1);
+      color: $color-white;
+      font-size: rem-calc(30);
+    }
+
+    button,
+    .btn__search {
+      cursor: pointer;
+      top: 0;
+
+      .c-icon {
+        fill: $color-white;
+        height: rem-calc(30);
+        width: rem-calc(30);
+      }
+    }
+  }
+}
+
+.c-menu--search .c-menu__ctn {
+  margin: 0 auto;
+  max-width: $default-max-width;
+  position: relative;
+
+  .c-menu__toggle {
+    right: rem-calc(40);
+    top: 0;
+  }
+}

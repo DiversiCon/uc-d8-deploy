@@ -1,0 +1,19 @@
+{#
+/**
+ * byline Twig Partial
+ *
+ */
+#}
+
+<div class="c-byline">
+  {% if content.author %}
+    <p class="c-byline__author">By
+    {% for author in content.author %}
+      <a href="{{ author.url }}">{{ author.name }}</a>{% if not loop.last %}, {% endif %}
+    {% endfor %}
+    </p>
+  {% endif %}
+  {% if content.authorTitle %}
+    <p class="c-byline__title">{{ content.authorTitle }}</p>
+  {% endif %}
+</div>

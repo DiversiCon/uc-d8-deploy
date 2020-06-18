@@ -1,0 +1,16 @@
+uuid: 0e80e881-5aac-4adc-af35-9d24dc4a0cec
+langcode: en
+status: true
+dependencies: {  }
+id: faculty_import
+label: 'Faculty Data Import'
+description: 'A container for faculty data import.'
+source_type: null
+module: null
+shared_configuration:
+  source:
+    plugin: url
+    data_fetcher_plugin: file
+    data_parser_plugin: json
+    urls: 'public://faculty_data.json'
+    track_changes: true

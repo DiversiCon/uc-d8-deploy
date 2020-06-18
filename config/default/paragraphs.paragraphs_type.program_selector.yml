@@ -1,0 +1,9 @@
+uuid: 4b127ac2-54e3-4a61-aa30-16e0fb0010f0
+langcode: en
+status: true
+dependencies: {  }
+id: program_selector
+label: 'Program Selector'
+icon_uuid: null
+description: 'Discover our programs selector.'
+behavior_plugins: {  }

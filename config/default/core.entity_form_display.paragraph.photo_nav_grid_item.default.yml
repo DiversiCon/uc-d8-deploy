@@ -1,0 +1,52 @@
+uuid: 5368782f-6abd-4325-a905-d5ba3975d513
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.media_entity_browser
+    - field.field.paragraph.photo_nav_grid_item.field_image_link
+    - field.field.paragraph.photo_nav_grid_item.field_image_main
+    - paragraphs.paragraphs_type.photo_nav_grid_item
+  module:
+    - entity_browser
+    - link_attributes
+id: paragraph.photo_nav_grid_item.default
+targetEntityType: paragraph
+bundle: photo_nav_grid_item
+mode: default
+content:
+  field_image_link:
+    weight: 101
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+    third_party_settings: {  }
+    type: link_attributes
+    region: content
+  field_image_main:
+    weight: 102
+    settings:
+      entity_browser: media_entity_browser
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: eb_thumb
+      field_widget_replace: false
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

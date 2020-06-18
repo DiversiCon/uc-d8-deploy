@@ -1,0 +1,29 @@
+uuid: 6253f85c-c4ed-46a2-9ca5-d6fd829f7f9b
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.callout_grouped_content
+    - field.field.reusable.callout_grouped_content.field_eck_par_single_0
+  module:
+    - entity_reference_revisions
+id: reusable.callout_grouped_content.default
+targetEntityType: reusable
+bundle: callout_grouped_content
+mode: default
+content:
+  field_eck_par_single_0:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  changed: true
+  created: true
+  search_api_excerpt: true
+  title: true
+  uid: true

@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * Fact card title field
+ *
+ * @see ucnews/templates/field.html.twig
+ *
+ * @see template_preprocess_field()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% for item in items %}
+  {{ item.content|render|striptags('a,i,em,b,u,strong')|trim }}
+{% endfor %}

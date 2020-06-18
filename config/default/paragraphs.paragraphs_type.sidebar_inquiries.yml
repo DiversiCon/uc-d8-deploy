@@ -1,0 +1,9 @@
+uuid: e9d265c1-0c64-42b7-9493-cf92b912df34
+langcode: en
+status: true
+dependencies: {  }
+id: sidebar_inquiries
+label: Inquiries
+icon_uuid: null
+description: 'Sidebar element for generic page, announcements'
+behavior_plugins: {  }

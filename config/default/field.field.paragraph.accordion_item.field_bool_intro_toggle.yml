@@ -1,0 +1,23 @@
+uuid: 5354012a-c7dd-4f8f-8195-62b44c0778a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_bool_intro_toggle
+    - paragraphs.paragraphs_type.accordion_item
+id: paragraph.accordion_item.field_bool_intro_toggle
+field_name: field_bool_intro_toggle
+entity_type: paragraph
+bundle: accordion_item
+label: 'Open by default?'
+description: 'Should this item be expanded by default? Check this box if so.'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'true'
+  off_label: 'false'
+field_type: boolean

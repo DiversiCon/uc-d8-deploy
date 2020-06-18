@@ -1,0 +1,11 @@
+uuid: 3fa4442f-0415-41d5-bc70-e577f7fa38c4
+langcode: en
+status: true
+dependencies: {  }
+name: 'Landing page'
+type: page
+description: 'Standard <em>landing page</em> content such as Academics, Advising, Student Life and others.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

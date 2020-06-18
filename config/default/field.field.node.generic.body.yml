@@ -1,0 +1,30 @@
+uuid: 05dc78c2-91ef-41f1-b281-004ec48bf253
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.generic
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    plain: plain
+    smartbody: '0'
+    plain_text: '0'
+id: node.generic.body
+field_name: body
+entity_type: node
+bundle: generic
+label: 'Preview text'
+description: 'Use the summary field-input for preview text'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

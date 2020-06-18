@@ -1,0 +1,237 @@
+uuid: b15942c2-4755-4025-8cc4-997e3dae26bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_paragraph_single_1
+    - paragraphs.paragraphs_type.home_page_grid
+    - paragraphs.paragraphs_type.plain_text_component
+    - paragraphs.paragraphs_type.section_taxonomy_component
+  module:
+    - entity_reference_revisions
+id: paragraph.home_page_grid.field_paragraph_single_1
+field_name: field_paragraph_single_1
+entity_type: paragraph
+bundle: home_page_grid
+label: Section
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      plain_text_component: plain_text_component
+      section_taxonomy_component: section_taxonomy_component
+    target_bundles_drag_drop:
+      simple_component_provider:
+        weight: 70
+        enabled: false
+      accordion_block:
+        weight: 71
+        enabled: false
+      accordion_item:
+        weight: 72
+        enabled: false
+      avatar:
+        weight: 73
+        enabled: false
+      callout:
+        weight: 74
+        enabled: false
+      callout_insert:
+        weight: 75
+        enabled: false
+      callout_item_reference:
+        weight: 76
+        enabled: false
+      callout_item_unique:
+        weight: 77
+        enabled: false
+      callout_reference:
+        weight: 78
+        enabled: false
+      card_grid:
+        weight: 79
+        enabled: false
+      card_grid_insert:
+        weight: 80
+        enabled: false
+      card_grid_item:
+        weight: 81
+        enabled: false
+      card_grid_reference:
+        weight: 82
+        enabled: false
+      components:
+        weight: 83
+        enabled: false
+      components_lower:
+        weight: 84
+        enabled: false
+      cta_block:
+        weight: 85
+        enabled: false
+      cta_buttons:
+        weight: 86
+        enabled: false
+      cta_text_link:
+        weight: 87
+        enabled: false
+      custom_link:
+        weight: 88
+        enabled: false
+      date:
+        weight: 89
+        enabled: false
+      feature:
+        weight: 90
+        enabled: false
+      feature_4_square_images:
+        weight: 91
+        enabled: false
+      feature_4sq_img_link:
+        weight: 92
+        enabled: false
+      feature_components:
+        weight: 93
+        enabled: false
+      feature_image_link:
+        weight: 94
+        enabled: false
+      feature_insert:
+        weight: 95
+        enabled: false
+      feature_reference:
+        weight: 96
+        enabled: false
+      flickr_gallery:
+        weight: 97
+        enabled: false
+      generic_sidebar:
+        weight: 98
+        enabled: false
+      generic_sidebar_item:
+        weight: 99
+        enabled: false
+      home_page_grid:
+        weight: 100
+        enabled: false
+      html_text:
+        weight: 101
+        enabled: false
+      link_list:
+        weight: 102
+        enabled: false
+      masthead_main_navigation:
+        weight: 103
+        enabled: false
+      news_block:
+        weight: 104
+        enabled: false
+      news_external:
+        weight: 105
+        enabled: false
+      news_inernal:
+        weight: 106
+        enabled: false
+      news_list:
+        weight: 107
+        enabled: false
+      people_grouped_list:
+        weight: 108
+        enabled: false
+      people_grouped_list_group:
+        weight: 109
+        enabled: false
+      photo_inset:
+        weight: 110
+        enabled: false
+      photo_nav_grid:
+        weight: 111
+        enabled: false
+      photo_nav_grid_item:
+        weight: 112
+        enabled: false
+      plain_text_component:
+        enabled: true
+        weight: 113
+      program_selector:
+        weight: 114
+        enabled: false
+      pullquote:
+        weight: 115
+        enabled: false
+      quick_links:
+        weight: 116
+        enabled: false
+      quotator_item:
+        weight: 117
+        enabled: false
+      section_taxonomy_component:
+        enabled: true
+        weight: 118
+      sidebar_gen_related:
+        weight: 119
+        enabled: false
+      sidebar_inquiries:
+        weight: 120
+        enabled: false
+      smartbody:
+        weight: 121
+        enabled: false
+      smartbody_image:
+        weight: 122
+        enabled: false
+      social_grid:
+        weight: 123
+        enabled: false
+      staff_selector:
+        weight: 124
+        enabled: false
+      stats:
+        weight: 125
+        enabled: false
+      stats_reference:
+        weight: 126
+        enabled: false
+      switcher:
+        weight: 127
+        enabled: false
+      switcher_cta:
+        weight: 128
+        enabled: false
+      switcher_getting_started:
+        weight: 129
+        enabled: false
+      teaser:
+        weight: 130
+        enabled: false
+      teaser_insert:
+        weight: 131
+        enabled: false
+      teaser_reference:
+        weight: 132
+        enabled: false
+      tile:
+        weight: 133
+        enabled: false
+      tile_insert:
+        weight: 134
+        enabled: false
+      tile_reference:
+        weight: 135
+        enabled: false
+      video_html:
+        weight: 136
+        enabled: false
+      video_youtube:
+        weight: 137
+        enabled: false
+      visual_nav_insert:
+        weight: 138
+        enabled: false
+field_type: entity_reference_revisions

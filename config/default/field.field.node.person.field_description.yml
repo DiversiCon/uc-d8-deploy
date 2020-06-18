@@ -1,0 +1,31 @@
+uuid: a4edc309-bd1d-4422-a068-21984a86bb6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.person
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    simple_html: '0'
+    smartbody: '0'
+    plain: '0'
+    raw_input: '0'
+    plain_text: '0'
+    custml_html: '0'
+id: node.person.field_description
+field_name: field_description
+entity_type: node
+bundle: person
+label: 'Current Research'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

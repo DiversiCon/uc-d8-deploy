@@ -1,0 +1,30 @@
+uuid: 120f2f2a-3b39-4053-babe-5d315cc5a61a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_body
+    - paragraphs.paragraphs_type.generic_sidebar_item
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    simple_html: simple_html
+    basic_html: '0'
+    smartbody: '0'
+    plain: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.generic_sidebar_item.field_body
+field_name: field_body
+entity_type: paragraph
+bundle: generic_sidebar_item
+label: Text
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

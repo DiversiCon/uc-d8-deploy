@@ -1,0 +1,100 @@
+{#
+/**
+ * feature Twig Partial, included in paragraph and node templates
+ *
+ */
+#}
+
+{% set node_context = elements['#node'] ? 1 : 0 %}
+{% set topic = content.field_section %}
+{% set topic_override = content.field_par_paragraph_single_0 %}
+{% set heading = content.field_headline_text %}
+{% set feature_content = node_context ? content.body : content.field_body %}
+{% set img_flip = content.field_bool_intro_toggle|field_value|render|render %}
+{% set media = node_context ? content.field_image_main : content.field_par_paragraph_single %}
+{% set media_type = node_context ? 'node' : media.0['#paragraph'].bundle() %}
+{% set video_file = content.field_video_file|field_value %}
+{% set video_headline = content.field_subheadline_text_1 %}
+{% set image_caption = node_context ? media.0['#media'].get('field_image_caption').getValue()[0]['value'] %}
+{% set image_credit = node_context ? media.0['#media'].get('field_image_credit').getValue()[0]['value'] %}
+{% set quicklinks = content.field_paragraph_single_1 %}
+{% set sub_components = content.field_paragraph_single_0 %}
+
+{% if node %}
+  {% set background = node.field_background_theme.value %}
+{% else %}
+  {% set background = paragraph.field_background_theme.value %}
+{% endif %}
+
+<div class="l-container c-feature__container">
+  <div class="c-feature{% if img_flip %} c-feature--flipped{% endif %}{% if node_context %} c-feature--intro{% endif %}{% if background %} s-bg-{{ background }}{% endif %}">
+    <div class="c-feature__image">
+      {% if media_type == 'feature_4_square_images' %}
+        <div class="grid-4sq">
+          {{ media }}
+        </div>
+      {% elseif video_file %}
+        <uc-video-background
+          {% if video_headline|field_value %}
+            heading="{{ video_headline|field_value|render|convertQuotes }}"
+            tag="h2"
+          {% endif %}
+          poster="{{ video.poster }}"
+          src="{{ file_url(video.src) }}">
+        </uc-video-background>
+      {% else %}
+        {{ media }}
+      {% endif %}
+    </div>
+    {% if video_file is empty %}
+      {% if image_caption or image_caption_par %}
+        <div class="c-feature__caption">
+          {{ image_caption }}{% if image_credit %} ({{ image_credit }}){% endif %} {# node vars #}
+          {{ image_caption_par }}{% if image_credit_par %} ({{ image_credit_par }}){% endif %} {# paragraph vars #}
+        </div>
+      {% endif %}
+    {% endif %}
+
+    <div class="c-feature__wrap">
+      <div class="c-feature__content">
+
+        {# section heading and link #}
+        {% if topic_override|field_value %}
+          <h2 class="t-heading--topic">{{ topic_override }}</h2>
+        {% elseif topic|field_value %}
+          {% if not hide_section %}
+            <h2 class="t-heading--topic">{{ topic }}</h2>
+          {% else %}
+            {# needed for cacheable metadata dependency #}
+            {% set section_cache = topic|render %}
+          {% endif %}
+        {% endif %}
+
+        {% if node_context %}
+          <h1 class="t-heading--medium">
+            {{ heading }}
+          </h1>
+          {% else %}
+            {% if topic|field_value %}
+              <h3 class="t-heading--medium">
+                {{ heading }}
+              </h3>
+              {% else %}
+                <h2 class="t-heading--medium">
+                  {{ heading }}
+                </h2>
+          {% endif %}
+        {% endif %}
+
+        {{ feature_content }}
+
+        {{ quicklinks }}
+
+        {{ sub_components }}
+      </div>
+      <div class="c-feature__bottom">
+        {# Some sub-components used to live here. Maintaining the empty div for any future use. #}
+      </div>
+    </div>
+  </div>
+</div>

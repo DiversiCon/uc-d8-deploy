@@ -1,0 +1,22 @@
+uuid: 68815918-8395-4506-8bdd-6078c674df95
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - admin_uccollege
+_core:
+  default_config_hash: YqKTtloWJ8FjLtfVNfrHaK6kVgxT67lC1cJ3j6i6WLo
+id: admin_uccollege_messages
+theme: admin_uccollege
+region: content
+weight: -2
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

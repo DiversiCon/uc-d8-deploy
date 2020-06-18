@@ -1,0 +1,36 @@
+uc_sauce.content:
+  title: 'Staff'
+  description: 'Staff specific content tasks.'
+  parent: system.admin_content
+  route_name: entity.taxonomy_vocabulary.overview_form
+  route_parameters:
+    taxonomy_vocabulary: 'person_category_primary'
+  weight: 99
+  #If menu_name is omitted, the "Tools" menu will be used.
+  menu_name: admin
+uc_sauce.content.people.category.order:
+  title: 'Staff category order'
+  description: 'Edit the sort order of categories used in staff related components.'
+#  parent: system.admin_content
+  parent: uc_sauce.content
+  route_name: entity.taxonomy_vocabulary.overview_form
+  route_parameters:
+    taxonomy_vocabulary: 'person_category_primary'
+  weight: 1
+  #If menu_name is omitted, the "Tools" menu will be used.
+  menu_name: admin
+uc_sauce.content.people.list.order:
+  title: 'Staff people order'
+  description: 'Edit the sort order of individual staff members with assigned category.'
+  parent: uc_sauce.content
+  route_name:   view.sort_person.within_category
+  weight: 2
+  #If menu_name is omitted, the "Tools" menu will be used.
+  menu_name: admin
+uc_sauce.settings.gmap:
+  title: 'Google Map Settings'
+  description: 'Google Maps implementation settings.'
+  parent: system.admin_config_system
+  weight: 100
+  menu_name: devel
+  route_name: uc_sauce.settings.gmap

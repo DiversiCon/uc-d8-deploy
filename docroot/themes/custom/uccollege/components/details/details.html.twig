@@ -1,0 +1,27 @@
+{#
+/**
+ * details Twig Partial
+ *
+ */
+#}
+
+<div class="c-details">
+  <div class="c-details__content">
+    <ul class="c-details__stats">
+      {% for stat in content.stats %}
+        <li class="c-details__stats-item">
+          <span class="c-details__number">{{ stat.number }}</span>
+          <span class="c-details__label">{{ stat.label }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+    <ul class="c-details__info">
+      {% for item in content.items %}
+        <li class="c-details__info-item">
+          <span class="c-details__label">{{ item.label }}</span>
+          <span class="c-details__description">{{ item.description }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

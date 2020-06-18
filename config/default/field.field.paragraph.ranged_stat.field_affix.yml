@@ -1,0 +1,19 @@
+uuid: 7fdb799c-4313-4536-8989-1808b213fb96
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_affix
+    - paragraphs.paragraphs_type.ranged_stat
+id: paragraph.ranged_stat.field_affix
+field_name: field_affix
+entity_type: paragraph
+bundle: ranged_stat
+label: Prefix
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

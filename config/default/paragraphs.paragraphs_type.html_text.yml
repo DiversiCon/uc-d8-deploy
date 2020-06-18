@@ -1,0 +1,9 @@
+uuid: a4d62d2b-f738-42d5-9865-f3e14382c535
+langcode: en
+status: true
+dependencies: {  }
+id: html_text
+label: 'HTML Text'
+icon_uuid: null
+description: 'Basic HTML input'
+behavior_plugins: {  }

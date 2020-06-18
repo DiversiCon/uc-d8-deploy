@@ -1,0 +1,9 @@
+services:
+  uc_sauce.commands.temp:
+    class: \Drupal\uc_sauce\Commands\TemporaryCommands
+    tags:
+    - { name: drush.command }
+#  uc_sauce.commands.link:
+#    class: \Drupal\uc_migrate\Commands\LinkCommands
+#    tags:
+#      - { name: drush.command }

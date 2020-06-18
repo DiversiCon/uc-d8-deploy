@@ -1,0 +1,48 @@
+uuid: 0e62e69a-a8bc-4caa-8558-1a8824b720f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.news_inernal.field_content_reference
+    - field.field.paragraph.news_inernal.field_content_reference_1
+    - field.field.paragraph.news_inernal.field_content_reference_single
+    - paragraphs.paragraphs_type.news_inernal
+id: paragraph.news_inernal.default
+targetEntityType: paragraph
+bundle: news_inernal
+mode: default
+content:
+  field_content_reference:
+    weight: 101
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_content_reference_1:
+    weight: 102
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_content_reference_single:
+    weight: 103
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

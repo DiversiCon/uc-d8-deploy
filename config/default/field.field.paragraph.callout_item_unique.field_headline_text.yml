@@ -1,0 +1,30 @@
+uuid: 1232d4d1-ceb6-42bb-a2de-4b243ea41fad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headline_text
+    - paragraphs.paragraphs_type.callout_item_unique
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.callout_item_unique.field_headline_text
+field_name: field_headline_text
+entity_type: paragraph
+bundle: callout_item_unique
+label: 'Callout Headline'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

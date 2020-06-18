@@ -1,0 +1,9 @@
+uuid: 49bdbc32-1469-49a0-a6f0-c2abd0d2de3b
+langcode: en
+status: true
+dependencies: {  }
+id: card_grid_insert
+label: 'Card Grid Insert'
+icon_uuid: null
+description: 'Insert a card grid as an ECK reference or unique version'
+behavior_plugins: {  }

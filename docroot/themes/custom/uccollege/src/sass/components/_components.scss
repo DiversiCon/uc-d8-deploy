@@ -1,0 +1,86 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - components
+// import components here, prefixed with 'c-'.
+// Note: Vue and Twig components should have their .scss files
+// included in the theme's /components/COMPONENT-NAME folder.
+// This file just aggregates any sass components that aren't
+// being included by a corresponding Vue file, etc.
+// Please order alphabetically (if possible).
+
+//page layout components
+@import "../../../components/404/c-404";
+@import "../../../components/article/c-article";
+@import "../../../components/homepage/c-homepage";
+@import "../../../components/maintmode/c-maintmode";
+
+//basic components
+@import "../../../components/accordion/c-accordion";
+@import "../../../components/alert/c-alert";
+@import "../../../components/alphalist/c-alphalist";
+@import "../../../components/avatar/c-avatar";
+@import "../../../components/bighero/c-bighero";
+@import "../../../components/button/c-button";
+@import "../../../components/byline/c-byline";
+@import "../../../components/callout/c-callout";
+@import "../../../components/caption/c-caption";
+@import "../../../components/cards/c-cards";
+@import "../../../components/content/c-content";
+@import "../../../components/cta-block/c-cta-block";
+@import "../../../components/cta-link/c-cta-link";
+@import "../../../components/details/c-details";
+@import "../../../components/dropdown/c-dropdown";
+@import "../../../components/events/c-events";
+@import "../../../components/factcard/c-factcard";
+@import "../../../components/feature/c-feature";
+@import "../../../components/feature-quote/c-feature-quote";
+@import "../../../components/filter/c-filter";
+@import "../../../components/flickr/c-flickr";
+@import "../../../components/footer/c-footer";
+@import "../../../components/form/c-form";
+@import "../../../components/gallery/c-gallery";
+@import "../../../components/generic/c-generic";
+@import "../../../components/gmap/c-gmap";
+@import "../../../components/group/c-group";
+@import "../../../components/grouplist/c-grouplist";
+@import "../../../components/headline/c-headline";
+@import "../../../components/hero-rotator/c-hero-rotator";
+@import "../../../components/html-text/c-html-text";
+@import "../../../components/icon/c-icon";
+@import "../../../components/image-list/c-image-list";
+@import "../../../components/infographic/c-infographic";
+@import "../../../components/inquiries/c-inquiries";
+@import "../../../components/link-indicator/c-link-indicator";
+@import "../../../components/list/c-list";
+@import "../../../components/logo/c-logo";
+@import "../../../components/map-hero/c-map-hero";
+@import "../../../components/masthead/c-masthead";
+@import "../../../components/media-button/c-media-button";
+@import "../../../components/media-icon/c-media-icon";
+@import "../../../components/navigation/c-navigation";
+@import "../../../components/pager/c-pager";
+@import "../../../components/person/c-person";
+@import "../../../components/photo-inset/c-photo-inset";
+@import "../../../components/photo/c-photo";
+@import "../../../components/pub-list/c-pub-list";
+@import "../../../components/pullquote/c-pullquote";
+@import "../../../components/quotator/c-quotator";
+@import "../../../components/range/c-range";
+@import "../../../components/searchform/c-searchform";
+@import "../../../components/selector-group/c-selector-group";
+@import "../../../components/selector-program/c-selector-program";
+@import "../../../components/share-links/c-share-links";
+@import "../../../components/sidebar-facts/c-sidebar-facts";
+@import "../../../components/sidebar-links/c-sidebar-links";
+@import "../../../components/skip-nav/c-skip-nav";
+@import "../../../components/slider/c-slider";
+@import "../../../components/sorter/c-sorter";
+@import "../../../components/stats/c-stats";
+@import "../../../components/student-quote/c-student-quote";
+@import "../../../components/switcher/c-switcher";
+@import "../../../components/table/c-table";
+@import "../../../components/teaser/c-teaser";
+@import "../../../components/tile/c-tile";
+@import "../../../components/tint-embed/c-tint-embed";
+@import "../../../components/video-background/c-video-background";
+@import "../../../components/video/c-video";
+@import "../../../components/visual-nav/c-visual-nav";

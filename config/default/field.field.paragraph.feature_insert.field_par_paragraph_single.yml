@@ -1,0 +1,168 @@
+uuid: 87f03030-61de-48b4-a26b-e13e3c46f6e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_paragraph_single
+    - paragraphs.paragraphs_type.feature
+    - paragraphs.paragraphs_type.feature_insert
+    - paragraphs.paragraphs_type.feature_reference
+  module:
+    - entity_reference_revisions
+id: paragraph.feature_insert.field_par_paragraph_single
+field_name: field_par_paragraph_single
+entity_type: paragraph
+bundle: feature_insert
+label: 'Feature Type'
+description: 'Reference an <a href="/admin/content/features" target="_blank">existing feature component (new window)</a>, or create a unique, non-reusable feature component on this page.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      feature_reference: feature_reference
+      feature: feature
+    target_bundles_drag_drop:
+      accordion_block:
+        weight: -23
+        enabled: false
+      components:
+        weight: -22
+        enabled: false
+      feature_reference:
+        enabled: true
+        weight: -21
+      feature:
+        enabled: true
+        weight: -20
+      feature_components:
+        weight: -19
+        enabled: false
+      feature_insert:
+        weight: -18
+        enabled: false
+      html_text:
+        weight: -17
+        enabled: false
+      pullquote:
+        weight: -16
+        enabled: false
+      smartbody:
+        weight: -15
+        enabled: false
+      smartbody_image:
+        weight: -14
+        enabled: false
+      social_grid:
+        weight: -13
+        enabled: false
+      accordion_item:
+        weight: 20
+        enabled: false
+      callout:
+        weight: 21
+        enabled: false
+      callout_insert:
+        weight: 22
+        enabled: false
+      callout_reference:
+        weight: 23
+        enabled: false
+      feature_4sq_img_link:
+        weight: 26
+        enabled: false
+      feature_4_square_images:
+        weight: 27
+        enabled: false
+      feature_image_link:
+        weight: 29
+        enabled: false
+      callout_item_reference:
+        weight: 51
+        enabled: false
+      callout_item_unique:
+        weight: 52
+        enabled: false
+      components_lower:
+        weight: 55
+        enabled: false
+      cta_block:
+        weight: 56
+        enabled: false
+      cta_buttons:
+        weight: 57
+        enabled: false
+      cta_text_link:
+        weight: 58
+        enabled: false
+      custom_link:
+        weight: 59
+        enabled: false
+      home_page_grid:
+        weight: 67
+        enabled: false
+      news_block:
+        weight: 69
+        enabled: false
+      news_external:
+        weight: 70
+        enabled: false
+      news_inernal:
+        weight: 71
+        enabled: false
+      photo_nav_grid:
+        weight: 72
+        enabled: false
+      photo_nav_grid_item:
+        weight: 73
+        enabled: false
+      program_selector:
+        weight: 74
+        enabled: false
+      quick_links:
+        weight: 76
+        enabled: false
+      quotator_item:
+        weight: 77
+        enabled: false
+      stats:
+        weight: 81
+        enabled: false
+      stats_insert:
+        weight: 82
+        enabled: false
+      stats_reference:
+        weight: 83
+        enabled: false
+      switcher:
+        weight: 84
+        enabled: false
+      switcher_cta:
+        weight: 85
+        enabled: false
+      teaser:
+        weight: 86
+        enabled: false
+      teaser_insert:
+        weight: 87
+        enabled: false
+      teaser_reference:
+        weight: 88
+        enabled: false
+      tile:
+        weight: 89
+        enabled: false
+      tile_insert:
+        weight: 90
+        enabled: false
+      tile_reference:
+        weight: 91
+        enabled: false
+      video_html:
+        weight: 92
+        enabled: false
+field_type: entity_reference_revisions

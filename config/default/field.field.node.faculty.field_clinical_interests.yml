@@ -1,0 +1,29 @@
+uuid: 16a121c2-32e7-48ba-b3b6-0e485006589f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_clinical_interests
+    - node.type.faculty
+    - taxonomy.vocabulary.faculty_clinical_interests
+id: node.faculty.field_clinical_interests
+field_name: field_clinical_interests
+entity_type: node
+bundle: faculty
+label: 'Clinical Interests'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      faculty_clinical_interests: faculty_clinical_interests
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

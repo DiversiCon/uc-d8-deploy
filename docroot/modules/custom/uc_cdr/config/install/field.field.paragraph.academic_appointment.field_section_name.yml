@@ -1,0 +1,19 @@
+uuid: 06f321fa-f379-4b37-9e04-48646f6752f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_name
+    - paragraphs.paragraphs_type.academic_appointment
+id: paragraph.academic_appointment.field_section_name
+field_name: field_section_name
+entity_type: paragraph
+bundle: academic_appointment
+label: 'Section Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

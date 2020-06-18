@@ -1,0 +1,9 @@
+uuid: e10458a5-953b-417d-a71c-726e8e39566f
+langcode: en
+status: true
+dependencies: {  }
+id: accordion_sidebar_item
+label: 'Accordion Sidebar Item'
+icon_uuid: null
+description: 'Accordion item content found in an accordion sidebar.'
+behavior_plugins: {  }

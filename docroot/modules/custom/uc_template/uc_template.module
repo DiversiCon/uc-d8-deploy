@@ -1,0 +1,67 @@
+<?php
+
+/**
+ * @file
+ * Contains uc_template.module.
+ */
+
+use Drupal\Core\Entity\EntityForm;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter().
+ */
+function uc_template_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  // We are only interested in node forms (Add or edit).
+  $build_info = $form_state->getBuildInfo();
+  if (isset($build_info['base_form_id']) && $build_info['base_form_id'] == 'node_form') {
+    if ($form_state->getFormObject() instanceof EntityForm) {
+      $node = $form_state->getFormObject()->getEntity();
+
+      // Associated node has the template field.
+      if ($node) {
+        if ($node->hasField('field_bool_template')) {
+          $template = FALSE;
+          $check = $node->get('field_bool_template')->getValue();
+          if ($check && isset($check[0]['value'])) {
+            $template = $check[0]['value'];
+          }
+
+          // The form has the template field.
+          if (isset($form['field_bool_template'])) {
+
+            // Load the current user;.
+            $user = \Drupal::currentUser();
+            if ($user) {
+
+              // Do nothing if they have permission.
+              if ($user->hasPermission('allow template editing')) {
+              }
+              // If they have permission then disable template field and
+              // potentially submit button.
+              else {
+                $form['field_bool_template']['#disabled'] = 'disabled';
+
+                // Disable submit/delete button if template is
+                // already specified.
+                if ($template) {
+                  $form['actions']['submit']['#disabled'] = 'disabled';
+                  $form['actions']['delete']['#access'] = FALSE;
+                  $message = t('You are editing a template; however, you do not have template editing permissions.  You will not be able to save changes on this page.');
+                  $messenger = \Drupal::messenger();
+                  $messenger->addMessage($message, $messenger::TYPE_WARNING);
+                }
+              }
+            }
+            // Disable template field if no user.
+            else {
+              $form['field_bool_template']['#disabled'] = 'disabled';
+              $form['actions']['submit']['#disabled'] = 'disabled';
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,112 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+
+{{ it_showcase_component('masthead', 0) }}
+{{ it_showcase_component('alert', 0) }}
+
+<section class="l-container">
+  <div class="grid-4up">
+    <div class="grid-4up__cell1">
+      <div class="grid-4up__img">
+        <div class="grid-4up__heading">
+          <h1 class="grid-4up__heading-text">Interdisciplinary Medical Education</h1>
+        </div>
+        <img src="/themes/custom/uccollege/it_showcase/images/feature-homepage.jpg" alt="">
+      </div>
+    </div>
+
+    <div class="grid-4up__cell2">
+      <h2 class="t-heading--topic hide-for-large"><a href="#">About the College</a></h2>
+
+      {{ it_showcase_component('quotator', 0) }}
+      {{ it_showcase_component('stats', 0) }}
+      {{ it_showcase_component('cta-block', 3) }}
+    </div>
+
+    <div class="grid-4up__cell3">
+      <h2 class="t-heading--topic">Mission</h2>
+      <p>At the University of Chicago, in an atmosphere of interdisciplinary
+        scholarship and discovery, the Pritzker School of Medicine is dedicated
+        to inspiring diverse students of exceptional promise to become leaders
+        and innovators in science and medicine for the betterment of humanity.</p>
+
+
+      <uc-accordion-group v-cloak :columns="2">
+        <uc-accordion title="Five Scholarly Tracks" :mobile-only="true" tag="h4">
+          <ul>
+            <li><a href="#">Scientific Investigation</a></li>
+            <li><a href="#">Community Health</a></li>
+            <li><a href="#">Global Health</a></li>
+            <li><a href="#">Medical Education</a></li>
+            <li><a href="#">Healthcare Delivery Sciences</a></li>
+          </ul>
+        </uc-accordion>
+
+        <uc-accordion title="Joint Degrees Offered" :mobile-only="true" tag="h4">
+          <ul>
+            <li><a href="#">Medical Scientist Training Program (MSTP)</a></li>
+            <li><a href="#">Growth, Development and Disabilities Training Program (GDDTP)</a></li>
+            <li><a href="#">Medicine, the Social Sciences, and Humanities (MeSH)</a></li>
+            <li><a href="#">Business (MD-MBA)</a></li>
+            <li><a href="#">Law or Policy (MD-AM)</a></li>
+          </ul>
+        </uc-accordion>
+      </uc-accordion-group>
+      <p class="show-for-large"><a href="#" class="c-cta-link c-cta-link--black">Explore Our Curriculum</a></p>
+    </div>
+
+    <div class="grid-4up__cell4">
+      {{ it_showcase_component('tile', 1) }}
+      {{ it_showcase_component('tile', 0) }}
+    </div>
+  </div>
+</section>
+
+{{ it_showcase_component('teaser', 1) }}
+
+{{ it_showcase_component('feature', 3) }}
+
+{{ it_showcase_component('teaser', 5) }}
+
+{{ it_showcase_component('feature', 4) }}
+
+<section class="l-stripe s-bg-secondary">
+  <h2 class="t-heading--topic"><a href="#">Student Life</a></h2>
+  <h3 class="t-heading--medium">Balancing your life at Pritzker</h3>
+  <p class="c-callout__intro">Take the time to pursue other interests, participate in a wide variety of activities and connect with others at Pritzker.</p>
+
+  {{ it_showcase_component('callout', 0) }}
+
+  <a class="c-cta-link" href="#">Explore all Student Organizations</a>
+</section>
+
+  {{ it_showcase_component('feature', 5) }}
+
+<section class="l-stripe s-bg-tertiary">
+  <h2 class="t-heading--medium">Pritzker Events</h2>
+  <p class="c-callout__intro">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt dolore aliqua.</p>
+
+  {{ it_showcase_component('callout', 8) }}
+</section>
+
+{{ it_showcase_component('teaser', 0) }}
+
+<section class="c-tint-embed__wrap">
+  <div class="c-tint-embed__heading">
+    <h3>When we’re social find us here</h3>
+  </div>
+  {{ it_showcase_component('tint_embed', 0) }}
+</section>
+
+{{ it_showcase_component('footer', 0) }}

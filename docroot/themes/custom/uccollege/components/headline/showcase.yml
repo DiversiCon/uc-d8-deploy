@@ -1,0 +1,63 @@
+headline:
+  title: Headline
+  description: Headline (h1) with optional description, topic, and date
+  type: component
+  variants:
+  -
+    title: Headline
+    caption: Headline (h1) with optional description, topic, and date
+    content:
+      heading: "Headline"
+      description: "<p>This is an optional description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean enim ex, dictum blandit viverra quis.</p>"
+      topic: "Topic"
+      topicUrl: "#"
+      date: "August 9, 2018"
+  -
+    title: Headline
+    caption: Headline (h1) with optional description and topic
+    content:
+      heading: "Housing & Dining"
+      description: "<p>Do you prefer traditional or modern architecture? Are you into theater, or are you planning to do a lot of exercise? All of these factors can weigh into your decision as to what house is the bestfit for you. Explore below.</p>"
+      topic: "Student Life"
+      topicUrl: "#"
+  -
+    title: Headline
+    caption: Headline (h1) with no description or topic
+    content:
+      heading: "Governance"
+  -
+    title: Headline (Large)
+    caption: Headline (h1) in the large theme with optional description
+    content:
+      heading: "College Staff Directory"
+      description: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean enim ex, dictum blandit.</p>"
+      theme: 'lg'
+  -
+    title: Headline (in Story)
+    caption: Headline (h1) with optional description and date for a story
+    content:
+      heading: "Announcement"
+      description: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean enim ex, dictum blandit viverra quis.</p>"
+      date: "August 9, 2018"
+      article: true
+  -
+    title: Headline (in Story)
+    caption: Headline (h1) with no description or date
+    content:
+      heading: "Governance"
+      article: true
+
+  -
+    title: Headline (Clinical Departments page)
+    caption: Headline (h1) with no description or date
+    content:
+      heading: "Other Departments, Committees, Institutes, and Centers"
+
+headline.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: headline.component
+    index_hide: true
+    file: themes/custom/uccollege/components/headline/README.md

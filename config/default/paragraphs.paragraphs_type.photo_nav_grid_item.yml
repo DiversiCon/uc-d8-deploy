@@ -1,0 +1,9 @@
+uuid: ba06676c-5b11-4fe8-a921-caf61f848fd6
+langcode: en
+status: true
+dependencies: {  }
+id: photo_nav_grid_item
+label: 'Visual Nav, Item'
+icon_uuid: null
+description: 'Used inside the visual nav'
+behavior_plugins: {  }

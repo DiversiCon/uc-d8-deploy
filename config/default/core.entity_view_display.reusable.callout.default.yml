@@ -1,0 +1,29 @@
+uuid: 7e894d42-28ad-4381-98b5-b62d99a3ff4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.callout
+    - field.field.reusable.callout.field_eck_par_single_0
+  module:
+    - entity_reference_revisions
+id: reusable.callout.default
+targetEntityType: reusable
+bundle: callout
+mode: default
+content:
+  field_eck_par_single_0:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  changed: true
+  created: true
+  search_api_excerpt: true
+  title: true
+  uid: true

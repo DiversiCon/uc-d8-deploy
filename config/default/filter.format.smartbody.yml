@@ -1,0 +1,39 @@
+uuid: 3c380eb6-4287-4225-9d7a-d7d980f94c42
+langcode: en
+status: true
+dependencies:
+  module:
+    - uc_sauce
+_core:
+  default_config_hash: 5_J2461-53mIwoirAlrijULNbLYDOsVTnq20DJrI3d4
+name: Smartbody
+format: smartbody
+weight: -8
+filters:
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: true
+    weight: -10
+    settings:
+      allowed_html: '<em class> <strong class> <cite class> <blockquote cite class> <code class> <ul type class> <ol start type class> <li class> <dl class> <dt class> <dd class> <h2 id class> <h3 id class> <h4 id class> <h5 id class> <h6 id class> <img src alt data-entity-type data-entity-uuid class> <hr class> <it-smartbody class> <a href hreflang !href accesskey id rel target title class> <p class> <table class> <caption class> <tbody class> <thead class> <tfoot class> <th class> <td class> <tr class> <iframe title src frameborder width height class> <br>'
+      filter_html_help: true
+      filter_html_nofollow: false
+  filter_autop:
+    id: filter_autop
+    provider: filter
+    status: true
+    weight: 0
+    settings: {  }
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: 10
+    settings: {  }
+  filter_uc_table_wrap:
+    id: filter_uc_table_wrap
+    provider: uc_sauce
+    status: true
+    weight: 0
+    settings: {  }

@@ -1,0 +1,40 @@
+uuid: 71fd0f85-4649-4222-859f-12753d75906c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.directory.body
+    - field.field.node.directory.field_bool_template
+    - field.field.node.directory.field_headline_text
+    - field.field.node.directory.field_headline_theme
+    - field.field.node.directory.field_par_components
+    - field.field.node.directory.field_section
+    - field.field.node.directory.field_subheadline_text
+    - node.type.directory
+  module:
+    - user
+id: node.directory.teaser
+targetEntityType: node
+bundle: directory
+mode: teaser
+content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  body: true
+  field_bool_template: true
+  field_headline_text: true
+  field_headline_theme: true
+  field_par_components: true
+  field_section: true
+  field_subheadline_text: true
+  search_api_excerpt: true

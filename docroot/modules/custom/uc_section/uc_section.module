@@ -1,0 +1,611 @@
+<?php
+
+/**
+ * @file
+ * Contains uc_section.module.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\views\Views;
+use Drupal\views\Plugin\views\query\Sql;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\node\NodeInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
+use Drupal\taxonomy\TermInterface;
+use Drupal\Core\Render\BubbleableMetadata;
+use Drupal\uc_section\UserSections;
+use Drupal\Core\Access\AccessResult;
+use Drupal\views\ViewExecutable;
+use Drupal\Core\Cache\Cache;
+use Drupal\Core\Form\FormState;
+
+/**
+ * The following block provides custom tokens for section based pathauto.
+ */
+
+/**
+ * Implements hook_token_info().
+ */
+function uc_section_token_info() {
+  $info = [];
+  $info['tokens']['node']['section_path'] = [
+    'name' => t('Section path'),
+    'description' => t('Section based fragment for Pathauto URL.'),
+  ];
+
+  return $info;
+}
+
+/**
+ * Implements hook_tokens().
+ *
+ * @param $type
+ * @param $tokens
+ * @param array $data
+ * @param array $options
+ * @param \Drupal\Core\Render\BubbleableMetadata $bubbleable_metadata
+ *
+ * @return array
+ */
+function uc_section_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
+  $replacements = [];
+
+  // If we're looking at nodes.
+  if ($type == 'node') {
+    foreach ($tokens as $name => $original) {
+
+      // Only interested in section_path token.
+      if ($name == 'section_path') {
+        $section_path = '';
+
+        // Get node object.
+        if (isset($data['node']) && $data['node']) {
+          $node = $data['node'];
+
+          // Get section designation and related term object.
+          if ($node->get('field_section')) {
+            $term = $node->get('field_section')->entity;
+
+            if ($term) {
+              // Set default token value based on section.
+              $section_path = strtolower(preg_replace("![^a-z0-9]+!i", "-", $term->getName()));
+
+              // Get section landing page.
+              if ($term->get('field_section_landing_page')) {
+                $landing = $term->get('field_section_landing_page')->getValue();
+                if ($landing && isset($landing[0]['target_id'])) {
+                  $landing_nid = $landing[0]['target_id'];
+
+                  // If landing page nid equals this nid then we use nothing.
+                  if ($landing_nid == $node->id()) {
+                    $section_path = '';
+                  }
+                }
+              }
+            }
+          }
+        }
+        $replacements[$original] = $section_path;
+      }
+    }
+  }
+
+  return $replacements;
+}
+
+/**
+ * The following block tries to mitigate one of the issues introduced above.
+ * This is a chicken/egg situation that is caused by the landing page alias
+ * being influenced by whether or not is it a main section landing page as
+ * defined in the section taxonomy terms.
+ *
+ * A main section landing page does not include the section as part of the
+ * alias to avoid redundancy.
+ *    Instead of: /about/about  (section/title used by all other landing pages)
+ *    We use: /about (title only used by section landing pages)
+ *
+ * The problem arises because the landing page must be created before it can
+ * be set as the main section landing page.  When created the alias will be
+ * based on section/title.  When it is set as the main section landing page
+ * in the section taxonomy term nothing is done with the alias of the landing
+ * page (it will still be section/title).  However, subsequently saving the
+ * landing page will produce a different alias since it is now a main section
+ * landing page (it will become title only).
+ *
+ * To get the desired effect user must, create landing page, set landing page
+ * in section term, edit/save landing page to get correct alias.  OR, they
+ * have the option of manually specifying alias instead of auto-generate.
+ *
+ *
+ *
+ * Opted to leave this task to future Russ due to lack of time.
+ */
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Add extra submit handler to taxonomy term pages for section vocabulary.
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param $form_id
+ */
+function uc_section_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  // Only interested in section taxonomy term edit pages.
+  if ($form_id == 'taxonomy_term_section_form') {
+
+    // Set an additional submit handler for sections.
+    $form['actions']['submit']['#submit'][] = 'uc_section_landing_alias_confirm';
+    \Drupal::request()->query->get('destination');
+
+    // Save current value of section landing page for future use.
+    $uc_landing_was = NULL;
+    /* @var \Drupal\taxonomy\Entity\Term $term */
+    $term = $form_state->getFormObject()->getEntity();
+    if ($term) {
+      $original = $term->get('field_section_landing_page');
+      if ($original && $original->getValue()) {
+        if (isset($original->getValue()[0]) && isset($original->getValue()[0]['target_id'])) {
+          $uc_landing_was = $original->getValue()[0]['target_id'];
+        }
+      }
+    }
+    $form_state->addBuildInfo('uc_landing_was', $uc_landing_was);
+
+    // If we have a destination query parameter, remove and save it for later.
+    $destination = \Drupal::request()->query->get('destination');
+    if ($destination) {
+      \Drupal::request()->query->remove('destination');
+      $form_state->addBuildInfo('uc_destination', $destination);
+    }
+
+  }
+
+  // Only interested in user form.
+  if ($form_id == 'user_form') {
+    $user = $form_state->getStorage();
+    if ($user && isset($user['user'])) {
+      $uid = \Drupal::currentUser()->id();
+      $user_sections = new UserSections($uid);
+      if ($uid == $user['user']->id() && !$user_sections->isUserAdmin()) {
+        $form['field_all_sections']['#disabled'] = TRUE;
+        $form['field_no_section']['#disabled'] = TRUE;
+        $form['field_allowed_sections']['#disabled'] = TRUE;
+      }
+
+    }
+  }
+
+}
+
+/**
+ *
+ */
+function uc_section_landing_alias_confirm(&$form, FormStateInterface $form_state) {
+
+  // Get the original value for section landing page.
+  $was = NULL;
+  $destination = FALSE;
+  $build_info = $form_state->getBuildInfo();
+  if ($build_info) {
+    if (isset($build_info['uc_landing_was'])) {
+      $was = $build_info['uc_landing_was'];
+    }
+    if (isset($build_info['uc_destination'])) {
+      $destination = $build_info['uc_destination'];
+    }
+  }
+
+  // Get new value for section landing page.
+  $is = NULL;
+  $current = $form_state->getValue('field_section_landing_page');
+  if ($current) {
+    $is = $current[0]['target_id'];
+  }
+
+  // If the section landing page has changed, then redirect for more input.
+  if ($was !== $is) {
+
+    // Prepare URL for redirect based on what we know.
+    $parameters = ['was' => $was, 'is' => $is];
+    $options = ['absolute' => TRUE];
+    if ($destination) {
+      $options['query'] = ['destination' => $destination];
+    }
+    $url = Url::fromRoute('uc_section.landing.alias_confirm', $parameters, $options);
+
+    $form_state->setRedirectUrl($url);
+  }
+}
+
+/**
+ * The following block includes code to alter the URL of section terms.
+ */
+
+/**
+ * Implements hook_entity_type_alter().
+ *
+ * Foundation for overriding the URL's for section taxonomy.
+ * First we unset the canonical link template for section taxonomy
+ * and replace with a uri callback. Un-setting the uri template is
+ * necessary for the uri callbacks to work.
+ * This also adds a UriCallback for all taxonomy terms.
+ *
+ * @param array $entity_types
+ */
+function uc_section_entity_type_alter(array &$entity_types) {
+  if (isset($entity_types['taxonomy_term'])) {
+    $entity_types['taxonomy_term']->setUriCallback('_uc_section_taxonomy_url');
+    $links = $entity_types['taxonomy_term']->get('links');
+    unset($links['canonical']);
+    $entity_types['taxonomy_term']->set('links', $links);
+  }
+}
+
+/**
+ * Implements hook_entity_bundle_info_alter().
+ *
+ * Exceptions for overriding the URL's for section taxonomy.
+ * Next we add a different callback for the section taxonomy bundle.
+ *
+ * @param array $bundles
+ */
+function uc_section_entity_bundle_info_alter(&$bundles) {
+  if (isset($bundles['taxonomy_term']['section'])) {
+    $bundles['taxonomy_term']['section']['uri_callback'] = '_uc_section_redirect_uri';
+  }
+}
+
+/**
+ * Prepares variables for taxonomy term templates.
+ *
+ * Drupal core includes a bug that uses a deprecated function to generate URL.
+ *   $variables['url'] = $term->url();
+ *
+ * @param array $variables
+ *
+ * @throws \Drupal\Core\Entity\EntityMalformedException
+ * @throws \Drupal\Core\Entity\Exception\UndefinedLinkTemplateException
+ */
+function uc_section_preprocess_taxonomy_term(&$variables) {
+  /** @var \Drupal\taxonomy\TermInterface $term */
+  $term = $variables['term'];
+
+  // We're only interested in section vocabulary.
+  if ($term->bundle() == 'section') {
+    $current_node = \Drupal::routeMatch()->getParameter('node');
+
+    // Ensure we are viewing a node, and the term has a section landing page set.
+    if ($current_node instanceof NodeInterface) {
+      $landing_page_id = NULL;
+
+      // Set the URL cache context to ensure that this is cached on a per page basis.
+      $variables['#cache']['contexts'][] = 'url';
+
+      // If there is an associated section landing page, set the landing page node id
+      // and get the URL for the landing page.
+      if (!$term->get('field_section_landing_page')->isEmpty()) {
+        $landing_page_id = $term->get('field_section_landing_page')->getValue()[0]['target_id'];
+        $variables['section']['url'] = $term->toUrl()->toString();
+      }
+
+      // If the currently displayed node id does NOT match the associated section
+      // landing page node id, display the link and URL.
+      if ($current_node->id() != $landing_page_id) {
+        $variables['section']['display'] = TRUE;
+      }
+    }
+  }
+}
+
+/**
+ * Taxonomy URI callback for all taxonomy terms, to be overridden for section.
+ *
+ * @param \Drupal\taxonomy\TermInterface $term
+ *
+ * @return \Drupal\Core\Url
+ */
+function _uc_section_taxonomy_url(TermInterface $term) {
+  return new Url('entity.taxonomy_term.canonical', ['taxonomy_term' => $term->id()]);
+}
+
+/**
+ * Taxonomy section bundle URI callback for section taxonomy terms.
+ *
+ * @param \Drupal\taxonomy\TermInterface $term
+ *
+ * @return \Drupal\Core\Url
+ */
+function _uc_section_redirect_uri(TermInterface $term) {
+  if ($term->field_section_landing_page->isEmpty() === FALSE && !is_null($term->field_section_landing_page[0]->entity)) {
+    /* @var \Drupal\Core\Url $url_info */
+    $url_info = $term->field_section_landing_page[0]->entity->urlInfo();
+    if ($url_info) {
+      if ($term->hasField('field_section_landing_page_query') && $term->field_section_landing_page_query[0]) {
+        $query_string = _uc_section_parse_querystring($term->field_section_landing_page_query[0]->value);
+        if ($query_string) {
+          $url_info->setOption('query', $query_string);
+        }
+      }
+      return $url_info;
+    }
+  }
+  return new Url('entity.taxonomy_term.canonical', ['taxonomy_term' => $term->id()]);
+}
+
+/**
+ * Helper function to parse query string value into array.
+ *
+ * @param $query_string
+ *
+ * @return array
+ */
+function _uc_section_parse_querystring($query_string) {
+  $query = [];
+  if ($query_string) {
+    $items = explode('&', $query_string);
+    foreach ($items as $delta => $item) {
+      $parts = explode('=', $item);
+      if ($parts) {
+        if (isset($parts[0]) && isset($parts[1])) {
+          $query[$parts[0]] = $parts[1];
+        }
+        else {
+          if (isset($parts[0])) {
+            $query[$parts[0]] = NULL;
+          }
+        }
+      }
+    }
+  }
+
+  return $query;
+}
+
+/**
+ * The following block includes code to implement section based permissions.
+ */
+
+/**
+ * Implements hook_node_access().
+ *
+ * @param \Drupal\node\NodeInterface $node
+ * @param string $op
+ * @param \Drupal\Core\Session\AccountInterface $account
+ *
+ * @return \Drupal\Core\Access\AccessResult
+ */
+function uc_section_node_access(NodeInterface $node, $op, AccountInterface $account) {
+
+  // Only restricting access for update and delete.
+  $ops = ['update', 'delete', 'view'];
+  if (in_array($op, $ops)) {
+
+    // Restrict access based on section associated with the current node and user sections.
+    $user_sections = new UserSections($account->id());
+    $section_id = _uc_section_node_section($node);
+    $allowed = $user_sections->isSectionAllowed($section_id);
+    if (!$allowed && $op !== 'view') {
+      return AccessResult::forbidden('Section not permitted.');
+    }
+  }
+}
+
+/**
+ * Implements hook_node_access_records().
+ *
+ * Ram array $grants.
+ *
+ * @param \Drupal\node\NodeInterface $node
+ *
+ * @return array
+ */
+
+/**
+ * Function uc_section_node_access_records_alter(array &$grants, \Drupal\node\NodeInterface $node) {.
+ */
+function uc_section_node_access_records(NodeInterface $node) {
+
+  // We only care about nodes that have a section value.
+  if ($node->hasField('field_section')) {
+    if ($node->get('field_section')->getValue()) {
+      $grants = [];
+
+      // Add a grant for the section related to this node.
+      $section = _uc_section_node_section($node);
+      if ($section) {
+        $grants[] = [
+          'realm' => 'uc_section',
+          'gid' => $section,
+          'grant_view' => 1,
+          'grant_update' => 1,
+          'grant_delete' => 1,
+        ];
+      }
+      // If no section then use a special gid.
+      else {
+        $grants[] = [
+          'realm' => 'uc_section',
+          'gid' => -1,
+          'grant_view' => 1,
+          'grant_update' => 1,
+          'grant_delete' => 1,
+        ];
+      }
+
+      // Add a grant to represent all sections access.
+      $grants[] = [
+        'realm' => 'uc_section',
+        'gid' => 0,
+        'grant_view' => 1,
+        'grant_update' => 1,
+        'grant_delete' => 1,
+      ];
+
+      // For some reason we need to add this back.
+      // @TODO: Perhaps we should be using hook_node_access_records_alter instead.
+      if ($node->isPublished()) {
+        $grants[] = [
+          'realm' => 'all',
+          'gid' => 0,
+          'grant_view' => 1,
+          'grant_update' => 0,
+          'grant_delete' => 0,
+        ];
+      }
+
+      return $grants;
+    }
+  }
+}
+
+/**
+ * Implements hook_node_grants().
+ *
+ * @param \Drupal\Core\Session\AccountInterface $account
+ * @param $op
+ *
+ * @return array
+ */
+function uc_section_node_grants(AccountInterface $account, $op) {
+  // Only restricting access for update and delete.
+  $ops = ['update', 'delete'];
+  if (in_array($op, $ops)) {
+
+    // Restrict access based on user allowed sections.
+    $user_sections = new UserSections($account->id());
+    $gids = $user_sections->getSectionGids();
+    $grants = [];
+    if ($gids) {
+      $grants['uc_section'] = $gids;
+    }
+    return $grants;
+  }
+}
+
+/**
+ * Alter the query before it is executed.
+ *
+ * @param \Drupal\views\ViewExecutable $view
+ *   The view object about to be processed.
+ * @param \Drupal\views\Plugin\views\query\Sql $query
+ *   The query plugin object for the query.
+ *
+ * @throws \Drupal\Component\Plugin\Exception\PluginException
+ */
+function uc_section_views_query_alter(ViewExecutable $view, Sql $query) {
+
+  // Only interested in content view.
+  // if ($view->id() == 'my_views' && $view->getDisplay()->display['id'] == 'my_display') {.
+  if ($view->id() == 'content') {
+
+    // Get current users allowed sections.
+    $user_sections = new UserSections(\Drupal::currentUser()->id());
+    if ($user_sections->isUserValid()) {
+      $sections = $user_sections->getAllowedSectionIds();
+
+      // User must have sections.
+      if ($sections) {
+
+        // If all sections are now allowed we limit results.
+        if (!$user_sections->isAllSectionsAllowed()) {
+
+          // Add join and condition for sections assigned to current user.
+          $configuration = [
+            'type' => 'LEFT OUTER',
+            'table' => 'node__field_section',
+            'field' => 'entity_id',
+            'left_table' => 'node_field_data',
+            'left_field' => 'nid',
+            'operator' => '=',
+          ];
+          /* @var Drupal\views\Plugin\views\join\JoinPluginBase $join */
+          $join = Views::pluginManager('join')->createInstance('standard', $configuration);
+          $rel = $query->addRelationship('uc_section', $join, 'node_field_data');
+          $query->addTable('node__field_section', $rel, $join, 'uc_section');
+          if ($user_sections->isNoSectionAllowed()) {
+            $query->addWhereExpression(
+              0,
+              'uc_section.field_section_target_id IN (:sections[]) OR uc_section.field_section_target_id IS NULL',
+              [':sections[]' => $sections]
+            );
+          }
+          else {
+            $query->addWhere('', 'uc_section.field_section_target_id', $sections, 'IN');
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param $form_id
+ */
+function uc_section_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (isset($form['field_section'])) {
+    $form['field_section']['#element_validate'][] = '_uc_section_node_validate';
+  }
+}
+
+/**
+ * Validate callback for field section.
+ *
+ * @param $element
+ * @param \Drupal\Core\Form\FormState $form_state
+ * @param $form
+ */
+function _uc_section_node_validate($element, FormState $form_state, $form) {
+
+  // Nothing special needs to happen if we have a section.
+  $section = $form_state->getValue('field_section');
+  if ($section && isset($section[0]['target_id']) && $section[0]['target_id']) {
+    // All good.
+  }
+  // If we have not section then user must have permission.
+  else {
+    $user_sections = new UserSections(\Drupal::currentUser()->id());
+    if (!$user_sections->isNoSectionAllowed() && !$user_sections->isUserAdmin()) {
+      $form_state->setErrorByName('field_section', 'You may not remove the section unless you have the proper permissions.');
+    }
+  }
+
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ *
+ * Invalidate appropriate cache tag when user is updated.
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ */
+function uc_section_user_update(EntityInterface $entity) {
+  if ($entity->getEntityTypeId() == 'user') {
+    Cache::invalidateTags(['user_list', 'node_view', 'local_task']);
+  }
+}
+
+/**
+ * Helper function to get node section target id value.
+ *
+ * @param \Drupal\node\NodeInterface $node
+ *
+ * @return int
+ */
+function _uc_section_node_section(&$node) {
+  $section = 0;
+  if ($node->hasField('field_section') && $node->get('field_section')->getValue()) {
+    $value = $node->get('field_section')->getValue();
+    if (isset($value[0]) && isset($value[0]['target_id'])) {
+      $section = $value[0]['target_id'];
+    }
+  }
+
+  return $section;
+}

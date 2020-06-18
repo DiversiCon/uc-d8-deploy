@@ -1,0 +1,36 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+
+{{ it_showcase_component('masthead', 0) }}
+
+<div class="l-container">
+	{% if content.list.heading %}
+		<header class="c-list__headline c-headline">
+			<h1 class="c-headline__heading">{{ content.list.heading }}</h1>
+			{% if content.list.description %}
+				<div class="c-headline__description">
+					{% autoescape false %}
+						{{ content.list.description }}
+					{% endautoescape %}
+				</div>
+			{% endif %}
+		</header>
+	{% endif %}
+
+
+	{{ it_showcase_component('list-filtered', 0) }}
+
+
+</div>
+{{ it_showcase_component('footer', 0) }}

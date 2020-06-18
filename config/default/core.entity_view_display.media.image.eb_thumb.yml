@@ -1,0 +1,42 @@
+uuid: b2b582c5-790b-44df-883b-86efaa0bb1f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.eb_thumb
+    - field.field.media.image.field_image_caption
+    - field.field.media.image.field_image_credit
+    - field.field.media.image.field_media_image
+    - image.style.thumbnail
+    - media.type.image
+  module:
+    - image
+id: media.image.eb_thumb
+targetEntityType: media
+bundle: image
+mode: eb_thumb
+content:
+  field_media_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: thumbnail
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  name:
+    type: string
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_image_caption: true
+  field_image_credit: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

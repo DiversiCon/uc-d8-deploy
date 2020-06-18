@@ -1,0 +1,9 @@
+uuid: 2315620f-5add-485e-aa70-2cb4ec068171
+langcode: en
+status: true
+dependencies: {  }
+id: custom_link
+label: Link
+icon_uuid: null
+description: 'This is a customized link, multi-field custom wrapper'
+behavior_plugins: {  }

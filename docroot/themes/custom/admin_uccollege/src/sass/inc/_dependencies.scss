@@ -1,0 +1,47 @@
+// includes
+%a-button {
+  @include border-radius(0);
+  background: $color-secondary;
+  color: $base_white;
+  display: inline-block;
+  margin: 30px 0;
+  padding: 12px;
+  &:hover {
+    color: $base_white;
+    text-decoration: underline;
+  }
+}
+
+%link-style {
+  color: $color-secondary;
+  transition: none;
+  &:hover {
+    color: $color-secondary;
+    text-decoration: underline;
+  }
+}
+
+// declare gotham font as mixin
+@mixin font-sans($weight: book) {
+  font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
+  font-style: normal;
+
+  // available weights: 400, 700
+  @if ($weight == bold) {
+    font-weight: 700;
+  } @else {
+    font-weight: 400;
+  }
+}
+
+$mobile-width: 768px;
+@mixin mobile {
+  @media ( max-width: #{$mobile-width - 1px} ) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media ( min-width: $mobile-width ) {
+    @content;
+  }
+}

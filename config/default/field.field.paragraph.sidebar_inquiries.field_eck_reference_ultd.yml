@@ -1,0 +1,29 @@
+uuid: b337c8c5-427c-47f1-91d1-f5a179251e92
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.contacts
+    - field.storage.paragraph.field_eck_reference_ultd
+    - paragraphs.paragraphs_type.sidebar_inquiries
+id: paragraph.sidebar_inquiries.field_eck_reference_ultd
+field_name: field_eck_reference_ultd
+entity_type: paragraph
+bundle: sidebar_inquiries
+label: 'Contact Reference'
+description: 'Reference an <a href="/admin/content/contacts" target="_blank">existing contact (new window)</a>'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:reusable'
+  handler_settings:
+    target_bundles:
+      contacts: contacts
+    sort:
+      field: changed
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

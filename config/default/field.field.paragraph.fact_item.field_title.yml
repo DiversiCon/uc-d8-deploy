@@ -1,0 +1,19 @@
+uuid: 7dd993e9-9ccd-403b-a633-8c20a3542976
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.fact_item
+id: paragraph.fact_item.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: fact_item
+label: Headline
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

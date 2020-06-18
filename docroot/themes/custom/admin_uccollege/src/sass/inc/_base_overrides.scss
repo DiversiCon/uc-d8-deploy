@@ -1,0 +1,20 @@
+/* global, base set of custom styles */
+
+.adminimal { // scope to this theme
+  .page-title {
+    color: $color-secondary;
+  }
+  .content-header {
+    background-color: #333333;
+    padding: .5rem 0 0;
+  }
+  .button {
+    background-image: none;
+  }
+
+  .tabs{
+    .primary {
+      overflow: hidden;
+    }
+  }
+}

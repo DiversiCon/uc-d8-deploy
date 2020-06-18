@@ -1,0 +1,19 @@
+uuid: 6da907a6-8b07-4fbb-b0e8-493d1534097b
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - name
+id: reusable.field_eck_name
+field_name: field_eck_name
+entity_type: reusable
+type: name
+settings: {  }
+module: name
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

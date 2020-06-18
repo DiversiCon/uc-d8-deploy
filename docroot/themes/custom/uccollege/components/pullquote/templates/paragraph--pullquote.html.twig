@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * PullQuote paragraph.
+ *
+ * see contrib @paragraph module
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set quote = content.field_body[0]['#text'] %}
+{% set attribution = content.field_subheadline_text[0]['#text'] %}
+
+{% block paragraph %}
+  {% block content %}
+    <uc-pullquote
+      quote="{{ quote|convertQuotes }}"
+      attribution="{{ attribution|convertQuotes }}">
+    </uc-pullquote>
+  {% endblock %}
+{% endblock paragraph %}

@@ -1,0 +1,9 @@
+uuid: 8a82b696-4d9a-4c07-a6da-777e8862f3d5
+langcode: en
+status: true
+dependencies: {  }
+id: switcher
+label: Switcher
+icon_uuid: null
+description: 'Switches context based on cookie'
+behavior_plugins: {  }

@@ -1,0 +1,64 @@
+{#
+/**
+ * @file
+ * Wrapper for the news insert, provides the headline
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set section = content.field_section %}
+{% set headline = content.field_headline_text %}
+{% set news_type = content.field_par_paragraph_single %}
+{% set url = content.field_headline_link.0['#url'] %}
+{% set url_tgt = content.field_headline_link.0['#options']['attributes']['target'] %}
+
+{% block paragraph %}
+  {% block content %}
+
+      {# External News #}
+      {% if content.news_is_external %}
+        <uc-teaser
+          topic="UChicago News"
+          topic-url="https://news.uchicago.edu"
+          heading="{{ headline ? headline.0|render|convertQuotes : 'The Latest News from UChicago'|t }}"
+          datasource="{{ content.datasource }}">
+        </uc-teaser>
+
+      {# Internal News Content #}
+      {% else %}
+        <section class="c-teaser l-stripe">
+          {% if section|field_value %}
+            <h2 class="t-heading--topic">{{ section }}</h2>
+
+            {% if headline|field_value %}
+              <h3 class="t-heading--medium">
+              {% if url %}
+                <a href="{{ url }}" target="{{ url_tgt }}">{{ headline }}</a>
+              {% else %}
+                {{ headline }}
+              {% endif %}
+              </h3>
+            {% endif %}
+          {% else %}
+            {% if headline|field_value %}
+              <h2 class="t-heading--medium">
+              {% if url %}
+                <a href="{{ url }}" target="{{ url_tgt }}">{{ headline }}</a>
+              {% else %}
+                {{ headline }}
+              {% endif %}
+              </h2>
+            {% endif %}
+          {% endif %}
+
+          {{ news_type }}
+          
+        </section>
+
+      {% endif %}
+
+  {% endblock %}
+{% endblock paragraph %}

@@ -1,0 +1,30 @@
+uuid: 0f7bed7e-07aa-44a3-b17f-758c7bb0fa8b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_body
+    - paragraphs.paragraphs_type.switcher_getting_started
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    simple_html: simple_html
+    plain: plain
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.switcher_getting_started.field_body
+field_name: field_body
+entity_type: paragraph
+bundle: switcher_getting_started
+label: Sub-headline
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

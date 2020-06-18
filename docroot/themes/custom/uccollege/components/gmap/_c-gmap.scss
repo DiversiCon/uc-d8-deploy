@@ -1,0 +1,37 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - map component
+
+.c-gmap {
+  h3 {
+    @include font-sans(bold);
+    font-size: rem-calc(18);
+    padding-left: 0;
+    text-align: left;
+
+    @include breakpoint(large) {
+      padding-left: 12.333%;
+    }
+
+    .l-stripe & {
+      padding-left: 0;
+    }
+  }
+
+  &__ctn {
+    min-height: rem-calc(320);
+    padding-bottom: 43.25%;
+    height: 100%;
+    width: 100%;
+
+    .c-article__media & {
+      padding-bottom: 56.25%;
+    }
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-gmap {
+    // sass linter doesn't like empty blocks :)
+  }
+}

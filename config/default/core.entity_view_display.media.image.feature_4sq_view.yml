@@ -1,0 +1,35 @@
+uuid: 2adae7eb-a9d3-4e8e-9c54-def89c900b60
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.feature_4sq_view
+    - field.field.media.image.field_image_caption
+    - field.field.media.image.field_image_credit
+    - field.field.media.image.field_media_image
+    - image.style.medium
+    - media.type.image
+  module:
+    - image
+id: media.image.feature_4sq_view
+targetEntityType: media
+bundle: image
+mode: feature_4sq_view
+content:
+  field_media_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: medium
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  created: true
+  field_image_caption: true
+  field_image_credit: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

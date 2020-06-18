@@ -1,0 +1,31 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - photo-inset component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-photo-inset {
+  float: left;
+  margin: 0 rem-calc(16) rem-calc(16) 0;
+  width: 32%;
+
+  figcaption {
+    font-size: rem-calc(14);
+    margin-top: rem-calc(11);
+  }
+
+  @include breakpoint(medium) {
+    margin: 0 rem-calc(23) rem-calc(23) 0;
+
+    figcaption {
+      font-size: 1rem;
+    }
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-photo-inset {
+    // sass linter doesn't like empty blocks :)
+  }
+}

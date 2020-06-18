@@ -1,0 +1,21 @@
+uuid: 5807acdc-7829-4b18-ab5f-961ab7e24893
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text_color
+    - paragraphs.paragraphs_type.home_page_grid
+  module:
+    - options
+id: paragraph.home_page_grid.field_text_color
+field_name: field_text_color
+entity_type: paragraph
+bundle: home_page_grid
+label: 'Text Color'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

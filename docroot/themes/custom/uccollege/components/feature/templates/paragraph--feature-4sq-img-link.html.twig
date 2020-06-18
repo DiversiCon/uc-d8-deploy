@@ -1,0 +1,30 @@
+{#
+/**
+ * @file
+ * 4 Square image, title, link callout, used in feature media sub-component
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set image = content.field_image_main %}
+{% set title = content.field_headline_text %}
+{% set image_url = content.field_image_link.0['#url'] %}
+{% set image_url_tgt = content.field_image_link.0['#options']['attributes']['target'] %}
+
+{% block paragraph %}
+  {% block content %}
+
+      <div class="grid-4sq__cell">
+        <div class="grid-4sq__content">
+          <a href="{{ image_url }}" target="{{ image_url_tgt }}">
+            <span>{{ title }}</span>
+            {{ image }}
+          </a>
+        </div>
+      </div>
+
+  {% endblock %}
+{% endblock paragraph %}

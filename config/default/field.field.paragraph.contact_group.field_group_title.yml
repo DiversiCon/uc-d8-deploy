@@ -1,0 +1,30 @@
+uuid: f5e5741f-6d97-4c2e-b377-453e1680a4cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_group_title
+    - paragraphs.paragraphs_type.contact_group
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.contact_group.field_group_title
+field_name: field_group_title
+entity_type: paragraph
+bundle: contact_group
+label: 'Group Name'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

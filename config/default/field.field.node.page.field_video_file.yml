@@ -1,0 +1,27 @@
+uuid: 63746ea5-330c-4114-a377-24894b4d7b6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video_file
+    - node.type.page
+  module:
+    - file
+id: node.page.field_video_file
+field_name: field_video_file
+entity_type: node
+bundle: page
+label: 'Video File'
+description: '<b><i>If a video file is included, it will override the main image.</i></b><br>The main image will be used as the poster frame for the video.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'videos/[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'mp4 mov ogg'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

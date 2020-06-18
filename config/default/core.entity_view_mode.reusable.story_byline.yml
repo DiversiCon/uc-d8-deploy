@@ -1,0 +1,10 @@
+uuid: 4173f49e-7a8d-4fc1-8331-b408724b93b8
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+id: reusable.story_byline
+label: 'Story Byline'
+targetEntityType: reusable
+cache: true

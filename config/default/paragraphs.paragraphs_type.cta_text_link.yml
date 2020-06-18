@@ -1,0 +1,9 @@
+uuid: 7eab101e-e123-478c-a48f-27301c8ba402
+langcode: en
+status: true
+dependencies: {  }
+id: cta_text_link
+label: 'CTA Text Link'
+icon_uuid: null
+description: 'text style of CTA link inside the CTA Block'
+behavior_plugins: {  }

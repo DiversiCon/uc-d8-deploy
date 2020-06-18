@@ -1,0 +1,13 @@
+{#
+/**
+ * photo-inset Twig Partial
+ *
+ */
+#}
+
+<figure class="c-photo-inset">
+  <img src="{{ content.src }}" alt="{{ content.alt }}">
+  {% if content.photoCaption %}
+    <figcaption>{{ content.photoCaption }}</figcaption>
+  {% endif %}
+</figure>

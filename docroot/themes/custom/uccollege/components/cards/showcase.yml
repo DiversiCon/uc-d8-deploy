@@ -1,0 +1,139 @@
+cards:
+  title: Cards
+  description: Displays a grid of Cards containing an image and text.
+  type: component
+  enabled: true
+  variants:
+  -
+    title: Card (single) with fallback image
+    caption: A single card with a link, but no image.
+    content:
+      cards:
+        - title: "Match Day celebration"
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elitum sed labore esit"
+          url: "#"
+  -
+    title: Cards, 4-up
+    caption: A grid of 4 Cards with events, slider on mobile
+    content:
+      layout: 4up
+      cta: All Featured Events
+      ctaLink: "#"
+      cards:
+        - title: "Match Day celebration"
+          date: Fri. March 15, 2019
+          timeStart: 10:00
+          timeEnd: 11:00 a.m.
+          image: "/themes/custom/uccollege/it_showcase/images/tile-photo1.jpg"
+          url: '#'
+          status: updated
+        - title: "Pritzker Field Day"
+          date: Sat. Sept. 22, 2019
+          timeStart: 11:00 a.m.
+          timeEnd: 3:00 p.m.
+          image: "/themes/custom/uccollege/it_showcase/images/intro-student-life.jpg"
+          url: '#'
+          status: new
+        - title: "White Coat Ceremony"
+          date: Sat. Nov. 18, 2019
+          timeStart: 5:00
+          timeEnd: 9:00 p.m.
+          image: "https://via.placeholder.com/480/464646/FFFFFF/&text=FPO"
+          url: '#'
+        - title: "Student-Faculty Recognition Dinner"
+          date: Thur. May 24, 2019
+          timeStart: 5:00
+          timeEnd: 9:00 p.m.
+          url: '#'
+  -
+    title: Cards
+    caption: A grid of cards, 3 per row. 2 columns on mobile
+    content:
+      slider: true
+      cards:
+        - title: "Match Day celebration"
+          date: Fri. March 15, 2019
+          timeStart: 10:00
+          timeEnd: 11:00 a.m.
+          image: "/themes/custom/uccollege/it_showcase/images/tile-photo1.jpg"
+          url: '#'
+          status: updated
+        - title: "Pritzker Field Day"
+          date: Sat. Sept. 22, 2019
+          timeStart: 11:00 a.m.
+          timeEnd: 3:00 p.m.
+          image: "/themes/custom/uccollege/it_showcase/images/intro-student-life.jpg"
+          url: '#'
+          status: new
+        - title: "White Coat Ceremony"
+          date: Sat. Nov. 18, 2019
+          timeStart: 5:00
+          timeEnd: 9:00 p.m.
+          image: "https://via.placeholder.com/480/464646/FFFFFF/&text=FPO"
+          url: '#'
+        - title: "Student-Faculty Recognition Dinner"
+          date: Thur. May 24, 2019
+          timeStart: 5:00
+          timeEnd: 9:00 p.m.
+          image: "https://via.placeholder.com/480/464646/FFFFFF/&text=FPO"
+          url: '#'
+        - title: "Divisional Academic Ceremony and Recognition Dinner"
+          date: Thur. May 24, 2019
+          timeStart: 5:00
+          timeEnd: 9:00 p.m.
+          image: "https://via.placeholder.com/480/464646/FFFFFF/&text=FPO"
+          url: '#'
+        - title: "Gold Humanism Honor Society Induction Ceremony"
+          date: Sat. Feb. 15, 2019
+          timeStart: 5:00
+          timeEnd: 9:00 p.m.
+          image: "https://via.placeholder.com/480/464646/FFFFFF/&text=FPO"
+          url: '#'
+        - title: "Pritzker Community Service Fellowship - Day of Service"
+          date: Sat. Dec. 15, 2018
+          timeStart: 9:00 a.m.
+          timeEnd: 1:00 p.m.
+          image: "https://via.placeholder.com/480/464646/FFFFFF/&text=FPO"
+          url: '#'
+        - title: "Divisional Academic Hooding Ceremony"
+          date: Sat. Dec. 15, 2019
+          timeStart: 5:00
+          timeEnd: 9:00 p.m.
+          url: '#'
+        - title: "JOURNEES Habitat for Humanity project "
+          date: Sat. April 17, 2019
+          timeStart: 8:00 a.m.
+          timeEnd: 5:00 p.m.
+          image: "/themes/custom/uccollege/it_showcase/images/callout2.jpg"
+          url: '#'
+  -
+    title: Leadership
+    caption:
+    content:
+      layout: 4up
+      cards:
+        - title: "Kenneth S. Polonsky"
+          description: "Dean of the Division of the Biological Sciences"
+          image: "https://via.placeholder.com/768?text=FPO"
+          url: '#'
+        - title: "T. Conrad Gilliam"
+          description: "Dean of Basic Science"
+          image: "https://via.placeholder.com/768?text=FPO"
+          url: '#'
+        - title: "John Flynn"
+          description: "Chief Physician &amp; Dean for Clinical Affairs"
+          image: "https://via.placeholder.com/768?text=FPO"
+          url: '#'
+        - title: "Halina Brukner"
+          description: "Interim Dean for Medical Education"
+          image: "https://via.placeholder.com/768?text=FPO"
+          url: '#'
+
+cards.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: cards.component
+    index_hide: true
+    file: themes/custom/uccollege/components/cards/README.md

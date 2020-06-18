@@ -1,0 +1,18 @@
+uuid: b94fd330-1780-4b27-8961-c25413e1a131
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Generic page'
+type: generic
+description: 'Pages with sidebars.<br><em>Generic</em> content such as Announcements, Governance, Terms of Use, Policies and so on.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

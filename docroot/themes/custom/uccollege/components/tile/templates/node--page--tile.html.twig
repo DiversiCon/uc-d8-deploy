@@ -1,0 +1,39 @@
+{#
+/**
+ * @file
+ * Landing Page Tile
+ *
+ * Available variables:
+ * - has_video: A boolean that determines if the story has video content.
+ *   @see uc_sauce_preprocess_node()
+ *
+ * @see template_preprocess_node()
+ */
+#}
+
+{% set section = content.field_section %}
+{% set subheadline = content.field_subheadline_text %}
+{% set headline = content.field_headline_text %}
+{% set image = content.field_image_main %}
+
+<div class="c-tile__img">
+  <a href="{{ url }}">
+    {{ image }}
+    {% if has_video %}
+      <div class="c-media-icon">
+        <svg class="c-icon c-icon--calendar">
+          <use xlink:href="/themes/custom/uccollege/dist/icons.svg#video"></use>
+        </svg>
+      </div>
+    {% endif %}
+  </a>
+</div>
+
+<div class="c-tile__content">
+  <h2 class="c-tile__title"><a href="{{ url }}">{{ headline }}</a></h2>
+
+  {% if subheadline|field_value %}
+    <p>{{ subheadline }}</p>
+  {% endif %}
+
+</div>

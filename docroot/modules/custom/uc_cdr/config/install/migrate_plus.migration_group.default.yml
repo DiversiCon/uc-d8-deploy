@@ -1,0 +1,10 @@
+uuid: d7927798-fd4d-4641-81f6-0e57cecf0f63
+langcode: en
+status: true
+dependencies: {  }
+id: default
+label: Default
+description: 'A container for any migrations not explicitly assigned to a group.'
+source_type: null
+module: null
+shared_configuration: null

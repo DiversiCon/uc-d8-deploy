@@ -1,0 +1,9 @@
+uuid: 381acd6a-7c5a-45ac-89da-86476343a170
+langcode: en
+status: true
+dependencies: {  }
+id: callout_grouped_content
+label: 'Callout with Grouped Content'
+icon_uuid: null
+description: 'A callout that references a group of content, rather than individual items. Currently only used for the Event related callouts.'
+behavior_plugins: {  }

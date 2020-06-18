@@ -1,0 +1,11 @@
+uuid: c8a5d9e9-a109-484e-a0c7-7467d6819e62
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.event
+id: node_type_event
+action: access_denied
+allow_override: 0
+redirect: ''
+redirect_code: 301

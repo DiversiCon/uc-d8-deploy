@@ -1,0 +1,106 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - Fact Card Component
+//
+
+.c-factcard {
+  @include font-sans();
+  font-size: rem-calc(14);
+
+  strong {
+    font-weight: $font-weight-bold;
+  }
+
+  .c-icon {
+    width: 1rem;
+    height: 1rem;
+    margin-right: rem-calc(4);
+    vertical-align: middle;
+  }
+
+  &__heading {
+    & + .c-factcard__content {
+      border-top: 1px solid; //add border if there is a heading
+    }
+  }
+
+  &__content {
+    @include list();
+  }
+
+  &__item {
+    border-top: 1px solid;
+    padding: rem-calc(8) 0;
+    position: relative;
+
+    &:first-child {
+      border-top: 0;
+    }
+
+    &-heading {
+      margin-bottom: rem-calc(5);
+
+      @include breakpoint(medium) {
+        margin-bottom: rem-calc(10);
+      }
+    }
+
+    &-extra {
+      display: block;
+      margin: 0;
+      padding: 0;
+
+      @include breakpoint (medium) {
+        display: inline-block;
+        margin-left: rem-calc(20);
+      }
+    }
+
+    span {
+      padding-left: rem-calc(20);
+
+      .c-feature & {
+        display: block;
+        padding-left: 0;
+
+        @include breakpoint(medium) {
+          display: inline;
+          padding-left: rem-calc(20);
+        }
+      }
+    }
+
+    a {
+      color: $color-primary;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: $color-secondary;
+      }
+    }
+
+    &-icon {
+      //item with icon
+      padding-left: rem-calc(20);
+      .c-icon {
+        position: absolute;
+        left: 0;
+        top: rem-calc(11);
+      }
+    }
+
+    &:last-child {
+      border-bottom: 1px solid;
+    }
+  }
+
+  &__name {
+    font-weight: $font-weight-bold;
+  }
+
+  @include laptop() {
+    font-size: rem-calc(14);
+  }
+}

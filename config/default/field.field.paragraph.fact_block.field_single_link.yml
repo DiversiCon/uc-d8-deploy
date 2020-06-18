@@ -1,0 +1,23 @@
+uuid: 061525a8-572b-4ed8-acd5-e234eaf8a81f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_single_link
+    - paragraphs.paragraphs_type.fact_block
+  module:
+    - link
+id: paragraph.fact_block.field_single_link
+field_name: field_single_link
+entity_type: paragraph
+bundle: fact_block
+label: 'Mobile Headline/Link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

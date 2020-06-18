@@ -1,0 +1,23 @@
+uuid: ce2b65c4-90ee-4167-b8f7-1665e170fe0b
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+id: authenticated
+label: 'Authenticated user'
+weight: -9
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access showcase pages'
+  - 'restful get group_rest_resource'
+  - 'restful get people_rest_resource'
+  - 'restful get program_rest_resource'
+  - 'restful get search_rest_resource'
+  - 'restful get staff_rest_resource'
+  - 'use text format simple_html'
+  - 'view any reusable entities'
+  - 'view media'
+  - 'view own reusable entities'
+  - 'view the administration theme'

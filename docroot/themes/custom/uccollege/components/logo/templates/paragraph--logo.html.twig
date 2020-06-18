@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * A logo represented by an image and optional link.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set image = content.field_image_main %}
+{% set link = content.field_single_link %}
+{% set link_target = link.0['#options']['attributes']['target'] %}
+
+<div class="c-logo">
+  {% if link|render is not empty %}
+  <a href="{{ link.0['#url'] }}" target="{{ link_target }}">
+    {{ image }}
+  </a>
+  {% else %}
+    {{ image }}
+  {% endif %}
+</div>

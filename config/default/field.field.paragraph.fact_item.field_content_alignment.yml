@@ -1,0 +1,23 @@
+uuid: 02a6514f-aebb-4640-aefd-c72feb4e6b3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content_alignment
+    - paragraphs.paragraphs_type.fact_item
+  module:
+    - options
+id: paragraph.fact_item.field_content_alignment
+field_name: field_content_alignment
+entity_type: paragraph
+bundle: fact_item
+label: 'Content Alignment'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: center
+default_value_callback: ''
+settings: {  }
+field_type: list_string

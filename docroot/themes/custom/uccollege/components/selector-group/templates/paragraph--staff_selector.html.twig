@@ -1,0 +1,7 @@
+<uc-selector-group
+  datasource="/api/v1/staff"
+  filterkey="office"
+  {% if paragraph.field_category_primary.value.0.target_id %}default-option="{{ paragraph.field_category_primary.entity.name.0.value }}"{% endif %}
+  {% if paragraph.field_hide_category.value == 1 %}:hide-dropdown="true"{% endif %}
+  label="{{ content.field_label_text|render|striptags|trim|convertQuotes }}">
+</uc-selector-group>

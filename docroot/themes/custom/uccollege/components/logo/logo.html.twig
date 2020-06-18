@@ -1,0 +1,18 @@
+{#
+/**
+ * logo Twig Partial
+ *
+ */
+#}
+
+<div class="c-logo">
+  {% if content.link %}
+  <a href="{{ content.link.href }}" target="{{ content.link.target }}">
+  {% endif %}
+
+  <img src="{{ content.src }}" alt="{{ content.alt }}" />
+
+  {% if content.link %}
+  </a>
+  {% endif %}
+</div>

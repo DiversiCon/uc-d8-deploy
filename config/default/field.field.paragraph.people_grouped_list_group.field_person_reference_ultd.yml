@@ -1,0 +1,28 @@
+uuid: 87ca7906-3838-4589-a655-609de590f6f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_person_reference_ultd
+    - node.type.person
+    - paragraphs.paragraphs_type.people_grouped_list_group
+id: paragraph.people_grouped_list_group.field_person_reference_ultd
+field_name: field_person_reference_ultd
+entity_type: paragraph
+bundle: people_grouped_list_group
+label: People
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      person: person
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

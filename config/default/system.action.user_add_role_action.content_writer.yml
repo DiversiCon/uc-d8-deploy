@@ -1,0 +1,14 @@
+uuid: c30e8a7a-a209-444b-91ba-7e30b7afafb9
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.content_writer
+  module:
+    - user
+id: user_add_role_action.content_writer
+label: 'Add the Content Writer role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: content_writer

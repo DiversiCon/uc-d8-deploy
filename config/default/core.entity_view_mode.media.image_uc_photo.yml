@@ -1,0 +1,10 @@
+uuid: a2b5022c-97cd-49ee-8249-edcb73497ff5
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.image_uc_photo
+label: 'Image, UC-Photo'
+targetEntityType: media
+cache: true

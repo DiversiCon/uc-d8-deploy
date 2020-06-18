@@ -1,0 +1,46 @@
+uuid: f54156bf-b0c9-40b3-bee3-40446f688aa6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_graduate_program_websites
+    - node.type.faculty
+    - paragraphs.paragraphs_type.graduate_program_websites
+  module:
+    - entity_reference_revisions
+id: node.faculty.field_graduate_program_websites
+field_name: field_graduate_program_websites
+entity_type: node
+bundle: faculty
+label: 'Graduate Program Websites'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      graduate_program_websites: graduate_program_websites
+    target_bundles_drag_drop:
+      academic_appointment:
+        weight: 7
+        enabled: false
+      awards:
+        weight: 8
+        enabled: false
+      education_and_training:
+        weight: 9
+        enabled: false
+      graduate_program_websites:
+        enabled: true
+        weight: 10
+      publications:
+        weight: 11
+        enabled: false
+      websites:
+        weight: 12
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,176 @@
+uuid: 90d67b9d-0c27-4dce-94b0-cf55e103181b
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.footer
+    - entity_browser.browser.media_entity_browser
+    - field.field.config_pages.footer.field_cp_paragraphs_ultd
+    - field.field.config_pages.footer.field_headline_text
+    - field.field.config_pages.footer.field_media_image
+    - field.field.config_pages.footer.field_paragraph_multiples
+    - field.field.config_pages.footer.field_subheadline_text
+    - field.field.config_pages.footer.field_subheadline_text_1
+    - field.field.config_pages.footer.field_telephone
+    - field.field.config_pages.footer.field_text_html_short_single_0
+    - field.field.config_pages.footer.field_text_html_short_single_1
+  module:
+    - allowed_formats
+    - entity_browser
+    - field_group
+    - paragraphs
+    - telephone
+    - text
+third_party_settings:
+  field_group:
+    group_left_contact_details:
+      children:
+        - field_headline_text
+        - field_subheadline_text
+        - field_text_html_short_single_0
+        - field_text_html_short_single_1
+        - field_telephone
+        - field_subheadline_text_1
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: true
+        required_fields: true
+      label: 'Left, Contact Details'
+      region: content
+    group_footer_links:
+      children:
+        - field_cp_paragraphs_ultd
+      parent_name: ''
+      weight: 10
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: true
+        required_fields: true
+      label: 'Footer Links'
+      region: content
+    group_social_links:
+      children: {  }
+      parent_name: ''
+      weight: 20
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: true
+        required_fields: true
+      label: 'Social Links'
+      region: content
+id: config_pages.footer.default
+targetEntityType: config_pages
+bundle: footer
+mode: default
+content:
+  field_cp_paragraphs_ultd:
+    weight: 3
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_headline_text:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_media_image:
+    weight: 26
+    settings:
+      entity_browser: media_entity_browser
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: eb_thumb
+      field_widget_replace: false
+      open: false
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  field_paragraph_multiples:
+    type: entity_reference_paragraphs
+    weight: 25
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_subheadline_text:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_subheadline_text_1:
+    weight: 10
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_telephone:
+    weight: 8
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_text_html_short_single_0:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_text_html_short_single_1:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+hidden:
+  label: true

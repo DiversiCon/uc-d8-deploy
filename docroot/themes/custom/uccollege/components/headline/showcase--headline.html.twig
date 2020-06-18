@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ * Available variables:
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+
+
+{% if content.article %}<article class="c-article">{% endif %}
+
+  {% include '@uccollege/../components/headline/headline.html.twig' with {'content': content} %}
+
+  {% if content.article %}</article>{% endif %}

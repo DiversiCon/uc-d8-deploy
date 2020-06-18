@@ -1,0 +1,14 @@
+uuid: f8de0b10-663b-4f40-89b3-f5f12e61d1bd
+langcode: en
+status: true
+dependencies: {  }
+id: webform_contact
+label: 'Contact Us, Headline'
+context:
+  show_warning: true
+  group:
+    language: false
+menu:
+  path: /admin/config/contact-form
+  weight: -42
+  description: 'Contact Us, Headline Fields'

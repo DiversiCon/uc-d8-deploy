@@ -1,0 +1,23 @@
+uuid: 44e4aef0-f673-490e-ad3a-2ee74f32f0a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.publications
+    - field.storage.config_pages.field_hide
+id: config_pages.publications.field_hide
+field_name: field_hide
+entity_type: config_pages
+bundle: publications
+label: 'Hide Topics Dropdown for Persons'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

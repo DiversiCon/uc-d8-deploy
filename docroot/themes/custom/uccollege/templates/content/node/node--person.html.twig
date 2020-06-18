@@ -1,0 +1,123 @@
+{#
+/**
+ * @file
+ * Person page template.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set section_term = content.field_section %}
+{% set name = node.field_headline_text.value %}
+{% set positions = content.field_positions %}
+{% set email = node.field_email_address.value %}
+{% set phone = content.field_phone %}
+{% set office_location = content.field_office_location %}
+{% set image = content.field_image_main %}
+{% set website_links = content.field_links_ultd %}
+{% set topics = content.field_topics %}
+{% set bio = content.body %}
+{% set current_research = content.field_description %}
+{% set publications_preview = content.pfield_publications_preview %}
+
+<section class="l-container c-feature__container">
+
+  <div class="c-feature">
+    <div class="c-feature__image">
+
+      {% if image|render is not empty %}
+      {# Person profile image should be ~600x600 #}
+        {{ image }}
+      {% else %}
+        <div class="c-feature__image-placeholder">
+          <svg class="c-icon">
+            <use xlink:href="/themes/custom/uccollege/dist/icons.svg#phoenix"/>
+          </svg>
+        </div>
+      {% endif %}
+
+    </div>
+
+    <div class="c-feature__wrap">
+      <div class="c-feature__content">
+        {{ section_term }}
+
+        <h1 class="t-heading--medium">{{ name }}</h1>
+
+        <div class="c-factcard">
+          <div class="c-factcard__ctn">
+            <ul class="c-factcard__content">
+              {% if positions|render is not empty %}
+              <li class="c-factcard__item">
+                <h4 class="t-heading--extra-small c-factcard__item-heading">{{ positions }}</h4>
+              </li>
+              {% endif %}
+
+              {% if topics|render is not empty %}
+                <li class="c-factcard__item">
+                  <strong>Research topics:</strong>
+                  {{ topics }}
+                </li>
+              {% endif %}
+
+              {% if website_links|render is not empty %}
+                <li class="c-factcard__item">
+                  <strong>Websites:</strong>
+                  {{ website_links }}
+                </li>
+              {% endif %}
+
+              {% if email or phone|render is not empty %}
+              <li class="c-factcard__item">
+                <strong>Contact:</strong>
+                {% if email %}
+                <a href="mailto:{{ email }}">{{ email }}</a>
+                {% endif %}
+
+                {% if phone|render is not empty %}
+                <div class="c-factcard__item-extra">{{ phone }}</div>
+                {% endif %}
+              </li>
+              {% endif %}
+
+              {% if office_location|render is not empty %}
+              <li class="c-factcard__item">
+                <strong>Office Location:</strong><br />
+                {{ person_office_location|raw }}
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<div class="l-container">
+  <div class="c-content">
+    <div class="c-content__body">
+      {{ bio }}
+
+      {% if current_research|render is not empty or publications_preview|render is not empty %}
+      <uc-accordion-group v-cloak>
+
+        {% if current_research|render is not empty %}
+        <uc-accordion title="Current Research">
+          {{ current_research }}
+        </uc-accordion>
+        {% endif %}
+
+        {% if publications_preview|render is not empty %}
+        <uc-accordion title="Publications">
+          {{ publications_preview }}
+        </uc-accordion>
+        {% endif %}
+
+      </uc-accordion-group>
+      {% endif %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+uuid: c444aa69-6b1f-47ef-8d75-cf15cc788e42
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.contact_group_list.field_par_paragraphs
+    - paragraphs.paragraphs_type.contact_group_list
+  module:
+    - entity_reference_revisions
+id: paragraph.contact_group_list.default
+targetEntityType: paragraph
+bundle: contact_group_list
+mode: default
+content:
+  field_par_paragraphs:
+    weight: 0
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

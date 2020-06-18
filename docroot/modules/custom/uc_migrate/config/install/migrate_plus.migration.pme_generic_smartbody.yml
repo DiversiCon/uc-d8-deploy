@@ -1,0 +1,51 @@
+uuid: c3e7d701-7168-45d1-a516-f593f57b3440
+langcode: en
+status: true
+dependencies: {  }
+id: pme_generic_smartbody
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: pme_migration
+label: 'Import PME Generic Node Smartbody Component'
+source:
+  urls: 'http://pme-cms.dev.uchicago.edu/migrate/basic_pages?limit=events'
+  item_selector: /
+  fields:
+    -
+      name: entry_id
+      label: 'Entry ID'
+      selector: entry_id
+    -
+      name: title
+      label: Title
+      selector: title
+    -
+      name: url_title
+      label: 'URL Title'
+      selector: url_title
+    -
+      name: entry_date
+      label: 'Entry Date'
+      selector: entry_date
+    -
+      name: edit_date
+      label: 'Edit Date'
+      selector: edit_date
+    -
+      name: basic_text
+      label: 'Basic Text'
+      selector: basic_text
+  ids:
+    entry_id:
+      type: integer
+process:
+  field_smartbody_text/value: basic_text
+  field_smartbody_text/format:
+    plugin: default_value
+    default_value: smartbody
+destination:
+  plugin: 'entity_reference_revisions:paragraph'
+  default_bundle: smartbody
+migration_dependencies: {  }

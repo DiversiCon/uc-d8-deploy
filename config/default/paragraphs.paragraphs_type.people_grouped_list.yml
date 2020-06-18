@@ -1,0 +1,9 @@
+uuid: 678d525a-ef7e-4666-89ec-84d368f02da4
+langcode: en
+status: true
+dependencies: {  }
+id: people_grouped_list
+label: 'People, Grouped List'
+icon_uuid: null
+description: 'Grouped list of person content.'
+behavior_plugins: {  }

@@ -1,0 +1,94 @@
+button:
+  title: Buttons
+  description: Global button styles
+  type: component
+  attributes:
+    category: Base Elements
+  variants:
+  -
+    title: Default Button
+    caption: Global, default button
+    content:
+      items:
+      -
+        url: "#"
+        text: Default Button
+  -
+    title: Reversed Button
+    caption: Default button, but with reversed hover
+    content:
+      reversed: true
+      items:
+      -
+        url: "#"
+        text: Reversed Button
+  -
+    title: Button on Grey Background
+    content:
+      btnclass: "s-bg"
+      items:
+      -
+        url: "#"
+        text: Button on grey background
+  -
+    title: Button on Yellow Background
+    caption: Button on yellow background
+    content:
+      btnclass: "s-bg-secondary"
+      items:
+      -
+        url: "#"
+        text: Button on yellow background
+  -
+    title: Button on Burgundy Background
+    content:
+      btnclass: "s-bg-tertiary"
+      items:
+      -
+        url: "#"
+        text: Button on burgundy background
+  -
+    title: Button Group
+    caption: Multiple buttons
+    content:
+      items:
+      - url: "#"
+        text: Affiliate One
+      - url: "#"
+        text: Affiliate Two
+      - url: "#"
+        text: Affiliate Three
+  -
+    title: Button Group
+    caption: Multiple buttons with headline
+    content:
+      heading: Get started
+      subhead: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+      switcher: true
+      btnclass: "l-stripe c-button__group"
+      items:
+      -
+        prospect:
+        - url: "#"
+          text: Visit
+        - url: "#"
+          text: Apply
+        - url: "#"
+          text: Financial Aid
+      -
+        affiliate:
+        - url: "#"
+          text: Affiliate One
+        - url: "#"
+          text: Affiliate Two
+        - url: "#"
+          text: Affiliate Three
+
+button.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: button.component
+    index_hide: true
+    file: themes/custom/uccollege/components/button/README.md

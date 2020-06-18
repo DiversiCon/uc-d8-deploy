@@ -1,0 +1,31 @@
+uuid: 24611e6e-82ed-4ac4-bf2a-11ff036f13c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content_reference
+    - node.type.external
+    - node.type.page
+    - paragraphs.paragraphs_type.callout_item_reference
+id: paragraph.callout_item_reference.field_content_reference
+field_name: field_content_reference
+entity_type: paragraph
+bundle: callout_item_reference
+label: 'Content Reference'
+description: 'Reference <a href="/admin/content?type=page" target="_blank">existing content (new window)</a>.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      external: external
+      page: page
+    sort:
+      field: changed
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: external
+field_type: entity_reference

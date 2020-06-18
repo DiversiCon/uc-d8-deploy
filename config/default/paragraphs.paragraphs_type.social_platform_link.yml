@@ -1,0 +1,9 @@
+uuid: 2d13bbd1-8aa4-46fe-aa0b-6b8b55335864
+langcode: en
+status: true
+dependencies: {  }
+id: social_platform_link
+label: 'Social Platform Link'
+icon_uuid: null
+description: 'A link to a social platform property.'
+behavior_plugins: {  }

@@ -1,0 +1,114 @@
+uuid: a688663e-1d04-4c79-9b0f-3ed0cf07e0ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.accordion_item.field_bool_intro_toggle
+    - field.field.paragraph.accordion_item.field_headline_text
+    - field.field.paragraph.accordion_item.field_list_html_tags
+    - field.field.paragraph.accordion_item.field_par_bool_single_0
+    - field.field.paragraph.accordion_item.field_par_html_single
+    - field.field.paragraph.accordion_item.field_par_paragraph_single
+    - paragraphs.paragraphs_type.accordion_item
+  module:
+    - allowed_formats
+    - field_group
+    - paragraphs
+    - text
+third_party_settings:
+  field_group:
+    group_headline:
+      children:
+        - field_headline_text
+        - field_list_html_tags
+      parent_name: ''
+      weight: 0
+      format_type: fieldset
+      format_settings:
+        label: ''
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: ''
+      region: content
+    group_item_options:
+      children:
+        - field_bool_intro_toggle
+        - field_par_bool_single_0
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: 'Item Options'
+      region: content
+    group_accordion_content:
+      children:
+        - field_par_paragraph_single
+      parent_name: ''
+      weight: 3
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Accordion Content'
+      region: content
+id: paragraph.accordion_item.default
+targetEntityType: paragraph
+bundle: accordion_item
+mode: default
+content:
+  field_bool_intro_toggle:
+    weight: 2
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_headline_text:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_list_html_tags:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_bool_single_0:
+    weight: 3
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_par_paragraph_single:
+    weight: 2
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: smartbody_lite
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+hidden:
+  created: true
+  field_par_html_single: true
+  status: true
+  uid: true

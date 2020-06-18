@@ -1,0 +1,19 @@
+uuid: 180d5f1c-2938-4699-811e-ddc5ccf16ac0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_department_name
+    - paragraphs.paragraphs_type.academic_appointment
+id: paragraph.academic_appointment.field_department_name
+field_name: field_department_name
+entity_type: paragraph
+bundle: academic_appointment
+label: 'Department Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

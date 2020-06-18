@@ -1,0 +1,10 @@
+uuid: 654bcf88-4411-4a96-a4f1-4818a4f1ae28
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+id: reusable.name_only
+label: 'Name Only'
+targetEntityType: reusable
+cache: true

@@ -1,0 +1,17 @@
+uuid: 1c3b9907-af51-410d-b3bb-e53998ebd2a9
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: staff_thumbnail
+label: 'Staff Thumbnail (150x150)'
+effects:
+  ca155a1b-2148-4414-8536-806ec518b075:
+    uuid: ca155a1b-2148-4414-8536-806ec518b075
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 150
+      height: 150
+      crop_type: focal_point

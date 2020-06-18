@@ -1,0 +1,19 @@
+{#
+/**
+ * sidebar-links Twig Partial
+ *
+ */
+#}
+
+<div class="c-sidebar-links">
+  {% if content.heading %}
+    <h2 class="c-sidebar-links__heading">{{ content.heading }}</h2>
+  {% endif %}
+  <ul class="c-sidebar-links__content">
+    {% for item in content.items %}
+      <li class="c-sidebar-links__item">
+        <a href="{{ item.url }}" class="c-sidebar-links__link">{{ item.text }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

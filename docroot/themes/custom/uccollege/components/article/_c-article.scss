@@ -1,0 +1,170 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - article component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-article {
+  display: grid;
+  grid-gap: rem-calc(20);
+  grid-template-columns: 100%;
+
+  @include breakpoint(medium) {
+    grid-gap: rem-calc(30);
+    grid-template-columns: 1fr 6.7% 56.67% 6.7% 1fr;
+  }
+
+  &__sidebar {
+    grid-column: 1;
+    order: 1;
+    //for proper wrapping of links in side bar in Firefox and Safari
+    //reset default of auto on grid items (Automatic Minimum Size of Grid Items)
+    //(https://stackoverflow.com/questions/43311943/prevent-content-from-expanding-grid-items)
+    min-width: 0;
+    overflow: hidden;
+
+    .c-sidebar-links,
+    .c-inquiries,
+    .c-generic {
+      margin-bottom: rem-calc(48);
+    }
+
+    .c-sidebar-links {
+      margin-top: rem-calc(48);
+    }
+
+    @include breakpoint(medium) {
+      grid-column: 3 / 4;
+    }
+
+    @include breakpoint(large) {
+      grid-column: 1 / 3;
+      order: 0;
+      .c-sidebar-links {
+        margin-top: rem-calc(124); //sidebar links shouldn't sit at very top of sidebar
+      }
+      .c-inquiries,
+      .c-generic {
+        margin-bottom: rem-calc(80);
+      }
+    }
+  }
+
+  &__body {
+    @include font-sizes(16, 18);
+    grid-column: 1;
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-size: rem-calc(16);
+      line-height: 1.375;
+    }
+
+    h2 {
+      font-size: rem-calc(20);
+    }
+
+    h3 {
+      font-size: rem-calc(18);
+    }
+
+    //add dash styles to lists
+    ul {
+      @extend .s-dash;
+      margin-bottom: rem-calc(30);
+    }
+
+    ul,
+    ol {
+      li ul,
+      li ol {
+        margin-top: rem-calc(30);
+      }
+    }
+
+    p {
+      @include font-sizes(16, 18);
+    }
+
+    p,
+    li {
+      line-height: 1.56;
+    }
+
+    td p {
+      font-size: inherit; //for the correct font size and line height in tables on article pages
+      line-height: inherit;
+    }
+
+    @include breakpoint(medium) {
+      grid-column: 2 / 5;
+    }
+
+    @include breakpoint(large) {
+      grid-column: 3 / 4;
+    }
+
+    > :last-child {
+      margin-bottom: rem-calc(0);
+    }
+  }
+
+  &__media {
+    grid-column: 1;
+
+    @include breakpoint(medium) {
+      grid-column: 1 / 6;
+    }
+
+    @include breakpoint(large) {
+      grid-column: 2 / 5;
+    }
+  }
+
+  &__full {
+    grid-column: 1;
+
+    @include breakpoint(medium) {
+      grid-column: 1 / 6;
+    }
+
+  }
+
+  &__intro {
+    @include font-sizes(20, 24);
+    font-weight: $font-weight-bold;
+    padding-top: rem-calc(20);
+    p {
+      @include font-sizes(20, 20);
+      line-height: 1.4;
+    }
+
+    > :last-child {
+      margin-bottom: rem-calc(0);
+    }
+  }
+}
+
+// Media are full-width on mobile
+.c-article__media {
+  @include breakpoint(medium down) {
+    .c-photo:not(.swiper-slide),
+    .c-gmap__ctn,
+    .c-video__wrap {
+      margin: 0 calc(50% - 50vw);
+      width: auto;
+    }
+
+    .c-photo:not(.swiper-slide) {
+      img {
+        width: 100%;
+      }
+      .c-caption {
+        padding-left: rem-calc(20);
+      }
+    }
+  }
+}

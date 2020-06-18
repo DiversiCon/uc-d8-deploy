@@ -1,0 +1,23 @@
+uuid: 6c4760e2-a1fd-4088-9d59-0a3b535bbb40
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_hide
+    - paragraphs.paragraphs_type.publications_list
+id: paragraph.publications_list.field_hide
+field_name: field_hide
+entity_type: paragraph
+bundle: publications_list
+label: 'Hide Topics Dropdown'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

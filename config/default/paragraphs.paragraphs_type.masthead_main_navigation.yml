@@ -1,0 +1,9 @@
+uuid: 0bcfbc29-a146-4ec7-a4bf-d47ca44d07ee
+langcode: en
+status: true
+dependencies: {  }
+id: masthead_main_navigation
+label: 'Navigation Section'
+icon_uuid: null
+description: 'Main Navigation Section for the Masthead, used in config_pages'
+behavior_plugins: {  }

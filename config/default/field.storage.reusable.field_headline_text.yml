@@ -1,0 +1,20 @@
+uuid: 4c6521ca-af24-41af-ac5d-14c018d7be9c
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - text
+id: reusable.field_headline_text
+field_name: field_headline_text
+entity_type: reusable
+type: text
+settings:
+  max_length: 999
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

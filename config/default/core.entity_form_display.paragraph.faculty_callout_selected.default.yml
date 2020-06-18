@@ -1,0 +1,23 @@
+uuid: 09fba8c4-96f4-49db-bc9f-94ce5e6af3f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.faculty_callout_selected.field_ids
+    - paragraphs.paragraphs_type.faculty_callout_selected
+  module:
+    - uc_cdr_client
+id: paragraph.faculty_callout_selected.default
+targetEntityType: paragraph
+bundle: faculty_callout_selected
+mode: default
+content:
+  field_ids:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: uc_cdr_client_faculty_autocomplete
+    region: content
+hidden:
+  created: true
+  status: true

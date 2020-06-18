@@ -1,0 +1,29 @@
+uuid: 3c49255d-a614-4ad6-9b59-2f3b8a0270ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.accordion_sidebar
+    - field.field.reusable.accordion_sidebar.field_eck_par_single_0
+  module:
+    - entity_reference_revisions
+id: reusable.accordion_sidebar.default
+targetEntityType: reusable
+bundle: accordion_sidebar
+mode: default
+content:
+  field_eck_par_single_0:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  changed: true
+  created: true
+  search_api_excerpt: true
+  title: true
+  uid: true

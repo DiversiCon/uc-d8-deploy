@@ -1,0 +1,43 @@
+uuid: c6fce4e7-843b-4970-9497-6c0c83e20c35
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.staff_selector.field_category_primary
+    - field.field.paragraph.staff_selector.field_hide_category
+    - field.field.paragraph.staff_selector.field_label_text
+    - paragraphs.paragraphs_type.staff_selector
+  module:
+    - text
+id: paragraph.staff_selector.default
+targetEntityType: paragraph
+bundle: staff_selector
+mode: default
+content:
+  field_category_primary:
+    weight: 2
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_hide_category:
+    weight: 3
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_label_text:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  search_api_excerpt: true

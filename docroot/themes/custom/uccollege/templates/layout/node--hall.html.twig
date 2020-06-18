@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ * @see template_preprocess_node()
+ */
+#}
+
+{{ content.content_moderation_control }}
+
+<section class="l-container">
+  {% include '@uccollege/components/headline/templates/node--inc--headline.html.twig' %}
+
+  {{ content|without('field_section', 'field_headline_text', 'field_subheadline_text') }}
+</section>
+
+

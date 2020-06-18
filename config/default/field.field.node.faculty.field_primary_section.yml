@@ -1,0 +1,29 @@
+uuid: 579feedd-d7e1-4ef3-9be7-9aa5d5330b17
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_primary_section
+    - node.type.faculty
+    - taxonomy.vocabulary.faculty_sections
+id: node.faculty.field_primary_section
+field_name: field_primary_section
+entity_type: node
+bundle: faculty
+label: 'Primary Section'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      faculty_sections: faculty_sections
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,28 @@
+table:
+  title: Table
+  description: Basic html table for data and info.
+  type: component
+  attributes:
+    category: Base Elements
+  variants:
+  -
+    title: Table
+    caption: "Basic html table for data and info."
+    content:
+
+  -
+    title: Table (responsive scroll)
+    caption: "Basic html table for data and info that scrolls horizontally as needed for smaller devices."
+    content:
+      scroll: true
+  -
+    title: Table (in accordion)
+    caption: "Basic html table for data and info in an accordion."
+    content:
+      accordion: true
+      scroll: true
+  -
+    title: Table (in Article)
+    caption: "Basic html table for data and info on an article page."
+    content:   
+      article: true

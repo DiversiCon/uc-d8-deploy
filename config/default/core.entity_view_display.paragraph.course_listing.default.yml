@@ -1,0 +1,33 @@
+uuid: d9e893a1-7acb-4838-9770-2da4d5286933
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.course_listing.field_content_multiple
+    - field.field.paragraph.course_listing.field_headline_text
+    - paragraphs.paragraphs_type.course_listing
+  module:
+    - text
+id: paragraph.course_listing.default
+targetEntityType: paragraph
+bundle: course_listing
+mode: default
+content:
+  field_content_multiple:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_headline_text:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  search_api_excerpt: true

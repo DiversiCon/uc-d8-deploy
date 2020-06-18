@@ -1,0 +1,51 @@
+{#
+/**
+ * cards Twig Partial
+ *
+ */
+#}
+
+{% set tag = ( content.layout == '4up' ) ? 'uc-slider' : 'div' %}
+
+<{{ tag }} class="c-cards {% if content.layout %}c-cards--{{ content.layout }}{% endif %}" :breakpoint="1024" v-cloak>
+	<ul class="c-cards__content">
+
+		{% for card in content.cards %}
+			<li class="c-card">
+				<div class="c-card__img">
+					<a href="{{ card.url }}">
+						<svg class="c-icon">
+							<use xlink:href="/themes/custom/uccollege/dist/icons.svg#phoenix"/>
+						</svg>
+						{% if card.image %}
+							<picture>
+								<img src="{{ card.image }}" alt="{{ card.alt }}"/>
+							</picture>
+						{% endif %}
+					</a>
+				</div>
+
+				<p class="c-card__status">{{ card.status }}</p>
+				<h2 class="c-card__heading">
+					<a href="{{ card.url }}">{% autoescape false %}{{ card.title }}{% endautoescape %}</a>
+				</h2>
+				
+					<div class="c-card__description">
+						{% autoescape false %}
+							{{ card.description }}
+						{% endautoescape %}
+
+						<p class="c-card__date">{{ card.date }}</p>
+						<p class="c-card__time">{{ card.timeStart }}
+							{% if card.timeEnd %}<span> - {{card.timeEnd}}</span>{% endif %}
+						</p>
+					</div>
+			</li>
+		{% endfor %}
+	</ul>
+	{% if content.cta %}
+	<div class="c-cards__cta">
+		<a class="c-cta-link c-cta-link--black" href="{{ content.ctaLink }}">{{ content.cta }}</a>
+	</div>
+	{% endif %}
+</{{ tag }}>

@@ -1,0 +1,109 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+{{ it_showcase_component('masthead', 0) }}
+{{ it_showcase_component('alert', 0) }}
+
+<section class="l-container">
+
+  <article class="c-article">
+    <header class="c-headline">
+      <a href="#" class="c-headline__topic t-heading--topic">About</a>
+      <h1 class="c-headline__heading">Facts & History</h1>
+    </header>
+
+    <div class="c-article__media">
+      <uc-photo
+        img-full="https://via.placeholder.com/1200x673&text=FPO"
+        img-large="https://via.placeholder.com/1024x575&text=FPO"
+        img-medium="https://via.placeholder.com/768x431&text=FPO"
+        img-small="https://via.placeholder.com/480x269&text=FPO"
+        description="Billings Hospital 1927"
+        credit=""
+        alt="Billings Hospital 1927">
+      </uc-photo>
+    </div>
+
+    <div class="c-article__sidebar">
+      <div class="c-sidebar-links">
+        <h2 class="c-sidebar-links__heading">You may also like…</h2>
+        <ul class="c-sidebar-links__content">
+          <li class="c-sidebar-links__item"><a href="#" class="c-sidebar-links__link">Lorem ipsum dolor sit amet
+              adipiscing elit</a></li>
+          <li class="c-sidebar-links__item"><a href="#" class="c-sidebar-links__link">Excepteur sint occaecat cupida
+              proident sunt</a></li>
+          <li class="c-sidebar-links__item"><a href="#" class="c-sidebar-links__link">Nemo enim ipsam voluptat quia
+              voluptas</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="c-article__body">
+      <p><strong>Home to scientific and medical breakthroughs</strong><br>
+        The division was established in 1930, formally uniting faculty from the clinical and basic sciences. Before
+        1930, faculty in such areas as anatomy, bacteriology, biology, physiology, and pathology were housed in the
+        Ogden Graduate School of Science.</p>
+
+      <p>The first professor of medicine, Frank Billings, was appointed in 1905. The University of Chicago Medicine has
+        been at the forefront of medical care since 1927, when we first opened our doors to patients and founded the
+        medical school. In 1968, we renamed the medical school the Pritzker School of Medicine in recognition of the
+        generous support of the Pritzker family.</p>
+
+      <p>Today, we constitute one of the most unique communities within an academic environment: a single division that
+        delivers undergraduate, graduate, medical, and postgraduate biological sciences education together with
+        outstanding patient care and world-renowned research. This configuration, coupled with our location on the
+        University's main campus, encourages interdisciplinary research, educational partnerships, and
+        collaborations.</p>
+
+      <p><strong>Firsts in the Biological Sciences Division</strong><br>
+        From advancements in medical treatments to the discovery of new species and fields of study, we have been home
+        to a number of innovations in the biological sciences. The timeline below takes you through some of the major
+        milestones in our history.</p>
+
+      <uc-accordion-group v-cloak>
+        <uc-accordion title="1890s–1930s" tag="h2">
+          <dl>
+            <dt>1890s</dt>
+            <dd>Botanist Henry Chandler Cowles’s study of changes to the Indiana Dunes along the southern shore of Lake Michigan opens a new field of inquiry in the natural sciences: ecology.</dd>
+
+            <dt>1910</dt>
+            <dd>Pathologist Howard Ricketts discovers the organism that causes Rocky Mountain spotted fever before his death in 1910, providing the basis for treating the disease. Today the Howard T. Ricketts Laboratory at Argonne National Laboratory is a regional biocontainment laboratory that supports research for the detection, prevention, and elimination of anthrax, hemorrhagic fever, influenza, plague, and emerging infectious diseases.</dd>
+
+            <dt>1916</dt>
+            <dd>During research for his PhD dissertation in zoology, Ernest Everett Just, PhD’16, makes an important discovery about cell cleavage, showing that the sperm entry point determines the first cleavage plane in the egg of the marine annelid Nereis limbata.</dd>
+
+            <dt>1917</dt>
+            <dd>Medical scientist Oswald Robertson pioneers the idea of blood banks in the “blood depots” he established during service in France with the US Army Medical Corps. Robertson later becomes chair of the University of Chicago Department of Medicine.</dd>
+
+            <dt>1925</dt>
+            <dd>The world’s first sleep laboratory opens under the direction of Nathaniel Kleitman, PhD. Kleitman wrote the first textbook in the emerging field, Sleep and Wakefulness (1939). In 1953, Kleitman collaborated with graduate student Eugene Aserinsky to report the discovery of rapid eye movement (REM) and its links to dreaming.</dd>
+
+            <dt>1927</dt>
+            <dd>Walter Palmer, MD, PhD, establishes the nation’s first full-time academic gastroenterology section.</dd>
+          </dl>
+        </uc-accordion>
+
+        <uc-accordion title="1940s–1970s" tag="h2">
+          <p>Accordion content here</p>
+        </uc-accordion>
+
+        <uc-accordion title="1980s–present" tag="h2">
+          <p>Accordion content here</p>
+        </uc-accordion>
+      </uc-accordion-group>
+    </div>
+
+  </article>
+</section>
+
+{{ it_showcase_component('footer', 0) }}

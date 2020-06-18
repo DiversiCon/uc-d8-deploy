@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Displays gallery/hero image hero component.
+ *
+ * @see uccollege_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{# Set in the preprocessor. #}
+{% extends extend_path %}
+
+{# Override the content block. #}
+{% block content %}
+
+  {# Variables are set in the preprocssor. #}
+  <uc-gallery title="{{ component_gallery_headline }}">
+    {{ component_gallery_images }}
+  </uc-gallery>
+
+{% endblock %}

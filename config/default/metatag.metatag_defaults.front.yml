@@ -1,0 +1,36 @@
+uuid: bf3a4242-c0b8-45af-ab30-6ea875f5bac7
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 1noCXlegCr5HFehQRF1ViXy1jhU1jZ_sNN99a8Sj5jo
+id: front
+label: 'Front page'
+tags:
+  shortlink: '[site:url]'
+  title: '[node:field_headline_text] | [site:name] | The University of Chicago'
+  canonical_url: '[site:url]'
+  description: '[node:field_subheadline_text] [node:summary]'
+  og_type: website
+  og_image_width: '[node:source:field_image_main:entity:field_media_image:social:width]'
+  og_image: '[node:source:field_image_main:entity:field_media_image:social:url]'
+  og_image_height: '[node:source:field_image_main:entity:field_media_image:social:height]'
+  og_url: '[site:url]'
+  og_description: '[node:field_subheadline_text]'
+  og_title: '[node:field_headline_text]'
+  twitter_cards_creator: '@UChicago'
+  twitter_cards_image: '[node:source:field_image_main:entity:field_media_image:social:url]'
+  twitter_cards_image_width: '[node:source:field_image_main:entity:field_media_image:social:width]'
+  twitter_cards_page_url: '[site:url]'
+  twitter_cards_description: '[node:field_subheadline_text]'
+  twitter_cards_type: summary_large_image
+  twitter_cards_image_height: '[node:source:field_image_main:entity:field_media_image:social:height]'
+  twitter_cards_title: '[node:field_headline_text]'
+  schema_organization_id: 'https://www.uchicago.edu'
+  schema_organization_url: 'https://www.uchicago.edu'
+  schema_organization_name: 'The University of Chicago'
+  schema_organization_type: CollegeOrUniversity
+  schema_organization_telephone: '+1 773-702-1234'
+  schema_web_page_type: WebPage
+  schema_web_page_description: '[node:field_subheadline_text]'
+  schema_web_page_id: '[site:url]'

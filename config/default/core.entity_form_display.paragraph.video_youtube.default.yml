@@ -1,0 +1,26 @@
+uuid: c7371408-f7ee-4153-9e55-d1f5c81a4319
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.video_youtube.field_eck_reference_single
+    - paragraphs.paragraphs_type.video_youtube
+id: paragraph.video_youtube.default
+targetEntityType: paragraph
+bundle: video_youtube
+mode: default
+content:
+  field_eck_reference_single:
+    weight: 101
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

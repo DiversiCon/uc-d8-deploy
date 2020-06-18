@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+{{ it_showcase_component('masthead', 0) }}
+
+<section class="l-stripe s-bg-tertiary">
+  <h2 class="t-heading--medium">Faculty</h2>
+  <p class="c-callout__intro">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt dolore aliqua.</p>
+
+  <uc-faculty-callout
+      endpoint="http://bsd-data.dev.uchicago.edu/api/node/faculty"
+      :faculty-ids="[
+        '4FC17E6FDC',
+        '67DA71E9BB',
+        '52D49BD40C',
+        'BBB4CCB22B',
+      ]"
+  >
+  </uc-faculty-callout>
+</section>
+
+{{ it_showcase_component('footer', 0) }}

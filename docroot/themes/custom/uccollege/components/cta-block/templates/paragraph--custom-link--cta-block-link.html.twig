@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Custom link paragraph. CTA-Link style.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set url = content.field_headline_link.0['#url'] %}
+{% set url_tgt = content.field_headline_link.0['#options']['attributes']['target'] %}
+{% set text = content.field_headline_text %}
+
+{% block paragraph %}
+  {% block content %}
+    {% if text|field_value %}
+      {% if url %}
+        <a href="{{ url }}" target="{{ url_tgt }}" class="c-cta-block__link">{{ text }}</a>
+      {% else %}
+        {{ text }}
+      {% endif %}
+    {% elseif url %}
+      <a href="{{ url }}" target="{{ url_tgt }}" class="c-cta-block__link">{{ url }}</a>
+    {% endif %}
+  {% endblock %}
+{% endblock paragraph %}

@@ -1,0 +1,50 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - cta-link component
+// Black, underlined CTA links, with an "inverse" white variant
+
+.c-cta-link,
+.c-cta-link--inverse {
+  @include font-sans(bold);
+  color: $color-secondary;
+  letter-spacing: rem-calc(-0.2);
+  text-decoration: underline;
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+.c-cta-link--inverse {
+  color: $color-white;
+}
+
+.c-cta-link--black {
+  color: $color-black;
+}
+
+.c-cta-link__grid2up {
+  display: none;
+
+  @include breakpoint(medium) {
+    border: 3px solid $color-primary;
+    bottom: rem-calc(40);
+    color: $color-primary;
+    display: block;
+    font-size: rem-calc(18);
+    padding: rem-calc(20);
+    position: absolute;
+    right: rem-calc(40);
+    width: 57%;
+    z-index: 15;
+  }
+
+  @include breakpoint(large) {
+    width: 36.7%;
+  }
+
+  @media screen and (min-width: 1024px) and (max-width: 1280px) {
+    width: 42.7%;
+  }
+}

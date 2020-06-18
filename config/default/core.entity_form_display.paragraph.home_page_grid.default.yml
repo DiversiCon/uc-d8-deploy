@@ -1,0 +1,780 @@
+uuid: 00a671c9-77cf-459e-8322-b5ab0e478875
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.home_page_grid.field_body
+    - field.field.paragraph.home_page_grid.field_eck_reference
+    - field.field.paragraph.home_page_grid.field_eck_reference_1
+    - field.field.paragraph.home_page_grid.field_eck_reference_single
+    - field.field.paragraph.home_page_grid.field_headline_text
+    - field.field.paragraph.home_page_grid.field_label_text
+    - field.field.paragraph.home_page_grid.field_layout
+    - field.field.paragraph.home_page_grid.field_par_paragraph_single
+    - field.field.paragraph.home_page_grid.field_par_paragraph_single_0
+    - field.field.paragraph.home_page_grid.field_par_paragraph_single_1
+    - field.field.paragraph.home_page_grid.field_par_paragraph_single_2
+    - field.field.paragraph.home_page_grid.field_par_paragraph_single_3
+    - field.field.paragraph.home_page_grid.field_par_paragraph_single_4
+    - field.field.paragraph.home_page_grid.field_par_paragraph_single_5
+    - field.field.paragraph.home_page_grid.field_par_paragraph_ultd_0
+    - field.field.paragraph.home_page_grid.field_par_paragraph_ultd_1
+    - field.field.paragraph.home_page_grid.field_par_paragraphs
+    - field.field.paragraph.home_page_grid.field_paragraph_single
+    - field.field.paragraph.home_page_grid.field_paragraph_single_0
+    - field.field.paragraph.home_page_grid.field_paragraph_single_1
+    - field.field.paragraph.home_page_grid.field_paragraph_single_2
+    - field.field.paragraph.home_page_grid.field_paragraphs_unlimited
+    - field.field.paragraph.home_page_grid.field_quotator_items
+    - field.field.paragraph.home_page_grid.field_single_link
+    - field.field.paragraph.home_page_grid.field_single_paragraph_1
+    - field.field.paragraph.home_page_grid.field_subheadline_text
+    - field.field.paragraph.home_page_grid.field_subheadline_text_0
+    - field.field.paragraph.home_page_grid.field_subheadline_text_1
+    - field.field.paragraph.home_page_grid.field_text_color
+    - paragraphs.paragraphs_type.home_page_grid
+  module:
+    - allowed_formats
+    - field_group
+    - link_attributes
+    - paragraphs
+    - text
+third_party_settings:
+  field_group:
+    group_con:
+      children:
+        - group_main_content_section
+        - group_secondary_section
+      parent_name: group_top_section
+      weight: 0
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: content-entry-flex-wrap
+        element: div
+        show_label: false
+        label_element: h3
+        required_fields: true
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Content entry flex wrap'
+      region: content
+    group_main_content_section:
+      children:
+        - group_lead_media
+      parent_name: group_con
+      weight: 10
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: main-content-section-wrap
+        element: div
+        show_label: false
+        label_element: h3
+        required_fields: true
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Main content section'
+      region: content
+    group_lead_media:
+      children:
+        - field_par_paragraph_single
+        - group_lead_headline_and_options
+        - group_sub_headline
+      parent_name: group_main_content_section
+      weight: 231
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: true
+        required_fields: true
+      label: 'Lead Media'
+      region: content
+    group_top_section:
+      children:
+        - group_con
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: true
+        required_fields: true
+      label: 'Top Section'
+      region: content
+    group_lower_section:
+      children:
+        - group_content_entry_flex_wrap_1
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: true
+        required_fields: true
+      label: 'Lower Section'
+      region: content
+    group_content_entry_flex_wrap_1:
+      children:
+        - group_main_content_section_1
+        - group_secondary_section_1
+      parent_name: group_lower_section
+      weight: 83
+      format_type: html_element
+      format_settings:
+        element: div
+        show_label: false
+        label_element: h3
+        required_fields: true
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: content-entry-flex-wrap
+      label: 'Content entry flex wrap 1'
+      region: content
+    group_main_content_section_1:
+      children:
+        - field_paragraph_single_1
+        - field_body
+        - group_accordions
+      parent_name: group_content_entry_flex_wrap_1
+      weight: 10
+      format_type: html_element
+      format_settings:
+        element: div
+        show_label: false
+        label_element: h3
+        required_fields: true
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: main-content-section-wrap
+      label: 'Main content section 1'
+      region: content
+    group_secondary_section_1:
+      children:
+        - group_mobile_only_sub_head
+        - group_teaser_left
+        - group_teaser_right
+      parent_name: group_content_entry_flex_wrap_1
+      weight: 20
+      format_type: html_element
+      format_settings:
+        element: div
+        show_label: false
+        label_element: h3
+        required_fields: true
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: content-sidebar-wrap
+      label: 'Secondary Section 1'
+      region: content
+    group_accordions:
+      children:
+        - group_main_content_section_1a
+        - group_secondary_section_1a
+        - group_bottom_left_accordion_cont
+        - group_bottom_right_accordion_con
+        - field_single_link
+      parent_name: group_main_content_section_1
+      weight: 224
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: true
+        required_fields: true
+      label: Accordions
+      region: content
+    group_main_content_section_1a:
+      children:
+        - field_subheadline_text_0
+        - field_par_paragraph_ultd_0
+        - group_accordion_left
+      parent_name: group_accordions
+      weight: 10
+      format_type: details
+      format_settings:
+        required_fields: true
+        id: ''
+        classes: ''
+        open: false
+      label: 'Top Left, Accordion Content'
+      region: content
+    group_secondary_section_1a:
+      children:
+        - field_subheadline_text_1
+        - field_par_paragraph_ultd_1
+        - group_accordion_right_footer
+      parent_name: group_accordions
+      weight: 11
+      format_type: details
+      format_settings:
+        required_fields: true
+        id: ''
+        classes: ''
+        open: false
+      label: 'Top Right, Accordion Content'
+      region: content
+    group_teaser_left:
+      children:
+        - field_par_paragraph_single_1
+      parent_name: group_secondary_section_1
+      weight: 6
+      format_type: details
+      format_settings:
+        open: true
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Tile, Left'
+      region: content
+    group_teaser_right:
+      children:
+        - field_par_paragraph_single_2
+      parent_name: group_secondary_section_1
+      weight: 7
+      format_type: details
+      format_settings:
+        open: true
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Tile, Right'
+      region: content
+    group_quote_rotator:
+      children:
+        - field_quotator_items
+      parent_name: group_secondary_section
+      weight: 9
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: Quote-Rotator
+      region: content
+    group_stats_section:
+      children:
+        - field_eck_reference
+        - field_eck_reference_1
+        - field_eck_reference_single
+      parent_name: group_secondary_section
+      weight: 10
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: 'Stats Section'
+      region: content
+    group_cta_section:
+      children:
+        - field_single_paragraph_1
+      parent_name: group_secondary_section
+      weight: 12
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: 'CTA Links'
+      region: content
+    group_sub_headline:
+      children:
+        - field_par_paragraph_single_3
+      parent_name: group_lead_media
+      weight: 233
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: true
+        required_fields: true
+      label: Sub-headline
+      region: content
+    group_mobile_only_sub_head:
+      children:
+        - field_par_paragraph_single_4
+      parent_name: group_secondary_section_1
+      weight: 4
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: true
+        required_fields: true
+      label: 'Mobile-Only Sub-Head'
+      region: content
+    group_accordion_left:
+      children:
+        - field_par_paragraph_single_5
+      parent_name: group_main_content_section_1a
+      weight: 15
+      format_type: details
+      format_settings:
+        open: true
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Accordion Top Left, Footer'
+      region: content
+    group_accordion_right_footer:
+      children:
+        - field_par_paragraph_single_0
+      parent_name: group_secondary_section_1a
+      weight: 82
+      format_type: details
+      format_settings:
+        open: true
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Accordion Top Right, Footer'
+      region: content
+    group_sidebar_facts:
+      children:
+        - field_paragraph_single_0
+      parent_name: group_secondary_section
+      weight: 11
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: 'Sidebar Facts'
+      region: content
+    group_secondary_section:
+      children:
+        - field_layout
+        - group_quote_rotator
+        - group_stats_section
+        - group_sidebar_facts
+        - group_cta_section
+      parent_name: group_con
+      weight: 11
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: content-sidebar-wrap
+        description: ''
+        required_fields: true
+      label: 'Secondary Section'
+      region: content
+    group_bottom_left_accordion_cont:
+      children:
+        - field_subheadline_text
+        - field_paragraphs_unlimited
+        - group_accordion_bottom_left_foot
+      parent_name: group_accordions
+      weight: 13
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: 'Bottom Left, Accordion Content'
+      region: content
+    group_accordion_bottom_left_foot:
+      children:
+        - field_paragraph_single_2
+      parent_name: group_bottom_left_accordion_cont
+      weight: 230
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: true
+        required_fields: true
+      label: 'Accordion Bottom Left, Footer'
+      region: content
+    group_bottom_right_accordion_con:
+      children:
+        - field_label_text
+        - field_par_paragraphs
+        - group_accordion_bottom_right_foo
+      parent_name: group_accordions
+      weight: 14
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: 'Bottom Right, Accordion Content'
+      region: content
+    group_accordion_bottom_right_foo:
+      children:
+        - field_paragraph_single
+      parent_name: group_bottom_right_accordion_con
+      weight: 8
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: true
+        required_fields: true
+      label: 'Accordion Bottom Right, Footer'
+      region: content
+    group_lead_headline_and_options:
+      children:
+        - field_headline_text
+        - field_text_color
+      parent_name: group_lead_media
+      weight: 232
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Lead Headline and Options'
+      region: content
+id: paragraph.home_page_grid.default
+targetEntityType: paragraph
+bundle: home_page_grid
+mode: default
+content:
+  field_body:
+    weight: 222
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_eck_reference:
+    weight: 13
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_eck_reference_1:
+    type: entity_reference_autocomplete
+    weight: 14
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+  field_eck_reference_single:
+    type: entity_reference_autocomplete
+    weight: 15
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+  field_headline_text:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_label_text:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_layout:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_paragraph_single:
+    weight: 231
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_par_paragraph_single_0:
+    type: entity_reference_paragraphs
+    weight: 115
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: custom_link
+    third_party_settings: {  }
+    region: content
+  field_par_paragraph_single_1:
+    type: entity_reference_paragraphs
+    weight: 116
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: teaser_insert
+    third_party_settings: {  }
+    region: content
+  field_par_paragraph_single_2:
+    type: entity_reference_paragraphs
+    weight: 117
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: teaser_insert
+    third_party_settings: {  }
+    region: content
+  field_par_paragraph_single_3:
+    type: entity_reference_paragraphs
+    weight: 227
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: custom_link
+    third_party_settings: {  }
+    region: content
+  field_par_paragraph_single_4:
+    type: entity_reference_paragraphs
+    weight: 3
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: custom_link
+    third_party_settings: {  }
+    region: content
+  field_par_paragraph_single_5:
+    type: entity_reference_paragraphs
+    weight: 126
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_par_paragraph_ultd_0:
+    type: entity_reference_paragraphs
+    weight: 14
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: custom_link
+    third_party_settings: {  }
+    region: content
+  field_par_paragraph_ultd_1:
+    type: entity_reference_paragraphs
+    weight: 81
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: custom_link
+    third_party_settings: {  }
+    region: content
+  field_par_paragraphs:
+    weight: 7
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_paragraph_single:
+    type: entity_reference_paragraphs
+    weight: 7
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_paragraph_single_0:
+    weight: 13
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: fact_block
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_paragraph_single_1:
+    weight: 221
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_paragraph_single_2:
+    type: entity_reference_paragraphs
+    weight: 230
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_paragraphs_unlimited:
+    type: entity_reference_paragraphs
+    weight: 229
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_quotator_items:
+    type: entity_reference_paragraphs
+    weight: 122
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: quotator_item
+    third_party_settings: {  }
+    region: content
+  field_single_link:
+    weight: 15
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+    third_party_settings: {  }
+    type: link_attributes
+    region: content
+  field_single_paragraph_1:
+    type: entity_reference_paragraphs
+    weight: 108
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+    region: content
+  field_subheadline_text:
+    weight: 227
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_subheadline_text_0:
+    weight: 13
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_subheadline_text_1:
+    weight: 80
+    settings:
+      size: 25
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_text_color:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

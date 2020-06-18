@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+
+{% include '@uccollege/../components/masthead/masthead-ime.html.twig' %}
+
+<section class="l-container">
+  {% include '@uccollege/../components/headline/headline.html.twig' with {'content': content.headline} %}
+</section>
+
+<div class="l-container">
+  <uc-alphalist
+    endpoint="/it/showcase/endpoint/alphalist-endpoint-faculty" />
+</div>
+
+
+{{ it_showcase_component('footer', 0) }}

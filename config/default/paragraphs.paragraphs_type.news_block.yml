@@ -1,0 +1,9 @@
+uuid: b947badf-70e4-417a-a5a7-4c620a1afa2a
+langcode: en
+status: true
+dependencies: {  }
+id: news_block
+label: 'News Block'
+icon_uuid: null
+description: 'Insert a 3x news block'
+behavior_plugins: {  }

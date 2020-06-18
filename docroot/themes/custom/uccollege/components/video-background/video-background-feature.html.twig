@@ -1,0 +1,42 @@
+{#
+/**
+ * video-background Twig Partial
+ *
+ */
+#}
+
+
+<div class="l-container c-feature__container">
+  <div class="c-feature ">
+    <div class="c-feature__image">
+      <uc-video-background
+        {% if content.heading %}heading="{{ content.heading|convertQuotes }}"{% endif %}
+        {% if content.tag %}tag="{{ content.tag }}"{% endif %}
+        {% if content.poster %}poster="{{ content.poster }}"{% endif %}
+        {% if content.width %}width="{{ content.width }}"{% endif %}
+        {% if content.height %}height="{{ content.height }}"{% endif %}
+        src="{{ content.src }}">
+      </uc-video-background>
+    </div>
+    <div class="c-feature__wrap">
+      <div class="c-feature__content"><h1 class="t-heading--medium">Academics</h1>
+        <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+            et dolore magna aliqua.</strong></p>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <ul aria-label="Accordion Control Group Buttons" class="c-accordion-group">
+          <div class="no-accordion">
+            <div><p class="c-accordion__heading">Quick Links</p>
+              <ul>
+                <li><a href="#">Lorem ipsum dolor</a></li>
+                <li><a href="#">Sit amet consectetur</a></li>
+                <li><a href="#">Adipiscing labore</a></li>
+                <li><a href="#">Tempor incididunt elit</a></li>
+              </ul>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

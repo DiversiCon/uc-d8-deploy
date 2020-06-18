@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Displays html text two column component.
+ *
+ * @see uccollege_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set left_column = content.field_body %}
+{% set right_column = content.field_par_html_single %}
+
+<div class="c-html-text-two-column">
+  <div class="column">
+    {{ left_column }}
+  </div>
+  <div class="column">
+    {{ right_column }}
+  </div>
+</div>

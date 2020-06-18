@@ -1,0 +1,287 @@
+uuid: 0d62b755-08af-4493-aedf-119c1720ecf6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.event.field_all_day
+    - field.field.node.event.field_contact
+    - field.field.node.event.field_department
+    - field.field.node.event.field_description
+    - field.field.node.event.field_event_dates
+    - field.field.node.event.field_event_image
+    - field.field.node.event.field_event_image_caption
+    - field.field.node.event.field_event_status
+    - field.field.node.event.field_event_tags
+    - field.field.node.event.field_external_id
+    - field.field.node.event.field_featured
+    - field.field.node.event.field_location
+    - field.field.node.event.field_notes
+    - field.field.node.event.field_source
+    - field.field.node.event.field_speaker_affiliation
+    - field.field.node.event.field_speaker_name
+    - image.style.thumbnail
+    - node.type.event
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - datetime_range
+    - field_group
+    - image
+    - path
+third_party_settings:
+  field_group:
+    group_when:
+      children:
+        - field_event_dates
+        - field_all_day
+      parent_name: ''
+      weight: 4
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: open
+        description: ''
+        required_fields: true
+      label: When
+      region: content
+    group_image:
+      children:
+        - field_event_image
+        - field_event_image_caption
+      parent_name: ''
+      weight: 3
+      format_type: tab
+      format_settings:
+        label: Image
+        formatter: open
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Image
+      region: content
+    group_where:
+      children:
+        - field_location
+      parent_name: ''
+      weight: 5
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: open
+        description: ''
+        required_fields: true
+      label: Where
+      region: content
+    group_who:
+      children:
+        - field_speaker_name
+        - field_speaker_affiliation
+        - field_contact
+      parent_name: ''
+      weight: 6
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: open
+        description: ''
+        required_fields: true
+      label: Who
+      region: content
+    group_what:
+      children:
+        - field_description
+        - field_notes
+        - field_event_tags
+      parent_name: ''
+      weight: 7
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: open
+        description: ''
+        required_fields: true
+      label: What
+      region: content
+    group_system:
+      children:
+        - field_external_id
+        - field_source
+        - field_department
+      parent_name: ''
+      weight: 20
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: System
+      region: content
+id: node.event.default
+targetEntityType: node
+bundle: event
+mode: default
+content:
+  field_all_day:
+    weight: 11
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_contact:
+    weight: 33
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_department:
+    weight: 30
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_description:
+    weight: 12
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_event_dates:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
+  field_event_image:
+    weight: 26
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_event_image_caption:
+    weight: 27
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_event_status:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_event_tags:
+    weight: 14
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_external_id:
+    weight: 28
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_featured:
+    weight: 2
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_location:
+    weight: 10
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_notes:
+    weight: 13
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_source:
+    weight: 29
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_speaker_affiliation:
+    weight: 32
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_speaker_name:
+    weight: 31
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true

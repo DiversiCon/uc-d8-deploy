@@ -1,0 +1,23 @@
+uuid: 765804c0-ab14-4359-8775-739e6f1ed3d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headline_link
+    - paragraphs.paragraphs_type.fact_block
+  module:
+    - link
+id: paragraph.fact_block.field_headline_link
+field_name: field_headline_link
+entity_type: paragraph
+bundle: fact_block
+label: 'Department Link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

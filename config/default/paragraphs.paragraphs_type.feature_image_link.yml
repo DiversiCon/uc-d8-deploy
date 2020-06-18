@@ -1,0 +1,9 @@
+uuid: cdf5a88c-b0d9-4913-a498-80e4f467c018
+langcode: en
+status: true
+dependencies: {  }
+id: feature_image_link
+label: 'Feature, Image + Link'
+icon_uuid: null
+description: 'Image with optional link for use in the feature component'
+behavior_plugins: {  }

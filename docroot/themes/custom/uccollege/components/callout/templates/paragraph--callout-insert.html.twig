@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Callout Insert, outside wrapper of a callout, utilizes the layout container
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set theme_val = paragraph.field_callout_theme.value %}
+{% if theme_val == 'white' %}
+  {% set theme_class = 'l-stripe' %}
+{% elseif theme_val == 'gray' %}
+  {% set theme_class = 'l-stripe s-bg' %}
+{% elseif theme_val == 'yellow' %}
+  {% set theme_class = 'l-stripe s-bg-secondary' %}
+{% elseif theme_val == 'violet' %}
+  {% set theme_class = 'l-stripe s-bg-tertiary' %}
+{% elseif theme_val == 'maroon' %}
+  {% set theme_class = 'l-stripe s-bg-maroon' %}
+{% elseif theme_val == 'blue' %}
+  {% set theme_class = 'l-stripe s-bg-blue' %}
+{% endif %}
+
+{% block paragraph %}
+  {% block content %}
+    <section class="{{ theme_class }}">
+      {{ content.field_par_paragraph_single }}
+    </section>
+  {% endblock %}
+{% endblock paragraph %}

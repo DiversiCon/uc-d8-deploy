@@ -1,0 +1,21 @@
+uuid: 02f49c73-b404-4f9f-88f0-78ccb7e8108e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_event_reference
+    - paragraphs.paragraphs_type.events_single_tile
+  module:
+    - uc_cdr_client
+id: paragraph.events_single_tile.field_event_reference
+field_name: field_event_reference
+entity_type: paragraph
+bundle: events_single_tile
+label: Event
+description: 'Begin typing an event description and you will be given event suggestions that can be chosen.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: uc_cdr_client_external_reference

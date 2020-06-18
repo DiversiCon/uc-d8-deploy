@@ -1,0 +1,30 @@
+factcard:
+  title: Factcard
+  description: Stylized UI for displaying Facts
+  type: component
+  variants:
+    -
+      title: Default
+      content:
+        heading: Heading
+        name: Name
+        items:
+          -
+            icon:
+            label: Clinical Interests
+            url: '#'
+            text: lorum ipsum text
+          -
+            icon: 'email-solid'
+            label:
+            url: '#'
+            text: msainvilus@uchicago.edu
+
+factcard.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: factcard.component
+    index_hide: true
+    file: themes/custom/uccollege/components/factcard/README.md

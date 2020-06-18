@@ -1,0 +1,27 @@
+uuid: 02b0c978-0ecf-410c-816f-2578a337f12b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subheadline_text
+    - node.type.group
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    basic_html: '0'
+    plain_text: '0'
+id: node.group.field_subheadline_text
+field_name: field_subheadline_text
+entity_type: node
+bundle: group
+label: Sub-headline
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

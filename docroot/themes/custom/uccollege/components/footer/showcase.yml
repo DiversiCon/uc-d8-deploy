@@ -1,0 +1,92 @@
+footer:
+  title: Footer
+  description: Global footer at the bottom of all pages.
+  type: component
+  variants:
+    -
+      title: Footer
+      caption: Global footer at the bottom of all pages.
+      content:
+        department: "Ecology & Evolution"
+        contacts:
+        -
+          name: "The University of Chicago"
+          office: "Pritzker School of Medicine"
+          building: "924 E 57th St."
+          address: "Suite 104"
+          citystate: "Chicago, IL 60637"
+          copyright: "© 2018 The University of Chicago"
+        links:
+        - text: "Biological Sciences Division"
+          url: "#"
+        - text: "The University of Chicago Medicine"
+          url: "#"
+        - text: "Hospital Paging"
+          url: "#"
+        - text: "Medical & Biological Sciences Alumni Association"
+          url: "#"
+        - text: "Make a Gift"
+          url: "#"
+        - text: "myUChicago"
+          url: "#"
+        - text: "UChicago Directory"
+          url: "#"
+        - text: "Website Feedback"
+          url: "#"
+        channels:
+        - label: "facebook"
+          url: "#"
+        - label: "twitter"
+          url: "#"
+        - label: "youtube"
+          url: "#"
+        - label: "flickr"
+          url: "#"
+    -
+      title: Footer with Logo
+      caption: Footer with UC Medicine logo
+      content:
+        logo: "logo-uc-medicine"
+        contacts:
+        -
+          name: "The University of Chicago"
+          office: "Pritzker School of Medicine"
+          building: "924 E 57th St."
+          address: "Suite 104"
+          citystate: "Chicago, IL 60637"
+          copyright: "© 2018 The University of Chicago"
+        links:
+        - text: "Biological Sciences Division"
+          url: "#"
+        - text: "The University of Chicago Medicine"
+          url: "#"
+        - text: "Hospital Paging"
+          url: "#"
+        - text: "Medical & Biological Sciences Alumni Association"
+          url: "#"
+        - text: "Make a Gift"
+          url: "#"
+        - text: "myUChicago"
+          url: "#"
+        - text: "UChicago Directory"
+          url: "#"
+        - text: "Website Feedback"
+          url: "#"
+        channels:
+        - label: "facebook"
+          url: "#"
+        - label: "twitter"
+          url: "#"
+        - label: "youtube"
+          url: "#"
+        - label: "flickr"
+          url: "#"
+
+footer.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: footer.component
+    index_hide: true
+    file: themes/custom/uccollege/components/footer/README.md

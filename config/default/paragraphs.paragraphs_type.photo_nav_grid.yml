@@ -1,0 +1,9 @@
+uuid: 55f9658f-966c-47b2-9088-31976b728b65
+langcode: en
+status: true
+dependencies: {  }
+id: photo_nav_grid
+label: 'Visual Nav'
+icon_uuid: null
+description: 'Used in config_page as the visual navigation menu component'
+behavior_plugins: {  }

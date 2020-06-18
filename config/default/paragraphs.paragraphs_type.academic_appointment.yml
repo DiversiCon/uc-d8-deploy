@@ -1,0 +1,9 @@
+uuid: 20e94194-ecd4-4b18-ba38-1535cf08724e
+langcode: en
+status: true
+dependencies: {  }
+id: academic_appointment
+label: 'Academic Appointment'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

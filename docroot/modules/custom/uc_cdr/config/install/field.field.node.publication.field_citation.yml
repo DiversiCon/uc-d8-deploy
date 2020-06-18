@@ -1,0 +1,19 @@
+uuid: ba29dc5c-a7f3-4148-a2d9-84d169c28f14
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_citation
+    - node.type.publication
+id: node.publication.field_citation
+field_name: field_citation
+entity_type: node
+bundle: publication
+label: Citation
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

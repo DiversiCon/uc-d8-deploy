@@ -1,0 +1,54 @@
+uuid: 7de4c953-098a-4665-ad2a-2fbcee294ee4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.people_grouped_list.field_filter_person_fields
+    - field.field.paragraph.people_grouped_list.field_hide_filter
+    - field.field.paragraph.people_grouped_list.field_label_text
+    - field.field.paragraph.people_grouped_list.field_par_paragraphs
+    - paragraphs.paragraphs_type.people_grouped_list
+  module:
+    - entity_reference_revisions
+    - options
+    - text
+id: paragraph.people_grouped_list.default
+targetEntityType: paragraph
+bundle: people_grouped_list
+mode: default
+content:
+  field_filter_person_fields:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_hide_filter:
+    weight: 1
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_label_text:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_par_paragraphs:
+    weight: 0
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

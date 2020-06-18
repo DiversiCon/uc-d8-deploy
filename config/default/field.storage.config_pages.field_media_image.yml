@@ -1,0 +1,20 @@
+uuid: f1c0baf3-3f46-426d-b4ea-df1d11d4c19d
+langcode: en
+status: true
+dependencies:
+  module:
+    - config_pages
+    - media
+id: config_pages.field_media_image
+field_name: field_media_image
+entity_type: config_pages
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: 18578eb3-564e-481d-a847-e92acb28db2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_layout
+    - paragraphs.paragraphs_type.home_page_grid
+  module:
+    - options
+id: paragraph.home_page_grid.field_layout
+field_name: field_layout
+entity_type: paragraph
+bundle: home_page_grid
+label: Layout
+description: "This alters how the top right quadrant of the homepage is displayed.<br />\r\n<ul>\r\n<li><strong>None or With Stats Section:</strong> Display the stats section layout with Quote, Stats and CTA Links.</li>\r\n<li><strong>With Facts Section:</strong> Display facts section layout with Quote, Facts and CTA Links.</li>\r\n</ul>"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

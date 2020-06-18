@@ -1,0 +1,80 @@
+langcode: en
+status: true
+id: migrate_media_image
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: legacy
+label: 'Media: Image'
+source:
+  plugin: d7_node
+  node_type: image
+  constants:
+    bundle: 'image_hero'
+process:
+  bundle: constants/bundle
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  name: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  field_filter_exclude_list: field_content_listing_exclusion
+  field_filter_exclude_rss: field_content_rss_exclusion
+  field_filter_exclude_hires: field_hires_download
+  field_image_caption:
+    plugin: get
+    source: field_image_caption
+  field_image_credit_label: field_image_caption_label
+  field_source_link:
+    plugin: field_link
+    source: field_image_source_url
+  field_media_image:
+    plugin: migration_lookup
+    migration: migrate_file
+    source: field_image_file/0/fid
+#  field_media_image/alt: title
+  field_sources_reference:
+    plugin: sub_process
+    source: taxonomy_vocabulary_1
+    process:
+      target_id: tid
+  field_tags_reference:
+    plugin: sub_process
+    source: taxonomy_vocabulary_2
+    process:
+      target_id: tid
+  field_image_date:
+    plugin: iterator
+    source: field_image_date
+    process:
+      value:
+        plugin: format_date
+        source: value
+        from_format: 'U'
+        to_format: 'Y-m-d'
+        settings:
+          validate_format: false
+destination:
+  plugin: 'entity:media'
+  default_bundle: image_hero
+migration_dependencies:
+  required:
+    - migrate_users
+  optional:
+    - d7_field_instance
+dependencies:
+  module:
+    - uc_migrate
+  enforced:
+    module:
+      - uc_migrate

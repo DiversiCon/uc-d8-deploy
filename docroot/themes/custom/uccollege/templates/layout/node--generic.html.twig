@@ -1,0 +1,54 @@
+{#
+/**
+ * @file
+ * Generic page template
+ *
+ * Available variables:
+ * - hero_component_available: A boolean that indicates if the hero_component has value.
+ *   Due to the nested nature of the paragraph type it takes more than one check to determine this.
+ *
+ * @ingroup themeable
+ */
+#}
+{% set main_media = content.field_image_main %}
+{% set hero_components = content.field_intro_paragraph %}
+{% set main_body = content.field_par_smartbody %}
+{% set sidebar = content.field_paragraph_single_3 %}
+{% set sidebar_1 = content.field_paragraph_single_2 %}
+{% set sidebar_2 = content.field_paragraph_single_4 %}
+{% set visual_nav = content.field_paragraph_single_0 %}
+{% set switcher = content.field_paragraph_single_1 %}
+
+{{ content.content_moderation_control }}
+
+<section class="l-container">
+  <article class="c-article">
+
+    {% include '@uccollege/components/headline/templates/node--inc--headline.html.twig' %}
+
+    {% if main_media|field_value or hero_component_available %}
+      <div class="c-article__media">
+
+        {% if hero_component_available %}
+          {{ hero_components }}
+        {% else %}
+          {{ main_media }}
+        {% endif %}
+
+      </div>
+    {% endif %}
+
+    {% if sidebar|field_value or sidebar_1|field_value or sidebar_2|field_value %}
+      <div class="c-article__sidebar">
+        {{ sidebar_2 }}
+        {{ sidebar }}
+        {{ sidebar_1 }}
+      </div>
+    {% endif %}
+
+    {{ main_body }}
+  </article>
+</section>
+{{ content.field_par_components }}
+{{ visual_nav }}
+{{ switcher }}

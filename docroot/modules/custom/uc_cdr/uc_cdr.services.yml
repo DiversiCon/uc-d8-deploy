@@ -1,0 +1,5 @@
+services:
+  uc_cdr.event_subscriber:
+    class: 'Drupal\uc_cdr\EventSubscriber\CdrEventSubscriber'
+    tags:
+      - { name: event_subscriber }

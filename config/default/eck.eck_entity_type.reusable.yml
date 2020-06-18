@@ -1,0 +1,10 @@
+uuid: 86576788-9cb2-4812-ab4c-b49cfc6293ad
+langcode: en
+status: true
+dependencies: {  }
+id: reusable
+label: Reusable
+created: true
+changed: true
+uid: true
+title: true

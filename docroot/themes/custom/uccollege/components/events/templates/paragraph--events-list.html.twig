@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ * Events list.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+<section class="l-container">
+  <uc-events
+      endpoint="{{ uc_cdr.endpoint }}/event_index"
+      instance="{{ uc_cdr.instance_id }}">
+  </uc-events>
+</section>

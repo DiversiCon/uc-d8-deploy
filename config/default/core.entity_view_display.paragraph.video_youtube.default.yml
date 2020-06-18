@@ -1,0 +1,23 @@
+uuid: 49b063ef-35a2-4ebd-ba72-c36dad948cd4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.video_youtube.field_eck_reference_single
+    - paragraphs.paragraphs_type.video_youtube
+id: paragraph.video_youtube.default
+targetEntityType: paragraph
+bundle: video_youtube
+mode: default
+content:
+  field_eck_reference_single:
+    weight: 0
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

@@ -1,0 +1,9 @@
+uuid: 877dad7c-a480-4ab3-91f3-f7d07dc8dde8
+langcode: en
+status: true
+dependencies: {  }
+id: feature_components
+label: 'Feature components'
+icon_uuid: null
+description: 'Components available to the feature (intro) section of landing pages and feature component for lower-page and home-page inclusions.'
+behavior_plugins: {  }

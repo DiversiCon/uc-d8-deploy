@@ -1,0 +1,38 @@
+uuid: 15a12677-6b3d-4c0f-a981-e4d6195ad957
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.cta_link
+    - field.field.paragraph.custom_link.field_headline_link
+    - field.field.paragraph.custom_link.field_headline_text
+    - paragraphs.paragraphs_type.custom_link
+  module:
+    - link
+    - text
+id: paragraph.custom_link.cta_link
+targetEntityType: paragraph
+bundle: custom_link
+mode: cta_link
+content:
+  field_headline_link:
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_headline_text:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  search_api_excerpt: true

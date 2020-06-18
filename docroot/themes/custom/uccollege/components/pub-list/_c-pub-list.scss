@@ -1,0 +1,162 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - pub-list component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-pub-list {
+  padding: rem-calc(20) rem-calc(20) rem-calc(30);
+
+  &__controls {
+    max-width: rem-calc(680);
+    margin: 0 auto;
+    background-color: #fff;
+    display: grid;
+    grid-gap: 0 rem-calc(40);
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "search"
+      "dropdown"
+      "dropdown";
+
+    @include breakpoint(medium) {
+      grid-template-columns: 47% 22.6% 18.6%;
+    }
+
+    &--hide-topics {
+      grid-template-areas:
+        "search"
+        "dropdown";
+
+      @include breakpoint(medium) {
+        grid-template-columns: 47% 47%;
+      }
+    }
+
+    &.sticky {
+      margin: 0 rem-calc(20);
+      max-width: rem-calc(1200);
+      position: fixed;
+      left: 0;
+      right: 0;
+      z-index: 100;
+
+      @include breakpoint(medium) {
+        padding-top: 0;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  &__dropdown {
+    width: 100%;
+    margin: 0 auto;
+
+    @include breakpoint(medium) {
+      margin: 0;
+      justify-self: start;
+    }
+  }
+
+  .c-dropdown__button {
+    padding-right: rem-calc(30);
+  }
+
+  &__search-info {
+    max-width: $list-max-width;
+    margin: 0 auto;
+  }
+
+  &__search-summary {
+    font-size: rem-calc(18);
+    margin-top: rem-calc(28);
+  }
+
+  &__noresults {
+    margin-top: rem-calc(28);
+    text-align: center;
+  }
+
+  &__content {
+    max-width: $list-max-width;
+    margin: 0 auto;
+  }
+
+  &__item {
+    border-bottom: 2px solid;
+    padding: rem-calc(39) 0;
+    p {
+      margin-bottom: 0.25rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &-title {
+      color: $color-black;
+      font-size: rem-calc(16);
+      font-weight: 600;
+      letter-spacing: 0;
+      margin-bottom: 0.5rem;
+      a {
+        color: inherit;
+        text-decoration: none;
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &__more-link {
+    display: inline-block;
+    margin: rem-calc(15) 0;
+  }
+}
+
+.c-searchform.c-pub-list__searchform {
+  width: 100%;
+  grid-area: search;
+  margin: 0 0 rem-calc(10) 0;
+
+  input {
+    @include placeholder($color-mdgrey, rem-calc(18), 400);
+    border-bottom-width: 2px;
+    font-size: rem-calc(18);
+    margin: 0;
+  }
+
+  .c-searchform__input_container {
+    button {
+      top: 0;
+    }
+  }
+
+  @include breakpoint(medium) {
+    align-self: end;
+    justify-self: end;
+    margin: 0;
+
+    .c-searchform__input_container {
+      margin-top: rem-calc(13);
+      button {
+        top: rem-calc(1);
+      }
+    }
+  }
+
+  &--nodropdown {
+    @include breakpoint(medium) {
+      grid-column: 1/3;
+      justify-self: center;
+      width: 35%;
+    }
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-pub-list {
+    // sass linter doesn't like empty blocks :)
+  }
+}

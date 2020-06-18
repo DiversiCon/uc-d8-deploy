@@ -1,0 +1,19 @@
+uuid: c54113f6-7385-4367-ba6c-2c7b2cefeace
+langcode: en
+status: true
+dependencies:
+  module:
+    - rest
+    - serialization
+    - uc_api
+    - user
+id: teaser_images_rest_resource
+plugin_id: teaser_images_rest_resource
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+  authentication:
+    - cookie

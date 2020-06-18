@@ -1,0 +1,9 @@
+uuid: f9b6107f-7434-4cac-9c25-375d264cc83f
+langcode: en
+status: true
+dependencies: {  }
+id: person_list_teasers
+label: 'Person List, Teasers'
+icon_uuid: null
+description: 'Displays a list of selected people, using the Teaser display mode.'
+behavior_plugins: {  }

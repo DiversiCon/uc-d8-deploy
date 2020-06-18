@@ -1,0 +1,16 @@
+{#
+/**
+ * Publications page. Driven by data from the uc_cdr_client module.
+ */
+#}
+
+{% set headline = (publications_data.headline) ? publications_data.headline : 'Publications' %}
+
+<uc-pub-list
+    headline="{{ headline }}"
+    author-type="{{ publications_data.author_type }}"
+    staff-id="{{ publications_data.uuid }}"
+    staff-url="{{ publications_data.return_url }}"
+    endpoint="{{ uc_cdr.endpoint_faculty_publications }}"
+    :hide-topics="{{ publications_data.hide_topics }}">
+</uc-pub-list>

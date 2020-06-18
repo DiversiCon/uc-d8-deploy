@@ -1,0 +1,25 @@
+feature_quote:
+  title: Feature Quote
+  description: Quote and photo on homepage
+  type: component
+  attributes:
+    category: Promos
+  variants:
+  -
+    title: Default
+    content:
+      text: Imaginative teaching and learning are at the heart of our mission, since 1890
+      attribution: John W. Boyer
+      img: "/themes/custom/uccollege/it_showcase/images/quote-boyer.jpg"
+      alt: "Dean Boyer"
+      linkUrl: "#"
+      linkText: A message from the Dean
+
+feature_quote.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: feature_quote.component
+    index_hide: true
+    file: themes/custom/uccollege/components/feature_quote/README.md

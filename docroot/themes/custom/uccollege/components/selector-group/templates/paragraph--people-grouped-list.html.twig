@@ -1,0 +1,8 @@
+{% set list_id = paragraph.id.value %}
+
+<uc-selector-group
+  datasource="/api/v1/people/grouped/{{ list_id }}{{ api_query_string }}"
+  filterkey="group"
+  {% if paragraph.field_hide_filter.value == 1 %}:hide-dropdown="true"{% endif %}
+  label="{{ content.field_label_text|render|striptags|trim|convertQuotes }}">
+</uc-selector-group>

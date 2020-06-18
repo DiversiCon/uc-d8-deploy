@@ -1,0 +1,66 @@
+sidebar-facts:
+  title: Sidebar Facts
+  description: Sidebar on homepage grid
+  type: component
+  variants:
+    -
+      title: Default
+      content:
+        theme: secondary
+        items:
+        -
+          headline: Our History and Culture
+          html: "<p>Our students are rigorous thinkers from diverse backgrounds who welcome and thrive on intellectual debate.</p>"
+        -
+          headline: Why UChicago?
+          text: "<p>A distinguished faculty of scholars and scientists teach students of diverse backgrounds and intellectual interests how, not what, to think.</p>"
+
+    -
+      title: Grey Background with Quick Links
+      content:
+        theme: primary
+        items:
+        -
+          headline: Integrating Biology and Medicine
+          html: "<p>A single division that brings together interdisciplinary, world-renowned educational, research and clinical programs in the biological sciences and Pritzker School of Medicine.</p>"
+        -
+          align: left
+          html: "<h3 class='t-heading--list'>Quick Links</h3>
+                  <ul>
+                    <li><a href='#'>Pritzker</a></li>
+                    <li><a href='#'>Graduate Programs</a></li>
+                    <li><a href='#'>Our Faculty</a></li>
+                    <li><a href='#'>UChicago Medicine</a></li>
+                  </ul>"
+
+    -
+      title: Grey Background with Quick Links Variant
+      content:
+        theme: primary
+        items:
+        -
+          headline: Our Mission
+          html: "<p>Our world-renowned faculty, access to resources at multiple institutions, and an intellectually invigorating environment work together to foster the development of innovative and independent scientists.</p>"
+        -
+          align: left
+          html: "<h3 class='t-heading--list'>Quick Links</h3>
+                  <ul>
+                    <li><a href='#'>Overview</a></li>
+                    <li><a href='#'>Admissions</a></li>
+                    <li><a href='#'>Facilities & Field Sites</a></li>
+                    <li><a href='#'>Course Descriptions</a></li>
+                    <li><a href='#'>Lorem ipsum</a></li>
+                  </ul>"
+        -
+          align: left
+          department: true
+          html: "Ecology & Evolution is a<br> department in the<br> <a href=\"#\">Biological Sciences Division</a>"
+
+sidebar-facts.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: sidebar-facts.component
+    index_hide: true
+    file: themes/custom/uccollege/components/sidebar-facts/README.md

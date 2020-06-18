@@ -1,0 +1,23 @@
+uuid: b7d4bf39-ea3f-4b47-a44c-03c3d4b752a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_bool_intro_toggle
+    - paragraphs.paragraphs_type.feature_announcement
+id: paragraph.feature_announcement.field_bool_intro_toggle
+field_name: field_bool_intro_toggle
+entity_type: paragraph
+bundle: feature_announcement
+label: 'Image Flip'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

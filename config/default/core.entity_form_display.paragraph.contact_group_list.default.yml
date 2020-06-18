@@ -1,0 +1,30 @@
+uuid: b4af2697-9236-4680-9f98-2d0f14812bff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.contact_group_list.field_par_paragraphs
+    - paragraphs.paragraphs_type.contact_group_list
+  module:
+    - paragraphs
+id: paragraph.contact_group_list.default
+targetEntityType: paragraph
+bundle: contact_group_list
+mode: default
+content:
+  field_par_paragraphs:
+    weight: 0
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: contact_group
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

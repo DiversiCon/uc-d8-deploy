@@ -1,0 +1,21 @@
+uuid: 745e9137-5ce1-4db6-9be7-3133e65dab06
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+id: reusable.field_video_id
+field_name: field_video_id
+entity_type: reusable
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

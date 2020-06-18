@@ -1,0 +1,67 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+
+{{ it_showcase_component('masthead', 0) }}
+
+{{ it_showcase_component('feature', 13) }}
+{{ it_showcase_component('feature', 14) }}
+
+<section class="l-stripe l-stripe--narrow s-bg">
+  <h3 class="t-heading--medium">Community Health Outreach Groups</h3>
+  <p>Lorem ipsum dolor sit amet consectetur adipiscing eiusmod tempor incididunt irure dolor in labore</p>
+
+  <uc-accordion-group v-cloak>
+    <uc-accordion title="Adolescent Substance Abuse Program (ASAP)">
+      <ul>
+        <li><a href="#">Lorem ipsum dolor</a></li>
+        <li><a href="#">Sit amet consectetur</a></li>
+        <li><a href="#">Adipiscing labore</a></li>
+        <li><a href="#">Tempor incididunt elit</a></li>
+      </ul>
+    </uc-accordion>
+
+    <uc-accordion title="Asian Pacific American Medical Students Association">
+      <ul>
+        <li><a href="#">Lorem ipsum dolor</a></li>
+        <li><a href="#">Sit amet consectetur</a></li>
+        <li><a href="#">Adipiscing labore</a></li>
+        <li><a href="#">Tempor incididunt elit</a></li>
+      </ul>
+    </uc-accordion>
+
+	  <uc-accordion title="Diabetes Prevention and Management Group">
+		<p>The purpose of this organization shall be to provide community based glucose
+			and blood pressure screenings. Provisions to expand our services will be up
+			to the discretion of the board and the needs of the community. We shall
+			follow our community based screenings with community based diabetes and
+			health related education programming in order to expand the knowledge base
+			of the community as well as to empower individuals to take charge of their own health.</p>
+
+		  <p><strong>Contacts:</strong> <a href="#">Anastasia Pozdnakova</a> and <a href="#">Olivia Jordan</a><br>
+			  <strong>Faculty Advisor:</strong> Deborah Burnet, MD, Department of Medicine</p>
+	  </uc-accordion>
+
+	  <uc-accordion title="Health Professions Recruitment and Exposure Program (HPREP)">
+		  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias autem eligendi fugiat in ipsam ipsum magni, minima molestiae numquam placeat possimus ratione recusandae reiciendis repellat similique tempore vel, vero voluptatibus.</p>
+	  </uc-accordion>
+  </uc-accordion-group>
+</section>
+
+<section class="l-stripe l-stripe--narrow">
+	{{ it_showcase_component('video', 1) }}
+</section>
+
+{{ it_showcase_component('feature', 15) }}
+
+{{ it_showcase_component('footer', 0) }}

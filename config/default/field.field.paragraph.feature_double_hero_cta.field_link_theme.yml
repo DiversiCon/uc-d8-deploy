@@ -1,0 +1,21 @@
+uuid: d43953de-b4c1-407a-ad68-f2dc9a1398cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_link_theme
+    - paragraphs.paragraphs_type.feature_double_hero_cta
+  module:
+    - options
+id: paragraph.feature_double_hero_cta.field_link_theme
+field_name: field_link_theme
+entity_type: paragraph
+bundle: feature_double_hero_cta
+label: 'CTA Link Theme'
+description: "<p>Choose the text color. Defaults to black.</p>\r\n<ul>\r\n<li><strong>Black:</strong> black text</li>\r\n<li><strong>White:</strong> white text</li>\r\n</ul>"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

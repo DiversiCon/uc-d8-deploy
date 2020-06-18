@@ -1,0 +1,93 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+{{ it_showcase_component('masthead', 0) }}
+
+<section class="l-container c-content">
+	  <div class="c-content__body">
+    {% include '@uccollege/../components/headline/headline.html.twig' with {'content': content.headline} %}
+	  </div>
+</section>
+
+<section class="l-container c-content">
+	<div class="c-content__body">
+		<uc-accordion-group heading="Autumn Early Quarter" :heading-centered="true" v-cloak>
+			<uc-accordion title="The Human Body">
+				<p><strong>The Human Body</strong> course is the first component of the Scientific Foundations of Medicine
+				curriculum in Year 1. The Human Body course will provide you with a foundation in the structural
+				organization of the body. You will learn gross anatomy of the back, thorax, abdomen, pelvis, head and
+				neck, and upper and lower limbs through large and small group teaching sessions, as well as cadaver
+				dissection. Correlations with Radiology and Surgery are an integral part of the course and provide real
+				world clinical context for the anatomic material.</p>
+
+				<p><a href="#">Read more about our recently upgraded anatomy labs.</a></p>
+
+				<p><strong>Location: KCBD 1102</strong></p>
+
+				<p><strong>When:</strong> August 7, 2018- October 19, 2018</p>
+
+				<p><strong>Instructors:</strong> Turkewitz, Glick</p>
+
+				<p><strong>Cross-Listings:</strong> (=MGCB 31600)</p>
+
+				<p><strong>Prerequisites:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
+
+				<p>The course meets daily each morning, with dissection labs meeting in the afternoons.</p>
+
+				<p><em>Cadavers used in this course are generously donated to the Pritzker School of Medicine through the
+						Anatomical Gift Association of Illinois. For more information about this process, please visit their webpage:
+						<a href="#">Anatomical Gift Association of Illinois</a>. Each fall, the first year class commemorates the lives of those who
+						donated their bodies to the course during an annual ceremony of gratitude.</em></p>
+			</uc-accordion>
+
+			<uc-accordion title="Health Care Disparities in America: Equity and Advocacy">
+				<p>Accordion content here</p>
+			</uc-accordion>
+
+			<uc-accordion title="Scholarship and Discovery 1A">
+				<p>Accordion content here</p>
+			</uc-accordion>
+		</uc-accordion-group>
+
+		<uc-accordion-group heading="Autumn Quarter" :heading-centered="true" v-cloak>
+			<uc-accordion title="Medical Cellular Biology & Genetics">
+				<p>Accordion content here</p>
+			</uc-accordion>
+
+			<uc-accordion title="Physician-Patient-Society-Systems (P2S2)">
+				<p>Accordion content here</p>
+			</uc-accordion>
+
+			<uc-accordion title="Clinical Skills 1A">
+				<p>Accordion content here</p>
+			</uc-accordion>
+
+			<uc-accordion title="The American Healthcare System">
+				<p>Accordion content here</p>
+			</uc-accordion>
+
+			<uc-accordion title="Longitudinal Program">
+				<p>Accordion content here</p>
+			</uc-accordion>
+		</uc-accordion-group>
+
+		<p><strong>Faculty Contact Information</strong></p>
+		<ul>
+			<li><a href="#">Faculty for 1st Year Autumn Courses (PDF)</a></li>
+			<li><a href="#">Faculty for 1st Year Winter Courses (PDF)</a></li>
+			<li><a href="#">Faculty for 1st Year Spring Courses (PDF)</a></li>
+		</ul>
+	</div>
+</section>
+
+{{ it_showcase_component('footer', 0) }}

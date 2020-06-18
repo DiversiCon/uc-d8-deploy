@@ -1,0 +1,20 @@
+uuid: 9e87f9a2-4875-47fc-967f-9b82f5dd11d2
+langcode: en
+status: true
+dependencies: {  }
+id: non_local
+label: non_local
+description: ''
+folder: ../config/envs/non_local
+module:
+  autologout: 0
+  config_ignore: 0
+  pantheon_advanced_page_cache: 0
+  search_api_pantheon: 0
+theme: {  }
+blacklist:
+  - search_api.index.primary
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: -50

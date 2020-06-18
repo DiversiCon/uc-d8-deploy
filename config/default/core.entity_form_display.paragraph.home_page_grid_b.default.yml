@@ -1,0 +1,118 @@
+uuid: 3b8b0b53-89a8-4e44-8f3a-ae07395c2303
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.home_page_grid_b.field_par_paragraph_single
+    - field.field.paragraph.home_page_grid_b.field_paragraph_single
+    - field.field.paragraph.home_page_grid_b.field_paragraph_single_0
+    - paragraphs.paragraphs_type.home_page_grid_b
+  module:
+    - field_group
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_top_feature:
+      children:
+        - field_paragraph_single
+      parent_name: ''
+      weight: 0
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+        open: false
+      label: 'Top Feature'
+      region: content
+    group_left_:
+      children:
+        - field_paragraph_single_0
+      parent_name: group_bottom_section
+      weight: 2
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: main-content-section-wrap
+        description: ''
+        required_fields: true
+      label: 'Left Content'
+      region: content
+    group_right_content:
+      children:
+        - field_par_paragraph_single
+      parent_name: group_bottom_section
+      weight: 3
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: main-content-section-wrap
+        description: ''
+        required_fields: true
+      label: 'Right Content'
+      region: content
+    group_bottom_section:
+      children:
+        - group_left_
+        - group_right_content
+      parent_name: ''
+      weight: 1
+      format_type: html_element
+      format_settings:
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        required_fields: true
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: content-entry-flex-wrap
+      label: 'Bottom Section'
+      region: content
+id: paragraph.home_page_grid_b.default
+targetEntityType: paragraph
+bundle: home_page_grid_b
+mode: default
+content:
+  field_par_paragraph_single:
+    weight: 22
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: home_quad_two_tiles
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_paragraph_single:
+    weight: 1
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_paragraph_single_0:
+    weight: 21
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: home_quad_header_text_and_links
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+hidden:
+  created: true
+  status: true

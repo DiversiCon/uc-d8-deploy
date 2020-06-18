@@ -1,0 +1,143 @@
+nav-endpoint:
+  title: Nav Endpoint
+  description:
+  type: endpoint
+  variants:
+  -
+    title: Default
+    caption:
+    content:
+      switcher:
+      - type: affiliate
+        links:
+        - title: Course Catalog
+          url: '#'
+          target: _self
+        - title: MyUChicago
+          url: '#'
+          target: _self
+        - title: Financial Aid
+          url: '#'
+          target: _self
+        - title: Give
+          url: '#'
+          target: _self
+      - type: prospect
+        links:
+        - title: Visit
+          url: '#'
+          target: _self
+        - title: Apply
+          url: '#'
+          target: _self
+        - title: Financial Aid
+          url: '#'
+          target: _self
+        - title: Give
+          url: '#'
+          target: _blank
+      items:
+      - section: About
+        link: /about
+        target: _blank
+        text: Temp text for About
+        links:
+        - title: Temp link one
+          url: '#'
+          target: _blank
+        - title: Temp Link two
+          url: '#'
+          target: _self
+      - section: Academics
+        link: /academics
+        target: _self
+        text: Students in the College draw their encouragement, inspiration, and confidence from excellent teachers.
+        links:
+        - title: Curriculum
+          url: '#'
+          target: _self
+        - title: Collegiate Divisions
+          url: '#'
+          target: _self
+        - title: Majors & Minors
+          url: '#'
+          target: _self
+        - title: Research & Fellowships
+          url: '#'
+          target: _self
+        - title: Study Abroad
+          url: '#'
+          target: _self
+        - title: Marine Biological Laboratory
+          url: '#'
+          target: _self
+        - title: Course Catalog
+          url: '#'
+          target: _self
+        - title: Summer Session
+          url: '#'
+          target: _self
+      - section: Admissions
+        link: /admissions
+        target: _self
+        text: Temp text for Advising
+        links:
+        - title: Temp link one
+          url: '#'
+          target: _self
+        - title: Temp Link two
+          url: '#'
+          target: _self
+      - section: Community Service
+        link: /faculty
+        target: _self
+        text: Temp text for Our Faculty
+        links:
+        - title: Temp link one
+          url: '#'
+          target: _self
+        - title: Temp Link two
+          url: '#'
+          target: _self
+      - section: Scholarly Opportunities
+        link: /student
+        target: _self
+        text: Temp text for Student Life
+        links:
+        - title: Temp link one
+          url: '#'
+          target: _self
+        - title: Temp Link two
+          url: '#'
+          target: _self
+      - section: Student Resources
+        link: /services
+        target: _self
+        text: Temp text for Student Services
+        links:
+        - title: Temp link one
+          url: '#'
+          target: _self
+        - title: Temp Link two
+          url: '#'
+          target: _self
+      - section: Student Life
+        link: /news
+        target: _self
+        text: Temp text for news
+        links:
+        - title: Temp link one
+          url: '#'
+          target: _self
+        - title: Temp Link two
+          url: '#'
+          target: _self
+
+navigation.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: navigation.component
+    index_hide: true
+    file: themes/custom/uccollege/components/navigation/README.md

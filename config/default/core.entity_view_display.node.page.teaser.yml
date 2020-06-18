@@ -1,0 +1,74 @@
+uuid: 22eb4225-8784-4e89-ae28-0df47f732e62
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.page.body
+    - field.field.node.page.field_bool_intro_toggle
+    - field.field.node.page.field_bool_template
+    - field.field.node.page.field_headline_text
+    - field.field.node.page.field_image_main
+    - field.field.node.page.field_lower_section_components
+    - field.field.node.page.field_par_components
+    - field.field.node.page.field_paragraph_single_0
+    - field.field.node.page.field_paragraph_single_1
+    - field.field.node.page.field_section
+    - field.field.node.page.field_subheadline_text
+    - field.field.node.page.field_subheadline_text_1
+    - field.field.node.page.field_video_file
+    - node.type.page
+  module:
+    - text
+    - user
+id: node.page.teaser
+targetEntityType: node
+bundle: page
+mode: teaser
+content:
+  field_headline_text:
+    type: text_default
+    weight: 2
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_image_main:
+    type: entity_reference_entity_view
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+  field_section:
+    type: entity_reference_entity_view
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      view_mode: headline
+      link: false
+    third_party_settings: {  }
+  field_subheadline_text:
+    type: text_default
+    weight: 3
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  body: true
+  content_moderation_control: true
+  field_background_theme: true
+  field_bool_intro_toggle: true
+  field_bool_template: true
+  field_lower_section_components: true
+  field_par_components: true
+  field_paragraph_single_0: true
+  field_paragraph_single_1: true
+  field_subheadline_text_1: true
+  field_video_file: true
+  links: true
+  search_api_excerpt: true

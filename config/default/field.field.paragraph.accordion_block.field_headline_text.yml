@@ -1,0 +1,30 @@
+uuid: 32887f80-eb4f-425c-9f25-c27d8198ed39
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headline_text
+    - paragraphs.paragraphs_type.accordion_block
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.accordion_block.field_headline_text
+field_name: field_headline_text
+entity_type: paragraph
+bundle: accordion_block
+label: 'Block Headline'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

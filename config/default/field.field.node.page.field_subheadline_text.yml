@@ -1,0 +1,30 @@
+uuid: 0253f357-b4ad-401e-8fcd-5845bf7aaf41
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subheadline_text
+    - node.type.page
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: node.page.field_subheadline_text
+field_name: field_subheadline_text
+entity_type: node
+bundle: page
+label: Sub-headline
+description: 'Not printed to page, used as a sub-headline for callouts, and on the homepage tiles.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

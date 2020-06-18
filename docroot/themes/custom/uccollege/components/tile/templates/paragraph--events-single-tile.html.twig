@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Landing Page Tile
+ *
+ * @see template_preprocess_node()
+ */
+#}
+
+<div class="c-tile__img">
+  <a href="{{ event_url }}">
+    <div class="c-tile__img-imagewrap">
+      <svg class="c-icon c-icon--phoenix">
+        <use xlink:href="/themes/custom/uccollege/dist/icons.svg#phoenix" />
+      </svg>
+      {% if event_image_url %}
+        <img src="{{ event_image_url }}" alt="{{ event_headline }}" />
+      {% endif %}
+      <div class="c-media-icon">
+        <svg class="c-icon c-icon--calendar">
+          <use xlink:href="/themes/custom/uccollege/dist/icons.svg#calendar"></use>
+        </svg>
+      </div>
+    </div>
+  </a>
+</div>
+
+<div class="c-tile__content">
+  <h2 class="c-tile__title"><a href="{{ event_url }}">{{ event_headline }}</a></h2>
+  <p>{{ event_description|raw }}</p>
+</div>

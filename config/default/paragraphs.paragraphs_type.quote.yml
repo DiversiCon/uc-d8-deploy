@@ -1,0 +1,9 @@
+uuid: dc8c8796-04f2-4aea-b6cb-db9c8bd2aa64
+langcode: en
+status: true
+dependencies: {  }
+id: quote
+label: Quote
+icon_uuid: null
+description: 'Display a quote by an individual.'
+behavior_plugins: {  }

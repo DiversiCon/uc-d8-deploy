@@ -1,0 +1,201 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - Masthead Component
+//This is the global masthead at the very top of all pages.
+
+.c-masthead {
+  background: $white;
+  height: rem-calc(64);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: $default-max-width;
+  padding: 0 rem-calc(20);
+  transition: top 0.2s ease-in-out;
+  z-index: $zindex-masthead;
+
+  &--hidden {
+    top: rem-calc(-$masthead-sm);
+
+    @include breakpoint(nav) {
+      top: rem-calc(-$masthead-lg);
+    }
+  }
+
+  &--navopen {
+    background-color: $color-secondary;
+  }
+
+  @include breakpoint(medium) {
+    padding: 0 rem-calc(40);
+  }
+
+  @include breakpoint(nav) {
+    height: auto;
+    position: absolute;
+  }
+
+  &__wrap {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-top: rem-calc(12);
+
+    @include breakpoint(nav) {
+      padding-top: rem-calc(20);
+    }
+  }
+
+  &__logo,
+  &__thecollege {
+    display: block;
+    color: $color-secondary;
+
+    svg {
+      fill: currentColor;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $black;
+    }
+
+    .c-masthead--navopen & {
+      svg {
+        fill: $color-white;
+      }
+    }
+
+    @include breakpoint(nav) {
+      width: 35%;
+    }
+  }
+
+  &__logo {
+    svg {
+      height: rem-calc(28);
+      margin-top: rem-calc(4);
+      width: rem-calc(23);
+    }
+
+    @include breakpoint(nav) {
+      svg {
+        height: rem-calc(50);
+        margin-top: 0;
+        width: rem-calc(241);
+      }
+    }
+  }
+
+  &__thecollege {
+    display: inline-block;
+    align-self: center;
+    text-align: center;
+    margin: 0 rem-calc(10);
+
+    .c-masthead__site-logo {
+      height: auto;
+      width: auto;
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      max-height: rem-calc(34);
+    }
+
+    @include breakpoint (nav) {
+      .c-masthead__site-logo {
+        margin-bottom: rem-calc(16);
+        max-height: rem-calc(70);
+      }
+    }
+  }
+
+  &__controls {
+    display: flex;
+  }
+
+  &__control {
+    display: block;
+    color: $black;
+    padding: rem-calc(18);
+    &:hover, //don't change focus here
+    &:active,
+    &.active {
+      background: $black;
+      color: $white;
+    }
+    .c-icon {
+      pointer-events: none;
+      width: rem-calc(20);
+      height: rem-calc(20);
+    }
+  }
+
+  &__nav {
+    font-size: rem-calc(14);
+    text-align: right;
+    width: 35%;
+
+    ul {
+      @include list(inline);
+
+      li {
+        margin-right: rem-calc(10);
+        &:last-child {
+          margin-right: 0;
+        }
+
+        a {
+          color: $color-primary;
+          text-decoration: none;
+
+          &:hover,
+          &:focus,
+          &:active {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  &__search {
+    margin: rem-calc(6) 0 0 0;
+    padding: 0;
+
+    span {
+      @include sr-only;
+    }
+
+    svg {
+      fill: $color-white;
+      height: rem-calc(20);
+      width: rem-calc(20);
+    }
+  }
+
+  @include breakpoint(medium) {
+    &__control {
+      padding: rem-calc(27);
+      .c-icon {
+        width: rem-calc(30);
+        height: rem-calc(30);
+      }
+    }
+  }
+
+  @include breakpoint(nav) {
+    &__search {
+      display: block;
+    }
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-masthead {
+    // sass linter doesn't like empty blocks :)
+  }
+}

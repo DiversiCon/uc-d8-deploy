@@ -1,0 +1,1635 @@
+<?php
+
+/**
+ * @file
+ * Theme hooks and special functionality.
+ */
+
+use Drupal\image\Entity\ImageStyle;
+// @codingStandardsIgnoreStart
+use Drupal\file\Entity\File;
+// @codingStandardsIgnoreEnd
+use Drupal\media\Entity\Media;
+use Drupal\node\Entity\Node;
+use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\Core\Url;
+use Drupal\eck\Entity\EckEntity;
+use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\uc_cdr_client\Service\CdrFacultyService;
+use Drupal\uc_cdr_client\Controller\CentralDataRepoClientController;
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function uccollege_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  $node     = \Drupal::routeMatch()->getParameter('node');
+  $revision = \Drupal::routeMatch()->getRawParameter('node_revision');
+
+  // Revision IDs are strings and node ids are strings when a revision is
+  // loaded. Node parameters loaded by getParameter are objects and the
+  // bundle can be accessed normally.
+  if ($node) {
+    if ($revision) {
+      $revised_node = \Drupal::entityTypeManager()
+        ->getStorage('node')
+        ->loadRevision($revision);
+
+      $content_type = $revised_node->bundle();
+    }
+    else {
+      $content_type = $node->bundle();
+    }
+
+    // Provide page--node-type.html.twig hook suggestions.
+    $suggestions[] = 'page__' . $content_type;
+  }
+}
+
+/**
+ * Implements hook_preprocess_paragraph().
+ */
+function uccollege_preprocess_paragraph(&$vars) {
+
+  // Get config_pages storage.
+  $cp_store = \Drupal::entityTypeManager()->getStorage('config_pages');
+  $cp_view = \Drupal::entityTypeManager()->getViewBuilder('config_pages');
+
+  // Pull machine name strings of paragraph types.
+  /* @var \Drupal\paragraphs\Entity\Paragraph $par_obj */
+  $par_obj = $vars['paragraph'];
+  $paragraph_type = $par_obj->bundle();
+
+  switch ($paragraph_type) {
+
+    case 'sidebar_gen_related':
+      // Based on the current node type, the sidebar will display on different
+      // sides, and will have a slightly different treatment based on the side.
+      // Determine what side it will appear on and pass that to the template.
+      $node = _get_current_node();
+      $left_sidebar_types = [
+        'story',
+        'person',
+        'generic',
+      ];
+
+      // If the node type is one that displays the sidebar on the left.
+      if (isset($node) && in_array($node->bundle(), $left_sidebar_types)) {
+        $vars['side'] = 'left';
+      }
+      else {
+        $vars['side'] = 'right';
+      }
+
+      break;
+
+    case 'callout':
+
+      // Initialize variable for twig template.
+      $vars['co_breakpoint'] = 0;
+
+      // Get the items inside field_par_paragraphs_four.
+      if ($par_obj->__isset('field_par_paragraphs_four')) {
+        if ($par_obj->get('field_par_paragraphs_four')->getValue()) {
+          $items = $par_obj->get('field_par_paragraphs_four')->getValue();
+
+          // Each item is a paragraph reference, store each ID in an array.
+          $item_ids = [];
+          foreach ($items as $item) {
+            $item_ids[] = $item['target_id'];
+          }
+
+          // Get the contents of each paragraph reference.
+          foreach ($item_ids as $id) {
+            $par = Paragraph::load($id);
+
+            // Check to see if field_par_html_single is filled in at all.
+            if ($par->get('field_par_html_single')->count()) {
+
+              // Let twig theme know it needs the breakpoint.
+              $vars['co_breakpoint'] = 1;
+
+              // Stop the loop.
+              break;
+
+            }
+          }
+        }
+      }
+
+      break;
+
+    case 'feature':
+      // Check if ther is a paragraph loaded, and get the ID.
+      if ($par_obj->__isset('field_par_paragraph_single')) {
+        if ($par_obj->get('field_par_paragraph_single')->getValue()) {
+          $parent_id = $par_obj->get('field_par_paragraph_single')->getValue()[0]['target_id'];
+          $parent_ent = Paragraph::load($parent_id);
+          if ($parent_ent) {
+            // Only for feature_image_link paragraph, load image caption.
+            if ($parent_ent->bundle() == 'feature_image_link') {
+              // Check for main image field.
+              if ($parent_ent->__isset('field_image_main')) {
+                if ($parent_ent->get('field_image_main')->getValue()) {
+                  $image_id = $parent_ent->get('field_image_main')->getValue()[0]['target_id'];
+                  $image_obj = Media::load($image_id);
+                  if ($image_obj) {
+                    if ($image_obj->__isset('field_image_caption')) {
+                      if ($image_obj->get('field_image_caption')->getValue()) {
+                        $vars['image_caption_par'] = $image_obj->get('field_image_caption')->getValue()[0]['value'];
+                      }
+                    }
+                    if ($image_obj->__isset('field_image_credit')) {
+                      if ($image_obj->get('field_image_credit')->getValue()) {
+                        $vars['image_credit_par'] = $image_obj->get('field_image_credit')->getValue()[0]['value'];
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      break;
+
+    case 'visual_nav_insert':
+      // Provide the visual nav as a variable to paragraph.
+      $visual_nav = current($cp_store->loadByProperties(['type' => 'photo_nav_grid']));
+      if ($visual_nav !== FALSE) {
+        $vars['visual_nav'] = $cp_view->view($visual_nav, 'default');
+      }
+
+      break;
+
+    case 'home_page_grid':
+
+      // Check for field_par_paragraph_single, lead media.
+      if ($par_obj->__isset('field_par_paragraph_single')) {
+        if ($par_obj->get('field_par_paragraph_single')->getValue()) {
+
+          // Load the media paragraph reference.
+          $p_id = $par_obj->get('field_par_paragraph_single')
+            ->getValue()[0]['target_id'];
+          $ref_par_obj = Paragraph::load($p_id);
+          if ($ref_par_obj) {
+
+            // Load the type of paragraph referenced.
+            $ref_par_type = $ref_par_obj->bundle();
+
+            // Only send variables to the video-cinemagraph sub-component.
+            if ($ref_par_type == 'video_html') {
+
+              // If there is no video_file_id; do not create video var.
+              if ($video_file_id = $ref_par_obj->field_video_file->getValue()) {
+                $video_file_id = $ref_par_obj->field_video_file->getValue()[0]['target_id'];
+                $f_uri = File::load($video_file_id)->getFileUri();
+
+                // Load poster if there is one.
+                $poster = '';
+                if ($ref_par_obj->field_image_main->getValue()) {
+                  $poster_id = $ref_par_obj->field_image_main->getValue()[0]['target_id'];
+                  $image_obj = Media::load($poster_id);
+                  if ($image_obj) {
+                    $img_id = $image_obj->get('field_media_image')->getValue()[0]['target_id'];
+                    $img_uri = File::load($img_id)->getFileUri();
+                    $poster = ImageStyle::load('large')->buildUrl($img_uri);
+                  }
+                }
+
+                // Video var for twig.
+                $vars['video'] = [
+                  "src" => $f_uri,
+                  "poster" => $poster,
+                ];
+              }
+            }
+          }
+        }
+      }
+
+      // Check for field_par_paragraph_single_1, teaser left.
+      if ($par_obj->__isset('field_par_paragraph_single_1')) {
+        if ($par_obj->get('field_par_paragraph_single_1')->getValue()) {
+          $p_id = $par_obj->get('field_par_paragraph_single_1')
+            ->getValue()[0]['target_id'];
+          $ref_par_obj = Paragraph::load($p_id);
+          if ($ref_par_obj) {
+            // Get the paragraph loaded.
+            $ref_p_id = $ref_par_obj->get('field_par_paragraph_single')->getValue()[0]['target_id'];
+            if ($ref_p_id) {
+              // Load referenced paragraph.
+              $ref_p_obj = Paragraph::load($ref_p_id);
+              $ref_p_type = $ref_p_obj->bundle();
+              if ($ref_p_type == 'tile') {
+                $ref_p_link_uri = $ref_p_obj->get('field_headline_link')->getValue()[0]['uri'];
+                $ref_p_link = URL::fromUri($ref_p_link_uri)->toString();
+                $ref_p_link_target = '';
+                if (isset($ref_p_obj->get('field_headline_link')->getValue()[0]['options']['attributes']['target'])) {
+                  $ref_p_link_target = $ref_p_obj->get('field_headline_link')->getValue()[0]['options']['attributes']['target'];
+                }
+                $ref_p_headline = $ref_p_obj->get('field_headline_text')->getValue()[0]['value'];
+                if (isset($ref_p_obj->get('field_image_main')->getValue()[0]['target_id'])) {
+                  $ref_p_media_id = $ref_p_obj->get('field_image_main')->getValue()[0]['target_id'];
+                }
+                $ref_p_img = NULL;
+                if (isset($ref_p_media_id) && $ref_p_media_id) {
+                  $media_obj = Media::load($ref_p_media_id);
+                  $img_id = $media_obj->get('field_media_image')->getValue()[0]['target_id'];
+                  $img_uri = File::load($img_id)->getFileUri();
+                  $ref_p_img = ImageStyle::load('medium')->buildUrl($img_uri);
+                }
+                $vars['home_teaser_1'] = [
+                  'link' => $ref_p_link,
+                  'link_tgt' => $ref_p_link_target,
+                  'text' => $ref_p_headline,
+                  'img' => $ref_p_img,
+                ];
+              }
+              elseif ($ref_p_type == 'tile_reference') {
+                $ref_p_node = $ref_p_obj->get('field_content_reference');
+                if ($ref_p_node->getValue()) {
+                  $ref_p_nid = $ref_p_node->getValue()[0]['target_id'];
+                  $ref_p_nobj = Node::load($ref_p_nid);
+                  $ref_p_path = Url::fromRoute('entity.node.canonical', ['node' => $ref_p_nid])->toString();
+                  $ref_p_title = $ref_p_nobj->get('field_headline_text')->getValue()[0]['value'];
+                  $ref_p_media_id = $ref_p_nobj->get('field_image_main')->getValue()[0]['target_id'];
+                  if ($ref_p_media_id) {
+                    $media_obj = Media::load($ref_p_media_id);
+                    $img_id = $media_obj->get('field_media_image')->getValue()[0]['target_id'];
+                    $img_uri = File::load($img_id)->getFileUri();
+                    $ref_p_img = ImageStyle::load('medium')->buildUrl($img_uri);
+                  }
+                  $vars['home_teaser_1'] = [
+                    'link' => $ref_p_path,
+                    'link_tgt' => '_self',
+                    'text' => $ref_p_title,
+                    'img' => $ref_p_img,
+                  ];
+                }
+              }
+            }
+          }
+        }
+      }
+
+      // Check for field_par_paragraph_single_2, teaser right.
+      if ($par_obj->__isset('field_par_paragraph_single_2')) {
+        if ($par_obj->get('field_par_paragraph_single_2')
+          ->getValue()) {
+          $p_id = $par_obj->get('field_par_paragraph_single_2')
+            ->getValue()[0]['target_id'];
+          $ref_par_obj = Paragraph::load($p_id);
+          if ($ref_par_obj) {
+            // Get the paragraph loaded.
+            $ref_p_id = $ref_par_obj->get('field_par_paragraph_single')->getValue()[0]['target_id'];
+            if ($ref_p_id) {
+              // Load referenced paragraph.
+              $ref_p_obj = Paragraph::load($ref_p_id);
+              $ref_p_type = $ref_p_obj->bundle();
+              if ($ref_p_type == 'tile') {
+                $ref_p_link_uri = $ref_p_obj->get('field_headline_link')->getValue()[0]['uri'];
+                $ref_p_link = URL::fromUri($ref_p_link_uri)->toString();
+                $ref_p_link_target = '';
+                if (isset($ref_p_obj->get('field_headline_link')->getValue()[0]['options']['attributes']['target'])) {
+                  $ref_p_link_target = $ref_p_obj->get('field_headline_link')->getValue()[0]['options']['attributes']['target'];
+                }
+                $ref_p_headline = $ref_p_obj->get('field_headline_text')->getValue()[0]['value'];
+                if (isset($ref_p_obj->get('field_image_main')->getValue()[0]['target_id'])) {
+                  $ref_p_media_id = $ref_p_obj->get('field_image_main')->getValue()[0]['target_id'];
+                }
+                $ref_p_img = NULL;
+                if (isset($ref_p_media_id) && $ref_p_media_id) {
+                  $media_obj = Media::load($ref_p_media_id);
+                  $img_id = $media_obj->get('field_media_image')->getValue()[0]['target_id'];
+                  $img_uri = File::load($img_id)->getFileUri();
+                  $ref_p_img = ImageStyle::load('medium')->buildUrl($img_uri);
+                }
+                $vars['home_teaser_2'] = [
+                  'link' => $ref_p_link,
+                  'link_tgt' => $ref_p_link_target,
+                  'text' => $ref_p_headline,
+                  'img' => $ref_p_img,
+                ];
+              }
+              elseif ($ref_p_type == 'tile_reference') {
+                $ref_p_node = $ref_p_obj->get('field_content_reference');
+                if ($ref_p_node->getValue()) {
+                  $ref_p_nid = $ref_p_node->getValue()[0]['target_id'];
+                  $ref_p_nobj = Node::load($ref_p_nid);
+                  $ref_p_path = Url::fromRoute('entity.node.canonical', ['node' => $ref_p_nid])->toString();
+                  $ref_p_title = $ref_p_nobj->get('field_headline_text')->getValue()[0]['value'];
+                  $ref_p_media_id = $ref_p_nobj->get('field_image_main')->getValue()[0]['target_id'];
+                  if ($ref_p_media_id) {
+                    $media_obj = Media::load($ref_p_media_id);
+                    $img_id = $media_obj->get('field_media_image')
+                      ->getValue()[0]['target_id'];
+                    $img_uri = File::load($img_id)->getFileUri();
+                    $ref_p_img = ImageStyle::load('medium')->buildUrl($img_uri);
+                  }
+                  $vars['home_teaser_2'] = [
+                    'link' => $ref_p_path,
+                    'link_tgt' => '_self',
+                    'text' => $ref_p_title,
+                    'img' => $ref_p_img,
+                  ];
+                }
+              }
+            }
+          }
+        }
+      }
+
+      // Check for field_par_paragraph_single_3, "sub-headline" field.
+      if ($par_obj->__isset('field_par_paragraph_single_3')) {
+        if ($par_obj->get('field_par_paragraph_single_3')
+          ->getValue()) {
+          $quotator_url = '';
+          $quotator_url_txt = '';
+          // Get and load paragraph for this sub-headline.
+          $link_par_id = $par_obj->get('field_par_paragraph_single_3')
+            ->getValue()[0]['target_id'];
+          $link_par = Paragraph::load($link_par_id);
+          if ($link_par->get('field_headline_link')->getValue()) {
+            $internal_path = $link_par->get('field_headline_link')
+              ->getValue()[0]['uri'];
+            $quotator_url = URL::fromUri($internal_path)->toString();
+          }
+          if ($quotator_url_txt = $link_par->get('field_headline_text')
+            ->getValue()) {
+            $quotator_url_txt = $link_par->get('field_headline_text')
+              ->getValue()[0]['value'];
+          }
+          if ($quotator_url_txt == []) {
+            $quotator_url_txt = '';
+          } // reset for twig render
+          $vars['sub_headline_quotator'] = [
+            "url" => $quotator_url,
+            "txt" => $quotator_url_txt,
+          ];
+        }
+      }
+
+      // Perform some checks to determine if we're going to display the
+      // two accordions.
+      $show_top_accordion = TRUE;
+
+      if ($par_obj->get('field_subheadline_text_0')->isEmpty()
+          && $par_obj->get('field_par_paragraph_ultd_0')->isEmpty()
+          && $par_obj->get('field_subheadline_text_1')->isEmpty()
+          && $par_obj->get('field_par_paragraph_ultd_1')->isEmpty()) {
+        $show_top_accordion = FALSE;
+      }
+
+      $vars['show_top_accordion'] = $show_top_accordion;
+
+      // Check if we're going to display the bottom two accordions.
+      $show_bottom_accordion = TRUE;
+
+      if ($par_obj->get('field_subheadline_text')->isEmpty()
+        && $par_obj->get('field_paragraphs_unlimited')->isEmpty()
+        && $par_obj->get('field_label_text')->isEmpty()
+        && $par_obj->get('field_par_paragraphs')->isEmpty()) {
+        $show_bottom_accordion = FALSE;
+      }
+
+      $vars['show_bottom_accordion'] = $show_bottom_accordion;
+
+      // Check if the bottom quadrants should be displayed.
+      // We have to check for a lot of fields having value, so get ready.
+      $show_bottom_quadrants = TRUE;
+
+      if ($par_obj->get('field_paragraph_single_1')->isEmpty()
+          && $par_obj->get('field_body')->isEmpty()
+          && $par_obj->get('field_subheadline_text')->isEmpty()
+          && $par_obj->get('field_label_text')->isEmpty()
+          && $par_obj->get('field_subheadline_text_0')->isEmpty()
+          && $par_obj->get('field_subheadline_text_1')->isEmpty()
+          && $par_obj->get('field_par_paragraph_single_4')->isEmpty()
+          && $par_obj->get('field_par_paragraph_single_1')->isEmpty()
+          && $par_obj->get('field_par_paragraph_single_2')->isEmpty()) {
+        $show_bottom_quadrants = FALSE;
+      }
+
+      $vars['show_bottom_quadrants'] = $show_bottom_quadrants;
+
+      break;
+
+    case 'quotator_item':
+      $quote_text = '';
+      $attribution = '';
+      $additional_attribution_text = '';
+      $image = '';
+      $image_alt_text = '';
+      $link_text = '';
+      $link_url = '';
+      $link_target = '';
+
+      if (!$par_obj->get('field_faculty_reference')->isEmpty()) {
+        // Populate fields with faculty member.
+        $faculty_id = $par_obj->get('field_faculty_reference')->getValue()[0]['value'];
+
+        /* @var \Drupal\uc_cdr_client\Service\CdrFacultyService $cdr_faculty_service */
+        $cdr_faculty_service = \Drupal::service('uc_cdr_client.cdr_faculty_service');
+
+        $faculty_data = $cdr_faculty_service->getFacultyMember($faculty_id, TRUE);
+
+        $attribution = $faculty_data['name'];
+        $image = $faculty_data['photo'];
+        $image_alt_text = 'photo of ' . $faculty_data['name'];
+
+        if (isset($faculty_data['academic_titles'])) {
+          foreach ($faculty_data['academic_titles'] as $title) {
+            $additional_attribution_text .= $title['title'] . ' of ' . $title['department'];
+
+            // If there are more titles to come, add a line break.
+            if (next($faculty_data['academic_titles'])) {
+              $additional_attribution_text .= '<br>';
+            }
+          }
+        }
+        $vars['elements']['#cache'] = [
+          'max-age' => 900,
+          'tags' => [
+            'cdr_client',
+            'cdr_client:faculty',
+          ],
+        ];
+      }
+      else {
+        // Check for attribution text.
+        if ($par_obj->__isset('field_subheadline_text')) {
+          if ($par_obj->get('field_subheadline_text')
+            ->getValue()) {
+            $attribution = $par_obj->get('field_subheadline_text')
+              ->getValue()[0]['value'];
+          }
+        }
+
+        // Check for additional attribution text.
+        if ($par_obj->__isset('field_label_text')) {
+          if ($par_obj->get('field_label_text')->getValue()) {
+            $additional_attribution_text = $par_obj->get('field_label_text')
+              ->getValue()[0]['value'];
+          }
+        }
+
+        // Check for field_image_main.
+        if ($par_obj->__isset('field_image_main')) {
+          if ($par_obj->get('field_image_main')
+            ->getValue()) {
+            // Get and load media for this.
+            $media_id = $par_obj->get('field_image_main')
+              ->getValue()[0]['target_id'];
+            if ($media_id) {
+              $media_obj = Media::load($media_id);
+              $img_id = $media_obj->get('field_media_image')
+                ->getValue()[0]['target_id'];
+              $img_uri = File::load($img_id)->getFileUri();
+              $image = ImageStyle::load('medium')->buildUrl($img_uri);
+
+              if ($media_obj->get('field_media_image')->alt) {
+                $image_alt_text = $media_obj->get('field_media_image')->alt;
+              }
+            }
+          }
+        }
+      }
+
+      // Check for quote text.
+      if ($par_obj->__isset('field_headline_text')) {
+        if ($par_obj->get('field_headline_text')
+          ->getValue()) {
+          $quote_text = $par_obj->get('field_headline_text')
+            ->getValue()[0]['value'];
+        }
+      }
+
+      // Check for link.
+      if ($par_obj->__isset('field_single_link')) {
+        if ($par_obj->get('field_single_link')->getValue()) {
+          $link_url = Url::fromUri($par_obj->get('field_single_link')->getValue()[0]['uri'])->toString();
+          $link_text = $par_obj->get('field_single_link')[0]->title;
+          $link_value = $par_obj->get('field_single_link')->getValue();
+          if (isset($link_value[0]['options']['attributes']['target'])) {
+            $link_target = $link_value[0]['options']['attributes']['target'];
+          }
+          else {
+            $link_target = '_self';
+          }
+        }
+      }
+
+      $quotator_array = [
+        'text' => $quote_text,
+        'attribution' => $attribution,
+        'attribution_additional_info' => $additional_attribution_text,
+        'image' => $image,
+        'alt' => $image_alt_text,
+        'linktext' => $link_text,
+        'linkurl' => $link_url,
+        'linktarget' => $link_target,
+      ];
+
+      $vars['quotator_item'] = json_encode($quotator_array, JSON_UNESCAPED_SLASHES);
+
+      break;
+
+    case 'photo_nav_grid_item':
+      // Check for field_image_main.
+      $par_obj = $par_obj;
+      if ($par_obj->__isset('field_image_main')) {
+        $ref_p_media_id = $par_obj->get('field_image_main')->getValue()[0]['target_id'];
+        if ($ref_p_media_id) {
+          $media_obj = Media::load($ref_p_media_id);
+          $img_id = $media_obj->get('field_media_image')
+            ->getValue()[0]['target_id'];
+          $img_uri = File::load($img_id)->getFileUri();
+          $img_alt = $media_obj->get('field_media_image')
+            ->getValue()[0]['alt'];
+          $ref_p_img_sq = ImageStyle::load('larger')->buildUrl($img_uri);
+          $ref_p_img_rec = ImageStyle::load('two_to_one_5_8')->buildUrl($img_uri);
+          $vars['image'] = [
+            "sq" => $ref_p_img_sq,
+            "two_one" => $ref_p_img_rec,
+            "alt" => $img_alt,
+          ];
+        }
+      }
+
+      break;
+
+    case 'program_selector':
+      // Get default division if it exists.
+      if (isset($vars['content']['field_tag_reference'][0])) {
+        /* @var $division \Drupal\taxonomy\Entity\Term */
+        $division = $vars['content']['field_tag_reference'][0]['#options']['entity'];
+        if ($division->get('name')) {
+          $vars['content']['division'] = $division->getName();
+        }
+      }
+      // Get default program type if it exists.
+      if (isset($vars['content']['field_program_type'][0])) {
+        /* @var $type \Drupal\taxonomy\Entity\Term */
+        $type = $vars['content']['field_program_type'][0]['#options']['entity'];
+        if ($type->get('name')) {
+          $vars['content']['type'] = $type->getName();
+        }
+      }
+      // Hide drop downs as needed.
+      $vars['content']['hideDivision'] = $vars['paragraph']->get('field_hide_division')->getValue()[0]['value'];
+      $vars['content']['hideType'] = $vars['paragraph']->get('field_hide_type')->getValue()[0]['value'];
+
+      break;
+
+    case 'staff_selector':
+      // Get default category if it exists.
+      if (isset($vars['content']['field_category_primary'][0])) {
+        /* @var $category \Drupal\taxonomy\Entity\Term */
+        $category = $vars['content']['field_category_primary'][0]['#options']['entity'];
+        if ($category->get('name')) {
+          $vars['content']['option'] = $category->getName();
+        }
+      }
+      // Hide drop downs as needed.
+      $vars['content']['hideOption'] = $vars['paragraph']->get('field_hide_category')->getValue()[0]['value'];
+
+      break;
+
+    case 'card_grid_item':
+      // Check for field_image_main, teaser left.
+      if ($par_obj->__isset('field_image_main')) {
+        if ($par_obj->get('field_image_main')
+          ->getValue()) {
+          $m_id = $par_obj->get('field_image_main')
+            ->getValue()[0]['target_id'];
+          if ($m_id) {
+            $media_obj = Media::load($m_id);
+            $img_id = $media_obj->get('field_media_image')
+              ->getValue()[0]['target_id'];
+            $img_uri = File::load($img_id)->getFileUri();
+            $image = ImageStyle::load('medium_large')->buildUrl($img_uri);
+            $imageLg = ImageStyle::load('two_to_one_5_8')->buildUrl($img_uri);
+            $img_alt = $media_obj->get('field_media_image')->getValue()[0]['alt'];
+            $vars['card'] = [
+              'image' => $image,
+              'imageLg' => $imageLg,
+              'alt' => $img_alt,
+            ];
+          }
+        }
+      }
+
+      break;
+
+    case 'news_list':
+      // Hide filter and pagination as needed.
+      $vars['content']['filtered'] = $vars['paragraph']->get('field_hide_filter')->getValue()[0]['value'] ? 'false' : 'true';
+      $vars['content']['paginate'] = $vars['paragraph']->get('field_hide_pagination')->getValue()[0]['value'] ? 'false' : 'true';
+
+      // Get default filter selections if they exist.
+      $filter_default = $vars['paragraph']->get('field_news_filter')->getValue();
+      if ($filter_default) {
+        $filter = [];
+        foreach ($filter_default as $default) {
+          $filter[] .= $default['target_id'];
+        }
+        $vars['content']['preSelected'] = implode(',', $filter);
+      }
+      break;
+
+    case 'news_block':
+      $vars['content']['datasource'] = '';
+      $vars['content']['news_is_external'] = FALSE;
+
+      // If external news then set a couple of extra values.
+      if ($par_obj->get('field_par_paragraph_single')) {
+        /* @var \Drupal\paragraphs\Entity\Paragraph $child */
+        $child = $par_obj->get('field_par_paragraph_single')->first()->entity;
+        if ($child) {
+          if ($child->bundle() == 'news_external') {
+            if ($child->get('field_api_datasource')) {
+              if ($child->get('field_api_datasource')->getValue()) {
+                $api_datasource = $child->get('field_api_datasource')->getValue()[0]['value'];
+                if ($api_datasource) {
+                  $vars['content']['datasource'] = $api_datasource;
+                  $vars['content']['news_is_external'] = TRUE;
+                }
+              }
+            }
+          }
+        }
+      }
+      break;
+
+    case 'map':
+      $gmap_config = \Drupal::configFactory()
+        ->get('uc_sauce.settings');
+
+      $vars['gmaps_api_key'] = $gmap_config->get('google_maps.api_key');
+
+      break;
+
+    case 'people_grouped_list':
+      // Get any selected filters for narrowing person data.
+      $person_field_filters = $par_obj->get('field_filter_person_fields');
+
+      // Prepare to store the filter field values.
+      $filter_fields = [];
+
+      if (count($person_field_filters) > 0) {
+        // Loop through the filters, building an array of filter values.
+        foreach ($person_field_filters as $filter) {
+          $filter_fields[] = $filter->value;
+        }
+
+        // Build a query string.
+        $api_query_string = '?filter=' . implode(',', $filter_fields);
+
+        $vars['api_query_string'] = $api_query_string;
+      }
+
+      break;
+
+    case 'hero_components':
+      // Retrieve the component used, and the paragraph type.
+      // Currently only gallery and video are supported.
+      /* @var \Drupal\paragraphs\Entity\Paragraph $hero_component */
+      $hero_component = $par_obj->get('field_par_paragraph_single')->entity;
+
+      if ($hero_component !== NULL) {
+        $hero_component_type = $hero_component->bundle();
+
+        if ($hero_component_type === 'smartbody_image') {
+          // Gallery/Hero image.
+          // Generate the render array for the image gallery.
+          $vars['component_gallery_images'] = $hero_component->get('field_images')->view('default');
+
+          // Pass the gallery headline.
+          $vars['component_gallery_headline'] = $hero_component->get('field_headline_text')->getValue();
+
+          // Define the extend/include paths.
+          $vars['extend_path'] = "@uccollege/../components/gallery/templates/paragraph--smartbody-image.html.twig";
+          $vars['include_path'] = "@uccollege/../templates/content/paragraph/i--hero-components-gallery.html.twig";
+        }
+        else {
+          // Retrieve the eck video entity and set as the hero component.
+          $hero_component = $hero_component->get('field_eck_reference_single')->entity;
+
+          // Retrieve the poster image, if applicable.
+          $poster = _get_eck_video_poster($hero_component);
+
+          if (!is_null($poster)) {
+            $vars['component_video_poster'] = $poster;
+          }
+
+          // Define the extend/include paths.
+          $vars['extend_path'] = "@uccollege/../components/video/templates/eck-entity--reusable--video.html.twig";
+          $vars['include_path'] = "@uccollege/../templates/content/paragraph/i--hero-components-video.html.twig";
+        }
+
+        // Set the hero component and type.
+        $vars['hero_component_type'] = $hero_component_type;
+        $vars['hero_component'] = $hero_component;
+      }
+
+      break;
+
+    case 'accordion_block':
+      // Determine the background class based on user selection.
+      $bg_theme_map = [
+        'primary' => 's-bg',
+        'secondary' => 's-bg-secondary',
+        'tertiary' => 's-bg-tertiary',
+      ];
+
+      $background_theme = $par_obj->get('field_background_theme')->getValue();
+
+      if (!empty($background_theme)) {
+        $vars['bg_class'] = $bg_theme_map[$background_theme[0]['value']];
+      }
+
+      break;
+
+    case 'course_listing':
+      // Retrieve the references prereq courses.
+      $referenced_courses = $par_obj->get('field_content_multiple')->getValue();
+
+      // Let's load the courses in teaser view mode.
+      $courses = [];
+      $view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
+
+      foreach ($referenced_courses as $referenced_course) {
+        $course_node = Node::load($referenced_course['target_id']);
+
+        $courses[] = $view_builder->view($course_node, 'teaser');
+      }
+
+      $vars['courses'] = $courses;
+
+      break;
+
+    case 'events_callout_selected':
+      $event_ids = [];
+
+      if (!$par_obj->get('field_ids')->isEmpty()) {
+        foreach ($par_obj->get('field_ids')->getValue() as $datum) {
+          $event_ids[] = $datum['value'];
+        }
+      }
+
+      $vars['event_ids'] = $event_ids;
+
+      break;
+
+    case 'events_single_tile':
+      // Declare CDR client object.
+      $client = \Drupal::service('uc_cdr_client.cdr_client');
+
+      // Get event data from CDR.
+      $event_id = FALSE;
+      $data = FALSE;
+      $event = $par_obj->get('field_event_reference')->getValue();
+      if ($event && is_array($event)) {
+        if (isset($event[0]) && isset($event[0]['value'])) {
+          $event_id = $event[0]['value'];
+          $data = $client->getEventData($event_id);
+        }
+      }
+
+      // If we have data, build and populate variables to be used in template.
+      if ($data) {
+
+        // Extract/format date information. (NOTE: Timezones make no sense.)
+        $tz_from = 'UTC';
+        $tz_to = 'America/Chicago';
+        $start = new DrupalDateTime($data['data']['attributes']['field_event_dates']['value'], $tz_from);
+        $start_date = $start->format('D. M. j, Y', ['timezone' => $tz_to]);
+        $start_time = $start->format('g:i a', ['timezone' => $tz_to]);
+        $end = new DrupalDateTime($data['data']['attributes']['field_event_dates']['end_value'], $tz_from);
+        $end_date = $end->format('D. M. j, Y', ['timezone' => $tz_to]);
+        $end_time = $end->format('g:i a', ['timezone' => $tz_to]);
+
+        // Assemble date based on equality of start/end dates.
+        if ($start_date == $end_date) {
+          $date = '<strong>' . $start_date . '</strong>';
+        }
+        else {
+          $date = '<strong>' . $start_date . ' -<br />' . $end_date . '</strong>';
+        }
+
+        // Assemble time.
+        $time = $start_time . ' - ' . $end_time;
+
+        // Put together all final text for description.
+        $description = $date . '<br />' . $time . '<br />' . $data['data']['attributes']['field_location'];
+
+        // Figure out image URL.
+        $image_url = '';
+        if (isset($data['included'][0]['links']['event_image']['href'])) {
+          $image_url = $data['included'][0]['links']['event_image']['href'];
+        }
+
+        $event_url = '/event/' . $event_id;
+        if (isset($data['data']['attributes']['path']) && isset($data['data']['attributes']['path']['alias'])) {
+          $event_url = '/event' . $data['data']['attributes']['path']['alias'];
+        }
+
+        // Set variables required by template.
+        $vars['event_id'] = $event_id;
+        $vars['event_headline'] = $data['data']['attributes']['title'];
+        $vars['event_description'] = $description;
+        $vars['event_url'] = $event_url;
+        $vars['event_image_url'] = $image_url;
+      }
+      break;
+
+
+    case 'avatar':
+      // The template and data structure for the avatar will be determined
+      // by the presence of faculty reference.
+      if (!$par_obj->get('field_faculty_reference')->isEmpty()) {
+        // Prepare the avatar to be displayed with a faculty reference.
+        $vars['include_path'] = '@uccollege/../components/avatar/templates/includes/i--avatar--faculty-reference.html.twig';
+
+        $faculty_id = $par_obj->get('field_faculty_reference')->getValue()[0]['value'];
+
+        /* @var \Drupal\uc_cdr_client\Service\CdrFacultyService $cdr_faculty_service */
+        $cdr_faculty_service = \Drupal::service('uc_cdr_client.cdr_faculty_service');
+
+        $faculty_data = $cdr_faculty_service->getFacultyMembers([$faculty_id]);
+
+        $vars['faculty_data'] = $faculty_data[$faculty_id];
+        $vars['elements']['#cache'] = [
+          'max-age' => 900,
+          'tags' => [
+            'cdr_client',
+            'cdr_client:faculty',
+          ],
+        ];
+      }
+      else {
+        // Display the avatar normally.
+        $vars['include_path'] = '@uccollege/../components/avatar/templates/includes/i--avatar.html.twig';
+      }
+
+      break;
+
+    case 'faculty_callout_selected':
+      $faculty_ids = [];
+
+      if (!$par_obj->get('field_ids')->isEmpty()) {
+        foreach ($par_obj->get('field_ids')->getValue() as $datum) {
+          $faculty_ids[] = $datum['value'];
+        }
+      }
+
+      $vars['faculty_ids'] = $faculty_ids;
+
+      break;
+
+    case 'featured_ref_four':
+      $person_references = [];
+
+      // We know there are four reference fields. Loop through them,
+      // retrieving the node reference if one exists.
+      for ($i = 0; $i < 4; $i++) {
+        $field_name = 'field_par_node_ref_single_' . $i;
+
+        if (!$par_obj->get($field_name)->isEmpty()) {
+          $person_node = $par_obj->get($field_name)->entity;
+
+          // In addition to returning the node entity, we need to return
+          // the proper render array for the person image.
+          $person = [
+            'entity' => $person_node,
+            'image' => $person_node->get('field_image_main')->view('feature_view'),
+          ];
+
+          $person_references[] = $person;
+        }
+      }
+
+      $vars['person_references'] = $person_references;
+
+      break;
+
+    case 'feature_multiple_double_hero_cta':
+      $heroes = $par_obj->get('field_paragraphs_unlimited')->referencedEntities();
+      $prepared_heroes = [];
+
+      /* @var \Drupal\paragraphs\Entity\Paragraph $hero */
+      foreach ($heroes as $hero) {
+        $cta_link = [
+          'url' => '',
+          'target' => '',
+          'text' => '',
+          'theme' => '',
+        ];
+
+        if (!$hero->get('field_single_link')->isEmpty()) {
+          $cta_link_base = $hero->get('field_single_link')->getValue()[0];
+          $target = '';
+          if (isset($cta_link_base['options']['attributes']['target'])) {
+            $target = ($cta_link_base['options']['attributes']['target']) ? $cta_link_base['options']['attributes']['target'] : '';
+          }
+          $cta_link = [
+            'url' => URL::fromUri($cta_link_base['uri'])->toString(TRUE)->getGeneratedUrl(),
+            'target' => $target,
+            'text' => $cta_link_base['title'],
+            'theme' => $hero->get('field_link_theme')->getValue()[0]['value'],
+          ];
+        }
+
+        $prepared_hero = [
+          'headline_start' => $hero->get('field_headline_text')->getValue()[0]['value'],
+          'headline_problem' => $hero->get('field_subheadline_text')->getValue()[0]['value'],
+          'headline_solution' => $hero->get('field_subheadline_text_0')->getValue()[0]['value'],
+          'cta' => $cta_link,
+          'left_media' => _get_hero_cta_media($hero->get('field_paragraph_single')),
+          'right_media' => _get_hero_cta_media($hero->get('field_paragraph_single_0')),
+        ];
+
+        // Add the processed hero to the list.
+        $prepared_heroes[] = $prepared_hero;
+      }
+
+      $vars['heroes'] = json_encode($prepared_heroes, JSON_UNESCAPED_SLASHES);
+
+      break;
+
+  }
+
+  // Special switch for background theme CSS classes.
+  switch ($paragraph_type) {
+    case 'accordion_block':
+    case 'fact_block':
+
+      // Determine the background class based on user selection.
+      $bg_theme_map = [
+        'primary' => 's-bg',
+        'secondary' => 's-bg-secondary',
+        'tertiary' => 's-bg-tertiary',
+      ];
+
+      $background_theme = $par_obj->get('field_background_theme')->getValue();
+
+      if (!empty($background_theme)) {
+        $vars['bg_class'] = $bg_theme_map[$background_theme[0]['value']];
+      }
+
+      break;
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function uccollege_preprocess_node(&$vars) {
+
+  // Get config_pages storage.
+  $cp_store = \Drupal::entityTypeManager()->getStorage('config_pages');
+  $cp_view = \Drupal::entityTypeManager()->getViewBuilder('config_pages');
+
+  // Pull machine name strings of node types.
+  /* @var \Drupal\node\Entity\Node $node_obj */
+  $node_obj = $vars['node'];
+  $node_type = $node_obj->bundle();
+
+  switch ($node_type) {
+
+    case 'page':
+
+      // Provide variables to landing page for video (cinemagraph)
+      if ($node_obj->field_video_file->getValue()) {
+        $video_file_id = $node_obj->field_video_file->getValue()[0]['target_id'];
+        $f_uri = File::load($video_file_id)->getFileUri();
+
+        $poster = '';
+        if ($node_obj->field_image_main->getValue()) {
+          $poster_id = $node_obj->field_image_main->getValue()[0]['target_id'];
+          $image_obj = Media::load($poster_id);
+          if ($image_obj) {
+            $img_id = $image_obj->get('field_media_image')
+              ->getValue()[0]['target_id'];
+            $img_uri = File::load($img_id)->getFileUri();
+            $poster = ImageStyle::load('large')->buildUrl($img_uri);
+          }
+        }
+
+        // Video var for twig.
+        $vars['video'] = [
+          "src" => $f_uri,
+          "poster" => $poster,
+        ];
+      }
+      break;
+
+    case 'generic':
+      $vars['hero_component_available'] = _get_hero_component($node_obj->get('field_intro_paragraph'));
+
+      break;
+
+    case 'story';
+      $vars['hero_component_available'] = _get_hero_component($node_obj->get('field_intro_paragraph'));
+
+      $vars['display_bottom_share_links'] = FALSE;
+
+      if (!$node_obj->get('field_paragraph_single_3')->isEmpty()
+          || !$node_obj->get('field_paragraph_single_2')->isEmpty()
+          || !$node_obj->get('field_paragraph_single_4')->isEmpty()
+          || !$node_obj->get('field_par_smartbody')->entity->get('field_smartbody_text')->isEmpty()
+          || !$node_obj->get('field_par_smartbody')->entity->get('field_smartbody_components')->isEmpty())
+      {
+        $vars['display_bottom_share_links'] = TRUE;
+      }
+
+      break;
+
+    case 'versatile_hero':
+
+      if (!$node_obj->get('field_image_main')->isEmpty()) {
+
+        // Dynamically retrieve the image style. This is quite a trek.
+        $entity_view_storage = \Drupal::entityTypeManager()->getStorage('entity_view_display');
+
+        // Load the view display storage with the entity type, bundle name, and view mode.
+        $view_display = $entity_view_storage->load('media.image.' . $vars["elements"]["field_image_main"][0]['#view_mode']);
+        $image_style = $view_display->toArray()['content']['field_media_image']['settings']['image_style'];
+
+        // Get the image field in the media entity.
+        $hero_image = $node_obj->get('field_image_main')
+          ->entity->get('field_media_image');
+
+        // Get the file id, and the alt text.
+        $hero_image_file_id = $hero_image->entity->id();
+        $hero_image_alt = $hero_image->getValue()[0]['alt'];
+
+        // Generate the image url with the image style.
+        $vars['hero']['image_url'] = ImageStyle::load($image_style)
+          ->buildUrl(File::load($hero_image_file_id)->getFileUri());
+
+        $vars['hero']['image_alt'] = $hero_image_alt;
+      }
+
+      break;
+
+    case 'group':
+      if (!$node_obj->get('field_lead_faculty')->isEmpty()) {
+        // Populate fields with faculty member.
+        $faculty_id = $node_obj->get('field_lead_faculty')->getValue()[0]['value'];
+
+        /* @var \Drupal\uc_cdr_client\Service\CdrFacultyService $cdr_faculty_service */
+        $cdr_faculty_service = \Drupal::service('uc_cdr_client.cdr_faculty_service');
+
+        $faculty_data = $cdr_faculty_service->getFacultyMember($faculty_id, TRUE);
+
+        $vars['pi_data'] = $faculty_data;
+      }
+
+      break;
+
+    case 'faculty':
+
+      // Leverage the faculty service (DI would be better).
+      /* @var \Drupal\uc_cdr_client\Service\CdrFacultyService $cdr_faculty_service */
+      $cdr_faculty_service = \Drupal::service('uc_cdr_client.cdr_faculty_service');
+      $render = $cdr_faculty_service->renderFacultyMember(\Drupal::request()->getRequestUri());
+      if ($render) {
+        $vars['faculty_profile'] = $render;
+      }
+      else {
+        $vars['faculty_profile'] = NULL;
+      }
+
+      break;
+
+    case 'person':
+
+      // Due to encoding weirdness we are setting office location value right here.
+      $vars['person_office_location'] = '';
+      if (isset($node_obj->get('field_office_location')->getValue()[0]['value'])) {
+        $vars['person_office_location'] = $node_obj->get('field_office_location')->getValue()[0]['value'];
+      }
+
+      break;
+  }
+
+  $visual_nav = current($cp_store->loadByProperties(['type' => 'photo_nav_grid']));
+  if ($visual_nav !== FALSE) {
+    $vars['visual_nav'] = $cp_view->view($visual_nav, 'default');
+  }
+
+  // Hide section if current node is the designated section page.
+  if ($node_obj->hasField('field_section')) {
+    $vars['hide_section'] = FALSE;
+    if ($node_obj->get('field_section')) {
+      $term = $node_obj->get('field_section')->entity;
+      if ($term && $term->hasField('field_section_landing_page') && $term->get('field_section_landing_page')) {
+        $landing = $term->get('field_section_landing_page')->getValue();
+        if ($landing && isset($landing[0]['target_id'])) {
+          $landing_nid = $landing[0]['target_id'];
+
+          // If landing page nid equals this nid then we will hide section.
+          if ($landing_nid == $node_obj->id()) {
+            $vars['hide_section'] = TRUE;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_media().
+ */
+function uccollege_preprocess_media(&$vars) {
+
+  // Store machine name of media.
+  $media_bundle = $vars['elements']['#media']->get('bundle')->getValue()[0]['target_id'];
+
+  // Only image bundles.
+  if ($media_bundle == 'image') {
+
+    // Make sure image field is accessible and filled in.
+    if ($vars['elements']['#media']->__isset('field_media_image')) {
+      if ($vars['elements']['#media']->get('field_media_image')->getValue()) {
+        $image_ent = $vars['elements']['#media']->get('field_media_image')->getValue()[0];
+        $image_id = $image_ent['target_id'];
+        $image_uri = File::load($image_id)->getFileUri();
+
+        // Export photo var.
+        $vars['photo'] = [
+          'imgFull' => ImageStyle::load('max_width_full')->buildUrl($image_uri),
+          'imgLarge' => ImageStyle::load('max_width_1024')->buildUrl($image_uri),
+          'imgMedium' => ImageStyle::load('max_width_768')->buildUrl($image_uri),
+          'imgSmall' => ImageStyle::load('max_width_480')->buildUrl($image_uri),
+          'alt' => $image_ent['alt'],
+        ];
+      }
+    }
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function uccollege_preprocess_page(&$vars) {
+  // Get config_pages storage.
+  $cp_store = \Drupal::entityTypeManager()->getStorage('config_pages');
+  $cp_view = \Drupal::entityTypeManager()->getViewBuilder('config_pages');
+
+  // Current page route name.
+  $route_name = \Drupal::routeMatch()->getRouteName();
+
+  // global_alert.
+  $vars['global_alert'] = '';
+  $global_alert = current($cp_store->loadByProperties(['type' => 'global_alert']));
+  if ($global_alert !== FALSE) {
+    $toggle = $global_alert->get('field_cp_boolean')->value;
+    if ($toggle && ($route_name !== 'user.login') && ($route_name !== 'user.pass')) {
+      $vars['global_alert'] = $cp_view->view($global_alert, 'default');
+    }
+  }
+
+  $masthead = current($cp_store->loadByProperties(['type' => 'masthead']));
+  if ($masthead !== FALSE) {
+    $vars['masthead'] = $cp_view->view($masthead, 'default');
+  }
+
+  $footer = current($cp_store->loadByProperties(['type' => 'footer']));
+  if ($footer !== FALSE) {
+    $vars['footer'] = $cp_view->view($footer, 'default');
+  }
+}
+
+/**
+ * Implements hook_preprocess_config_pages().
+ *
+ * @throws \Drupal\Core\Entity\EntityMalformedException
+ */
+function uccollege_preprocess_config_pages(&$vars) {
+
+  // Pull machine name strings of config_pages types.
+  /* @var \Drupal\config_pages\Entity\ConfigPages $cp_obj */
+  $cp_obj = $vars['elements']['#config_pages'];
+  $cp_type = $cp_obj->get('type')->getValue()[0]['target_id'];
+
+  if ($cp_type == 'masthead') {
+    // Set the logo image.
+    if (!$cp_obj->get('field_media_image')->isEmpty()) {
+      /* @var Drupal\media\Entity\Media $media_entity */
+      $media_entity = $cp_obj->get('field_media_image')->entity;
+
+      $desktop_image_uri = $media_entity->get('field_media_image')->entity->getFileUri();
+
+      $vars['site_logo'] = file_create_url($desktop_image_uri);
+
+      // The name of the site is likely to be the most appropriate alt text here.
+      $vars['site_logo_alt'] = \Drupal::config('system.site')->get('name');
+    }
+
+    // Get sections.
+    if ($cp_obj->__isset('field_cp_paragraphs_ultd')) {
+      if ($cp_obj->get('field_cp_paragraphs_ultd')->getValue()) {
+        $par_ids_c = $cp_obj->get('field_cp_paragraphs_ultd')->getValue();
+
+        // Get the paragraph-id of each section.
+        $par_ids = [];
+        foreach ($par_ids_c as $p_id) {
+          $par_ids[] = $p_id['target_id'];
+        }
+
+        // Load each section pargraph object.
+        $pars = [];
+        foreach ($par_ids as $id) {
+          $pars[] = Paragraph::load($id);
+        }
+
+        // Store all section content.
+        $sections = [];
+        foreach ($pars as $p) {
+
+          // Headline.
+          $headline = (!$p->get('field_headline_text')->isEmpty()) ? $p->get('field_headline_text')->getValue()[0]['value'] : '';
+
+          // Headline link.
+          $headline_url = '';
+          $headline_tgt = '';
+          if ($p->get('field_headline_link')) {
+            if ($p->get('field_headline_link')->getValue()) {
+              $link_base = $p->get('field_headline_link')->getValue()[0];
+              $uri = $link_base['uri'];
+              $headline_url = URL::fromUri($uri)->toString();
+
+              if (isset($link_base['options']['attributes']['target'])) {
+                $headline_tgt = $link_base['options']['attributes']['target'];
+              }
+
+            }
+          }
+
+          // Subhead.
+          $subhead = '';
+          if ($p->get('field_subheadline_text')) {
+            if ($p->get('field_subheadline_text')->getValue()) {
+              $subhead = $p->get('field_subheadline_text')
+                ->getValue()[0]['value'];
+            }
+          }
+          if ($subhead == []) {
+            // Reset for twig render.
+            $subhead = '';
+          }
+
+          // Links.
+          $link_objs = [];
+          $link_objs[] = $p->get('field_links_ultd')->getValue();
+          $links = [];
+          foreach ($link_objs as $link_s) {
+            foreach ($link_s as $link) {
+              $title = $link['title'];
+              $uri_o = $link['uri'];
+              $url = URL::fromUri($uri_o)->toString();
+
+              $target = '';
+              if (isset($link['options']['attributes']['target'])) {
+                $target = $link['options']['attributes']['target'];
+              }
+
+              $links[] = [
+                "title" => $title,
+                "url" => $url,
+                "target" => $target,
+              ];
+            }
+          }
+
+          // Set the section details.
+          $sections[] = [
+            "section" => $headline,
+            "link" => $headline_url,
+            "target" => $headline_tgt,
+            "text" => $subhead,
+            "links" => $links,
+          ];
+        }
+
+        // Ensure that slashes are not escaped. Single and double quotes must be
+        // replaced with the hex values.
+        $vars['nav_items'] = json_encode($sections, JSON_UNESCAPED_SLASHES | JSON_HEX_QUOT | JSON_HEX_APOS);
+      }
+      else {
+        // Something needs to be returned in the event there are no navigation
+        // items.
+        $vars['nav_items'] = '""';
+      }
+    }
+
+
+    // Utility nav, prospect links.
+    if ($cp_obj->__isset('field_cp_links_ultd_1')) {
+      if ($cp_obj->get('field_cp_links_ultd_1')->getValue()) {
+        $link_objs = [];
+        $link_objs[] = $cp_obj->get('field_cp_links_ultd_1')->getValue();
+        $links = [];
+        foreach ($link_objs as $link_s) {
+          foreach ($link_s as $link) {
+            $title = $link['title'];
+            $uri_o = $link['uri'];
+            $url = URL::fromUri($uri_o)->toString();
+
+            $target = '';
+            if (isset($link['options']['attributes']['target'])) {
+              $target = $link['options']['attributes']['target'];
+            }
+
+            $links[] = [
+              "title" => $title,
+              "url" => $url,
+              "target" => $target,
+            ];
+          }
+        }
+        $prospect_links = [
+          "type" => "prospect",
+          "links" => $links,
+        ];
+
+        // Ensure that slashes are not escaped. Single and double quotes must be
+        // replaced with the hex values.
+        $vars['prospect_links'] = json_encode($prospect_links, JSON_UNESCAPED_SLASHES | JSON_HEX_QUOT | JSON_HEX_APOS);
+      }
+    }
+  }
+
+  // Global footer.
+  if ($cp_type === 'footer') {
+    // Set the logo image.
+    if (!$cp_obj->get('field_media_image')->isEmpty()) {
+      $desktop_image_uri = $cp_obj->get('field_media_image')
+        ->entity->get('field_media_image')->entity->getFileUri();
+
+      $vars['footer_logo'] = file_create_url($desktop_image_uri);
+      $vars['has_footer_logo'] = TRUE;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_eck_entity().
+ */
+function uccollege_preprocess_eck_entity(&$vars) {
+
+  if (isset($vars['eck_entity']) && $vars['eck_entity']) {
+    /* @var \Drupal\eck\Entity\EckEntity $reusable_obj */
+    $reusable_obj = $vars['eck_entity'];
+    $reusable_type = $reusable_obj->bundle();
+
+    switch ($reusable_type) {
+
+      // Video.
+      case 'video':
+        $vars['video'] = [];
+
+        // Get the poster image from the video entity.
+        $poster = _get_eck_video_poster($reusable_obj);
+
+        // Make sure the poster has a value.
+        if (!is_null($poster)) {
+          $vars['video']['poster'] = $poster;
+        }
+
+        break;
+
+      // Contact.
+      case 'contacts':
+        if ($vars['elements']['#view_mode'] == 'full') {
+          $vars['uc_contact'] = [
+            'datasource' => '/api/v1/news/list/author/' . $reusable_obj->id() . '/',
+            'categorysource' => '/api/v1/news/section',
+            'preSelected' => FALSE,
+            'filtered' => 'false',
+            'filterTitle' => '',
+            'itemsPerPage' => 10,
+            'paginate' => 'true',
+          ];
+        }
+        if ($vars['elements']['#view_mode'] == 'story_byline') {
+          $vars['uc_contact'] = [
+            'contact_url' => $reusable_obj->url(),
+          ];
+        }
+        break;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_webform().
+ */
+function uccollege_preprocess_webform(&$vars) {
+  // Get config_pages storage.
+  $cp_store = \Drupal::entityTypeManager()->getStorage('config_pages');
+  $cp_view = \Drupal::entityTypeManager()->getViewBuilder('config_pages');
+
+  // Form content.
+  $form_feedback = current($cp_store->loadByProperties(['type' => 'webform_contact']));
+  if ($form_feedback !== FALSE) {
+    $vars['form_headline'] = $cp_view->view($form_feedback, 'default');
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_paragraph().
+ */
+function uccollege_preprocess_image(&$vars) {
+
+  // Check the image style.
+  if ($vars['style_name'] == 'hero_1200x525') {
+    // Set special Vue attributes.
+    $vars['attributes']['v-cloak'] = TRUE;
+    $vars['attributes']['v-square-full-width'] = TRUE;
+  }
+}
+
+function uccollege_preprocess_field(&$variables) {
+  if ($variables['field_type'] == 'link') {
+    if ($variables['items']) {
+      foreach ($variables['items'] as &$link_item) {
+        /* @var \Drupal\Core\Url $url */
+        $url = $link_item['content']['#url'];
+
+        if ($url->isRouted() && $url->getRouteName() == 'entity.node.canonical') {
+          $node_id = $url->getRouteParameters()['node'];
+
+          // Load the node and check if it's a story type.
+          /* @var \Drupal\node\Entity\Node $node */
+          $node = Node::load($node_id);
+
+          if ($node) {
+            if ($node->bundle() == 'story') {
+              /* @var \Drupal\uc_sauce\Service\UcUtility $utility_service */
+              $utility_service = \Drupal::service('uc_sauce.uc_utility');
+
+              if ($utility_service->hasVideo($node)) {
+                // The node has video. Retrieve the YouTube video id. It's three entities deep.
+                $video_id = $node->get('field_intro_paragraph')
+                  ->entity->get('field_par_paragraph_single')
+                  ->entity->get('field_eck_reference_single')
+                  ->entity->get('field_video_id')->getValue()[0]['value'];
+
+                // Retrieve the parent entity.
+                $entity = $variables['element']['#object'];
+
+                // This link indicator is only displayed within certain paragraph types.
+                if ($entity->bundle() == 'feature_announcement' || $entity->bundle() == 'quick_links') {
+                  // Create the vue component that will be appended to the link text.
+                  $vue_link_indicator = '<uc-link-indicator type="youtube" id="' . $video_id . '"></uc-link-indicator>';
+                  //$vue_link_indicator = '<span type="hello"></span>';
+
+                  // In order to add HTML to the link text, it needs to be converted to a #markup
+                  // type.
+                  $link_item['content']['#title'] = [
+                    '#markup' => $link_item['content']['#title'] . $vue_link_indicator,
+                    '#allowed_tags' => [
+                      'uc-link-indicator',
+                      // Need to flag the Vue tag as allowed.
+                    ],
+                  ];
+                }
+              }
+            }
+          }
+        }
+
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function uccollege_page_attachments_alter(array &$attachments) {
+  $ah_env = isset($_ENV['AH_SITE_ENVIRONMENT']) ? $_ENV['AH_SITE_ENVIRONMENT'] : NULL;
+
+  if ($ah_env && $ah_env == 'prod') {
+    $attachments['#attached']['library'][] = 'uccollege/theme_prod';
+  }
+  else {
+    $attachments['#attached']['library'][] = 'uccollege/theme_dev';
+  }
+
+}
+
+/**
+ * Retrieves a poster image style from an eck entity.
+ *
+ * @param \Drupal\eck\Entity\EckEntity $eck_obj
+ *   The eck entity to generate the poster image from.
+ *
+ * @return mixed
+ *   The poster image if applicable. NULL if unable to generate image.
+ */
+function _get_eck_video_poster(EckEntity $eck_obj) {
+  if ($eck_obj->__isset('field_image_main')) {
+    if ($eck_obj->get('field_image_main')->getValue()) {
+      $image_id = $eck_obj->get('field_image_main')
+        ->getValue()[0]['target_id'];
+      $image_obj = Media::load($image_id);
+      if ($image_obj) {
+        $img_id = $image_obj->get('field_media_image')
+          ->getValue()[0]['target_id'];
+        $img_uri = File::load($img_id)->getFileUri();
+        $poster = ImageStyle::load('sixteen_by_nine')->buildUrl($img_uri);
+
+        return $poster;
+      }
+    }
+  }
+
+}
+
+/**
+ * Gets the currently loaded node.
+ *
+ * @return \Drupal\node\Entity\Node
+ *   The currently loaded node.
+ */
+function _get_current_node() {
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  return $node;
+}
+
+/**
+ * Gets the entity from the hero component paragraph.
+ *
+ * @param object $hero_paragraph
+ *   A paragraph of type hero_components.
+ *
+ * @return null|Paragraph
+ *   Returns null if no component present, or the Paragraph object.
+ */
+function _get_hero_component($hero_paragraph) {
+  $component = NULL;
+
+  if ($hero_paragraph->entity !== NULL) {
+    if ($hero_paragraph->entity->get('field_par_paragraph_single')->entity !== NULL) {
+      $component = $hero_paragraph->entity->get('field_par_paragraph_single')->entity;
+    }
+  }
+
+  return $component;
+}
+
+function _get_hero_cta_media($media_field) {
+  $media = [];
+  if (!$media_field->isEmpty()) {
+    $media_entity = $media_field->entity;
+
+    $caption = $media_entity->get('field_title')->getValue();
+    if (isset($caption[0]['value'])) {
+      $caption = $caption[0]['value'];
+    }
+    else {
+      $caption = '';
+    }
+
+    if ($media_entity->bundle() == 'feature_image') {
+      $media = [
+        'type' => 'image',
+        'image' => _get_hero_cta_image_url($media_entity->get('field_image_main')->entity),
+        'caption' => $caption,
+      ];
+    }
+    else {
+      $media = [
+        'type' => 'video',
+        'poster' => _get_hero_cta_image_url($media_entity->get('field_image_main')->entity),
+        'src' => $media_entity->get('field_video_file')->entity->url(),
+        'caption' => $caption,
+      ];
+    }
+  }
+
+  return $media;
+}
+
+function _get_hero_cta_image_url($media_entity) {
+  if ($media_entity) {
+    $image_field = $media_entity->get('field_media_image');
+    if ($image_field) {
+      $file_entity = $image_field->entity;
+      if ($file_entity) {
+        $uri = $file_entity->getFileUri();
+        return ImageStyle::load('large')->buildUrl($uri);
+      }
+    }
+  }
+  return '';
+}

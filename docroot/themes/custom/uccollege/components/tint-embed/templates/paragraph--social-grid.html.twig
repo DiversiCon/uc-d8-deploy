@@ -1,0 +1,47 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ * Available variables:
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+
+{% set personalizationId = content.field_tint_personalizationid|field_value|render %}
+{% set tintId = content.field_tint_tintid|field_value|render %}
+{% set query = content.field_tint_query|field_value|render %}
+{% set columns = content.field_tint_columns|field_value|render %}
+{% set rows = content.field_tint_rows|field_value|render %}
+{% set headline = content.field_headline_text %}
+{% set body = content.field_body %}
+
+{% block paragraph %}
+  {% block content %}
+
+    <section class="c-tint-embed__wrap">
+      <div class="c-tint-embed__heading">
+        {% if headline|field_value %}
+          <h3>{{ headline }}</h3>
+        {% endif %}
+        {{ body }}
+      </div>
+
+      <uc-tint-embed
+        :personalization-id="{{ personalizationId }}"
+        tint-id="{{ tintId }}"
+        query="{{ query|replace({'“': '&ldquo;', '”': '&rdquo;', '"': '&quot;'})|raw }}"
+        :columns="{{ columns }}"
+        {% if rows %}:rows="{{ rows }}"{% endif %}
+      >
+      </uc-tint-embed>
+    </section>
+
+  {% endblock %}
+{% endblock paragraph %}
+

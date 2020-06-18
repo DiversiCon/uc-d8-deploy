@@ -1,0 +1,22 @@
+uuid: aca1b2c3-e155-4ad3-97e2-3049f536f80e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: groups
+label: Groups
+type: 'canonical_entities:node'
+pattern: '/group/[node:title]'
+selection_criteria:
+  be24fafa-ffeb-4222-8cc9-10bfb9417816:
+    id: node_type
+    bundles:
+      group: group
+    negate: false
+    context_mapping:
+      node: node
+    uuid: be24fafa-ffeb-4222-8cc9-10bfb9417816
+selection_logic: and
+weight: -5
+relationships: {  }

@@ -1,0 +1,9 @@
+uuid: be226467-3fb3-487e-b8d5-37b9e2e68404
+langcode: en
+status: true
+dependencies: {  }
+id: stats
+label: Stats
+icon_uuid: null
+description: 'Stats component, accepts unlimited ECK stats references'
+behavior_plugins: {  }

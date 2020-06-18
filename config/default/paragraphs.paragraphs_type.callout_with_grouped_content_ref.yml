@@ -1,0 +1,9 @@
+uuid: cb5fd71a-9e8a-437f-bc40-87cfca6e75bf
+langcode: en
+status: true
+dependencies: {  }
+id: callout_with_grouped_content_ref
+label: 'Callout with Grouped Content, Reference'
+icon_uuid: null
+description: 'Reference a reusable grouped content callout.'
+behavior_plugins: {  }

@@ -1,0 +1,34 @@
+uuid: 136c8fcc-8250-4fb7-9632-d16708850a97
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_html_text_single_0
+    - paragraphs.paragraphs_type.featured_ref_four
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    rich_text: '0'
+    html_full: '0'
+    smartbody: '0'
+    basic_html: '0'
+    html_title: '0'
+    plain_text: '0'
+id: paragraph.featured_ref_four.field_par_html_text_single_0
+field_name: field_par_html_text_single_0
+entity_type: paragraph
+bundle: featured_ref_four
+label: 'Featured title'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: Featured
+    format: no_filter_plain
+default_value_callback: ''
+settings: {  }
+field_type: text

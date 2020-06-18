@@ -1,0 +1,50 @@
+student-quote:
+  title: Student Quote
+  description: Quote from a student (or anyone). Includes an image.
+  type: component
+  variants:
+  -
+    title: Student Quote
+    caption: "Quote from a student (or anyone) with an image, attribution, and an optional class year."
+    content:
+      quote: "From the moment I started looking into Pritzker's program, I fell in love with it. On its website, Pritzker talks about diversity and commitment to service in a way that feels deeply genuine."
+      attribution: "Natalie Greene"
+      year: "Class 2021"
+      img: "/themes/custom/uccollege/it_showcase/images/student-quote5.jpg"
+      alt: ""
+  -
+    title: Student Quote
+    caption:
+    content:
+      quote: "Starting at the interview day and continuing at revisit, Pritzker emphasized the school's commitment to the South Side community. After visiting other schools, it became clear that Pritzker is genuinely dedicated to serving its patient population in the South Side"
+      attribution: "Kate Francis"
+      year: "Class 2021"
+      img: "/themes/custom/uccollege/it_showcase/images/student-quote4.jpg"
+      alt: ""
+  -
+    title: Student Quote
+    caption:
+    content:
+      quote: "The Pritzker School of Medicine stood out to me as a place I felt I could grow most as a physician and a scientist. The culture stood out to me with each individual I interacted with: from the medical students to the faculty."
+      attribution: "Maikel Franco"
+      year: "Class 2021"
+      img: "/themes/custom/uccollege/it_showcase/images/student-quote3.jpg"
+      alt: ""
+  -
+    title: Student Quote
+    caption:
+    content:
+      quote: "Pritzker's commitment to diversity in all forms and at all levels was extremely refreshing to me. Many schools I interviewed at talked about inclusion efforts, but to come here and meet students with such varied life experiences who genuinely wanted to learn from and advocate for groups different from their own was amazing."
+      attribution: "Kieran Evans"
+      year: "Class 2021"
+      img: "/themes/custom/uccollege/it_showcase/images/student-quote2.jpg"
+      alt: ""
+
+student-quote.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: student-quote.component
+    index_hide: true
+    file: themes/custom/uccollege/components/student-quote/README.md

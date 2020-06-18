@@ -1,0 +1,79 @@
+{#
+/**
+ * list Twig Partial
+ *
+ */
+#}
+
+<div class="c-list {% if content.style %}c-list--{{ content.style }}{% endif %}">
+  {% if content.heading %}
+    <header class="c-list__headline c-headline">
+		{% if content.topicLink %}<a href="#" class="c-headline__topic t-heading--topic">{{ content.topic }}</a>{% endif %}
+      <h1 class="c-headline__heading">{{ content.heading }}</h1>
+      {% if content.description %}
+        <div class="c-headline__description">
+          {% autoescape false %}
+            {{ content.description }}
+          {% endautoescape %}
+        </div>
+      {% endif %}
+    </header>
+  {% endif %}
+  <div class="c-list__content-wrap c-content c-content--sidebar-right">
+    <section class="c-list__content">
+      <!--list items go here-->
+      {% for item in content.items %}
+        <div class="c-list__item">
+          <!--image-->
+          <div class="c-list__item-image">
+            <a href="{{ item.url }}" class="c-list__item-imagelink">
+              <div class="c-list__item-imagewrap">
+                <svg class="c-icon">
+                  <use xlink:href="/themes/custom/uccollege/dist/icons.svg#phoenix" />
+                </svg>
+                {% if item.img %}
+                  <img src="{{ item.img }}" alt="{{ item.alt }}" />
+                {% endif %}
+              </div>
+            </a>
+          </div>
+          <!--text-->
+          <div class="c-list__item-text">
+            <h3 class="c-list__item-title"><a href="{{ item.url }}" class="c-list__item-titlelink">{{ item.title }}</a></h3>
+			  {% if item.subtitle %}
+			  <p><strong>{{ item.subtitle }}</strong></p>
+			  {% endif %}
+            {% if item.description %}
+              <div class="c-list__item-description">
+                {% autoescape false %}
+                   {{ item.description }}
+                {% endautoescape %}
+              </div>
+            {% endif %}
+            {% if item.source or item.date %}
+            <p class="c-list__item-meta">
+              {% if item.source %}
+                <span class="c-list__item-source">By <a href="{{ item.sourceurl }}">{{ item.source }}</a></span>
+              {% endif %}
+              {% if item.source and item.date %}<span class="c-list__separator"> | </span>{% endif %}
+              {% if item.date %}
+                <time class="c-list__item-date" datetime="{{ item.datetime }}">{{ item.date }}</time>
+              {% endif %}
+            </p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </section>
+    
+    {% if content.sidebar %}
+      <!--sidebar-->
+      <div class="c-list__sidebar c-content__sidebar">
+        {% autoescape false %}
+          {{ content.sidebar }}
+        {% endautoescape %}
+      </div>
+    {% endif %}
+    
+  </div><!--/content-wrap-->
+</div><!--/c-list-->

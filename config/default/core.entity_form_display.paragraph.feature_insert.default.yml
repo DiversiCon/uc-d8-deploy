@@ -1,0 +1,30 @@
+uuid: a917e5f3-cbc3-4616-bb07-c7fd529fe402
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.feature_insert.field_par_paragraph_single
+    - paragraphs.paragraphs_type.feature_insert
+  module:
+    - paragraphs
+id: paragraph.feature_insert.default
+targetEntityType: paragraph
+bundle: feature_insert
+mode: default
+content:
+  field_par_paragraph_single:
+    type: entity_reference_paragraphs
+    weight: 101
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

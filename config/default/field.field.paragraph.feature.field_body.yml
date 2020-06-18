@@ -1,0 +1,29 @@
+uuid: 4a1e23b6-d6ab-4fe4-9767-59419ad46c16
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_body
+    - paragraphs.paragraphs_type.feature
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    plain: plain
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.feature.field_body
+field_name: field_body
+entity_type: paragraph
+bundle: feature
+label: Body
+description: 'Body text for the feature'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,9 @@
+uuid: 68c70a6e-37c3-493a-827a-49b32c6e820d
+langcode: en
+status: true
+dependencies: {  }
+id: fact_block
+label: 'Fact Block'
+icon_uuid: null
+description: 'A group of related facts.'
+behavior_plugins: {  }

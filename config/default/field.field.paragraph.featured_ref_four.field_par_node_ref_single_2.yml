@@ -1,0 +1,29 @@
+uuid: e782d0cd-e3a0-43d8-ac77-103426235322
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_node_ref_single_2
+    - node.type.person
+    - paragraphs.paragraphs_type.featured_ref_four
+id: paragraph.featured_ref_four.field_par_node_ref_single_2
+field_name: field_par_node_ref_single_2
+entity_type: paragraph
+bundle: featured_ref_four
+label: 'Feature reference, 3'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      person: person
+    sort:
+      field: changed
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: person
+field_type: entity_reference

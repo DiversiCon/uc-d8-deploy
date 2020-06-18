@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * Quotator individual item
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% block paragraph %}
+  {% block content %}
+    {{ quotator_item|raw }}
+  {% endblock %}
+{% endblock paragraph %}

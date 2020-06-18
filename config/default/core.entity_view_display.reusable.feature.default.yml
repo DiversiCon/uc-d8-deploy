@@ -1,0 +1,29 @@
+uuid: b51852bb-f1d4-49af-96a0-305483a13883
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.feature
+    - field.field.reusable.feature.field_eck_par_single_0
+  module:
+    - entity_reference_revisions
+id: reusable.feature.default
+targetEntityType: reusable
+bundle: feature
+mode: default
+content:
+  field_eck_par_single_0:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  changed: true
+  created: true
+  search_api_excerpt: true
+  title: true
+  uid: true

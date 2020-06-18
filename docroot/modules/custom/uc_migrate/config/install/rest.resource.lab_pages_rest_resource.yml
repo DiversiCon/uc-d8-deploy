@@ -1,0 +1,19 @@
+uuid: 301b34a2-5890-4292-a2a9-655b1b964861
+langcode: en
+status: true
+dependencies:
+  module:
+    - rest
+    - serialization
+    - uc_api
+    - user
+id: lab_pages_rest_resource
+plugin_id: lab_pages_rest_resource
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+  authentication:
+    - cookie

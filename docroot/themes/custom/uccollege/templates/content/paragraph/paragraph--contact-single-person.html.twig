@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Displays information for a single unique contact person.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set name_title = content.field_headline_text %}
+{% set positions = content.field_title %}
+{% set phone = content.field_phone_number %}
+{% set email = content.field_email %}
+
+<tr>
+  <td><strong><div class="t-font--default">{{ name_title }}</div>
+      {{ positions }}</strong>
+  </td>
+  <td>{{ phone }}<br>
+    <a href="mailto:{{ email }}">{{ email }}</a>
+  </td>
+</tr>

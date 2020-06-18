@@ -1,0 +1,13 @@
+langcode: en
+status: true
+id: migrate
+label: Migrate
+weight: 99
+is_admin: null
+permissions: {  }
+dependencies:
+  module:
+    - uc_migrate
+  enforced:
+    module:
+      - uc_migrate

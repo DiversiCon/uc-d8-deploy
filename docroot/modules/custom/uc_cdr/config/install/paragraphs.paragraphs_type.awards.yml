@@ -1,0 +1,9 @@
+uuid: 0dc13651-64df-4b43-bfed-7e03d5013dc6
+langcode: en
+status: true
+dependencies: {  }
+id: awards
+label: Awards
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

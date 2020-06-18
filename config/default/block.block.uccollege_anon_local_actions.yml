@@ -1,0 +1,20 @@
+uuid: 4aa50faf-44ee-42d8-83d1-6517a7797d83
+langcode: en
+status: true
+dependencies:
+  theme:
+    - uccollege_anon
+_core:
+  default_config_hash: ik4PTMlBD0MWansnSMpSXq5SUlWRJ1IVVt6C7AIbQmc
+id: uccollege_anon_local_actions
+theme: uccollege_anon
+region: help
+weight: 0
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

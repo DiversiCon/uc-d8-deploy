@@ -1,0 +1,100 @@
+uuid: 01e3b690-89a2-41e5-8e2e-cb2d1091d89b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.story.body
+    - field.field.node.story.field_bool_template
+    - field.field.node.story.field_byline
+    - field.field.node.story.field_date_no_time
+    - field.field.node.story.field_headline_text
+    - field.field.node.story.field_image_main
+    - field.field.node.story.field_intro_paragraph
+    - field.field.node.story.field_par_smartbody
+    - field.field.node.story.field_paragraph_single_1
+    - field.field.node.story.field_paragraph_single_2
+    - field.field.node.story.field_paragraph_single_3
+    - field.field.node.story.field_paragraph_single_4
+    - field.field.node.story.field_section
+    - field.field.node.story.field_subheadline_text
+    - field.field.node.story.field_tag_reference
+    - node.type.story
+  module:
+    - text
+    - user
+id: node.story.teaser
+targetEntityType: node
+bundle: story
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 6
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_byline:
+    type: entity_reference_entity_view
+    weight: 7
+    region: content
+    label: hidden
+    settings:
+      view_mode: name_only
+      link: false
+    third_party_settings: {  }
+  field_headline_text:
+    type: text_default
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_image_main:
+    type: entity_reference_entity_view
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      view_mode: feature_4sq_view
+      link: false
+    third_party_settings: {  }
+  field_section:
+    type: entity_reference_entity_view
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      view_mode: section_plain
+      link: false
+    third_party_settings: {  }
+  field_subheadline_text:
+    type: text_default
+    weight: 4
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_bool_template: true
+  field_date_no_time: true
+  field_intro_paragraph: true
+  field_par_smartbody: true
+  field_paragraph_single_1: true
+  field_paragraph_single_2: true
+  field_paragraph_single_3: true
+  field_paragraph_single_4: true
+  field_tag_reference: true
+  search_api_excerpt: true

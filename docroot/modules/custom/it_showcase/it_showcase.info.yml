@@ -1,0 +1,10 @@
+# Package info
+type: module
+package: Custom
+name: '[] Showcase'
+description: Custom component/page showcase functionality.
+core: 8.x
+
+# Dependencies
+#dependencies:
+#- erusev:parsedown

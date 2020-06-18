@@ -1,0 +1,19 @@
+uuid: 3633aec2-d559-4c68-aedf-cba62927581c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_tint_tintid
+    - paragraphs.paragraphs_type.social_grid
+id: paragraph.social_grid.field_tint_tintid
+field_name: field_tint_tintid
+entity_type: paragraph
+bundle: social_grid
+label: 'TINT, ID'
+description: 'eg: college-test'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

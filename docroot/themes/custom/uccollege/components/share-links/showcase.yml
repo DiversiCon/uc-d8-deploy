@@ -1,0 +1,23 @@
+share_links:
+  title: Social Sharing Links
+  description: Row of social icons and links for sharing via AddToAny
+  type: component
+  variants:
+  -
+    title: Social Sharing Links
+    caption: "Row of social icons and links for sharing via AddToAny"
+    content:
+  -
+    title: With Calendar button
+    caption:
+    content:
+      calendar_link: '#'
+
+share-links.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: share_links.component
+    index_hide: true
+    file: themes/custom/uccollege/components/share-links/README.md

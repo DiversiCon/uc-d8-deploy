@@ -1,0 +1,160 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - teaser component
+
+.c-teaser {
+
+  .t-heading--topic {
+    margin-bottom: rem-calc(20);
+    a {
+      color: $color-maroon;
+    }
+  }
+
+  &__img {
+    float: left;
+    margin-right: rem-calc(20);
+    height: auto;
+    position: relative;
+    max-width: rem-calc(85);
+
+    @include breakpoint(large) {
+      max-width: inherit;
+      width: 41.67%;
+    }
+  }
+
+  ul {
+    @include list;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+
+    li {
+      text-align: left;
+      margin-bottom: rem-calc(25);
+      position: relative;
+      width: 100%;
+
+      &:last-child {
+        margin-bottom: 0;
+        margin-right: 0;
+      }
+    }
+
+    @include breakpoint(large) {
+      flex-direction: row;
+      justify-content: space-between;
+      margin: rem-calc(30) 0 0 0;
+
+      li {
+        margin-bottom: 0;
+        width: 31%;
+      }
+    }
+  }
+
+  &__topic {
+    @extend .t-heading--topic;
+    font-size: rem-calc(14);
+    text-align: left;
+    margin-top: rem-calc(2);
+    .c-teaser & { //specificity
+      margin-bottom: rem-calc(8);
+    }
+
+    @media screen and (min-width: 480px) {
+      margin-top: rem-calc(6);
+      .c-teaser & { //specificity
+        margin-bottom: rem-calc(12);
+      }
+    }
+  }
+
+  &__link {
+    color: $color-primary;
+    display: block;
+    font-size: rem-calc(16);
+    font-weight: $font-weight-bold;
+    overflow: hidden;
+    text-decoration: none;
+
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: underline;
+    }
+
+    @include breakpoint(medium only) {
+      font-size: rem-calc(18);
+    }
+
+    @media screen and (min-width: 1200px) {
+      font-size: rem-calc(18);
+    }
+  }
+
+  &__subtitle {
+    font-size: rem-calc(14);
+    margin-top: rem-calc(14);
+  }
+
+  &--istile {
+    padding-bottom: 0;
+    padding-top: 0;
+
+    @include breakpoint(large) {
+      display: none;
+    }
+
+    ul {
+      flex-direction: row;
+      margin-top: 0;
+
+      li {
+        margin-bottom: 0;
+        margin-right: rem-calc(10);
+        text-align: center;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .c-teaser__img {
+      float: none;
+      margin: 0 0 rem-calc(14) 0;
+      max-width: inherit;
+      width: auto;
+    }
+
+    .c-teaser__link {
+      font-size: rem-calc(18);
+      padding: 0 rem-calc(10);
+    }
+  }
+
+  &--external {
+    .c-teaser__link {
+      margin-top: rem-calc(4);
+
+      @media screen and (min-width: 1200px) {
+        font-size: rem-calc(16);
+      }
+
+      @include breakpoint(xlarge) {
+        font-size: rem-calc(17);
+      }
+    }
+  }
+
+  @include breakpoint(xlarge) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  // teasers that are in sliders
+  .c-slider.swiper-container {
+    padding: 0 rem-calc(40) 0 rem-calc(20);
+  }
+}

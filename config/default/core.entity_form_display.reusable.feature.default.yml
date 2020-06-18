@@ -1,0 +1,44 @@
+uuid: 3d5be304-34a3-40c1-95b2-0a5c1ffd3e42
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.feature
+    - field.field.reusable.feature.field_eck_par_single_0
+  module:
+    - paragraphs
+    - path
+id: reusable.feature.default
+targetEntityType: reusable
+bundle: feature
+mode: default
+content:
+  field_eck_par_single_0:
+    type: entity_reference_paragraphs
+    weight: 1
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: feature
+    third_party_settings: {  }
+    region: content
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  uid: true

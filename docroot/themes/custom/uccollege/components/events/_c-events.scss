@@ -1,0 +1,137 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - events component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-events {
+  padding-top: rem-calc(2);
+
+  &--featured {
+    background-color: $color-bg;
+    padding: rem-calc(2) rem-calc(20) rem-calc(20);
+
+    @include breakpoint(large) {
+      padding: rem-calc(20) rem-calc(40) rem-calc(40);
+    }
+  }
+  &--noresults {
+    text-align: center;
+  }
+  &__ctn {
+    border-bottom: 2px solid $color-primary;
+    margin-bottom: rem-calc(20);
+    padding-bottom: 0;
+
+    @include breakpoint(large) {
+      margin-bottom: rem-calc(28);
+      padding-bottom: rem-calc(7);
+    }
+
+    h2 {
+      font-size: rem-calc(28);
+      margin-bottom: rem-calc(20);
+
+      @include breakpoint(large) {
+        font-size: rem-calc(40);
+      }
+    }
+
+    ul {
+      @include list;
+
+      li {
+        @include font-sizes(14, 16);
+        padding: 0 0 rem-calc(27) 0;
+      }
+    }
+
+    a {
+      @include font-sans(bold);
+      @include font-sizes(16, 18);
+      color: $color-primary;
+      text-decoration: none;
+
+      &:hover,
+      &:focus,
+      &:active {
+        text-decoration: underline;
+      }
+    }
+
+    .c-events__search-summary {
+      margin-bottom: rem-calc(28);
+    }
+
+    &.c-events__search-results {
+      border-bottom: 0;
+      margin-bottom: 0;
+
+      h2 {
+        font-size: rem-calc(28);
+        margin-bottom: rem-calc(15);
+      }
+
+      li {
+        p {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  &__item {
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  &__status {
+    color: $color-secondary;
+    font-size: rem-calc(14);
+    text-transform: uppercase;
+  }
+
+  &__no-results {
+    text-align: center;
+  }
+
+  &__search.c-searchform {
+    margin: rem-calc(20) auto rem-calc(40) auto;
+
+    @include breakpoint(large) {
+      margin: 0 auto rem-calc(69) auto;
+    }
+  }
+
+  &__detail {
+    margin: 0;
+
+    dt {
+      @include font-sizes(20, 22);
+      @include font-sans(bold);
+      margin-bottom: rem-calc(5);
+
+      &.c-events__detail--small {
+        @include font-sizes(16, 18);
+      }
+    }
+
+    dd {
+      @include font-sizes(16, 18);
+      line-height: 1.56;
+      margin: 0 0 rem-calc(22) 0;
+
+      @include breakpoint(large) {
+        margin: 0 0 rem-calc(32) 0;
+      }
+    }
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-events {
+    // sass linter doesn't like empty blocks :)
+  }
+}

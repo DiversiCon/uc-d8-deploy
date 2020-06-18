@@ -1,0 +1,23 @@
+uuid: a14f57f6-c13d-4cb4-bc73-31019a3ea928
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headline_link
+    - paragraphs.paragraphs_type.custom_link
+  module:
+    - link
+id: paragraph.custom_link.field_headline_link
+field_name: field_headline_link
+entity_type: paragraph
+bundle: custom_link
+label: URL
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

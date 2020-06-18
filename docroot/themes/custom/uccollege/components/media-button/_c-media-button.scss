@@ -1,0 +1,212 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - media-button component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-media-button {
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  opacity: 1;
+  transition: opacity 1s ease;
+  position: absolute;
+  width: 17.53%;
+  max-width: rem-calc(150);
+  z-index: 30;
+
+  &--hidden {
+    opacity: 0;
+    z-index: 0;
+  }
+
+  @include breakpoint(medium) {
+    max-width: rem-calc(150);
+  }
+
+  svg {
+    fill: $white;
+    height: 34.68%;
+    width: 24.28%;
+
+    &.c-icon--podcast {
+      height: 40.68%;
+      width: 30.28%;
+    }
+  }
+
+  .c-media-button__ctn {
+    position: relative;
+    width: 100%;
+
+    background-color: $color-secondary;
+    border: none;
+    color: $white;
+
+    &::before {
+      display: block;
+      content: "";
+      width: 100%;
+      padding-top: (1 / 1) * 100%;
+    }
+
+    > button,
+    > a,
+    > div {
+      background-color: transparent;
+      border: 0;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .c-media-button__duration {
+    @include font-sans;
+    color: $white;
+    font-size: rem-calc(12);
+    position: absolute;
+    bottom: rem-calc(10);
+    left: rem-calc(10);
+
+    > svg {
+      margin-right: rem-calc(6);
+      width: rem-calc(9);
+      height: rem-calc(12);
+    }
+
+    @include breakpoint(xxlarge) {
+      font-size: rem-calc(18);
+    }
+  }
+
+  .c-featured-hero & {
+    width: 26.9%;
+
+    @include breakpoint(large) {
+      width: 16.7%;
+    }
+  }
+
+  .c-tile--2row & {
+    width: 24.9%;
+
+    .c-media-button__duration {
+      font-size: rem-calc(12);
+
+      > svg {
+        margin-right: rem-calc(6);
+        width: rem-calc(9);
+        height: rem-calc(12);
+      }
+    }
+
+    @include breakpoint(medium) {
+      width: 31%;
+    }
+  }
+
+  .c-tile--3row & {
+    width: 25.1%;
+
+    .c-media-button__duration {
+      font-size: rem-calc(12);
+    }
+
+    @include breakpoint(xxlarge) {
+      width: 25.1%;
+
+      .c-media-button__duration {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .c-menu--alert & {
+    width: 19.1%;
+
+    svg {
+      width: 30%;
+    }
+
+    .c-media-button__duration {
+      display: none;
+    }
+  }
+
+  // Display the button/duration inline with other text
+  &--inline {
+    display: inline-block;
+    position: relative;
+    height: rem-calc(25);
+    width: auto;
+    max-width: inherit;
+
+    svg {
+      margin-top: rem-calc(-1);
+      height: rem-calc(11);
+      width: rem-calc(8);
+
+      &.c-icon--podcast {
+        height: rem-calc(14);
+        width: rem-calc(11);
+      }
+
+      + &.c-icon--podcast-uchicago {
+        display: none;
+      }
+    }
+
+    .c-media-button__ctn {
+      padding: rem-calc(7);
+      position: static;
+      width: 100%;
+
+      background-color: $color-secondary;
+      border: none;
+      color: $white;
+
+      &::before {
+        display: none;
+      }
+
+      > button,
+      > a,
+      > div {
+        cursor: pointer;
+        position: relative;
+        justify-content: flex-start;
+      }
+    }
+
+    .c-media-button__duration {
+      margin-left: rem-calc(7);
+      position: static;
+    }
+
+    + .c-list__item-date {
+      display: inline-block;
+    }
+
+    // in lists, hide the inline play button/duration
+    .c-list__item & {
+      @include breakpoint(medium) {
+        display: none;
+      }
+    }
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-media-button {
+    // sass linter doesn't like empty blocks :)
+  }
+}

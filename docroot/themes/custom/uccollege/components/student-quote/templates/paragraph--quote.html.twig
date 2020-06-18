@@ -1,0 +1,33 @@
+{#
+/**
+ * @file
+ * Displays an individual quote.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set quoteText = content.field_description_plaintext %}
+{% set image = content.field_image_main %}
+{% set quoteAuthor = content.field_title %}
+{% set quoteDate = content.field_number_text %}
+
+<figure class="c-student-quote">
+  <blockquote>
+    <svg class="c-icon">
+      <use xlink:href="/themes/custom/uccollege/dist/icons.svg#quote" />
+    </svg>
+    <p class="c-student-quote__text">{{ quoteText }}”</p>
+    <footer>
+      <div class="c-student-quote__img">
+        {{ image }}
+      </div>
+      <cite>
+        <span class="c-student-quote__attribution">{{ quoteAuthor }}</span>
+        {% if quoteDate|render is not empty %}
+          <span class="c-student-quote__year">{{ quoteDate }}</span>
+        {% endif %}
+      </cite>
+    </footer>
+  </blockquote>
+</figure>

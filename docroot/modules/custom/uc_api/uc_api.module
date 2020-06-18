@@ -1,0 +1,68 @@
+<?php
+
+/**
+ * @file
+ * Contains uc_api.module.
+ */
+
+use Drupal\Core\Url;
+use Drupal\node\NodeInterface;
+use Drupal\Core\Cache\Cache;
+
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ *
+ * @param $element
+ * @param $form_state
+ * @param $context
+ */
+function uc_api_field_widget_entity_reference_paragraphs_form_alter(&$element, &$form_state, $context) {
+  if ($element['#paragraph_type'] == 'staff_selector') {
+    $element['subform']['action_links'] = [
+      '#type' => 'html_tag',
+      '#tag' => 'ul',
+      '#weight' => 999,
+      '#attributes' => [
+        'class' => 'action-links',
+      ],
+    ];
+    $element['subform']['action_links']['sort_categories_action'] = [
+      '#title' => t('Edit Category Order'),
+      '#type' => 'link',
+      '#url' => Url::fromUserInput('/admin/structure/taxonomy/manage/person_category_primary/overview'),
+      '#attributes' => [
+        'class' => 'button button-action button--primary button--small',
+        'target' => '_blank',
+      ],
+      '#prefix' => '<li>',
+      '#suffix' => '</li>',
+    ];
+    $element['subform']['action_links']['sort_people_action'] = [
+      '#title' => t('Edit Person Order'),
+      '#type' => 'link',
+      '#url' => Url::fromUserInput('/admin/content/sort/person/category'),
+      '#attributes' => [
+        'class' => 'button button-action button--primary button--small',
+        'target' => '_blank',
+      ],
+      '#prefix' => '<li>',
+      '#suffix' => '</li>',
+    ];
+  }
+}
+
+function uc_api_node_update(NodeInterface $node) {
+  $cache_clear_node_types = [
+    'publication',
+    'faculty',
+  ];
+
+  if (in_array($node->bundle(), $cache_clear_node_types)) {
+    $cache_tags = [
+      'api:groups',
+      'api:faculty:index',
+    ];
+
+    Cache::invalidateTags($cache_tags);
+  }
+}

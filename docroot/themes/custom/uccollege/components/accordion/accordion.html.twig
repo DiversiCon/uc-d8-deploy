@@ -1,0 +1,44 @@
+{#
+/**
+ * accordion Twig Partial
+ *
+ */
+#}
+
+  <uc-accordion-group
+    v-cloak
+    :single="{{ content.single|default('false') }}"
+    :columns="{{ content.columns|default('1') }}"
+  >
+    {% for item in content.items %}
+      <uc-accordion
+        :mobile-only="{{ item.mobileonly|default('false') }}"
+        :open="{{ item.open|default('false') }}"
+        tag="{{ item.tag|default('h3') }}"
+        title="{{ item.heading|convertQuotes }}"
+        :two-column="{{ item.html|length > 1 ? 'true' : 'false' }}"
+      >
+
+      {% if item.html[1] %}
+
+        {% for html in item.html %}
+
+          <div>
+            {% autoescape false %}
+            {{ html }}
+            {% endautoescape %}
+          </div>
+
+        {% endfor %}
+
+      {% else %}
+
+        {% autoescape false %}
+        {{ item.html }}
+        {% endautoescape %}
+
+      {% endif %}
+
+      </uc-accordion>
+    {% endfor %}
+  </uc-accordion-group>

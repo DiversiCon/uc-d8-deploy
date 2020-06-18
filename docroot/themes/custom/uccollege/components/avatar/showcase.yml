@@ -1,0 +1,37 @@
+avatar:
+  title: Avatar
+  description: Displays a circular image on the left, with a title, description and optional link on the right. If the image provided is not a square, the image will be cropped from the bottom.
+  type: component
+  variants:
+  -
+    title: Default with link
+    caption:
+    content:
+      title: Keme Carter, MD
+      text: "Associate Professor of Medicine<br> Associate Dean for Admissions"
+      img:
+        src: "/themes/custom/uccollege/it_showcase/images/headshot-01.jpg"
+        alt: "Alt text here"
+      link:
+        text: "A message from our dean"
+        url: "#"
+        target: "_blank"
+  -
+    title: No link (and non-square image)
+    caption:
+    content:
+      title: Nicola M. Orlov, MD
+      text: "Assistant Professor of Pediatrics"
+      img:
+        src: "/themes/custom/uccollege/it_showcase/images/orlovn-apeds.jpg"
+        alt: "Alt text here"
+
+
+avatar.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: avatar.component
+    index_hide: true
+    file: themes/custom/uccollege/components/avatar/README.md

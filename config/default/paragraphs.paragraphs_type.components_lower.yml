@@ -1,0 +1,9 @@
+uuid: a110584a-df8a-4f87-8a16-3ae020c16ce6
+langcode: en
+status: true
+dependencies: {  }
+id: components_lower
+label: 'Components, Lower Section'
+icon_uuid: null
+description: 'Shared components to be placed below the main section components'
+behavior_plugins: {  }

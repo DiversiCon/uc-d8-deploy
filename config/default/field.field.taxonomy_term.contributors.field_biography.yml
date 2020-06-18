@@ -1,0 +1,29 @@
+uuid: 5540f713-2389-47bc-8f1e-24c9b6ed4667
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_biography
+    - taxonomy.vocabulary.contributors
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    smartbody: '0'
+    plain: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: taxonomy_term.contributors.field_biography
+field_name: field_biography
+entity_type: taxonomy_term
+bundle: contributors
+label: Biography
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

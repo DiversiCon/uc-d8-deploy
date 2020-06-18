@@ -1,0 +1,23 @@
+uuid: 71148334-1189-45e1-95d9-d5a03266f1bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.callout_reference.field_eck_reference
+    - paragraphs.paragraphs_type.callout_reference
+id: paragraph.callout_reference.default
+targetEntityType: paragraph
+bundle: callout_reference
+mode: default
+content:
+  field_eck_reference:
+    weight: 0
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

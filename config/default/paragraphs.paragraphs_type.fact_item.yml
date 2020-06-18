@@ -1,0 +1,9 @@
+uuid: 189bde9f-fc9b-46e8-8a73-317d5837a39f
+langcode: en
+status: true
+dependencies: {  }
+id: fact_item
+label: 'Fact Item'
+icon_uuid: null
+description: 'A single fact, appearing within a Fact Block.'
+behavior_plugins: {  }

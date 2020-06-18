@@ -1,0 +1,23 @@
+uuid: 1145b5c2-6cab-44ec-b59d-f2ee5ef1469d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hide_in_directory
+    - node.type.person
+id: node.person.field_hide_in_directory
+field_name: field_hide_in_directory
+entity_type: node
+bundle: person
+label: 'Hide person from directory?'
+description: 'Hide this person from appearing in any directory listing.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

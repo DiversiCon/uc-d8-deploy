@@ -1,0 +1,71 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - skin
+// global skin styles - gradients, colors, box-shadows, etc.
+// these styles should be used as modifiers to existing classes
+// skin classes should be prefixed with 's-'
+
+.s-bg,
+.s-bg-primary {
+  background-color: $color-bg;
+}
+
+.s-bg-secondary { //yellow
+  background-color: $color-bg-secondary;
+}
+
+.s-bg-tertiary { //burgundy/violet
+  background-color: $color-bg-tertiary;
+}
+
+.s-bg-maroon {
+  background-color: $color-maroon;
+}
+
+.s-bg-blue {
+  background-color: $color-blue;
+}
+
+.s-bg-tertiary,
+.s-bg-maroon,
+.s-bg-blue {
+  color: $color-white;
+
+  a:not(.c-button),
+  a:not(.c-button):focus,
+  a:not(.c-button):hover {
+    color: $color-white;
+  }
+
+  button {
+    color: $color-white;
+
+    &:hover {
+      color: $color-white;
+    }
+  }
+}
+
+.s-dash {
+  @include list(emdash);
+  margin-bottom: rem-calc(20);
+
+  li {
+
+    &:not(.c-accordion__item):not(.c-stats__item):not(.c-events__item):not(.c-factcard__item) {
+      font-weight: $font-weight-normal;
+      padding-left: 1.5em;
+    }
+
+    &:not(:last-child):not(.c-accordion__item):not(.c-events__item):not(.c-factcard__item) {
+      margin-bottom: rem-calc(14);
+    }
+  }
+}
+
+.s-text-white {
+  color: #fff;
+}
+
+.s-text-black {
+  color: #000;
+}

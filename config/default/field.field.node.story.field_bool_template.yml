@@ -1,0 +1,23 @@
+uuid: e62acb89-3a2f-44ad-871f-a2a599bb2aa4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bool_template
+    - node.type.story
+id: node.story.field_bool_template
+field_name: field_bool_template
+entity_type: node
+bundle: story
+label: 'Template?'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

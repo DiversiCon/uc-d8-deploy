@@ -1,0 +1,67 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - hero-rotator component
+
+.c-hero-rotator {
+  max-width: rem-calc(1200);
+  margin: 0 auto rem-calc(20) auto;
+
+  .grid-2up__cell1 {
+    overflow: visible;
+  }
+
+  &__heading {
+    display: none;
+  }
+
+  &__heading-mobile {
+    a {
+      color: inherit;
+    }
+  }
+
+  &__caption {
+    position: absolute;
+    bottom: rem-calc(-27);
+    margin: 0;
+    font-size: rem-calc(12);
+  }
+
+  &--has-caption {
+    margin-bottom: rem-calc(50);
+
+    .grid-2up__title {
+      margin-top: rem-calc(35);
+
+      @include breakpoint(medium) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .c-cta-link__grid2up {
+    &:hover {
+      color: $color-white;
+      border-color: $color-white;
+    }
+
+    &--white {
+      color: $color-white;
+      border-color: $color-white;
+
+      &:hover {
+        color: $color-black;
+        border-color: $color-black;
+      }
+    }
+  }
+
+  @include breakpoint(medium) {
+    &__heading {
+      display: block;
+    }
+
+    &__heading-mobile {
+      display: none;
+    }
+  }
+}

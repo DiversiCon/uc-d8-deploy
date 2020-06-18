@@ -1,0 +1,85 @@
+uuid: 03ae40e2-0906-4c81-9dff-bd45a21e2e6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.feature_announcement.field_background_theme
+    - field.field.paragraph.feature_announcement.field_body
+    - field.field.paragraph.feature_announcement.field_bool_intro_toggle
+    - field.field.paragraph.feature_announcement.field_headline_text
+    - field.field.paragraph.feature_announcement.field_links_ultd
+    - field.field.paragraph.feature_announcement.field_paragraph_single
+    - field.field.paragraph.feature_announcement.field_title
+    - paragraphs.paragraphs_type.feature_announcement
+  module:
+    - entity_reference_revisions
+    - link
+    - options
+    - text
+id: paragraph.feature_announcement.default
+targetEntityType: paragraph
+bundle: feature_announcement
+mode: default
+content:
+  field_background_theme:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_body:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_bool_intro_toggle:
+    weight: 4
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_headline_text:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_links_ultd:
+    weight: 6
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_paragraph_single:
+    weight: 3
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_title:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  search_api_excerpt: true

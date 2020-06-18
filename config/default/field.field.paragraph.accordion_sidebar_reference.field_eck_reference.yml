@@ -1,0 +1,28 @@
+uuid: 95dad542-d1e3-46a2-840c-094d4cb8389d
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.accordion_sidebar
+    - field.storage.paragraph.field_eck_reference
+    - paragraphs.paragraphs_type.accordion_sidebar_reference
+id: paragraph.accordion_sidebar_reference.field_eck_reference
+field_name: field_eck_reference
+entity_type: paragraph
+bundle: accordion_sidebar_reference
+label: 'Accordion Sidebar Reference'
+description: '<em>Create a new reusable accordion sidebar <a href="/admin/content/reusable/add/accordion_sidebar" target="_blank">here</a>.</em>'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:reusable'
+  handler_settings:
+    target_bundles:
+      accordion_sidebar: accordion_sidebar
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

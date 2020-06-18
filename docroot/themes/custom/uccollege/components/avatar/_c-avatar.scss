@@ -1,0 +1,88 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - avatar component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-avatar {
+  display: flex;
+  align-items: center;
+  margin: 0 0 rem-calc(38) 0;
+
+  &__image {
+    width: rem-calc(85);
+    margin-right: rem-calc(10);
+    &-wrap {
+      @include proportional(100%);
+      border-radius: 50%;
+    }
+
+    @include breakpoint(medium) {
+      width: rem-calc(110);
+    }
+  }
+
+  &__image-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: $color-dkgrey;
+
+    .c-icon {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  figcaption {
+    flex: 1;
+    font-size: rem-calc(12);
+
+    .c-avatar__title,
+    .c-avatar__text {
+      @include font-sizes(14, 16);
+    }
+
+    @include breakpoint(medium) {
+      font-size: rem-calc(14);
+    }
+
+    p {
+      margin-bottom: rem-calc(4);
+    }
+  }
+
+  &__link {
+    color: $color-secondary;
+  }
+
+  &__title,
+  &__link {
+    @include font-sans(bold);
+  }
+
+  .c-article__body & {
+    @include breakpoint(medium) {
+      width: 75%;
+    }
+
+    @include breakpoint(xlarge) {
+      width: 50%;
+    }
+  }
+
+  .c-accordion__item & {
+    width: 100%;
+  }
+
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-avatar {
+    // sass linter doesn't like empty blocks :)
+  }
+}

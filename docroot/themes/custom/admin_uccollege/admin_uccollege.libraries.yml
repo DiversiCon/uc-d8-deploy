@@ -1,0 +1,11 @@
+theme_base:
+  version: 1.x
+  css:
+    base:
+      # custom styles below
+      https://cloud.typography.com/6526092/7025152/css/fonts.css: {} # gotham
+      dist/css/styles.css: {}
+  js:
+    src/js/admin.js: {}
+  dependencies:
+  - core/jquery

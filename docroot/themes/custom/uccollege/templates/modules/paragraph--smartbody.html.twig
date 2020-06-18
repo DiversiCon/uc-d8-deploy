@@ -1,0 +1,36 @@
+{#
+/**
+ * @file
+ * Smartbody template.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set maxelements = content.field_smartbody_text['chunks']|length %}
+{% if content.field_smartbody_text['chunks']|length >= paragraph.field_smartbody_components.getvalue|length %}
+  {% set maxelements = content.field_smartbody_text['chunks']|length - 1 %}
+{% else %}
+  {% set maxelements = paragraph.field_smartbody_components.getvalue|length - 1 %}
+{% endif %}
+
+{% block paragraph %}
+    {% block content %}
+
+      {% for index in 0..maxelements %}
+        {% if content.field_smartbody_text['chunks'][index] %}
+          <div class="c-article__body">
+            {{ content.field_smartbody_text['chunks'][index] }}
+          </div>
+        {% endif %}
+
+        {% if content.field_smartbody_components[index] %}
+          <div class="c-article__media">
+            {{ content.field_smartbody_components[index] }}
+          </div>
+        {% endif %}
+      {% endfor %}
+
+    {% endblock %}
+{% endblock paragraph %}

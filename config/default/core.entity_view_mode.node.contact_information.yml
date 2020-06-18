@@ -1,0 +1,10 @@
+uuid: b5e8f818-d98c-4ada-a293-05cb1dab6dfa
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.contact_information
+label: 'Contact Information'
+targetEntityType: node
+cache: true

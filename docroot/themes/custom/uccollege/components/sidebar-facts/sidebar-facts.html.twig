@@ -1,0 +1,41 @@
+{#
+/**
+ * sidebar-facts Twig Partial
+ *
+ */
+#}
+
+{# Set the background class. #}
+{% set bg_class = '' %}
+
+{% if content.theme == 'primary' %}
+  {% set bg_class = 's-bg' %}
+{% elseif content.theme == 'secondary' %}
+  {% set bg_class = 's-bg-secondary' %}
+{% elseif content.theme == 'tertiary' %}
+  {% set bg_class = 's-bg-tertiary' %}
+{% endif %}
+
+<div class="c-sidebar-facts {{ bg_class }}">
+  {% if content.topic %}
+  <h2 class="t-heading--topic hide-for-large">
+    <a href="{{ content.topic.url }}" target="{{ content.topic.target }}">{{ content.topic.text }}</a>
+  </h2>
+  {% endif %}
+  {% for item in content.items %}
+  <div class="c-sidebar-facts__item
+    {% if item.align %} c-sidebar-facts__item--align-{{ item.align }}{% endif %}
+    {% if item.department %} c-sidebar-facts__item--dept{% endif %}">
+
+    {% if item.headline %}
+      {% if item.url %}
+        <h3 class="c-sidebar-facts__headline"><a href="{{ item.url }}" target="{{ item.target }}">{{ item.headline }}</a></h3>
+      {% else %}
+        <h3 class="c-sidebar-facts__headline">{{ item.headline }}</h3>
+      {% endif %}
+    {% endif %}
+
+    {{ item.html|raw }}
+  </div>
+  {% endfor %}
+</div>

@@ -1,0 +1,43 @@
+uuid: 363507ce-0c1f-4b74-8aab-f312b04476e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.news_inernal.field_content_reference
+    - field.field.paragraph.news_inernal.field_content_reference_1
+    - field.field.paragraph.news_inernal.field_content_reference_single
+    - paragraphs.paragraphs_type.news_inernal
+id: paragraph.news_inernal.default
+targetEntityType: paragraph
+bundle: news_inernal
+mode: default
+content:
+  field_content_reference:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_content_reference_1:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_content_reference_single:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

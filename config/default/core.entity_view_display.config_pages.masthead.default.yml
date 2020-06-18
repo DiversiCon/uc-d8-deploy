@@ -1,0 +1,49 @@
+uuid: 04b1d202-a097-45c8-9ff0-cd76ea5cd041
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.masthead
+    - field.field.config_pages.masthead.field_cp_links_ultd_1
+    - field.field.config_pages.masthead.field_cp_paragraphs_ultd
+    - field.field.config_pages.masthead.field_media_image
+  module:
+    - entity_reference_revisions
+    - link
+id: config_pages.masthead.default
+targetEntityType: config_pages
+bundle: masthead
+mode: default
+content:
+  field_cp_links_ultd_1:
+    weight: 2
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_cp_paragraphs_ultd:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_media_image:
+    type: entity_reference_entity_view
+    weight: 3
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+hidden:
+  search_api_excerpt: true

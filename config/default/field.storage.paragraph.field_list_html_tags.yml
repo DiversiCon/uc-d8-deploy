@@ -1,0 +1,36 @@
+uuid: 31f61179-d6cd-460b-974d-b794fbd6cefa
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_list_html_tags
+field_name: field_list_html_tags
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: h2
+      label: h2
+    -
+      value: h3
+      label: h3
+    -
+      value: h4
+      label: h4
+    -
+      value: span
+      label: span
+    -
+      value: p
+      label: p
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

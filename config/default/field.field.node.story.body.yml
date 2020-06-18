@@ -1,0 +1,30 @@
+uuid: 0fb49bc0-3ed6-45fa-a2c3-41db4bfdcd02
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.story
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    plain: plain
+    smartbody: '0'
+    plain_text: '0'
+id: node.story.body
+field_name: body
+entity_type: node
+bundle: story
+label: 'Preview text'
+description: 'Use the summary for the preview text.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

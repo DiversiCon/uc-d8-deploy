@@ -1,0 +1,117 @@
+accordion:
+  title: Accordion
+  description: Generic accordion
+  type: component
+  variants:
+  -
+    title: Default Accordion
+    caption: Both accordions closed. All can be open at once.
+    content:
+      items:
+      -
+        heading: "“Accordion One”"
+        html: "<ul class='s-dash'><li><a href='#'>Biological Sciences</a></li>
+                    <li><a href='#'>College Course Clusters</a></li>
+                    <li><a href='#'>College Signature</a></li>
+                    <li><a href='#'>Humanities Collegiate</a></li>
+                    <li><a href='#'>New Collegiate Division</a></li>
+                    <li><a href='#'>Physical Science Division</a></li></ul>"
+      -
+        heading: Accordion Two
+        html: "<ul class='s-dash'><li><a href='#'>Anthropology</a></li>
+                    <li><a href='#'>Biological Chemistry</a></li>
+                    <li><a href='#'>Gender & Sexuality</a></li>
+                    <li><a href='#'>Human Rights</a></li>
+                    <li><a href='#'>Economics</a></li></ul>
+                    <a href='#' class='c-cta-link'>See all Majors & Minors</a>"
+  -
+    title: Mobile-Only Accordion, Two Columns
+    caption: Two columns on desktop, accordion on mobile only
+    content:
+      columns: 2
+      items:
+      -
+        heading: Accordion One
+        html: "accordion content here"
+        mobileonly: "true"
+      -
+        heading: Accordion Two
+        html: "accordion two content here"
+        mobileonly: "true"
+  -
+    title: Mixed
+    caption: 3 accordions, second one is mobile-only
+    content:
+      columns: 1
+      items:
+      -
+        heading: Accordion One
+        html: "accordion content here"
+        mobileonly: "false"
+      -
+        heading: Accordion Two
+        html: "accordion two content here"
+        mobileonly: "true"
+      -
+        heading: Accordion Three
+        html: "accordion two content here"
+        mobileonly: "false"
+  -
+    title: Accordion with first item open
+    caption: First item open on page load
+    content:
+      items:
+      -
+        heading: I am open by default
+        html: "accordion content here"
+        open: "true"
+      -
+        heading: Another heading here
+        html: "accordion two content here"
+  -
+    title: Single Accordion open
+    caption: Only one item can be open at a time.
+    content:
+      single: "true"
+      items:
+      -
+        heading: Only one of us can be open at a time
+        html: "accordion content here"
+      -
+        heading: The others are reset
+        html: "accordion two content here"
+  -
+    title: Only on mobile
+    caption: These are only accordions on mobile
+    content:
+      items:
+      -
+        heading: Heading One
+        html: "accordion content here"
+        mobileonly: "true"
+      -
+        heading: Heading Two
+        html: "accordion two content here"
+        mobileonly: "true"
+  -
+    title: Custom Heading Tags
+    caption: Heading tag wrapping button is an H2
+    content:
+      items:
+      -
+        heading: Heading One
+        html: "accordion content here"
+        tag: "h2"
+      -
+        heading: Heading Two
+        html: "<p>accordion two content here. Etiam turpis mauris, tempus vitae ipsum ut, lacinia vestibulum dui. Vestibulum et metus vitae diam gravida molestie. Etiam eleifend nisi pulvinar ex faucibus interdum. Phasellus at nulla est. Curabitur imperdiet risus ut efficitur pulvinar.</p> <ul><li>Pellentesque ultricies, urna ultrices faucibus vulputate, eros libero bibendum nisi, euismod pharetra ex tellus at risus. Mauris ut lacinia dolor, nec aliquet arcu. Quisque felis turpis, posuere id orci nec, blandit scelerisque ante.</li> <li>Fusce porttitor odio non lorem aliquam, dictum scelerisque quam viverra. Suspendisse non vehicula enim. Maecenas at mi malesuada neque luctus porta. Integer non cursus metus.</li> <li>Aliquam tincidunt dolor ac neque facilisis sodales. Maecenas ut enim vitae ex finibus iaculis. Duis ullamcorper, diam eu dignissim malesuada, dolor nulla egestas nulla, vel hendrerit orci ex a lorem. <ul><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras auctor arcu non consequat aliquet. Ut at massa euismod, accumsan mi dictum, vestibulum sem. Donec dignissim rutrum dui in gravida. Suspendisse potenti. Etiam bibendum sapien et tellus imperdiet tempus. Aliquam erat volutpat. Cras dignissim nisl arcu, eu dignissim ante pretium non.</li> <li>Etiam turpis mauris, tempus vitae ipsum ut, lacinia vestibulum dui. Vestibulum et metus vitae diam gravida molestie. Etiam eleifend nisi pulvinar ex faucibus interdum. Phasellus at nulla est. Curabitur imperdiet risus ut efficitur pulvinar.</li></ul></li></ul>"
+        tag: "h2"
+
+accordion.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: accordion.component
+    index_hide: true
+    file: themes/custom/uccollege/components/accordion/README.md

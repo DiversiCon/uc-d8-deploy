@@ -1,0 +1,127 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - dropdown component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-dropdown {
+  min-height: rem-calc(47);
+  position: relative;
+  width: 100%;
+
+  @include breakpoint(medium) {
+    margin-right: rem-calc(40);
+    width: auto;
+
+    .c-selector__dropdown-wrap &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__button {
+    background-color: $color-white;
+    border: 0;
+    border-bottom: rem-calc(2) solid $color-primary;
+    box-shadow: none;
+    color: $color-primary;
+    cursor: pointer;
+    display: block;
+    font-size: rem-calc(17.5);
+    height: auto;
+    padding: rem-calc(12) rem-calc(50) rem-calc(12) 0;
+    position: relative;
+    text-align: left;
+    width: 100%;
+
+    &:focus {
+      border-color: $color-secondary;
+    }
+
+    &::after {
+      @include caret();
+      border-width: 1px;
+      height: rem-calc(10);
+      position: absolute;
+      right: rem-calc(10);
+      top: rem-calc(13);
+      transition: all $transition-medium;
+      width: rem-calc(10);
+    }
+    &.expanded::after {
+      margin-top: rem-calc(7);
+      transform: rotate(-45deg);
+    }
+  }
+
+  &__list {
+    @include list;
+    cursor: pointer;
+    background-color: $color-bg;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 rem-calc(20) 0 rem-calc(10);
+    position: absolute;
+    text-align: left;
+    transition: height $transition-medium ease-in-out;
+    visibility: hidden;
+    width: 100%;
+
+    @include breakpoint(medium) {
+      width: auto;
+    }
+
+    &.expanded {
+      margin-bottom: rem-calc(40);
+      max-height: 60vh;
+      overflow: auto;
+      visibility: visible;
+    }
+
+    li {
+      color: $color-primary;
+      cursor: pointer;
+      font-size: rem-calc(17.5);
+      padding: rem-calc(10) rem-calc(10);
+      text-decoration: none;
+
+      &:first-child {
+        padding-top: rem-calc(20);
+      }
+
+      &:last-child {
+        padding-bottom: rem-calc(20);
+      }
+
+      &:focus,
+      &:active,
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  @include breakpoint(medium) {
+    &--type {
+      min-width: rem-calc(228);
+    }
+
+    &--division {
+      min-width: rem-calc(339);
+    }
+
+    &--office {
+      min-width: 35%;
+    }
+
+    &--year {
+      min-width: 28%;
+    }
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-dropdown {
+    // sass linter doesn't like empty blocks :)
+  }
+}

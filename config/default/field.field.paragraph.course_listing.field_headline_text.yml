@@ -1,0 +1,30 @@
+uuid: ab0c7c38-4199-4904-ab09-665e6e979838
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headline_text
+    - paragraphs.paragraphs_type.course_listing
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.course_listing.field_headline_text
+field_name: field_headline_text
+entity_type: paragraph
+bundle: course_listing
+label: Headline
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

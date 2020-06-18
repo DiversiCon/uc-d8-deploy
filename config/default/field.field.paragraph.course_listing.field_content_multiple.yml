@@ -1,0 +1,28 @@
+uuid: a0239f5b-f50f-43bb-bb25-da039dedc9b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content_multiple
+    - node.type.course
+    - paragraphs.paragraphs_type.course_listing
+id: paragraph.course_listing.field_content_multiple
+field_name: field_content_multiple
+entity_type: paragraph
+bundle: course_listing
+label: Courses
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      course: course
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,156 @@
+uuid: de375d9c-2a68-4a42-ac32-782f08ee33e0
+langcode: en
+status: true
+dependencies: {  }
+id: pme_people_person
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: pme_migration
+label: 'Import PME People/Person Nodes'
+source:
+  urls: 'http://pme-cms.dev.uchicago.edu/migrate/people_person_pages?limit=other'
+  item_selector: /
+  fields:
+    -
+      name: entry_id
+      label: 'Entry ID'
+      selector: entry_id
+    -
+      name: title
+      label: Title
+      selector: title
+    -
+      name: url_title
+      label: 'URL Title'
+      selector: url_title
+    -
+      name: name_first
+      label: 'First Name'
+      selector: name_first
+    -
+      name: name_last
+      label: 'Last Name'
+      selector: name_last
+    -
+      name: academic_title
+      label: 'Academic title'
+      selector: academic_title
+    -
+      name: group
+      label: 'Group'
+      selector: group
+    -
+      name: positions
+      label: 'Positions'
+      selector: positions
+    -
+      name: entry_date
+      label: 'Entry Date'
+      selector: entry_date
+    -
+      name: edit_date
+      label: 'Edit Date'
+      selector: edit_date
+    -
+      name: address
+      label: 'Address'
+      selector: address
+    -
+      name: email
+      label: 'E-mail'
+      selector: email
+    -
+      name: phone
+      label: 'Phone'
+      selector: phone
+    -
+      name: bio
+      label: 'Biography'
+      selector: bio
+    -
+      name: research
+      label: 'Research'
+      selector: research
+    -
+      name: main_image
+      label: 'Main Image'
+      selector: main_image
+    -
+      name: category
+      label: 'Category'
+      selector: category
+    -
+      name: category_id
+      label: 'Category ID'
+      selector: category_id
+  ids:
+    entry_id:
+      type: integer
+  constants:
+    format: simple_html
+    format_basic: basic_html
+process:
+  langcode:
+    plugin: default_value
+    default_value: en
+  title: title
+  field_headline_text: title
+  field_name/given: name_first
+  field_name/family: name_last
+  body/value: bio
+  body/format: constants/format
+  field_image_main/target_id:
+    plugin: migration_lookup
+    migration: pme_media_people_images
+    source: main_image
+  field_section:
+    plugin: migration_lookup
+    migration: pme_group_section
+    no_stub: true
+    source: group
+  field_office_location: address
+  field_phone: phone
+  field_email_address: email
+  field_description/value: research
+  field_description/format: constants/format_basic
+  field_office_title: academic_title
+  field_positions: positions
+  related_ids:
+    plugin: migration_lookup
+    migration: pme_people_person_related
+    source: entry_id
+  field_paragraph_single_2/target_id:
+    plugin: extract
+    source: '@related_ids'
+    index:
+      - 0
+  field_paragraph_single_2/target_revision_id:
+    plugin: extract
+    source: '@related_ids'
+    index:
+      - 1
+  field_person_type:
+    plugin: migration_lookup
+    migration: pme_people_types
+    source: category_id
+  status:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: default_value
+    default_value: 1
+  created: entry_date
+  changed: edit_date
+  moderation_state:
+    plugin: default_value
+    default_value: published
+  type:
+    plugin: default_value
+    default_value: person
+destination:
+  plugin: 'entity:node'
+migration_dependencies:
+  required:
+    - pme_people_person_related

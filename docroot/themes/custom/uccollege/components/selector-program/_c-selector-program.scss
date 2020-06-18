@@ -1,0 +1,69 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - selector component
+// Styles for the selector, which contains
+// dropdowns and related content
+
+// base styles for all selectors
+.c-selector {
+  margin-top: rem-calc(24);
+
+  &__dropdowns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: rem-calc(60);
+
+    @include breakpoint(medium) {
+      flex-direction: row;
+    }
+  }
+
+  &__dropdown-wrap {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: rem-calc(40);
+    position: relative;
+    width: 100%;
+
+    label {
+      font-size: rem-calc(17.5);
+      font-weight: $font-weight-bold;
+      grid-column: 1;
+      margin-right: rem-calc(33);
+
+      @include breakpoint(medium) {
+        text-align: right;
+      }
+    }
+
+    @include breakpoint(medium) {
+      flex-direction: row;
+    }
+  }
+}
+
+// Program-specific selector styles
+.c-selector-program {
+  &__majors {
+    font-size: rem-calc(14);
+    margin-bottom: rem-calc(10);
+  }
+
+  &__text {
+    margin-bottom: rem-calc(30);
+    max-width: 82.3%;
+  }
+
+  .c-accordion__ctn.expanded {
+    margin-top: 0;
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-selector {
+    // sass linter doesn't like empty blocks :)
+  }
+}

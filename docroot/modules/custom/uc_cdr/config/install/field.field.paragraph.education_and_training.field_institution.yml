@@ -1,0 +1,19 @@
+uuid: d2585423-e059-4c1b-b9fd-8d1075ba6797
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_institution
+    - paragraphs.paragraphs_type.education_and_training
+id: paragraph.education_and_training.field_institution
+field_name: field_institution
+entity_type: paragraph
+bundle: education_and_training
+label: Institution
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

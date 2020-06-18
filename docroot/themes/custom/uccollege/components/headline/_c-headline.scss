@@ -1,0 +1,124 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - headline component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-headline {
+  text-align: center;
+  margin: 0 auto;
+  max-width: rem-calc(900);
+  padding-top: rem-calc(20);
+  &__topic {
+    display: inline-block;
+    margin-bottom: rem-calc(26);
+  }
+  &__heading {
+    @include font-sizes(28, 40);
+    line-height: 1.1;
+    margin: 0;
+  }
+  &__description {
+    font-size: rem-calc(16);
+    font-weight: $font-weight-bold;
+    margin: rem-calc(30) auto 0;
+    text-align: center;
+    p {
+      margin-bottom: 1rem;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+  &__links {
+    @include font-sizes(14, 16);
+  }
+  &__date {
+    font-size: rem-calc(14);
+    margin: 1rem 0 0;
+  }
+  &__status {
+    color: $color-secondary;
+    font-size: rem-calc(14);
+    margin-bottom: rem-calc(9);
+    text-transform: uppercase;
+  }
+  //Page specific overrides
+  .c-article & {
+    grid-column: 1;
+  }
+  .path-hall & {
+    padding-bottom: 0;
+    &__heading {
+      font-size: rem-calc(35);
+    }
+    &__description {
+      font-size: rem-calc(14);
+      font-weight: $font-weight-normal;
+    }
+  }
+  .citystate {
+    display: inline-block;
+  }
+  .page-node-type-directory & {
+    margin: 0 auto;
+    max-width: $text-max-width;
+  }
+
+  @include breakpoint(medium) {
+    .c-headline__description {
+      font-size: rem-calc(20);
+      p {
+        font-size: rem-calc(20);
+      }
+    }
+    .c-article & {
+      grid-column: 3;
+      margin: 0;
+    }
+  }
+
+  @include breakpoint(large) {
+    //Page and theme specific overrides
+    .c-article &,
+    &--lg {
+      .c-headline__heading {
+        font-size: rem-calc(70);
+        letter-spacing: rem-calc(-1.4);
+      }
+      .c-headline__date {
+        font-size: rem-calc(16);
+      }
+    }
+    .c-article &--sm {
+      .c-headline__heading {
+        font-size: rem-calc(40);
+      }
+    }
+    .path-hall & {
+      &__description {
+        font-size: rem-calc(18);
+      }
+    }
+    .page-node-type-event .c-article & {
+      &__heading {
+        font-size: rem-calc(40);
+      }
+    }
+    .page-node-type-directory & {
+      &__heading {
+        margin-bottom: rem-calc(26);
+      }
+      &__description {
+        font-size: rem-calc(20);
+      }
+    }
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-headline {
+    // sass linter doesn't like empty blocks :)
+  }
+}

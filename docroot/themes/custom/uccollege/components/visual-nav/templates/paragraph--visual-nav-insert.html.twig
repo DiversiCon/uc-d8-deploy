@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * Insert of visual nav for generic page
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% block paragraph %}
+  {% block content %}
+    {{ visual_nav }}
+  {% endblock %}
+{% endblock paragraph %}

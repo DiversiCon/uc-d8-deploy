@@ -1,0 +1,57 @@
+uuid: df1eda4c-602e-4499-beb1-716a49b93a4d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.reusable.story_byline
+    - eck.eck_type.reusable.contacts
+    - field.field.reusable.contacts.field_eck_name
+    - field.field.reusable.contacts.field_eck_title
+    - field.field.reusable.contacts.field_email
+    - field.field.reusable.contacts.field_headline_text
+    - field.field.reusable.contacts.field_phone
+  module:
+    - name
+    - text
+id: reusable.contacts.story_byline
+targetEntityType: reusable
+bundle: contacts
+mode: story_byline
+content:
+  field_eck_name:
+    type: name_default
+    settings:
+      list_format: default
+      format: default
+      markup: none
+      link_target: ''
+      preferred_field_reference: ''
+      preferred_field_reference_separator: ', '
+      alternative_field_reference: ''
+      alternative_field_reference_separator: ', '
+    weight: 0
+    region: content
+    label: hidden
+    third_party_settings: {  }
+  field_eck_title:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_headline_text:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  changed: true
+  created: true
+  field_email: true
+  field_phone: true
+  search_api_excerpt: true
+  title: true
+  uid: true

@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * Displays hero components.
+ *
+ * @see uccollege_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{#
+  The include_path is set in the preprocessor. Each type of hero component will have its include file.
+  Each include file will extend/override another TWIG template.
+  The preprocessor also prepares the component variables to be used in the included TWIG template.
+
+  @see i--hero-components-gallery.html.twig
+  @see i--hero-components-video.html.twig
+#}
+
+{# Ensure that the include_path is set. #}
+{% if include_path is not empty %}
+  {% include include_path %}
+{% endif %}

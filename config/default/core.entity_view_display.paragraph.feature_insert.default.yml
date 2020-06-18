@@ -1,0 +1,25 @@
+uuid: 5e95838c-c045-4263-aa52-59360daf89c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.feature_insert.field_par_paragraph_single
+    - paragraphs.paragraphs_type.feature_insert
+  module:
+    - entity_reference_revisions
+id: paragraph.feature_insert.default
+targetEntityType: paragraph
+bundle: feature_insert
+mode: default
+content:
+  field_par_paragraph_single:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  search_api_excerpt: true

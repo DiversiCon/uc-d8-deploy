@@ -1,0 +1,32 @@
+#
+# Showcase Component
+#
+# Use the following to define components that can be rendered in the Showcase.
+#
+#   primary_key:  the primary key of each section is equivalent to the machine_name of the Drupal component.
+#     title:  component title, used in showcase index and as page title of the showcase page.
+#     description:  component description used in showcase index.
+#     enabled:  true|false, if not enabled the component will not be included in Showcase.
+#     component:  array of values, for each variant/instance, to be made available in template as content.<key>.
+#
+
+zearchvorm:
+  attributes:
+    title: Zearch Vorm
+    description:
+    enabled: true
+    sidebar: false
+  variants:
+    -
+      title: Default
+      caption: Search form on regular pages
+      content:
+        title: xDefaultx
+        caption: xSearch form on regular pagesx
+    -
+      title: Search Menu
+      caption: Search form within global navigation
+      content:
+        title: xSearch Menux
+        caption: xSearch form within global navigationx
+        theme: inverted

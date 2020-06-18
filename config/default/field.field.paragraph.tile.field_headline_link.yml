@@ -1,0 +1,23 @@
+uuid: 6095304e-843f-4e6b-9fa5-bf0229d7f453
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headline_link
+    - paragraphs.paragraphs_type.tile
+  module:
+    - link
+id: paragraph.tile.field_headline_link
+field_name: field_headline_link
+entity_type: paragraph
+bundle: tile
+label: 'Tile Link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

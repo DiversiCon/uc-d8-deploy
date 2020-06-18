@@ -1,0 +1,147 @@
+<?php
+
+/**
+ * @file
+ * Controls the Smartbody text component functionality.
+ */
+
+use Drupal\Core\Render\Element;
+
+/**
+ * Implements hook_theme().
+ */
+function it_smartbody_theme() {
+  return [
+    'paragraph__smartbody' => [
+      'template' => 'paragraph--smartbody',
+      'base hook' => 'paragraph',
+    ],
+    'paragraph__smartbody_lite' => [
+      'template' => 'paragraph--smartbody-lite',
+      'base hook' => 'paragraph',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_paragraph().
+ *
+ * The gist of this whole routine is to embed narrow smartbody
+ * components within the surrounding text instead of the normal method of
+ * rendering full-width components in between text elements.
+ */
+function it_smartbody_preprocess_paragraph(&$vars) {
+
+  // Get paragraph type and act on smartbody components.
+  /* @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $vars['elements']['#paragraph'];
+
+  switch ($paragraph->getType()) {
+
+    case 'smartbody':
+      $is_narrow = [
+        'photo_inset',
+        'accordion_block',
+        'avatar',
+      ];
+
+      $smartbody_content = _get_smartbody_contents(
+        $vars['content']['field_smartbody_components'],
+        $vars['content']['field_smartbody_text'],
+        $is_narrow);
+
+      $vars['content']['field_smartbody_text']['chunks'] = $smartbody_content['chunks'];
+      $vars['content']['field_smartbody_components'] = $smartbody_content['full_width_components'];
+
+      break;
+
+    case 'smartbody_lite':
+      $is_narrow = [
+        'avatar',
+        'html_text_two_column',
+      ];
+
+      $smartbody_content = _get_smartbody_contents(
+        $vars['content']['field_smartbody_components'],
+        $vars['content']['field_smartbody_text'],
+        $is_narrow);
+
+      $vars['content']['field_smartbody_text']['chunks'] = $smartbody_content['chunks'];
+      $vars['content']['field_smartbody_components'] = $smartbody_content['full_width_components'];
+
+      break;
+  }
+
+}
+
+/**
+ * Returns the parsed data from smartbody fields.
+ *
+ * @param $smartbody_components
+ * @param $smartbody_text
+ * @param $narrow_components
+ *
+ * @return array
+ */
+function _get_smartbody_contents($smartbody_components, $smartbody_text, $narrow_components) {
+  // Setup.
+  $chunks = [];
+  $full = [];
+  $index = 0;
+  $element = $smartbody_components;
+  $components = Element::children($element);
+  if (isset($smartbody_text['chunks'])) {
+    $text = $smartbody_text['chunks'];
+  }
+  else {
+    $text = [];
+  }
+
+  // Unset the original components for later replacement.
+  foreach ($components as $cid) {
+    unset($smartbody_components[$cid]);
+  }
+
+  // If we have components or text then we're good to go.
+  if ($components || $text) {
+
+    // Keep going until we run out of both components and text.
+    do {
+
+      // We still have components so consider that.
+      if ($components) {
+
+        // Get a component details.
+        $component = $element[array_shift($components)];
+        $type = $component['#paragraph']->getType();
+
+        // If narrow then add text and component to the current chunk.
+        if (in_array($type, $narrow_components)) {
+          $chunks[$index][] = array_shift($text);
+          $chunks[$index][] = $component;
+        }
+
+        // If wide then add text/component and move to next chunk.
+        else {
+          // Add text chunk and current component to the current chunk.
+          $chunks[$index][] = array_shift($text);
+          $full[] = $component;
+          $index += 1;
+        }
+      }
+
+      // There were no components.
+      else {
+
+        // Just add the text the the current chunk.
+        $chunks[$index][] = array_shift($text);
+
+      }
+    } while ($components || $text);
+
+    return [
+      'chunks' => $chunks,
+      'full_width_components' => $full,
+    ];
+  }
+}

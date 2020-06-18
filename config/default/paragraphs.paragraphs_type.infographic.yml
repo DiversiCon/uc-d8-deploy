@@ -1,0 +1,9 @@
+uuid: a860a035-d80f-4c84-bdb7-ece5279c2e96
+langcode: en
+status: true
+dependencies: {  }
+id: infographic
+label: 'Infographic Component'
+icon_uuid: null
+description: 'Used to display a highly visual informational image with supporting text for accessibility.'
+behavior_plugins: {  }

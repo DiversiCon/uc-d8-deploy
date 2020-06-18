@@ -1,0 +1,10 @@
+uuid: ed796677-fc5a-40f6-a216-b04b85dea173
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.card_view
+label: 'Card View'
+targetEntityType: paragraph
+cache: true

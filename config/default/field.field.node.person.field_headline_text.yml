@@ -1,0 +1,30 @@
+uuid: 1ee60437-5bad-4e09-90fe-0a3d30a3aa71
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_headline_text
+    - node.type.person
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: node.person.field_headline_text
+field_name: field_headline_text
+entity_type: node
+bundle: person
+label: 'Display Name'
+description: 'This will be used for display on the site. Sometimes included are any notable degrees earned like MD, MHPE, etc.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

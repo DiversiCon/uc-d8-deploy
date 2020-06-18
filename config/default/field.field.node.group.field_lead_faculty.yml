@@ -1,0 +1,21 @@
+uuid: d8190fab-58d6-4aac-93a6-aae5a2ae0c59
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lead_faculty
+    - node.type.group
+  module:
+    - uc_cdr_client
+id: node.group.field_lead_faculty
+field_name: field_lead_faculty
+entity_type: node
+bundle: group
+label: 'Primary Investigator'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: uc_cdr_client_external_reference

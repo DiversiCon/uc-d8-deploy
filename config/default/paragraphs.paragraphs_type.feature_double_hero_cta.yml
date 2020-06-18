@@ -1,0 +1,9 @@
+uuid: 4f401668-e5a5-4014-b6bd-c6b942f3c18d
+langcode: en
+status: true
+dependencies: {  }
+id: feature_double_hero_cta
+label: 'Feature, Double Hero CTA'
+icon_uuid: null
+description: 'Displays a two hero combination of picture/video with an accompanying headline and CTA link.'
+behavior_plugins: {  }

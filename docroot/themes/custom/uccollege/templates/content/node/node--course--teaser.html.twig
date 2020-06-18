@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Course teaser display mode.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set course_name = node.field_course_name.value %}
+{% set description = content.body %}
+{% set location = content.field_office_location %}
+{% set start_date = content.field_start_date %}
+{% set end_date = content.field_end_date %}
+{% set instructors = content.field_instructors %}
+{% set cross_listings = content.field_related %}
+{% set prerequisites = content.field_prerequisites %}
+{% set secondary_description = content.field_description %}
+
+{{ description }}
+
+{% if location|render is not empty %}
+  <p><strong>Location:</strong> {{ location }}</p>
+{% endif %}
+
+{% if start_date|render is not empty and end_date|render is not empty %}
+  <p><strong>When:</strong> {{ start_date }} - {{ end_date }}</p>
+{% endif %}
+
+{% if instructors|render is not empty %}
+  <p><strong>Instructors:</strong> {{ instructors }}</p>
+{% endif %}
+
+{% if cross_listings|render is not empty %}
+  <p><strong>Cross-Listings:</strong> {{ cross_listings }}</p>
+{% endif %}
+
+{% if prerequisites|render is not empty %}
+  <p><strong>Prerequisites:</strong> {{ prerequisites }}</p>
+{% endif %}
+
+{{ secondary_description }}

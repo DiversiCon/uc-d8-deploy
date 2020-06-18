@@ -1,0 +1,120 @@
+uuid: 51c8fe08-cd9e-4572-be9e-6169adee50e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.masthead
+    - entity_browser.browser.media_entity_browser
+    - field.field.config_pages.masthead.field_cp_links_ultd_1
+    - field.field.config_pages.masthead.field_cp_paragraphs_ultd
+    - field.field.config_pages.masthead.field_media_image
+  module:
+    - entity_browser
+    - field_group
+    - link_attributes
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_main_navigation:
+      children:
+        - field_cp_paragraphs_ultd
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: true
+        required_fields: true
+      label: 'Main Navigation'
+      region: content
+    group_utility_nav:
+      children:
+        - group_affiliate_links
+        - group_prospect_links
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        label: 'Utility Nav'
+        open: true
+        required_fields: true
+        id: ''
+        classes: content-entry-flex-wrap
+      label: 'Utility Nav'
+      region: content
+    group_affiliate_links:
+      children: {  }
+      parent_name: group_utility_nav
+      weight: 24
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: true
+        required_fields: true
+      label: 'Affiliate Links'
+      region: content
+    group_prospect_links:
+      children:
+        - field_cp_links_ultd_1
+      parent_name: group_utility_nav
+      weight: 26
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: true
+        required_fields: true
+      label: 'Prospect Links'
+      region: content
+id: config_pages.masthead.default
+targetEntityType: config_pages
+bundle: masthead
+mode: default
+content:
+  field_cp_links_ultd_1:
+    weight: 22
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+    third_party_settings: {  }
+    type: link_attributes
+    region: content
+  field_cp_paragraphs_ultd:
+    type: entity_reference_paragraphs
+    weight: 0
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: masthead_main_navigation
+    third_party_settings: {  }
+    region: content
+  field_media_image:
+    weight: 0
+    settings:
+      entity_browser: media_entity_browser
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: default
+      field_widget_replace: false
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+hidden:
+  label: true

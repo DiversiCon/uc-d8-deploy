@@ -1,0 +1,57 @@
+uuid: 3eb79378-914a-4535-88b7-8d6a712540fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.contact_single_person.field_email
+    - field.field.paragraph.contact_single_person.field_headline_text
+    - field.field.paragraph.contact_single_person.field_phone_number
+    - field.field.paragraph.contact_single_person.field_title
+    - paragraphs.paragraphs_type.contact_single_person
+  module:
+    - allowed_formats
+    - telephone
+    - text
+id: paragraph.contact_single_person.default
+targetEntityType: paragraph
+bundle: contact_single_person
+mode: default
+content:
+  field_email:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_headline_text:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_phone_number:
+    weight: 3
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

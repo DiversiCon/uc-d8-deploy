@@ -1,0 +1,9 @@
+uuid: 34ae8da9-7e2d-41f2-a313-2690571d7c89
+langcode: en
+status: true
+dependencies: {  }
+id: tile
+label: 'Tile, Unique'
+icon_uuid: null
+description: 'Unique tile item, used in the teaser insert for the homepage'
+behavior_plugins: {  }

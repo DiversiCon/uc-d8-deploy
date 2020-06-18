@@ -1,0 +1,112 @@
+langcode: en
+status: true
+id: migrate_content_person
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: legacy
+label: 'Content: Person'
+source:
+  plugin: d7_node
+  node_type: directory_listing
+  constants:
+    about: 26
+    user: 1
+  track_changes: true
+process:
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  field_headline_text: title
+  status: status
+  moderation_state:
+    plugin: static_map
+    source: status
+    bypass: true
+    map:
+      1: published
+      'TRUE': published
+      '1': published
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  uid:
+    plugin: migration_lookup
+    migration: migrate_users
+    source: node_uid
+  revision_uid:
+    plugin: migration_lookup
+    migration: migrate_users
+    source: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  full_name:
+    plugin: combine_name_fields
+    source:
+      - field_directoryfirstname
+      - field_directorylastname
+  field_name:
+    plugin: sub_process
+    source: '@full_name'
+    process:
+      given: first
+      family: last
+  field_office_title: field_directorypersontitle
+  field_office_location: field_directoryaddress
+  field_email_address:
+    plugin: sub_process
+    source: field_directoryemailaddress
+    process:
+      value: email
+  field_phone: field_phone
+  body:
+    plugin: iterator
+    source: field_directoryfullbio
+    process:
+      value: value
+      format:
+        plugin: default_value
+        default_value: simple_html
+  field_image_main/target_id:
+      plugin: migration_lookup
+      migration: migrate_media_image
+      source: field_rightimage/0/fid
+  field_section/target_id: constants/about
+  field_category_primary:
+    plugin: migration_lookup
+    migration: migrate_taxonomy_category
+    source: field_directoryname/0/tid
+  field_person_type:
+    plugin: static_map
+    source: field_directoryname/0/tid
+    bypass: true
+    map:
+      31: 6
+      36: 66
+      16: 66
+      21: 71
+      26: 76
+destination:
+  plugin: 'entity:node'
+  default_bundle: person
+migration_dependencies:
+  required:
+    - migrate_users
+    - migrate_file
+    - migrate_media_image
+    - migrate_taxonomy_section
+    - migrate_taxonomy_category
+  optional:
+    - d7_field_instance
+dependencies:
+  module:
+    - uc_migrate
+  enforced:
+    module:
+      - uc_migrate

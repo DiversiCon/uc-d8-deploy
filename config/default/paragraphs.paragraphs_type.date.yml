@@ -1,0 +1,9 @@
+uuid: ce3be8ab-6e0c-4156-871a-89e2261845a4
+langcode: en
+status: true
+dependencies: {  }
+id: date
+label: Date
+icon_uuid: null
+description: 'Simple date field, used in Card Grid Item'
+behavior_plugins: {  }

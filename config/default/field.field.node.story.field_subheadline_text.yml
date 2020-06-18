@@ -1,0 +1,28 @@
+uuid: 7326c750-af67-4cff-926a-c2d1367fb14f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subheadline_text
+    - node.type.story
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    smartbody: '0'
+    basic_html: '0'
+    plain_text: '0'
+id: node.story.field_subheadline_text
+field_name: field_subheadline_text
+entity_type: node
+bundle: story
+label: Sub-headline
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

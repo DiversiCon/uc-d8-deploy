@@ -1,0 +1,19 @@
+uuid: 9980d133-e1d5-4dc9-b27e-15d6309054af
+langcode: en
+status: true
+dependencies:
+  module:
+    - rest
+    - serialization
+    - uc_api
+    - user
+id: group_rest_resource
+plugin_id: group_rest_resource
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+  authentication:
+    - cookie

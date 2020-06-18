@@ -1,0 +1,60 @@
+uuid: 71fb81d4-3f22-4116-b6ef-a59666dd0354
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.smartbody
+  module:
+    - ckeditor
+_core:
+  default_config_hash: jq9kKD4iEEgMqvqwbIJSZyasQ1TX86uLOcOuk1MOZOk
+format: smartbody
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formatting
+          items:
+            - Format
+            - '-'
+            - Bold
+            - Italic
+            - JustifyLeft
+            - JustifyCenter
+        -
+          name: Links
+          items:
+            - Linkit
+            - DrupalUnlink
+        -
+          name: Lists
+          items:
+            - BulletedList
+            - NumberedList
+        -
+          name: Media
+          items:
+            - '-'
+            - smartbodycomp
+        -
+          name: Tools
+          items:
+            - Table
+            - Source
+  plugins:
+    stylescombo:
+      styles: ''
+    language:
+      language_list: un
+    linkit:
+      linkit_profile: default
+image_upload:
+  status: false
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

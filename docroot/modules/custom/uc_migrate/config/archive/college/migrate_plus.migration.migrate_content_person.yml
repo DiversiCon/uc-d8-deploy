@@ -1,0 +1,90 @@
+langcode: en
+status: true
+id: migrate_content_person
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: legacy
+label: 'Content: Person'
+source:
+  plugin: d7_node
+  node_type: person
+  constants:
+    about: 1
+process:
+  nid: tnid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  field_headline_text: title
+  uid: node_uid
+  status: status
+  moderation_state:
+    plugin: static_map
+    source: status
+    bypass: true
+    map:
+      1: published
+      'TRUE': published
+      '1': published
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  full_name:
+    plugin: combine_name_fields
+    source:
+      - field_first_name
+      - field_last_name
+  field_name:
+    plugin: sub_process
+    source: '@full_name'
+    process:
+      given: first
+      family: last
+  field_office_title: field_office_title
+  field_office_location: field_office_location
+  field_email_address:
+    plugin: sub_process
+    source: field_email
+    process:
+      value: email
+  field_phone: field_phone
+  field_image_main/target_id:
+    plugin: migration_lookup
+    migration: migrate_media_image
+    source: field_image/0/fid
+  field_section/target_id: constants/about
+  field_category_primary:
+    plugin: sub_process
+    source: field_directory_category
+    process:
+      target_id: tid
+  field_category_secondary:
+    plugin: sub_process
+    source: field_second_category
+    process:
+      target_id: tid
+destination:
+  plugin: 'entity:node'
+  default_bundle: person
+migration_dependencies:
+  required:
+    - migrate_users
+  optional:
+    - d7_field_instance
+dependencies:
+  module:
+    - uc_migrate
+  enforced:
+    module:
+      - uc_migrate

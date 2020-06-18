@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Inquiries sidebar
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set heading = content.field_headline_text %}
+{% set sections = content.field_eck_reference_ultd %}
+
+{% block paragraph %}
+  {% block content %}
+    <div class="c-inquiries">
+      <div class="c-inquiries__ctn">
+        {% if heading|field_value %}
+          <h2 class="c-inquiries__heading">{{ heading }}</h2>
+        {% endif %}
+
+        {{ sections }}
+
+      </div>
+    </div>
+  {% endblock %}
+{% endblock paragraph %}

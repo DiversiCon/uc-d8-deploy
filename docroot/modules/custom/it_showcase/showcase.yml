@@ -1,0 +1,6 @@
+it_showcase:
+  title: Showcase Module
+  description: Showcase information and reference
+  type: readme
+  attributes:
+    file: modules/custom/it_showcase/README.md

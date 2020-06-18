@@ -1,0 +1,29 @@
+uuid: 806ab7de-d3d2-4cf7-bbe3-a4afbf1d7392
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image_main
+    - media.type.image
+    - paragraphs.paragraphs_type.quotator_item
+id: paragraph.quotator_item.field_image_main
+field_name: field_image_main
+entity_type: paragraph
+bundle: quotator_item
+label: Image
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: changed
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

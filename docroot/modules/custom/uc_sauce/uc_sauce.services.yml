@@ -1,0 +1,8 @@
+services:
+  uc_sauce.route_subscriber:
+    class: Drupal\uc_sauce\Routing\RouteSubscriber
+    tags:
+    - { name: event_subscriber }
+  uc_sauce.uc_utility:
+    class: Drupal\uc_sauce\Service\UcUtility
+    arguments: ['@database', '@entity_type.manager']

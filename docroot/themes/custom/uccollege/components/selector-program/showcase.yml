@@ -1,0 +1,196 @@
+selector_program:
+  title: Program Selector
+  description:
+  type: component
+  variants:
+  -
+    title: Default
+    caption: As seen on the Majors and Minors page
+    content:
+      datasource: "/it/showcase/endpoint/program-endpoint"
+  -
+    title: "Default Division (Social Sciences)"
+    caption: Division specified via component prop
+    content:
+      datasource: "/it/showcase/endpoint/program-endpoint"
+      division: Social Sciences
+  -
+    title: "Default Division (Social Sciences), hidden division"
+    caption: Division specified, with only type filter displayed
+    content:
+      datasource: "/it/showcase/endpoint/program-endpoint"
+      division: Social Sciences
+      hideDivision: true
+  -
+    title: "Default Division (Social Sciences), default type (Minor), dropdowns hidden"
+    caption: Division and type specified, with no dropdown filters
+    content:
+      datasource: "/it/showcase/endpoint/program-endpoint"
+      division: Social Sciences
+      type: Minor
+      hideDivision: true
+      hideType: true
+
+program-endpoint:
+  title: Program Endpoint
+  description: Used by Program Selector
+  type: endpoint
+  variants:
+  -
+    title: Default
+    caption:
+    content:
+      types:
+      - name: All
+      - name: Major
+      - name: Minor
+      - name: Joint Degree
+      - name: Interdisciplinary
+      programs:
+      - name: Anthropology
+        text: <p>Anthropology encompasses a variety of historical and comparative approaches to human cultural and physical variety,
+          ranging from the study of human evolution and prehistory to the study of cultures as systems of meaningful symbols. Anthropology
+          can lead (through graduate study) to careers in research and teaching in university and museum settings.</p>
+        division: Social Sciences
+        types:
+        - Major
+        links:
+        - title: College Catalog
+          url: '#'
+          target: _self
+        - title: Departmental Site
+          url: '#'
+          target: _self
+      - name: Art History
+        text: <p>Art History encompasses the visual arts and material culture of a wide range of regions and historical periods.
+          The major in art history introduces students to a variety of cultures and approaches while providing analytical skills.</p>
+        division: Humanities
+        types:
+        - Major
+        - Minor
+        links:
+        - title: College Catalog
+          url: '#'
+          target: _self
+        - title: Departmental Site
+          url: '#'
+          target: _self
+      - name: Biological Chemistry
+        text: <p>The BS degree in Biological Chemistry is designed to prepare you to enter a variety of interdisciplinary fields
+          in biochemical and biophysical sciences. Students in this program are given the opportunity to study chemistry and physics
+          of macromolecules, mechanisms of actions of enzymes and hormones, molecular and cellular biology, biotechnology, and other
+          related fields.</p>
+        division: Physical Sciences
+        types:
+        - Major
+        - Joint Degree
+        links:
+        - title: College Catalog
+          url: '#'
+          target: _self
+        - title: Departmental Site
+          url: '#'
+          target: _self
+      - name: Biological Sciences
+        text: <p>Biology is the study of organisms and their adaptations to the pressures of natural selection. This program provides
+          the knowledge of biology essential for understanding many of the most pressing problems of modern life and for intelligent
+          involvement in their eventual solution. The goals of the program are to give students an understanding of currently accepted
+          concepts in biology and the experimental support for these concepts and an appreciation of the gaps in our current understanding
+          and the opportunities for new research in this field. The Biology major offers specializations in Ecology and Evolution,
+          Endocrinology, Genetics, Immunology, Microbiology, and Neuroscience.</p>
+        division: Biological Sciences
+        types:
+        - Major
+        - Minor
+        links:
+        - title: College Catalog
+          url: '#'
+          target: _self
+        - title: Departmental Site
+          url: '#'
+          target: _self
+        - title: Mailing List
+          url: '#'
+          target: _self
+      - name: Chemistry
+        text: '<p>Chemistry is concerned with the preparation, composition, and structure of matter and with the equilibrium and
+          kinetic laws that govern its transformations. The BA and BS degrees in chemistry are designed to provide a broad foundation
+          in the three principal branches of the science: inorganic, organic, and physical chemistry. The BS degree offers a intensive
+          program of study while the BA degree provides a wide opportunity for elective freedom and for the pursuit of interdisciplinary
+          interests.</p>'
+        division: Physical Sciences
+        types:
+        - Major
+        - Joint Degree
+        links:
+        - title: College Catalog
+          url: '#'
+          target: _self
+        - title: Departmental Site
+          url: '#'
+          target: _self
+      - name: Creative Writing
+        text: <p>Creative writing at the University of Chicago can position itself as part of the intellectual framework of any
+          program or major, and provides unique opportunities for interdisciplinary work. Students may pursue creative writing as
+          part of the formal program in English Language and Literature or Interdisciplinary Studies in the Humanities, as a stand-alone
+          minor with any other major, as part of another major that accepts writing courses to count towards requirements, or as
+          an elective.</p>
+        division: Interdisciplinary
+        types:
+        - Major
+        - Minor
+        - Interdisciplinary
+        links:
+        - title: College Catalog
+          url: '#'
+          target: _self
+        - title: Departmental Site
+          url: '#'
+          target: _self
+      - name: History
+        text: <p>Studying history sheds light on human experience and thought in different times and places. Fields of study may
+          be defined by nations (e.g., Chinese, Roman, U.S., international history) or by genres (e.g., legal, cultural, gender
+          history). Topics include the history of revolution, slavery, sexuality, colonialism, ethnicity, war, and work. History
+          is excellent preparation for a wide field of endeavors from law, government, and public policy to the arts and business.</p>
+        division: Social Sciences
+        types:
+        - Major
+        - Minor
+        links:
+        - title: College Catalog
+          url: '#'
+          target: _self
+        - title: Departmental Site
+          url: '#'
+          target: _self
+        - title: Mailing List
+          url: '#'
+          target: _self
+      - name: Law, Letters, and Society
+        text: <p>The program in Law, Letters, and Society is concerned with law in civilian and customary legal systems, both historically
+          and contemporaneously. The program’s organizing premise is that law is a tool of social organization and control, not
+          simply an expression of will or aspiration, and that it is best understood by careful study of both rhetorical artifacts
+          and empirical consequences of its application.</p>
+        division: New Collegiate Division
+        types:
+        - Major
+        links:
+        - title: College Catalog
+          url: '#'
+          target: _self
+      divisions:
+      - name: All
+      - name: Biological Sciences
+      - name: Humanities
+      - name: New Collegiate Division
+      - name: Physical Sciences
+      - name: Social Sciences
+
+selector-program.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: selector_program.component
+    index_hide: true
+    file: themes/custom/uccollege/components/selector-program/README.md

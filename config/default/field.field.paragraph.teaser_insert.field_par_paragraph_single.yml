@@ -1,0 +1,132 @@
+uuid: f32ce7d4-058a-47c1-83ae-d552f01101e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_paragraph_single
+    - paragraphs.paragraphs_type.teaser
+    - paragraphs.paragraphs_type.teaser_insert
+    - paragraphs.paragraphs_type.teaser_reference
+  module:
+    - entity_reference_revisions
+id: paragraph.teaser_insert.field_par_paragraph_single
+field_name: field_par_paragraph_single
+entity_type: paragraph
+bundle: teaser_insert
+label: 'Teaser Type'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      teaser: teaser
+      teaser_reference: teaser_reference
+    target_bundles_drag_drop:
+      accordion_block:
+        weight: 35
+        enabled: false
+      accordion_item:
+        weight: 36
+        enabled: false
+      callout:
+        weight: 37
+        enabled: false
+      callout_insert:
+        weight: 38
+        enabled: false
+      callout_item_reference:
+        weight: 39
+        enabled: false
+      callout_item_unique:
+        weight: 40
+        enabled: false
+      callout_reference:
+        weight: 41
+        enabled: false
+      components:
+        weight: 42
+        enabled: false
+      components_lower:
+        weight: 43
+        enabled: false
+      custom_link:
+        weight: 44
+        enabled: false
+      feature:
+        weight: 45
+        enabled: false
+      feature_4_square_images:
+        weight: 46
+        enabled: false
+      feature_4sq_img_link:
+        weight: 47
+        enabled: false
+      feature_components:
+        weight: 48
+        enabled: false
+      feature_image_link:
+        weight: 49
+        enabled: false
+      feature_insert:
+        weight: 50
+        enabled: false
+      feature_reference:
+        weight: 51
+        enabled: false
+      home_page_grid:
+        weight: 52
+        enabled: false
+      html_text:
+        weight: 53
+        enabled: false
+      pullquote:
+        weight: 54
+        enabled: false
+      quick_links:
+        weight: 55
+        enabled: false
+      quotator:
+        weight: 56
+        enabled: false
+      quotator_item:
+        weight: 57
+        enabled: false
+      smartbody:
+        weight: 58
+        enabled: false
+      smartbody_image:
+        weight: 59
+        enabled: false
+      social_grid:
+        weight: 60
+        enabled: false
+      stats:
+        weight: 61
+        enabled: false
+      stats_insert:
+        weight: 62
+        enabled: false
+      stats_reference:
+        weight: 63
+        enabled: false
+      switcher:
+        weight: 64
+        enabled: false
+      teaser:
+        enabled: true
+        weight: 65
+      teaser_insert:
+        weight: 66
+        enabled: false
+      teaser_reference:
+        enabled: true
+        weight: 67
+      video_html:
+        weight: 68
+        enabled: false
+field_type: entity_reference_revisions

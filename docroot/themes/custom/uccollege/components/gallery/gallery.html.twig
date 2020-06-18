@@ -1,0 +1,14 @@
+
+<uc-gallery title="{{ content.title }}">
+  {% for photo in content.photos %}
+    <uc-photo
+      img-full="{{ photo.imgFull }}"
+      img-large="{{ photo.imgLarge }}"
+      img-medium="{{ photo.imgMedium }}"
+      img-small="{{ photo.imgSmall }}"
+      description="{{ photo.description|convertQuotes }}"
+      credit="{{ photo.credit|convertQuotes }}"
+      alt="{{ photo.alt|convertQuotes }}">
+    </uc-photo>
+  {% endfor %}
+</uc-gallery>

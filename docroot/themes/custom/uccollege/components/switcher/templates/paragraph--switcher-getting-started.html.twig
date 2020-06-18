@@ -1,0 +1,34 @@
+{#
+/**
+ * @file
+ * Getting Started Switcher
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set headline = content.field_headline_text %}
+{% set subhead = content.field_body %}
+{% set links = content.field_par_paragraphs_four %}
+
+{% block paragraph %}
+
+  <uc-switcher v-cloak>
+    {% block content %}
+      <template slot="prospect">
+        <div class="l-stripe c-button__group">
+          <h2 class="t-heading--medium">{{ headline }}</h2>
+          {{ subhead }}
+          {{ links}}
+        </div>
+      </template>
+
+      {# no affiliate content for this
+        <template slot="affiliate"></template>
+      #}
+    {% endblock %}
+
+  </uc-switcher>
+{% endblock paragraph %}

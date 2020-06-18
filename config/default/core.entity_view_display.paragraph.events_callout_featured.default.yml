@@ -1,0 +1,24 @@
+uuid: 6e9cfa5c-14ad-48bf-87e5-d764f9e37db9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.events_callout_featured.field_hide
+    - paragraphs.paragraphs_type.events_callout_featured
+id: paragraph.events_callout_featured.default
+targetEntityType: paragraph
+bundle: events_callout_featured
+mode: default
+content:
+  field_hide:
+    weight: 0
+    label: hidden
+    settings:
+      format: true-false
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+hidden:
+  search_api_excerpt: true

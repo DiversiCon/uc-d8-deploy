@@ -1,0 +1,222 @@
+uuid: 216ecea5-43c9-45fc-a389-5256dddb4f03
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_par_components
+    - node.type.page
+    - paragraphs.paragraphs_type.components
+    - paragraphs.paragraphs_type.people_grouped_list
+  module:
+    - entity_reference_revisions
+id: node.page.field_par_components
+field_name: field_par_components
+entity_type: node
+bundle: page
+label: 'Available components'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      components: components
+      people_grouped_list: people_grouped_list
+    target_bundles_drag_drop:
+      html_text:
+        weight: 2
+        enabled: false
+      accordion_block:
+        weight: 6
+        enabled: false
+      components:
+        enabled: true
+        weight: 6
+      smartbody:
+        weight: 8
+        enabled: false
+      social_grid:
+        weight: 10
+        enabled: false
+      accordion_item:
+        weight: 66
+        enabled: false
+      callout:
+        weight: 67
+        enabled: false
+      callout_insert:
+        weight: 68
+        enabled: false
+      callout_item_reference:
+        weight: 69
+        enabled: false
+      callout_item_unique:
+        weight: 70
+        enabled: false
+      callout_reference:
+        weight: 71
+        enabled: false
+      card_grid:
+        weight: 72
+        enabled: false
+      card_grid_insert:
+        weight: 73
+        enabled: false
+      card_grid_item:
+        weight: 74
+        enabled: false
+      card_grid_reference:
+        weight: 75
+        enabled: false
+      components_lower:
+        weight: 77
+        enabled: false
+      cta_block:
+        weight: 78
+        enabled: false
+      cta_buttons:
+        weight: 79
+        enabled: false
+      cta_text_link:
+        weight: 80
+        enabled: false
+      custom_link:
+        weight: 81
+        enabled: false
+      date:
+        weight: 82
+        enabled: false
+      feature:
+        weight: 83
+        enabled: false
+      feature_4_square_images:
+        weight: 84
+        enabled: false
+      feature_4sq_img_link:
+        weight: 85
+        enabled: false
+      feature_components:
+        weight: 86
+        enabled: false
+      feature_image_link:
+        weight: 87
+        enabled: false
+      feature_insert:
+        weight: 88
+        enabled: false
+      feature_reference:
+        weight: 89
+        enabled: false
+      flickr_gallery:
+        weight: 90
+        enabled: false
+      generic_sidebar:
+        weight: 91
+        enabled: false
+      generic_sidebar_item:
+        weight: 92
+        enabled: false
+      home_page_grid:
+        weight: 93
+        enabled: false
+      masthead_main_navigation:
+        weight: 95
+        enabled: false
+      news_block:
+        weight: 96
+        enabled: false
+      news_external:
+        weight: 97
+        enabled: false
+      news_inernal:
+        weight: 98
+        enabled: false
+      news_list:
+        weight: 99
+        enabled: false
+      people_grouped_list:
+        enabled: true
+        weight: 100
+      people_grouped_list_group:
+        weight: 101
+        enabled: false
+      photo_inset:
+        weight: 102
+        enabled: false
+      photo_nav_grid:
+        weight: 103
+        enabled: false
+      photo_nav_grid_item:
+        weight: 104
+        enabled: false
+      program_selector:
+        weight: 105
+        enabled: false
+      pullquote:
+        weight: 106
+        enabled: false
+      quick_links:
+        weight: 107
+        enabled: false
+      quotator_item:
+        weight: 108
+        enabled: false
+      sidebar_gen_related:
+        weight: 109
+        enabled: false
+      sidebar_inquiries:
+        weight: 110
+        enabled: false
+      smartbody_image:
+        weight: 112
+        enabled: false
+      staff_selector:
+        weight: 114
+        enabled: false
+      stats:
+        weight: 115
+        enabled: false
+      stats_reference:
+        weight: 116
+        enabled: false
+      switcher:
+        weight: 117
+        enabled: false
+      switcher_cta:
+        weight: 118
+        enabled: false
+      switcher_getting_started:
+        weight: 119
+        enabled: false
+      teaser:
+        weight: 120
+        enabled: false
+      teaser_insert:
+        weight: 121
+        enabled: false
+      teaser_reference:
+        weight: 122
+        enabled: false
+      tile:
+        weight: 123
+        enabled: false
+      tile_insert:
+        weight: 124
+        enabled: false
+      tile_reference:
+        weight: 125
+        enabled: false
+      video_html:
+        weight: 126
+        enabled: false
+      video_youtube:
+        weight: 127
+        enabled: false
+      visual_nav_insert:
+        weight: 128
+        enabled: false
+field_type: entity_reference_revisions

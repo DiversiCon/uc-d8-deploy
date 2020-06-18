@@ -1,0 +1,21 @@
+uuid: fb9ecc80-fd9d-4615-91a2-895717bcd07e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_faculty_reference
+    - paragraphs.paragraphs_type.avatar
+  module:
+    - uc_cdr_client
+id: paragraph.avatar.field_faculty_reference
+field_name: field_faculty_reference
+entity_type: paragraph
+bundle: avatar
+label: 'Faculty Reference'
+description: 'Select a faculty member. Their information will be used for display and will override any information entered manually.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: uc_cdr_client_external_reference

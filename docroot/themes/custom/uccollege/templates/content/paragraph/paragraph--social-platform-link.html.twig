@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Displays a social platform link
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set url = content.field_single_link.0['#url'] %}
+{% set target = content.field_single_link.0['#options']['attributes']['target'] %}
+{% set platform = paragraph.field_social_platforms.value %}
+
+{% if platform %}
+<li>
+  <a href="{{ url }}" class="c-footer__social-link" title="{{ platform }}" target="{{ target }}">
+    <svg class="c-icon">
+      <use xlink:href="/themes/custom/uccollege/dist/icons.svg#{{ platform }}" />
+    </svg>
+  </a>
+</li>
+{% endif %}

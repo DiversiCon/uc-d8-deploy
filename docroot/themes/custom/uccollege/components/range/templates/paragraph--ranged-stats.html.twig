@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * A series of ranged stats with accompanying optional headline.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{# Template variables. #}
+{% set headline = content.field_headline_text %}
+{% set stats = content.field_par_paragraphs %}
+
+<div class="c-range">
+  {% if headline|render %}<h2 class="t-heading--medium">{{ headline }}</h2>{% endif %}
+
+  {{ stats }}
+</div>

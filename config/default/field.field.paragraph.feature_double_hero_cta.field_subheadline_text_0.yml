@@ -1,0 +1,31 @@
+uuid: 359ada20-8739-4af6-b73e-fdfeb3e160f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_subheadline_text_0
+    - paragraphs.paragraphs_type.feature_double_hero_cta
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+    custml_html: '0'
+id: paragraph.feature_double_hero_cta.field_subheadline_text_0
+field_name: field_subheadline_text_0
+entity_type: paragraph
+bundle: feature_double_hero_cta
+label: Solution
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

@@ -1,0 +1,23 @@
+uuid: 0bbe2164-87b2-4e7b-8004-684b35ced875
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.masthead
+    - field.storage.config_pages.field_cp_links_ultd_1
+  module:
+    - link
+id: config_pages.masthead.field_cp_links_ultd_1
+field_name: field_cp_links_ultd_1
+entity_type: config_pages
+bundle: masthead
+label: 'Prospect Links'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

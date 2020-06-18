@@ -1,0 +1,75 @@
+uuid: 45b0adda-5a03-4d57-a8c9-35710fd67772
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.accordion_block.field_background_theme
+    - field.field.paragraph.accordion_block.field_body
+    - field.field.paragraph.accordion_block.field_headline_link
+    - field.field.paragraph.accordion_block.field_headline_text
+    - field.field.paragraph.accordion_block.field_par_paragraph_single
+    - field.field.paragraph.accordion_block.field_par_paragraphs
+    - paragraphs.paragraphs_type.accordion_block
+  module:
+    - entity_reference_revisions
+    - link
+    - options
+    - text
+id: paragraph.accordion_block.default
+targetEntityType: paragraph
+bundle: accordion_block
+mode: default
+content:
+  field_background_theme:
+    weight: 8
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_body:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_headline_link:
+    weight: 4
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_headline_text:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_par_paragraph_single:
+    weight: 7
+    label: hidden
+    settings:
+      view_mode: cta_link
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_par_paragraphs:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

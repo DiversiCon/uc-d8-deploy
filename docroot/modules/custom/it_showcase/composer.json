@@ -1,0 +1,15 @@
+{
+    "name": "it/showcase",
+    "description": "Provides showcase pages for defining and prototyping pages, components and endpoints.",
+    "type": "drupal-module",
+    "license": "proprietary",
+    "minimum-stability": "dev",
+    "require": {
+        "erusev/parsedown": "^1.7.1"
+    },
+    "suggest": {},
+    "extra": {
+        "installer-paths": {
+        }
+    }
+}

@@ -1,0 +1,19 @@
+uuid: 1b90ce5d-239f-45f7-994f-371494a572cb
+langcode: en
+status: true
+dependencies:
+  module:
+    - rest
+    - serialization
+    - uc_api
+    - user
+id: program_rest_resource
+plugin_id: program_rest_resource
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+  authentication:
+    - cookie

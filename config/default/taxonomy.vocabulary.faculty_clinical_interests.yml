@@ -1,0 +1,8 @@
+uuid: 2ca125d4-8653-40bc-bae3-eb11619a3260
+langcode: en
+status: true
+dependencies: {  }
+name: 'Faculty Clinical Interests'
+vid: faculty_clinical_interests
+description: ''
+weight: 0

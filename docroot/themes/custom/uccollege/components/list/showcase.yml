@@ -1,0 +1,220 @@
+list:
+  title: List
+  description: Displays a list of item blocks with image, title, and description.
+  type: component
+  variants:
+  -
+    title: List
+    caption: Two list items showing all the content options for items. Fallback image is automatic if there is no image.
+    content:
+      items:
+      -
+        url: "#"
+        img: "https://picsum.photos/375"
+        alt: ""
+        title: "This is a Title"
+        description: "<p>This is a description. Ac diam ante a eu parturient luctus dis a suspendisse himenaeos sagittis ut molestie a scelerisque.</p>"
+        datetime: "2018-09-04"
+        date: "September 4, 2018"
+        source: "Danika Kmetz"
+        sourceurl: "#"
+      -
+        url: "#"
+        alt: ""
+        title: "This is a Title"
+        description: "<p>This is a description. Ac diam ante a eu parturient luctus dis a suspendisse himenaeos sagittis ut molestie a scelerisque.</p>"
+        datetime: "2018-04-23"
+        date: "April 23, 2018"
+        source: "Danika Kmetz"
+        sourceurl: "#"
+  -
+    title: List with sidebar
+    caption: List with sidebar, heading, and description.
+    content:
+      heading: "Heading"
+      description: "<p>This is a description. Ac diam ante a eu parturient luctus dis a suspendisse himenaeos sagittis ut molestie a scelerisque.</p>"
+      sidebar: '<div class="c-sidebar-links"><h2 class="c-sidebar-links__heading">You may also like…</h2> <ul class="c-sidebar-links__content"><li class="c-sidebar-links__item"><a href="#" class="c-sidebar-links__link">Lorem ipsum dolor sit amet adipiscing elit</a></li> <li class="c-sidebar-links__item"><a href="#" class="c-sidebar-links__link">Excepteur sint occaecat cupida proident sunt</a></li> <li class="c-sidebar-links__item"><a href="#" class="c-sidebar-links__link">Nemo enim ipsam voluptat quia voluptas</a></li></ul></div>'
+      items:
+      -
+        url: "#"
+        img: "https://picsum.photos/375"
+        alt: ""
+        title: "This is a Title"
+        description: "<p>This is a description. Ac diam ante a eu parturient luctus dis a suspendisse himenaeos sagittis ut molestie a scelerisque.</p>"
+        datetime: "2018-09-04"
+        date: "September 4, 2018"
+        source: "Danika Kmetz"
+        sourceurl: "#"
+      -
+        url: "#"
+        alt: ""
+        title: "This is a Title"
+        description: "<p>This is a description. Ac diam ante a eu parturient luctus dis a suspendisse himenaeos sagittis ut molestie a scelerisque.</p>"
+        datetime: "2018-04-23"
+        date: "April 23, 2018"
+        source: "Danika Kmetz"
+        sourceurl: "#"
+
+list-filtered:
+  title: Filtered List
+  description: Displays list of items, with pagination and sidebar filter
+  type: component
+  variants:
+  -
+    title: News List
+    content:
+      heading: News
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean enim ex, dictum blandit."
+      datasource: "/api/v1/news/list/"
+      categorysource: "/api/v1/news/section"
+      itemsPerPage: 9
+      filtered: "false"
+      paginate: "true"
+      filterTitle: "College News"
+  -
+    title: News List (pre-populated, 5 per page)
+    content:
+      heading: News
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean enim ex, dictum blandit."
+      datasource: "/api/v1/news/list/"
+      categorysource: "/api/v1/news/section"
+      itemsPerPage: 5
+      filtered: "true"
+      paginate: "true"
+      filterTitle: "College News"
+      preSelected: "839,840"
+
+list-nosidebar:
+  title: List with no sidebar
+  description:
+  type: component
+  variants:
+    - title: No sidebar
+      content:
+        heading: News
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean enim ex, dictum blandit."
+        datasource: "/api/v1/news/list/"
+        categorysource: "/api/v1/news/section"
+        itemsPerPage: 9
+        filtered: "false"
+        sidebar: "false"
+        paginate: "true"
+        filterTitle: "College News"
+
+list-sorted:
+  title: Sorted List
+  description: Displays list of items, with sorting
+  type: component
+  variants:
+  -
+    title: Search Results
+    caption: Add a query string like ?query=pirate to this URL
+    content:
+      datasource: "/api/v1/search/list/"
+      itemsPerPage: 9
+      paginate: "true"
+      filtered: "false"
+      sorted: "true"
+      isSearch: "true"
+      placeholder: "Search"
+
+list-deans:
+  title: Deans Content Type
+  description:
+  type: component
+  variants:
+    -
+      title: Default
+      caption:
+      content:
+        style: ruled
+        items:
+          -
+            title: "Vineet Arora, MD, AM'03"
+            description: '<p>Vineet Arora, MD, AM&apos;03 is Assistant Dean of Scholarship &amp; Discovery and Director of GME Clinical Learning Environment and Innovation at University of Chicago. In the latter role, she bridges educational and hospital leadership to integrate residents and fellows into the quality, safety, and value missions of the institution. Dr. Arora is committed to mentoring students in scholarly work and directs the popular NIH-funded Pritzker <a href="#">Summer Research Program</a>. Through AHRQ, NIH, and ABIM Foundation funding, she has developed and evaluated novel interventions that combine systems change with adult learning theory to improve care and learning in teaching hospitals. She has authored over 100 peer-reviewed publications, often with medical students, with coverage in theNew York Times, NPR, and the Associated Press.</p><p><a href="#">Check out an interview with Dr. Arora!</a></p>'
+            positions: 'Professor of Medicine<br> Assistant Dean for Scholarship and Discovery'
+            email: "varora@medicine.bsd.uchicago.edu"
+            url: "#"
+            urlText: "View Dr. Arora's full profile"
+            img: "https://via.placeholder.com/768&text=FPO"
+            alt: "Alt text here"
+          -
+            title: "Halina Brukner, MD"
+            description: '<p>Halina Brukner, MD, is a Professor of Medicine and the Interim Dean for Medical Education at the University of Chicago. She led the planning and implementation of the<a href="#">Pritzker Initiative curriculum</a> and oversees all aspects of curricular and academic issues for the Pritzker School of Medicine. Dr. Brukner is also the Director of the Academy of<a href="#">Distinguished Medical Educators</a> at the University of Chicago.</p>'
+            positions: 'Professor of Medicine<br> Interim Dean for Medical Education'
+            email: "hbrunkner@medicine.bsd.uchicago.edu"
+            url: "#"
+            urlText: "View Dr. Brukner's full profile"
+            img: "https://via.placeholder.com/768&text=FPO"
+            alt: "Alt text here"
+          -
+            title: "James N. Woodruff, MD"
+            description: '<p>James N. Woodruff, MD, is the Dean of Students for the Pritzker School of Medicine. In this role, he supports medical students in their professional development, specialty selection, and residency application. A graduate of the Columbia University College of Physicians and Surgeons, Dr. Woodruff completed his internal medicine residency and Chief Residency in the Department of Medicine at the University of Chicago. His eight year tenure as Director of the Internal Medicine Residency Program and six year tenure as the Department of Medicine’s Vice Chair for Education provide him with a broad perspective on the medical training pathway. Dr. Woodruff remains Associate Program Director of the Internal Medicine Residency and is responsible for managing 14 fellowship training programs</p>'
+            positions: 'Professor of Medicine<br> Dean of Students'
+            email: "jwoodruf@medicine.bsd.uchicago.edu"
+            url: "#"
+            urlText: "View Dr. Woodruff's full profile"
+            img: "https://via.placeholder.com/768&text=FPO"
+            alt: "Alt text here"
+
+list-endpoint-news:
+  title: List Endpoint (News)
+  description: Not currently used, in favor of hitting a Drupal API endpoint
+  type: endpoint
+  variants:
+  -
+    title: Default
+    caption:
+    content:
+      pager:
+        current: 1
+        total: 32
+      items:
+      - title: Renaissance woman
+        description: Historian Ada Palmer researches the history of ideas, writes science fiction, and has helped elect four new
+          popes.
+        author: Danika Kmetz
+        authorurl: '#'
+        date: September 4, 2018
+        datetime: 2018-09-04T00:00:00Z
+        categoryid: 1
+        image: /themes/custom/uccollege/it_showcase/images/list-renaissance.jpg
+        url: '#'
+        alt: test alt
+      - title: Neuroscience internships in Paris
+        description: New program gives undergrads opportunity to conduct research with Collège de France faculty.
+        author: Danika Kmetz
+        authorurl: '#'
+        date: September 4, 2018
+        datetime: 2018-09-04T00:00:00Z
+        categoryid: 2
+        image: /themes/custom/uccollege/it_showcase/images/list-paris.jpg
+        url: '#'
+
+list-endpoint-categories:
+  title: List Endpoint (Categories)
+  description: Not currently used, in favor of hitting a Drupal API endpoint
+  type: endpoint
+  variants:
+  -
+    title: Default
+    caption:
+    content:
+      categories:
+      - name: Student Stories
+        id: 1
+      - name: Faculty Stories
+        id: 2
+      - name: Academic Stories
+        id: 3
+      - name: Experiential Stories
+        id: 4
+
+list.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: list.component
+    index_hide: true
+    file: themes/custom/uccollege/components/list/README.md

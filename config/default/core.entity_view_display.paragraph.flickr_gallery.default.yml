@@ -1,0 +1,31 @@
+uuid: ed44f8da-53c0-4a6c-9c3a-c9655cb682ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.flickr_gallery.field_flickr_id
+    - field.field.paragraph.flickr_gallery.field_photoset_id
+    - paragraphs.paragraphs_type.flickr_gallery
+id: paragraph.flickr_gallery.default
+targetEntityType: paragraph
+bundle: flickr_gallery
+mode: default
+content:
+  field_flickr_id:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_photoset_id:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  search_api_excerpt: true

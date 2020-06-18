@@ -1,0 +1,19 @@
+uuid: e1c6f3eb-a4c0-465a-910b-8c70a022de7d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_year
+    - paragraphs.paragraphs_type.publications
+id: paragraph.publications.field_year
+field_name: field_year
+entity_type: paragraph
+bundle: publications
+label: Year
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

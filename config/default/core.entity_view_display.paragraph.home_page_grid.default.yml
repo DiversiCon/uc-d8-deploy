@@ -1,0 +1,295 @@
+uuid: 8ab215c0-03b0-4975-a1c0-2c2ab208d685
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.home_page_grid.field_body
+    - field.field.paragraph.home_page_grid.field_eck_reference
+    - field.field.paragraph.home_page_grid.field_eck_reference_1
+    - field.field.paragraph.home_page_grid.field_eck_reference_single
+    - field.field.paragraph.home_page_grid.field_headline_text
+    - field.field.paragraph.home_page_grid.field_label_text
+    - field.field.paragraph.home_page_grid.field_layout
+    - field.field.paragraph.home_page_grid.field_par_paragraph_single
+    - field.field.paragraph.home_page_grid.field_par_paragraph_single_0
+    - field.field.paragraph.home_page_grid.field_par_paragraph_single_1
+    - field.field.paragraph.home_page_grid.field_par_paragraph_single_2
+    - field.field.paragraph.home_page_grid.field_par_paragraph_single_3
+    - field.field.paragraph.home_page_grid.field_par_paragraph_single_4
+    - field.field.paragraph.home_page_grid.field_par_paragraph_single_5
+    - field.field.paragraph.home_page_grid.field_par_paragraph_ultd_0
+    - field.field.paragraph.home_page_grid.field_par_paragraph_ultd_1
+    - field.field.paragraph.home_page_grid.field_par_paragraphs
+    - field.field.paragraph.home_page_grid.field_paragraph_single
+    - field.field.paragraph.home_page_grid.field_paragraph_single_0
+    - field.field.paragraph.home_page_grid.field_paragraph_single_1
+    - field.field.paragraph.home_page_grid.field_paragraph_single_2
+    - field.field.paragraph.home_page_grid.field_paragraphs_unlimited
+    - field.field.paragraph.home_page_grid.field_quotator_items
+    - field.field.paragraph.home_page_grid.field_single_link
+    - field.field.paragraph.home_page_grid.field_single_paragraph_1
+    - field.field.paragraph.home_page_grid.field_subheadline_text
+    - field.field.paragraph.home_page_grid.field_subheadline_text_0
+    - field.field.paragraph.home_page_grid.field_subheadline_text_1
+    - field.field.paragraph.home_page_grid.field_text_color
+    - paragraphs.paragraphs_type.home_page_grid
+  module:
+    - entity_reference_revisions
+    - link
+    - options
+    - text
+id: paragraph.home_page_grid.default
+targetEntityType: paragraph
+bundle: home_page_grid
+mode: default
+content:
+  field_body:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_eck_reference:
+    weight: 12
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_eck_reference_1:
+    type: entity_reference_entity_view
+    weight: 13
+    region: content
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+  field_eck_reference_single:
+    type: entity_reference_entity_view
+    weight: 14
+    region: content
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+  field_headline_text:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_label_text:
+    weight: 27
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_layout:
+    weight: 20
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_par_paragraph_single:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: home_page_lead_media
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_par_paragraph_single_0:
+    type: entity_reference_revisions_entity_view
+    weight: 8
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_par_paragraph_single_1:
+    type: entity_reference_revisions_entity_view
+    weight: 10
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_par_paragraph_single_2:
+    type: entity_reference_revisions_entity_view
+    weight: 11
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_par_paragraph_single_3:
+    type: entity_reference_revisions_entity_view
+    weight: 16
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_par_paragraph_single_4:
+    type: entity_reference_revisions_entity_view
+    weight: 18
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_par_paragraph_single_5:
+    type: entity_reference_revisions_entity_view
+    weight: 19
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_par_paragraph_ultd_0:
+    type: entity_reference_revisions_entity_view
+    weight: 5
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_par_paragraph_ultd_1:
+    type: entity_reference_revisions_entity_view
+    weight: 6
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_par_paragraphs:
+    weight: 25
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_paragraph_single:
+    type: entity_reference_revisions_entity_view
+    weight: 28
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_paragraph_single_0:
+    weight: 21
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_paragraph_single_1:
+    weight: 3
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_paragraph_single_2:
+    type: entity_reference_revisions_entity_view
+    weight: 24
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_paragraphs_unlimited:
+    type: entity_reference_revisions_entity_view
+    weight: 26
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_quotator_items:
+    type: entity_reference_revisions_entity_view
+    weight: 17
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_single_link:
+    weight: 9
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_single_paragraph_1:
+    type: entity_reference_revisions_entity_view
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_subheadline_text:
+    weight: 23
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_subheadline_text_0:
+    weight: 15
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_subheadline_text_1:
+    weight: 7
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_text_color:
+    weight: 29
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+hidden:
+  search_api_excerpt: true

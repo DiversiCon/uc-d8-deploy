@@ -1,0 +1,23 @@
+uuid: b14f3f06-1a9f-4933-8c73-5a0de051ca43
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_stats_theme
+    - paragraphs.paragraphs_type.stats
+  module:
+    - options
+id: paragraph.stats.field_stats_theme
+field_name: field_stats_theme
+entity_type: paragraph
+bundle: stats
+label: 'Font Theme'
+description: 'Choose the display size of the stats.'
+required: false
+translatable: false
+default_value:
+  -
+    value: regular
+default_value_callback: ''
+settings: {  }
+field_type: list_string

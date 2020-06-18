@@ -1,0 +1,7 @@
+hotlink: true
+origin: 'http://pme-cms.uat.uchicago.edu'
+origin_dir: sites/cms/files
+use_imagecache_root: false
+verify: false
+_core:
+  default_config_hash: CQLKbL2AgHGqE2ilC8yF4Mhg142d5_lgO6nJF7Ws66w

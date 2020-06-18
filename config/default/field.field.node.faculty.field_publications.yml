@@ -1,0 +1,46 @@
+uuid: 4f38bc91-bf02-4b71-91cf-9a13a31ae0cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_publications
+    - node.type.faculty
+    - paragraphs.paragraphs_type.publications
+  module:
+    - entity_reference_revisions
+id: node.faculty.field_publications
+field_name: field_publications
+entity_type: node
+bundle: faculty
+label: Publications
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      publications: publications
+    target_bundles_drag_drop:
+      academic_appointment:
+        weight: 7
+        enabled: false
+      awards:
+        weight: 8
+        enabled: false
+      education_and_training:
+        weight: 9
+        enabled: false
+      graduate_program_websites:
+        weight: 10
+        enabled: false
+      publications:
+        enabled: true
+        weight: 11
+      websites:
+        weight: 12
+        enabled: false
+field_type: entity_reference_revisions

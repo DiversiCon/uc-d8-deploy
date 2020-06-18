@@ -1,0 +1,34 @@
+range:
+  title: Range
+  description: Display two values separated by dashes
+  type: component
+  variants:
+  -
+    title: Default with Headline
+    caption:
+    content:
+      headline: Academics
+      items:
+        -
+          title: MCAT Range
+          left_prefix: from
+          left_text: 504
+          right_prefix: to
+          right_text: 528
+        -
+          title: Cumulative GPA Range
+          left_text: "3.36"
+          right_text: "4.0"
+        -
+          title: Science GPA Range
+          left_text: "3.19"
+          right_text: "4.0"
+
+range.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: range.component
+    index_hide: true
+    file: themes/custom/uccollege/components/range/README.md

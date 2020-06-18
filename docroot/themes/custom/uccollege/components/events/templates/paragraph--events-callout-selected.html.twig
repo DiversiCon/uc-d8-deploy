@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * Events callout, featured.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set show_images = (paragraph.field_hide.value) ? "false" : "true" %}
+
+<uc-events-callout
+    instance="{{ uc_cdr.instance_id }}"
+    endpoint="{{ uc_cdr.endpoint }}/node/event"
+    callout-type="curated"
+    :show-images="{{ show_images }}"
+    :event-ids="[
+        {% for id in event_ids %}
+        '{{ id }}',
+        {% endfor %}
+      ]">
+</uc-events-callout>

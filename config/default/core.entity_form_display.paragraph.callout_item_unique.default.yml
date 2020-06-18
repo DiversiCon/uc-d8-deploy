@@ -1,0 +1,87 @@
+uuid: 38d5254e-8177-496a-9f0d-b01dd4df83a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.media_entity_browser
+    - field.field.paragraph.callout_item_unique.field_headline_text
+    - field.field.paragraph.callout_item_unique.field_image_link
+    - field.field.paragraph.callout_item_unique.field_image_main
+    - field.field.paragraph.callout_item_unique.field_par_html_single
+    - field.field.paragraph.callout_item_unique.field_subheadline_text
+    - paragraphs.paragraphs_type.callout_item_unique
+  module:
+    - allowed_formats
+    - entity_browser
+    - text
+    - uc_sauce
+id: paragraph.callout_item_unique.default
+targetEntityType: paragraph
+bundle: callout_item_unique
+mode: default
+content:
+  field_headline_text:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_image_link:
+    weight: 1
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+    third_party_settings: {  }
+    type: custom_link_with_attributes
+    region: content
+  field_image_main:
+    weight: 2
+    settings:
+      entity_browser: media_entity_browser
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: eb_thumb
+      field_widget_replace: false
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  field_par_html_single:
+    weight: 5
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_subheadline_text:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

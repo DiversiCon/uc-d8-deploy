@@ -1,0 +1,23 @@
+uuid: 145f4dc0-468c-4be9-8280-1929ba76ee9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_bool_intro_toggle
+    - paragraphs.paragraphs_type.feature
+id: paragraph.feature.field_bool_intro_toggle
+field_name: field_bool_intro_toggle
+entity_type: paragraph
+bundle: feature
+label: 'Image flip'
+description: 'Check this box to flip the image in the intro component'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

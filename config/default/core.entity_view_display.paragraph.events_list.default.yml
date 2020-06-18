@@ -1,0 +1,13 @@
+uuid: e8f01e7b-47e2-4231-869f-f361060a9f88
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.events_list
+id: paragraph.events_list.default
+targetEntityType: paragraph
+bundle: events_list
+mode: default
+content: {  }
+hidden:
+  search_api_excerpt: true

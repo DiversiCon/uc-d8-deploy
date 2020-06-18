@@ -1,0 +1,75 @@
+uuid: f2420ed8-24a1-4b63-ad98-ccb861a023d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.news_teaser
+    - field.field.node.story.body
+    - field.field.node.story.field_bool_template
+    - field.field.node.story.field_byline
+    - field.field.node.story.field_date_no_time
+    - field.field.node.story.field_headline_text
+    - field.field.node.story.field_image_main
+    - field.field.node.story.field_intro_paragraph
+    - field.field.node.story.field_par_smartbody
+    - field.field.node.story.field_paragraph_single_1
+    - field.field.node.story.field_paragraph_single_2
+    - field.field.node.story.field_paragraph_single_3
+    - field.field.node.story.field_paragraph_single_4
+    - field.field.node.story.field_section
+    - field.field.node.story.field_subheadline_text
+    - field.field.node.story.field_tag_reference
+    - node.type.story
+  module:
+    - text
+    - user
+id: node.story.news_teaser
+targetEntityType: node
+bundle: story
+mode: news_teaser
+content:
+  content_moderation_control:
+    weight: -20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_headline_text:
+    weight: 15
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_image_main:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: feature_4sq_view
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_section:
+    weight: 10
+    label: hidden
+    settings:
+      view_mode: headline
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  body: true
+  field_bool_template: true
+  field_byline: true
+  field_date_no_time: true
+  field_intro_paragraph: true
+  field_par_smartbody: true
+  field_paragraph_single_1: true
+  field_paragraph_single_2: true
+  field_paragraph_single_3: true
+  field_paragraph_single_4: true
+  field_subheadline_text: true
+  field_tag_reference: true
+  links: true
+  search_api_excerpt: true

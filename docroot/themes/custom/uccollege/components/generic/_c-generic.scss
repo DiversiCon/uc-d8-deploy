@@ -1,0 +1,60 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - generic component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-generic {
+  strong {
+    font-weight: $font-weight-bold;
+  }
+  a {
+    font-size: rem-calc(15);
+    color: $color-black;
+    text-decoration: underline;
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+    }
+  }
+  &__heading {
+    font-size: rem-calc(18);
+    margin-bottom: rem-calc(22);
+  }
+  &__section {
+    & + & {
+      border-top: 1px solid $color-black;
+      padding-top: rem-calc(30);
+      margin-top: rem-calc(30);
+    }
+  }
+  &__item {
+    font-size: rem-calc(15);
+    margin-bottom: 1rem;
+    &-title {
+      font-size: inherit;
+      letter-spacing: normal;
+      margin: 0;
+    }
+    p {
+      margin: 0;
+    }
+    p + p {
+      margin-top: 0.5em;
+    }
+  }
+
+  @include breakpoint(large) {
+    a {
+      font-size: rem-calc(14);
+    }
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-generic {
+    // sass linter doesn't like empty blocks :)
+  }
+}

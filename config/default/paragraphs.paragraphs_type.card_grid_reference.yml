@@ -1,0 +1,9 @@
+uuid: e8a79c98-fd96-46ad-a683-1a9e35e81b3f
+langcode: en
+status: true
+dependencies: {  }
+id: card_grid_reference
+label: 'Card Grid, Reference'
+icon_uuid: null
+description: 'Reference an existing ECK Card Grid'
+behavior_plugins: {  }

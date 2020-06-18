@@ -1,0 +1,20 @@
+uuid: 87170cb0-b5d2-4333-a05a-dc5ad0e09072
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_primary_section
+field_name: field_primary_section
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

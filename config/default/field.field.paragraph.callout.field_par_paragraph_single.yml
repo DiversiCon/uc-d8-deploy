@@ -1,0 +1,94 @@
+uuid: e72f0254-8ac3-4587-ad6d-21295201b9c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_paragraph_single
+    - paragraphs.paragraphs_type.callout
+    - paragraphs.paragraphs_type.custom_link
+  module:
+    - entity_reference_revisions
+id: paragraph.callout.field_par_paragraph_single
+field_name: field_par_paragraph_single
+entity_type: paragraph
+bundle: callout
+label: 'Footer Content'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      custom_link: custom_link
+    target_bundles_drag_drop:
+      accordion_block:
+        weight: 23
+        enabled: false
+      accordion_item:
+        weight: 24
+        enabled: false
+      callout:
+        weight: 25
+        enabled: false
+      callout_insert:
+        weight: 26
+        enabled: false
+      callout_item_reference:
+        weight: 27
+        enabled: false
+      callout_item_unique:
+        weight: 28
+        enabled: false
+      callout_reference:
+        weight: 29
+        enabled: false
+      components:
+        weight: 30
+        enabled: false
+      custom_link:
+        enabled: true
+        weight: 31
+      feature:
+        weight: 32
+        enabled: false
+      feature_4sq_img_link:
+        weight: 33
+        enabled: false
+      feature_4_square_images:
+        weight: 34
+        enabled: false
+      feature_components:
+        weight: 35
+        enabled: false
+      feature_image_link:
+        weight: 36
+        enabled: false
+      feature_insert:
+        weight: 37
+        enabled: false
+      feature_reference:
+        weight: 38
+        enabled: false
+      html_text:
+        weight: 39
+        enabled: false
+      pullquote:
+        weight: 40
+        enabled: false
+      quick_links:
+        weight: 41
+        enabled: false
+      smartbody:
+        weight: 42
+        enabled: false
+      smartbody_image:
+        weight: 43
+        enabled: false
+      social_grid:
+        weight: 44
+        enabled: false
+field_type: entity_reference_revisions

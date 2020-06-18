@@ -1,0 +1,11 @@
+uuid: ffdfaaca-b9b8-4057-ba8a-0790cff2f587
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: EkORhNtPlZVUM8060jywAmEzXdV0XlMPmvWUnwqHWi8
+id: smartbody
+label: Smartbody
+icon_uuid: null
+description: 'Smartbody text and related full-width components.'
+behavior_plugins: {  }

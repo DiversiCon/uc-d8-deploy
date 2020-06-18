@@ -1,0 +1,34 @@
+uuid: 0d098284-3cce-4aeb-b705-04ac5e57bcd2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.html_text_two_column.field_body
+    - field.field.paragraph.html_text_two_column.field_par_html_single
+    - paragraphs.paragraphs_type.html_text_two_column
+  module:
+    - text
+id: paragraph.html_text_two_column.default
+targetEntityType: paragraph
+bundle: html_text_two_column
+mode: default
+content:
+  field_body:
+    weight: 0
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_par_html_single:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+hidden:
+  created: true
+  status: true

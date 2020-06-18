@@ -1,0 +1,15 @@
+<header class="c-headline c-headline--lg">
+  <h1 class="c-headline__heading">{{ content.field_eck_name }}</h1>
+</header>
+
+<section class="l-container">
+  <uc-list
+    datasource="{{ uc_contact.datasource }}"
+    categorysource="{{ uc_contact.categorysource }}"
+    :items-per-page="{{ uc_contact.itemsPerPage }}"
+    :filtered="{{ uc_contact.filtered }}"
+    :paginate="{{ uc_contact.paginate }}"
+    {% if preSelected %}pre-selected="{{uc_contact.preSelected }}"{% endif %}
+    filter-title="{{ uc_contact.filterTitle }}">
+  </uc-list>
+</section>

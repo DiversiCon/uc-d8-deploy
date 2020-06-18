@@ -1,0 +1,72 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+
+{% include '@uccollege/../components/masthead/masthead-ime.html.twig' %}
+
+{{ it_showcase_component('feature', 30) }}
+
+<section class="l-container c-feature__container">
+  <div class="c-feature c-feature--pme-home">
+    <div class="c-feature__2up">
+      {{ it_showcase_component('tile', 1) }}
+      {{ it_showcase_component('tile', 0) }}
+    </div>
+    <div class="c-feature__wrap">
+      <div class="c-feature__content"><h3 class="t-heading--medium">Making a difference</h3>
+        <p><strong>Our students gain a strong foundation in both the basic sciences and clinical scenarios throughout
+            their time here, and we believe research and community service are important skills to solidify this
+            foundation.</strong></p>
+        <p><a href="#">Explore All Research Programs</a></p>
+        <p><a href="#">Explore All Service Opportunities</a></p></div>
+    </div>
+  </div>
+</section>
+
+{{ it_showcase_component('teaser', 6) }}
+
+{{ it_showcase_component('feature', 3) }}
+
+{{ it_showcase_component('teaser', 5) }}
+
+{{ it_showcase_component('feature', 4) }}
+
+<section class="l-stripe s-bg-secondary">
+  <h2 class="t-heading--topic"><a href="#">Student Life</a></h2>
+  <h3 class="t-heading--medium">Balancing your life at Pritzker</h3>
+  <p class="c-callout__intro">Take the time to pursue other interests, participate in a wide variety of activities and connect with others at Pritzker.</p>
+
+  {{ it_showcase_component('callout', 0) }}
+
+  <a class="c-cta-link" href="#">Explore all Student Organizations</a>
+</section>
+
+  {{ it_showcase_component('feature', 5) }}
+
+<section class="l-stripe s-bg-tertiary">
+  <h2 class="t-heading--medium">Pritzker Events</h2>
+  <p class="c-callout__intro">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt dolore aliqua.</p>
+
+  {{ it_showcase_component('callout', 8) }}
+</section>
+
+{{ it_showcase_component('teaser', 0) }}
+
+<section class="c-tint-embed__wrap">
+  <div class="c-tint-embed__heading">
+    <h3>When we’re social find us here</h3>
+  </div>
+  {{ it_showcase_component('tint_embed', 0) }}
+</section>
+
+{{ it_showcase_component('footer', 0) }}

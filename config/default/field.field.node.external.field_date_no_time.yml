@@ -1,0 +1,21 @@
+uuid: 3dbaf260-0492-4a35-9951-40b28f549e53
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date_no_time
+    - node.type.external
+  module:
+    - datetime
+id: node.external.field_date_no_time
+field_name: field_date_no_time
+entity_type: node
+bundle: external
+label: Date
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

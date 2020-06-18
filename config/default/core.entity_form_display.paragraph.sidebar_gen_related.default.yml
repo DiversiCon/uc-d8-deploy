@@ -1,0 +1,44 @@
+uuid: 4b5278cb-4e53-41a7-a204-748121db7f18
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.sidebar_gen_related.field_headline_text
+    - field.field.paragraph.sidebar_gen_related.field_par_paragraphs
+    - paragraphs.paragraphs_type.sidebar_gen_related
+  module:
+    - allowed_formats
+    - paragraphs
+    - text
+id: paragraph.sidebar_gen_related.default
+targetEntityType: paragraph
+bundle: sidebar_gen_related
+mode: default
+content:
+  field_headline_text:
+    weight: 101
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_par_paragraphs:
+    weight: 102
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: custom_link
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

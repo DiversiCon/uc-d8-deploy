@@ -1,0 +1,33 @@
+uuid: 4c0a800f-530c-46f6-9cd8-13973b6519a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.footer
+    - field.storage.config_pages.field_text_html_short_single_0
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: config_pages.footer.field_text_html_short_single_0
+field_name: field_text_html_short_single_0
+entity_type: config_pages
+bundle: footer
+label: 'Address Line 1'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: '1116 E 59th St.'
+    format: plain
+default_value_callback: ''
+settings: {  }
+field_type: text

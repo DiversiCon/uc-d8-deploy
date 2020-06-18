@@ -1,0 +1,21 @@
+uuid: d1e0aa1b-3ebb-497c-bbc1-071809c5f1fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_background_theme
+    - paragraphs.paragraphs_type.feature_announcement
+  module:
+    - options
+id: paragraph.feature_announcement.field_background_theme
+field_name: field_background_theme
+entity_type: paragraph
+bundle: feature_announcement
+label: 'Background Color'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,67 @@
+/* edit forms, authoring updates */
+
+.layout-region-node-main,
+.layout-region-node-secondary {
+  float: none;
+  width: auto;
+}
+
+/* toggle the display details */
+.layout-region-node-secondary {
+  display: none;
+}
+
+#authoring-details-toggle {
+  cursor: pointer;
+  > * {
+    display: inline-block;
+  }
+  &:after {
+    content: "\25B2";
+    position: relative;
+    top: -1px;
+    opacity: 0.8;
+  }
+  &.active:after {
+    content: "\25BC";
+    opacity: 1;
+  }
+}
+
+/* provide the ability to have 2-columns in editing */
+.content-entry-flex-wrap {
+  $width_left: 45%;
+  $padding: 1.5%;
+  @include desktop {
+    display: flex;
+  }
+  margin-bottom: 2rem;
+
+  .main-content-section-wrap {
+    @include desktop {
+      margin-right: $padding;
+      padding-right: $padding;
+      width: $width_left;
+    }
+  }
+  .content-sidebar-wrap {
+    @include desktop {
+      width: 100% - $width_left - (2 * $padding);
+    }
+    input, textarea {
+      &.form-submit,
+      &.form-number,
+      &.form-autocomplete {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/* update paragraph titles to make more visible */
+.paragraph-type-title {
+  font-size: 1rem;
+  margin-top: 0.2rem;
+  font-weight: bold;
+  font-style: italic;
+}

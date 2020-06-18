@@ -1,0 +1,23 @@
+uuid: 4465a89d-2931-4412-99d9-2db04319384e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link_single
+    - node.type.faculty
+  module:
+    - link
+id: node.faculty.field_link_single
+field_name: field_link_single
+entity_type: node
+bundle: faculty
+label: Assistant
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

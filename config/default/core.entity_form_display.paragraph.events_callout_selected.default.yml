@@ -1,0 +1,31 @@
+uuid: 8335c3d0-d03b-4383-906c-5e62f9a944a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.events_callout_selected.field_hide
+    - field.field.paragraph.events_callout_selected.field_ids
+    - paragraphs.paragraphs_type.events_callout_selected
+  module:
+    - uc_cdr_client
+id: paragraph.events_callout_selected.default
+targetEntityType: paragraph
+bundle: events_callout_selected
+mode: default
+content:
+  field_hide:
+    weight: 0
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_ids:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: uc_cdr_client_event_autocomplete
+    region: content
+hidden:
+  created: true
+  status: true

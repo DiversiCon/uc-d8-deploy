@@ -1,0 +1,249 @@
+uuid: 567cae4b-97b9-470e-a41f-17dce9af3b7e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.group.body
+    - field.field.node.group.field_bool_template
+    - field.field.node.group.field_date_no_time
+    - field.field.node.group.field_description
+    - field.field.node.group.field_external_id
+    - field.field.node.group.field_extra_info
+    - field.field.node.group.field_headline_text
+    - field.field.node.group.field_image_main
+    - field.field.node.group.field_intro_paragraph
+    - field.field.node.group.field_lead_faculty
+    - field.field.node.group.field_link_single
+    - field.field.node.group.field_par_components
+    - field.field.node.group.field_par_smartbody
+    - field.field.node.group.field_paragraph_single_0
+    - field.field.node.group.field_paragraph_single_1
+    - field.field.node.group.field_paragraph_single_2
+    - field.field.node.group.field_paragraph_single_3
+    - field.field.node.group.field_paragraph_single_4
+    - field.field.node.group.field_section
+    - field.field.node.group.field_subheadline_text
+    - field.field.node.group.field_topics
+    - node.type.group
+  module:
+    - datetime
+    - entity_reference_revisions
+    - link
+    - smart_trim
+    - text
+    - uc_cdr_client
+    - user
+id: node.group.default
+targetEntityType: node
+bundle: group
+mode: default
+content:
+  body:
+    label: hidden
+    type: smart_trim
+    weight: 2
+    settings:
+      trim_length: 600
+      trim_type: chars
+      trim_suffix: ''
+      wrap_class: trimmed
+      more_text: More
+      more_class: more-link
+      summary_handler: full
+      wrap_output: false
+      more_link: false
+      trim_options:
+        text: false
+        trim_zero: false
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_date_no_time:
+    weight: 10
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: month_day_year
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_description:
+    weight: 20
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_external_id:
+    type: string
+    weight: 17
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_extra_info:
+    weight: 21
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_headline_text:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_image_main:
+    weight: 6
+    label: hidden
+    settings:
+      view_mode: image_uc_photo
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_intro_paragraph:
+    weight: 14
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_lead_faculty:
+    weight: 16
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: faculty_reference_formatter
+    region: content
+  field_link_single:
+    weight: 18
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_par_components:
+    weight: 15
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_par_smartbody:
+    type: entity_reference_revisions_entity_view
+    weight: 7
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_paragraph_single_0:
+    type: entity_reference_revisions_entity_view
+    weight: 8
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_paragraph_single_1:
+    type: entity_reference_revisions_entity_view
+    weight: 9
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_paragraph_single_2:
+    type: entity_reference_revisions_entity_view
+    weight: 11
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_paragraph_single_3:
+    type: entity_reference_revisions_entity_view
+    weight: 12
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_paragraph_single_4:
+    type: entity_reference_revisions_entity_view
+    weight: 13
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_section:
+    weight: 3
+    label: hidden
+    settings:
+      view_mode: headline
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_subheadline_text:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_topics:
+    weight: 19
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  pfield_alumni_list:
+    weight: 24
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  pfield_members_list:
+    weight: 23
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  pfield_publications_preview:
+    weight: 22
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_bool_template: true
+  search_api_excerpt: true

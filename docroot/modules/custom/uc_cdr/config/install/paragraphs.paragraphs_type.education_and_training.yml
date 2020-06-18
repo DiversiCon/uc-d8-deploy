@@ -1,0 +1,9 @@
+uuid: aaa1776e-fe8b-4b0a-9dc0-864e954f00e4
+langcode: en
+status: true
+dependencies: {  }
+id: education_and_training
+label: 'Education and Training'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

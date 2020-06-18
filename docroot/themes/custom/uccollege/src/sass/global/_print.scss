@@ -1,0 +1,154 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - print
+// global print styles
+// modified from HTML5 Boilerplate v6.1.0 | MIT License | https://html5boilerplate.com/
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important; /* Black prints faster */
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+
+  a[href^="#"]::after,
+  a[href="/"]::after,
+  a[href=""]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+    border: 1px solid #999;
+  }
+  pre,
+  blockquote {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /*
+   * Printing Tables:
+   * http://css-discuss.incutio.com/wiki/Printing_Tables
+   */
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img,
+  p {
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  //Hiding Things
+  .c-article__home,
+  .c-article__sidebar,
+  .c-caption,
+  .c-footer,
+  .c-gallery,
+  .c-masthead__nav,
+  .c-menu--alert,
+  .c-nav,
+  .c-photo,
+  .c-pullquote__share,
+  .c-sidebar__block,
+  .c-social-embed,
+  .c-share-links,
+  .c-video__wrap,
+  .c-visual-nav {
+    display: none !important;
+  }
+
+  //Fixing Things
+  html,
+  body {
+    font-size: 14px;
+  }
+
+  .l-container,
+  .layout-container {
+    padding-top: 0;
+  }
+
+  .c-masthead {
+    position: static;
+    &__wrap {
+      display: block;
+      position: relative;
+      padding-top: 1em;
+    }
+    &__logo {
+      position: absolute;
+      top: 1em;
+      left: 0;
+    }
+    &__thecollege {
+      width: 100%;
+    }
+    .c-icon--logo {
+      display: block !important;
+      width: 8.4375rem;
+      height: 1.75rem;
+    }
+    .c-icon--logo-crest {
+      display: none !important;
+    }
+  }
+
+  .c-pullquote {
+    border: 0;
+    max-width: 80%;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    blockquote {
+      font-size: 1.5rem;
+      padding-bottom: 1rem;
+    }
+  }
+
+  .c-button {
+    border-color: #000;
+  }
+
+  //story layout - fix grid layout
+  .c-article {
+    display: block;
+  }
+
+}

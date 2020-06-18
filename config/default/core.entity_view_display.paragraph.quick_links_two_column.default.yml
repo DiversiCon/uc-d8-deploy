@@ -1,0 +1,95 @@
+uuid: 192ab1aa-56c0-46f0-a749-70b5d3880751
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.quick_links_two_column.field_accordion_switch
+    - field.field.paragraph.quick_links_two_column.field_par_paragraph_single_0
+    - field.field.paragraph.quick_links_two_column.field_par_paragraph_single_5
+    - field.field.paragraph.quick_links_two_column.field_par_paragraph_ultd_0
+    - field.field.paragraph.quick_links_two_column.field_par_paragraph_ultd_1
+    - field.field.paragraph.quick_links_two_column.field_single_link
+    - field.field.paragraph.quick_links_two_column.field_subheadline_text_0
+    - field.field.paragraph.quick_links_two_column.field_subheadline_text_1
+    - paragraphs.paragraphs_type.quick_links_two_column
+  module:
+    - entity_reference_revisions
+    - link
+    - options
+    - text
+id: paragraph.quick_links_two_column.default
+targetEntityType: paragraph
+bundle: quick_links_two_column
+mode: default
+content:
+  field_accordion_switch:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_par_paragraph_single_0:
+    weight: 5
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_par_paragraph_single_5:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_par_paragraph_ultd_0:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_par_paragraph_ultd_1:
+    weight: 4
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_single_link:
+    weight: 6
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_subheadline_text_0:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_subheadline_text_1:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  search_api_excerpt: true

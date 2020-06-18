@@ -1,0 +1,14 @@
+uuid: f43f622b-510c-4012-b156-7f96a6b80190
+langcode: en
+status: true
+dependencies: {  }
+id: faculty
+label: Faculty
+context:
+  show_warning: true
+  group:
+    language: false
+menu:
+  path: /admin/config/faculty
+  weight: -42
+  description: Faculty

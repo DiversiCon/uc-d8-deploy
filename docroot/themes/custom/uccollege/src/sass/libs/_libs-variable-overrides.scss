@@ -1,0 +1,13 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - library variable overrides
+// variable overrides for 3rd party libraries
+
+[v-cloak] {
+  display: none;
+}
+
+// Foundation overrides
+.responsive-embed,
+.flex-video {
+  margin: 0;
+}

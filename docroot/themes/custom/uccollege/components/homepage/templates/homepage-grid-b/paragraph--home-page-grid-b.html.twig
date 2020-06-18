@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * Homepage Grid B Template
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set top_feature = content.field_paragraph_single %}
+{% set bottom_left_quad = content.field_paragraph_single_0 %}
+{% set bottom_right_quad = content.field_par_paragraph_single %}
+
+{{ top_feature }}
+
+<section class="l-container c-feature__container">
+  <div class="c-feature c-feature--pme-home">
+    {{ bottom_left_quad }}
+
+    {{ bottom_right_quad }}
+  </div>
+</section>

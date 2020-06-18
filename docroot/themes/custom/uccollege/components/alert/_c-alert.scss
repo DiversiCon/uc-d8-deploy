@@ -1,0 +1,83 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - alert component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-alert {
+  font-size: 1rem;
+  margin-bottom: rem-calc(30);
+  padding: 0;
+
+  @include breakpoint(large) {
+    padding: 0 rem-calc(40);
+  }
+
+  &__ctn {
+    background-color: $color-primary;
+    color: $color-white;
+    padding: 1rem rem-calc(40) 1rem rem-calc(20);
+    position: relative;
+
+    @include breakpoint(large) {
+      padding: rem-calc(20) rem-calc(40);
+    }
+  }
+
+  h2 {
+    @include font-sans(bold);
+    color: #f00;
+    font-size: 1rem;
+    margin: rem-calc(1) rem-calc(20) 0 0;
+
+    @include breakpoint(medium) {
+      float: left;
+    }
+  }
+
+  a,
+  a:hover,
+  a:focus,
+  a:active {
+    color: $color-white;
+    white-space: nowrap;
+  }
+
+  h2,
+  p {
+    display: block;
+    margin-bottom: 0;
+  }
+
+  button {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    padding: rem-calc(12);
+    position: absolute;
+    right: rem-calc(3);
+    top: rem-calc(6);
+
+    span {
+      @include sr-only;
+    }
+
+    .c-icon {
+      fill: $color-white;
+      width: rem-calc(12);
+      height: rem-calc(12);
+    }
+
+    @include breakpoint(large) {
+      padding: rem-calc(20);
+      right: 0;
+    }
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-alert {
+    // sass linter doesn't like empty blocks :)
+  }
+}

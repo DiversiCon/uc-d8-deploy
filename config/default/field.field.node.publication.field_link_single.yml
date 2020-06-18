@@ -1,0 +1,23 @@
+uuid: 73aaaad6-778c-4320-bfac-f5d3d803039b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link_single
+    - node.type.publication
+  module:
+    - link
+id: node.publication.field_link_single
+field_name: field_link_single
+entity_type: node
+bundle: publication
+label: 'Link, URL'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

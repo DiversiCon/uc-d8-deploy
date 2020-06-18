@@ -1,0 +1,45 @@
+{# /** * @file * Default theme implementation to display a node. * * content - array of content
+values. * showcase - array of showcase settings. * .type - index, page or component. * .template -
+based on path. * .template_path - path to template override * */ #}
+
+{{ it_showcase_component('masthead', 0) }}
+
+{% include '@uccollege/../components/feature/feature.html.twig' with {'content': content.feature} %}
+
+<div class="l-container">
+  <div class="c-content">
+    <div class="c-content__body">
+      <p>
+        <strong>
+          Sarosh Rana, MD, cares for women with high-risk pregnancies. She is an expert in the
+          diagnosis and management of preeclampsia – a condition characterized by high blood
+          pressure during pregnancy. Dr. Rana also performs high-level ultrasounds, which provide a
+          greater assessment of the fetus than traditional ultrasounds.
+        </strong>
+      </p>
+      <p>
+        Dr. Rana aims to improve maternal and fetal outcomes through research on preeclampsia. Her
+        research over the last several years has focused on demonstrating clinical utility for
+        angiogenic biomarkers in prediction of adverse outcomes among women with suspected
+        preeclampsia. She is also testing the idea that these biomarkers will prove superior in
+        predicting adverse outcomes, leading to reductions in maternal and fetal deaths related to
+        preeclampsia in developing countries such as Haiti. Dr. Rana performs collaborative research
+        evaluating the relationships between increased levels of angiogenic factors and immediate,
+        as well as future, cardiac performance. Dr. Rana's work has been funded by several notable
+        organizations, including the National Institutes of Health and the American Heart
+        Association.
+      </p>
+      <p>
+        A dedicated teacher, Dr. Rana trains residents and fellows on the use of ultrasound imaging,
+        as well as the management of women with complex pregnancies. She also serves as a mentor on
+        various clinical, basic science and translational research projects; these mentored research
+        projects have resulted in multiple national and international conference presentations, and
+        published manuscripts.
+      </p>
+      {% include '@uccollege/../components/accordion/accordion.html.twig' with {'content':
+      content.accordion} %}
+    </div>
+  </div>
+</div>
+
+{{ it_showcase_component('footer', 0) }}

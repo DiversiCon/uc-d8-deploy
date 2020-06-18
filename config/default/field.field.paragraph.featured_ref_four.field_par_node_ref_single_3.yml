@@ -1,0 +1,29 @@
+uuid: 65110459-2b21-4cf9-bf34-722e5e6f4baf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_node_ref_single_3
+    - node.type.person
+    - paragraphs.paragraphs_type.featured_ref_four
+id: paragraph.featured_ref_four.field_par_node_ref_single_3
+field_name: field_par_node_ref_single_3
+entity_type: paragraph
+bundle: featured_ref_four
+label: 'Feature reference, 4'
+description: 'Reference <a href="/admin/content" target="_blank">existing content</a> (new window)'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      person: person
+    sort:
+      field: changed
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: person
+field_type: entity_reference

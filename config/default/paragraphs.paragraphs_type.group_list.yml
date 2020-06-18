@@ -1,0 +1,9 @@
+uuid: 3f5197cc-9d08-4cde-b38f-73d3ab66bd74
+langcode: en
+status: true
+dependencies: {  }
+id: group_list
+label: 'Research Group List'
+icon_uuid: null
+description: 'Displays a list of all research groups.'
+behavior_plugins: {  }

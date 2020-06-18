@@ -1,0 +1,205 @@
+uuid: 86b6a066-8910-4983-a5e9-23e20da715df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_paragraph_single_0
+    - paragraphs.paragraphs_type.custom_link
+    - paragraphs.paragraphs_type.feature
+  module:
+    - entity_reference_revisions
+id: paragraph.feature.field_par_paragraph_single_0
+field_name: field_par_paragraph_single_0
+entity_type: paragraph
+bundle: feature
+label: 'Section Override'
+description: 'Optionally fill this in to over-ride the Section headline of this feature.<br>If both are filled out, this manual link will override the Section headline. '
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      custom_link: custom_link
+    target_bundles_drag_drop:
+      accordion_block:
+        weight: 60
+        enabled: false
+      accordion_item:
+        weight: 61
+        enabled: false
+      callout:
+        weight: 62
+        enabled: false
+      callout_insert:
+        weight: 63
+        enabled: false
+      callout_item_reference:
+        weight: 64
+        enabled: false
+      callout_item_unique:
+        weight: 65
+        enabled: false
+      callout_reference:
+        weight: 66
+        enabled: false
+      card_grid:
+        weight: 67
+        enabled: false
+      card_grid_insert:
+        weight: 68
+        enabled: false
+      card_grid_item:
+        weight: 69
+        enabled: false
+      card_grid_reference:
+        weight: 70
+        enabled: false
+      components:
+        weight: 71
+        enabled: false
+      components_lower:
+        weight: 72
+        enabled: false
+      cta_block:
+        weight: 73
+        enabled: false
+      cta_buttons:
+        weight: 74
+        enabled: false
+      cta_text_link:
+        weight: 75
+        enabled: false
+      custom_link:
+        enabled: true
+        weight: 76
+      date:
+        weight: 77
+        enabled: false
+      feature:
+        weight: 78
+        enabled: false
+      feature_4sq_img_link:
+        weight: 79
+        enabled: false
+      feature_4_square_images:
+        weight: 80
+        enabled: false
+      feature_components:
+        weight: 81
+        enabled: false
+      feature_image_link:
+        weight: 82
+        enabled: false
+      feature_insert:
+        weight: 83
+        enabled: false
+      feature_reference:
+        weight: 84
+        enabled: false
+      home_page_grid:
+        weight: 85
+        enabled: false
+      html_text:
+        weight: 86
+        enabled: false
+      masthead_main_navigation:
+        weight: 87
+        enabled: false
+      news_block:
+        weight: 88
+        enabled: false
+      news_external:
+        weight: 89
+        enabled: false
+      news_inernal:
+        weight: 90
+        enabled: false
+      news_list:
+        weight: 91
+        enabled: false
+      photo_inset:
+        weight: 92
+        enabled: false
+      photo_nav_grid:
+        weight: 93
+        enabled: false
+      photo_nav_grid_item:
+        weight: 94
+        enabled: false
+      program_selector:
+        weight: 95
+        enabled: false
+      pullquote:
+        weight: 96
+        enabled: false
+      quick_links:
+        weight: 97
+        enabled: false
+      quotator_item:
+        weight: 98
+        enabled: false
+      sidebar_gen_related:
+        weight: 99
+        enabled: false
+      sidebar_inquiries:
+        weight: 100
+        enabled: false
+      smartbody:
+        weight: 101
+        enabled: false
+      smartbody_image:
+        weight: 102
+        enabled: false
+      social_grid:
+        weight: 103
+        enabled: false
+      staff_selector:
+        weight: 104
+        enabled: false
+      stats:
+        weight: 105
+        enabled: false
+      stats_reference:
+        weight: 106
+        enabled: false
+      switcher:
+        weight: 107
+        enabled: false
+      switcher_cta:
+        weight: 108
+        enabled: false
+      switcher_getting_started:
+        weight: 109
+        enabled: false
+      teaser:
+        weight: 110
+        enabled: false
+      teaser_insert:
+        weight: 111
+        enabled: false
+      teaser_reference:
+        weight: 112
+        enabled: false
+      tile:
+        weight: 113
+        enabled: false
+      tile_insert:
+        weight: 114
+        enabled: false
+      tile_reference:
+        weight: 115
+        enabled: false
+      video_html:
+        weight: 116
+        enabled: false
+      video_youtube:
+        weight: 117
+        enabled: false
+      visual_nav_insert:
+        weight: 118
+        enabled: false
+field_type: entity_reference_revisions

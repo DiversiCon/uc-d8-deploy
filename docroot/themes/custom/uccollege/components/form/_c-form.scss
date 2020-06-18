@@ -1,0 +1,199 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - form component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-form {
+  margin-bottom: rem-calc(90);
+
+  .form-item {
+    margin-bottom: rem-calc(31);
+  }
+
+  .form-required {
+    &::after {
+      color: red;
+      content: " *";
+    }
+  }
+
+  .webform-section {
+    margin-bottom: rem-calc(31);
+
+    .webform-section-title {
+      font-size: rem-calc(30);
+    }
+
+    .webform-section-wrapper {
+      margin-left: rem-calc(30);
+    }
+
+    .form-item:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  label,
+  legend {
+    display: inline-block;
+    font-size: rem-calc(18);
+    letter-spacing: rem-calc(-1);
+    margin-bottom: 0.25rem;
+  }
+
+  label {
+    max-width: 95%;
+  }
+
+  select,
+  input,
+  textarea,
+  fieldset {
+    background-color: transparent;
+    border: 0;
+    border-bottom: rem-calc(2) solid $color-black;
+    box-shadow: none;
+    font-size: rem-calc(18);
+    height: auto;
+    padding: rem-calc(10) 0;
+    width: 100%;
+    &:focus {
+      border-color: $color-secondary;
+    }
+  }
+
+  fieldset {
+    border-bottom-width: 0;
+
+    .form-item {
+      margin-bottom: rem-calc(10);
+    }
+  }
+
+  select {
+    appearance: none;
+    background-image: none;
+    border-radius: 0;
+    padding: rem-calc(10) rem-calc(20) rem-calc(10) 0;
+  }
+
+  &__select-ctn,
+  .js-form-type-select { //sorry. drupal.
+    position: relative;
+    &::after {
+      @include caret();
+      position: absolute;
+      top: rem-calc(16);
+      right: rem-calc(18);
+      transition: transform 0.2s;
+    }
+  }
+
+  textarea {
+    @include placeholder(rgba($color-black, 0.35));
+    border: rem-calc(2) solid $color-black;
+    height: rem-calc(124);
+    padding: rem-calc(20);
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    display: inline-block;
+    width: auto;
+    vertical-align: top;
+  }
+
+  .description {
+    margin-top: rem-calc(5);
+  }
+
+  .js-form-type-checkbox {
+    .description {
+      margin-left: rem-calc(40);
+      margin-bottom: rem-calc(20);
+    }
+  }
+
+  button,
+  .form-submit {
+    background: $color-secondary;
+    color: $white;
+    font-size: rem-calc(16);
+    font-weight: $font-weight-bold;
+    margin: rem-calc(10) auto 0;
+    border: 2px solid $color-secondary;
+    box-shadow: none;
+    padding: rem-calc(12) rem-calc(30);
+    width: 100%;
+    transition: background 0.2s;
+    //iOS overrides
+    appearance: none;
+    border-radius: 0;
+    &:hover,
+    &:focus,
+    &:active {
+      background: $color-white;
+      color: $color-secondary;
+    }
+  }
+
+  &__error {
+    color: $color-secondary;
+    font-size: rem-calc(16);
+    margin: rem-calc(-24) 0 rem-calc(24) 0;
+  }
+
+  &__confirm {
+    h2 {
+      font-size: rem-calc(20);
+      font-weight: 700;
+    }
+  }
+
+  @include breakpoint(medium) {
+    .c-article__body & {
+      margin-top: rem-calc(22);
+    }
+    label,
+    legend {
+      font-size: rem-calc(24);
+    }
+
+    select,
+    input,
+    textarea {
+      font-size: rem-calc(24);
+    }
+
+    &__error {
+      font-size: rem-calc(18);
+    }
+
+    button,
+    .form-submit {
+      width: auto;
+    }
+
+    &__confirm {
+      h2 {
+        font-size: rem-calc(30);
+      }
+    }
+  }
+
+  &__captcha {
+    margin-bottom: 1rem;
+  }
+}
+
+.ui-datepicker table {
+  min-width: auto;
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-form {
+    // sass linter doesn't like empty blocks :)
+  }
+}

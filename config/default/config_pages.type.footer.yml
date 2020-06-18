@@ -1,0 +1,14 @@
+uuid: dbb143f1-3391-4ede-abc9-83f107ab0cb7
+langcode: en
+status: true
+dependencies: {  }
+id: footer
+label: 'Footer, Global'
+context:
+  show_warning: true
+  group:
+    language: false
+menu:
+  path: /admin/config/footer
+  weight: -40
+  description: 'Global Footer'

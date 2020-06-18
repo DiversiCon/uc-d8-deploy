@@ -1,0 +1,51 @@
+uuid: a13aaaf5-b2c0-4f8d-b5dc-4c4c79c53f28
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.faculty
+  module:
+    - user
+id: node.faculty.teaser
+targetEntityType: node
+bundle: faculty
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_academic_appointment: true
+  field_administrative_title: true
+  field_awards: true
+  field_clinical_interests: true
+  field_degree: true
+  field_description: true
+  field_education_and_training: true
+  field_email: true
+  field_external_id: true
+  field_extra_info: true
+  field_faculty_image: true
+  field_first_name: true
+  field_graduate_program_websites: true
+  field_last_name: true
+  field_link_single: true
+  field_middle_name: true
+  field_office_location: true
+  field_overview: true
+  field_phone: true
+  field_physician_profile_url: true
+  field_preferred_name: true
+  field_primary_department: true
+  field_primary_section: true
+  field_publications: true
+  field_research_and_scholarly_int: true
+  field_research_network_link: true
+  field_section_chief: true
+  field_show_photo: true
+  field_topics: true
+  field_websites: true
+  search_api_excerpt: true

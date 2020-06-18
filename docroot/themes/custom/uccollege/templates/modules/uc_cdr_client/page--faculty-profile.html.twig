@@ -1,0 +1,241 @@
+{#
+/**
+ * Faculty profile page. Driven by data from the uc_cdr_client module.
+ */
+#}
+
+{% set show_sidebar = (course_schedule.show or (patient_information.show and faculty_data.profile_url) ) %}
+
+<div class="l-container c-feature__container">
+  <div class="c-feature">
+    <div class="c-feature__image">
+
+      {% if faculty_data.photo and faculty_data.show_photo %}
+        <img src="{{ faculty_data.photo }}" alt="">
+      {% else %}
+      <div class="c-feature__image-placeholder">
+        <svg class="c-icon">
+          <use xlink:href="/themes/custom/uccollege/dist/icons.svg#phoenix"/>
+        </svg>
+      </div>
+      {% endif %}
+
+    </div>
+
+    <div class="c-feature__wrap">
+      <div class="c-feature__content">
+        {% if faculty_profile_page.section %}
+          <h2 class="t-heading--topic">{{ faculty_profile_page.section }}</h2>
+        {% endif %}
+
+        <h1 class="t-heading--medium">{{ faculty_data.name }}{% if faculty_data.degree %}, {{ faculty_data.degree }}{% endif %}</h1>
+
+        <div class="c-factcard">
+          <div class="c-factcard__ctn">
+            <ul class="c-factcard__content">
+              {% if faculty_data.academic_titles %}
+              <li class="c-factcard__item c-factcard__name">
+                {% for title in faculty_data.academic_titles %}
+                  {% if title.title %}{{ title.title }} of {% endif %}{{ title.department }}{% if not loop.last %}<br />{% endif %}
+                {% endfor %}
+                {{ faculty_data.title }}
+              </li>
+              {% elseif faculty_data.title %}
+                <li class="c-factcard__item c-factcard__name">
+                  {{ faculty_data.title }}
+                </li>
+              {% endif %}
+
+              {% if faculty_data.clinical_interests %}
+              <li class="c-factcard__item">
+                <strong>Clinical Interests:</strong>
+                {% for interest in faculty_data.clinical_interests %}
+                  {{ interest }}{% if not loop.last %}, {% endif %}
+                {% endfor %}
+              </li>
+              {% endif %}
+
+              {% if faculty_data.scholar_interests %}
+              <li class="c-factcard__item">
+                <strong>Research and Scholarly Interests:</strong>
+                {% for interest in faculty_data.scholar_interests %}
+                {{ interest }}{% if not loop.last %}, {% endif %}
+                {% endfor %}
+              </li>
+              {% endif %}
+
+              {% if faculty_data.websites %}
+              <li class="c-factcard__item">
+                <strong>Websites:</strong>
+                {% for website in faculty_data.websites %}
+                <a href="{{ website.url }}" target="_blank">{{ website.name }}</a>{% if not loop.last %}, {% endif %}
+                {% endfor %}
+              </li>
+              {% endif %}
+
+              {% if faculty_data.email or faculty_data.phone %}
+              <li class="c-factcard__item">
+                <strong>Contact:</strong>
+
+                {% if faculty_data.email %}
+                <a href="mailto:{{ faculty_data.email }}">{{ faculty_data.email }}</a>
+                {% endif %}
+
+                {% if faculty_data.phone %}
+                  <div class="c-factcard__item-extra">{{ faculty_data.phone }}</div>
+                {% endif %}
+              </li>
+              {% endif %}
+
+              {% if faculty_data.assistant.url %}
+                <li class="c-factcard__item">
+                  <strong>Assistant:</strong>
+                  <a href="{{ faculty_data.assistant.url }}" target="{{ faculty_data.assistant.target }}">{{ faculty_data.assistant.text }}</a>
+                </li>
+              {% endif %}
+
+              {% if faculty_data.office_location %}
+                <li class="c-factcard__item">
+                  <strong>Office Location:</strong><br />
+                  {{ faculty_data.office_location|raw }}
+                </li>
+              {% endif %}
+
+              {% if faculty_data.graduate_programs %}
+              <li class="c-factcard__item">
+                <strong>Graduate Program{% if faculty_data.graduate_programs|length > 1 %}s{% endif %}:</strong>
+                {% for program in faculty_data.graduate_programs %}
+                  {% if program.url %}
+                  <a href="{{ program.url }}" target="_blank">{{ program.name }}</a>
+                  {% else %}
+                  {{ program.name }}
+                  {% endif %}
+                  {% if not loop.last %}, {% endif %}
+                {% endfor %}
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="l-container">
+  <div class="c-content {% if show_sidebar %}c-content--sidebar-right{% endif %}">
+
+    <div class="c-content__body">
+
+      {% if faculty_data.description %}
+      <p>{{ faculty_data.description|raw }}</p>
+      {% endif %}
+
+      <uc-accordion-group v-cloak>
+
+        {% if faculty_data.current_research %}
+          <uc-accordion title="Current Research">
+            {{ faculty_data.current_research|raw }}
+          </uc-accordion>
+        {% endif %}
+
+        {% if faculty_data.education_training %}
+        <uc-accordion title="Education & Training">
+          {% for education in faculty_data.education_training %}
+          <p>
+            {% if education.institution %}<strong>{{ education.institution }}</strong><br />{% endif %}
+            {% if education.institution_location %}{{ education.institution_location }}<br />{% endif %}
+            {% if education.degree %}{{ education.degree }}{% endif %}{% if education.major_field %} - {{ education.major_field }}{% endif %}<br />
+            {% if education.end_date %}{{ education.end_date }}{% endif %}
+          </p>
+          {% endfor %}
+        </uc-accordion>
+        {% endif %}
+
+        {% if faculty_data.publications %}
+        <uc-accordion title="Publications">
+          {% for publication in faculty_data.publications %}
+          <p>
+            <strong>{{ publication.name }}</strong><br />
+            {{ publication.citation_list }}<br />
+          </p>
+          {% endfor %}
+
+          {% if faculty_data.has_more_publications %}
+          <a href="/faculty{{ (faculty_data.pathAlias is not empty) ? faculty_data.pathAlias : '/' ~ faculty_data.faculty_id }}/publications">View All Publications</a>
+          {% endif %}
+        </uc-accordion>
+        {% endif %}
+
+        {% if faculty_data.awards %}
+        <uc-accordion title="Honors & Awards">
+          {% for award in faculty_data.awards %}
+          <p>
+            {% if award.name %}<strong>{{ award.name }}</strong><br />{% endif %}
+            {% if award.institution %}{{ award.institution }}<br />{% endif %}
+            {% if award.year %}{{ award.year }}{% endif %}{% if award.thru_year %} - {{ award.thru_year }}{% endif %}
+          </p>
+          {% endfor %}
+        </uc-accordion>
+        {% endif %}
+
+        {% if faculty_data.news_media_citations %}
+          <uc-accordion title="News & Media Citations">
+            {{ faculty_data.news_media_citations|raw }}
+          </uc-accordion>
+        {% endif %}
+
+      </uc-accordion-group>
+
+    </div>
+
+    {% if show_sidebar %}
+    <div class="c-content__sidebar c-list__sidebar">
+      {% if patient_information.show and faculty_data.profile_url %}
+      <div class="c-sidebar-links s-bg-tertiary">
+        <h2 class="c-sidebar-links__heading--info">Information For Patients</h2>
+        <ul class="c-sidebar-links__content">
+          {% if faculty_data.profile_url %}
+          <li class="c-sidebar-links__item">
+            <p class="c-sidebar-links__item--info-header"><a href="{{ faculty_data.profile_url }}">Physician Profile</a></p>
+          </li>
+          {% endif %}
+
+          {% if patient_information.phone_number %}
+          <li class="c-sidebar-links__item">
+            <p class="c-sidebar-links__item--info-header">Schedule an Appointment</p>
+            <p class="c-sidebar-links__item--info-text">{{ patient_information.phone_number }}</p>
+          </li>
+          {% endif %}
+
+          {% if patient_information.links %}
+            {% for link in patient_information.links %}
+            <li class="c-sidebar-links__item">
+              <p class="c-sidebar-links__item--info-header"><a href="{{ link.url }}">{{ link.text }}</a></p>
+            </li>
+            {% endfor %}
+          {% endif %}
+        </ul>
+      </div>
+      {% endif %}
+
+      {% if course_schedule.courses %}
+      <div class="c-sidebar-links s-bg">
+        <h2 class="c-sidebar-links__heading--info">{{ course_schedule.year_range }} Course Schedule</h2>
+        <ul class="c-sidebar-links__content">
+          {% for course in course_schedule.courses %}
+          <li class="c-sidebar-links__item">
+            <p class="c-sidebar-links__item--info-text">
+              {{ course.name }}
+            </p>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+    </div>
+    {% endif %}
+
+  </div>
+</div>

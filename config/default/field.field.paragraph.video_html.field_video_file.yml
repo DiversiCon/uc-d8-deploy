@@ -1,0 +1,27 @@
+uuid: ab982011-07bc-44d9-9c20-a8b423cce613
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_video_file
+    - paragraphs.paragraphs_type.video_html
+  module:
+    - file
+id: paragraph.video_html.field_video_file
+field_name: field_video_file
+entity_type: paragraph
+bundle: video_html
+label: 'Video File'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'videos/[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'mp4 mov ogg'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

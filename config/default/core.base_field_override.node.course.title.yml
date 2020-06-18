@@ -1,0 +1,18 @@
+uuid: 5d356654-fee1-4ddc-a37c-d560d4eaf48b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.course
+id: node.course.title
+field_name: title
+entity_type: node
+bundle: course
+label: 'Admin Title'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

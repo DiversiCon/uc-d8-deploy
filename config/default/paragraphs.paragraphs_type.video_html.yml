@@ -1,0 +1,9 @@
+uuid: 2d377829-ebe1-4e78-90f6-6b2d17db5192
+langcode: en
+status: true
+dependencies: {  }
+id: video_html
+label: 'Video, HTML'
+icon_uuid: null
+description: 'Upload a video to display in native HTML5'
+behavior_plugins: {  }

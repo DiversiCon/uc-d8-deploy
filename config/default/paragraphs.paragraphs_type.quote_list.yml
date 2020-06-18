@@ -1,0 +1,9 @@
+uuid: caf26da6-16b7-4a76-9882-9d1660e594da
+langcode: en
+status: true
+dependencies: {  }
+id: quote_list
+label: 'Quote List'
+icon_uuid: null
+description: 'A list of quotes with optional headings.'
+behavior_plugins: {  }

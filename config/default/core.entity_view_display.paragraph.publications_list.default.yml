@@ -1,0 +1,24 @@
+uuid: 5d3d4561-5e66-494c-b369-8af70963dc2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.publications_list.field_hide
+    - paragraphs.paragraphs_type.publications_list
+id: paragraph.publications_list.default
+targetEntityType: paragraph
+bundle: publications_list
+mode: default
+content:
+  field_hide:
+    weight: 0
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+hidden:
+  search_api_excerpt: true

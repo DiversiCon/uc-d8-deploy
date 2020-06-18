@@ -1,0 +1,5 @@
+# Custom permission to provide access to template editing.
+allow template editing:
+  title: 'Allow template editing'
+  description: 'Allow a user to edit content that has been defined as a template.'
+  restrict access: TRUE

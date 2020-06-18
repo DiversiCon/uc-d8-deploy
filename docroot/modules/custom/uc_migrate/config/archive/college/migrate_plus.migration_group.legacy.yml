@@ -1,0 +1,37 @@
+# This needs to be adjusted to work more universally regarding the d7 database.
+
+langcode: en
+status: true
+id: legacy
+label: 'Legacy'
+description: 'Migrations used to import legacy content from the Drupal 7 news site to the new content architecture.'
+source_type: 'Drupal 7'
+module: null
+shared_configuration:
+  source:
+    key: drupal_7
+    database:
+      driver: mysql
+      username: cd7_college
+      password: EGfzPGkK9XjzPEgYnuByKmn2
+      host: 127.0.0.1
+      port: 33306
+      database: cd7_college
+      prefix: null
+dependencies:
+  module:
+    - uc_migrate
+  enforced:
+    module:
+      - uc_migrate
+#shared_configuration:
+#  source:
+#    key: drupal_7
+#    database:
+#      driver: mysql
+#      username: s52950
+#      password: angccgXZgCYpzjM
+#      host: 127.0.0.1
+#      port: ''
+#      database: uchinews8db221332
+#      prefix: null

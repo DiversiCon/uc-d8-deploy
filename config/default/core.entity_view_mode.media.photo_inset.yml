@@ -1,0 +1,10 @@
+uuid: d2902b2c-8384-49fc-9ea5-a205fbf4c1ee
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.photo_inset
+label: 'Photo Inset (max-width 480px)'
+targetEntityType: media
+cache: true

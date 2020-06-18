@@ -1,0 +1,10 @@
+uuid: 39499e4c-10b3-4e49-9c89-c5e072dcdcab
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.feature_4sq_view
+label: 'Feature, 4sq (image only, 300 x 300)'
+targetEntityType: media
+cache: true

@@ -1,0 +1,29 @@
+photo_inset:
+  title: Inset Photo
+  description: Small image embedded in a story, with text wrapping around it.
+  type: component
+  attributes:
+    category: Images & Media
+  variants:
+  -
+    title: Inset Photo
+    caption: Small image embedded in a story, with text wrapping around it.
+    content:
+      photoCaption: "Rudy Nimocks"
+      src: "/themes/custom/uccollege/it_showcase/images/inset-nimocks.jpg"
+      alt: ""
+  -
+    title: Inset Photo
+    caption: Inset Photo with no caption.
+    content:
+      src: "/themes/custom/uccollege/it_showcase/images/inset-nimocks.jpg"
+      alt: "Rudy Nimocks"
+
+photo-inset.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: photo_inset.component
+    index_hide: true
+    file: themes/custom/uccollege/components/photo-inset/README.md

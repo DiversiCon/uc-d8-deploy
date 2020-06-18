@@ -1,0 +1,58 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - caption component
+
+.c-caption {
+  @include font-sizes(12, 14);
+  display: block;
+  grid-area: caption;
+  line-height: 1.2;
+  margin-bottom: rem-calc(10);
+  max-width: rem-calc(995);
+  padding: rem-calc(10) 0 0 0;
+  text-align: left;
+  width: 100%;
+
+  .page-node-type-home &,
+  .c-tile-grid & {
+    display: none;
+  }
+
+  .c-article & {
+    margin-bottom: 0;
+  }
+
+  @include breakpoint(medium) {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: rem-calc(30);
+    padding: rem-calc(10) calc(8% + 38px) 0 calc(8% + 38px);
+  }
+
+  .l-stripe & {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.c-caption__description {
+  margin: 0 1rem 1rem 0;
+
+  @include breakpoint(medium) {
+    margin-bottom: 0;
+  }
+}
+
+.c-article__media .c-caption {
+  padding-left: 0;
+
+  @include breakpoint(medium) {
+    width: calc(100vw - 33.5%);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include breakpoint(large) {
+    padding-left: 12.333%;
+    width: auto;
+  }
+}

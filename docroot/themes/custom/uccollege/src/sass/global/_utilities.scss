@@ -1,0 +1,288 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - utilities
+// global extends, mixins, functions, and utility classes
+
+// - - - - - - - - - - - - - - - - - - -
+// - - extends
+
+// - - - - - - - - - - - - - - - - - - -
+// - - mixins
+
+// Only display content to screen readers
+//
+// See: http://a11yproject.com/posts/how-to-hide-content/
+// See: https://hugogiraudel.com/2016/10/13/css-hide-and-seek/
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+  border: 0;
+}
+
+// Placeholder text for forms
+@mixin placeholder($color: $black, $size: inherit, $weight: inherit) {
+  // Firefox
+  &::-moz-placeholder {
+    color: $color;
+    font-size: $size;
+    font-weight: $weight;
+    opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+    font-size: $size;
+    font-weight: $weight;
+  } // Internet Explorer 10+
+  &::-webkit-input-placeholder {
+    color: $color;
+    font-size: $size;
+    font-weight: $weight;
+  } // Safari and Chrome
+}
+
+// Center
+// center vertically and/or horizontally an absolute positioned element
+@mixin center($xy:xy) {
+  @if $xy == xy {
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    transform: translateX(-50%) translateY(-50%);
+  }
+  @else if $xy == x {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+  @else if $xy == y {
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+  }
+}
+
+// List styles
+// Include on ul element (@include list();) default is unstyled
+// Width of li (if needed) should be declared on li elements
+// Color is only used with emdash for dash color
+//
+@mixin list($style:unstyled, $color:$color-black) {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  @if $style == inline {
+    > li {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  @else if $style == emdash {
+    > li:not(.c-accordion__item)::before {
+      content: "\2014"; //em dash
+      color: $color;
+      margin-right: 0.5em;
+      margin-left: -1.5em;
+      vertical-align: 0.1rem;
+    }
+  }
+
+  @else if $style == numeric {
+    list-style: decimal;
+    margin-bottom: rem-calc(20);
+    padding-left: rem-calc(40);
+
+    > li:not(:last-child):not(.c-accordion__item) {
+      margin-bottom: rem-calc(20);
+    }
+  }
+
+  @else {
+    > li::before {
+      display: none;
+    }
+  }
+}
+
+// Returns square root of a given number
+// @param {number} $r
+// @return {number} - square root
+//
+@function sqrt($r) {
+  $x0: 1;
+  $x1: $x0;
+
+  @for $i from 1 through 10 {
+    $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+    $x0: $x1;
+  }
+
+  @return $x1;
+}
+
+// Carot
+// for use psuedo element -
+// does not include any positioning
+//
+@mixin caret($direction: down, $size:14, $stroke:2, $units: px) {
+  @if not index(up right down left, $direction) {
+    @error "Direction must be either `up`, `right`, `down` or `left`.";
+  }
+  $squared: $size * $size; //not using something more fancy because it's only to a power of 2 :)
+  $hypotenuse: sqrt($squared + $squared); //square root of $size*$size + $size*$size
+  content: "";
+  display: inline-block;
+  width: unquote("#{$size}#{$units}");
+  height: unquote("#{$size}#{$units}");
+  border-top: unquote("#{$stroke}#{$units}") solid;
+  border-right: unquote("#{$stroke}#{$units}") solid;
+  @if $direction == up {
+    transform: rotate(-45deg);
+  }
+  @else if $direction == right {
+    transform: rotate(45deg);
+  }
+  @if $direction == down {
+    transform: rotate(135deg);
+  }
+  @else if $direction == left {
+    transform: rotate(-135deg);
+  }
+}
+
+// media query to target "laptop"
+@mixin laptop() {
+  @media (min-width: 1100px) and (max-width: 1440px) {
+    @content;
+  }
+}
+
+// Output font-size for an element, both for the
+// small and medium (and up) breakpoint
+@mixin font-sizes($small: 14, $large: 16) {
+  font-size: rem-calc($small);
+
+  @include breakpoint(medium) {
+    font-size: rem-calc($large);
+  }
+}
+
+// Responsive Embed
+// @param {percent} $ratio - default is 16:9 (9/16*100=56.25%)
+@mixin responsive-embed ($ratio: 56.25%) {
+  padding-bottom: $ratio;
+  height: 0;
+  position: relative;
+  iframe,
+  object,
+  embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Skip Nav link
+// Default is position: absolute. Does not include
+// colors, padding, etc.
+@mixin skip-link($position: absolute) {
+  height: 1px;
+  left: -1000px;
+  overflow: hidden;
+  position: absolute;
+  top: -1000px;
+  width: 1px;
+  z-index: 1000;
+
+  &:focus,
+  &:active {
+    height: auto;
+    left: 0;
+    overflow: visible;
+    top: 0;
+    width: auto;
+
+    @if $position != absolute {
+      position: $position;
+    }
+  }
+}
+
+// Images with specific ratios
+@mixin proportional($padding: 56.25%) {
+  overflow: hidden;
+  height: 0;
+  padding-top: $padding;
+  position: relative;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+    object-position: top;
+  }
+}
+
+// - - - - - - - - - - - - - - - - - - -
+// - - functions
+
+//@function rem-calc($pixels, $context: $browser-context) {
+//  @return ($pixels / $context) * 1rem;
+//}
+
+// Returns calculated aspect ratio (src: http://www.antimath.info/css/sass-sqrt-function/)
+// @param {number} $width
+// @param {number} $height
+// @return {number} - aspect ratio percentage
+//
+@function aspect-ratio-calc($width, $height) {
+  @return ($height / $width) * 100%;
+}
+
+// - - - - - - - - - - - - - - - - - - -
+// - - utilities
+// utility classes should be prefixed with 'u-'
+
+.u-link-list {
+  li {
+    margin-bottom: rem-calc(3);
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+    i {
+      margin-right: 7px;
+    }
+  }
+}
+
+.u-full-width {
+  margin: 0 calc(50% - 50vw);
+  width: 100%;
+}
+
+// classes applied by Vue Directives
+// Square elements
+.u-v-square {
+  object-fit: cover;
+}
+
+.u-v-square-full-width {
+  margin: 0 calc(50% - 50vw);
+  max-width: inherit;
+  object-fit: cover;
+}

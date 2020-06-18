@@ -1,0 +1,9 @@
+name: 'UC Central Data Repository Client'
+type: module
+description: 'Module facilitating client use of the UC CDR'
+core: 8.x
+package: 'Custom'
+
+# Dependencies
+dependencies:
+  - uc_sauce:uc_sauce

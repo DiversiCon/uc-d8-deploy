@@ -1,0 +1,9 @@
+uuid: 389474d2-bbca-4e2a-8827-f6885f33a4fb
+langcode: en
+status: true
+dependencies: {  }
+id: news_list
+label: 'News List'
+icon_uuid: null
+description: 'List of news items with optional filters.'
+behavior_plugins: {  }

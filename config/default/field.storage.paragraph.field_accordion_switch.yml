@@ -1,0 +1,27 @@
+uuid: 2cb03fec-2818-40d4-9f7d-8ca65ca1edb2
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_accordion_switch
+field_name: field_accordion_switch
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: accordion
+      label: accordion
+    -
+      value: mobile-accordion
+      label: mobile-accordion
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

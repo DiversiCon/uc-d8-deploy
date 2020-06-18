@@ -1,0 +1,30 @@
+uuid: f7f10024-5adb-4f6b-91c8-c4fda96189e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_subheadline_text_0
+    - paragraphs.paragraphs_type.home_page_grid
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.home_page_grid.field_subheadline_text_0
+field_name: field_subheadline_text_0
+entity_type: paragraph
+bundle: home_page_grid
+label: 'Accordion Top Left, Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

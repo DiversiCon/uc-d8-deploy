@@ -1,0 +1,42 @@
+uuid: bad0d8a4-e34b-45ab-bde6-80bef3291d46
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.media_entity_browser
+    - field.field.paragraph.feature_image.field_image_main
+    - field.field.paragraph.feature_image.field_title
+    - paragraphs.paragraphs_type.feature_image
+  module:
+    - entity_browser
+id: paragraph.feature_image.default
+targetEntityType: paragraph
+bundle: feature_image
+mode: default
+content:
+  field_image_main:
+    weight: 0
+    settings:
+      entity_browser: media_entity_browser
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: eb_thumb
+      field_widget_replace: false
+      open: false
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  field_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,409 @@
+callout:
+  title: Callout
+  description: Circular images with heading and subhead
+  type: component
+  attributes:
+    category: Callouts
+  variants:
+    -
+      title: Default
+      content:
+        items:
+        -
+          headline: Wellness Center
+          image: "/themes/custom/uccollege/it_showcase/images/callout1.jpg"
+          link: "#"
+        -
+          headline: Service and Volunteer
+          image: "/themes/custom/uccollege/it_showcase/images/callout2.jpg"
+          link: "#"
+        -
+          headline: Cultural Organizations
+          image: "/themes/custom/uccollege/it_showcase/images/callout3.jpg"
+          link: "#"
+        -
+          headline: Pritzker Societies
+          image: "/themes/custom/uccollege/it_showcase/images/callout4.jpg"
+          link: "#"
+    -
+      title: Subhead
+      content:
+        items:
+        -
+          headline: Vienna
+          subhead: Western Civilization
+          image: "/themes/custom/uccollege/it_showcase/images/callout5.jpg"
+          link: "#"
+        -
+          headline: Cairo
+          subhead: Middle Eastern Civilizations
+          image: "/themes/custom/uccollege/it_showcase/images/callout6.jpg"
+          link: "#"
+        -
+          headline: Beijing
+          subhead: East Asian Civilizations
+          image: "/themes/custom/uccollege/it_showcase/images/callout7.jpg"
+          link: "#"
+        -
+          headline: Barcelona
+          subhead: Public Policy
+          image: "/themes/custom/uccollege/it_showcase/images/callout8.jpg"
+          link: "#"
+    -
+      title: Academics
+      content:
+        items:
+        -
+          headline: Marine Biological Laboratory
+          image: "/themes/custom/uccollege/it_showcase/images/callout5.jpg"
+          link: "#"
+        -
+          headline: Beckman Scholars Program
+          image: "/themes/custom/uccollege/it_showcase/images/callout6.jpg"
+          link: "#"
+        -
+          headline: The College Programming Office
+          image: "/themes/custom/uccollege/it_showcase/images/callout7.jpg"
+          link: "#"
+        -
+          headline: Research Opportunities
+          image: "/themes/custom/uccollege/it_showcase/images/callout8.jpg"
+          link: "#"
+    -
+      title: Our Deans
+      content:
+        items:
+        -
+          headline: "Vineet Arora, MD, AM'03"
+          subhead: Professor of Medicine Assistant Dean for Scholarship and Discovery
+          image: "/themes/custom/uccollege/it_showcase/images/callout5.jpg"
+          link: "#"
+        -
+          headline: "Vineet Arora, MD, AM'03"
+          subhead: Professor of Medicine Assistant Dean for Scholarship and Discovery
+          image: "/themes/custom/uccollege/it_showcase/images/callout5.jpg"
+          link: "#"
+        -
+          headline: "Vineet Arora, MD, AM'03"
+          subhead: Professor of Medicine Assistant Dean for Scholarship and Discovery
+          image: "/themes/custom/uccollege/it_showcase/images/callout5.jpg"
+          link: "#"
+        -
+          headline: "Vineet Arora, MD, AM'03"
+          subhead: Professor of Medicine Assistant Dean for Scholarship and Discovery
+          image: "/themes/custom/uccollege/it_showcase/images/callout5.jpg"
+          link: "#"
+        -
+          headline: "Vineet Arora, MD, AM'03"
+          subhead: Professor of Medicine Assistant Dean for Scholarship and Discovery
+          image: "/themes/custom/uccollege/it_showcase/images/callout5.jpg"
+          link: "#"
+        -
+          headline: "Vineet Arora, MD, AM'03"
+          subhead: Professor of Medicine Assistant Dean for Scholarship and Discovery
+          image: "/themes/custom/uccollege/it_showcase/images/callout5.jpg"
+          link: "#"
+    -
+      title: Quotes
+      content:
+        items:
+        -
+          headline: Akila Ally
+          subhead: "AB’16"
+          text: "“Lorem ipsum dolor sit amet, consectetur adipiscing elitum sed labore esit dolore magnau quis laboris nisi nostrud aliqua sunt in culpa occaecat cupidatat.”"
+          image: "/themes/custom/uccollege/it_showcase/images/callout9.jpg"
+        -
+          headline: Thurston Baily
+          subhead: "AB’93"
+          text: "“Lorem ipsum dolor sit amet, consectetur adipiscing elitum sed labore esit dolore magnau quis laboris nisi nostrud aliqua sunt in culpa occaecat cupidatat.”"
+          image: "/themes/custom/uccollege/it_showcase/images/callout10.jpg"
+        -
+          headline: Lisa Fan
+          subhead: "AB’12, JD’18, MBA’18"
+          text: "“Lorem ipsum dolor sit amet, consectetur adipiscing elitum sed labore esit dolore magnau quis laboris nisi nostrud aliqua sunt in culpa occaecat cupidatat.”"
+          image: "/themes/custom/uccollege/it_showcase/images/callout11.jpg"
+        -
+          headline: Tomas Sutrinaitis
+          subhead: "AB’15"
+          text: "“Lorem ipsum dolor sit amet, consectetur adipiscing elitum sed labore esit dolore magnau quis laboris nisi nostrud aliqua sunt in culpa occaecat cupidatat.”"
+          image: "/themes/custom/uccollege/it_showcase/images/callout12.jpg"
+    -
+      title: Rich Text
+      content:
+        items:
+        -
+          headline: Eugene Fama
+          subhead: Finance
+          text: "<strong>Teaches:</strong> Lorem ipsum dolor amet consectetur adipiscing elit incididunt dolor consectetur elit."
+          image: "/themes/custom/uccollege/it_showcase/images/callout13.jpg"
+        -
+          headline: Ada Palmer
+          subhead: History
+          text: "<strong>Teaches:</strong> Lorem ipsum dolor amet consectetur adipiscing elit incididunt dolor consectetur elit."
+          image: "/themes/custom/uccollege/it_showcase/images/callout14.jpg"
+        -
+          headline: Richard Thaler
+          subhead: Behavioral Economics
+          text: "<strong>Teaches:</strong> Lorem ipsum dolor amet consectetur adipiscing elit incididunt dolor consectetur elit."
+          image: "/themes/custom/uccollege/it_showcase/images/callout15.jpg"
+        -
+          headline: Angela Olinto
+          subhead: "Astronomy & Astrophysics"
+          text: "<strong>Teaches:</strong> Lorem ipsum dolor amet consectetur adipiscing elit incididunt dolor consectetur elit."
+          image: "/themes/custom/uccollege/it_showcase/images/callout16.jpg"
+    -
+      title: Non-Circular Images
+      content:
+        rectangle: true
+        items:
+        -
+          headline: The Making of Behavior Economics Misbehaving
+          subhead: Richard H. Thaler
+          image: "/themes/custom/uccollege/it_showcase/images/callout17.jpg"
+          link: "#"
+        -
+          headline: "The University of Chicago: A History"
+          subhead: John W. Boyer
+          image: "/themes/custom/uccollege/it_showcase/images/callout18.jpg"
+          link: "#"
+        -
+          headline: Enchanted America How Intuition and Reason Divide Our Politics
+          subhead: Eric J. Oliver
+          image: "/themes/custom/uccollege/it_showcase/images/callout19.jpg"
+          link: "#"
+        -
+          headline: Economic Insights, from Marriage to Terrorism
+          subhead: Gary S. Becker
+          image: "/themes/custom/uccollege/it_showcase/images/callout20.jpg"
+          link: "#"
+    -
+      title: Only Two Items
+      content:
+        items:
+        -
+          headline: Vienna
+          subhead: Western Civilization
+          image: "/themes/custom/uccollege/it_showcase/images/callout5.jpg"
+          link: "#"
+        -
+          headline: Cairo
+          subhead: Middle Eastern Civilizations
+          image: "/themes/custom/uccollege/it_showcase/images/callout6.jpg"
+          link: "#"
+    -
+      title: Events
+      content:
+        items:
+        -
+          headline: "I2I Steering Committee Meeting"
+          subhead: "Mon. Nov. 12<br> 5:00 – 6:30 p.m."
+          image: "/themes/custom/uccollege/it_showcase/images/callout5.jpg"
+          link: "#"
+        -
+          headline: "Community Service Fellowship - Autumn Day of Service"
+          subhead: "Fri. Nov. 17<br> 9:00 a.m. – 1:00 p.m."
+          image: "/themes/custom/uccollege/it_showcase/images/callout6.jpg"
+          link: "#"
+        -
+          headline: "Dean's Council Meeting"
+          subhead: "Tues. Nov. 27<br> 5:00 – 6:30 p.m."
+          image: "/themes/custom/uccollege/it_showcase/images/callout7.jpg"
+          link: "#"
+        -
+          headline: "Discussion on Immigrant Health and the \"Public Charge\" "
+          subhead: "Wed. Nov. 28<br> 12:00 – 1:00 p.m."
+          image: "/themes/custom/uccollege/it_showcase/images/callout8.jpg"
+          link: "#"
+    -
+      title: Balancing your life at Pritzker
+      content:
+        items:
+        -
+          headline: "Docs and Debate"
+          image: "https://via.placeholder.com/768/000000/FFFFFF/&text=FPO"
+          link: "#"
+        -
+          headline: "Pritzker Music Group"
+          image: "https://via.placeholder.com/768/000000/FFFFFF/&text=FPO"
+          link: "#"
+        -
+          headline: "REMEDY"
+          image: "https://via.placeholder.com/768/000000/FFFFFF/&text=FPO"
+          link: "#"
+        -
+          headline: "Say Ahhh! Acapella"
+          image: "https://via.placeholder.com/768/000000/FFFFFF/&text=FPO"
+          link: "#"
+
+    -
+      title: Resources for Researchers
+      content:
+        items:
+        -
+          headline: "Office of Shared Research Facilities"
+          image: "https://via.placeholder.com/768/FFFFFF/000000/&text=FPO"
+          link: "#"
+        -
+          headline: "Office of Research Safety"
+          image: "https://via.placeholder.com/768/FFFFFF/000000/&text=FPO"
+          link: "#"
+        -
+          headline: "The Polsky Center"
+          image: "https://via.placeholder.com/768/FFFFFF/000000/&text=FPO"
+          link: "#"
+        -
+          headline: "Center for Research Informatics"
+          image: "https://via.placeholder.com/768/FFFFFF/000000/&text=FPO"
+          link: "#"
+
+    -
+      title: Training
+      content:
+        items:
+        -
+          headline: "Chicago Fellows Program"
+          image: "https://via.placeholder.com/768/FFFFFF/000000/&text=FPO"
+          link: "#"
+        -
+          headline: "Postdoctoral Scholars"
+          image: "https://via.placeholder.com/768/FFFFFF/000000/&text=FPO"
+          link: "#"
+        -
+          headline: "Continuing Medical Education"
+          image: "https://via.placeholder.com/768/FFFFFF/000000/&text=FPO"
+          link: "#"
+        -
+          headline: "Graduate Medical Education"
+          image: "https://via.placeholder.com/768/FFFFFF/000000/&text=FPO"
+          link: "#"
+
+    -
+      title: Events
+      content:
+        items:
+        -
+          headline: "I2I Steering Committee Meeting"
+          subhead: "Mon. Nov. 12<br> 5:00 – 6:30 p.m."
+          image: "/themes/custom/uccollege/it_showcase/images/callout5.jpg"
+          link: "#"
+        -
+          headline: "Community Service Fellowship - Autumn Day of Service"
+          subhead: "Fri. Nov. 17<br> 9:00 a.m. – 1:00 p.m."
+          image: "/themes/custom/uccollege/it_showcase/images/callout6.jpg"
+          link: "#"
+        -
+          headline: "Southside Home Movie Project: Block Building"
+          subhead: "Fri. Nov. 30<br> 5:00 – 8:30 p.m."
+          image: "https://via.placeholder.com/768/FFFFFF/000000/&text=FPO"
+          link: "#"
+        -
+          headline: "Discussion on Immigrant Health and the \"Public Charge\" "
+          subhead: "Wed. Nov. 28<br> 12:00 – 1:00 p.m."
+          image: "/themes/custom/uccollege/it_showcase/images/callout8.jpg"
+          link: "#"
+
+    -
+      title: Leadership
+      content:
+        items:
+        -
+          headline: "Kenneth S. Polonsky"
+          subhead: "Dean of the Division of the Biological Sciences"
+          image: "https://via.placeholder.com/768/FFFFFF/000000/&text=FPO"
+          link: "#"
+        -
+          headline: "T. Conrad Gilliam"
+          subhead: "Dean of Basic Science"
+          image: "https://via.placeholder.com/768/FFFFFF/000000/&text=FPO"
+          link: "#"
+        -
+          headline: "John Flynn"
+          subhead: "Chief Physician & Dean for Clinical Affairs"
+          image: "https://via.placeholder.com/768/FFFFFF/000000/&text=FPO"
+          link: "#"
+        -
+          headline: "Halina Brukner"
+          subhead: "Interim Dean for Medical Education"
+          image: "https://via.placeholder.com/768/FFFFFF/000000/&text=FPO"
+          link: "#"
+
+    -
+      title: Related Resources
+      content:
+        items:
+        -
+          headline: "Office of Clinical Research"
+          image: "https://via.placeholder.com/768/FFFFFF/000000/&text=FPO"
+          link: "#"
+        -
+          headline: "University of Chicago Medicine"
+          image: "https://via.placeholder.com/768/FFFFFF/000000/&text=FPO"
+          link: "#"
+        -
+          headline: "University of Chicago Faculty Practice"
+          image: "https://via.placeholder.com/768/FFFFFF/000000/&text=FPO"
+          link: "#"
+        -
+          headline: "Graduate Medical Education"
+          image: "https://via.placeholder.com/768/FFFFFF/000000/&text=FPO"
+          link: "#"
+
+    -
+      title: Related Resources (Basic Science Department Page)
+      content:
+        items:
+        -
+          headline: "Office of the Dean for Basic Science"
+          image: "https://via.placeholder.com/768/FFFFFF/000000/&text=FPO"
+          link: "#"
+        -
+          headline: "Core Research Facilities"
+          image: "https://via.placeholder.com/768/FFFFFF/000000/&text=FPO"
+          link: "#"
+        -
+          headline: "Biosciences PhD Programs"
+          image: "https://via.placeholder.com/768/FFFFFF/000000/&text=FPO"
+          link: "#"
+        -
+          headline: "Chicago Fellows"
+          image: "https://via.placeholder.com/768/FFFFFF/000000/&text=FPO"
+          link: "#"
+
+    -
+      title: Events, no images
+      content:
+        events: true
+        items:
+        -
+          headline: "Natural History Seminar Series"
+          subhead: "12:00 – 1:00 p.m."
+          month: "April"
+          day: "02"
+          link: "#"
+        -
+          headline: "Evolutionary Dynamics in Microbial Communities"
+          subhead: "3:30 – 4:30 p.m."
+          month: "March"
+          day: "04"
+          link: "#"
+        -
+          headline: "Claudia Solis-Lemus, Ph.D., Emory University"
+          subhead: "3:30 – 4:30 p.m."
+          month: "February"
+          day: "21"
+          link: "#"
+        -
+          headline: "Interrogating Epidemics & Modern Human Ecology"
+          subhead: "3:30 – 4:30 p.m."
+          month: "February"
+          day: "28"
+          link: "#"
+
+callout.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: callout.component
+    index_hide: true
+    file: themes/custom/uccollege/components/callout/README.md

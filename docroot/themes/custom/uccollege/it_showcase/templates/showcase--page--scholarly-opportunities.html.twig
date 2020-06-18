@@ -1,0 +1,117 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+
+{{ it_showcase_component('masthead', 0) }}
+{{ it_showcase_component('alert', 0) }}
+
+<div class="l-container">
+	<img v-cloak v-square-full-width src="/themes/custom/uccollege/it_showcase/images/scholarly.jpg" alt="Photo of cells">
+</div>
+
+<section class="l-container">
+	{{ it_showcase_component('stats', 2) }}
+
+	<article class="c-article">
+		<div class="c-article__body">
+			<div class="c-article__intro">
+				<p>In recognition that classroom and hospital learning is only one aspect of medical education, the
+					Pritzker School of Medicine encourages students to enhance and enrich their traditional education
+					through research experiences, summer externships, international programs, and various conferences
+					and seminars.</p>
+			</div>
+    </div>
+
+      <div class="c-article__body">
+        <p>Among these opportunities, the school sponsors the following programs for students interested in research activities:</p>
+      </div>
+
+      <div class="c-article__body">
+			<uc-accordion-group v-cloak>
+				<uc-accordion title="Pritzker Summer Research Program">
+					<p>The University of Chicago is home to 3 NIH-funded Short Term Research Training
+						Programs for Health Professional Students (funded by NIDDK, NHLBI, and NIA)
+						which provide stipend support for students to participate in the 11-week summer
+						research program.</p>
+					<a href="#">Learn more about the program</a>
+				</uc-accordion>
+
+				<uc-accordion title="Pritzker and NorthShore Fellowships">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam
+						amet consequuntur cupiditate dolor dolores eos ipsa ipsum nesciunt
+						non optio placeat quam quas reprehenderit repudiandae sapiente tempore,
+						totam vel vero.</p>
+				</uc-accordion>
+
+				<uc-accordion title="Fentress Research Fellowship">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam
+						amet consequuntur cupiditate dolor dolores eos ipsa ipsum nesciunt
+						non optio placeat quam quas reprehenderit repudiandae sapiente tempore,
+						totam vel vero.</p>
+				</uc-accordion>
+
+				<uc-accordion title="John D. Arnold Scientific Research Prize">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam
+						amet consequuntur cupiditate dolor dolores eos ipsa ipsum nesciunt
+						non optio placeat quam quas reprehenderit repudiandae sapiente tempore,
+						totam vel vero.</p>
+				</uc-accordion>
+
+				<uc-accordion title="Senior Scientific Session">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam
+						amet consequuntur cupiditate dolor dolores eos ipsa ipsum nesciunt
+						non optio placeat quam quas reprehenderit repudiandae sapiente tempore,
+						totam vel vero.</p>
+				</uc-accordion>
+
+				<uc-accordion title="Bucksbaum Institute">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam
+						amet consequuntur cupiditate dolor dolores eos ipsa ipsum nesciunt
+						non optio placeat quam quas reprehenderit repudiandae sapiente tempore,
+						totam vel vero.</p>
+				</uc-accordion>
+
+				<uc-accordion title="Global Health Programs">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam
+						amet consequuntur cupiditate dolor dolores eos ipsa ipsum nesciunt
+						non optio placeat quam quas reprehenderit repudiandae sapiente tempore,
+						totam vel vero.</p>
+				</uc-accordion>
+			</uc-accordion-group>
+		</div>
+
+		<div class="c-article__media">
+			{{ it_showcase_component('video', 1) }}
+		</div>
+
+		<div class="c-article__body">
+			<h2>Resources for external funding</h2>
+			<p>Approximately, 3-5 students choose to take a year off from the standard curriculum to pursue a year of
+				extended research, either through sponsored research in the Biological Sciences Division, fellowships
+				secured through external funding sources, or the Pritzker Fellowship Program. Generally, students take
+				time off between their third and fourth year of study or second and third year of studies. For a
+				complete listing of external programs and funding available to students, visit the following links:</p>
+
+			<ul>
+				<li><a href="#">External Medical Student Research Listings</a></li>
+				<li><a href="#">International Programs</a></li>
+				<li><a href="#">Electives & Externships</a></li>
+				<li><a href="#">Service Opportunities</a></li>
+				<li><a href="#">Contests</a></li>
+			</ul>
+		</div>
+
+	</article>
+</section>
+
+{{ it_showcase_component('footer', 0) }}

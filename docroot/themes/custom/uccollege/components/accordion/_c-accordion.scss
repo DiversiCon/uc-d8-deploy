@@ -1,0 +1,300 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - accordion component
+
+.c-accordion-group__wrap {
+  margin-bottom: rem-calc(25);
+
+  h2.c-accordion-group__heading {
+    @include font-sizes(16, 18);
+
+    &.c-accordion-group__heading--centered {
+      @include font-sizes(20, 24);
+      text-align: center;
+    }
+  }
+
+  @include breakpoint(large) {
+    margin-bottom: rem-calc(35);
+  }
+}
+
+.c-accordion-group {
+  @include list;
+
+  > div {
+    margin-top: -2px;
+  }
+
+  &--2col {
+    display: grid;
+    grid-gap: 0 20px;
+    grid-template-columns: 100%;
+
+    @include breakpoint(large) {
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 40px;
+    }
+
+    .no-accordion {
+      border-top: 0;
+      margin-bottom: 0;
+
+      ul {
+        @extend .s-dash;
+      }
+
+      + .no-accordion {
+        margin-top: 0;
+      }
+    }
+
+    .page-node-type-home .grid-4up__cell3 & {
+      margin-bottom: rem-calc(10);
+
+      .no-accordion {
+        margin-top: 0;
+      }
+    }
+  }
+  &:not(.c-accordion-group--2col) .no-accordion + .no-accordion {
+    margin-top: rem-calc(30);
+  }
+}
+
+.c-accordion {
+  &__ctn {
+    font-size: 1rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: $transition-fast ease-in-out;
+    visibility: hidden;
+
+    &.expanded {
+      margin-top: rem-calc(20);
+      margin-bottom: rem-calc(40);
+      max-height: 2000vh;
+      visibility: visible;
+    }
+
+    :last-child {
+      margin-bottom: 0;
+    }
+
+    //add dash styles to lists
+    ul {
+      @extend .s-dash;
+    }
+
+    .c-content__body &,
+    .c-article__body & {
+      p,
+      li {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  &__heading {
+    @include font-sizes(16, 18);
+    font-weight: $font-weight-bold;
+    letter-spacing: normal;
+    margin-bottom: rem-calc(16);
+  }
+
+  &__title {
+    border-bottom: 2px solid $color-primary;
+    font-size: 1rem;
+    margin: 0;
+
+    button {
+      @include font-sans(bold);
+      @include font-sizes(16, 18);
+      background-color: transparent;
+      border: 0;
+      cursor: pointer;
+      letter-spacing: normal;
+      margin: 0;
+      padding: rem-calc(17) rem-calc(40) rem-calc(17) 0;
+      text-align: left;
+      width: 100%;
+
+      &:active,
+      &:focus,
+      &:hover {
+        color: $color-primary;
+
+        .s-bg-tertiary &,
+        .s-bg-maroon &,
+        .s-bg-blue & {
+          color: $color-white;
+        }
+      }
+
+      // subtitle in button
+      span {
+        display: block;
+        font-size: rem-calc(14);
+        margin-top: rem-calc(14);
+      }
+
+      img {
+        max-width: rem-calc(85);
+        float: left;
+        margin-right: 1rem;
+
+        + div {
+          overflow: hidden;
+        }
+      }
+    }
+
+    .s-bg-tertiary &,
+    .s-bg-maroon &,
+    .s-bg-blue & {
+      border-color: $color-white;
+    }
+  }
+
+  &__item {
+    margin-bottom: 0;
+    padding-left: 0;
+    position: relative;
+    text-align: left;
+
+    + .c-accordion__item,
+    .c-accordion__item {
+      margin-top: -2px;
+    }
+
+    &--expanded {
+      .c-accordion__title {
+        border-bottom: 0;
+      }
+    }
+
+    &:not(.no-accordion) {
+      border-top: 2px solid $color-primary;
+
+      + .no-accordion {
+        margin: rem-calc(30) 0;
+      }
+    }
+
+    .s-bg-tertiary &,
+    .s-bg-maroon &,
+    .s-bg-blue & {
+      border-color: $color-white;
+    }
+  }
+
+  &__toggle-icon {
+    width: rem-calc(16);
+    height: rem-calc(16);
+    position: absolute;
+    display: block;
+    pointer-events: none;
+    top: rem-calc(19);
+    right: rem-calc(5);
+
+    @include breakpoint(large) {
+      width: rem-calc(24);
+      height: rem-calc(24);
+      top: rem-calc(17);
+      right: rem-calc(10);
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      background: $color-primary;
+      transition: 0.3s all ease-out;
+
+      .s-bg-tertiary &,
+      .s-bg-maroon &,
+      .s-bg-blue & {
+        background: $color-white;
+      }
+    }
+    &::before {
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      right: 0;
+      height: 2px;
+
+      @include breakpoint(large) {
+        height: 3px;
+      }
+    }
+    &::after {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      width: 2px;
+
+      @include breakpoint(large) {
+        width: 3px;
+      }
+    }
+
+    &.isToggled::after {
+      transform: rotate(90deg);
+      width: 1.5px;
+    }
+  }
+}
+
+// Accordions within article sidebars
+.c-article__sidebar {
+  .c-accordion-group__wrap {
+    margin: rem-calc(40) 0;
+
+    @include breakpoint(large) {
+      margin: rem-calc(170) 0 rem-calc(40) 0;
+    }
+  }
+  .c-accordion-group__heading {
+    font-size: rem-calc(18);
+    text-align: left;
+  }
+
+  .c-accordion__title button {
+    font-size: 1rem;
+  }
+
+  .c-accordion__ctn {
+    p {
+      margin-bottom: rem-calc(14);
+    }
+
+    ul {
+      @include list;
+      li {
+        padding-left: 0 !important;
+      }
+    }
+
+    &.expanded {
+      margin: 0 0 rem-calc(10) 0;
+    }
+  }
+
+  .c-accordion__toggle-icon {
+    width: 1rem;
+    height: 1rem;
+
+    &::before {
+      height: 2px;
+    }
+
+    &::after {
+      width: 2px;
+    }
+  }
+}

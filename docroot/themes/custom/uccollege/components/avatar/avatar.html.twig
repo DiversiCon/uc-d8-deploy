@@ -1,0 +1,25 @@
+{#
+/**
+ * avatar Twig Partial
+ *
+ */
+#}
+
+<figure class="c-avatar">
+  <div class="c-avatar__image">
+    <div class="c-avatar__image-wrap">
+      <img src="{{ content.img.src }}" alt="{{ content.img.alt }}">
+    </div>
+  </div>
+  <figcaption>
+    <p class="c-avatar__title">{{ content.title }}</p>
+    {% autoescape false %}<p class="c-avatar__text">{{ content.text }}</p>{% endautoescape %}
+    {% if content.link %}
+      <div class="c-avatar__link"> —
+        <a href="{{ content.link.url }}" target="{{ content.link.target|default('_self') }}">
+          {{ content.link.text }}
+        </a>
+      </div>
+    {% endif %}
+  </figcaption>
+</figure>

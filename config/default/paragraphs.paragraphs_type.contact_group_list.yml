@@ -1,0 +1,9 @@
+uuid: ce00a30e-4843-429b-a126-cbf6a1140a7c
+langcode: en
+status: true
+dependencies: {  }
+id: contact_group_list
+label: 'Contact Group List'
+icon_uuid: null
+description: 'A list of Contact Groups.'
+behavior_plugins: {  }

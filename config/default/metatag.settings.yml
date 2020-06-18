@@ -1,0 +1,5 @@
+entity_type_groups:
+  node:
+    video:
+      basic: basic
+      schema_video_object: schema_video_object

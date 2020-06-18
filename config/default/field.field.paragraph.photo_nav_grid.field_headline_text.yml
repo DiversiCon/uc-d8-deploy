@@ -1,0 +1,30 @@
+uuid: e056bfb9-910a-4a5e-a9a4-fae8cdbfe1f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headline_text
+    - paragraphs.paragraphs_type.photo_nav_grid
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.photo_nav_grid.field_headline_text
+field_name: field_headline_text
+entity_type: paragraph
+bundle: photo_nav_grid
+label: Headline
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

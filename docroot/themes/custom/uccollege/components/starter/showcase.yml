@@ -1,0 +1,19 @@
+starter:
+  title: starter
+  description:
+  type: component
+  variants:
+  -
+    title: Default
+    caption:
+    content:
+      -
+
+starter.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: starter.component
+    index_hide: true
+    file: themes/custom/uccollege/components/starter/README.md

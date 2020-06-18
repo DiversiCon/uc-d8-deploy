@@ -1,0 +1,9 @@
+uuid: f5400bc9-d37c-4967-b9d3-bdf4cddd8b7d
+langcode: en
+status: true
+dependencies: {  }
+id: html_text_two_column
+label: 'HTML Text Two Column'
+icon_uuid: null
+description: 'Basic HTML input for two column format.'
+behavior_plugins: {  }

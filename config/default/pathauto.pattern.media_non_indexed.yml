@@ -1,0 +1,14 @@
+uuid: 1fa3eebf-1d45-4923-a464-bc77400f2528
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media_non_indexed
+label: 'Media, Non-Indexed'
+type: 'canonical_entities:media'
+pattern: 'admin/[media:bundle]/[media:mid]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

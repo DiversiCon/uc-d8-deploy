@@ -1,0 +1,98 @@
+uuid: a17c4f3d-01ec-45c1-9cba-ac8c2f191664
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.fact_block.field_background_theme
+    - field.field.paragraph.fact_block.field_headline_link
+    - field.field.paragraph.fact_block.field_paragraphs_limit_two
+    - field.field.paragraph.fact_block.field_single_link
+    - field.field.paragraph.fact_block.field_title
+    - paragraphs.paragraphs_type.fact_block
+  module:
+    - field_group
+    - link_attributes
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_footer:
+      children:
+        - field_title
+        - field_headline_link
+      parent_name: ''
+      weight: 3
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: Footer
+      region: content
+id: paragraph.fact_block.default
+targetEntityType: paragraph
+bundle: fact_block
+mode: default
+content:
+  field_background_theme:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_headline_link:
+    weight: 5
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+    third_party_settings: {  }
+    type: link_attributes
+    region: content
+  field_paragraphs_limit_two:
+    type: entity_reference_paragraphs
+    weight: 2
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: fact_item
+    third_party_settings: {  }
+    region: content
+  field_single_link:
+    weight: 1
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+    third_party_settings: {  }
+    type: link_attributes
+    region: content
+  field_title:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

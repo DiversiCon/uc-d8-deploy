@@ -1,0 +1,31 @@
+uuid: 2cfe8fbc-ec99-4187-9510-b76a12389720
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.pullquote.field_body
+    - field.field.paragraph.pullquote.field_subheadline_text
+    - paragraphs.paragraphs_type.pullquote
+  module:
+    - text
+id: paragraph.pullquote.default
+targetEntityType: paragraph
+bundle: pullquote
+mode: default
+content:
+  field_body:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_subheadline_text:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  search_api_excerpt: true

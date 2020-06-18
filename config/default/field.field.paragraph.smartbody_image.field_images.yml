@@ -1,0 +1,29 @@
+uuid: de6626de-bae7-4f86-9d9d-81725ce70836
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_images
+    - media.type.image
+    - paragraphs.paragraphs_type.smartbody_image
+id: paragraph.smartbody_image.field_images
+field_name: field_images
+entity_type: paragraph
+bundle: smartbody_image
+label: Images
+description: 'Add image(s), multiples will become a gallery'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: changed
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

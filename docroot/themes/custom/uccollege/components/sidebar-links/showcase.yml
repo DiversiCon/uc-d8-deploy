@@ -1,0 +1,39 @@
+sidebar-links:
+  title: Sidebar Links
+  description: List of links for use in the story sidebar
+  type: component
+  attributes:
+    category: Sidebar
+  variants:
+  -
+    title: Sidebar Links
+    caption: "List of links for use in the story sidebar"
+    content:
+      heading: "You may also like…"
+      items:
+      - url: "#"
+        text: "Lorem ipsum dolor sit amet adipiscing elit"
+      - url: "#"
+        text: "Excepteur sint occaecat cupida proident sunt"
+      - url: "#"
+        text: "Nemo enim ipsam voluptat quia voluptas"
+  -
+    title: Sidebar Links without heading
+    caption: "List of links for use in the story sidebar"
+    content:
+      items:
+      - url: "#"
+        text: "Lorem ipsum dolor sit amet adipiscing elit"
+      - url: "#"
+        text: "Excepteur sint occaecat cupida proident sunt"
+      - url: "#"
+        text: "Nemo enim ipsam voluptat quia voluptas"
+
+sidebar-links.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: sidebar-links.component
+    index_hide: true
+    file: themes/custom/uccollege/components/sidebar-links/README.md

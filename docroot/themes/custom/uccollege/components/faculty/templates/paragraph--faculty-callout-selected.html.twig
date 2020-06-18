@@ -1,0 +1,20 @@
+{#
+/**
+ * @file
+ * Faculty callout, selected.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+<uc-faculty-callout
+    endpoint="{{ uc_cdr.endpoint_faculty }}"
+    :faculty-ids="[
+        {% for id in faculty_ids %}
+        '{{ id }}',
+        {% endfor %}
+      ]"
+>
+</uc-faculty-callout>

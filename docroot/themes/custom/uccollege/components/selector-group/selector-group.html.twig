@@ -1,0 +1,15 @@
+{#
+/**
+ * selector Twig Partial
+ *
+ */
+#}
+
+<uc-selector-group
+  datasource="{{ content.source }}"
+  filterkey="{{ content.filterkey }}"
+  group-sort="{{ content.groupSort }}"
+  {% if content.defaultOption %}default-option="{{ content.defaultOption }}"{% endif %}
+  {% if content.hideDropdown %}:hide-dropdown="true"{% endif %}
+  label="{{ content.label|convertQuotes }}">
+</uc-selector-group>

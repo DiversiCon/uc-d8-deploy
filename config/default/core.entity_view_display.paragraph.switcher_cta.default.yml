@@ -1,0 +1,35 @@
+uuid: 0dc995d2-263a-4832-8d5b-6381fa19db6c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.switcher_cta.field_par_paragraph_single_0
+    - field.field.paragraph.switcher_cta.field_par_paragraph_single_1
+    - paragraphs.paragraphs_type.switcher_cta
+  module:
+    - entity_reference_revisions
+id: paragraph.switcher_cta.default
+targetEntityType: paragraph
+bundle: switcher_cta
+mode: default
+content:
+  field_par_paragraph_single_0:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_par_paragraph_single_1:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

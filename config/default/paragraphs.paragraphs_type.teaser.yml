@@ -1,0 +1,9 @@
+uuid: 39ec1bf9-1bde-4be5-af18-6875caa262e9
+langcode: en
+status: true
+dependencies: {  }
+id: teaser
+label: 'Teaser, Unique'
+icon_uuid: null
+description: 'Unique teaser item'
+behavior_plugins: {  }

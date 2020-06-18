@@ -1,0 +1,21 @@
+uuid: a2684a49-31ac-4970-bc22-2fb04f90d6a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ids
+    - paragraphs.paragraphs_type.events_callout_selected
+  module:
+    - uc_cdr_client
+id: paragraph.events_callout_selected.field_ids
+field_name: field_ids
+entity_type: paragraph
+bundle: events_callout_selected
+label: 'Event Ids'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: uc_cdr_client_external_reference

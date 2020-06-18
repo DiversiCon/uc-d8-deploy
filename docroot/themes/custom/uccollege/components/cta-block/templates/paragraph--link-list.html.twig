@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Custom list of links.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% block paragraph %}
+
+  {% for link in paragraph.field_link %}
+
+    {% set link_target = link.options.attributes.target %}
+    <li><a href="{{ link.url }}" target="{{ link_target }}" class="c-cta-block__link">{{ link.title }}</a></li>
+
+  {% endfor %}
+
+{% endblock paragraph %}

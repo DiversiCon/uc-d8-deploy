@@ -1,0 +1,46 @@
+uuid: 1bbc9ca2-89fa-4a4f-a364-cee20297f052
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_education_and_training
+    - node.type.faculty
+    - paragraphs.paragraphs_type.education_and_training
+  module:
+    - entity_reference_revisions
+id: node.faculty.field_education_and_training
+field_name: field_education_and_training
+entity_type: node
+bundle: faculty
+label: 'Education and Training'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      education_and_training: education_and_training
+    target_bundles_drag_drop:
+      academic_appointment:
+        weight: 7
+        enabled: false
+      awards:
+        weight: 8
+        enabled: false
+      education_and_training:
+        enabled: true
+        weight: 9
+      graduate_program_websites:
+        weight: 10
+        enabled: false
+      publications:
+        weight: 11
+        enabled: false
+      websites:
+        weight: 12
+        enabled: false
+field_type: entity_reference_revisions

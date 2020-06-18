@@ -1,0 +1,19 @@
+event_feed_overrides:
+  bedework_event_importer:
+    url: 'https://events.uchicago.edu/feeds/pme/departmental.php'
+    parameters:
+      -
+        name: from
+        type: strtotime
+        value: '-3 months'
+      -
+        name: to
+        type: strtotime
+        value: '+9 months'
+      -
+        name: flushCache
+        type: string
+        value: 'true'
+department_mapping:
+  ciic:
+    - agrp_PMEI

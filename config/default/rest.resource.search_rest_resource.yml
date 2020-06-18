@@ -1,0 +1,19 @@
+uuid: 4527b674-107b-47b5-b2d3-f418d74bf4c2
+langcode: en
+status: true
+dependencies:
+  module:
+    - rest
+    - serialization
+    - uc_api
+    - user
+id: search_rest_resource
+plugin_id: search_rest_resource
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+  authentication:
+    - cookie

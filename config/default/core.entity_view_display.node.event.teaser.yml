@@ -1,0 +1,37 @@
+uuid: 8ce84c2e-d1d7-4641-b918-21e9efe8b6ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.event
+  module:
+    - user
+id: node.event.teaser
+targetEntityType: node
+bundle: event
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_all_day: true
+  field_contact: true
+  field_department: true
+  field_description: true
+  field_event_dates: true
+  field_event_image: true
+  field_event_image_caption: true
+  field_event_status: true
+  field_event_tags: true
+  field_external_id: true
+  field_featured: true
+  field_location: true
+  field_notes: true
+  field_source: true
+  field_speaker_affiliation: true
+  field_speaker_name: true
+  search_api_excerpt: true

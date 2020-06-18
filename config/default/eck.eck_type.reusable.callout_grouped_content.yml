@@ -1,0 +1,9 @@
+uuid: 18670de9-c3aa-49a0-93e4-489fde543bd5
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.reusable
+name: 'Callout with Grouped Content'
+type: callout_grouped_content
+description: 'A callout that references a group of content, rather than individual items. Currently only used for the Featured Events Callout.'

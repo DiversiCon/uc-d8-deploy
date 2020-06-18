@@ -1,0 +1,20 @@
+form:
+  title: Form
+  description: Form displayed on the Feedback page
+  type: component
+  attributes:
+    category: Base Elements
+  variants:
+    -
+      title: Feedback Form
+      caption: Feedback form for feedback
+      content:
+
+form.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: form.component
+    index_hide: true
+    file: themes/custom/uccollege/components/form/README.md

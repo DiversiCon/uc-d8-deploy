@@ -1,0 +1,29 @@
+uuid: 5ca17762-d851-455d-a8e6-e4d13db864d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.stats
+    - field.storage.paragraph.field_eck_reference_1
+    - paragraphs.paragraphs_type.home_page_grid
+id: paragraph.home_page_grid.field_eck_reference_1
+field_name: field_eck_reference_1
+entity_type: paragraph
+bundle: home_page_grid
+label: 'Stat Reference 2'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:reusable'
+  handler_settings:
+    target_bundles:
+      stats: stats
+    sort:
+      field: changed
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

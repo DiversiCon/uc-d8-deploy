@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Global alert
+ *
+ * @see template_preprocess_config_pages()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set headline = content.field_headline_text|field_value|render %}
+{% set description = content.field_subheadline_text|field_value|render %}
+{% set url_base = content.field_link_single_0[0] %}
+{% set url = url_base['#url'] %}
+{% set url_tgt = url_base['#options']['attributes']['target'] %}
+{% set url_txt = url_base['#title'] %}
+
+<uc-alert
+  heading="{{ headline|convertQuotes }}"
+  description="{{ description|convertQuotes }}"
+  url="{{ url }}"
+  url-text="{{ url_txt }}"
+  url-target="{{ url_tgt }}">
+</uc-alert>

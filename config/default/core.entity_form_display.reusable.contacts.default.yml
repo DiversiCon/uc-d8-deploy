@@ -1,0 +1,82 @@
+uuid: 2242e732-bfe2-4b86-af54-98dabae6a551
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.contacts
+    - field.field.reusable.contacts.field_eck_name
+    - field.field.reusable.contacts.field_eck_title
+    - field.field.reusable.contacts.field_email
+    - field.field.reusable.contacts.field_headline_text
+    - field.field.reusable.contacts.field_phone
+  module:
+    - allowed_formats
+    - name
+    - path
+    - telephone
+    - text
+id: reusable.contacts.default
+targetEntityType: reusable
+bundle: contacts
+mode: default
+content:
+  field_eck_name:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: name_default
+    region: content
+  field_eck_title:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_email:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_headline_text:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_phone:
+    weight: 5
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  uid: true

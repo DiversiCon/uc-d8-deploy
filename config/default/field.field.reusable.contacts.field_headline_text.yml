@@ -1,0 +1,30 @@
+uuid: 9d922fb0-79ac-4cde-8206-49b0b9da7f9b
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.contacts
+    - field.storage.reusable.field_headline_text
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: reusable.contacts.field_headline_text
+field_name: field_headline_text
+entity_type: reusable
+bundle: contacts
+label: 'Display Title, first line'
+description: 'The title on top, the entity-title, is only used for admin screens. This display title is what will be shown on contact cards.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

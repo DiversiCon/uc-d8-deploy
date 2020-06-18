@@ -1,0 +1,19 @@
+uuid: 4a487e36-2483-4609-b270-782321356021
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_website_name
+    - paragraphs.paragraphs_type.websites
+id: paragraph.websites.field_website_name
+field_name: field_website_name
+entity_type: paragraph
+bundle: websites
+label: 'Website Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

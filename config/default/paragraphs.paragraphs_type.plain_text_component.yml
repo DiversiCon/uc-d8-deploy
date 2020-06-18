@@ -1,0 +1,9 @@
+uuid: f80f754f-ee33-4364-bf61-93aac1952c4a
+langcode: en
+status: true
+dependencies: {  }
+id: plain_text_component
+label: 'Plain Text Component'
+icon_uuid: null
+description: 'Provides a single plain text field.'
+behavior_plugins: {  }

@@ -1,0 +1,19 @@
+uuid: 234d99af-3e19-49d2-8ccd-6ff38ad7d537
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.academic_appointment
+id: paragraph.academic_appointment.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: academic_appointment
+label: Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

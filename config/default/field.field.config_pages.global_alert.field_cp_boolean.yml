@@ -1,0 +1,23 @@
+uuid: 754f4cda-9b02-4c42-846d-ea23678812b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.global_alert
+    - field.storage.config_pages.field_cp_boolean
+id: config_pages.global_alert.field_cp_boolean
+field_name: field_cp_boolean
+entity_type: config_pages
+bundle: global_alert
+label: 'Active toggle'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

@@ -1,0 +1,26 @@
+uuid: a31a1db2-5174-45f8-833e-7b979642fc2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.tile_reference.field_content_reference
+    - paragraphs.paragraphs_type.tile_reference
+id: paragraph.tile_reference.default
+targetEntityType: paragraph
+bundle: tile_reference
+mode: default
+content:
+  field_content_reference:
+    weight: 101
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

@@ -1,0 +1,14 @@
+{#
+/**
+ * cta-link Twig Partial
+ * .s-bg-tertiary div only added to properly display inverse link in showcase
+ */
+#}
+
+{% if content.inverse %}
+  <div class="s-bg-tertiary">
+{% endif %}
+    <a class="{{ content.class }}" href="{{ content.url }}">{{ content.text }}</a>
+{% if content.inverse %}  
+  </div>
+{% endif %}

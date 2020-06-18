@@ -1,0 +1,15 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - switcher component
+
+.c-switcher--hidden {
+  display: none;
+}
+
+.grid-internal .c-switcher__wrap {
+  align-self: end;
+  grid-area: footer;
+
+  & .c-cta-block {
+    grid-area: unset;
+  }
+}

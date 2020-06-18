@@ -1,0 +1,9 @@
+uuid: 94d42774-79ce-4f25-a452-335552628cce
+langcode: en
+status: true
+dependencies: {  }
+id: accordion_block
+label: 'Accordion Block'
+icon_uuid: null
+description: 'Accordion component wrapper'
+behavior_plugins: {  }

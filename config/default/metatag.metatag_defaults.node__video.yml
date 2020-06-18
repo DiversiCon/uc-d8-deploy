@@ -1,0 +1,15 @@
+uuid: 67ac99f4-a432-4253-80b5-6578c77852a9
+langcode: en
+status: true
+dependencies: {  }
+id: node__video
+label: 'Content: Video'
+tags:
+  schema_video_object_upload_date: '[node:created]'
+  schema_video_object_duration: '[node:field_video_duration]'
+  schema_video_object_content_url: '[node:url]'
+  schema_video_object_thumbnail_url: '[node:field_image_main:entity:field_media_image]'
+  schema_video_object_type: VideoObject
+  schema_video_object_embed_url: 'https://www.youtube.com/embed/[node:field_vdieo_id]'
+  schema_video_object_description: '[node:summary]'
+  schema_video_object_name: '[node:field_headline_text]'

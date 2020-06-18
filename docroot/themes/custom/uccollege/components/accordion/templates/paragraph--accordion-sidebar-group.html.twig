@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Accordion sidebar group.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set headline = paragraph.field_headline_text.value %}
+{% set accordion_items = content.field_par_paragraph_ultd_0 %}
+
+<uc-accordion-group
+    v-cloak
+    heading="{{ headline }}"
+>
+
+  {{ accordion_items }}
+
+</uc-accordion-group>

@@ -1,0 +1,69 @@
+langcode: en
+status: true
+id: migrate_content_book
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: legacy
+label: 'Content: Book'
+source:
+  plugin: d7_node
+  node_type: book
+process:
+  nid: tnid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  body:
+    plugin: get
+    source: body
+  field_filter_exclude_list: field_content_listing_exclusion
+  field_filter_exclude_rss: field_content_rss_exclusion
+  field_filter_include_rss: field_content_rss_inclusion
+  field_tags_reference:
+    plugin: sub_process
+    source: taxonomy_vocabulary_2
+    process:
+      target_id: tid
+  field_genres_reference:
+    plugin: sub_process
+    source: taxonomy_vocabulary_5
+    process:
+      target_id: tid
+  field_attachments:
+    plugin: sub_process
+    source: upload
+    process:
+      target_id: fid
+      display: display
+      description: description
+destination:
+  plugin: 'entity:node'
+  default_bundle: book
+migration_dependencies:
+  required: { }
+#    - d7_user
+#    - d7_node_type
+  optional:
+    - d7_field_instance
+dependencies:
+  module:
+    - uc_migrate
+  enforced:
+    module:
+      - uc_migrate

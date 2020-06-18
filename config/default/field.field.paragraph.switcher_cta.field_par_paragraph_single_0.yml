@@ -1,0 +1,157 @@
+uuid: fb703eed-4513-4c14-a53d-db409dc7c237
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_paragraph_single_0
+    - paragraphs.paragraphs_type.cta_block
+    - paragraphs.paragraphs_type.switcher_cta
+  module:
+    - entity_reference_revisions
+id: paragraph.switcher_cta.field_par_paragraph_single_0
+field_name: field_par_paragraph_single_0
+entity_type: paragraph
+bundle: switcher_cta
+label: 'Prospect: CTA Links'
+description: 'Anonymous traffic CTA links'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      cta_block: cta_block
+    target_bundles_drag_drop:
+      accordion_block:
+        weight: 42
+        enabled: false
+      accordion_item:
+        weight: 43
+        enabled: false
+      callout:
+        weight: 44
+        enabled: false
+      callout_insert:
+        weight: 45
+        enabled: false
+      callout_item_reference:
+        weight: 46
+        enabled: false
+      callout_item_unique:
+        weight: 47
+        enabled: false
+      callout_reference:
+        weight: 48
+        enabled: false
+      components:
+        weight: 49
+        enabled: false
+      components_lower:
+        weight: 50
+        enabled: false
+      cta_block:
+        enabled: true
+        weight: 51
+      cta_buttons:
+        weight: 52
+        enabled: false
+      cta_text_link:
+        weight: 53
+        enabled: false
+      custom_link:
+        weight: 54
+        enabled: false
+      feature:
+        weight: 55
+        enabled: false
+      feature_4_square_images:
+        weight: 56
+        enabled: false
+      feature_4sq_img_link:
+        weight: 57
+        enabled: false
+      feature_components:
+        weight: 58
+        enabled: false
+      feature_image_link:
+        weight: 59
+        enabled: false
+      feature_insert:
+        weight: 60
+        enabled: false
+      feature_reference:
+        weight: 61
+        enabled: false
+      home_page_grid:
+        weight: 62
+        enabled: false
+      html_text:
+        weight: 63
+        enabled: false
+      news_block:
+        weight: 64
+        enabled: false
+      news_external:
+        weight: 65
+        enabled: false
+      news_inernal:
+        weight: 66
+        enabled: false
+      pullquote:
+        weight: 67
+        enabled: false
+      quick_links:
+        weight: 68
+        enabled: false
+      quotator_item:
+        weight: 70
+        enabled: false
+      smartbody:
+        weight: 71
+        enabled: false
+      smartbody_image:
+        weight: 72
+        enabled: false
+      social_grid:
+        weight: 73
+        enabled: false
+      stats:
+        weight: 74
+        enabled: false
+      stats_insert:
+        weight: 75
+        enabled: false
+      stats_reference:
+        weight: 76
+        enabled: false
+      switcher:
+        weight: 77
+        enabled: false
+      switcher_cta:
+        weight: 78
+        enabled: false
+      teaser:
+        weight: 79
+        enabled: false
+      teaser_insert:
+        weight: 80
+        enabled: false
+      teaser_reference:
+        weight: 81
+        enabled: false
+      video_html:
+        weight: 82
+        enabled: false
+      tile:
+        weight: 83
+        enabled: false
+      tile_insert:
+        weight: 84
+        enabled: false
+      tile_reference:
+        weight: 85
+        enabled: false
+field_type: entity_reference_revisions

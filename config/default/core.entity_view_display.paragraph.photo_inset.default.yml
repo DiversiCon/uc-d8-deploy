@@ -1,0 +1,23 @@
+uuid: bd88d7c8-c802-49a2-afec-d0e91d5ee1ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.photo_inset.field_image_main
+    - paragraphs.paragraphs_type.photo_inset
+id: paragraph.photo_inset.default
+targetEntityType: paragraph
+bundle: photo_inset
+mode: default
+content:
+  field_image_main:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: photo_inset
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

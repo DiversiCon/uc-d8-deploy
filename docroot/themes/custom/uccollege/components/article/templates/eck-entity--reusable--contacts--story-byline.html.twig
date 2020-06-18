@@ -1,0 +1,17 @@
+{% set title_1 = content.field_headline_text %}
+{% set title_2 = content.field_eck_title %}
+{% set name = content.field_eck_name %}
+
+<div class="c-inquiries__section">
+  {% if name|field_value %}
+    <p class="c-byline__author">
+      {{ 'By'|t }} <a href="{{ uc_contact.contact_url }}">{{ name }}</a>
+    </p>
+  {% endif %}
+
+  {% if title_1|field_value or title_2|field_value %}
+    <p class="c-byline__title">
+      {% if title_1|field_value %}{{ title_1.0['#text'] }}{% endif %}{% if title_2|field_value %}{{ ', '~title_2.0['#text'] }}{% endif %}
+    </p>
+  {% endif %}
+</div>

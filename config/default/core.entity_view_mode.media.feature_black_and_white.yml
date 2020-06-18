@@ -1,0 +1,10 @@
+uuid: 68951886-4a5b-47ac-a8f2-28ed88e3db87
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.feature_black_and_white
+label: 'Feature Black and White (640x640)'
+targetEntityType: media
+cache: true

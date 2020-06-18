@@ -1,0 +1,29 @@
+uuid: c81307e0-9b5b-4cf5-b511-37a99a63b7c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_program_type
+    - paragraphs.paragraphs_type.program_selector
+    - taxonomy.vocabulary.program_type
+id: paragraph.program_selector.field_program_type
+field_name: field_program_type
+entity_type: paragraph
+bundle: program_selector
+label: 'Default Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      program_type: program_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

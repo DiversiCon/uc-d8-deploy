@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Video, HTML
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set poster_url = file_url(paragraph.field_image_main.entity.field_media_image.entity.uri.value) %}
+{% set video_src = file_url(paragraph.field_video_file.entity.uri.value) %}
+
+<uc-video-background v-square:limit="0"
+   background="#6f97bf"
+   poster="{{ poster_url }}"
+   width="100%"
+   height="100%"
+   alt="Video Background"
+   src="{{ video_src }}">
+</uc-video-background>

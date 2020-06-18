@@ -1,0 +1,11 @@
+uuid: 70990a80-a969-47bd-ad12-09fb97e8f988
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:c8cfb747-2b22-4c5e-bce4-cfe20adb6083'
+id: callout_insert
+label: 'Callout Insert'
+icon_uuid: null
+description: 'Insert callout content, which can either be an existing callout-reference, or a unique callout-item. Also contains theme wrappers.'
+behavior_plugins: {  }

@@ -1,0 +1,19 @@
+uuid: ce198a55-f8a7-4b2d-b063-7f494174b128
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.faculty
+    - field.storage.config_pages.field_number
+id: config_pages.faculty.field_number
+field_name: field_number
+entity_type: config_pages
+bundle: faculty
+label: 'Schedule an Appointment Phone Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

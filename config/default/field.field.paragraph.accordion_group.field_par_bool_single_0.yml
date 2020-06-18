@@ -1,0 +1,23 @@
+uuid: 8c687367-ef3a-4e62-add8-ee794efe4b4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_bool_single_0
+    - paragraphs.paragraphs_type.accordion_group
+id: paragraph.accordion_group.field_par_bool_single_0
+field_name: field_par_bool_single_0
+entity_type: paragraph
+bundle: accordion_group
+label: 'Single accordion?'
+description: 'Check this box to allow only one accordion item to be open at a time'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'true'
+  off_label: 'false'
+field_type: boolean

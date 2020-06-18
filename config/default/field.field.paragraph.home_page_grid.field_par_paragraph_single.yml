@@ -1,0 +1,99 @@
+uuid: c9c5ecbd-add7-44ea-bbfb-9af9b85d0c2f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_paragraph_single
+    - paragraphs.paragraphs_type.feature_image_link
+    - paragraphs.paragraphs_type.home_page_grid
+    - paragraphs.paragraphs_type.video_html
+  module:
+    - entity_reference_revisions
+id: paragraph.home_page_grid.field_par_paragraph_single
+field_name: field_par_paragraph_single
+entity_type: paragraph
+bundle: home_page_grid
+label: 'Media Selector'
+description: 'Select an image or a video'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      feature_image_link: feature_image_link
+      video_html: video_html
+    target_bundles_drag_drop:
+      accordion_block:
+        weight: 24
+        enabled: false
+      accordion_item:
+        weight: 25
+        enabled: false
+      callout:
+        weight: 26
+        enabled: false
+      callout_insert:
+        weight: 27
+        enabled: false
+      callout_item_reference:
+        weight: 28
+        enabled: false
+      callout_item_unique:
+        weight: 29
+        enabled: false
+      callout_reference:
+        weight: 30
+        enabled: false
+      components:
+        weight: 31
+        enabled: false
+      feature:
+        weight: 32
+        enabled: false
+      feature_4_square_images:
+        weight: 33
+        enabled: false
+      feature_4sq_img_link:
+        weight: 34
+        enabled: false
+      feature_components:
+        weight: 35
+        enabled: false
+      feature_image_link:
+        enabled: true
+        weight: 36
+      feature_insert:
+        weight: 37
+        enabled: false
+      feature_reference:
+        weight: 38
+        enabled: false
+      home_page_grid:
+        weight: 39
+        enabled: false
+      html_text:
+        weight: 40
+        enabled: false
+      pullquote:
+        weight: 42
+        enabled: false
+      quick_links:
+        weight: 43
+        enabled: false
+      smartbody:
+        weight: 44
+        enabled: false
+      smartbody_image:
+        weight: 45
+        enabled: false
+      social_grid:
+        weight: 46
+        enabled: false
+      video_html:
+        enabled: true
+        weight: 46
+field_type: entity_reference_revisions

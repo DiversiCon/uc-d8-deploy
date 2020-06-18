@@ -1,0 +1,114 @@
+uuid: fc3048e2-f377-4c45-a3f4-3ff49f735249
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.person.body
+    - field.field.node.person.field_category_primary
+    - field.field.node.person.field_description
+    - field.field.node.person.field_email_address
+    - field.field.node.person.field_headline_text
+    - field.field.node.person.field_hide_in_directory
+    - field.field.node.person.field_image_main
+    - field.field.node.person.field_link_single
+    - field.field.node.person.field_links_ultd
+    - field.field.node.person.field_name
+    - field.field.node.person.field_office_location
+    - field.field.node.person.field_office_title
+    - field.field.node.person.field_paragraph_single_0
+    - field.field.node.person.field_person_type
+    - field.field.node.person.field_phone
+    - field.field.node.person.field_positions
+    - field.field.node.person.field_section
+    - field.field.node.person.field_teaser_link
+    - field.field.node.person.field_topics
+    - node.type.person
+  module:
+    - link
+    - text
+    - user
+id: node.person.teaser
+targetEntityType: node
+bundle: person
+mode: teaser
+content:
+  body:
+    type: text_default
+    weight: 4
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  content_moderation_control:
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_email_address:
+    type: basic_string
+    weight: 3
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_headline_text:
+    type: text_default
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_image_main:
+    type: entity_reference_entity_view
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      view_mode: feature_black_and_white
+      link: false
+    third_party_settings: {  }
+  field_link_single:
+    type: link
+    weight: 5
+    region: content
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_positions:
+    type: basic_string
+    weight: 2
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  pfield_publications_preview:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_category_primary: true
+  field_description: true
+  field_hide_in_directory: true
+  field_links_ultd: true
+  field_name: true
+  field_office_location: true
+  field_office_title: true
+  field_paragraph_single_0: true
+  field_person_type: true
+  field_phone: true
+  field_section: true
+  field_teaser_link: true
+  field_topics: true
+  search_api_excerpt: true

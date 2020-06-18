@@ -1,0 +1,13 @@
+{#
+/**
+ * @file
+ * Individual link items
+ *
+ * @see template_preprocess_field()
+ *
+ * @ingroup themeable
+ */
+#}
+{% for item in items %}
+  <p>{{ item.content }}</p>
+{% endfor %}

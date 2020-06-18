@@ -1,0 +1,547 @@
+<?php
+
+/**
+ * @file
+ * Contains uc_sauce.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Cache\Cache;
+use Drupal\node\Entity\Node;
+use Drupal\views\Views;
+use Drupal\views\ViewExecutable;
+use Drupal\views\Plugin\views\query\Sql;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Render\BubbleableMetadata;
+use Drupal\Component\Uuid\Uuid;
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ *
+ * Invalidate appropriate cache tag when home page content is updated.
+ *
+ * {@param} \Drupal\Core\Entity\EntityInterface $entity
+ *   Entity object.
+ */
+function uc_sauce_node_update(EntityInterface $entity) {
+  if ($entity->getEntityTypeId() == 'node') {
+    if ($entity->bundle() == 'home') {
+      Cache::invalidateTags(['home_page']);
+    }
+  }
+}
+
+/**
+ * Implements hook_metatag_route_entity().
+ *
+ * Set metatags on home page to those associated with active home page node.
+ *
+ * {@param} \Drupal\Core\Routing\RouteMatchInterface $route_match
+ *
+ * {@return} \Drupal\Core\Entity\EntityInterface|\Drupal\node\Entity\Node|null
+ */
+function uc_sauce_metatag_route_entity(RouteMatchInterface $route_match) {
+
+  // Load home page metatag information from related node.
+  if ($route_match->getRouteName() === 'uc_sauce.home') {
+    $nid = uc_sauce_find_home_nid();
+    if ($nid) {
+      if ($node = Node::load($nid)) {
+        return $node;
+      }
+    }
+  }
+
+  /*
+   * @TODO:  Use a better alternative.
+   * The next two are actually pretty big hacks to deal with the way
+   * faculty and events are rendered.  Loading the node object here allows
+   * existing page title/token stuff to work correctly. This should be
+   * accomplished by using a token type that is not "node".  Remember, all this
+   * CDR stuff is pretty sketchy in the codebase.
+   */
+
+  // Load faculty profile page metatag information from related node.
+  if ($route_match->getRouteName() === 'uc_cdr_client.central_data_repo_controller_renderFacultyProfilePage') {
+    $faculty_alias = $route_match->getParameter('url_alias');
+
+    $nid = uc_sauce_find_faculty_nid($faculty_alias);
+    if ($nid) {
+      if ($node = Node::load($nid)) {
+        return $node;
+      }
+    }
+  }
+
+  // Load event detail page metatag information from related node.
+  if ($route_match->getRouteName() === 'uc_cdr_client.central_data_repo_controller_renderEventPage') {
+    $event_alias = $route_match->getParameter('event_id');
+
+    // Use CDR client.
+    /* @var \Drupal\uc_cdr_client\CdrClient $cdr_client */
+    $cdr_client = \Drupal::service('uc_cdr_client.cdr_client');
+    $event_id = (Uuid::isValid($event_alias)) ? $event_alias : $cdr_client->getUuidFromPathAlias($event_alias);
+    $event_data = $cdr_client->getEventData($event_id, TRUE);
+    if (isset($event_data['data']['attributes'])) {
+      $data = $event_data['data']['attributes'];
+      if (isset($data['drupal_internal__nid']) && $data['drupal_internal__nid']) {
+        if ($node = Node::load($data['drupal_internal__nid'])) {
+          return $node;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_config_readonly_whitelist_patterns().
+ *
+ * Due to the following core bug we are excluding the taxonomy.vocabulary.*
+ * configuration from read-only status.
+ *
+ * Core bug: https://www.drupal.org/project/drupal/issues/2957381
+ *
+ * {@return} array
+ *   Array of patterns.
+ */
+function uc_sauce_config_readonly_whitelist_patterns() {
+  return [
+    'taxonomy.vocabulary.*',
+  ];
+}
+
+/**
+ * Helper function to return the current home page node id.
+ *
+ * @return int|bool
+ *   Node ID.
+ */
+function uc_sauce_find_home_nid() {
+  $nid = FALSE;
+
+  // Query database for most recent published home page content.
+  $database = \Drupal::service('database');
+  /* @var \Drupal\Core\Database\Query\Select $query */
+  $query = $database->select('node_field_data', 'n');
+  $query->condition('n.status', 1);
+  $query->condition('n.type', 'home');
+  $query->addField('n', 'nid');
+  $query->orderBy('n.created', 'desc');
+  $results = $query->execute();
+  $rows = $results->fetchAll();
+  if ($rows) {
+    foreach ($rows as $delta => $row) {
+      if ($row->nid) {
+        $nid = $row->nid;
+        break;
+      }
+    }
+  }
+
+  return $nid;
+}
+
+/**
+ * Helper function to return the current faculty page node id.
+ *
+ * @param string
+ *   Alias.
+ *
+ * @return int|bool
+ *   Node ID.
+ */
+function uc_sauce_find_faculty_nid($alias) {
+  $nid = FALSE;
+
+  // Leverage the faculty service (DI would be better).
+  /* @var \Drupal\uc_cdr_client\Service\CdrFacultyService $cdr_faculty_service */
+  $cdr_faculty_service = \Drupal::service('uc_cdr_client.cdr_faculty_service');
+
+  // Get render array for faculty profile.
+  if ($alias) {
+    $nid = $cdr_faculty_service->getFacultyMemberNid($alias);
+  }
+
+  return $nid;
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function uc_sauce_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  switch ($route_name) {
+    case 'system.403':
+      $status_code = 403;
+      break;
+
+    case 'system.404':
+      $status_code = 404;
+      break;
+  }
+  if (isset($status_code)) {
+    $suggestions[] = 'page__' . (string) $status_code;
+  }
+}
+
+/**
+ * Implements hook_views_query_alter().
+ *
+ * @throws \Drupal\Component\Plugin\Exception\PluginException
+ */
+function uc_sauce_views_query_alter(ViewExecutable $view, Sql $query) {
+
+  switch ($view->id()) {
+    case 'news_filter':
+    case 'api_taxonomy':
+      // The News Filter view relies on parent id of the 'News' section term.
+      // The view requires a static value for the News term id. It cannot find
+      // the term id dynamically.
+      // So, let's find the id of the News term, and use that to limit results
+      // of the query.
+      // Ultimately, we're wanting only the children of the News term.
+      // First, find the News term.
+      $tid = \Drupal::entityQuery('taxonomy_term')
+        ->condition('vid', 'section')
+        ->condition('name', 'News')
+        ->execute();
+
+      if (count($tid) > 0) {
+        // Retrieve the taxonomy id.
+        $tid = reset($tid);
+
+        // Left join configuration.
+        $configuration = [
+          'type' => 'LEFT',
+          'table' => 'taxonomy_term_field_data',
+          'field' => 'tid',
+          'left_table' => 'taxonomy_term__parent',
+          'left_field' => 'entity_id',
+          'operator' => '=',
+        ];
+
+        // Create the join.
+        /* @var Drupal\views\Plugin\views\join\JoinPluginBase $join */
+        $join = Views::pluginManager('join')
+          ->createInstance('standard', $configuration);
+
+        // Add the parent table to the query.
+        $query->addTable('taxonomy_term__parent', NULL, $join, NULL);
+
+        // Limit the results based on the News term id.
+        $query->addWhereExpression(0, "taxonomy_term__parent.parent_target_id = '$tid'");
+      }
+
+      break;
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function uc_sauce_theme($existing, $type, $theme, $path) {
+  return [
+    'uc_sauce_group_members' => [
+      'template' => 'block--group-members',
+      'variables' => [
+        'members' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function uc_sauce_preprocess_node(&$variables) {
+  /* @var \Drupal\node\Entity\Node $node */
+  $node = $variables['node'];
+
+  /* @var \Drupal\uc_sauce\Service\UcUtility $utility_service */
+  $utility_service = \Drupal::service('uc_sauce.uc_utility');
+
+  $variables['has_video'] = $utility_service->hasVideo($node);
+
+  // Extra group node cache tags.
+  if ($node->bundle() == 'group') {
+    $variables['elements']['#cache']['tags'][] = 'node_list';
+  }
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function uc_sauce_entity_extra_field_info() {
+  $extra_fields = [];
+
+  // Create a pseudo field for displaying a list of group members.
+  $extra_fields['node']['group']['display']['pfield_members_list'] = [
+    'label' => t('Group Member List'),
+    'weight' => 100,
+    'visible' => TRUE,
+  ];
+
+  // Create a pseudo field for displaying a list of group alumni.
+  $extra_fields['node']['group']['display']['pfield_alumni_list'] = [
+    'label' => t('Group Alumni List'),
+    'weight' => 200,
+    'visible' => TRUE,
+  ];
+
+  return $extra_fields;
+}
+
+/**
+ * Implements hook_ENTITY_view().
+ */
+function uc_sauce_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  if ($view_mode == 'full') {
+
+    // Extra field for Group Members.
+    if ($display->getComponent('pfield_members_list')) {
+
+      /* @var \Drupal\taxonomy\Entity\Term $section_term */
+      $section_term = $entity->get('field_section')->entity;
+
+      if ($section_term) {
+        /* @var \Drupal\uc_sauce\Service\UcUtility $utility_service */
+        $utility_service = \Drupal::service('uc_sauce.uc_utility');
+
+        // Limit the list to certain types.
+        // @TODO: Hard-coding, bad developer (time limited).
+        $types = [];
+        $type_names = ['Student', 'Researcher', 'Junior Fellow', 'STAGE/IME Fellow'];
+        foreach ($type_names as $name) {
+          $types[] = $utility_service->getTermIdByName($name);
+        }
+
+        // Get persons for this section.
+        $persons = $utility_service->getPeople($section_term, $types);
+
+        if (count($persons) > 0) {
+          $cache_tags = [];
+
+          $build['pfield_members_list'] = [
+            '#theme' => 'uc_sauce_group_members',
+            '#members' => $persons,
+            '#cache' => [
+              'tags' => $cache_tags,
+            ],
+          ];
+        }
+        else {
+          $build['pfield_members_list'] = [
+            '#type' => 'markup',
+            '#markup' => '',
+            '#cache' => [
+              'max-age' => 0,
+            ],
+          ];
+        }
+      }
+      else {
+        $build['pfield_members_list'] = [
+          '#type' => 'markup',
+          '#markup' => '',
+          '#cache' => [
+            'max-age' => 0,
+          ],
+        ];
+      }
+    }
+
+    // Extra field for Group Alumni.
+    if ($display->getComponent('pfield_alumni_list')) {
+
+      /* @var \Drupal\taxonomy\Entity\Term $section_term */
+      $section_term = $entity->get('field_section')->entity;
+
+      if ($section_term) {
+        /* @var \Drupal\uc_sauce\Service\UcUtility $utility_service */
+        $utility_service = \Drupal::service('uc_sauce.uc_utility');
+
+        // Limit the list to certain types.
+        // @TODO: Hard-coding, bad developer (time limited).
+        $types = [];
+        $type_names = ['Alumni'];
+        foreach ($type_names as $name) {
+          $types[] = $utility_service->getTermIdByName($name);
+        }
+
+        // Get persons for this section.
+        $persons = $utility_service->getPeople($section_term, $types);
+
+        if (count($persons) > 0) {
+          $cache_tags = [];
+
+          $build['pfield_alumni_list'] = [
+            '#theme' => 'uc_sauce_group_members',
+            '#members' => $persons,
+            '#cache' => [
+              'tags' => $cache_tags,
+            ],
+          ];
+        }
+        else {
+          $build['pfield_alumni_list'] = [
+            '#type' => 'markup',
+            '#markup' => '',
+            '#cache' => [
+              'max-age' => 0,
+            ],
+          ];
+        }
+      }
+      else {
+        $build['pfield_alumni_list'] = [
+          '#type' => 'markup',
+          '#markup' => '',
+          '#cache' => [
+            'max-age' => 0,
+          ],
+        ];
+      }
+    }
+
+  }
+}
+
+/**
+ * Implements hook_token_info().
+ */
+function uc_sauce_token_info() {
+  $info = [];
+  $info['tokens']['node']['uc_page_title'] = [
+    'name' => t('Page title'),
+    'description' => t('Page title component for outlying content/pages.'),
+  ];
+
+  return $info;
+}
+
+/**
+ * Implements hook_tokens().
+ *
+ * @param $type
+ * @param $tokens
+ * @param array $data
+ * @param array $options
+ * @param \Drupal\Core\Render\BubbleableMetadata $bubbleable_metadata
+ *
+ * @return array
+ */
+function uc_sauce_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
+  $replacements = [];
+
+  // If we're looking at nodes.
+  if ($type == 'node') {
+    foreach ($tokens as $name => $original) {
+
+      // Only interested in uc_page_title token.
+      if ($name == 'uc_page_title') {
+        $page_title = '';
+
+        // Get node object.
+        if (isset($data['node']) && $data['node']) {
+          $node = $data['node'];
+
+          // Get headline text if we have a field/value.
+          if ($node->hasField('field_headline_text')) {
+            $headline = $node->get('field_headline_text')->getValue();
+            if ($headline) {
+              if (isset($headline[0]['value'])) {
+                $page_title = $headline[0]['value'];
+              }
+            }
+          }
+          // Faculty nodes require some special treatment (hence this hook).
+          if ($node->bundle() == 'faculty') {
+            if ($node->hasField('field_first_name') && $node->hasField('field_last_name')) {
+              if ($node->get('field_first_name') && $node->get('field_last_name')) {
+                $first = $node->get('field_first_name')->value;
+                $last = $node->get('field_last_name')->value;
+                if ($first && $last) {
+                  $page_title = $first . ' ' . $last;
+                }
+              }
+            }
+
+            // Still no title, use title from faculty node.
+            if (!$page_title) {
+              $page_title = $node->get('title')->value;
+            }
+          }
+          // Event nodes require some special treatment (hence this hook).
+          if ($node->bundle() == 'event') {
+            if ($node->hasField('title') && $node->hasField('title')) {
+              $page_title = $node->get('title')->value;
+            }
+          }
+        }
+        $replacements[$original] = $page_title;
+      }
+    }
+  }
+
+  return $replacements;
+}
+
+/*
+ * Implements hook_cron().
+ *
+ * Periodically invalidate certain cache tags related to CDR data rendering.
+ */
+function uc_sauce_cron() {
+
+  // No settings, just run every 15 minutes.
+  $interval = 900;
+
+  // We usually don't want to act every time cron runs (which could be every
+  // minute) so keep a time for the next run in the site state.
+  $next_execution = \Drupal::state()->get('uc_sauce.next_execution', 0);
+  if (REQUEST_TIME >= $next_execution) {
+    Cache::invalidateTags(['cdr_client', 'cdr_related']);
+    \Drupal::logger('cron_example')->notice('CDR related cache tags invalidated.');
+    \Drupal::state()->set('uc_sauce.next_execution', REQUEST_TIME + $interval);
+    \Drupal::messenger()->addMessage(t('uc_sauce executed at %time', ['%time' => date('c'),]));
+  }
+}
+
+/**
+ * Alter the generated link data before the sitemap is saved.
+ * This hook gets invoked for every sitemap chunk generated.
+ *
+ * @param array &$links
+ *   Array containing multilingual links generated for each path to be indexed
+ *
+ * @param string $sitemap_variant
+ */
+function uc_sauce_simple_sitemap_links_alter(array &$links, $sitemap_variant) {
+
+  // Remove German URL for a certain path in the hreflang sitemap.
+  foreach ($links as $key => $link) {
+    if ($link['meta']['entity_info']['entity_type'] === 'node') {
+
+      // We must know the node bundle.
+      $entity = \Drupal::entityTypeManager()->getStorage($link['meta']['entity_info']['entity_type'])->load($link['meta']['entity_info']['id']);
+      $bundle = $entity->bundle();
+
+      // Faculty requires an adjustment to link.
+      if ($bundle == 'faculty') {
+        $new_url = uc_sauce_lreplace('/', '/faculty/', $link['url']);
+        $link['url'] = $new_url;
+        $link['alternate_urls']['en'] = $new_url;
+        $links[$key] = $link;
+      }
+    }
+  }
+}
+
+function uc_sauce_lreplace($search, $replace, $subject){
+  $pos = strrpos($subject, $search);
+  if($pos !== false){
+    $subject = substr_replace($subject, $replace, $pos, strlen($search));
+  }
+  return $subject;
+}

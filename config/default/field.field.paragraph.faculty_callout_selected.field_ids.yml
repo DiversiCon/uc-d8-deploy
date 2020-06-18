@@ -1,0 +1,21 @@
+uuid: 43cb6615-9b9a-4f36-9416-aecdd5df46b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ids
+    - paragraphs.paragraphs_type.faculty_callout_selected
+  module:
+    - uc_cdr_client
+id: paragraph.faculty_callout_selected.field_ids
+field_name: field_ids
+entity_type: paragraph
+bundle: faculty_callout_selected
+label: 'Faculty Ids'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: uc_cdr_client_external_reference

@@ -1,0 +1,9 @@
+uuid: c47b2af3-8878-49cd-a2d9-f74bcbcb169b
+langcode: en
+status: true
+dependencies: {  }
+id: tile_reference
+label: 'Tile, Reference'
+icon_uuid: null
+description: 'Used in the homepage content reference'
+behavior_plugins: {  }

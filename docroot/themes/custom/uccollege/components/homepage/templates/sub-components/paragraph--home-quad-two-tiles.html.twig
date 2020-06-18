@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Homepage quadrant of two tiles.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set tile_left = content.field_par_paragraph_single %}
+{% set tile_right = content.field_par_paragraph_single_0 %}
+
+<div class="c-feature__2up">
+
+  <div class="c-tile c-tile--inverted">
+    {{ tile_left }}
+  </div>
+
+  <div class="c-tile">
+    {{ tile_right }}
+  </div>
+
+</div>

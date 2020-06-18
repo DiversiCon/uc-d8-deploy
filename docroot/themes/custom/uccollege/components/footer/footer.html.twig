@@ -1,0 +1,51 @@
+
+{% set socialLinks %}
+  {% include '@uccollege/../components/footer/social-links.html.twig' with { 'channels': content.channels } %}
+{% endset %}
+
+<footer class="c-footer {% if content.logo %}c-footer--hasLogo{% endif %}">
+  <div class="c-footer__content">
+    <div class="c-footer__block c-footer__contact">
+      <svg class="c-icon c-footer__icon">
+        <use xlink:href="/themes/custom/uccollege/dist/icons.svg#crest" />
+      </svg>
+      {% for contact in content.contacts %}
+        <p class="c-footer__contact-name">{{ contact.name }}</p>
+        <p class="c-footer__contact-office">{{ contact.office }}</p>
+        <p class="c-footer__contact-building">{{ contact.building }}</p>
+        <p class="c-footer__contact-address">{{ contact.address }}</p>
+        <p class="c-footer__contact-citystate">{{ contact.citystate }}</p>
+
+        {% if content.department %}
+          <p class="c-footer__dept">
+            {{ content.department }} is a department in the<br>
+            <a href="#">Biological Sciences Division</a>
+          </p>
+        {% endif %}
+
+        <p class="c-footer__contact-copyright">{{ contact.copyright }}</p>
+      {% endfor %}
+
+      {% if content.logo %}
+        {{ socialLinks }}
+      {% endif %}
+    </div>
+
+    <ul class="c-footer__block c-footer__links">
+      {% for link in content.links %}
+        <li class="c-footer__link"><a href="{{ link.url }}">{{ link.text }}</a></li>
+      {% endfor %}
+    </ul>
+
+    {% if content.logo %}
+      <div class="c-footer__block c-footer__logo">
+        <svg class="c-icon">
+          <use xlink:href="/themes/custom/uccollege/dist/icons.svg#{{ content.logo }}" />
+        </svg>
+      </div>
+      {% else %}
+        {{ socialLinks }}
+    {% endif %}
+
+  </div>
+</footer>

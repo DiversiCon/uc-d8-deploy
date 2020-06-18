@@ -1,0 +1,33 @@
+uuid: d8edda7c-0886-4e1b-8244-3ab6c1a49b2c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_label_text
+    - paragraphs.paragraphs_type.staff_selector
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.staff_selector.field_label_text
+field_name: field_label_text
+entity_type: paragraph
+bundle: staff_selector
+label: 'Label Text'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 'Filter by office, division or program'
+    format: plain
+default_value_callback: ''
+settings: {  }
+field_type: text

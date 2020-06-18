@@ -1,0 +1,30 @@
+uuid: b16c14ff-4d32-4f79-85b6-e17c7cb5f82b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headline_text
+    - paragraphs.paragraphs_type.program_selector
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.program_selector.field_headline_text
+field_name: field_headline_text
+entity_type: paragraph
+bundle: program_selector
+label: 'Selector Headline'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+
+{{ it_showcase_component('masthead', 0) }}
+
+{% include '@uccollege/../components/feature/feature.html.twig' with {'content': content.feature} %}
+
+<section class="l-stripe s-bg">
+  {{ it_showcase_component('stats', 4) }}
+</section>
+
+{{ it_showcase_component('feature', 17) }}
+
+{{ it_showcase_component('feature', 18) }}
+
+<section class="l-stripe s-bg-tertiary">
+  <h2 class="t-heading--medium">Resources for Researchers</h2>
+
+  {{ it_showcase_component('callout', 10) }}
+</section>
+
+{{ it_showcase_component('teaser', 6) }}
+
+{{ it_showcase_component('footer', 0) }}

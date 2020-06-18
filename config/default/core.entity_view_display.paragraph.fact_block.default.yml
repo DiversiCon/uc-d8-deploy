@@ -1,0 +1,70 @@
+uuid: df713fd3-bedb-488c-9023-158b94c88f85
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.fact_block.field_background_theme
+    - field.field.paragraph.fact_block.field_headline_link
+    - field.field.paragraph.fact_block.field_paragraphs_limit_two
+    - field.field.paragraph.fact_block.field_single_link
+    - field.field.paragraph.fact_block.field_title
+    - paragraphs.paragraphs_type.fact_block
+  module:
+    - entity_reference_revisions
+    - link
+    - options
+id: paragraph.fact_block.default
+targetEntityType: paragraph
+bundle: fact_block
+mode: default
+content:
+  field_background_theme:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_headline_link:
+    weight: 5
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_paragraphs_limit_two:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_single_link:
+    weight: 3
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_title:
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  search_api_excerpt: true

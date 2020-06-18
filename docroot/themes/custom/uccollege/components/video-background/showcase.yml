@@ -1,0 +1,69 @@
+video_background:
+  title: Video Background
+  description: Used for looping background video with optional overlaid text.
+  type: component
+  attributes:
+    category: Images & Media
+  variants:
+  -
+    title: Default
+    content:
+      heading: "Transformative <br>Education"
+      tag: h1
+      poster: "/themes/custom/uccollege/it_showcase/images/homepage-showcase.jpg"
+      src: "/themes/custom/uccollege/it_showcase/video/homepage-showcase.mp4"
+  -
+    title: Inside Feature
+    content:
+      feature: true
+      heading: "Transformative <br>Education"
+      tag: h1
+      poster: "/themes/custom/uccollege/it_showcase/images/homepage-showcase.jpg"
+      src: "/themes/custom/uccollege/it_showcase/video/homepage-showcase.mp4"
+  -
+    title: Restricted width
+    caption: No text, 300x300
+    content:
+      poster: "/themes/custom/uccollege/it_showcase/images/homepage-showcase.jpg"
+      src: "/themes/custom/uccollege/it_showcase/video/homepage-showcase.mp4"
+      width: 300
+      height: 300
+  -
+    title: Full-width
+    caption: No text, 100% width
+    content:
+      poster: "/themes/custom/uccollege/it_showcase/images/homepage-showcase.jpg"
+      src: "/themes/custom/uccollege/it_showcase/video/homepage-showcase.mp4"
+
+  -
+    title: Image only
+    content:
+      imgonly: true
+      heading: "Interdisciplinary <br>Medical<br> Education"
+      tag: h1
+      poster: "/themes/custom/uccollege/it_showcase/images/feature-homepage.jpg"
+
+  -
+    title: Image only
+    content:
+      imgonly: true
+      heading: "New knowledge of living systems"
+      tag: h1
+      poster: "/themes/custom/uccollege/it_showcase/images/feature-homepage-bsd.jpg"
+
+  -
+    title: Image only
+    content:
+      imgonly: true
+      heading: "Innovative & Independent Scientists"
+      tag: h1
+      poster: "/themes/custom/uccollege/it_showcase/images/feature-homepage-dept.jpg"
+
+video-background.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: video_background.component
+    index_hide: true
+    file: themes/custom/uccollege/components/video-background/README.md

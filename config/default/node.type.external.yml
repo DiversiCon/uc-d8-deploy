@@ -1,0 +1,17 @@
+uuid: ea7e0fd7-dbd8-4cdb-af13-ac912eb45353
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'External teaser'
+type: external
+description: 'Content that is used to tease custom content in the news components.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

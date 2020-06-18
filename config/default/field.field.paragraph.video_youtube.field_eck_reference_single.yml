@@ -1,0 +1,29 @@
+uuid: 895bc368-068b-407d-ba28-eb21cfdaa624
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.video
+    - field.storage.paragraph.field_eck_reference_single
+    - paragraphs.paragraphs_type.video_youtube
+id: paragraph.video_youtube.field_eck_reference_single
+field_name: field_eck_reference_single
+entity_type: paragraph
+bundle: video_youtube
+label: 'Video Reference'
+description: 'Reference an <a href="/admin/content/videos" target="_blank">existing video (new window)</a>.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:reusable'
+  handler_settings:
+    target_bundles:
+      video: video
+    sort:
+      field: changed
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

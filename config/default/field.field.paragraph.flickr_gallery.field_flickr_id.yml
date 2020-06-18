@@ -1,0 +1,19 @@
+uuid: de1bd4ed-3db3-4353-a69c-86624cc51e1b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_flickr_id
+    - paragraphs.paragraphs_type.flickr_gallery
+id: paragraph.flickr_gallery.field_flickr_id
+field_name: field_flickr_id
+entity_type: paragraph
+bundle: flickr_gallery
+label: 'Flickr ID'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

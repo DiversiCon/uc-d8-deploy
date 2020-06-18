@@ -1,0 +1,23 @@
+uuid: ae75d784-8cdb-469d-b25b-2367c3456a36
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.contact_person_reference.field_eck_reference
+    - paragraphs.paragraphs_type.contact_person_reference
+id: paragraph.contact_person_reference.default
+targetEntityType: paragraph
+bundle: contact_person_reference
+mode: default
+content:
+  field_eck_reference:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: contact_information
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

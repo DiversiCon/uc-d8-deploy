@@ -1,0 +1,34 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+{{ it_showcase_component('masthead', 0) }}
+
+<section class="l-container">
+	{% include '@uccollege/../components/headline/headline.html.twig' with {'content': content.headline} %}
+	<div class="l-content">
+		<p><strong>Dean’s Council consists of three to four elected representatives from each class who meet monthly. The Council administers and distributes medical student funds to various student organizations.</strong></p>
+		<p>Elections for the Dean’s Council Representatives are held during the fall term of first year, at which time representatives are elected to a two-year position with the option of re-election during the third year.
+			<a href="#">Dean’s Council Funding Request Form</a></p>
+	</div>
+</section>
+
+<section class="l-container">
+	{{ it_showcase_component('selector_group', 4) }}
+	
+	<div class="l-content">
+		<p>Members of the Fourth Year class play other important roles in the leadership of the school. For additional information, visit the
+			<a href="#">Fourth Year Leadership page</a>.</p>
+	</div>
+</section>
+
+{{ it_showcase_component('footer', 0) }}

@@ -1,0 +1,23 @@
+uuid: f247cd8a-831d-4eec-8cdb-e8779abd2de9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.callout_with_grouped_content_ref.field_eck_reference
+    - paragraphs.paragraphs_type.callout_with_grouped_content_ref
+id: paragraph.callout_with_grouped_content_ref.default
+targetEntityType: paragraph
+bundle: callout_with_grouped_content_ref
+mode: default
+content:
+  field_eck_reference:
+    weight: 0
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

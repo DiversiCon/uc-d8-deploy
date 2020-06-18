@@ -1,0 +1,85 @@
+uuid: b4336856-cadf-4a26-b4be-45a121b8c8e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.publications.field_author_list
+    - field.field.paragraph.publications.field_citation
+    - field.field.paragraph.publications.field_label
+    - field.field.paragraph.publications.field_pmid
+    - field.field.paragraph.publications.field_publication
+    - field.field.paragraph.publications.field_publication_date
+    - field.field.paragraph.publications.field_publication_venue
+    - field.field.paragraph.publications.field_year
+    - paragraphs.paragraphs_type.publications
+  module:
+    - datetime
+id: paragraph.publications.default
+targetEntityType: paragraph
+bundle: publications
+mode: default
+content:
+  field_author_list:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_citation:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_label:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_pmid:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_publication:
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_publication_date:
+    weight: 5
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_publication_venue:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_year:
+    weight: 6
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  search_api_excerpt: true

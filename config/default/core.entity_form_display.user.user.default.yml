@@ -1,0 +1,94 @@
+uuid: 3f6c30f8-a01d-487c-89c6-cc5431f57f11
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.field_all_sections
+    - field.field.user.user.field_allowed_sections
+    - field.field.user.user.field_name_first
+    - field.field.user.user.field_name_last
+    - field.field.user.user.field_no_section
+  module:
+    - field_group
+    - path
+    - user
+third_party_settings:
+  field_group:
+    group_section_permissions:
+      children:
+        - field_all_sections
+        - field_no_section
+        - field_allowed_sections
+      parent_name: ''
+      weight: 3
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: true
+        required_fields: true
+      label: 'Section permissions'
+      region: content
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  account:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_all_sections:
+    weight: 8
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_allowed_sections:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_name_first:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_name_last:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_no_section:
+    weight: 9
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  language:
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  timezone:
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

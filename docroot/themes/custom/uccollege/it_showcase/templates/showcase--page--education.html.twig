@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Education page frontend implementation.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+
+{{ it_showcase_component('masthead', 0) }}
+
+{% include '@uccollege/../components/feature/feature.html.twig' with {'content': content.feature} %}
+
+<div class="l-stripe s-bg-tertiary">
+  {{ it_showcase_component('stats', 5) }}
+</div>
+
+{{ it_showcase_component('feature', 21) }}
+
+{{ it_showcase_component('feature', 22) }}
+
+<div class="l-stripe s-bg">
+  <h2 class="t-heading--medium">Training</h2>
+
+  {{ it_showcase_component('callout', 11) }}
+</div>
+
+{{ it_showcase_component('feature', 23) }}
+
+{{ it_showcase_component('footer', 0) }}

@@ -1,0 +1,22 @@
+uuid: edc0d77e-0994-41b3-9d17-249a9151a94d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.course
+id: node.course.status
+field_name: status
+entity_type: node
+bundle: course
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

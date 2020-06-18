@@ -1,0 +1,72 @@
+
+langcode: en
+status: true
+id: migrate_users
+class: Drupal\user\Plugin\migrate\User
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: legacy
+label: 'User accounts'
+source:
+  plugin: d7_user
+  track_changes: true
+process:
+  check:
+    plugin: skip_on_less
+    source: access
+    value: 1519862401
+    method: row
+  name: name
+  pass: pass
+  mail: mail
+  created: created
+  access: access
+  login: login
+  status: status
+  timezone: timezone
+  langcode:
+    plugin: user_langcode
+    source: language
+    fallback_to_site_default: false
+  preferred_langcode:
+    plugin: user_langcode
+    source: language
+    fallback_to_site_default: true
+  preferred_admin_langcode:
+    plugin: user_langcode
+    source: language
+    fallback_to_site_default: true
+  init: init
+  roles:
+    plugin: static_map
+    source: roles
+    default_value: migrate
+    map:
+      1: anonymous
+      2: authenticated
+      235655953: administrator
+      254633039: administrator
+      30037204: administrator
+      254633039: content_editor
+      266833737: content_editor
+      61522925: content_writer
+      210394380: content_writer
+destination:
+  plugin: 'entity:user'
+migration_dependencies:
+  required: { }
+  optional:
+    - d7_field_instance
+    - d7_file
+    - user_picture_field_instance
+    - user_picture_entity_display
+    - user_picture_entity_form_display
+dependencies:
+  module:
+    - uc_migrate
+  enforced:
+    module:
+      - uc_migrate

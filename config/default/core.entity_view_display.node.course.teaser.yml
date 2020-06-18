@@ -1,0 +1,114 @@
+uuid: 1c9d45ba-8388-4ee7-8d9d-ad6188827aa0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.course.body
+    - field.field.node.course.field_course_name
+    - field.field.node.course.field_description
+    - field.field.node.course.field_end_date
+    - field.field.node.course.field_id
+    - field.field.node.course.field_instructors
+    - field.field.node.course.field_office_location
+    - field.field.node.course.field_prerequisites
+    - field.field.node.course.field_related
+    - field.field.node.course.field_start_date
+    - node.type.course
+  module:
+    - datetime
+    - text
+    - uc_cdr_client
+    - uc_sauce
+    - user
+id: node.course.teaser
+targetEntityType: node
+bundle: course
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_course_name:
+    type: string
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_description:
+    type: text_default
+    weight: 10
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_end_date:
+    type: datetime_default
+    weight: 8
+    region: content
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: month_day_year
+    third_party_settings: {  }
+  field_id:
+    type: string
+    weight: 1
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_instructors:
+    type: faculty_reference_formatter
+    weight: 5
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_office_location:
+    type: string
+    weight: 4
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_prerequisites:
+    type: entity_reference_field_value
+    weight: 9
+    region: content
+    label: hidden
+    settings:
+      entity_field: field_course_name
+    third_party_settings: {  }
+  field_related:
+    type: string
+    weight: 6
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_start_date:
+    type: datetime_default
+    weight: 7
+    region: content
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: month_day_year
+    third_party_settings: {  }
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  search_api_excerpt: true

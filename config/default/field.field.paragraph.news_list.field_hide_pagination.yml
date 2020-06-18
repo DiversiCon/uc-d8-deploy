@@ -1,0 +1,23 @@
+uuid: 992c3ec0-478f-404c-b853-c18ffcc0f7a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_hide_pagination
+    - paragraphs.paragraphs_type.news_list
+id: paragraph.news_list.field_hide_pagination
+field_name: field_hide_pagination
+entity_type: paragraph
+bundle: news_list
+label: 'Hide pagination'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

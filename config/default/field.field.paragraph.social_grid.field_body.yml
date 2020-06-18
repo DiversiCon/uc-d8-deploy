@@ -1,0 +1,30 @@
+uuid: 09e6bd1d-d8e9-43ad-9fc8-3fbf3ddea97d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_body
+    - paragraphs.paragraphs_type.social_grid
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    simple_html: simple_html
+    plain: plain
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.social_grid.field_body
+field_name: field_body
+entity_type: paragraph
+bundle: social_grid
+label: 'Social Wall Subheadline'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

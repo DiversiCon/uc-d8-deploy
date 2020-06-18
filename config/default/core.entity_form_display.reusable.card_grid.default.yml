@@ -1,0 +1,44 @@
+uuid: 48da95cb-8d89-4335-9fce-1f3a602d5dd7
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.card_grid
+    - field.field.reusable.card_grid.field_eck_par_single_0
+  module:
+    - paragraphs
+    - path
+id: reusable.card_grid.default
+targetEntityType: reusable
+bundle: card_grid
+mode: default
+content:
+  field_eck_par_single_0:
+    weight: 3
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: card_grid
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  uid: true

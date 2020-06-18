@@ -1,0 +1,10 @@
+uuid: fa821a4a-1ce5-41fb-aed8-c22ab91d1f2d
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+id: reusable.inquiry
+label: Inquiry
+targetEntityType: reusable
+cache: true

@@ -1,0 +1,11 @@
+{#
+/**
+ * Date display in a card
+ *
+ */
+#}
+{% set date_base = content.field_date.0 %}
+{% set card_date = date_base['#text'] %}
+{% set datetime = date_base['#attributes']['datetime'] %}
+
+<time class="c-card__date" datetime="{{ datetime }}">{{ card_date }}</time>

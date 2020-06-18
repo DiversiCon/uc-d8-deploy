@@ -1,0 +1,52 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - Filter component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-filter {
+  background: $color-grey;
+  padding: rem-calc(39);
+  &__title {
+    font-size: rem-calc(18);
+    font-weight: $font-weight-bold;
+    margin-bottom: rem-calc(24);
+  }
+  &--theme-white {
+    background: $color-white;
+  }
+  &__checkbox {
+    font-size: rem-calc(14);
+    margin-bottom: rem-calc(23);
+    position: relative;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+    input {
+      appearance: none;
+      height: rem-calc(17);
+      margin-bottom: rem-calc(7);
+      margin-right: rem-calc(10);
+      border: rem-calc(1) solid $color-black;
+      padding: rem-calc(6);
+      vertical-align: middle;
+      width: rem-calc(15);
+
+      &:checked,
+      &:disabled,
+      &.disabled {
+        background-image: url("/themes/custom/uccollege/components/filter/images/checkmark.png");
+        background-repeat: no-repeat;
+        background-size: rem-calc(15) rem-calc(15);
+      }
+    }
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-filter {
+    // sass linter doesn't like empty blocks :)
+  }
+}

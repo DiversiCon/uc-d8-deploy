@@ -1,0 +1,49 @@
+{#
+/**
+ * @file
+ * Generic page template
+ *
+ * @ingroup themeable
+ */
+#}
+{% set main_media = content.field_image_main %}
+{% set heading = content.field_headline_text %}
+
+{{ content.content_moderation_control }}
+
+<section class="l-container">
+  {% if main_media|field_value %}
+    <img
+        v-cloak
+        v-square-full-width
+        src="{{ hero.image_url }}"
+        alt="{{ hero.image_alt }}" />
+  {% endif %}
+</section>
+
+<section class="l-container">
+
+  <div class="c-stats c-stats--underline">
+    <h2 class="c-stats__heading t-heading--medium">{{ heading }}</h2>
+    <ul class="c-stats__list">
+      {% for statistic in node.field_stats_reference %}
+        <li class="c-stats__item c-stats__item--half">
+          <strong class="c-stats__number">{{ statistic.entity.field_headline_text.value }}</strong>
+          <p class="c-stats__text">{{ statistic.entity.field_eck_title.value }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <article class="c-article">
+      <div class="c-article__body">
+        <div class="c-article__intro">
+          {{ content.body }}
+        </div>
+      </div>
+      {{ content.field_par_smartbody }}
+  </article>
+
+</section>
+
+{{ content.field_par_components }}

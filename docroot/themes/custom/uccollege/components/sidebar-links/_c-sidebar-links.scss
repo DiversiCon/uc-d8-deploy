@@ -1,0 +1,93 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - sidebar-links component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-sidebar-links {
+  &__heading {
+    font-size: rem-calc(18);
+    margin-bottom: rem-calc(22);
+
+    &--info {
+      font-size: rem-calc(14);
+      font-weight: 600;
+      letter-spacing: 2.8px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+  &__content {
+    @include list();
+  }
+  &__item {
+    margin-bottom: rem-calc(22);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--info-header {
+      font-size: rem-calc(14);
+      font-weight: 500;
+      margin-bottom: rem-calc(10);
+    }
+    &--info-text {
+      font-size: rem-calc(12);
+      font-weight: 400;
+      margin-bottom: rem-calc(10);
+      a {
+        color: $color-primary;
+        display: block;
+        font-size: rem-calc(14);
+        text-decoration: underline;
+        &:hover,
+        &:focus,
+        &:active {
+          text-decoration: none;
+        }
+
+        @include breakpoint(large) {
+          display: inline;
+        }
+      }
+    }
+  }
+  &__link {
+    display: block; //for proper wrapping in IE/Edge
+    text-decoration: none;
+    word-wrap: break-word; //for full urls in migrated content
+    overflow-wrap: break-word;
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: underline;
+    }
+  }
+
+  .c-list & {
+    padding-bottom: rem-calc(40);
+  }
+
+  @include breakpoint(large) {
+    .c-list & {
+      padding: rem-calc(40);
+    }
+  }
+
+  &[class*="s-"] {
+    padding: rem-calc(40) rem-calc(20);
+
+    @include breakpoint(large) {
+      margin: 0;
+      padding: rem-calc(20) rem-calc(40) rem-calc(40);
+    }
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-sidebar-links {
+    // sass linter doesn't like empty blocks :)
+  }
+}

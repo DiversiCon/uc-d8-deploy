@@ -1,0 +1,13 @@
+{#
+/**
+ * infographic Twig Partial
+ *
+ */
+#}
+
+<figure class="c-infographic">
+	<a href="{{ content.link }}" target="{{ content.target }}">
+		<img data-src="{{ content.image }}" alt="" aria-labelledby="infographic-1" class="lazyload">
+	</a>
+	<span id="infographic-1" aria-hidden="true">{{ content.alt }}</span>
+</figure>

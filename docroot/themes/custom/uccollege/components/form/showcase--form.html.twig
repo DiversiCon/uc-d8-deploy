@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ * Available variables:
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+
+<div class="l-container">
+  {% include '@uccollege/../components/form/form-feedback.html.twig' with {'content': content} %}
+</div>
+
+<section class="showcase__section">
+  <h2>Drupal Form</h2>
+  <p>Example of Drupal form</p>
+</section>
+
+<div class="l-container">
+  {% include '@uccollege/../components/form/form-drupal.html.twig' with {'content': content} %}
+</div>

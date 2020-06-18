@@ -1,0 +1,9 @@
+uuid: d3b95d4c-1186-4574-98ec-44f56c35aa6e
+langcode: en
+status: true
+dependencies: {  }
+id: faculty_index
+label: 'Faculty Index'
+icon_uuid: null
+description: 'Display a searchable list of faculty members.'
+behavior_plugins: {  }

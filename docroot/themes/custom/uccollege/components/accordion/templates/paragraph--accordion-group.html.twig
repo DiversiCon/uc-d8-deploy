@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Accordion group. Displays multiple accordion items.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set single = (paragraph.field_par_bool_single_0.value) ? "true" : "false" %}
+{% set columns = paragraph.field_par_integer_single.value %}
+{% set headline = paragraph.field_title.value %}
+{% set accordion_items = content.field_par_paragraphs %}
+
+<uc-accordion-group
+    v-cloak
+    heading="{{ headline }}"
+    :heading-centered="true" 
+    :single="{{ single }}"
+    :columns="{{ columns }}"
+>
+
+  {{ accordion_items }}
+
+</uc-accordion-group>

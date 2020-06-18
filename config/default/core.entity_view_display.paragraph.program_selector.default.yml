@@ -1,0 +1,63 @@
+uuid: bf5030f2-47bf-432f-ab65-c4aaf93feb90
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.program_selector.field_headline_text
+    - field.field.paragraph.program_selector.field_hide_division
+    - field.field.paragraph.program_selector.field_hide_type
+    - field.field.paragraph.program_selector.field_program_type
+    - field.field.paragraph.program_selector.field_tag_reference
+    - paragraphs.paragraphs_type.program_selector
+  module:
+    - text
+id: paragraph.program_selector.default
+targetEntityType: paragraph
+bundle: program_selector
+mode: default
+content:
+  field_headline_text:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_hide_division:
+    weight: 2
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_hide_type:
+    weight: 3
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_program_type:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_tag_reference:
+    weight: 0
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  search_api_excerpt: true

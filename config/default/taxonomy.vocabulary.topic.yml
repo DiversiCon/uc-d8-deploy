@@ -1,0 +1,8 @@
+uuid: 38968266-8baf-4053-afe9-79079aed6059
+langcode: en
+status: true
+dependencies: {  }
+name: Topic
+vid: topic
+description: 'A list of different topics across people, groups and content.'
+weight: 0

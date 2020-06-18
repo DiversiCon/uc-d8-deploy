@@ -1,0 +1,16 @@
+{% set video_id = eck_entity.field_video_id.value %}
+{% set headline = eck_entity.field_headline_text.value %}
+{% set description = eck_entity.field_description.value %}
+{% set credit = eck_entity.field_eck_title.value %}
+
+{% block content %}
+
+  <uc-video
+    poster="{{ video.poster }}"
+    videoid="{{ video_id }}"
+    heading="{{ headline|convertQuotes }}"
+    description="{{ description|convertQuotes }}"
+    credit="{{ credit|convertQuotes }}">
+  </uc-video>
+
+{% endblock %}

@@ -1,0 +1,9 @@
+uuid: bec3532e-8f1e-45e3-b6d9-ff0dbf70b793
+langcode: en
+status: true
+dependencies: {  }
+id: generic_sidebar_item
+label: 'Generic sidebar, Item'
+icon_uuid: null
+description: 'Individual generic title/text element used to build a generic sidebar component.'
+behavior_plugins: {  }

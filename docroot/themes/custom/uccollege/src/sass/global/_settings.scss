@@ -1,0 +1,64 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - settings
+// global maps and variables
+
+$browser-context: 16;
+
+// ----- Colors ----- //
+
+$color-black: #000;
+$color-white: #fff;
+$color-yellow: #fc0;
+$color-grey: #ededed;
+$color-mdgrey: #b2b2b2;
+$color-dkgrey: #464646;
+$color-maroon: #800000;
+$color-burgundy: #350e20; //violet
+$color-blue: #007497;
+
+$color-primary: $color-black;
+$color-secondary: $color-maroon;
+
+$color-body: $color-white;
+$color-bg: $color-grey;
+$color-bg-secondary: $color-yellow;
+$color-bg-tertiary: $color-burgundy;
+
+$color-headings: $color-primary;
+$color-link: $color-secondary;
+$color-link-hover: $color-secondary;
+
+// ----- Fonts ----- //
+
+$font-size-xlarge: 4.375rem;  // 70px
+$font-size-large: 2.5rem;     // 40px
+$font-size-medium: 1.25rem;   // 20px
+$font-size-default: 1rem;     // 16px
+$font-size-small: 0.875rem;   // 14px
+
+$font-weight-bold: 500;
+$font-weight-normal: 400;
+
+// ----- Transition speeds ----- //
+$transition-fast: 0.2s;
+$transition-medium: 0.35s;
+$transition-slow: 1s;
+
+// ----- Layout ----- //
+
+$default-padding-large: 2.5rem;   // 40px
+$default-padding-small: 1.25rem;   // 20px
+$default-max-width: 1280px;
+$text-max-width: 56.25rem; // 900px
+$list-max-width: 42.5rem; // 680px
+
+$masthead-sm: 64px;
+$masthead-lg: 177px;
+
+// ----- z-index ----- //
+
+$zindex-masthead: 101;
+$zindex-sfdump: 99;
+$zindex-authtabs: 100;
+
+// ----- Grid ----- //

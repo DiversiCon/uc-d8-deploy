@@ -1,0 +1,29 @@
+uuid: 3dc369fa-b3b4-4e23-93f7-6e473b1fb57b
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.contacts
+    - field.storage.node.field_byline
+    - node.type.story
+id: node.story.field_byline
+field_name: field_byline
+entity_type: node
+bundle: story
+label: Byline
+description: 'Byline/title, <a href="/admin/content/contacts" target="_blank">reference existing contacts (new window)</a>'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:reusable'
+  handler_settings:
+    target_bundles:
+      contacts: contacts
+    sort:
+      field: changed
+      direction: DESC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

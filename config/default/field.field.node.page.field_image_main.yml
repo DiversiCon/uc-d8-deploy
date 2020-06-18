@@ -1,0 +1,29 @@
+uuid: 0a9c1cf0-3683-41d5-8606-2e4e954f3615
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image_main
+    - media.type.image
+    - node.type.page
+id: node.page.field_image_main
+field_name: field_image_main
+entity_type: node
+bundle: page
+label: 'Main image'
+description: 'Main image used for meta, and hero'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: changed
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

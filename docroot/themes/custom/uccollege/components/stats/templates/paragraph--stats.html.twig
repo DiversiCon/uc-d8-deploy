@@ -1,0 +1,41 @@
+{#
+/**
+ * stats Twig Partial
+ *
+ */
+#}
+{% set heading = content.field_headline_text %}
+{% set description = content.field_subheadline_text %}
+{% set items = content.field_eck_reference_ultd %}
+{% set theme = paragraph.field_stats_theme.value %}
+{% set bgtheme = paragraph.field_background_theme.value %}
+
+{# Determine and set the background theme class. #}
+{% if bgtheme == 'primary' %}
+  {% set bgclass = 's-bg' %}
+{% elseif bgtheme == 'secondary' %}
+  {% set bgclass = 's-bg-secondary' %}
+{% elseif bgtheme == 'tertiary' %}
+  {% set bgclass = 's-bg-tertiary' %}
+{% endif %}
+
+{# Determine and set the theme class. #}
+{% if (theme|render is not empty) and (theme == 'large') %}
+  {% set theme = 'large' %}
+{% else %}
+  {% set theme = 'regular' %}
+{% endif %}
+
+<div class="l-stripe {{ bgclass }}">
+  <div class="c-stats c-stats--{{ theme }}">
+    {% if heading|field_value %}
+      <h2 class="c-stats__heading t-heading--medium">{{ heading }}</h2>
+    {% endif %}
+    {% if description|field_value %}
+      <p class="c-stats__description">{{ description }}</p>
+    {% endif %}
+    <ul class="c-stats__list">
+      {{ items }}
+    </ul>
+  </div>
+</div>

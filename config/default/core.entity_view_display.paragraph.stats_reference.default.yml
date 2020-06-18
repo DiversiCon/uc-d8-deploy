@@ -1,0 +1,33 @@
+uuid: 0fd93a86-a8e6-40fe-92cf-4dbec62543f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.stats_reference.field_eck_reference_three
+    - field.field.paragraph.stats_reference.field_headline_text
+    - paragraphs.paragraphs_type.stats_reference
+  module:
+    - text
+id: paragraph.stats_reference.default
+targetEntityType: paragraph
+bundle: stats_reference
+mode: default
+content:
+  field_eck_reference_three:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_headline_text:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  search_api_excerpt: true

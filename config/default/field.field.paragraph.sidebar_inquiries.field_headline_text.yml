@@ -1,0 +1,33 @@
+uuid: 533863f8-e373-44ab-8f88-d9146a16e212
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headline_text
+    - paragraphs.paragraphs_type.sidebar_inquiries
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.sidebar_inquiries.field_headline_text
+field_name: field_headline_text
+entity_type: paragraph
+bundle: sidebar_inquiries
+label: Headline
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: Inquiries
+    format: plain
+default_value_callback: ''
+settings: {  }
+field_type: text

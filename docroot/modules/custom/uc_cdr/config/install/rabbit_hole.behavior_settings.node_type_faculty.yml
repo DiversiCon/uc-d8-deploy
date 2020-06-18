@@ -1,0 +1,11 @@
+uuid: a0e8ea02-2898-4fe1-ac8d-b1bea9318ccd
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.faculty
+id: node_type_faculty
+action: access_denied
+allow_override: 0
+redirect: ''
+redirect_code: 301

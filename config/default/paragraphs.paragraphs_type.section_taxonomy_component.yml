@@ -1,0 +1,9 @@
+uuid: a590c954-62a3-4fcf-8aec-f739d6b879a5
+langcode: en
+status: true
+dependencies: {  }
+id: section_taxonomy_component
+label: 'Section Taxonomy Component'
+icon_uuid: null
+description: 'Provides a single field to reference the section taxonomy.'
+behavior_plugins: {  }

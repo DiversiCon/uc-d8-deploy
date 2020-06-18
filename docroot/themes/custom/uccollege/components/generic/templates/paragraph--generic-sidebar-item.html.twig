@@ -1,0 +1,17 @@
+{% set title = content.field_headline_text %}
+{% set text = content.field_body %}
+
+<div class="c-generic__section">
+  {% if title|field_value or text|field_value %}
+    <div class="c-generic__item">
+      {% if title|field_value %}
+        <h3 class="c-generic__item-title">{{ title }}</h3>
+      {% endif %}
+      {% if text|field_value %}
+        <div class="c-generic__item-text">
+          {{ text }}
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>

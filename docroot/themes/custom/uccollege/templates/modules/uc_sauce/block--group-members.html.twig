@@ -1,0 +1,45 @@
+{% if members %}
+  {# Initialize variables. #}
+  {% set two_column = false %}
+  {% set member_count = members|length %}
+  {% set max_single_column_count = 10 %}
+
+  {# If there are more than 10 members, create a second column. #}
+  {% if member_count > max_single_column_count %}
+    {% set two_column = true %}
+  {% endif %}
+
+  {# Determine where to stop looping for the first column. #}
+  {% if two_column %}
+    {% set first_column_length = (members|length / 2)|round(0, 'ceil') %}
+  {% else %}
+    {% set first_column_length = members|length %}
+  {% endif %}
+
+  {# Render the first column #}
+  <ul class="c-member-list">
+  {% for member in members|slice(0, first_column_length) %}
+    <li>
+      <a href="{{ path('entity.node.canonical', {'node': member.id}) }}" class="c-member-list__name">
+        <strong>{{ member.field_headline_text.value }}</strong>
+      </a>
+      <br />
+      <span class="c-member-list__positions">{{ member.field_positions.value }}</span>
+    </li>
+  {% endfor %}
+  </ul>
+
+  {% if two_column %}
+  <ul class="c-member-list">
+    {% for member in members|slice(first_column_length, member_count) %}
+    <li>
+      <a href="{{ path('entity.node.canonical', {'node': member.id}) }}" class="c-member-list__name">
+        <strong>{{ member.field_headline_text.value }}</strong>
+      </a>
+      <br />
+      <span class="c-member-list__positions">{{ member.field_positions.value }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+{% endif %}

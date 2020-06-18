@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Callout item, referenced as a node, rendered by node--page--callout-view.html.twig
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set refs = content.field_content_reference %}
+{% set addl_txt = content.field_par_html_single %}
+
+{% block paragraph %}
+  {% block content %}
+
+    {{ refs }}
+
+    {% if addl_txt|field_value %}
+      <div class="c-callout__text">
+        {{ addl_txt }}
+      </div>
+    {% endif %}
+
+  {% endblock %}
+{% endblock paragraph %}

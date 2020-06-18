@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Faculty reference data from CDR populating avatar component.
+ *
+ * @ingroup themeable
+ */
+#}
+
+<figure class="c-avatar">
+  <div class="c-avatar__image">
+    <div class="c-avatar__image-wrap">
+      <img src="{{ faculty_data.image }}" alt="" />
+    </div>
+  </div>
+
+  <figcaption>
+    <p class="c-avatar__title">{{ faculty_data.first_name }} {{ faculty_data.last_name }}{% if faculty_data.degree %}, {{ faculty_data.degree }}{% endif %}</p>
+    {% autoescape false %}
+      <p class="c-avatar__text">
+        {% if faculty_data.admin_title %}{{ faculty_data.admin_title }} <br />{% endif %}
+        {% if faculty_data.academic_titles %}
+          {% for title in faculty_data.academic_titles %}
+            {{ title.title }}{% if title.department %} of {{ title.department }}{% endif %}{% if not loop.last %}<br />{% endif %}
+          {% endfor %}
+        {% endif %}
+      </p>
+    {% endautoescape %}
+      <div class="c-avatar__link"> —
+        <a href="{{ faculty_data.url_alias }}">
+          View full profile
+        </a>
+      </div>
+  </figcaption>
+</figure>

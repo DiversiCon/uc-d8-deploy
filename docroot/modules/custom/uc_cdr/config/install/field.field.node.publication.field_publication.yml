@@ -1,0 +1,19 @@
+uuid: 4527062a-1b38-4ad1-b456-0bc13a59852b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_publication
+    - node.type.publication
+id: node.publication.field_publication
+field_name: field_publication
+entity_type: node
+bundle: publication
+label: Publication
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

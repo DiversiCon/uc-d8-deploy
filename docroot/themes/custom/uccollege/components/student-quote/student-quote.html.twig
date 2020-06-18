@@ -1,0 +1,26 @@
+{#
+/**
+ * student-quote Twig Partial
+ *
+ */
+#}
+
+<figure class="c-student-quote">
+  <blockquote>
+    <svg class="c-icon">
+      <use xlink:href="/themes/custom/uccollege/dist/icons.svg#quote" />
+    </svg>
+    <p class="c-student-quote__text">{{ content.quote }}”</p>
+    <footer>
+      <div class="c-student-quote__img">
+        <img class="lazyload" data-src="{{ content.img }}" alt="{{ content.alt }}" />
+      </div>  
+      <cite>
+        <span class="c-student-quote__attribution">{{ content.attribution }}</span>
+        {% if content.year %}
+          <span class="c-student-quote__year">{{ content.year }}</span>
+        {% endif %}
+      </cite>
+    </footer>
+  </blockquote>
+</figure>

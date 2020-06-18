@@ -1,0 +1,30 @@
+uuid: ed6e180f-d7b5-4c76-bd9e-4370872744f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headline_text
+    - paragraphs.paragraphs_type.custom_link
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.custom_link.field_headline_text
+field_name: field_headline_text
+entity_type: paragraph
+bundle: custom_link
+label: 'Link text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

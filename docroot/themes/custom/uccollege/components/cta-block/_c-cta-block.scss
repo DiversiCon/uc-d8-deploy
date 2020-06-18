@@ -1,0 +1,186 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - cta-block component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-cta-block {
+  $this: &;
+  background-color: $color-bg-tertiary;
+  color: $color-white;
+  padding: rem-calc(17) 6%;
+  margin: 0 calc(50% - 50vw);
+
+  &__heading {
+    font-size: rem-calc(18);
+    margin: 0 rem-calc(10) 1rem 0;
+  }
+  &__link {
+    color: $color-white;
+
+    &:hover {
+      color: $color-white;
+    }
+
+    .s-bg &,
+    .s-bg-secondary & {
+      color: $color-black;
+    }
+  }
+  &--buttons {
+    #{$this}__links {
+      display: flex;
+    }
+    #{$this}__link {
+      @extend .c-button;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: rem-calc(18);
+      background-color: transparent;
+      border-color: $color-white;
+      margin: 0 rem-calc(10) 0 0;
+      padding: rem-calc(6) 10%;
+      width: 100%;
+
+      &:hover {
+        background-color: $color-white;
+        border-color: $color-white;
+        color: $color-bg-tertiary;
+      }
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+
+    &.s-bg {
+      #{$this}__link {
+        border-color: $color-black;
+
+        &:hover {
+          background-color: $color-black;
+          border-color: $color-bg;
+          color: $color-bg;
+        }
+      }
+    }
+
+    &.s-bg-secondary {
+      #{$this}__link {
+        border-color: $color-black;
+
+        &:hover {
+          background-color: $color-black;
+          border-color: $color-bg-secondary;
+          color: $color-bg-secondary;
+        }
+      }
+    }
+
+    &.s-bg-tertiary {
+      #{$this}__link {
+        &:hover {
+          color: $color-bg-tertiary;
+        }
+      }
+    }
+  }
+
+  .grid-internal & {
+    grid-area: footer;
+  }
+
+  &--bullets {
+    padding: rem-calc(20);
+
+    #{$this}__links {
+      @include list(emdash, $color-white);
+      font-size: 1rem;
+      padding-left: rem-calc(20);
+
+      > li:first-of-type {
+        margin-bottom: 1rem;
+      }
+    }
+
+    &.s-bg,
+    &.s-bg-secondary {
+      #{$this}__links {
+        @include list(emdash, $color-black);
+      }
+    }
+
+    @include breakpoint(medium) {
+      padding: rem-calc(20) rem-calc(36);
+
+      #{this}__links {
+        padding-left: 0;
+
+        > li:first-of-type {
+          margin-bottom: 7%;
+        }
+      }
+
+      #{$this}__heading {
+        margin-right: 12.5%;
+        max-width: rem-calc(120);
+      }
+    }
+
+  }
+
+  @include breakpoint(large) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__heading {
+      font-size: rem-calc(24);
+      flex: 0;
+      margin: 0 rem-calc(14) 0 0;
+    }
+    &--bullets {
+      justify-content: left;
+    }
+    &--buttons {
+      #{$this}__links {
+        flex: 1 1 0;
+      }
+      #{$this}__link {
+        font-size: rem-calc(22);
+        margin: 0 rem-calc(15) 0 0;
+        padding: rem-calc(6) 2%;
+      }
+    }
+  }
+
+  @include breakpoint(large) {
+    margin: 0;
+  }
+
+  @include breakpoint(xlarge) {
+    &__heading {
+      flex: 0 1 auto;
+    }
+    &--buttons {
+      #{$this}__link {
+        padding: rem-calc(6) 2%;
+      }
+    }
+  }
+
+  &.s-bg {
+    background-color: $color-bg;
+    color: $color-black;
+  }
+
+  &.s-bg-secondary {
+    background-color: $color-bg-secondary;
+    color: $color-black;
+  }
+
+  &.s-bg-tertiary {
+    background-color: $color-bg-tertiary;
+    color: $color-white;
+  }
+}

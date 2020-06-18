@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * Feature Double Hero CTA
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set headline_start = paragraph.field_headline_text.value %}
+{% set headline_problem = paragraph.field_subheadline_text.value %}
+{% set headline_solution = paragraph.field_subheadline_text_0.value %}
+{% set hero_left_media = content.field_paragraph_single %}
+{% set hero_right_media = content.field_paragraph_single_0 %}
+{% set cta_link = content.field_single_link %}
+{% set cta_link_target = cta_link.0['#options']['attributes']['target'] %}
+
+<section class="l-container">
+  <div class="grid-2up grid-2up--nogap">
+    <div class="grid-2up__title">
+      <h1 class="t-heading--superscript">
+        <span>{{ headline_start }}</span>
+        {{ headline_problem }}<br />
+        {{ headline_solution }}
+      </h1>
+    </div>
+
+    <div class="grid-2up__cell1">
+      {{ hero_left_media }}
+    </div>
+
+    <div class="grid-2up__cell2">
+      <a href="{{ cta_link.0['#url'] }}" target="{{ link_target }}" class="c-cta-link__grid2up">{{ cta_link.0['#title'] }}</a>
+
+      {{ hero_right_media }}
+    </div>
+  </div>
+</section>

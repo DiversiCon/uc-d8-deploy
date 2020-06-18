@@ -1,0 +1,41 @@
+.c-404 {
+  position: relative;
+  &__text {
+    text-align: center;
+    padding: rem-calc(30) rem-calc(46);
+  }
+  &__heading {
+    font-size: rem-calc(76);
+    font-weight: 700;
+  }
+  &__description {
+    font-size: rem-calc(20);
+  }
+  &__img {
+    max-width: rem-calc(160);
+    margin: 0 auto;
+  }
+
+  @include breakpoint(large) {
+    max-width: rem-calc(946);
+    margin: 0 auto;
+
+    &__text {
+      padding: 0;
+      width: 40%;
+      position: absolute;
+      top: 15%;
+      left: 10%;
+    }
+    &__heading {
+      font-size: rem-calc(140);
+    }
+    &__description {
+      font-size: rem-calc(20);
+    }
+    &__img {
+      max-width: 100%;
+      margin: 0 0 0 auto;
+    }
+  }
+}

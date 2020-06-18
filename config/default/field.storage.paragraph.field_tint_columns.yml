@@ -1,0 +1,20 @@
+uuid: c9964388-b492-4f5f-9e07-a8367a7f5bf8
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_tint_columns
+field_name: field_tint_columns
+entity_type: paragraph
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

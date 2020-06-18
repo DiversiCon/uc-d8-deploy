@@ -1,0 +1,30 @@
+uuid: fa061d2a-f9d4-4382-8ff7-046bcb0ac0cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_subheadline_text
+    - paragraphs.paragraphs_type.masthead_main_navigation
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.masthead_main_navigation.field_subheadline_text
+field_name: field_subheadline_text
+entity_type: paragraph
+bundle: masthead_main_navigation
+label: 'Section Text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

@@ -1,0 +1,33 @@
+uuid: af6fd2ec-2cfa-4f02-9ce8-8139b1fb9130
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.websites.field_website_name
+    - field.field.paragraph.websites.field_website_url
+    - paragraphs.paragraphs_type.websites
+id: paragraph.websites.default
+targetEntityType: paragraph
+bundle: websites
+mode: default
+content:
+  field_website_name:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_website_url:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

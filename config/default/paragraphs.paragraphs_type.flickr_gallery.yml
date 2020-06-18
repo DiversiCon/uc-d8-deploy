@@ -1,0 +1,9 @@
+uuid: 2223fb7c-ff5b-4a18-9597-8ad3f5c65cfc
+langcode: en
+status: true
+dependencies: {  }
+id: flickr_gallery
+label: 'Flickr gallery'
+icon_uuid: null
+description: 'Flickr slideshow/gallery embed.'
+behavior_plugins: {  }

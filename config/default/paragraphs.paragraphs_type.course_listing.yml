@@ -1,0 +1,9 @@
+uuid: be4ecbc4-a03c-4eea-b0af-a1c0dc4ff9c7
+langcode: en
+status: true
+dependencies: {  }
+id: course_listing
+label: 'Course Listing'
+icon_uuid: null
+description: 'Select courses to be displayed in an accordion list.'
+behavior_plugins: {  }

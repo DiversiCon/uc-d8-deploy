@@ -1,0 +1,9 @@
+uuid: 2fcbd452-4011-484e-b43e-cd5ade437308
+langcode: en
+status: true
+dependencies: {  }
+id: stats_reference
+label: 'Stats, Reference, Three'
+icon_uuid: null
+description: 'Reference up to 3 items from existing stats ECK bundle'
+behavior_plugins: {  }

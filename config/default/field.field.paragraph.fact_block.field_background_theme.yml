@@ -1,0 +1,23 @@
+uuid: 3a13dc15-4aa6-46d1-a00a-dac7638a5ded
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_background_theme
+    - paragraphs.paragraphs_type.fact_block
+  module:
+    - options
+id: paragraph.fact_block.field_background_theme
+field_name: field_background_theme
+entity_type: paragraph
+bundle: fact_block
+label: 'Background Theme'
+description: "Changes the background color of the entire block:<br />\r\n<ul>\r\n<li><strong>Primary:</strong> gray</li>\r\n<li><strong>Secondary:</strong> yellow</li>\r\n<li><strong>Tertiary:</strong> red</li>\r\n</ul>\r\n"
+required: false
+translatable: true
+default_value:
+  -
+    value: primary
+default_value_callback: ''
+settings: {  }
+field_type: list_string

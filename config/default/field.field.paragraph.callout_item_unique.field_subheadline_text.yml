@@ -1,0 +1,30 @@
+uuid: 9167be9d-0189-4e87-a8fe-fac2d05d74f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_subheadline_text
+    - paragraphs.paragraphs_type.callout_item_unique
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.callout_item_unique.field_subheadline_text
+field_name: field_subheadline_text
+entity_type: paragraph
+bundle: callout_item_unique
+label: Sub-headline
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

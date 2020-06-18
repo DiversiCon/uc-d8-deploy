@@ -1,0 +1,11 @@
+uuid: e221f8a6-92fd-49f2-89a1-a8c6c05fdb66
+langcode: en
+status: true
+dependencies: {  }
+name: 'Home page'
+type: home
+description: '<em>Home page</em> content that may be created and edited prior to publishing live to the site.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

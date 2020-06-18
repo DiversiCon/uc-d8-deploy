@@ -1,0 +1,13 @@
+{#
+/**
+ * @file
+ * Fact card reference ECK wrapper
+ */
+#}
+{% if attributes|render %}
+  <div{{ attributes }}>
+{% endif %}
+    {{ entity.field_eck_paragraph_single }}
+{% if item.attributes|render %}
+  </div>>
+{% endif %}

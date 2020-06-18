@@ -1,0 +1,30 @@
+uuid: 3a4bc29e-d4d4-4b5e-bc3e-0f2588a726f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.course
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    simple_html: '0'
+    smartbody: '0'
+    plain: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: node.course.field_description
+field_name: field_description
+entity_type: node
+bundle: course
+label: 'Secondary Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

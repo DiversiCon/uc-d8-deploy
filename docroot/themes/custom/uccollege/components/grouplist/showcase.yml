@@ -1,0 +1,52 @@
+grouplist:
+  title: Group List
+  description: Displays a list of research groups.
+  type: component
+  variants:
+  -
+    title: Default
+    caption:
+    content:
+      -
+
+grouplist.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: grouplist.component
+    index_hide: true
+    file: themes/custom/uccollege/components/grouplist/README.md
+
+grouplist-endpoint:
+  title: Group List Endpoint
+  description: Example data for a list of Research Groups.
+  type: endpoint
+  variants:
+    -
+      title: Default
+      caption:
+      content:
+        items:
+          -
+            name: Aschwalon Group
+            url: '#'
+            image: ''
+            members: 28
+            description: 'Our group has active research activities in optical and magnetic interactions in semiconductor quantum structures, spin dynamics and coherence in condensed matter systems (“spintronics”), macroscopic quantum phenomena in nanometer-scale magnets.'
+            topics:
+              - Quantum Physics
+              - Argonne Laboratory
+            latest_publication:
+              name: 'Spin-phonon interactions in silicon carbide addressed by Gaussian acoustics'
+              url: '#'
+          -
+            name: Bernien Group
+            url: '#'
+            image: 'https://via.placeholder.com/300&text=FPO'
+            members: 2
+            description: 'Our group combines techniques from quantum optics and quantum information processing with ultracold atoms and nanotechnology in order to develop new ways of engineering large, fully controlled quantum systems and exploring the phenomena that arise in such systems.'
+            topics:
+              - Quantum Physics
+              - Quantum Systems
+            latest_publication: null

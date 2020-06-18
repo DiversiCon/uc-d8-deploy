@@ -1,0 +1,15 @@
+uuid: 6957b453-2f3c-473f-9542-bd6ca57f79de
+langcode: en
+status: true
+dependencies: {  }
+name: max_width_full
+label: 'Max-Width, Full (1380px)'
+effects:
+  0bd75921-65b5-4d60-9630-673a8bf150c0:
+    uuid: 0bd75921-65b5-4d60-9630-673a8bf150c0
+    id: image_scale
+    weight: 1
+    data:
+      width: 1380
+      height: null
+      upscale: false

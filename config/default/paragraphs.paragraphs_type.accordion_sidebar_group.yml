@@ -1,0 +1,9 @@
+uuid: 44816e66-7ac4-4917-97f0-9de9a4a2cc5f
+langcode: en
+status: true
+dependencies: {  }
+id: accordion_sidebar_group
+label: 'Accordion Sidebar Group'
+icon_uuid: null
+description: 'A group of accordion items found in a sidebar.'
+behavior_plugins: {  }

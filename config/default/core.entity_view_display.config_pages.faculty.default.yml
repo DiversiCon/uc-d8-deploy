@@ -1,0 +1,67 @@
+uuid: 4520490f-2921-4f8c-aca8-d4f0cb9394ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.faculty
+    - field.field.config_pages.faculty.field_cp_links_ultd_1
+    - field.field.config_pages.faculty.field_headline_text
+    - field.field.config_pages.faculty.field_hide
+    - field.field.config_pages.faculty.field_number
+    - field.field.config_pages.faculty.field_section
+  module:
+    - link
+    - text
+id: config_pages.faculty.default
+targetEntityType: config_pages
+bundle: faculty
+mode: default
+content:
+  field_cp_links_ultd_1:
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_headline_text:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_hide:
+    weight: 4
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_number:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_section:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: section_plain
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

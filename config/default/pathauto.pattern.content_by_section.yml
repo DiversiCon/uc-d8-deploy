@@ -1,0 +1,25 @@
+uuid: 39b3a4a7-b965-45ec-b3ab-055c1e4c9f44
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: content_by_section
+label: 'Content by Section'
+type: 'canonical_entities:node'
+pattern: '[node:section_path]/[node:title]'
+selection_criteria:
+  b11a0b07-b6a8-4015-b5e7-1997f7e3e0b4:
+    id: node_type
+    bundles:
+      directory: directory
+      generic: generic
+      page: page
+      video: video
+    negate: false
+    context_mapping:
+      node: node
+    uuid: b11a0b07-b6a8-4015-b5e7-1997f7e3e0b4
+selection_logic: and
+weight: -5
+relationships: {  }

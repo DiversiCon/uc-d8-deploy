@@ -1,0 +1,21 @@
+uuid: 568552e2-15f0-45dc-82cd-9410b28fb969
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_degree_earned
+field_name: field_degree_earned
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

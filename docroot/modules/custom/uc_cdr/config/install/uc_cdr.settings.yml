@@ -1,0 +1,164 @@
+event_feed_overrides:
+  bedework_event_importer:
+    url: 'https://events.uchicago.edu/feeds/bsd/departmental.php'
+    parameters:
+      -
+        name: from
+        type: strtotime
+        value: '-3 months'
+      -
+        name: to
+        type: strtotime
+        value: '+9 months'
+      -
+        name: flushCache
+        type: string
+        value: 'true'
+  mybsd_event_importer:
+    url: 'http://birenheide.com/uchicago/events/rssbsd.php'
+    parameters:
+      - null
+department_mapping:
+  biologicalsciences:
+    - agrp_BenMay
+    - agrp_BSDFacultyAffairs
+    - agrp_bmb
+    - agrp_BSD
+    - agrp_Anes
+    - agrp_Microbiology
+    - agrp_Opthamology
+    - agrp_RadiationCellularOncology
+    - agrp_HumanGenetics
+    - agrp_TranslationalMedicine
+    - agrp_MolecularGenetics
+    - agrp_Neurobiology
+    - agrp_Pathology
+    - agrp_Pediatrics
+    - agrp_PHS
+    - agrp_Surgery
+    - agrp_OrgBio
+    - agrp_EcoEvo
+    - agrp_FamilyMed
+    - agrp_Medicine
+    - agrp_ObsGyn
+    - agrp_OrtSurReh
+    - agrp_PsyBehNeu
+    - agrp_Radiology
+    - agrp_Neurology
+    - ANCC
+    - BCMB
+    - BENM
+    - BMBI
+    - BOFA
+    - BPHS
+    - BSCD
+    - BSDI
+    - BUCK
+    - CABI
+    - CARD
+    - CBCO
+    - CCCC
+    - CCPP
+    - CCTS
+    - CHAS
+    - CHEM
+    - CHES
+    - CLIN
+    - CPHY
+    - CPNS
+    - DERM
+    - DVBI
+    - ECEV
+    - EMED
+    - ENDO
+    - ETHI
+    - EVOL
+    - FMED
+    - GAST
+    - GENM
+    - GERI
+    - GGSB
+    - HEMO
+    - HGEN
+    - HOSP
+    - HSTD
+    - IBDI
+    - IGSB
+    - IMMU
+    - INGH
+    - INTM
+    - ISTP
+    - ITME
+    - MEDC
+    - MEPE
+    - MGCB
+    - MICR
+    - MOMN
+    - MPHY
+    - MPMM
+    - NEPH
+    - NPPH
+    - NURB
+    - NURL
+    - OBGY
+    - ORGB
+    - PATH
+    - PEDS
+    - PHEM
+    - PHSC
+    - PINF
+    - PSCR
+    - PSOM
+    - PULM
+    - RADI
+    - RHEU
+    - RINF
+    - RONC
+    - SLEP
+    - SURG
+    - UCMC
+    - URNA
+  pritzker:
+    - agrp_Pritzker
+    - PSOM
+  anesthesia:
+    - agrp_Anes
+    - ANCC
+  benmay:
+    - agrp_BenMay
+    - BENM
+  genes:
+    - agrp_HumanGenetics
+    - HGEN
+  microbiology:
+    - agrp_Microbiology
+    - MICR
+  neurobiology:
+    - agrp_Neurobiology
+    - NURB
+  neurology:
+    - agrp_Neurology
+    - NURL
+  obgyn:
+    - agrp_ObsGyn
+    - OBGY
+  ophthalmology:
+    - agrp_Opthamology
+  pathology:
+    - agrp_Pathology
+    - PATH
+  pediatrics:
+    - agrp_Pediatrics
+    - PEDS
+    - PHEM
+    - SLEP
+    - PINF
+  psychiatry:
+    - agrp_PsyBehNeu
+    - PSCR
+  radonc:
+    - agrp_RadiationCellularOncology
+    - RONC
+  surgery:
+    - agrp_Surgery
+    - SURG

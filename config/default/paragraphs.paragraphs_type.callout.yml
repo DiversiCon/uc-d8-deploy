@@ -1,0 +1,11 @@
+uuid: c5e6721c-e98c-4989-a6b4-a98666dab1a0
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:8972004e-5770-47a3-9d6b-abbe2431a682'
+id: callout
+label: 'Callout, Unique'
+icon_uuid: null
+description: 'Callout component; for landing pages, and also used in homepage and in the middle of other pages.'
+behavior_plugins: {  }

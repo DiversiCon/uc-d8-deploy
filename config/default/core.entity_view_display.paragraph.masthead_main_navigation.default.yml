@@ -1,0 +1,58 @@
+uuid: ab290c89-a406-439f-a4d2-ec515020bb01
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.masthead_main_navigation.field_headline_link
+    - field.field.paragraph.masthead_main_navigation.field_headline_text
+    - field.field.paragraph.masthead_main_navigation.field_links_ultd
+    - field.field.paragraph.masthead_main_navigation.field_subheadline_text
+    - paragraphs.paragraphs_type.masthead_main_navigation
+  module:
+    - link
+    - text
+id: paragraph.masthead_main_navigation.default
+targetEntityType: paragraph
+bundle: masthead_main_navigation
+mode: default
+content:
+  field_headline_link:
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_headline_text:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_links_ultd:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_subheadline_text:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  search_api_excerpt: true

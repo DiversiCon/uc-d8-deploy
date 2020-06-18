@@ -1,0 +1,12 @@
+
+<ul class="c-footer__block c-footer__social">
+  {% for channel in channels %}
+    <li class="c-footer__social-item">
+      <a href="{{ channel.url }}" class="c-footer__social-link" title="{{ channel.label }}">
+        <svg class="c-icon">
+          <use xlink:href="/themes/custom/uccollege/dist/icons.svg#{{ channel.label }}" />
+        </svg>
+      </a>
+    </li>
+  {% endfor %}
+</ul>

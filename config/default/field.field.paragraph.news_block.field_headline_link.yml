@@ -1,0 +1,23 @@
+uuid: e42a3e07-21a3-4580-b0d7-5b042d08fded
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headline_link
+    - paragraphs.paragraphs_type.news_block
+  module:
+    - link
+id: paragraph.news_block.field_headline_link
+field_name: field_headline_link
+entity_type: paragraph
+bundle: news_block
+label: 'Headline Link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

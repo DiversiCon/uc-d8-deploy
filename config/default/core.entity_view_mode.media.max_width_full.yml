@@ -1,0 +1,10 @@
+uuid: 87096a57-42e8-44ed-9cf7-651aba259df7
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.max_width_full
+label: 'Max-Width, Full (1380px)'
+targetEntityType: media
+cache: true

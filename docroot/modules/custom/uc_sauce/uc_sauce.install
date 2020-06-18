@@ -1,0 +1,93 @@
+<?php
+
+/**
+ * @file
+ * UC Sauce install related stuff.
+ */
+
+use Drupal\taxonomy\Entity\Vocabulary;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\paragraphs\Entity\Paragraph;
+
+/**
+ * Re-installs configuration from the module.
+ */
+function uc_sauce_update_8001() {
+  \Drupal::service('config.installer')
+    ->installDefaultConfig('module', 'uc_sauce');
+}
+
+/**
+ * Creates default person type vocabulary terms.
+ *
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
+function uc_sauce_update_8002() {
+  _create_person_type_terms();
+}
+
+/**
+ * Updates accordion item paragraphs.
+ *
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
+function uc_sauce_update_8003() {
+  $pids = \Drupal::entityQuery('paragraph')
+    ->condition('type', 'accordion_item')
+    ->execute();
+
+  foreach ($pids as $pid) {
+    // Load the paragraph by id.
+    $accordion_item = Paragraph::load($pid);
+
+    $current_content = $accordion_item->get('field_par_html_single')->getValue()[0]['value'];
+
+    $accordion_item->set('field_par_html_single', [
+      'value' => $current_content,
+      'format' => 'basic_html',
+    ]);
+
+    $accordion_item->save();
+  }
+}
+
+/**
+ * Helper function to create default person type vocabulary terms.
+ *
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
+function _create_person_type_terms() {
+  $person_type_vocab = Vocabulary::load('person_type');
+
+  if (isset($person_type_vocab)) {
+    // Create person type terms.
+    $vocab_id = 'person_type';
+
+    // Create administration terms.
+    $administration_term = Term::create([
+      'vid' => $vocab_id,
+      'name' => 'Administration',
+    ]);
+    $administration_term->save();
+
+    Term::create([
+      'vid' => $vocab_id,
+      'name' => 'Dean',
+      'parent' => $administration_term->id(),
+    ])->save();
+
+    // Create faculty terms.
+    $faculty_term = Term::create([
+      'vid' => $vocab_id,
+      'name' => 'Faculty',
+    ]);
+    $faculty_term->save();
+
+    Term::create([
+      'vid' => $vocab_id,
+      'name' => 'Professor',
+      'parent' => $faculty_term->id(),
+    ])->save();
+  }
+
+}

@@ -1,0 +1,51 @@
+uuid: f13a3cef-5cda-4ec5-9ebd-818a10a705bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cta_block.field_background_theme
+    - field.field.paragraph.cta_block.field_headline_text
+    - field.field.paragraph.cta_block.field_par_paragraph_single
+    - paragraphs.paragraphs_type.cta_block
+  module:
+    - allowed_formats
+    - paragraphs
+    - text
+id: paragraph.cta_block.default
+targetEntityType: paragraph
+bundle: cta_block
+mode: default
+content:
+  field_background_theme:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_headline_text:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_par_paragraph_single:
+    weight: 2
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

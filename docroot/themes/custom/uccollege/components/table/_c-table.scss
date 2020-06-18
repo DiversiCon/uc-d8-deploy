@@ -1,0 +1,61 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - table component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+table {
+  border-collapse: collapse;
+  margin-bottom: 1.875rem;
+  min-width: rem-calc(478);
+  width: 100%;
+  caption {
+    text-align: left;
+    padding: rem-calc(17) 0;
+  }
+  thead {
+    border-top: 1px solid $color-mdgrey;
+  }
+  th,
+  td {
+    text-align: left;
+    border-bottom: 1px solid $color-mdgrey;
+    padding: rem-calc(20);
+    padding-left: 0;
+  }
+  td {
+    @include font-sizes(12, 14);
+    padding-right: rem-calc(50);
+    vertical-align: top;
+    p {
+      font-size: inherit;
+      line-height: inherit;
+      margin-bottom: 0;
+      + p {
+        margin-top: rem-calc(10);
+      }
+    }
+  }
+  th {
+    @include font-sizes(14, 16);
+    font-weight: $font-weight-bold;
+  }
+}
+
+.c-accordion__ctn .c-table {
+  margin-bottom: 1.875rem;
+}
+
+//table scrolls horizontally if needed
+.table-scroll {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-table {
+    // sass linter doesn't like empty blocks :)
+  }
+}

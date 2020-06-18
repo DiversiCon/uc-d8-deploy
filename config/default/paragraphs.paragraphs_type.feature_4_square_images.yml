@@ -1,0 +1,9 @@
+uuid: a4f5920f-f4d3-4735-a42c-f189229d538b
+langcode: en
+status: true
+dependencies: {  }
+id: feature_4_square_images
+label: 'Feature, 4-Square Images'
+icon_uuid: null
+description: 'Block of 4 images with optional links for the feature component '
+behavior_plugins: {  }

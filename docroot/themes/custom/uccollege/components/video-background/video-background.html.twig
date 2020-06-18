@@ -1,0 +1,29 @@
+{#
+/**
+ * video-background Twig Partial
+ *
+ */
+#}
+
+{% if content.feature %}
+  {% include '@uccollege/../components/video-background/video-background-feature.html.twig' with {'content': content} %}
+  {% elseif content.imgonly %}
+    <div class="c-video-background c-feature__background">
+      <div class="c-video-background__wrap">
+        {% if content.heading %}
+          <h1 class="c-video-background__heading">{{ content.heading|convertQuotes }}</h1>
+        {% endif %}
+      </div>
+        <img src="{{ content.poster }}" alt="">
+    </div>
+
+{% else %}
+  <uc-video-background
+    {% if content.heading %}heading="{{ content.heading|convertQuotes }}"{% endif %}
+    {% if content.tag %}tag="{{ content.tag }}"{% endif %}
+    {% if content.poster %}poster="{{ content.poster }}"{% endif %}
+    {% if content.width %}width="{{ content.width }}"{% endif %}
+    {% if content.height %}height="{{ content.height }}"{% endif %}
+    src="{{ content.src }}">
+  </uc-video-background>
+{% endif %}

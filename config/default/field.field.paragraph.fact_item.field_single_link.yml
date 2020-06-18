@@ -1,0 +1,23 @@
+uuid: ef84ba1b-96c4-45ef-a47f-1165e824372a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_single_link
+    - paragraphs.paragraphs_type.fact_item
+  module:
+    - link
+id: paragraph.fact_item.field_single_link
+field_name: field_single_link
+entity_type: paragraph
+bundle: fact_item
+label: 'Headline Link'
+description: 'Optional link for the headline.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

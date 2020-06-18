@@ -1,0 +1,23 @@
+uuid: 257942ae-7fe5-420d-a646-ce7ce3fa410b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_callout_theme
+    - paragraphs.paragraphs_type.callout_insert
+  module:
+    - options
+id: paragraph.callout_insert.field_callout_theme
+field_name: field_callout_theme
+entity_type: paragraph
+bundle: callout_insert
+label: 'Callout Theme'
+description: 'Choose a surrounding color theme'
+required: false
+translatable: false
+default_value:
+  -
+    value: white
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,19 @@
+uuid: 0ced565b-2098-4783-9587-5f9bd2bde2cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_middle_name
+    - node.type.faculty
+id: node.faculty.field_middle_name
+field_name: field_middle_name
+entity_type: node
+bundle: faculty
+label: 'Middle Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

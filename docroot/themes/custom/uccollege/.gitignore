@@ -1,0 +1,6 @@
+vendor
+*.map
+mix-manifest.json
+templates/prototypes
+spritemap.js
+*.sjson

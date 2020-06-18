@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Directory/List page template
+ *
+ * @ingroup themeable
+ */
+#}
+{% set components = content.field_par_components %}
+{% set body = content.body %}
+
+{{ content.content_moderation_control }}
+
+<section class="l-container c-content">
+  <div class="c-content__body">
+    {% include '@uccollege/components/headline/templates/node--inc--headline.html.twig' %}
+    {% if body|field_value %}
+      <div class="t-text">{{ body }}</div>
+    {% endif %}
+  </div>
+</section>
+
+{{ components }}

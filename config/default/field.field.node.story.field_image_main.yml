@@ -1,0 +1,29 @@
+uuid: 34535952-2714-47c8-8c17-39a466acf147
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image_main
+    - media.type.image
+    - node.type.story
+id: node.story.field_image_main
+field_name: field_image_main
+entity_type: node
+bundle: story
+label: 'Main image'
+description: "The primary image for a story. This is used throughout the site when displaying the story, and is used as a hero when viewing the story page.<br />\r\n<br />\r\nOn a story page, if a gallery or video has been added to the Hero section, this image will be overridden by that content."
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: changed
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

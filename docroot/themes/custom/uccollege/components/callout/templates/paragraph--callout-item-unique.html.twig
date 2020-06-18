@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * Callout item, uniquely authored, similar to the node-reference, node--page--callout-view.html.twig
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set url = content.field_image_link.0['#url'] %}
+{% set url_tgt = content.field_image_link.0['#options']['attributes']['target'] %}
+{% set img = content.field_image_main %}
+{% set headline = content.field_headline_text %}
+{% set subhead = content.field_subheadline_text %}
+{% set addl_txt = content.field_par_html_single %}
+
+{% block paragraph %}
+  {% block content %}
+    {% if url %}
+      <a href="{{ url }}" target="{{ url_tgt }}">
+    {% endif %}
+      {{ drupal_image(paragraph.field_image_main.entity.field_media_image.entity.id, 'large', { alt: '' }) }}
+      <p class="c-callout__item-text">{{ headline }}</p>
+      {% if subhead|field_value %}
+        <span>{{ subhead }}</span>
+      {% endif %}
+    {% if url %}
+      </a>
+    {% endif %}
+    {% if addl_txt|field_value %}
+      <div class="c-callout__text">
+        {{ addl_txt }}
+      </div>
+    {% endif %}
+  {% endblock %}
+{% endblock paragraph %}

@@ -1,0 +1,21 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - maintenance page component
+// Styles for structure and component
+// specific to the maintenance mode page only
+
+.maintenance-page {
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  header,
+  main {
+    padding: 1em 1em 0 1em;
+  }
+
+  header img {
+    width: 25em;
+    padding: 0 1em 1em 0;
+  }
+}

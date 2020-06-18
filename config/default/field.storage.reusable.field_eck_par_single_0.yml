@@ -1,0 +1,21 @@
+uuid: 7d1236ea-2901-4f00-911a-02e344965be3
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - entity_reference_revisions
+    - paragraphs
+id: reusable.field_eck_par_single_0
+field_name: field_eck_par_single_0
+entity_type: reusable
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

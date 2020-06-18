@@ -1,0 +1,15 @@
+name: The College
+type: theme
+description: 'University of Chicago, The College, Drupal 8 theme'
+package: Core
+core: 8.x
+base theme: false
+
+libraries:
+  - uccollege/theme_base
+  - uccollege/theme_header
+  - uccollege/theme_admin
+
+regions:
+  help: 'help, admin'
+  content: 'main content'

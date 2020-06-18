@@ -1,0 +1,23 @@
+uuid: cde93e9a-f699-497b-8e14-e680c260c348
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_single_link
+    - paragraphs.paragraphs_type.avatar
+  module:
+    - link
+id: paragraph.avatar.field_single_link
+field_name: field_single_link
+entity_type: paragraph
+bundle: avatar
+label: Link
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

@@ -1,0 +1,33 @@
+uuid: 93905a5d-2322-49f9-9d5b-ca749fafad09
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.faculty
+    - field.storage.config_pages.field_headline_text
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: config_pages.faculty.field_headline_text
+field_name: field_headline_text
+entity_type: config_pages
+bundle: faculty
+label: Headline
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: Publications
+    format: simple_html
+default_value_callback: ''
+settings: {  }
+field_type: text

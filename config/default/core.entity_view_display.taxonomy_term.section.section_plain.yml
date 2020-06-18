@@ -1,0 +1,27 @@
+uuid: 29f1b385-6dd5-4aa4-84c7-83573417c789
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.section_plain
+    - field.field.taxonomy_term.section.field_section_landing_page
+    - field.field.taxonomy_term.section.field_section_landing_page_query
+    - taxonomy.vocabulary.section
+  module:
+    - text
+id: taxonomy_term.section.section_plain
+targetEntityType: taxonomy_term
+bundle: section
+mode: section_plain
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_section_landing_page: true
+  field_section_landing_page_query: true
+  search_api_excerpt: true

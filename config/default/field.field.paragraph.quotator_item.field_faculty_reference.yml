@@ -1,0 +1,21 @@
+uuid: 1c8ede81-3d11-4de2-b10f-0e24268076a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_faculty_reference
+    - paragraphs.paragraphs_type.quotator_item
+  module:
+    - uc_cdr_client
+id: paragraph.quotator_item.field_faculty_reference
+field_name: field_faculty_reference
+entity_type: paragraph
+bundle: quotator_item
+label: 'Faculty Reference'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: uc_cdr_client_external_reference

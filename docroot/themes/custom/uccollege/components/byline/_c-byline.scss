@@ -1,0 +1,39 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - byline component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-byline {
+  grid-column: 1;
+  text-align: center;
+  margin: rem-calc(10) 0; //grid-gap is 20
+  &__author {
+    @include font-sizes(16, 18);
+    margin: 0 0 0.5rem;
+    a {
+      color: $color-black;
+      &:hover,
+      &:focus,
+      &:active {
+        color: $color-link-hover;
+      }
+    }
+  }
+  &__title {
+    @include font-sizes(14, 16);
+    margin: 0;
+  }
+
+  @include breakpoint(medium) {
+    grid-column: 1 / 6;
+    margin: rem-calc(17) 0; //grid-gap is 40
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-byline {
+    // sass linter doesn't like empty blocks :)
+  }
+}

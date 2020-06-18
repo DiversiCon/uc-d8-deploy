@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Fact item.
+ *
+ * @see template_preprocess_field()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set alignment = paragraph.field_content_alignment.value %}
+{% set headline_text = content.field_title %}
+{% set headline_url = content.field_single_link.0['#url'] %}
+{% set headline_url_target = content.field_single_link.0['#options']['attributes']['target'] %}
+{% set teaser_text = content.field_body %}
+
+{% if alignment == '' %}
+  {% set alignment = 'center' %}
+{% endif %}
+
+<div class="c-sidebar-facts__item c-sidebar-facts__item--align-{{ alignment }}">
+  {% if headline_text|render is not empty %}
+    {% if content.field_single_link|render is not empty %}
+      <h3 class="c-sidebar-facts__headline"><a href="{{ headline_url }}" target="{{ headline_url_target }}">{{ headline_text }}</a></h3>
+    {% else %}
+      <h3 class="c-sidebar-facts__headline">{{ headline_text }}</h3>
+    {% endif %}
+  {% endif %}
+
+  {{ teaser_text }}
+</div>

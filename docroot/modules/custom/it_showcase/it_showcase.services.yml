@@ -1,0 +1,30 @@
+services:
+
+  # Showcase container service.
+  it_showcase:
+    class: Drupal\it_showcase\Showcase
+    arguments: [
+      '@theme_handler',
+      '@plugin.manager.it_showcase.item',
+      '@config.factory',
+      '@it_showcase.cache.showcase']
+
+  # Twig Extension
+  it_showcase.twig.include_component:
+    class: Drupal\it_showcase\TwigExtension\IncludeComponent
+    arguments: ['@it_showcase']
+    tags:
+    - { name: twig.extension }
+
+  # Showcase cache bin.
+  it_showcase.cache.showcase:
+    class: Drupal\Core\Cache\CacheBackendInterface
+    tags:
+    - { name: cache.bin }
+    factory: cache_factory:get
+    arguments: [showcase]
+
+  # Showcase item plugin manager
+  plugin.manager.it_showcase.item:
+    class: Drupal\it_showcase\PluginManager\ItemPluginManager
+    parent: default_plugin_manager

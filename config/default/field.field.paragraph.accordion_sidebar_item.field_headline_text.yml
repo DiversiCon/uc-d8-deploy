@@ -1,0 +1,30 @@
+uuid: 49a654ae-56a7-4662-900f-ba6ffdd19089
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headline_text
+    - paragraphs.paragraphs_type.accordion_sidebar_item
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.accordion_sidebar_item.field_headline_text
+field_name: field_headline_text
+entity_type: paragraph
+bundle: accordion_sidebar_item
+label: 'Item Headline'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

@@ -1,0 +1,71 @@
+uuid: 8b85b9b0-2601-4df5-ba29-4ac4d41818b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.reusable.inquiry
+    - eck.eck_type.reusable.contacts
+    - field.field.reusable.contacts.field_eck_name
+    - field.field.reusable.contacts.field_eck_title
+    - field.field.reusable.contacts.field_email
+    - field.field.reusable.contacts.field_headline_text
+    - field.field.reusable.contacts.field_phone
+  module:
+    - name
+    - telephone
+    - text
+id: reusable.contacts.inquiry
+targetEntityType: reusable
+bundle: contacts
+mode: inquiry
+content:
+  field_eck_name:
+    type: name_default
+    settings:
+      list_format: default
+      format: default
+      markup: none
+      link_target: ''
+      preferred_field_reference: ''
+      preferred_field_reference_separator: ', '
+      alternative_field_reference: ''
+      alternative_field_reference_separator: ', '
+    weight: 2
+    region: content
+    label: hidden
+    third_party_settings: {  }
+  field_eck_title:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_email:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: email_mailto
+    region: content
+  field_headline_text:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_phone:
+    weight: 4
+    label: hidden
+    settings:
+      title: ''
+    third_party_settings: {  }
+    type: telephone_link
+    region: content
+hidden:
+  changed: true
+  created: true
+  search_api_excerpt: true
+  title: true
+  uid: true

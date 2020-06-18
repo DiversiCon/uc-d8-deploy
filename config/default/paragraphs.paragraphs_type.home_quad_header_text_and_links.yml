@@ -1,0 +1,9 @@
+uuid: c69e60f8-3f8d-4066-8f39-a5e941ed6096
+langcode: en
+status: true
+dependencies: {  }
+id: home_quad_header_text_and_links
+label: 'Homepage Quadrant: Heading, Text and Links'
+icon_uuid: null
+description: 'Display a heading, text and links for a homepage quadrant.'
+behavior_plugins: {  }

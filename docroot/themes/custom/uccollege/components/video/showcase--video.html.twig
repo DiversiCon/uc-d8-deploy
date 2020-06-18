@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ * Available variables:
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+
+<uc-video
+  {% if content.poster %}poster="{{ content.poster }}"{% endif %}
+  videoid="{{ content.videoid }}"
+  {% if content.heading %}heading="{{ content.heading }}"{% endif %}
+  {% if content.description %}description="{{ content.description }}"{% endif %}
+  {% if content.credit %}credit="{{ content.credit }}"{% endif %}
+>
+</uc-video>

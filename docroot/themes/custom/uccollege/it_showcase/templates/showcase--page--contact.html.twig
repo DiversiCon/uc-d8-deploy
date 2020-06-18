@@ -1,0 +1,106 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+{{ it_showcase_component('masthead', 0) }}
+
+<section class="l-container c-content">
+	  <div class="c-content__body">
+    {% include '@uccollege/../components/headline/headline.html.twig' with {'content': content.headline} %}
+	  </div>
+</section>
+
+<section class="l-container c-content">
+	<div class="c-content__body">
+		<uc-accordion-group v-cloak>
+			<uc-accordion title="Office of the Dean for Medical Education">
+				<p>Accordion content here</p>
+			</uc-accordion>
+
+			<uc-accordion title="Central Support">
+				<p>Accordion content here</p>
+			</uc-accordion>
+
+			<uc-accordion title="Admissions & Financial Aid">
+				<p>Accordion content here</p>
+			</uc-accordion>
+
+			<uc-accordion title="Student Affairs and Programs">
+				<p>Accordion content here</p>
+			</uc-accordion>
+
+			<uc-accordion title="Medical School Education">
+				<p>Accordion content here</p>
+			</uc-accordion>
+
+			<uc-accordion title="Graduate Medical Education">
+				<p>Accordion content here</p>
+			</uc-accordion>
+
+			<uc-accordion title="Continuing Medical Education">
+				<p>Phone: (773) -702-1056<br>
+					5700 S. Maryland Ave., CCD 01191<br>
+					Chicago, IL 60637</p>
+
+				<div class="c-table table-scroll">
+					<table>
+						<thead>
+						<tr>
+							<th width="50%">Name/<wbr>Title</th>
+							<th width="50%">Contact</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td><strong><div class="t-font--default">Mahira Z. Bonomo, MBA</div>
+								Director of CME Operations, Accreditation, and Strategy and Innovation</strong></td>
+							<td>(773) 834-3963<br>
+								<a href="mailto:mbonomo@bsd.uchicago.edu">mbonomo@bsd.uchicago.edu</a></td>
+						</tr>
+						<tr>
+							<td><strong><div class="t-font--default">Tom Weber, EdM</div>
+									Associate Director of CME</strong></td>
+							<td>(773) 834-3408<br>
+								<a href="mailto:tweber@bsd.uchicago.edu">tweber@bsd.uchicago.edu</a></td>
+						</tr>
+						<tr>
+							<td><strong><div class="t-font--default">Steven Millard, MAT</div>
+									CME Specialist</strong></td>
+							<td>(773) 834-3407<br>
+								<a href="mailto:smillard@bsd.uchicago.edu">smillard@bsd.uchicago.edu</a></td>
+						</tr>
+						<tr>
+							<td><strong><div class="t-font--default">Bianca Bulliner
+										</div>CME Specialist</strong></td>
+							<td>(773) 834-1670<br>
+								<a href="mailto:bbulliner@bsd.uchicago.edu">bbulliner@bsd.uchicago.edu</a></td>
+						</tr>
+						<tr>
+							<td><strong><div class="t-font--default">Genesis Martinez
+										</div>CME Project Coordinator</strong></td>
+							<td>(773) 834-0225<br>
+								<a href="mailto:gmartinez1@bsd.uchicago.edu">gmartinez1@bsd.uchicago.edu</a></td>
+						</tr>
+
+						</tbody>
+					</table>
+				</div>
+			</uc-accordion>
+
+			<uc-accordion title="Multicultural Affairs">
+				<p>Accordion content here</p>
+			</uc-accordion>
+		</uc-accordion-group>
+	</div>
+</section>
+
+{{ it_showcase_component('footer', 0) }}

@@ -1,0 +1,22 @@
+uuid: fef3822c-8f95-4729-b933-abfaf88a9fb6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.publications_list.field_hide
+    - paragraphs.paragraphs_type.publications_list
+id: paragraph.publications_list.default
+targetEntityType: paragraph
+bundle: publications_list
+mode: default
+content:
+  field_hide:
+    weight: 0
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+hidden:
+  created: true
+  status: true

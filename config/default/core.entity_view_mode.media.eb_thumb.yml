@@ -1,0 +1,10 @@
+uuid: f8eb39aa-f3c4-4137-828f-57e11a06255e
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.eb_thumb
+label: 'EB: Thumb'
+targetEntityType: media
+cache: true

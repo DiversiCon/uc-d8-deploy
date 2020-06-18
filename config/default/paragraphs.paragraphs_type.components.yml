@@ -1,0 +1,9 @@
+uuid: 275d5351-39eb-403a-b2e6-e04b22ede3a6
+langcode: en
+status: true
+dependencies: {  }
+id: components
+label: 'Components, Main Section'
+icon_uuid: null
+description: 'Wrapper paragraph to contain a common set of components to be used across content types.'
+behavior_plugins: {  }

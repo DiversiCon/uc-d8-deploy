@@ -1,0 +1,30 @@
+{#
+/**
+ * stats Twig Partial
+ *
+ */
+#}
+
+
+{% if content.underline == 'true' %}
+  {% set underline_class = 'c-stats--underline' %}
+{% endif %}
+
+
+<div class="c-stats {% if content.size %}c-stats--{{ content.size }}{% endif %} {{ underline_class }}">
+  {% if content.heading %}
+    <h2 class="c-stats__heading t-heading--medium">{{ content.heading }}</h2>
+  {% endif %}
+  {% if content.description %}
+    <p class="c-stats__description">{{ content.description }}</p>
+  {% endif %}
+  <ul class="c-stats__list">
+    {% for item in content.items %}
+      {% set additionclass = ( loop.length > 3 ) ? 'c-stats__item--half' : '' %}
+      <li class="c-stats__item {{ additionclass }}">
+        <strong class="c-stats__number">{{ item.number }}</strong>
+        <p class="c-stats__text">{% autoescape false %} {{ item.text }} {% endautoescape %}</p>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

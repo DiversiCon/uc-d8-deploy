@@ -1,0 +1,9 @@
+uuid: 9cbbe6a1-e05a-45d4-8489-153c0af0e4aa
+langcode: en
+status: true
+dependencies: {  }
+id: smartbody_image
+label: 'Photo (Gallery)'
+icon_uuid: null
+description: 'Full width insert image(s), multiple turns into a gallery'
+behavior_plugins: {  }

@@ -1,0 +1,9 @@
+uuid: 55e9fba3-6c2c-489b-a21b-b356ff1fa657
+langcode: en
+status: true
+dependencies: {  }
+id: logo
+label: Logo
+icon_uuid: null
+description: 'A logo image with an optional link.'
+behavior_plugins: {  }

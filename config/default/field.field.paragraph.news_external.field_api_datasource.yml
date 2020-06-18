@@ -1,0 +1,21 @@
+uuid: 25356f4a-3a94-4036-8783-bd8808393326
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_api_datasource
+    - paragraphs.paragraphs_type.news_external
+id: paragraph.news_external.field_api_datasource
+field_name: field_api_datasource
+entity_type: paragraph
+bundle: news_external
+label: 'API Datasource'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 'https://news.uchicago.edu/api/news/main'
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,11 @@
+uuid: a3c5ebb2-9ebc-42d8-9014-00345b870dcd
+langcode: en
+status: true
+dependencies: {  }
+name: Faculty
+type: faculty
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

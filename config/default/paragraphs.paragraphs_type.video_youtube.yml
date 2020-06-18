@@ -1,0 +1,9 @@
+uuid: f4434885-d2c3-40fc-87a9-81f45bcf44c3
+langcode: en
+status: true
+dependencies: {  }
+id: video_youtube
+label: 'Video, YouTube'
+icon_uuid: null
+description: 'Reference a video from YouTube, used in smartbody'
+behavior_plugins: {  }

@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ * Available variables:
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+
+<uc-tint-embed
+  :personalization-id="{{ content.personalizationId }}"
+  tint-id="{{ content.tintId }}"
+  query="{{ content.query }}"
+  {% if content.columns %}:columns="{{ content.columns }}"{% endif %}
+  {% if content.rows %}:rows="{{ content.rows }}"{% endif %}>
+</uc-tint-embed>

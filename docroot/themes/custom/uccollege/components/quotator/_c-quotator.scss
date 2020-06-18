@@ -1,0 +1,77 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - quotator component
+// random quotes displayed on the homepage
+
+.c-quotator {
+  margin-bottom: 0;
+
+  @include breakpoint(petite) {
+    margin-bottom: 1rem;
+
+    &__wrap {
+      display: flex;
+    }
+  }
+
+  @include breakpoint(medium only) {
+    padding: 0 rem-calc(40);
+  }
+
+  @include breakpoint(small only) {
+    //display: none;
+  }
+
+  .t-heading--topic {
+    margin-bottom: rem-calc(24);
+  }
+
+  &__img {
+    img {
+      border-radius: 50%;
+      height: auto;
+    }
+
+    @include breakpoint(petite) {
+      width: 39%;
+    }
+
+    @include breakpoint(xlarge) {
+      width: 48.5%;
+    }
+  }
+
+  &__text {
+    color: $color-secondary;
+    padding: 4% 0 rem-calc(20) rem-calc(20);
+    width: 100%;
+
+    blockquote {
+      @include font-sizes(18, 24);
+      font-weight: $font-weight-bold;
+      margin: 0;
+
+      footer {
+        font-size: rem-calc(18);
+        font-weight: $font-weight-normal;
+        margin: rem-calc(20) 0 0 0;
+
+        @include breakpoint(large) {
+          margin: rem-calc(20) 0 rem-calc(20) 0;
+        }
+      }
+    }
+
+    .c-cta-link {
+      color: $color-secondary;
+    }
+
+    @include breakpoint(xlarge) {
+      padding-top: rem-calc(26);
+      width: 50%;
+    }
+  }
+
+  .grid-internal & {
+    grid-area: left;
+  }
+}

@@ -1,0 +1,67 @@
+{#
+/**
+ * @file
+ * Footer
+ *
+ * @see template_preprocess_config_pages()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set name = content.field_headline_text %}
+{% set subhead = content.field_subheadline_text %}
+{% set building = content.field_subheadline_text_1 %}
+{% set address = content.field_text_html_short_single_0 %}
+{% set citystate = content.field_text_html_short_single_1 %}
+{% set phone = content.field_telephone %}
+{% set year = "now"|date("Y") %}
+
+{% set links = content.field_cp_paragraphs_ultd %}
+
+{% set social_links = content.field_paragraph_multiples %}
+
+{% set social = [
+    'facebook',
+    'instagram',
+    'twitter',
+    'youtube'
+  ]
+%}
+
+<footer class="c-footer {% if has_footer_logo %}c-footer--hasLogo{% endif %}">
+  <div class="c-footer__content">
+    <div class="c-footer__block c-footer__contact">
+      <svg class="c-icon c-footer__icon">
+        <use xlink:href="/themes/custom/uccollege/dist/icons.svg#crest" />
+      </svg>
+      <p class="c-footer__contact-name">{{ name }}</p>
+      <p class="c-footer__contact-office">{{ subhead }}</p>
+      <p class="c-footer__contact-building">{{ building }}</p>
+      <p class="c-footer__contact-address">{{ address }}</p>
+      <p class="c-footer__contact-citystate">{{ citystate }}</p>
+      <p class="c-footer__contact-phone">{{ phone }}</p>
+      <p class="c-footer__contact-copyright">&copy;&nbsp;{{ year }} {{ name }}</p>
+
+      {% if has_footer_logo %}
+        <ul class="c-footer__block c-footer__social">
+          {{ social_links }}
+        </ul>
+      {% endif %}
+    </div>
+
+    <ul class="c-footer__block c-footer__links">
+      {{ links }}
+    </ul>
+
+    {% if has_footer_logo %}
+    <div class="c-footer__block c-footer__logo">
+      <img src="{{ footer_logo }}" />
+    </div>
+    {% else %}
+    <ul class="c-footer__block c-footer__social">
+      {{ social_links }}
+    </ul>
+    {% endif %}
+
+  </div>
+</footer>

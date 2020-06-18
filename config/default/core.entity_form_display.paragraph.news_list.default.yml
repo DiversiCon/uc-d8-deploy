@@ -1,0 +1,110 @@
+uuid: a646a827-99bd-4c6b-a242-ff80a8e8f5d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.news_list.field_hide_filter
+    - field.field.paragraph.news_list.field_hide_pagination
+    - field.field.paragraph.news_list.field_items_per_page
+    - field.field.paragraph.news_list.field_label_text
+    - field.field.paragraph.news_list.field_news_filter
+    - field.field.paragraph.news_list.field_par_paragraph_single
+    - paragraphs.paragraphs_type.news_list
+  module:
+    - allowed_formats
+    - field_group
+    - paragraphs
+    - text
+third_party_settings:
+  field_group:
+    group_list_behavior:
+      children:
+        - field_items_per_page
+        - field_hide_pagination
+        - field_hide_filter
+        - field_label_text
+        - field_news_filter
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        label: 'List Behavior'
+        open: true
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'List Behavior'
+      region: content
+    group_sidebar:
+      children:
+        - field_par_paragraph_single
+      parent_name: ''
+      weight: 6
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: true
+        required_fields: true
+      label: Sidebar
+      region: content
+id: paragraph.news_list.default
+targetEntityType: paragraph
+bundle: news_list
+mode: default
+content:
+  field_hide_filter:
+    weight: 3
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_hide_pagination:
+    weight: 2
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_items_per_page:
+    weight: 1
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_label_text:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_news_filter:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_par_paragraph_single:
+    weight: 7
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: sidebar_gen_related
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+hidden:
+  created: true
+  moderation_state: true
+  status: true
+  uid: true

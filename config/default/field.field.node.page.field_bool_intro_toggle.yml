@@ -1,0 +1,23 @@
+uuid: 35726a98-6933-4490-8d2c-8e2581c80f09
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bool_intro_toggle
+    - node.type.page
+id: node.page.field_bool_intro_toggle
+field_name: field_bool_intro_toggle
+entity_type: node
+bundle: page
+label: 'Image flip'
+description: 'Check this box to flip the image in the intro'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

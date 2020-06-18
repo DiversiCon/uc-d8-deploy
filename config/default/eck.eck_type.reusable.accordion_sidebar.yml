@@ -1,0 +1,9 @@
+uuid: dc0a3218-5de3-403a-bf29-f5f622e92b24
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.reusable
+name: 'Accordion Sidebar'
+type: accordion_sidebar
+description: 'Display an accordion in the sidebar.'

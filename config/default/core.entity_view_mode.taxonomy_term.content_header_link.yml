@@ -1,0 +1,10 @@
+uuid: bb6212e4-bc76-4266-b23a-080c3f45d07b
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.content_header_link
+label: 'Content Header Link'
+targetEntityType: taxonomy_term
+cache: true
