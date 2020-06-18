@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+
+<section class="l-stripe">
+{% include '@uccollege/../components/range/range.html.twig' with {'content': content} %}
+</section>

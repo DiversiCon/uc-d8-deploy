@@ -1,0 +1,10 @@
+uuid: 1c70d6fa-1a04-4811-b93a-aa253d87f8a4
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+id: reusable.contact_information
+label: 'Contact Information'
+targetEntityType: reusable
+cache: true

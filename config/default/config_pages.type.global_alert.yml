@@ -1,0 +1,14 @@
+uuid: 80d41f42-570a-4be1-abb3-fc64bf29aece
+langcode: en
+status: true
+dependencies: {  }
+id: global_alert
+label: 'Global Alert'
+context:
+  show_warning: true
+  group:
+    language: false
+menu:
+  path: /admin/config/alert
+  weight: -45
+  description: 'Masthead Alert'

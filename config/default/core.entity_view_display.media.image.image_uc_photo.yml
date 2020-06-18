@@ -1,0 +1,47 @@
+uuid: ddd279b3-8d2e-45ee-bb5c-40c497671333
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.image_uc_photo
+    - field.field.media.image.field_image_caption
+    - field.field.media.image.field_image_credit
+    - field.field.media.image.field_media_image
+    - media.type.image
+  module:
+    - image
+    - text
+id: media.image.image_uc_photo
+targetEntityType: media
+bundle: image
+mode: image_uc_photo
+content:
+  field_image_caption:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_image_credit:
+    type: text_default
+    weight: 2
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_media_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  created: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

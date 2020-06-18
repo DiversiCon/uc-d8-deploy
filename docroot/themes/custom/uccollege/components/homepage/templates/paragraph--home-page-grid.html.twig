@@ -1,0 +1,193 @@
+{#
+/**
+ * @file
+ * Homepage Grid Template
+ *
+ * Available variables:
+ *  show_top_accordion - boolean determining if the top accordion should be displayed.
+ *  show_bottom_accordion - boolean determining if the bottom accordion should be displayed.
+ *  show_bottom_quadrants - boolean determining if the bottom two grid quadgrants should be displayed.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{# If we're hiding the bottom two quadrants, then set an additional grid class. #}
+{% if show_bottom_quadrants == false %}
+  {% set grid_class = 'grid-4up--hide-bottom-quadrants' %}
+{% endif %}
+
+{# Top left quadrant variables. #}
+{% set lead_media = content.field_par_paragraph_single %}
+{% set lead_type = lead_media.0['#paragraph'].bundle() %} {# can be either video or image #}
+{% set lead_title = content.field_headline_text|field_value|render %}
+{% set lead_title_color = paragraph.field_text_color.value %}
+{% set subheadline = content.field_par_paragraph_single_3 %}
+
+{% if lead_title_color == 'black' %}
+  {% set lead_title_color_class = 's-text-black' %}
+{% else %}
+  {% set lead_title_color_class = 's-text-white' %}
+{% endif %}
+
+{# Top right quadrant variables. #}
+{% set secondary_section_layout = paragraph.field_layout.value %}
+{% set mobile_subhead = content.field_link_paragraph_0 %}
+{% set quotator_items = content.field_quotator_items|field_value %}
+{% set stat_0 = content.field_eck_reference %}
+{% set stat_1 = content.field_eck_reference_1 %}
+{% set stat_2 = content.field_eck_reference_single %}
+{% set cta_links = content.field_single_paragraph_1 %}
+
+{# Top right quadrant layout related variables. #}
+{% if secondary_section_layout == 'layout_facts' %}
+  {% set quotator_direction = 'vertical' %}
+  {% set secondary_section_grid_class = 'grid-internal' %}
+  {% set sidebar_facts = content.field_paragraph_single_0 %}
+{% else %}
+  {% set quotator_direction = 'horizontal' %}
+{% endif %}
+
+{# Bottom left quadrant variables. #}
+{% set section = content.field_paragraph_single_1 %}
+{% set txt = content.field_body %}
+{% set accordion_top_left_title = content.field_subheadline_text_0|field_value|render %}
+{% set accordion_top_left = content.field_par_paragraph_ultd_0 %}
+{% set accordion_top_left_footer = content.field_par_paragraph_single_5 %}
+{% set accordion_top_right_title = content.field_subheadline_text_1|field_value|render %}
+{% set accordion_top_right = content.field_par_paragraph_ultd_1 %}
+{% set accordion_top_right_footer = content.field_par_paragraph_single_0 %}
+{% set accordion_bottom_left_title = content.field_subheadline_text|field_value|render %}
+{% set accordion_bottom_left = content.field_paragraphs_unlimited %}
+{% set accordion_bottom_left_footer = content.field_paragraph_single_2 %}
+{% set accordion_bottom_right_title = content.field_label_text|field_value|render %}
+{% set accordion_bottom_right = content.field_par_paragraphs %}
+{% set accordion_bottom_right_footer = content.field_paragraph_single %}
+{% set accordians_footer_link = content.field_single_link %}
+
+{# Bottom right quadrant variables. #}
+{% set teaser_mobile_link = content.field_par_paragraph_single_4 %}
+{% set teaser_left = content.field_par_paragraph_single_1 %}
+{% set teaser_right = content.field_par_paragraph_single_2 %}
+
+{% block paragraph %}
+  {% block content %}
+    <section class="l-container c-homepage-grid">
+      <div class="grid-4up {{ grid_class }}">
+
+        <div class="grid-4up__cell1">
+          {% if lead_type == 'feature_image_link' %}
+            <div class="grid-4up__img">
+              {% if lead_title %}
+                <div class="grid-4up__heading"><h1 class="grid-4up__heading-text {{ lead_title_color_class }}">{{ lead_title }}</h1></div>
+              {% endif %}
+              {{ lead_media }}
+            </div>
+          {% elseif lead_type == 'video_html' %}
+            <uc-video-background
+              {% if lead_title %}heading="{{ lead_title|convertQuotes }}"{% endif %}
+              tag="h1"
+              {% if video.poster %}poster="{{ video.poster }}"{% endif %}
+              src="{{ file_url(video.src) }}">
+            </uc-video-background>
+          {% endif %}
+        </div>
+
+        <div class="grid-4up__cell2 {{ secondary_section_grid_class }}">
+          <h2 class="t-heading--topic hide-for-large">{{ subheadline }}</h2>
+
+          <uc-quotator direction="{{ quotator_direction }}" :quotes="[
+            {% for item in quotator_items %}
+              {{ item|render|striptags }}{% if not loop.last %}, {% endif %}
+            {% endfor %}
+            ]" linktext="{{ sub_headline_quotator.txt|convertQuotes }}" linkurl="{{ sub_headline_quotator.url }}">
+          </uc-quotator>
+
+          {% if secondary_section_layout != 'layout_facts' %}
+
+            <div class="c-stats">
+              <ul class="c-stats__list">
+                <li class="c-stats__item">{{ stat_0 }}</li>
+                <li class="c-stats__item">{{ stat_1 }}</li>
+                {% if stat_2|field_value %}<li class="c-stats__item">{{ stat_2 }}</li>{% endif %}
+              </ul>
+            </div>
+
+          {% else %}
+            {{ sidebar_facts }}
+          {% endif %}
+
+          {{ cta_links }}
+        </div>
+
+        {# Conditionally show the bottom two quadrants. #}
+        {% if show_bottom_quadrants %}
+
+        <div class="grid-4up__cell3">
+          {% if section|field_value %}
+            <h2 class="t-heading--topic">{{ section }}</h2>
+          {% endif %}
+
+          {{ txt }}
+
+          {# Conditionally show #}
+          {% if show_top_accordion %}
+          <uc-accordion-group v-cloak="" :columns="2">
+            <uc-accordion title="{{ accordion_top_left_title|convertQuotes }}" :mobile-only="true">
+              <ul>
+                {{ accordion_top_left }}
+              </ul>
+              {{ accordion_top_left_footer }}
+            </uc-accordion>
+            <uc-accordion title="{{ accordion_top_right_title|convertQuotes }}" :mobile-only="true">
+              <ul>
+                {{ accordion_top_right }}
+              </ul>
+              {{ accordion_top_right_footer }}
+            </uc-accordion>
+          </uc-accordion-group>
+          {% endif %}
+
+          {# Conditionally show #}
+          {% if show_bottom_accordion %}
+          <uc-accordion-group v-cloak="" :columns="2">
+            <uc-accordion title="{{ accordion_bottom_left_title|convertQuotes }}" :mobile-only="true">
+              <ul>
+                {{ accordion_bottom_left }}
+              </ul>
+              {{ accordion_bottom_left_footer }}
+            </uc-accordion>
+            <uc-accordion title="{{ accordion_bottom_right_title|convertQuotes }}" :mobile-only="true">
+              <ul>
+                {{ accordion_bottom_right }}
+              </ul>
+              {{ accordion_bottom_right_footer }}
+            </uc-accordion>
+          </uc-accordion-group>
+          {% endif %}
+
+          {% if accordians_footer_link|field_value %}
+          <p class="show-for-large">
+            <a href="{{ accordians_footer_link.0['#url'] }}" class="c-cta-link c-cta-link--black">{{ accordians_footer_link.0['#title'] }}</a>
+          </p>
+          {% endif %}
+
+        </div>
+        <div class="grid-4up__cell4">
+          <div class="c-tile c-tile--inverted">{# @TODO: provide theme wrapper, see components/tile/templates/paragraph--tile.html.twig#}
+            {{ teaser_left }}
+          </div>
+          <div class="c-tile">{# @TODO: provide theme wrapper, see components/tile/templates/paragraph--tile.html.twig#}
+            {{ teaser_right }}
+          </div>
+        </div>
+      </div>
+
+      {% endif %}
+
+    </section>
+    
+  {% endblock %}
+{% endblock paragraph %}

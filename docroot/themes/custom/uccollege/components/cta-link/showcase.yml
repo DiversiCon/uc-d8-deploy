@@ -1,0 +1,30 @@
+cta_link:
+  title: CTA Links
+  description: Black, underlined CTA links, with an "inverse" white variant
+  type: component
+  attributes:
+    category: Callouts
+  variants:
+  -
+    title: CTA Link (default)
+    content:
+      class: c-cta-link
+      url: "#"
+      text: This is a default CTA Link
+      inverse: false
+  -
+    title: CTA Link (inverse)
+    content:
+      class: c-cta-link--inverse
+      url: "#"
+      text: This is an inverted CTA Link
+      inverse: true
+
+cta-link.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: cta_link.component
+    index_hide: true
+    file: themes/custom/uccollege/components/cta-link/README.md

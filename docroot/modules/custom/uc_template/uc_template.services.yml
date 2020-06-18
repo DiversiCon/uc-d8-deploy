@@ -1,0 +1,5 @@
+services:
+  uc_template.content_template_clone:
+    class: Drupal\uc_template\EventSubscriber\TemplateResetClone
+    tags:
+    - { name: event_subscriber }

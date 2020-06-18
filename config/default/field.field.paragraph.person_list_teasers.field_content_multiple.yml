@@ -1,0 +1,28 @@
+uuid: bf4ef932-5710-459c-8834-e2f1b60ae38a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content_multiple
+    - node.type.person
+    - paragraphs.paragraphs_type.person_list_teasers
+id: paragraph.person_list_teasers.field_content_multiple
+field_name: field_content_multiple
+entity_type: paragraph
+bundle: person_list_teasers
+label: People
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      person: person
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

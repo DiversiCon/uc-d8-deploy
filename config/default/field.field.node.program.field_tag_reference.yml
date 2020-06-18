@@ -1,0 +1,29 @@
+uuid: b1a676fd-ab30-4430-92b2-b8f5863fef78
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tag_reference
+    - node.type.program
+    - taxonomy.vocabulary.tags
+id: node.program.field_tag_reference
+field_name: field_tag_reference
+entity_type: node
+bundle: program
+label: Division
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tags: tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

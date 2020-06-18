@@ -1,0 +1,31 @@
+uuid: 7709b4a8-a4bc-498e-997f-4123c696bc40
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_extra_info
+    - node.type.faculty
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    simple_html: '0'
+    smartbody: '0'
+    plain: '0'
+    raw_input: '0'
+    plain_text: '0'
+    custml_html: '0'
+id: node.faculty.field_extra_info
+field_name: field_extra_info
+entity_type: node
+bundle: faculty
+label: 'News & Media Citations'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

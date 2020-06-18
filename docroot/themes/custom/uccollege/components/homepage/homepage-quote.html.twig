@@ -1,0 +1,20 @@
+
+<div class="c-hp-quote">
+  <div class="c-hp-quote__img">
+    <img src="{{ content.image }}" alt="">
+  </div>
+  <div class="c-hp-quote__text">
+    <blockquote>
+      {% autoescape false %}
+      {{ content.quote }}
+      {% endautoescape %}
+      <footer>
+        {% autoescape false %}
+        {{ content.attribution }}
+        {% endautoescape %}
+      </footer>
+    </blockquote>
+
+    <a class="c-cta-link show-for-large" href="#">About the College</a>
+  </div>
+</div>

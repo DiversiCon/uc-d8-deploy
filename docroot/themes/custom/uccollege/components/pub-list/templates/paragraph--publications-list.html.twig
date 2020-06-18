@@ -1,0 +1,9 @@
+{% set hide_dropdown = paragraph.field_hide.value %}
+{% if ((hide_dropdown is not defined) or (hide_dropdown is null)) %}
+  {% set hide_dropdown = 'false' %}
+{% endif %}
+
+<uc-pub-list
+    endpoint="{{ uc_cdr.endpoint_faculty_publications }}"
+    :hide-topics="{{ hide_dropdown }}">
+</uc-pub-list>

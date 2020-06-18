@@ -1,0 +1,80 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - details component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-details {
+  border-bottom: 2px solid $color-black;
+  &__stats,
+  &__info {
+    @include list();
+    font-size: rem-calc(14);
+    span {
+      display: block;
+    }
+  }
+  &__stats {
+    text-align: center;
+    padding: 0 0 rem-calc(24);
+    &-item {
+      display: inline-block;
+      padding: 0 rem-calc(17);
+      vertical-align: bottom;
+    }
+  }
+  &__info {
+    padding: 0 0 rem-calc(22);
+    &-item {
+      padding-bottom: rem-calc(17);
+    }
+    .c-details__label {
+      font-size: 1rem;
+      font-weight: $font-weight-bold;
+    }
+  }
+  &__number {
+    font-size: rem-calc(30);
+    font-weight: $font-weight-bold;
+  }
+
+  .c-article & {
+    @extend .c-article__full;
+  }
+
+  @media print, screen and (min-width: rem-calc(600)) {
+    &__info {
+      display: flex;
+      justify-content: center;
+      &-item {
+        margin-right: rem-calc(40);
+      }
+    }
+  }
+
+  @include breakpoint(large) {
+    &__content {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    &__stats,
+    &__info {
+      padding-bottom: rem-calc(37);
+    }
+    &__info {
+      margin-left: rem-calc(43); //60 - 17 (stats-item padding)
+      &-item {
+        padding-bottom: 0;
+        margin-right: rem-calc(60);
+      }
+    }
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-details {
+    // sass linter doesn't like empty blocks :)
+  }
+}

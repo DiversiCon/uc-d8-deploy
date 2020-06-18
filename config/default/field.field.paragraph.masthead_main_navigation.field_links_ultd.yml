@@ -1,0 +1,23 @@
+uuid: 2bceef0b-d383-40ef-97a7-9e2e915aa8d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_links_ultd
+    - paragraphs.paragraphs_type.masthead_main_navigation
+  module:
+    - link
+id: paragraph.masthead_main_navigation.field_links_ultd
+field_name: field_links_ultd
+entity_type: paragraph
+bundle: masthead_main_navigation
+label: Links
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

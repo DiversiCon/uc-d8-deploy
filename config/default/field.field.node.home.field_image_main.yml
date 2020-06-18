@@ -1,0 +1,29 @@
+uuid: fc7f9f72-2a33-43f2-ae5e-8ee58acf9970
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image_main
+    - media.type.image
+    - node.type.home
+id: node.home.field_image_main
+field_name: field_image_main
+entity_type: node
+bundle: home
+label: 'Meta, Image'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: changed
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

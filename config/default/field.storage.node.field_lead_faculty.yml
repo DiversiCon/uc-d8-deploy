@@ -1,0 +1,19 @@
+uuid: 38fb9113-26f7-4c4b-bcf8-4a240c630ce9
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - uc_cdr_client
+id: node.field_lead_faculty
+field_name: field_lead_faculty
+entity_type: node
+type: uc_cdr_client_external_reference
+settings: {  }
+module: uc_cdr_client
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,15 @@
+{#
+/**
+ * @file
+ * Impliment feature in Paragraph template
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+{% block paragraph %}
+  {% block content %}
+    {% include '@uccollege/components/feature/templates/inc--feature.html.twig' %}
+  {% endblock %}
+{% endblock paragraph %}

@@ -1,0 +1,159 @@
+cta-block:
+  title: CTA Block
+  description: Colored block with buttons or link.
+  type: component
+  attributes:
+    category: Callouts
+  variants:
+  -
+    title: CTA Block with text link
+    content:
+      style: "text"
+      heading: "Explore"
+      links:
+      -
+        url: "#"
+        text: "Find your perfect study abroad program by country, subject, language, or time of year"
+  -
+    title: CTA Block with buttons
+    content:
+      style: "buttons"
+      heading: "Get Started"
+      links:
+      -
+        url: "#"
+        text: Apply
+      -
+        url: "#"
+        text: Visit
+
+  -
+    title: CTA Block in Switcher
+    caption: "Contains two CTA Blocks with different content depending on whether the user is an affiliate or prospect. Add ?affiliate=true to the url to view affiliate version or <a href='?affiliate=true'>click here</a>."
+    content:
+      switcher: true
+      items:
+      -
+        type: prospect
+        style: "buttons"
+        heading: "Get Started"
+        links:
+        -
+          url: "#"
+          text: Apply
+        -
+          url: "#"
+          text: Visit
+      -
+        type: affiliate
+        style: "text"
+        heading: "Stay on Track"
+        links:
+        -
+          url: "#"
+          text: "Struggling with a class? Learn how the course withdrawal process works"
+  -
+    title: CTA Block with bullet links
+    content:
+      style: "bullets"
+      heading: "Get Started"
+      theme: tertiary
+      links:
+      -
+        url: "#"
+        text: "How to Apply"
+      -
+        url: "#"
+        text: "Check Application Status"
+
+  -
+    title: CTA Block with links and yellow background
+    content:
+      style: "bullets"
+      heading: "Get Started"
+      theme: secondary
+      links:
+      -
+        url: "#"
+        text: "How to Apply"
+      -
+        url: "#"
+        text: "Check Application Status"
+
+  -
+    title: CTA Block with links and gray background
+    content:
+      style: "bullets"
+      heading: "Get Started"
+      theme: primary
+      links:
+      -
+        url: "#"
+        text: "How to Apply"
+      -
+        url: "#"
+        text: "Check Application Status"
+
+  -
+    title: CTA Block with buttons and yellow background
+    content:
+      style: "buttons"
+      heading: "Get Started"
+      theme: secondary
+      links:
+      -
+        url: "#"
+        text: Apply
+      -
+        url: "#"
+        text: Visit
+
+  -
+    title: CTA Block with buttons and gray background
+    content:
+      style: "buttons"
+      heading: "Get Started"
+      theme: primary
+      links:
+      -
+        url: "#"
+        text: Apply
+      -
+        url: "#"
+        text: Visit
+
+  -
+    title: CTA Block with buttons and red background
+    content:
+      style: "buttons"
+      heading: "Get Started"
+      theme: tertiary
+      links:
+      -
+        url: "#"
+        text: Apply
+      -
+        url: "#"
+        text: Visit
+
+  -
+    title: CTA Block with buttons variant
+    content:
+      style: "buttons"
+      heading: "Departments"
+      links:
+      -
+        url: "#"
+        text: Basic Science
+      -
+        url: "#"
+        text: Clinical
+
+cta-block.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: cta-block.component
+    index_hide: true
+    file: themes/custom/uccollege/components/cta-block/README.md

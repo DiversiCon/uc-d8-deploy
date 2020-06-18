@@ -1,0 +1,23 @@
+uuid: 003fe6b1-679f-4921-9dfa-e3daeb370b0a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image_link
+    - paragraphs.paragraphs_type.callout_item_unique
+  module:
+    - link
+id: paragraph.callout_item_unique.field_image_link
+field_name: field_image_link
+entity_type: paragraph
+bundle: callout_item_unique
+label: Link
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

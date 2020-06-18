@@ -1,0 +1,82 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - Content component
+// Generic 1-2 column content layout with a
+// consistent 900px content well on desktop
+
+.c-content {
+  display: grid;
+  grid-gap: 0 rem-calc(20);
+  grid-template-columns: 100%;
+  grid-template-areas:
+    "content"
+    "footer"
+    "sidebar-left"
+    "sidebar-right";
+
+  &__body {
+    p {
+      @include font-sizes(16, 18);
+    }
+    > *:last-child {
+      margin-bottom: 0;
+    }
+
+    ul:not(.c-accordion-group) {
+      @extend .s-dash;
+      margin-bottom: rem-calc(30);
+    }
+  }
+
+  &__sidebar {
+    margin-bottom: rem-calc(20);
+
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // on mobile, add margin between body and sidebar
+  @include breakpoint(medium down) {
+    &__body + &__sidebar {
+      margin-top: rem-calc(20);
+    }
+  }
+
+  @include breakpoint(medium) {
+    &__sidebar {
+      margin-bottom: rem-calc(30);
+    }
+  }
+
+  @include breakpoint(large) {
+    grid-gap: 0 rem-calc(40);
+    grid-template-columns: 1fr 9.167% 50% 9.167% 1fr;
+    grid-template-areas:
+      "sidebarleft content content content sidebarright"
+      "sidebarleft footer footer footer sidebarright";
+
+    &__body {
+      grid-area: content;
+    }
+
+    &--sidebar-left {
+      grid-template-areas:
+        "sidebarleft sidebarleft content content content"
+        "sidebarleft sidebarleft footer footer footer";
+
+      .c-content__sidebar {
+        grid-area: sidebarleft;
+      }
+    }
+
+    &--sidebar-right {
+      grid-template-areas:
+        "content content content sidebarright sidebarright"
+        "footer footer footer sidebarright sidebarright";
+
+      .c-content__sidebar {
+        grid-area: sidebarright;
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+uuid: 6f048023-e195-49f9-81ee-ccb8716902b0
+langcode: en
+status: true
+dependencies: {  }
+id: events_single_tile
+label: 'Tile, Event'
+icon_uuid: null
+description: 'Single event tile for home page grid.'
+behavior_plugins: {  }

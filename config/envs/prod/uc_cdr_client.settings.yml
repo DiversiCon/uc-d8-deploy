@@ -1,0 +1,2 @@
+api_url: '//pme-cms.prod.uchicago.edu'
+events_api_url: '//pme-cms.prod.uchicago.edu/api/node/event'

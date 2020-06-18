@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ * @see template_preprocess_node()
+ */
+#}
+{% set intro = content.field_intro_paragraph %}
+{% set main_content = content.field_par_components %}
+{% set lower_content = content.field_lower_section_components %}
+
+{{ content.content_moderation_control }}
+
+{% if user.hasPermission('edit any home content') and not page %}
+  <a href="/node/{{ node.id }}/edit" class="button">Edit This Page</a>
+{% endif %}
+
+{{ intro }}
+{{ main_content }}
+{{ lower_content }}

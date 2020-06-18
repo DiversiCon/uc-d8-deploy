@@ -1,0 +1,19 @@
+uuid: 1e194de3-c5b4-40c6-b2ea-fc920020b94a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_label
+    - paragraphs.paragraphs_type.publications
+id: paragraph.publications.field_label
+field_name: field_label
+entity_type: paragraph
+bundle: publications
+label: Label
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

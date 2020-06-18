@@ -1,0 +1,10 @@
+uuid: 84bdb1b8-9864-49e1-927e-eaed09ad4a0c
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.feature_view
+label: 'Feature view (image-only 640 x 640)'
+targetEntityType: media
+cache: true

@@ -1,0 +1,139 @@
+uuid: d4b2f4e3-57ef-4a3e-b2ec-0cfccb7e84b9
+langcode: en
+status: true
+dependencies: {  }
+id: bedework_event_importer
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: null
+label: 'Import events from Bedework'
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  urls: 'https://events.uchicago.edu/feeds/pme/departmental.php?from=0&to=0&flushCache=true'
+  data_parser_plugin: simple_xml
+  item_selector: /rss/channel/item
+  fields:
+    -
+      name: link
+      label: 'Detail Link'
+      selector: link
+    -
+      name: guid
+      label: GUID
+      selector: guid
+    -
+      name: title
+      label: 'Event Title'
+      selector: title
+    -
+      name: event_start_date
+      label: 'Event Start Date'
+      selector: startDate
+    -
+      name: start_time
+      label: 'Event Start Time'
+      selector: startTime
+    -
+      name: event_end_date
+      label: 'Event End Date'
+      selector: endDate
+    -
+      name: end_time
+      label: 'Event End Time'
+      selector: endTime
+    -
+      name: all_day_event
+      label: 'All Day Event'
+      selector: allDayEvent
+    -
+      name: creator
+      label: Creator
+      selector: creator
+    -
+      name: location
+      label: Location
+      selector: location
+    -
+      name: description
+      label: 'Event Description'
+      selector: description
+    -
+      name: contact_name
+      label: 'Contact Name'
+      selector: contactName
+    -
+      name: notes
+      label: Notes
+      selector: Notes
+  ids:
+    guid:
+      type: string
+process:
+  field_external_id: guid
+  field_source:
+    plugin: default_value
+    default_value: Bedework
+  title:
+    -
+      plugin: skip_on_empty
+      method: row
+      source: title
+      message: 'Title field missing'
+    -
+      plugin: callback
+      callable: htmlspecialchars_decode
+  field_department:
+    plugin: entity_generate
+    source: creator
+    value_key: name
+    bundle: event_departments
+    entity_type: taxonomy_term
+  field_description: description
+  field_notes: notes
+  field_contact: contact_name
+  field_event_dates/value:
+    -
+      plugin: concat
+      source:
+        - event_start_date
+        - start_time
+      delimiter: ' '
+    -
+      plugin: format_date
+      from_format: 'F j, Y g:i A'
+      to_format: 'Y-m-d\TH:i:s'
+      from_timezone: 'America/Chicago'
+      to_timezone: 'UTC'
+  field_event_dates/end_value:
+    -
+      plugin: concat
+      source:
+        - event_end_date
+        - end_time
+      delimiter: ' '
+    -
+      plugin: format_date
+      from_format: 'F j, Y g:i A'
+      to_format: 'Y-m-d\TH:i:s'
+      from_timezone: 'America/Chicago'
+      to_timezone: 'UTC'
+  field_all_day:
+    -
+      plugin: get
+      source: all_day_event
+    -
+      plugin: default_value
+      default_value: 0
+  field_location: location
+  status:
+    plugin: default_value
+    default_value: 1
+  type:
+    plugin: default_value
+    default_value: event
+destination:
+  plugin: 'entity:node'
+migration_dependencies: null

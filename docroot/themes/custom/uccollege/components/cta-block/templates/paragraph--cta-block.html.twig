@@ -1,0 +1,44 @@
+{#
+/**
+ * @file
+ * CTA Block, used inside the Swticher, CTA Wrapper
+ *
+ * @see components/switcher
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set heading = content.field_headline_text %}
+{% set link_type = content.field_par_paragraph_single %}
+{% set link_style_set = link_type.0['#paragraph'].bundle() %}
+{% if  link_style_set == 'cta_text_link' %}
+  {% set link_style = 'text' %}
+{% elseif link_style_set == 'cta_buttons' %}
+  {% set link_style = 'buttons' %}
+{% elseif link_style_set == 'link_list' %}
+  {% set link_style = 'bullets' %}
+{% endif %}
+
+{% block paragraph %}
+  {% block content %}
+
+    {% if link_style == 'bullets' %}
+      <div class="c-cta-block c-cta-block--{{ link_style }}">
+        <h4 class="c-cta-block__heading">{{ heading }} </h4>
+        <ul class="c-cta-block__links s-bg-tertiary">
+          {{ link_type }}
+        </ul>
+      </div>
+    {% else %}
+      <div class="c-cta-block c-cta-block--{{ link_style }}">
+        <h4 class="c-cta-block__heading">{{ heading }} </h4>
+        <div class="c-cta-block__links s-bg-tertiary">
+          {{ link_type }}
+        </div>
+      </div>
+    {% endif %}
+
+  {% endblock %}
+{% endblock paragraph %}

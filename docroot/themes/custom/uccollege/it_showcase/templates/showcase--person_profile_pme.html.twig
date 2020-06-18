@@ -1,0 +1,82 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+{{ it_showcase_component('masthead', 0) }}
+
+<section class="l-container c-feature__container">
+
+  <div class="c-feature">
+    <div class="c-feature__image">
+
+      {# Person profile image should be ~600x600 #}
+      <img src="https://via.placeholder.com/700&text=FPO" alt="">
+
+    </div>
+
+    <div class="c-feature__wrap">
+      <div class="c-feature__content">
+        <h2 class="t-heading--topic"><a href="#">Staff Directory</a></h2>
+
+        <h1 class="t-heading--medium">Nick Jackson</h1>
+
+        <div class="c-factcard">
+          <div class="c-factcard__ctn">
+            <ul class="c-factcard__content">
+              <li class="c-factcard__item">
+                <h4 class="t-heading--extra-small c-factcard__item-heading">Postdoctoral Researcher</h4>
+              </li>
+              <li class="c-factcard__item">
+                <strong>Research Topics:</strong>
+                <a href="#">Protein Folding and Aggregation</a>, <a href="#">DNA Folding and Hybridization</a>, <a href="#">Glassy Materials</a>, <a href="#">Block Copolymers</a>, <a href="#">Liquid Crystals</a>, <a href="#">Development of Advanced Sampling Methods</a>
+              </li>
+              <li class="c-factcard__item">
+                <strong>Websites:</strong>
+                <a href="#">de Pablo Group</a>
+              </li>
+              <li class="c-factcard__item">
+                <strong>Contact:</strong>
+                <a href="#">nejackson@uchicago.edu</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<div class="l-container">
+  <div class="c-content">
+    <div class="c-content__body">
+      <p><strong>Nick is currently a Maria Goeppert Mayer Fellow in the Materials Science Division at Argonne National Laboratory. He also holds a Visiting Scientist position in the laboratory of Juan de Pablo at the University of Chicago. His current research concerns the development and application of computational algorithms for the multiscale design of soft materials</strong></p>
+
+      <p>This work is coupled with active experimental collaborations with Matt Tirrell's group on the study of polyelectrolyte brushes, and Mark Ediger's group on characterizing vapor-deposited molecular glasses.</p>
+
+      <p>Nick's graduate work was performed at Northwestern University under the guidance of Mark Ratner and Lin Chen, with funding from a NSF GRFP Fellowship and a Northwestern Presidential Fellowship.   From 2011-2016 he worked on the development of graph theoretic methods for characterizing optoelectronic networks in soft materials.  Nick also collaborated with George Schatz and Monica Olvera de la Cruz on the atomistic simulation of conjugated copolymers, and with Tobin Marks on the design of organic photovoltaic materials.  Nick holds a B.A. in Physics from Wesleyan University, where he worked with Prof. Fred Ellis on vortex drag in superfluid Helium II.</p>
+
+      <uc-accordion-group v-cloak>
+        <uc-accordion title="Current Research">
+          <p>Content here.</p>
+        </uc-accordion>
+
+        <uc-accordion title="Publications">
+          <p>Content here.</p>
+        </uc-accordion>
+      </uc-accordion-group>
+    </div>
+  </div>
+</div>
+
+{{ it_showcase_component('footer', 0) }}

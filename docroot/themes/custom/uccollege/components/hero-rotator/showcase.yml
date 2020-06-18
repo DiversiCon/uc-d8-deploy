@@ -1,0 +1,57 @@
+hero-rotator:
+  title: Hero Rotator
+  description:
+  type: component
+  variants:
+  -
+    title: Default
+    caption:
+    content:
+      items:
+        -
+          headline_start: "Headline start"
+          headline_problem: "This is a problem?"
+          headline_solution: "This is a solution."
+          cta:
+            url: "http://uchicago.edu"
+            target: "_blank"
+            text: "CTA Text"
+          left_media:
+            type: "image"
+            image: "https://via.placeholder.com/900&text=FPO"
+          right_media:
+            type: "video"
+            background: "#6f97bf"
+            poster: ""
+            width: "100%"
+            height: "100%"
+            alt: ""
+            src: "/themes/custom/uccollege/it_showcase/video/homepage-showcase.mp4"
+        -
+          headline_start: "Sample headline here."
+          headline_problem: "Problem with a question?"
+          headline_solution: "Solution here."
+          cta:
+            url: "http://www.google.com"
+            target: "_blank"
+            text: "CTA Text"
+          left_media:
+            type: "video"
+            background: "#6f97bf"
+            poster: ""
+            width: "100%"
+            height: "100%"
+            alt: ""
+            src: "/themes/custom/uccollege/it_showcase/video/homepage-showcase.mp4"
+          right_media:
+            type: "image"
+            image: "https://via.placeholder.com/900&text=FPO"
+
+hero-rotator.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: hero-rotator.component
+    index_hide: true
+    file: themes/custom/uccollege/components/hero-rotator/README.md

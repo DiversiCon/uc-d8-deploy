@@ -1,0 +1,9 @@
+uuid: bbd1ab62-e045-4df3-a071-4208cbeb0ff4
+langcode: en
+status: true
+dependencies: {  }
+id: publications_list
+label: 'Publications List'
+icon_uuid: null
+description: 'Display a list of all publications.'
+behavior_plugins: {  }

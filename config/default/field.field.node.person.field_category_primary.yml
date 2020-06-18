@@ -1,0 +1,29 @@
+uuid: be4833dc-7a2b-4a5d-a563-41c648b9371c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_category_primary
+    - node.type.person
+    - taxonomy.vocabulary.person_category_primary
+id: node.person.field_category_primary
+field_name: field_category_primary
+entity_type: node
+bundle: person
+label: Category
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      person_category_primary: person_category_primary
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

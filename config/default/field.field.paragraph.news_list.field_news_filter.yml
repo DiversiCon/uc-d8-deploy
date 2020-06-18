@@ -1,0 +1,25 @@
+uuid: bde33e3b-51b3-4ee8-90ab-2fcbb8b5886d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_news_filter
+    - paragraphs.paragraphs_type.news_list
+id: paragraph.news_list.field_news_filter
+field_name: field_news_filter
+entity_type: paragraph
+bundle: news_list
+label: 'Default filter selection'
+description: 'Selecting none is the same as selecting all.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: news_filter
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

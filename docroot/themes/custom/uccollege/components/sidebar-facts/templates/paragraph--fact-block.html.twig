@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Fact block.
+ *
+ * @see template_preprocess_field()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set mobile_link = content.field_single_link %}
+{% set facts = content.field_paragraphs_limit_two %}
+{% set department_text = content.field_title %}
+{% set department_link = content.field_headline_link %}
+
+<div class="c-sidebar-facts {{ bg_class }}">
+
+  {% if mobile_link|render is not empty %}
+  <h2 class="t-heading--topic hide-for-large">
+    {{ mobile_link }}
+  </h2>
+  {% endif %}
+
+  <div class="c-sidebar-facts__item-container">
+    {{ facts }}
+  </div>
+
+  <div class="c-sidebar-facts__footer">
+    <span>{{ department_text }}</span> {{ department_link }}
+  </div>
+</div>

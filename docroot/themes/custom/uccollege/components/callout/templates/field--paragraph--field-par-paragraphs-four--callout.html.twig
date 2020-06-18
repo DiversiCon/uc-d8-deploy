@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * Each item inside the callout
+ *
+ * @see template_preprocess_field()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% for item in items %}
+  <li>
+    {{ item.content }}
+  </li>
+{% endfor %}

@@ -1,0 +1,20 @@
+uuid: 4716b0b9-cb79-4b21-ac08-b047dedae4d7
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
+id: anonymous
+label: 'Anonymous user'
+weight: -10
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access showcase pages'
+  - 'restful get group_rest_resource'
+  - 'restful get people_rest_resource'
+  - 'restful get program_rest_resource'
+  - 'restful get search_rest_resource'
+  - 'restful get staff_rest_resource'
+  - 'view any reusable entities'
+  - 'view media'

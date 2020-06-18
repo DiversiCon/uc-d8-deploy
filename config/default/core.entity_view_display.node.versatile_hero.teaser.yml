@@ -1,0 +1,42 @@
+uuid: 27d954f5-27a2-46cc-948f-7d5bfde3247e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.versatile_hero.body
+    - field.field.node.versatile_hero.field_bool_template
+    - field.field.node.versatile_hero.field_headline_text
+    - field.field.node.versatile_hero.field_image_main
+    - field.field.node.versatile_hero.field_par_components
+    - field.field.node.versatile_hero.field_par_smartbody
+    - field.field.node.versatile_hero.field_section
+    - field.field.node.versatile_hero.field_stats_reference
+    - node.type.versatile_hero
+  module:
+    - user
+id: node.versatile_hero.teaser
+targetEntityType: node
+bundle: versatile_hero
+mode: teaser
+content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  body: true
+  field_bool_template: true
+  field_headline_text: true
+  field_image_main: true
+  field_par_components: true
+  field_par_smartbody: true
+  field_section: true
+  field_stats_reference: true
+  search_api_excerpt: true

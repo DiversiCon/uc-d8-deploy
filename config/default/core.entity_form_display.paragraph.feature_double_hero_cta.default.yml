@@ -1,0 +1,210 @@
+uuid: 49a7fb7e-ea07-47c7-8953-c5a129366515
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.feature_double_hero_cta.field_headline_text
+    - field.field.paragraph.feature_double_hero_cta.field_link_theme
+    - field.field.paragraph.feature_double_hero_cta.field_paragraph_single
+    - field.field.paragraph.feature_double_hero_cta.field_paragraph_single_0
+    - field.field.paragraph.feature_double_hero_cta.field_single_link
+    - field.field.paragraph.feature_double_hero_cta.field_subheadline_text
+    - field.field.paragraph.feature_double_hero_cta.field_subheadline_text_0
+    - paragraphs.paragraphs_type.feature_double_hero_cta
+  module:
+    - allowed_formats
+    - field_group
+    - link_attributes
+    - paragraphs
+    - text
+third_party_settings:
+  field_group:
+    group_hero_media:
+      children:
+        - group_media_left
+        - group_media_right
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: content-entry-flex-wrap
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        required_fields: true
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Hero Media'
+      region: content
+    group_media_left:
+      children:
+        - field_paragraph_single
+      parent_name: group_hero_media
+      weight: 8
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: main-content-section-wrap
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        required_fields: true
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Media Left'
+      region: content
+    group_media_right:
+      children:
+        - field_paragraph_single_0
+      parent_name: group_hero_media
+      weight: 9
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: main-content-section-wrap
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        required_fields: true
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Media Right'
+      region: content
+    group_content:
+      children:
+        - field_headline_text
+        - field_subheadline_text
+        - field_subheadline_text_0
+      parent_name: ''
+      weight: 1
+      format_type: fieldset
+      format_settings:
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Headline
+      region: content
+    group_call_to_action:
+      children:
+        - group_link_theme
+        - field_single_link
+      parent_name: ''
+      weight: 2
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Call to Action'
+      region: content
+    group_link_theme:
+      children:
+        - field_link_theme
+      parent_name: group_call_to_action
+      weight: 20
+      format_type: details
+      format_settings:
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+        open: false
+      label: Theme
+      region: content
+id: paragraph.feature_double_hero_cta.default
+targetEntityType: paragraph
+bundle: feature_double_hero_cta
+mode: default
+content:
+  field_headline_text:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_link_theme:
+    weight: 21
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_paragraph_single:
+    weight: 1
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_paragraph_single_0:
+    weight: 2
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_single_link:
+    weight: 22
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+        title: false
+    third_party_settings: {  }
+    type: link_attributes
+    region: content
+  field_subheadline_text:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_subheadline_text_0:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,24 @@
+{#
+/**
+ * Card Grid wrapper, and headline fields
+ *
+ */
+#}
+{% set heading = content.field_headline_text %}
+{% set description = content.field_subheadline_text %}
+{% set cards = content.field_par_paragraphs %}
+
+<div class="c-cards">
+  {% if heading|field_value %}
+    <h2 class="c-cards__heading">{{ heading }}</h2>
+  {% endif %}
+  {% if description|field_value %}
+    <p class="c-cards__description">{{ description }}</p>
+  {% endif %}
+
+  <div class="c-cards__content">
+    {{ cards }}
+  </div>
+
+</div>
+

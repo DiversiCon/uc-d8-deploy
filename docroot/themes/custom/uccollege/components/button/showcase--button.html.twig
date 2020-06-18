@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ * Available variables:
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+
+
+
+{% if content.btnclass %}<div class="{{ content.btnclass }}">{% endif %}
+  {% if content.heading %}<h2 class="t-heading--medium">{{ content.heading }}</h2>{% endif %}
+  {% if content.subhead %}<p>{{ content.subhead }}</p>{% endif %}
+  {% include '@uccollege/../components/button/button.html.twig' with {'content': content} %}
+  {% if content.btnclass %}</div>{% endif %}

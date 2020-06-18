@@ -1,0 +1,76 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - inquiries component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-inquiries {
+  strong {
+    font-weight: $font-weight-bold;
+  }
+  a {
+    font-size: rem-calc(15);
+    color: $color-black;
+    text-decoration: underline;
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+    }
+  }
+  .c-icon {
+    display: none; //removing for now for more space
+    width: rem-calc(15);
+    height: rem-calc(15);
+    margin-right: 0.25rem;
+  }
+  &__heading {
+    font-size: rem-calc(18);
+    margin-bottom: rem-calc(22);
+  }
+  &__section {
+    & + & {
+      border-top: 1px solid $color-black;
+      padding-top: rem-calc(30);
+      margin-top: rem-calc(30);
+    }
+  }
+  &__contact {
+    font-size: rem-calc(15);
+    margin-bottom: 1rem;
+    p {
+      margin: 0;
+    }
+  }
+  &__links {
+    @include list();
+  }
+  &__link {
+    padding-left: 0;
+    margin-bottom: rem-calc(20);
+    position: relative;
+    .c-icon {
+      position: absolute;
+      top: 0.1rem;
+      left: 0;
+    }
+    a {
+      display: block; //for proper wrapping in IE/Edge
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+  }
+
+  @include breakpoint(large) {
+    a {
+      font-size: rem-calc(14);
+    }
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-inquiries {
+    // sass linter doesn't like empty blocks :)
+  }
+}

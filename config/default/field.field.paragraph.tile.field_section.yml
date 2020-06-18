@@ -1,0 +1,29 @@
+uuid: 7d7d9685-5e2f-4c12-8c39-cc6e09d31728
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section
+    - paragraphs.paragraphs_type.tile
+    - taxonomy.vocabulary.section
+id: paragraph.tile.field_section
+field_name: field_section
+entity_type: paragraph
+bundle: tile
+label: Section
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      section: section
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

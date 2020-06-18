@@ -1,0 +1,23 @@
+uuid: 7863ae96-aaa5-413a-a20f-07b420eb08f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.tile_reference.field_content_reference
+    - paragraphs.paragraphs_type.tile_reference
+id: paragraph.tile_reference.default
+targetEntityType: paragraph
+bundle: tile_reference
+mode: default
+content:
+  field_content_reference:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: tile
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

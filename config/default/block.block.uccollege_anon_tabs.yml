@@ -1,0 +1,20 @@
+uuid: 79c7b9bc-9910-40c7-8d1e-4cb98152589d
+langcode: en
+status: true
+dependencies:
+  theme:
+    - uccollege_anon
+id: uccollege_anon_tabs
+theme: uccollege_anon
+region: help
+weight: 1
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

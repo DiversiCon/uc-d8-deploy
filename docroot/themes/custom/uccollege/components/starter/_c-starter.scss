@@ -1,0 +1,16 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - starter component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-starter {
+  // sass linter doesn't like empty blocks :)
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-starter {
+    // sass linter doesn't like empty blocks :)
+  }
+}

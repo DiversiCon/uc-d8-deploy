@@ -1,0 +1,18 @@
+uuid: 205d0f2b-3857-439f-aa79-38b124fb5726
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.directory
+id: node.directory.title
+field_name: title
+entity_type: node
+bundle: directory
+label: 'Admin Title'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

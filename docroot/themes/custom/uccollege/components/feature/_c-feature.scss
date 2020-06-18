@@ -1,0 +1,321 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - feature component
+
+.c-feature {
+  display: grid;
+  grid-column-gap: rem-calc(10);
+  grid-row-gap: 0;
+  grid-template-columns: 100%;
+  grid-template-areas:
+    "cell1"
+    "cell3"
+    "cell2";
+
+  @include breakpoint(large) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "cell1 cell2"
+      "cell3 .";
+  }
+
+  &.s-bg-secondary {
+    a {
+      color: $color-black;
+    }
+  }
+
+  &__container {
+    margin-bottom: 0;
+    & + & {
+      padding-top: 0;
+      margin-top: 0;
+    }
+
+    @include breakpoint(medium down) {
+      padding: 0;
+    }
+  }
+
+  &__image {
+    grid-area: cell1;
+    overflow: hidden; //needed for videos in feature
+
+    &-placeholder {
+      display: none;
+      position: relative;
+      width: 100%;
+      padding-bottom: 100%;
+      margin: 0 auto;
+      background-color: #464646;
+
+      @include breakpoint(large) {
+        display: block;
+      }
+    }
+
+    svg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    img {
+      object-fit: cover;
+    }
+
+    @include breakpoint(medium down) {
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  &__2up {
+    grid-area: cell1;
+    display: block;
+    grid-gap: 0;
+    grid-auto-columns: auto;
+    padding: 0 rem-calc(20);
+
+    & .c-tile:first-child {
+      margin-bottom: rem-calc(15);
+    }
+
+    @include breakpoint(400px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 0 rem-calc(10);
+
+      & .c-tile:first-child {
+        margin-bottom: 0;
+      }
+    }
+
+    @include breakpoint(large) {
+      padding: 0;
+    }
+  }
+
+  &__wrap {
+    grid-area: cell2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__content {
+    padding: rem-calc(20) rem-calc(20) 0;
+
+    @include breakpoint(large) {
+      padding: rem-calc(40) rem-calc(40) 0 rem-calc(40);
+    }
+
+    //add dash styles to lists
+    ul {
+      @extend .s-dash;
+      > li:not(.c-accordion__item)::before {
+        color: $color-secondary;
+        .s-bg-tertiary &,
+        .s-bg-maroon &,
+        .s-bg-blue & {
+          color: $color-white;
+        }
+        .s-bg-secondary & {
+          color: $color-black;
+        }
+      }
+    }
+
+    .t-heading--topic,
+    .t-heading--medium {
+      text-align: center;
+
+      @include breakpoint(large) {
+        text-align: left;
+      }
+    }
+  }
+
+  &__caption {
+    grid-area: cell3;
+    font-size: rem-calc(12);
+    padding: rem-calc(10) rem-calc(20) 0 rem-calc(20);
+
+    @include breakpoint(medium down) {
+      .c-feature--intro & {
+        display: none;
+      }
+    }
+
+    @include breakpoint(medium) {
+      padding-left: 0;
+      padding-right: 0;
+      font-size: rem-calc(14);
+    }
+  }
+
+  &__bottom {
+    @include breakpoint(large) {
+      .c-cta-block {
+        padding: 6%;
+      }
+
+      .c-logo {
+        padding: 0 rem-calc(40);
+      }
+    }
+  }
+
+  &__duration {
+    display: none;
+    font-size: rem-calc(12);
+    margin-left: 0.5rem;
+    .c-icon {
+      width: rem-calc(8);
+      height: rem-calc(11);
+      vertical-align: rem-calc(-1);
+    }
+
+    @include breakpoint(large) {
+      display: inline;
+    }
+  }
+
+  &--flipped {
+    @include breakpoint(large) {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "cell2 cell1"
+        ". cell3";
+    }
+  }
+
+  &--breaking {
+    .t-heading--topic {
+      background: $color-maroon;
+      color: $color-white;
+      font-size: rem-calc(11);
+      padding: rem-calc(10);
+      margin-bottom: 0;
+      position: absolute;
+      top: 0;
+      left: -10px;
+      a {
+        text-decoration: none;
+      }
+
+      @include breakpoint(large) {
+        font-size: rem-calc(13);
+        padding: rem-calc(12) rem-calc(20);
+      }
+    }
+
+    .t-heading--medium {
+      text-align: center;
+      margin-bottom: rem-calc(20);
+
+      @include breakpoint(xlarge) {
+        font-size: rem-calc(46);
+      }
+    }
+
+    .c-feature__content {
+      font-size: rem-calc(16);
+      padding-top: rem-calc(48);
+      padding-bottom: rem-calc(7);
+      position: relative;
+      p {
+        margin-bottom: rem-calc(27);
+      }
+
+      @include breakpoint(xlarge) {
+        font-size: rem-calc(17);
+        padding-top: rem-calc(92);
+        a {
+          font-size: rem-calc(19);
+        }
+      }
+    }
+
+    &.c-feature--flipped {
+      .t-heading--topic {
+        left: 0;
+      }
+    }
+
+    @include breakpoint(medium down) {
+      grid-template-areas:
+        "cell2"
+        "cell1"
+        "cell3";
+    }
+  }
+
+  &--pme-home {
+    grid-template-areas:
+      "cell2"
+      "cell1"
+      "cell3";
+
+    @include breakpoint(large) {
+      grid-template-areas:
+        "cell2 cell1"
+        "cell3 .";
+    }
+  }
+}
+
+.c-quicklinks-two-column {
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint(medium) {
+    flex-direction: row;
+  }
+
+  & > li {
+    &::before {
+      display: none;
+    }
+
+    @include breakpoint(medium) {
+      width: 50%;
+    }
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-feature {
+    @include breakpoint(medium) {
+      @include xy-grid();
+
+      &__image {
+        @include xy-cell(2 of 4);
+        @include xy-gutters($gutter-position: right);
+      }
+
+      &__wrap {
+        @include xy-cell(2 of 4);
+        @include xy-gutters($gutter-position: right);
+      }
+
+      &__caption {
+        order: 3;
+      }
+
+      .grid-4sq {
+        @include xy-grid();
+
+        .grid-4sq__cell {
+          @include xy-cell(50%, false);
+          width: 50%;
+        }
+      }
+
+      .grid-4sq__content a span {
+        top: 25%;
+      }
+    }
+  }
+}

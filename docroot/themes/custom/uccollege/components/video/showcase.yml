@@ -1,0 +1,29 @@
+video:
+  title: Video Embed
+  description: Embeds a Youtube video with custom placeholder and play button.
+  type: component
+  attributes:
+    category: Images & Media
+  variants:
+  -
+    title: Video Embed
+    content:
+      poster: /themes/custom/uccollege/it_showcase/images/video-poster-1380.jpg
+      videoid: XxQX_dkiryQ
+      description: Prof. Richard Thaler talks to Cass Sunstein, his former UChicago scholar and his Nudge coauthor, after winning the Nobel Prize.
+      credit: Anne Ryan/University of Chicago
+  -
+    title: Video with heading
+    content:
+      poster: /themes/custom/uccollege/it_showcase/images/video-scholarly.jpg
+      videoid: XxQX_dkiryQ
+      heading: "Video: Research at Pritzker"
+
+video.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: video.component
+    index_hide: true
+    file: themes/custom/uccollege/components/video/README.md

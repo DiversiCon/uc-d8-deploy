@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * Displays an group of quotes.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set headline = content.field_headline_text %}
+{% set subheadline = content.field_subheadline_text %}
+{% set quotes = content.field_paragraphs_unlimited %}
+
+<div class="l-stripe">
+  {% if headline|render is not empty %}
+  <h2 class="t-heading--medium">{{ headline }}</h2>
+  {% endif %}
+
+  {% if subheadline|render is not empty %}
+  <h3 class="t-heading--small"><strong><em>{{ subheadline }}</em></strong></h3>
+  {% endif %}
+
+  {{ quotes }}
+</div>

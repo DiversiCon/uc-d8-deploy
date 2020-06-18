@@ -1,0 +1,21 @@
+content:
+  title: Content Grid
+  description: Generic grid supporting left and right sidebars
+  type: component
+  attributes:
+    category: Layout
+  variants:
+  -
+    title: Default
+    caption:
+    content:
+      -
+
+content.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: content.component
+    index_hide: true
+    file: themes/custom/uccollege/components/content/README.md

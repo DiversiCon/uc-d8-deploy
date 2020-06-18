@@ -1,0 +1,23 @@
+uuid: 0bf23b9e-66d8-424b-92dd-3f2028829d40
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image_link
+    - paragraphs.paragraphs_type.infographic
+  module:
+    - link
+id: paragraph.infographic.field_image_link
+field_name: field_image_link
+entity_type: paragraph
+bundle: infographic
+label: Link
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

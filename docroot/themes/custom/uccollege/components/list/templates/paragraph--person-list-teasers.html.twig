@@ -1,0 +1,33 @@
+{#
+  Person list component. Displays a list of People content type, using the teaser display mode.
+#}
+
+{% set people = content.field_content_multiple %}
+{% set sidebar = content.field_par_paragraph_single %}
+
+<div class="l-container">
+  <div class="c-list c-list--ruled">
+    <div class="c-list__content-wrap c-content c-content--sidebar-right">
+      
+      <section class="c-list__content">
+
+        <uc-accordion-group
+            v-cloak
+            :single="false"
+            :columns="1">
+
+          {{ people }}
+
+        </uc-accordion-group>
+
+      </section>
+
+      {% if sidebar|render is not empty %}
+      <div class="c-list__sidebar c-content__sidebar">
+        {{ sidebar }}
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+</div>

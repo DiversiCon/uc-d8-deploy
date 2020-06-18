@@ -1,0 +1,28 @@
+uuid: 893ce08e-3eb4-4c46-bb45-c3d84e8f9c28
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.stats
+    - field.storage.node.field_stats_reference
+    - node.type.versatile_hero
+id: node.versatile_hero.field_stats_reference
+field_name: field_stats_reference
+entity_type: node
+bundle: versatile_hero
+label: 'Stats Reference'
+description: 'Optionally select up to four statistics to be displayed below the Hero image.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:reusable'
+  handler_settings:
+    target_bundles:
+      stats: stats
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

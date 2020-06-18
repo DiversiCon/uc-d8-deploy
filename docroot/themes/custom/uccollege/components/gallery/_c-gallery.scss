@@ -1,0 +1,122 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - Inline Gallery Component
+// This component handles embedding of
+// inline photo galleries within articles
+
+@import "./../../node_modules/swiper/dist/css/swiper.min.css";
+
+.c-gallery {
+  display: block;
+  grid-area: photo;
+  grid-column: 1 / 5;
+  max-width: $default-max-width;
+
+  h3 {
+    @include font-sans(bold);
+    font-size: rem-calc(18);
+    padding-left: 0;
+    text-align: left;
+
+    @include breakpoint(medium) {
+      width: calc(100vw - 34%);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @include breakpoint(large) {
+      padding-left: 12.333%;
+      width: auto;
+    }
+
+    .l-stripe & {
+      padding-left: 0;
+    }
+  }
+
+  &__ctn {
+    margin: 0 calc(50% - 50vw);
+    position: relative;
+    height: auto;
+    width: auto;
+    padding-bottom: calc(56.25% + 25px);
+
+    @include breakpoint(medium) {
+      padding-bottom: calc(56.25% + 33.5px);
+    }
+
+    @include breakpoint(large) {
+      margin: 0;
+      padding-bottom: 56.25%;
+    }
+  }
+
+  &__button {
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.13);
+    background-image: none;
+    display: flex;
+    height: rem-calc(172);
+    justify-content: center;
+    top: rem-calc(23);
+    width: rem-calc(172);
+
+    svg {
+      width: rem-calc(74);
+      height: rem-calc(77);
+    }
+
+    &.swiper-button-next {
+      right: 0;
+    }
+
+    &.swiper-button-prev {
+      left: 0;
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  &:not(.c-gallery--single) .swiper-container {
+    @include breakpoint(medium down) {
+      padding-right: rem-calc(30);
+
+      .swiper-slide {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  &__button-wrap {
+    opacity: 0;
+    position: absolute;
+    transition: all 0.5s;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+
+    &.isVisible {
+      opacity: 1;
+    }
+  }
+
+  .swiper-wrapper {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .swiper-slide {
+    picture {
+      display: inline;
+      img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Generic sidebar
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set heading = content.field_headline_text %}
+{% set sections = content.field_par_paragraphs %}
+
+{% block paragraph %}
+  {% block content %}
+    <div class="c-generic">
+      <div class="c-generic__ctn">
+        {% if heading|field_value %}
+          <h2 class="c-generic__heading">{{ heading }}</h2>
+        {% endif %}
+
+        {{ sections }}
+
+      </div>
+    </div>
+  {% endblock %}
+{% endblock paragraph %}

@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: jZwdMhJRr-lz7l78YTj3eJg91vxmUjCrQ7xedS3Qdqc
+id: smartbody
+label: Smartbody
+icon_uuid: null
+description: 'Smartbody text and related full-width components.'
+behavior_plugins: {  }

@@ -1,0 +1,36 @@
+{#
+/**
+ * @file
+ * Quick Links sub-component inside feature
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set accordion_toggle = content.field_accordion_switch|field_value|render|render %}
+{% set headline = content.field_headline_text %}
+{% set links = content.field_links_ultd %}
+{% set footer_link = content.field_single_link %}
+
+{% block paragraph %}
+  {% block content %}
+    {% if ( accordion_toggle == 'mobile-accordion' ) or ( accordion_toggle == 'accordion' ) %}
+      <uc-accordion-group v-cloak="">
+        <uc-accordion
+          title="{{ headline|field_value|render|convertQuotes }}"
+          {% if accordion_toggle == 'mobile-accordion'  %} :mobile-only="true"{% endif %}
+          tag="h3">
+          <ul>{{ links}}</ul>
+        </uc-accordion>
+      </uc-accordion-group>
+    {% else %}
+      <h3 class="t-heading--list">{{ headline }}</h3>
+      <ul>{{ links }}</ul>
+    {% endif %}
+
+    {% if footer_link|render is not empty %}
+      {{ footer_link }}
+    {% endif %}
+  {% endblock %}
+{% endblock paragraph %}

@@ -1,0 +1,202 @@
+uuid: 00804726-0b75-49da-8c21-42acc3d4002a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.quick_links_two_column.field_accordion_switch
+    - field.field.paragraph.quick_links_two_column.field_par_paragraph_single_0
+    - field.field.paragraph.quick_links_two_column.field_par_paragraph_single_5
+    - field.field.paragraph.quick_links_two_column.field_par_paragraph_ultd_0
+    - field.field.paragraph.quick_links_two_column.field_par_paragraph_ultd_1
+    - field.field.paragraph.quick_links_two_column.field_single_link
+    - field.field.paragraph.quick_links_two_column.field_subheadline_text_0
+    - field.field.paragraph.quick_links_two_column.field_subheadline_text_1
+    - paragraphs.paragraphs_type.quick_links_two_column
+  module:
+    - field_group
+    - link_attributes
+    - paragraphs
+    - text
+third_party_settings:
+  field_group:
+    group_accordion_container:
+      children:
+        - group_left_column
+        - group_right_column
+        - group_footer
+      parent_name: ''
+      weight: 1
+      format_type: accordion
+      format_settings:
+        id: ''
+        classes: ''
+        effect: none
+      label: 'Quick Links'
+      region: content
+    group_left_column:
+      children:
+        - field_subheadline_text_0
+        - field_par_paragraph_ultd_0
+        - group_left_list_footer_link
+      parent_name: group_accordion_container
+      weight: 8
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: 'Left Column'
+      region: content
+    group_right_column:
+      children:
+        - field_subheadline_text_1
+        - field_par_paragraph_ultd_1
+        - group_right_list_footer_link
+      parent_name: group_accordion_container
+      weight: 9
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: 'Right Column'
+      region: content
+    group_footer:
+      children:
+        - field_single_link
+      parent_name: group_accordion_container
+      weight: 10
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: Footer
+      region: content
+    group_left_list_footer_link:
+      children:
+        - field_par_paragraph_single_5
+      parent_name: group_left_column
+      weight: 8
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: 'Left List, Footer Link'
+      region: content
+    group_right_list_footer_link:
+      children:
+        - field_par_paragraph_single_0
+      parent_name: group_right_column
+      weight: 4
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: 'Right List, Footer Link'
+      region: content
+id: paragraph.quick_links_two_column.default
+targetEntityType: paragraph
+bundle: quick_links_two_column
+mode: default
+content:
+  field_accordion_switch:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_par_paragraph_single_0:
+    type: entity_reference_paragraphs
+    weight: 3
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: custom_link
+    third_party_settings: {  }
+  field_par_paragraph_single_5:
+    type: entity_reference_paragraphs
+    weight: 21
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  field_par_paragraph_ultd_0:
+    weight: 6
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_par_paragraph_ultd_1:
+    weight: 2
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_single_link:
+    weight: 7
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+    third_party_settings: {  }
+    type: link_attributes
+    region: content
+  field_subheadline_text_0:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_subheadline_text_1:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

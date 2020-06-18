@@ -1,0 +1,21 @@
+uuid: f4f0168f-5467-4e6e-95c1-2fc797981006
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_accordion_switch
+    - paragraphs.paragraphs_type.quick_links
+  module:
+    - options
+id: paragraph.quick_links.field_accordion_switch
+field_name: field_accordion_switch
+entity_type: paragraph
+bundle: quick_links
+label: 'Accordion Switch'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

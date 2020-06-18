@@ -1,0 +1,30 @@
+{#
+/**
+ * table Twig Partial
+ *
+ */
+#}
+
+
+{% if content.accordion %}
+  <uc-accordion-group v-cloak :columns="1">
+    <uc-accordion title="Registration Dates" :open="true" tag="h2">
+      <div class="c-table {% if content.scroll %}table-scroll{% endif %}">
+        {% include '@uccollege/../components/table/table-demo.html.twig' with {'content': content} %}
+      </div>
+      <p>Sed convallis malesuada odio, a volutpat justo cursus a. Donec aliquam urna quis augue consequat tempus.</p>
+    </uc-accordion>
+  </uc-accordion-group>
+{% elseif content.article %}
+  <article class="c-article">
+    <div class="c-article__body">
+      <div class="c-table {% if content.scroll %}table-scroll{% endif %}">
+        {% include '@uccollege/../components/table/table-demo.html.twig' with {'content': content} %}
+      </div>
+    </div>
+  </article>
+{% else %}
+  <div class="c-table{% if content.scroll %} table-scroll{% endif %}">
+    {% include '@uccollege/../components/table/table-demo.html.twig' with {'content': content} %}
+  </div>
+{% endif %}

@@ -1,0 +1,11 @@
+uuid: f261c0d9-f1cb-4628-b009-ccfa3827865a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.group
+id: node_type_group
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

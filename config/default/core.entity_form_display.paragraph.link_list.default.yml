@@ -1,0 +1,41 @@
+uuid: 375a5049-d681-4413-ac55-580cc3fcab59
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.link_list.field_link
+    - field.field.paragraph.link_list.field_options
+    - paragraphs.paragraphs_type.link_list
+  module:
+    - link_attributes
+id: paragraph.link_list.default
+targetEntityType: paragraph
+bundle: link_list
+mode: default
+content:
+  field_link:
+    weight: 1
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+    third_party_settings: {  }
+    type: link_attributes
+    region: content
+  field_options:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

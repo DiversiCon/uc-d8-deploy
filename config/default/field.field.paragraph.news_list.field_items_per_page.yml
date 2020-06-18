@@ -1,0 +1,25 @@
+uuid: 377abd9e-2000-4ab3-827f-50df962a78d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_items_per_page
+    - paragraphs.paragraphs_type.news_list
+id: paragraph.news_list.field_items_per_page
+field_name: field_items_per_page
+entity_type: paragraph
+bundle: news_list
+label: 'Items per page'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 10
+default_value_callback: ''
+settings:
+  min: 1
+  max: 20
+  prefix: ''
+  suffix: ''
+field_type: integer

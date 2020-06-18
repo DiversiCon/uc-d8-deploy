@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a showcase item.
+ *
+ * Available variables:
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+
+<div class="showcase__wrap">
+  <header>
+    <img src="/themes/custom/uccollege/it_showcase/images/masthead-temp.png" alt="If/Then Showcase">
+  </header>
+
+  <nav>
+    <a href="/it/showcase/readme">Showcase Readme</a>
+    <a href="/it/showcase/refresh">Rebuild Config</a>
+  </nav>
+
+  <uc-showcase-index></uc-showcase-index>
+
+</div>

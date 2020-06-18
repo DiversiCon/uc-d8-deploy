@@ -1,0 +1,23 @@
+uuid: de722903-71ec-41d1-b71a-9c62a9be6184
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_teaser_link
+    - node.type.person
+  module:
+    - link
+id: node.person.field_teaser_link
+field_name: field_teaser_link
+entity_type: node
+bundle: person
+label: 'People, Grouped List Link'
+description: 'This link is only displayed in the People, Grouped List component.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

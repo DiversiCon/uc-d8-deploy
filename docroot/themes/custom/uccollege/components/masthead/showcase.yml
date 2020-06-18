@@ -1,0 +1,17 @@
+masthead:
+  title: Masthead
+  description: "Global masthead that contains global nav"
+  type: component
+  variants:
+  -
+    title: Default
+    content:
+
+masthead.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: masthead.component
+    index_hide: true
+    file: themes/custom/uccollege/components/masthead/README.md

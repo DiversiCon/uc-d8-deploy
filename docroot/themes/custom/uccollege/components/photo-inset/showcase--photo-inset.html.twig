@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ * Available variables:
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+
+<div class="l-container">
+  <article class="c-article">
+    <header class="c-headline">
+      <h1 class="c-headline__heading">Demo Article with Inset Photo</h1>
+      <div class="c-headline__description">
+        <p>Lorem ipsum dolor sit amet adipiscing elit excepteur sint occaecat cupida proident sunt.</p>
+      </div>
+    </header>
+
+    <div class="c-article__body">
+
+      {% include '@uccollege/../components/photo-inset/photo-inset.html.twig' with {'content': content} %}
+
+      <p>In other examples, leaders pushed to open the mainstream frame of reference to new viewpoints. Margaret Beale Spencer, PhD’76, the Marshall Field IV Professor of Urban Education in Comparative Human Development, has spent her academic career working to change the field of psychology’s perspective on “normal” human development to make room for the experiences of marginalized people. And for Jamil Khoury, AM’92, telling universal stories through the lenses of Asian and Middle Eastern playwrights brings audiences new ways of seeing the world and themselves. Each year the Diversity Leadership Awards recognize members of the faculty, staff and alumni communities who display leadership in fostering diversity and advance social justice and equity, both within the University and beyond into the broader community. President Robert J. Zimmer will present the
+        awards at a Jan. 9 reception, and the recipients will be recognized at the University’s Martin Luther King Jr. celebration in Rockefeller Memorial Chapel.</p>
+
+      <p>“These leaders reflect Dr. King’s legacy through service, scholarship and art. It is an honor to recognize them for their impactful work,” said Prof. Melissa Gilliam, vice provost for academic leadership, advancement and diversity, who co-chairs the University’s Diversity Leadership Council.</p>
+    </div>
+  </article>
+</div>

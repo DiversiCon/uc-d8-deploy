@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * Events list featured.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+<section class="l-container">
+  <uc-events-featured
+      :grid="false"
+      instance="{{ uc_cdr.instance_id }}"
+      endpoint="{{ uc_cdr.endpoint }}/node/event">
+  </uc-events-featured>
+</section>
+
+<section class="l-container">
+  <uc-events
+      endpoint="{{ uc_cdr.endpoint }}/event_index"
+      instance="{{ uc_cdr.instance_id }}"
+      :featured="true">
+  </uc-events>
+</section>

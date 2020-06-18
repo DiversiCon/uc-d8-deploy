@@ -1,0 +1,19 @@
+uuid: 4541b4a8-b1fb-412d-b3a6-e5f26456cab9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_number_text
+    - paragraphs.paragraphs_type.quote
+id: paragraph.quote.field_number_text
+field_name: field_number_text
+entity_type: paragraph
+bundle: quote
+label: 'Quote Date'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

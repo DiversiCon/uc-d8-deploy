@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Google Map.
+ *
+ * Variables:
+ * - gmaps_api_key: Google Maps API key. Set in the preprocessor.
+ *
+ * @see uccollege_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{# Template variables. #}
+{% set heading = paragraph.field_headline_text.value %}
+{% set latitude = paragraph.field_short_text.value %}
+{% set longitude = paragraph.field_short_text_2.value %}
+{% set zoom = paragraph.field_number_text.value %}
+
+<uc-gmap
+    {% if heading is not empty %}heading="{{ heading }}"{% endif %}
+    {% if zoom is not empty %}:zoom="{{ zoom }}"{% endif %}
+    {% if gmaps_api_key is not empty %}apikey="{{ gmaps_api_key }}"{% endif %}
+    lat="{{ latitude }}"
+    lon="{{ longitude }}">
+</uc-gmap>

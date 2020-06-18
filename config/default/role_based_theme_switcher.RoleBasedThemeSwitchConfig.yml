@@ -1,0 +1,10 @@
+roletheme:
+  anonymous:
+    id: uccollege_anon
+    weight: 0
+  authenticated:
+    id: ''
+    weight: 1
+  administrator:
+    id: ''
+    weight: 2

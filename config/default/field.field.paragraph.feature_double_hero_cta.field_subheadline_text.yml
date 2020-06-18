@@ -1,0 +1,31 @@
+uuid: 1fa4d0e0-b62d-4a7c-821c-abe44974b03b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_subheadline_text
+    - paragraphs.paragraphs_type.feature_double_hero_cta
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+    custml_html: '0'
+id: paragraph.feature_double_hero_cta.field_subheadline_text
+field_name: field_subheadline_text
+entity_type: paragraph
+bundle: feature_double_hero_cta
+label: Problem
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

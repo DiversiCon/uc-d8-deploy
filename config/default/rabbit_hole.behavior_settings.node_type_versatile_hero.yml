@@ -1,0 +1,11 @@
+uuid: 467ab926-d6cd-4977-9f9c-bb0cf7ca3440
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.versatile_hero
+id: node_type_versatile_hero
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

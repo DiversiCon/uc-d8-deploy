@@ -1,0 +1,23 @@
+uuid: e8933b1a-52a0-4e0d-a51c-366891d50d51
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image_link
+    - paragraphs.paragraphs_type.card_grid_item
+  module:
+    - link
+id: paragraph.card_grid_item.field_image_link
+field_name: field_image_link
+entity_type: paragraph
+bundle: card_grid_item
+label: Link
+description: 'Optional link for the card'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

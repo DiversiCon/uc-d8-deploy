@@ -1,0 +1,9 @@
+uuid: 89d3a483-8c30-494b-bcf3-5a4222828e80
+langcode: en
+status: true
+dependencies: {  }
+id: switcher_cta
+label: 'Switcher, CTA'
+icon_uuid: null
+description: 'CTA variant of the switcher'
+behavior_plugins: {  }

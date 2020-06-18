@@ -1,0 +1,30 @@
+uuid: 88d5d0f6-084d-4320-a9f0-609726295948
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.contacts
+    - field.storage.reusable.field_eck_title
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: reusable.contacts.field_eck_title
+field_name: field_eck_title
+entity_type: reusable
+bundle: contacts
+label: 'Display Title, second line'
+description: 'Second line for the title'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

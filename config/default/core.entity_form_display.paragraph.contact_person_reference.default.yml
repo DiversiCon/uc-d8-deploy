@@ -1,0 +1,26 @@
+uuid: 695ab088-90c4-4708-a9ad-26f2d0fd4df0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.contact_person_reference.field_eck_reference
+    - paragraphs.paragraphs_type.contact_person_reference
+id: paragraph.contact_person_reference.default
+targetEntityType: paragraph
+bundle: contact_person_reference
+mode: default
+content:
+  field_eck_reference:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

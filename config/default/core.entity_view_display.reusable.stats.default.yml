@@ -1,0 +1,35 @@
+uuid: cb930980-64c6-470e-ba16-e5404d261713
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.stats
+    - field.field.reusable.stats.field_eck_title
+    - field.field.reusable.stats.field_headline_text
+  module:
+    - text
+id: reusable.stats.default
+targetEntityType: reusable
+bundle: stats
+mode: default
+content:
+  field_eck_title:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_headline_text:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  changed: true
+  created: true
+  search_api_excerpt: true
+  title: true
+  uid: true

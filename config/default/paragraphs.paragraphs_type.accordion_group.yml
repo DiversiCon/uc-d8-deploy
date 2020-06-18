@@ -1,0 +1,9 @@
+uuid: c05bcee6-411a-4a5e-96f0-846e9fa6c13f
+langcode: en
+status: true
+dependencies: {  }
+id: accordion_group
+label: 'Accordion Group'
+icon_uuid: null
+description: 'A group of accordion items and an optional headline.'
+behavior_plugins: {  }

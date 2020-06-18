@@ -1,0 +1,19 @@
+uuid: e14e84d3-e177-41df-ab8c-64b5a6184247
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - uc_cdr_client
+id: paragraph.field_event_reference
+field_name: field_event_reference
+entity_type: paragraph
+type: uc_cdr_client_external_reference
+settings: {  }
+module: uc_cdr_client
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

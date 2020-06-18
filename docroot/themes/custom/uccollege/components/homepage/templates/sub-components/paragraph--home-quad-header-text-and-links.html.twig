@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * Homepage quadrant of headline, text and links.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set headline = paragraph.field_headline_text.value %}
+{% set text_content = content.field_body %}
+{% set links = content.field_links_ultd %}
+{% set sub_component = content.field_par_paragraph_single %}
+
+<div class="c-feature__wrap">
+  <div class="c-feature__content">
+    <h3 class="t-heading--medium">{{ headline }}</h3>
+    {{ text_content }}
+
+    {{ links }}
+
+    {{ sub_component }}
+  </div>
+</div>

@@ -1,0 +1,9 @@
+uuid: 5fb41e6a-7887-4f54-9b57-327a4ba81c64
+langcode: en
+status: true
+dependencies: {  }
+id: feature_announcement
+label: 'Feature, Announcement'
+icon_uuid: null
+description: 'Displays a unique Feature layout focused on new, important content.'
+behavior_plugins: {  }

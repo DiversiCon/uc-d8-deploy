@@ -1,0 +1,30 @@
+uuid: daf155e1-8427-46f5-ba53-335da67d5dfd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.components_lower.field_par_paragraphs
+    - paragraphs.paragraphs_type.components_lower
+  module:
+    - paragraphs
+id: paragraph.components_lower.default
+targetEntityType: paragraph
+bundle: components_lower
+mode: default
+content:
+  field_par_paragraphs:
+    weight: 101
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

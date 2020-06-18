@@ -1,0 +1,19 @@
+uuid: 17e01bf9-fe7b-4a87-937b-f318ac3d98d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_degree_earned
+    - paragraphs.paragraphs_type.education_and_training
+id: paragraph.education_and_training.field_degree_earned
+field_name: field_degree_earned
+entity_type: paragraph
+bundle: education_and_training
+label: 'Degree Earned'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

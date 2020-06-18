@@ -1,0 +1,50 @@
+{#
+/**
+ * @file
+ * An infographic figure, which can be optionally linked.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{# Template variables. #}
+{% set headline = content.field_headline_text %}
+{% set image = content.field_image_main %}
+{% set link = content.field_image_link %}
+{% set descriptive_text = content.field_description_plaintext %}
+{% set descriptive_text_id = 'infographic-' ~ paragraph.field_image_main.entity.id ~ '-desc' %}
+
+{# Conditional checks done more than once. #}
+{% set show_link = link|render is not empty %}
+{% set show_descriptive_text = descriptive_text|render is not empty %}
+
+
+{# Begin infographic component. #}
+<div class="l-stripe">
+  <h2 class="t-heading--medium">{{ headline }}</h2>
+
+  <figure class="c-infographic">
+    {% if show_link %}
+    <a href="{{ link.0['#url'] }}" target="{{ link.0['#options']['attributes']['target'] }}">
+    {% endif %}
+
+      {# Allow the image to be overridden. #}
+      {% block image %}
+      <img
+          data-src="{{ file_url(paragraph.field_image_main.entity.field_media_image.entity.uri.value) }}"
+          alt="{{ paragraph.field_image_main.entity.field_media_image.alt }}"
+          aria-labelledby="{{ descriptive_text_id }}"
+          class="lazyload"/>
+
+      {% endblock %}
+
+    {% if show_link %}
+    </a>
+    {% endif %}
+
+    {% if show_descriptive_text %}
+    <span id="{{ descriptive_text_id }}" aria-hidden="true">{{ descriptive_text }}</span>
+    {% endif %}
+  </figure>
+</div>
+{# End component. #}

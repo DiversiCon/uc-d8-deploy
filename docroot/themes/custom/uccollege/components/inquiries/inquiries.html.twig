@@ -1,0 +1,35 @@
+{#
+/**
+ * inquiries Twig Partial
+ *
+ */
+#}
+
+<div class="c-inquiries">
+  <div class="c-inquiries__ctn">
+    <h2 class="c-inquiries__heading">{{ content.heading }}</h2>
+    {% for section in content.sections %}
+      <div class="c-inquiries__section">
+        {% if section.contactName %}
+          <div class="c-inquiries__contact">
+            <p><strong>{{ section.contactName }}</strong></p>
+            <p>{{ section.contactTitle }}</p>
+            <p>{{ section.contactDept }}</p>
+          </div>
+        {% endif %}
+        <ul class="c-inquiries__links">
+          {% for link in section.links %}
+            <li class="c-inquiries__link">
+              {% if link.icon %}
+                <svg class="c-icon">
+                  <use xlink:href="/themes/custom/uccollege/dist/icons.svg#{{ link.icon }}" />
+                </svg>
+              {% endif %}
+              <a href="{{ link.url }}">{{ link.text }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  </div>
+</div>

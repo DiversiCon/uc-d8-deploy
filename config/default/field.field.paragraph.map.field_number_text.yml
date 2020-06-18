@@ -1,0 +1,19 @@
+uuid: c09f1455-770b-4ece-8f9b-f6a5a8bfc9d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_number_text
+    - paragraphs.paragraphs_type.map
+id: paragraph.map.field_number_text
+field_name: field_number_text
+entity_type: paragraph
+bundle: map
+label: Zoom
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

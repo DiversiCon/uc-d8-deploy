@@ -1,0 +1,28 @@
+sids:
+  uc_ldap: uc_ldap
+authenticationMode: 1
+loginUIUsernameTxt: 'Your CNetID'
+loginUIPasswordTxt: 'Your CNet Password'
+ldapUserHelpLinkUrl: 'https://cnet.uchicago.edu'
+ldapUserHelpLinkText: 'CNet Help'
+emailOption: 3
+emailUpdate: 1
+emailTemplateHandling: none
+emailTemplate: '@username@example.com'
+emailTemplateUsageResolveConflict: false
+emailTemplateUsageNeverUpdate: false
+emailTemplateUsagePromptUser: false
+emailTemplateUsageRedirectOnLogin: false
+emailTemplateUsagePromptRegex: '.*@example\\.com'
+passwordOption: 3
+allowOnlyIfTextInDn: {  }
+excludeIfTextInDn: {  }
+excludeIfNoAuthorizations: 0
+ssoRemoteUserStripDomainName: null
+ssoExcludedPaths: {  }
+ssoExcludedHosts: {  }
+seamlessLogin: null
+ldapImplementation: null
+cookieExpire: null
+_core:
+  default_config_hash: PhCAjUcRcM1gIsD2-W5N_sL91XOsCizjWcvXexo8lpA

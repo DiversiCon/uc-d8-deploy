@@ -1,0 +1,34 @@
+byline:
+  title: Byline
+  description: Byline on Stories/Articles
+  type: component
+  variants:
+  -
+    title: Byline
+    caption: Byline on Stories/Articles with optional Title
+    content:
+      authorTitle: "Manager of College Communications, UChicago News"
+      author:
+      -
+        name: "Danika Kmetzr"
+        url: "#"
+  -
+    title: Byline
+    caption: Byline on Stories/Articles with multiple Authors and no Title
+    content:
+      author:
+      -
+        name: "Danika Kmetzr"
+        url: "#"
+      -
+        name: "Ruth Selipsky"
+        url: "#"
+
+byline.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: byline.component
+    index_hide: true
+    file: themes/custom/uccollege/components/byline/README.md

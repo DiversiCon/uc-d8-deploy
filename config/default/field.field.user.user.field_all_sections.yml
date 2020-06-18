@@ -1,0 +1,24 @@
+uuid: dc88d3bf-d54d-4772-91a7-8632e442c650
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_all_sections
+  module:
+    - user
+id: user.user.field_all_sections
+field_name: field_all_sections
+entity_type: user
+bundle: user
+label: 'All Sections'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

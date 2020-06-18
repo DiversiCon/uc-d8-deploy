@@ -1,0 +1,35 @@
+uuid: 916e3602-978c-4c91-916b-6c4e01e1aac5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.person_list_teasers.field_content_multiple
+    - field.field.paragraph.person_list_teasers.field_par_paragraph_single
+    - paragraphs.paragraphs_type.person_list_teasers
+  module:
+    - entity_reference_revisions
+id: paragraph.person_list_teasers.default
+targetEntityType: paragraph
+bundle: person_list_teasers
+mode: default
+content:
+  field_content_multiple:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_par_paragraph_single:
+    weight: 1
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

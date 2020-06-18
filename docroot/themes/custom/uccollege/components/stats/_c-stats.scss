@@ -1,0 +1,185 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - stats component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-stats {
+  text-align: center;
+  margin-bottom: rem-calc(17);
+
+  &__headline {
+    text-align: left;
+    font-size: rem-calc(20);
+  }
+
+  &__heading,
+  &__description {
+    padding: 0 $default-padding-large;
+  }
+  &__description {
+    display: none;
+  }
+  &__list {
+    @include list;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  &__item {
+    @include font-sizes(12.5, 15);
+    font-weight: $font-weight-normal;
+    letter-spacing: rem-calc(-0.5);
+    padding: 0;
+    margin: 0 0 rem-calc(35) 0;
+    width: 100%;
+    &:last-child {
+      border-right: 0;
+    }
+    &--half {
+      margin: 0 0 rem-calc(20) 0;
+      width: 50%;
+    }
+    &:nth-last-child(-n + 2):first-child,
+    &:nth-last-child(-n + 2):first-child ~ & { //style items if there are only 2
+      width: 50%;
+    }
+
+    @include breakpoint(medium) {
+      width: 33%;
+    }
+  }
+  &__number {
+    @include font-sizes(48, 60);
+    display: block;
+    font-weight: $font-weight-bold;
+    letter-spacing: rem-calc(-4.4);
+    line-height: 1;
+    position: relative;
+    margin-left: -50%;
+    left: 25%;
+  }
+  &__text {
+    max-width: rem-calc(200);
+    margin: 0 auto;
+  }
+
+  @include breakpoint(medium) {
+    &__heading,
+    &__description {
+      padding: 0 rem-calc(60);
+    }
+    &__description {
+      display: block;
+      margin-bottom: rem-calc(37);
+    }
+  }
+
+  @include breakpoint(large) {
+    margin-bottom: rem-calc(38);
+
+    &__heading {
+      @include font-sizes(28, 40);
+    }
+
+    &__item {
+      padding: 0 rem-calc(16);
+
+      &--half {
+        margin: 0;
+        width: 25%;
+
+        &:nth-child(n+5) { //all but the first 4
+          margin-top: rem-calc(20);
+        }
+
+        &:nth-child(4) {
+          border-right: 0; //remove border on fourth stat
+        }
+      }
+    }
+  }
+
+  // Stats within a feature block and top right homepage grid
+  .c-feature__content &,
+  .grid-4up__cell2 & {
+    border-bottom: 0;
+    padding: 0;
+
+    &__heading {
+      letter-spacing: rem-calc(-1.4);
+    }
+    &__number {
+      @include font-sizes(48, 88);
+      letter-spacing: rem-calc(-4.4);
+    }
+    &__text {
+      letter-spacing: rem-calc(-0.8);
+      max-width: rem-calc(150);
+    }
+
+    @include breakpoint(large) {
+      &__item {
+        border-right: 2px solid $color-primary;
+        padding: 0 rem-calc(11);
+
+        &:last-child {
+          border-right: 0;
+        }
+
+        .s-bg-secondary &,
+        .s-bg-tertiary &,
+        .s-bg-maroon &,
+        .s-bg-blue & {
+          border-color: $color-white;
+        }
+      }
+    }
+  }
+
+  // pull out side margins when in the feature content area
+  .c-feature__content & {
+    @include breakpoint(large) {
+      margin: 0 rem-calc(-11);
+    }
+  }
+
+  // Stats with large numbers
+  &.c-stats--large {
+    border-bottom: 0;
+    padding: 0;
+
+    .c-stats__heading {
+      @include font-sizes(28, 40);
+      letter-spacing: rem-calc(-0.8);
+
+      @include breakpoint(medium down) {
+        padding: 0;
+      }
+    }
+    .c-stats__number {
+      @include font-sizes(65, 120);
+    }
+
+    .c-stats__text {
+      max-width: rem-calc(200);
+    }
+  }
+
+  // Include an underline beneath the component.
+  &.c-stats--underline {
+    border-bottom: 2px solid $color-black;
+    padding-bottom: rem-calc(17);
+
+    @include breakpoint(large) {
+      padding-bottom: rem-calc(35);
+    }
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-stats {
+    // sass linter doesn't like empty blocks :)
+  }
+}

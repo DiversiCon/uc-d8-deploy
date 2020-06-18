@@ -1,0 +1,31 @@
+uuid: 25c829e3-1fe5-49cf-b05a-f96ed7b4a5c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_smartbody_text
+    - paragraphs.paragraphs_type.smartbody
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    smartbody: smartbody
+    rich_text: '0'
+    html_full: '0'
+    html_title: '0'
+    plain_text: '0'
+_core:
+  default_config_hash: gYB-YN2aLa7Rhz2WInq44WDqv78YCnHqoxC-Hu8dy1M
+id: paragraph.smartbody.field_smartbody_text
+field_name: field_smartbody_text
+entity_type: paragraph
+bundle: smartbody
+label: 'Smartbody text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

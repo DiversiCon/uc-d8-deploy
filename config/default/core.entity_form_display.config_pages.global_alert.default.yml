@@ -1,0 +1,66 @@
+uuid: 8ae7e23a-52cc-4cde-bd3a-9cfd008dc246
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.global_alert
+    - field.field.config_pages.global_alert.field_cp_boolean
+    - field.field.config_pages.global_alert.field_headline_text
+    - field.field.config_pages.global_alert.field_link_single_0
+    - field.field.config_pages.global_alert.field_subheadline_text
+  module:
+    - allowed_formats
+    - link_attributes
+    - text
+id: config_pages.global_alert.default
+targetEntityType: config_pages
+bundle: global_alert
+mode: default
+content:
+  field_cp_boolean:
+    weight: 0
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_headline_text:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_link_single_0:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+    third_party_settings: {  }
+    type: link_attributes
+    region: content
+  field_subheadline_text:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+hidden:
+  label: true

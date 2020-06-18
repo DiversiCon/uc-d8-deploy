@@ -1,0 +1,23 @@
+uuid: 6abb603a-8a7c-4dab-b98d-6e1151da99b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.events_single_tile.field_event_reference
+    - paragraphs.paragraphs_type.events_single_tile
+  module:
+    - uc_cdr_client
+id: paragraph.events_single_tile.default
+targetEntityType: paragraph
+bundle: events_single_tile
+mode: default
+content:
+  field_event_reference:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: uc_cdr_client_external_reference_formatter
+    region: content
+hidden:
+  search_api_excerpt: true

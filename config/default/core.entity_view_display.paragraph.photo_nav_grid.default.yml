@@ -1,0 +1,64 @@
+uuid: 42bf3ac3-dcdb-41cd-ba2d-be3bbb8a4c0b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.photo_nav_grid.field_feature_4sq_img_1
+    - field.field.paragraph.photo_nav_grid.field_feature_4sq_img_2
+    - field.field.paragraph.photo_nav_grid.field_feature_4sq_img_3
+    - field.field.paragraph.photo_nav_grid.field_feature_4sq_img_4
+    - field.field.paragraph.photo_nav_grid.field_headline_text
+    - paragraphs.paragraphs_type.photo_nav_grid
+  module:
+    - entity_reference_revisions
+    - text
+id: paragraph.photo_nav_grid.default
+targetEntityType: paragraph
+bundle: photo_nav_grid
+mode: default
+content:
+  field_feature_4sq_img_1:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_feature_4sq_img_2:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_feature_4sq_img_3:
+    weight: 3
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_feature_4sq_img_4:
+    weight: 4
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_headline_text:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  search_api_excerpt: true

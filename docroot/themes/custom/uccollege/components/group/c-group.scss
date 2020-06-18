@@ -1,0 +1,29 @@
+.page-node-type-group {
+  article.c-article {
+    margin-bottom: rem-calc(20);
+
+    @include breakpoint(medium) {
+      margin-bottom: rem-calc(40);
+    }
+  }
+
+  .c-member-list {
+    li {
+      line-height: rem-calc(20);
+      padding: 0 !important;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    &__name {
+      display: inline-block;
+    }
+
+    &__positions {
+      display: inline-block;
+      font-size: rem-calc(14);
+    }
+  }
+}

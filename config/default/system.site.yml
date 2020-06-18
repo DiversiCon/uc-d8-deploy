@@ -1,0 +1,15 @@
+uuid: f9b41d80-3092-40d2-a239-1b52c19c8565
+name: 'Pritzker School of Molecular Engineering'
+mail: dmcphee@uchicago.edu
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /home
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI
+mail_notification: ''

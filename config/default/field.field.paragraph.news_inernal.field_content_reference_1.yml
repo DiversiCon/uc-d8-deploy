@@ -1,0 +1,31 @@
+uuid: 2b1a563a-9298-4c7d-8fc9-188bceee2ef5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content_reference_1
+    - node.type.external
+    - node.type.story
+    - paragraphs.paragraphs_type.news_inernal
+id: paragraph.news_inernal.field_content_reference_1
+field_name: field_content_reference_1
+entity_type: paragraph
+bundle: news_inernal
+label: 'Content Reference 2'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      external: external
+      story: story
+    sort:
+      field: changed
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: story
+field_type: entity_reference

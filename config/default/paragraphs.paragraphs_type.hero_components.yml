@@ -1,0 +1,9 @@
+uuid: 8ce9d416-452a-45c5-8431-b2240021b887
+langcode: en
+status: true
+dependencies: {  }
+id: hero_components
+label: 'Hero Components'
+icon_uuid: null
+description: 'Display a hero component on the page like a single photo, a gallery, a video, etc.'
+behavior_plugins: {  }

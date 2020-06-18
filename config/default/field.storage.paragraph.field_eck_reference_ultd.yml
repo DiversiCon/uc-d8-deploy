@@ -1,0 +1,20 @@
+uuid: 64f9cbcd-7018-4a09-8f54-895021939fc2
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - paragraphs
+id: paragraph.field_eck_reference_ultd
+field_name: field_eck_reference_ultd
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: reusable
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

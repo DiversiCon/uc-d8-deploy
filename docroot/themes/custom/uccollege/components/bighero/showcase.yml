@@ -1,0 +1,24 @@
+bighero:
+  title: Big Hero
+  description: Displays a large image with text. Currently used for the error pages.
+  type: component
+  attributes:
+    category: Images & Media
+  variants:
+  -
+    title: Big Hero
+    caption: Displays a large image with text above. Currently used for the error pages.
+    content:
+      heading: "Oops!"
+      description: "<p>The page you are looking for is not here. Try going back to the <a href='/it/showcase/'>homepage</a>.</p>"
+      img: "/themes/custom/uccollege/it_showcase/images/gargoyle-lg.jpg"
+      imgSmall: "/themes/custom/uccollege/it_showcase/images/gargoyle-sm.jpg"
+
+bighero.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: bighero.component
+    index_hide: true
+    file: themes/custom/uccollege/components/bighero/README.md

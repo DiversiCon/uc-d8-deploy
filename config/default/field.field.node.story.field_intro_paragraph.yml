@@ -1,0 +1,265 @@
+uuid: 8d03664b-19c2-476a-b881-188ca272ee6f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_intro_paragraph
+    - node.type.story
+    - paragraphs.paragraphs_type.hero_components
+  module:
+    - entity_reference_revisions
+id: node.story.field_intro_paragraph
+field_name: field_intro_paragraph
+entity_type: node
+bundle: story
+label: 'Gallery or Video'
+description: 'Add a gallery or video to be displayed as a hero on the story page. This will override the main image on the story page.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      hero_components: hero_components
+    target_bundles_drag_drop:
+      accordion_block:
+        weight: 76
+        enabled: false
+      accordion_item:
+        weight: 77
+        enabled: false
+      avatar:
+        weight: 78
+        enabled: false
+      callout:
+        weight: 79
+        enabled: false
+      callout_insert:
+        weight: 80
+        enabled: false
+      callout_item_reference:
+        weight: 81
+        enabled: false
+      callout_item_unique:
+        weight: 82
+        enabled: false
+      callout_reference:
+        weight: 83
+        enabled: false
+      card_grid:
+        weight: 84
+        enabled: false
+      card_grid_insert:
+        weight: 85
+        enabled: false
+      card_grid_item:
+        weight: 86
+        enabled: false
+      card_grid_reference:
+        weight: 87
+        enabled: false
+      components:
+        weight: 88
+        enabled: false
+      components_lower:
+        weight: 89
+        enabled: false
+      cta_block:
+        weight: 90
+        enabled: false
+      cta_buttons:
+        weight: 91
+        enabled: false
+      cta_text_link:
+        weight: 92
+        enabled: false
+      custom_link:
+        weight: 93
+        enabled: false
+      date:
+        weight: 94
+        enabled: false
+      contact_group:
+        weight: 95
+        enabled: false
+      feature:
+        weight: 95
+        enabled: false
+      feature_4_square_images:
+        weight: 96
+        enabled: false
+      contact_group_list:
+        weight: 96
+        enabled: false
+      contact_person_reference:
+        weight: 97
+        enabled: false
+      feature_4sq_img_link:
+        weight: 97
+        enabled: false
+      contact_single_person:
+        weight: 98
+        enabled: false
+      feature_components:
+        weight: 98
+        enabled: false
+      feature_image_link:
+        weight: 99
+        enabled: false
+      feature_insert:
+        weight: 100
+        enabled: false
+      feature_reference:
+        weight: 101
+        enabled: false
+      flickr_gallery:
+        weight: 102
+        enabled: false
+      generic_sidebar:
+        weight: 103
+        enabled: false
+      generic_sidebar_item:
+        weight: 104
+        enabled: false
+      hero_components:
+        enabled: true
+        weight: 105
+      home_page_grid:
+        weight: 106
+        enabled: false
+      html_text:
+        weight: 107
+        enabled: false
+      infographic:
+        weight: 108
+        enabled: false
+      link_list:
+        weight: 109
+        enabled: false
+      map:
+        weight: 110
+        enabled: false
+      masthead_main_navigation:
+        weight: 111
+        enabled: false
+      news_block:
+        weight: 112
+        enabled: false
+      news_external:
+        weight: 113
+        enabled: false
+      news_inernal:
+        weight: 114
+        enabled: false
+      news_list:
+        weight: 115
+        enabled: false
+      people_grouped_list:
+        weight: 116
+        enabled: false
+      people_grouped_list_group:
+        weight: 117
+        enabled: false
+      person_list_teasers:
+        weight: 118
+        enabled: false
+      photo_inset:
+        weight: 119
+        enabled: false
+      photo_nav_grid:
+        weight: 120
+        enabled: false
+      photo_nav_grid_item:
+        weight: 121
+        enabled: false
+      plain_text_component:
+        weight: 122
+        enabled: false
+      program_selector:
+        weight: 123
+        enabled: false
+      pullquote:
+        weight: 124
+        enabled: false
+      quick_links:
+        weight: 125
+        enabled: false
+      quick_links_two_column:
+        weight: 126
+        enabled: false
+      quotator_item:
+        weight: 127
+        enabled: false
+      ranged_stat:
+        weight: 128
+        enabled: false
+      ranged_stats:
+        weight: 129
+        enabled: false
+      section_taxonomy_component:
+        weight: 130
+        enabled: false
+      sidebar_gen_related:
+        weight: 131
+        enabled: false
+      sidebar_inquiries:
+        weight: 132
+        enabled: false
+      smartbody:
+        weight: 133
+        enabled: false
+      smartbody_image:
+        weight: 134
+        enabled: false
+      social_grid:
+        weight: 135
+        enabled: false
+      staff_selector:
+        weight: 136
+        enabled: false
+      stats:
+        weight: 137
+        enabled: false
+      stats_reference:
+        weight: 138
+        enabled: false
+      switcher:
+        weight: 139
+        enabled: false
+      switcher_cta:
+        weight: 140
+        enabled: false
+      switcher_getting_started:
+        weight: 141
+        enabled: false
+      teaser:
+        weight: 142
+        enabled: false
+      teaser_insert:
+        weight: 143
+        enabled: false
+      teaser_reference:
+        weight: 144
+        enabled: false
+      tile:
+        weight: 145
+        enabled: false
+      tile_insert:
+        weight: 146
+        enabled: false
+      tile_reference:
+        weight: 147
+        enabled: false
+      video_html:
+        weight: 148
+        enabled: false
+      video_youtube:
+        weight: 149
+        enabled: false
+      visual_nav_insert:
+        weight: 150
+        enabled: false
+field_type: entity_reference_revisions

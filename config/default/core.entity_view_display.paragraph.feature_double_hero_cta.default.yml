@@ -1,0 +1,83 @@
+uuid: b8fa8290-1940-4ce0-a6ec-95a7d82abcb1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.feature_double_hero_cta.field_headline_text
+    - field.field.paragraph.feature_double_hero_cta.field_link_theme
+    - field.field.paragraph.feature_double_hero_cta.field_paragraph_single
+    - field.field.paragraph.feature_double_hero_cta.field_paragraph_single_0
+    - field.field.paragraph.feature_double_hero_cta.field_single_link
+    - field.field.paragraph.feature_double_hero_cta.field_subheadline_text
+    - field.field.paragraph.feature_double_hero_cta.field_subheadline_text_0
+    - paragraphs.paragraphs_type.feature_double_hero_cta
+  module:
+    - entity_reference_revisions
+    - link
+    - options
+    - text
+id: paragraph.feature_double_hero_cta.default
+targetEntityType: paragraph
+bundle: feature_double_hero_cta
+mode: default
+content:
+  field_headline_text:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_link_theme:
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_paragraph_single:
+    weight: 0
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_paragraph_single_0:
+    weight: 1
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_single_link:
+    weight: 4
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_subheadline_text:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_subheadline_text_0:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  search_api_excerpt: true

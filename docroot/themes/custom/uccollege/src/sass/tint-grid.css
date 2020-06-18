@@ -1,0 +1,109 @@
+/* Tint overrides for Grid Personalization */
+#collectionHolder {
+  display: none !important;
+}
+
+.post-holder {
+  position: relative;
+}
+
+.post .post-title {
+  font-size: 16px;
+  line-height: 1.33;
+  letter-spacing: -0.5px;
+}
+
+.chiclet {
+  display: none;
+}
+
+.post {
+  box-shadow: none;
+}
+
+.post .post-acct img {
+  width: 40px;
+  height: 40px;
+}
+
+.post .post-acct .names {
+  font-size: 14px;
+}
+
+.post .post-acct .names b {
+  font-size: 20px;
+}
+
+.post-timeago {
+  color: rgba(22, 22, 22, 0.3);
+}
+
+.v3-post a.external-link,
+.connected-hashtag {
+  color: #800000;
+}
+
+.tflex-content {
+  padding-bottom: 32px;
+}
+
+.post .post-type-icon {
+  position: absolute;
+  bottom: 62px;
+  right: 20px;
+}
+
+.post.text-only .post-type-icon i {
+  font-size: 2rem;
+  left: inherit;
+  top: 5px;
+  right: 5px;
+}
+
+
+/* Square image */
+.post-image{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.post-image:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+.post .post-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  object-fit: cover;
+  object-position: center center;
+  height: 100%;
+}
+
+/* Hide "more" button */
+.paginate-button-holder {
+  display: none;
+}
+
+.tflex-inner-container > div {
+  margin-top: 0;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .post .post-acct img {
+    width: 20px;
+    height: 20px;
+    margin-top: 4px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .post .post-acct .names {
+    padding-right: 1rem;
+  }
+}
+

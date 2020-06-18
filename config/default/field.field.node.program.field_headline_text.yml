@@ -1,0 +1,28 @@
+uuid: 965117b3-e9ad-40ee-abcf-47556e6b7bac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_headline_text
+    - node.type.program
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    smartbody: '0'
+    basic_html: '0'
+    plain_text: '0'
+id: node.program.field_headline_text
+field_name: field_headline_text
+entity_type: node
+bundle: program
+label: Headline
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

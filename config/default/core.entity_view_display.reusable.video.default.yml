@@ -1,0 +1,78 @@
+uuid: 50d304c9-0964-434a-bee6-a1e4e3331448
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.video
+    - field.field.reusable.video.field_description
+    - field.field.reusable.video.field_eck_title
+    - field.field.reusable.video.field_headline_text
+    - field.field.reusable.video.field_image_main
+    - field.field.reusable.video.field_video_id
+  module:
+    - text
+id: reusable.video.default
+targetEntityType: reusable
+bundle: video
+mode: default
+content:
+  created:
+    label: above
+    type: timestamp
+    weight: 0
+    region: content
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings: {  }
+  field_description:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_eck_title:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_headline_text:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_image_main:
+    type: entity_reference_entity_view
+    weight: 2
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_video_id:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  changed: true
+  search_api_excerpt: true
+  uid: true

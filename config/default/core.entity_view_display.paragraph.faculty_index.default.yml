@@ -1,0 +1,13 @@
+uuid: 5977200e-64a5-4526-b5ca-9c423e2f5044
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.faculty_index
+id: paragraph.faculty_index.default
+targetEntityType: paragraph
+bundle: faculty_index
+mode: default
+content: {  }
+hidden:
+  search_api_excerpt: true

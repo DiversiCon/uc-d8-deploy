@@ -1,0 +1,30 @@
+uuid: 0f7c4f0f-1d00-4f7c-88e0-ebc62ecdd685
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_smartbody_text
+    - paragraphs.paragraphs_type.smartbody_lite
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    smartbody: smartbody
+    simple_html: '0'
+    basic_html: '0'
+    plain: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.smartbody_lite.field_smartbody_text
+field_name: field_smartbody_text
+entity_type: paragraph
+bundle: smartbody_lite
+label: 'Smartbody text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

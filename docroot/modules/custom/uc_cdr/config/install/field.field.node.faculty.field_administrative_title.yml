@@ -1,0 +1,19 @@
+uuid: 019520d9-bd22-423c-9376-b7487aba135c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_administrative_title
+    - node.type.faculty
+id: node.faculty.field_administrative_title
+field_name: field_administrative_title
+entity_type: node
+bundle: faculty
+label: 'Administrative Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,8 @@
+it_showcase.admin:
+  title: 'Showcase'
+  description: 'View all site component and page prototypes.'
+  parent: system.admin
+  route_name: it_showcase.index
+  weight: 99
+  #If menu_name is omitted, the "Tools" menu will be used.
+  menu_name: admin

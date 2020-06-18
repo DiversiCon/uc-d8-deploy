@@ -1,0 +1,20 @@
+uuid: d3067a6c-a3a5-44c9-931c-7c5d4a79180c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - paragraphs
+id: paragraph.field_content_multiple
+field_name: field_content_multiple
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

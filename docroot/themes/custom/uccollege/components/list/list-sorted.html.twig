@@ -1,0 +1,14 @@
+{#
+/**
+ * list-filter Twig Partial
+ *
+ */
+#}
+
+<uc-list
+  datasource="{{ content.datasource }}"
+  :filtered="{{ content.filtered }}"
+  :items-per-page="{{ content.itemsPerPage }}"
+  :paginate="{{ content.paginate }}"
+  :is-search="{{ content.isSearch }}">
+</uc-list>

@@ -1,0 +1,45 @@
+uuid: 72aba4d6-48b8-4c8e-851c-5946b4a1c45f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.home_page_grid_b.field_par_paragraph_single
+    - field.field.paragraph.home_page_grid_b.field_paragraph_single
+    - field.field.paragraph.home_page_grid_b.field_paragraph_single_0
+    - paragraphs.paragraphs_type.home_page_grid_b
+  module:
+    - entity_reference_revisions
+id: paragraph.home_page_grid_b.default
+targetEntityType: paragraph
+bundle: home_page_grid_b
+mode: default
+content:
+  field_par_paragraph_single:
+    weight: 2
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_paragraph_single:
+    weight: 0
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_paragraph_single_0:
+    weight: 1
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

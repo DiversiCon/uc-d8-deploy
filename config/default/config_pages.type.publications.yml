@@ -1,0 +1,16 @@
+uuid: 1ddf1ed5-9065-470f-898e-7f0eca4b5edf
+langcode: en
+status: true
+dependencies: {  }
+id: publications
+label: Publications
+context:
+  show_warning: true
+  group:
+    language: false
+  fallback:
+    language: ''
+menu:
+  path: /admin/config/publications
+  weight: -41
+  description: Publications

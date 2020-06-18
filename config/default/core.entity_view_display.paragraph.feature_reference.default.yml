@@ -1,0 +1,23 @@
+uuid: b2e53d1f-3c5b-4769-809f-4cfcc6c91bf6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.feature_reference.field_eck_reference
+    - paragraphs.paragraphs_type.feature_reference
+id: paragraph.feature_reference.default
+targetEntityType: paragraph
+bundle: feature_reference
+mode: default
+content:
+  field_eck_reference:
+    weight: 0
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

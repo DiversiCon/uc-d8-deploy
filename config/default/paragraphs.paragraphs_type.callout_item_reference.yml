@@ -1,0 +1,9 @@
+uuid: d3118320-cd8c-4907-969a-b78d8b045fe5
+langcode: en
+status: true
+dependencies: {  }
+id: callout_item_reference
+label: 'Callout Item, Reference'
+icon_uuid: null
+description: 'Referenced from inside Callout, Unique, this will reference nodes as items for callouts.'
+behavior_plugins: {  }

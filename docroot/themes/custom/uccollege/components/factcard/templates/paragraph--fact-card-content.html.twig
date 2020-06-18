@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Fact card inside content
+ *
+ * see contrib @paragraph module
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set label = content.field_par_html_text_title[0]['#text'] %}
+{% set item = content.field_par_body %}
+{% block paragraph %}
+  {% block content %}
+    <li class="c-factcard__item">
+      <strong>{{ label }}:</strong> {{ item }}
+    </li>
+  {% endblock %}
+{% endblock paragraph %}

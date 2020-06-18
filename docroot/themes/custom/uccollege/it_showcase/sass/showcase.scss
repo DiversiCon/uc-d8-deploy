@@ -1,0 +1,170 @@
+
+// import global sass dependencies
+//@import "../../src/sass/main";
+
+@function rem-calc($px) {
+  @return $px / 16 * 1rem;
+}
+
+.showcase__wrap {
+  color: #595959;
+  font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-size: rem-calc(18);
+  padding-top: 0;
+
+  a {
+    color: #2f6d6d;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: #000;
+    }
+  }
+
+  header {
+    border-bottom: 2px solid #c8c8c8;
+    margin-top: rem-calc(55);
+    padding-bottom: rem-calc(18);
+  }
+
+  nav {
+    margin: 1rem 0;
+    text-align: right;
+
+    a {
+      border-right: 1px solid #c8c8c8;
+      font-size: rem-calc(14);
+      margin-right: rem-calc(10);
+      padding-right: rem-calc(13);
+      &:last-child {
+        border: 0;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+
+  h2,
+  h3 {
+    border-bottom: 2px solid #eee;
+    font-size: rem-calc(22);
+    margin-bottom: rem-calc(18);
+    padding-bottom: rem-calc(12);
+    text-transform: uppercase;
+  }
+
+  h3 {
+    font-size: rem-calc(18);
+    border-bottom: 0;
+    padding: 0;
+  }
+
+  h4 {
+    font-size: rem-calc(24);
+  }
+
+  .showcase__index {
+    display: grid;
+    grid-gap: rem-calc(20);
+    grid-template-columns: 15% 1fr;
+  }
+
+  .showcase__sidebar {
+    padding-top: rem-calc(5);
+
+    ul {
+      list-style: none;
+      margin: 0 0 rem-calc(20) 0;
+      padding: 0;
+
+      a {
+        display: inline-block;
+        margin-bottom: rem-calc(8);
+      }
+    }
+  }
+
+  .showcase__list {
+    display: grid;
+    grid-gap: rem-calc(20);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-bottom: rem-calc(40);
+  }
+
+  .showcase__item {
+    background-color: #fff;
+    border: 1px solid #c8c8c8;
+    border-radius: rem-calc(10);
+    padding: 1rem;
+
+    &.active {
+      background-color: #e6e6e6;
+    }
+
+    &-title {
+      border-bottom: 1px solid #c8c8c8;
+      display: block;
+      font-weight: bold;
+      margin-bottom: rem-calc(8);
+      text-decoration: none;
+    }
+
+    p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .showcase__links {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        border-right: 1px solid #9c9c9c;
+        padding-right: rem-calc(6);
+        margin-right: rem-calc(6);
+
+        &:last-child {
+          border: 0;
+        }
+      }
+
+      a {
+        color: #9c9c9c;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  // Drupal stuff
+  #block-uccollege-anon-page-title,
+  #block-uccollege-page-title {
+    display: none;
+
+    h1 {
+      margin: rem-calc(15) 0 rem-calc(100) 0;
+      text-align: left;
+    }
+    + p {
+      margin: rem-calc(-100) 0 rem-calc(100) 0;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    &__sidebar {
+      max-width: 345px;
+      margin: 0 auto;
+    }
+  }
+
+  &.user-logged-in .c-masthead {
+    position: static !important; //space for drupal toolbar
+  }
+}
+
+.showcase__readme {
+  thead {
+    background-color: #dadada;
+  }
+}

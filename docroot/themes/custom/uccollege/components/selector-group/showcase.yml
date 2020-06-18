@@ -1,0 +1,316 @@
+selector_group:
+  title: Group Selector
+  description:
+  type: component
+  variants:
+  -
+    title: Staff
+    content:
+      filterkey: office
+      label: "Filter by office, division or program"
+      source: "/it/showcase/endpoint/staff-endpoint"
+  -
+    title: Awards
+    content:
+      filterkey: group
+      label: "Filter by year"
+      source: "/it/showcase/endpoint/awards-endpoint"
+  -
+    title: Default pre-selected (2016)
+    content:
+      filterkey: group
+      label: "Filter by year"
+      groupSort: desc
+      source: "/it/showcase/endpoint/awards-endpoint"
+      defaultOption: 2016
+  -
+    title: Default pre-selected (Office of the Dean of the College), Dropdown hidden
+    content:
+      filterkey: office
+      label: "Filter by office, division or program"
+      source: "/it/showcase/endpoint/staff-endpoint"
+      defaultOption: "Office of the Dean of the College"
+      hideDropdown: true
+  -
+    title: Dean's Council
+    content:
+      filterkey: group
+      label: "Filter by office, division or program"
+      source: "/it/showcase/endpoint/council-endpoint"
+      hideDropdown: true
+  -
+    title: Leadership
+    content:
+      filterkey: group
+      label: "Filter by office, division or program"
+      source: "/it/showcase/endpoint/leadership-endpoint"
+      defaultOption: "All"
+      hideDropdown: true
+
+awards-endpoint:
+  title: Awards Endpoint
+  description: Used in the Group Selector component
+  type: endpoint
+  variants:
+  -
+    title: Default
+    caption:
+    content:
+      options:
+      - name: All
+      - name: 2018 Long filter title
+      - name: 2017
+      - name: 2016
+      items:
+      - name: Christopher Wild
+        title: Master, Humanities Collegiate Division
+        group: 2018 Long filter title
+        location: Harper Memorial Library 228
+        phone: (773) 702-2959
+        email: wild@uchicago.edu
+        image: https://college-stage.uchicago.edu/sites/default/files/styles/staff_thumbnail/public/images/people/Christopher-Wild.jpg?itok=fuwt1aK8
+      - name: James Sparrow
+        title: Master, Social Sciences Collegiate Division
+        group: 2018 Long filter title
+        location: Harper Memorial Library 250
+        phone: (773) 702-7925
+        email: jts@uchicago.edu
+        image: https://college-stage.uchicago.edu/sites/default/files/styles/staff_thumbnail/public/images/people/Sparrow_01.jpg?itok=uk0prYaL
+      - name: Kirsten Cole
+        title: Project Assistant, Biological Sciences Collegiate Division
+        group: 2018 Long filter title
+        location: BSLC 301
+        phone: (773) 702-7963
+        email: kcole@uchicago.edu
+        image: null
+      - name: Jennifer Bess
+        title: College Adviser
+        group: 2017
+        location: Harper Memorial Library M396
+        phone: (773) 702-4232
+        email: jenbess@uchicago.edu
+        image: https://college-stage.uchicago.edu/sites/default/files/styles/staff_thumbnail/public/people/CollegeAdvisers-3.jpg?itok=rD6WqOIr
+      - name: Lewis Fortner
+        title: Associate Dean and  Associate Director for Student Affairs
+        group: 2017
+        location: Harper Memorial Library 213
+        phone: (773) 702-4858
+        email: fortner@uchicago.edu
+        image: https://college-stage.uchicago.edu/sites/default/files/styles/staff_thumbnail/public/images/people/lewis-fortner.jpg?itok=FfuSFBVj
+      - name: Margaret Fink
+        title: Assistant Director
+        group: 2017
+        location: Stuart 330
+        phone: (773) 834-0850
+        email: mlfink@uchicago.edu
+        image: https://college-stage.uchicago.edu/sites/default/files/styles/staff_thumbnail/public/images/people/Margaret%20Fink.jpg?itok=wJem7-3z
+      - name: Dan Bertsche
+        title: Information Coordinator for International Education
+        group: 2017
+        location: Gates-Blake 513
+        phone: (773) 702-3662
+        email: ddb1@uchicago.edu
+        image: https://college-stage.uchicago.edu/sites/default/files/styles/staff_thumbnail/public/images/people/dan-bertsche.jpg?itok=iIbJif3h
+      - name: Jacqueline Gaines
+        title: College Adviser
+        group: 2016
+        location: Harper Memorial Library W406b
+        phone: (773) 702-6212
+        email: jgaines@uchicago.edu
+        image: https://college-stage.uchicago.edu/sites/default/files/styles/staff_thumbnail/public/images/people/jacqueline-gaines.jpg?itok=cEWcXkoE
+      - name: Katie Malmquist
+        title: Executive Director of Development, Associate Dean of the College
+        group: 2016
+        location: Harper Memorial Library 246
+        phone: (773) 702-8914
+        email: kmalmquist@uchicago.edu
+        image: https://college-stage.uchicago.edu/sites/default/files/styles/staff_thumbnail/public/images/people/katie-malmquist_0.jpg?itok=nCoo3k-D
+
+staff-endpoint:
+  title: Staff Endpoint
+  description: Used in the Group Selector component
+  type: endpoint
+  variants:
+  -
+    title: Default
+    caption:
+    content:
+      options:
+      - name: All
+      - name: Office of the Dean of the College
+      - name: Office of the Dean of Students in the College
+      - name: Center for College Student Success
+      - name: College Center for Research and Fellowships
+      - name: College Information Technology
+      - name: College Information Technology
+      - name: College Programming Office
+      - name: Biological Sciences Collegiate Division
+      - name: Humanities Collegiate Division
+      - name: Social Sciences Collegiate Division
+      - name: New Collegiate Division
+      - name: Physical Sciences Collegiate Division
+      - name: Society of Fellows in the Liberal Arts
+      - name: Study Abroad
+      - name: University of Chicago Center in Paris
+      - name: Writing Program
+      - name: Summer Quarter Program
+      items:
+      - name: John W. Boyer
+        title: Dean of the College
+        office: Office of the Dean of the College
+        location: Harper Memorial Library 247
+        phone: (773) 702-8576
+        email: jwboyer@uchicago.edu
+        image: /themes/custom/uccollege/it_showcase/images/staff/staff-boyer.jpg
+      - name: Jay Ellison
+        title: Dean of Students in the College
+        office: Office of the Dean of Students in the College
+        location: Harper Memorial Library 281
+        phone: (773) 702-8609
+        email: jlellison@uchicago.edu
+        image: /themes/custom/uccollege/it_showcase/images/staff/staff-ellison.jpg
+      - name: Elise Covic
+        title: Deputy Dean of the College for Academic Programs
+        office: Office of the Dean of the College
+        location: Harper Memorial Library 251
+        phone: (773) 702-8622
+        email: eliseg@uchicago.edu
+        image: /themes/custom/uccollege/it_showcase/images/avatar.png
+      - name: Devon Moore
+        title: Assistant Dean of Students & Director, Center for College Student Success
+        office: Center for College Student Success
+        location: Harper Memorial Library W402
+        phone: (773) 702-4537
+        email: devonmoore@uchicago.edu
+        image: null
+      - name: Katherine Karvunis
+        title: Executive Associate Dean of the College for Finance and Administration
+        office: Office of the Dean of the College
+        location: Harper Memorial Library 243
+        phone: (773) 702-8578
+        email: karvunis@uchicago.edu
+        image: /themes/custom/uccollege/it_showcase/images/avatar.png
+      - name: Andrea Lewis
+        title: Director of College Communications and Associate Dean of the College
+        office: Office of the Dean of the College
+        location: LEVI 128
+        phone: (773) 702-7835
+        email: andrealewis@uchicago.edu
+        image: /themes/custom/uccollege/it_showcase/images/avatar.png
+      - name: Renee Lucido
+        title: Director of Staff Relations
+        office: Office of the Dean of the College
+        location: Harper Memorial Library 237
+        phone: (773) 834-1369
+        email: rlucido@uchicago.edu
+        image: /themes/custom/uccollege/it_showcase/images/avatar.png
+      - name: Carissa Abrego-Collier
+        title: Program Coordinator
+        office: Writing Program
+        location: Stuart 330
+        phone: (773) 702-7835
+        email: carissa@uchicago.edu
+        image: /themes/custom/uccollege/it_showcase/images/avatar.png
+
+council-endpoint:
+  title: "Dean's Council Endpoint"
+  description:
+  type: endpoint
+  variants:
+    -
+      title: Default
+      caption:
+      content:
+        options:
+          - name: All
+          - name: First Year (MS1) Representatives
+          - name: Second Year (MS2) Representatives
+          - name: Third Year (MS3) Representatives
+        items:
+          - name: Sanjeev Dhara
+            group: First Year (MS1) Representatives
+            email: sanjeev.dhara@uchospitals.edu
+            image: https://via.placeholder.com/768&text=FPO
+          - name: Robert Hight
+            group: First Year (MS1) Representatives
+            email: robert.hight@uchospitals.edu
+            image: https://via.placeholder.com/768&text=FPO
+          - name: Lilly Lerer
+            group: First Year (MS1) Representatives
+            email: Lillian.Lerer@uchospitals.edu
+            image: https://via.placeholder.com/768&text=FPO
+          - name: Anase Asom
+            group: Second Year (MS2) Representatives
+            email: anase.asom@uchospitals.edu
+            image: https://via.placeholder.com/768&text=FPO
+          - name: Steven Server
+            group: Second Year (MS2) Representatives
+            email: steven.server@uchospitals.edu
+            image: https://via.placeholder.com/768&text=FPO
+          - name: Katherine Tran
+            group: Second Year (MS2) Representatives
+            email: Katherine.Tran@uchospitals.edu
+            image: https://via.placeholder.com/768&text=FPO
+          - name: Ben Bowman
+            group: Third Year (MS3) Representatives
+            email: Benjamin.Bowman@uchospitals.edu
+            image: https://via.placeholder.com/768&text=FPO
+          - name: Kevin Kennedy
+            group: Third Year (MS3) Representatives
+            email: Kevin.Kennedy@uchospitals.edu
+            image: https://via.placeholder.com/768&text=FPO
+          - name: Kate Mullersman
+            group: Third Year (MS3) Representatives
+            email: Katherine.Mullersman@uchospitals.edu
+            image: https://via.placeholder.com/768&text=FPO
+          - name: Leonie Oostrom
+            group: Third Year (MS3) Representatives
+            email: Leonie.Oostrom@uchospitals.edu
+            image: https://via.placeholder.com/768&text=FPO
+
+leadership-endpoint:
+  title: "Leadership Endpoint"
+  description:
+  type: endpoint
+  variants:
+    -
+      title: Default
+      caption:
+      content:
+        options:
+          - name: All
+          - name: Academic Deans
+          - name: Dean's Office Senior Staff
+        items:
+          - name: Habibul Ahsan
+            group: Academic Deans
+            title: Dean for Population and Precision Health
+            email: habibul@uchicago.edu
+            image: https://via.placeholder.com/768&text=FPO
+            phone: 773.834.9956
+          - name: Susan Cohn
+            group: Academic Deans
+            title: Dean for Clinical Research
+            email: scohn@peds.bsd.uchicago.edu
+            image: https://via.placeholder.com/768&text=FPO
+            phone: 773.702.2571
+          - name: Brenda Battle
+            group: Dean's Office Senior Staff
+            title: Assistant Dean for Diversity and Inclusion, Vice President for Care Delivery
+            email: bbattle@uchospitals.edu
+            image: https://via.placeholder.com/768&text=FPO
+            phone: 773.702.1060
+          - name: Danielle Bodalski
+            group: Dean's Office Senior Staff
+            title: Interim Assistant Dean and Executive Director, BSD Human Resources
+            email: dbodalski@bsd.uchicago.edu
+            phone: 773.702.3140
+
+selector-group.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: selector_group.component
+    index_hide: true
+    file: themes/custom/uccollege/components/selector-group/README.md

@@ -1,0 +1,33 @@
+uuid: 7b93c9c0-1001-493e-9413-2ccaaeaf14ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.publication
+  module:
+    - user
+id: node.publication.teaser
+targetEntityType: node
+bundle: publication
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_associated_people: true
+  field_author_list: true
+  field_citation: true
+  field_label: true
+  field_link_single: true
+  field_pmid: true
+  field_publication: true
+  field_publication_date: true
+  field_publication_venue: true
+  field_section: true
+  field_topics: true
+  field_year: true
+  search_api_excerpt: true

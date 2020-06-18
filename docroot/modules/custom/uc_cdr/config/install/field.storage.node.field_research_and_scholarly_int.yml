@@ -1,0 +1,20 @@
+uuid: 2dd0b11f-2461-4ee6-89d8-690f349e420a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_research_and_scholarly_int
+field_name: field_research_and_scholarly_int
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

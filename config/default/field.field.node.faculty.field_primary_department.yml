@@ -1,0 +1,29 @@
+uuid: b2c6694e-b652-4adb-84d3-c8ce6adf8339
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_primary_department
+    - node.type.faculty
+    - taxonomy.vocabulary.faculty_departments
+id: node.faculty.field_primary_department
+field_name: field_primary_department
+entity_type: node
+bundle: faculty
+label: 'Primary Department'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      faculty_departments: faculty_departments
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

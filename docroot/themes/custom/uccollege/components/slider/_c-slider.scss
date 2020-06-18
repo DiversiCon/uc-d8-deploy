@@ -1,0 +1,43 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - slider component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+@import "./../../node_modules/swiper/dist/css/swiper.min.css";
+
+.c-slider {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  @include breakpoint(medium) {
+    padding: 0 rem-calc(57);
+  }
+
+  &.swiper-container {
+    padding: 0 rem-calc(40); //space for arrows
+
+    .swiper-wrapper {
+      justify-content: flex-start;
+      flex-direction: row;
+
+      .swiper-slide {
+        max-width: 100%;
+      }
+    }
+  }
+
+  @include breakpoint(large) {
+    margin-left: 0;
+    margin-right: 0;
+
+    &.swiper-container {
+      margin-left: 0;
+      margin-right: 0;
+
+      .swiper-slide {
+        max-width: rem-calc(220);
+      }
+    }
+  }
+}

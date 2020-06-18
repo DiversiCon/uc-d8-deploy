@@ -1,0 +1,33 @@
+{#
+/**
+ * @file
+ * Image, name and title, description and optional link.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set img = content.field_media %}
+{% set title = content.field_title %}
+{% set description = content.field_description %}
+{% set link = content.field_single_link %}
+{% set link_target = link.0['#options']['attributes']['target'] %}
+
+<figure class="c-avatar">
+  <div class="c-avatar__image">
+    <div class="c-avatar__image-wrap">
+      {{ img }}
+    </div>
+  </div>
+  <figcaption>
+    <p class="c-avatar__title"> {{ title }} </p>
+    {% autoescape false %}<p class="c-avatar__text">{{ description }}</p>{% endautoescape %}
+    {% if link|render is not empty %}
+      <div class="c-avatar__link"> —
+        <a href="{{ link.0['#url'] }}" target="{{ link_target }}">
+          {{ link.0['#title'] }}
+        </a>
+      </div>
+    {% endif %}
+  </figcaption>
+</figure>

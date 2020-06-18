@@ -1,0 +1,21 @@
+uuid: 86eb4786-7313-474a-8908-d1b959110d16
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_status
+    - node.type.event
+  module:
+    - options
+id: node.event.field_event_status
+field_name: field_event_status
+entity_type: node
+bundle: event
+label: 'Event Status'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

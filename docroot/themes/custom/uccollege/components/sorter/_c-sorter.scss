@@ -1,0 +1,48 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - sorter component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-sorter {
+  @include font-sizes(16, 18);
+  margin-top: rem-calc(-30);
+  .c-list__item-text {
+    padding-top: 0;
+  }
+
+  @include breakpoint(medium) {
+    margin-top: 0;
+  }
+
+  @include breakpoint(nav) {
+    margin-top: rem-calc(40);
+  }
+
+  @include breakpoint(large down) {
+
+    .c-list__item {
+      border-bottom: 0;
+      flex-direction: column;
+      padding-bottom: 0;
+
+      &-text {
+        padding-left: 0;
+        width: 100%;
+      }
+
+      &-image {
+        max-width: 100%;
+        padding-bottom: rem-calc(20);
+        width: auto;
+      }
+    }
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-sorter {
+    // sass linter doesn't like empty blocks :)
+  }
+}

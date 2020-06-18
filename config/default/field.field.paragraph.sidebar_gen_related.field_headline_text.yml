@@ -1,0 +1,33 @@
+uuid: a3644974-78a9-4644-a508-b001f1008d04
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headline_text
+    - paragraphs.paragraphs_type.sidebar_gen_related
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.sidebar_gen_related.field_headline_text
+field_name: field_headline_text
+entity_type: paragraph
+bundle: sidebar_gen_related
+label: 'Related Headline'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 'You may also like …'
+    format: plain
+default_value_callback: ''
+settings: {  }
+field_type: text

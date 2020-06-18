@@ -1,0 +1,17 @@
+dropdown:
+  title: Dropdown
+  description: Stylized UI for select element
+  type: component
+  variants:
+    -
+      title: Default
+      content:
+
+dropdown.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: dropdown.component
+    index_hide: true
+    file: themes/custom/uccollege/components/dropdown/README.md

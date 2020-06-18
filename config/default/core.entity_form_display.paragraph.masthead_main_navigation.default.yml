@@ -1,0 +1,77 @@
+uuid: b08db942-514f-47b1-8198-52537870c0d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.masthead_main_navigation.field_headline_link
+    - field.field.paragraph.masthead_main_navigation.field_headline_text
+    - field.field.paragraph.masthead_main_navigation.field_links_ultd
+    - field.field.paragraph.masthead_main_navigation.field_subheadline_text
+    - paragraphs.paragraphs_type.masthead_main_navigation
+  module:
+    - allowed_formats
+    - link_attributes
+    - text
+id: paragraph.masthead_main_navigation.default
+targetEntityType: paragraph
+bundle: masthead_main_navigation
+mode: default
+content:
+  field_headline_link:
+    weight: 102
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+    third_party_settings: {  }
+    type: link_attributes
+    region: content
+  field_headline_text:
+    weight: 101
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_links_ultd:
+    weight: 104
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+    third_party_settings: {  }
+    type: link_attributes
+    region: content
+  field_subheadline_text:
+    weight: 103
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

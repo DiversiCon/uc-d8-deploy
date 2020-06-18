@@ -1,0 +1,29 @@
+uuid: f4053a42-ff72-44a1-a22c-a7a51db5ba89
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_headline_text
+    - node.type.page
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    smartbody: '0'
+    basic_html: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: node.page.field_headline_text
+field_name: field_headline_text
+entity_type: node
+bundle: page
+label: Headline
+description: 'Headline text'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

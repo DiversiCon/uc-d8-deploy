@@ -1,0 +1,9 @@
+uuid: 5038a1f6-5b90-4d68-a1fb-025d91f53536
+langcode: en
+status: true
+dependencies: {  }
+id: photo_inset
+label: 'Photo Inset'
+icon_uuid: null
+description: 'Inset photo used in smartbody'
+behavior_plugins: {  }

@@ -1,0 +1,100 @@
+uuid: 96cfe556-20ad-4af3-98dd-9aa0c8585965
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.feature.field_body
+    - field.field.paragraph.feature.field_bool_intro_toggle
+    - field.field.paragraph.feature.field_headline_text
+    - field.field.paragraph.feature.field_par_paragraph_single
+    - field.field.paragraph.feature.field_par_paragraph_single_0
+    - field.field.paragraph.feature.field_paragraph_single_0
+    - field.field.paragraph.feature.field_paragraph_single_1
+    - field.field.paragraph.feature.field_section
+    - field.field.paragraph.feature.field_subheadline_text
+    - paragraphs.paragraphs_type.feature
+  module:
+    - entity_reference_revisions
+    - text
+id: paragraph.feature.default
+targetEntityType: paragraph
+bundle: feature
+mode: default
+content:
+  field_body:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_bool_intro_toggle:
+    weight: 2
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_headline_text:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_par_paragraph_single:
+    weight: 3
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_par_paragraph_single_0:
+    weight: 9
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_paragraph_single_0:
+    type: entity_reference_revisions_entity_view
+    weight: 7
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_paragraph_single_1:
+    type: entity_reference_revisions_entity_view
+    weight: 8
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_section:
+    weight: 4
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_subheadline_text:
+    weight: 6
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  search_api_excerpt: true

@@ -1,0 +1,24 @@
+uuid: 7dc6cb54-088a-48d8-bb49-36e313ae53b2
+langcode: en
+status: true
+dependencies: {  }
+name: 'Custml HTML'
+format: custml_html
+weight: 0
+filters:
+  filter_url:
+    id: filter_url
+    provider: filter
+    status: true
+    weight: 0
+    settings:
+      filter_url_length: 72
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: false
+    weight: -10
+    settings:
+      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <p> <h1> <pre> <u> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <a href hreflang !href accesskey id rel target title>'
+      filter_html_help: true
+      filter_html_nofollow: false

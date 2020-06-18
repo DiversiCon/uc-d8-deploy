@@ -1,0 +1,19 @@
+uuid: 55b2910d-40c2-45d9-9a5b-cfc9f7f0edf2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_citation
+    - paragraphs.paragraphs_type.publications
+id: paragraph.publications.field_citation
+field_name: field_citation
+entity_type: paragraph
+bundle: publications
+label: Citation
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

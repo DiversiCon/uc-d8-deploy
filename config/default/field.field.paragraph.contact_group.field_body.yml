@@ -1,0 +1,30 @@
+uuid: 714018c2-c4e3-4503-8652-03c5ac3a56ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_body
+    - paragraphs.paragraphs_type.contact_group
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    simple_html: '0'
+    smartbody: '0'
+    plain: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.contact_group.field_body
+field_name: field_body
+entity_type: paragraph
+bundle: contact_group
+label: 'General Contact Info'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

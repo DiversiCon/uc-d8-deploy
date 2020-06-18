@@ -1,0 +1,264 @@
+teaser:
+  title: Teaser
+  description: Blocks with image, topic and title
+  type: component
+  attributes:
+    category: Callouts
+  variants:
+  -
+    title: Default Teaser
+    content:
+      topic: Pritzker News
+      topiclink: "#"
+      heading: The latest news from the Pritzker Pulse
+      mobileslider: "true"
+      teasers:
+        -
+          topic: Stories
+          topiclink: "#"
+          title: "Everything to expect during a heart transplant"
+          link: "#"
+          image: "/themes/custom/uccollege/it_showcase/images/teaser7.jpg"
+        -
+          topic: Podcasts
+          topiclink: "#"
+          title: "Knowledge Applied #3-Hunger in the Hospital with Stacy Lindau, MD"
+          link: "#"
+          image: "/themes/custom/uccollege/it_showcase/images/teaser8.jpg"
+          icon: podcast
+        -
+          topic: Videos
+          topiclink: "#"
+          title: "For Sandro Miller, photographing Uchicago Medicine patients is personal"
+          link: "#"
+          image: "/themes/custom/uccollege/it_showcase/images/teaser3.jpg"
+          icon: play
+  -
+    title: Teaser Tiles
+    caption: Tiles become teasers on mobile
+    content:
+      topic: Pritzker News
+      topiclink: "#"
+      istile: true
+      teasers:
+      -
+        title: "It's a match"
+        link: "#"
+        image: "/themes/custom/uccollege/it_showcase/images/tile-photo1.jpg"
+      -
+        title: "Mapping the brain"
+        link: "#"
+        image: "/themes/custom/uccollege/it_showcase/images/tile-photo2.jpg"
+  -
+    title: Topic Teaser
+    caption: Teasers on a topic page
+    content:
+      topic: Student Stories
+      topiclink: "#"
+      teasers:
+      -
+        title: "Tongue-twisting tales from a bilingual city"
+        subtitle: "Lindsey Simon, ‘15"
+        link: "#"
+        image: "/themes/custom/uccollege/it_showcase/images/teaser4.jpg"
+      -
+        title: "Dispatches from Beijing"
+        subtitle: "Charlotte Ring, ’19"
+        link: "#"
+        image: "/themes/custom/uccollege/it_showcase/images/teaser5.jpg"
+      -
+        title: "On top of the Grand Bazaar"
+        subtitle: "Angela Shen, ’16"
+        link: "#"
+        image: "/themes/custom/uccollege/it_showcase/images/teaser6.jpg"
+  -
+    title: External News Teaser
+    caption: Generated via Vue from JSON data
+    content:
+      mobileslider: "true"
+      topic: UChicago News
+      topiclink: "#"
+      heading: The Latest News from UChicago
+      datasource: "/it/showcase/endpoint/teaser-endpoint"
+  -
+    title: Default Teaser with no Topic
+    heading: The Latest News from UChicago
+    content:
+      teasers:
+      -
+        topic: Stories
+        topiclink: "#"
+        title: "UChicago launches test-optional admissions process"
+        link: "#"
+        image: "/themes/custom/uccollege/it_showcase/images/teaser1.jpg"
+      -
+        topic: Podcasts
+        topiclink: "#"
+        title: "Knowledge Applied #5 - The Magic of Cities"
+        link: "#"
+        image: "/themes/custom/uccollege/it_showcase/images/teaser2.jpg"
+        icon: podcast
+      -
+        topic: Videos
+        topiclink: "#"
+        title: "The fracking debate: Lessons learned from the U.S. energy boom"
+        link: "#"
+        image: "/themes/custom/uccollege/it_showcase/images/teaser3.jpg"
+        icon: play
+  -
+    title: Inside Look (homepage)
+    caption: Teaser converts to slider on mobile
+    content:
+      heading: Get an inside look at Pritzker
+      mobileslider: true
+      teasers:
+      -
+        topic: Videos
+        topiclink: "#"
+        title: "Your Journey Begins Here"
+        link: "#"
+        image: "/themes/custom/uccollege/it_showcase/images/teaser1.jpg"
+        icon: play
+      -
+        topic: Videos
+        topiclink: "#"
+        title: "Student Research Opportunities"
+        link: "#"
+        image: "/themes/custom/uccollege/it_showcase/images/teaser2.jpg"
+        icon: play
+      -
+        topic: Photos
+        topiclink: "#"
+        title: "UChicago Pritzker School of Medicine Flickr Albums"
+        link: "#"
+        image: "/themes/custom/uccollege/it_showcase/images/teaser3.jpg"
+  -
+    title: IME Teaser Tiles
+    caption: Tiles become teasers on mobile
+    content:
+      topic: News
+      topiclink: "#"
+      mobileslider: true
+      mobileonly: true
+      teasers:
+        -
+          title: "IME Distinguished Colloquium Series - Alberto Salleo"
+          link: "#"
+          image: "/themes/custom/uccollege/it_showcase/images/tile-photo1.jpg"
+          icon: calendar
+        -
+          title: "Scientists Tease Out Quantum Secrets"
+          link: "#"
+          image: "/themes/custom/uccollege/it_showcase/images/tile-photo2.jpg"
+  -
+    title: Research Page Teaser
+    content:
+      topic: News
+      topiclink: "#"
+      heading: "The Forefront: Research and Discoveries"
+      mobileslider: true
+      teasers:
+      -
+        topiclink: "#"
+        title: "Protecting oligodendrocytes may reduce the impact of multiple sclerosis"
+        link: "#"
+        image: "https://via.placeholder.com/300?text=FPO"
+      -
+        topiclink: "#"
+        title: "For gait transitions, stability often trumps energy savings"
+        link: "#"
+        image: "https://via.placeholder.com/300?text=FPO"
+      -
+        topiclink: "#"
+        title: "SIESTA project reduces inpatient sleep interruptions"
+        link: "#"
+        image: "https://via.placeholder.com/300?text=FPO"
+
+  -
+    title: Homepage Variant Page Teaser
+    content:
+      topic: News
+      topiclink: "#"
+      heading: "The Forefront: Biological Sciences"
+      mobileslider: true
+      teasers:
+      -
+        topiclink: "#"
+        title: "Zombie gene protect against cancer — in elephants"
+        link: "#"
+        image: "https://via.placeholder.com/300?text=FPO"
+      -
+        topiclink: "#"
+        title: "Paleontology program stays on top by linking the past to the present"
+        link: "#"
+        image: "https://via.placeholder.com/300?text=FPO"
+        icon: play
+      -
+        topiclink: "#"
+        title: "The grim, final days of a mother octopus"
+        link: "#"
+        image: "https://via.placeholder.com/300?text=FPO"
+        icon: play
+
+  -
+    title: Homepage Department Teaser
+    content:
+      topic: News
+      topiclink: "#"
+      heading: "The Latest Ecology & Evolution News"
+      mobileslider: true
+      teasers:
+      -
+        topiclink: "#"
+        title: "Newly discovered poison frog species is named after victims "
+        link: "#"
+        image: "https://via.placeholder.com/300?text=FPO"
+      -
+        topiclink: "#"
+        title: "Hundreds of species at risk due to slow policy process "
+        link: "#"
+        image: "https://via.placeholder.com/300?text=FPO"
+      -
+        topiclink: "#"
+        title: "Welcome Tinker Visiting Professor, Dr. Alexandre Ferreira Ramos"
+        link: "#"
+        image: "https://via.placeholder.com/300?text=FPO"
+        icon: play
+
+teaser-endpoint:
+  title: Teaser Endpoint
+  description:
+  type: endpoint
+  variants:
+  -
+    title: Default
+    caption:
+    content:
+      items:
+      - heading: Stories
+        headingurl: '#'
+        title: Universities, national laboratories join forces to push Chicago into lead on quantum technology
+        type: story
+        url: '#'
+        image: /themes/custom/uccollege/it_showcase/images/teaser1.jpg
+      - heading: Podcasts
+        headingurl: '#'
+        title: 'Knowledge Applied #5 - The Magic of Cities'
+        type: podcast
+        url: '#'
+        image: /themes/custom/uccollege/it_showcase/images/teaser2.jpg
+      - heading: Videos
+        headingurl: '#'
+        title: 'The fracking debate: Lessons learned from the U.S. energy boom'
+        type: video
+        url: '#'
+        image: /themes/custom/uccollege/it_showcase/images/teaser3.jpg
+
+teaser.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: teaser.component
+    index_hide: true
+    file: themes/custom/uccollege/components/teaser/README.md

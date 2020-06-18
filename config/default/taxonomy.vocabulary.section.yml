@@ -1,0 +1,8 @@
+uuid: 5e80bf59-e1c3-4f19-848d-8580e78fed30
+langcode: en
+status: true
+dependencies: {  }
+name: Section
+vid: section
+description: 'Page sections, for site content'
+weight: 0

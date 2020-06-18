@@ -1,0 +1,73 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+{{ attach_library('uccollege/addtoany') }}
+{{ it_showcase_component('masthead', 0) }}
+{{ it_showcase_component('alert', 0) }}
+
+<section class="l-container">
+
+  <article class="c-article">
+    <header class="c-headline">
+      <a href="{{ content.headline.topicUrl }}"
+         class="c-headline__topic t-heading--topic">{{ content.headline.topic }}</a>
+      <p class="c-headline__status">{{ content.headline.status }}</p>
+      <h1 class="c-headline__heading">{{ content.headline.heading }}</h1>
+    </header>
+
+    <div class="c-article__media">
+      <div class="c-photo">
+        <img src="{{ content.event.image }}" alt=""/>
+      </div>
+    </div>
+
+    <div class="c-article__body">
+      <uc-share-links calendar="#"></uc-share-links>
+    </div>
+
+    <div class="c-article__body">
+      <dl class="c-events__detail">
+        <dt>When:</dt>
+        <dd>{% autoescape false %}{{ content.event.when }}{% endautoescape %}</dd>
+
+        <dt>Where:</dt>
+        <dd>{% autoescape false %}{{ content.event.where }}{% endautoescape %}</dd>
+
+        <dt>Description:</dt>
+        <dd>{% autoescape false %}{{ content.event.description }}{% endautoescape %}</dd>
+
+        <dt>Contact:</dt>
+        <dd>{% autoescape false %}{{ content.event.contact }}{% endautoescape %}</dd>
+
+        <dt>Tag:</dt>
+        <dd>
+          {% for tag in content.event.tags %}
+            <a href="{{ tag.link }}">{{ tag.name }}</a>{% if not loop.last %}, {% endif %}
+          {% endfor %}
+        </dd>
+
+        <dt class="c-events__detail--small">Notes:</dt>
+        <dd>{% autoescape false %}{{ content.event.notes }}{% endautoescape %}</dd>
+      </dl>
+    </div>
+
+  </article>
+</section>
+
+<section class="l-stripe s-bg-tertiary">
+  <h2 class="t-heading--medium">Featured Events</h2>
+  <p class="c-callout__intro">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt dolore aliqua.</p>
+  {{ it_showcase_component('callout', 8) }}
+</section>
+
+{{ it_showcase_component('footer', 0) }}

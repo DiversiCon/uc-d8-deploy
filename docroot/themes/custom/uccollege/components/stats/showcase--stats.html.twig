@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ * Available variables:
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+
+
+{#{% if content.showcase_class %}<div class="{{ content.showcase_class }}">{% endif %}#}
+	{% include '@uccollege/../components/stats/stats.html.twig' with {'content': content} %}
+{#{% if content.showcase_class %}</div>{% endif %}#}

@@ -1,0 +1,139 @@
+uuid: 0e764bca-835a-4f6e-b8da-424cc386f201
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_paragraph_single_0
+    - paragraphs.paragraphs_type.cta_buttons
+    - paragraphs.paragraphs_type.custom_link
+  module:
+    - entity_reference_revisions
+id: paragraph.cta_buttons.field_par_paragraph_single_0
+field_name: field_par_paragraph_single_0
+entity_type: paragraph
+bundle: cta_buttons
+label: 'First Link'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      custom_link: custom_link
+    target_bundles_drag_drop:
+      accordion_block:
+        weight: 38
+        enabled: false
+      accordion_item:
+        weight: 39
+        enabled: false
+      callout:
+        weight: 40
+        enabled: false
+      callout_insert:
+        weight: 41
+        enabled: false
+      callout_item_reference:
+        weight: 42
+        enabled: false
+      callout_item_unique:
+        weight: 43
+        enabled: false
+      callout_reference:
+        weight: 44
+        enabled: false
+      components:
+        weight: 45
+        enabled: false
+      components_lower:
+        weight: 46
+        enabled: false
+      cta_block:
+        weight: 47
+        enabled: false
+      cta_buttons:
+        weight: 48
+        enabled: false
+      cta_text_link:
+        weight: 49
+        enabled: false
+      custom_link:
+        enabled: true
+        weight: 50
+      feature:
+        weight: 51
+        enabled: false
+      feature_4_square_images:
+        weight: 52
+        enabled: false
+      feature_4sq_img_link:
+        weight: 53
+        enabled: false
+      feature_components:
+        weight: 54
+        enabled: false
+      feature_image_link:
+        weight: 55
+        enabled: false
+      feature_insert:
+        weight: 56
+        enabled: false
+      feature_reference:
+        weight: 57
+        enabled: false
+      home_page_grid:
+        weight: 58
+        enabled: false
+      html_text:
+        weight: 59
+        enabled: false
+      pullquote:
+        weight: 60
+        enabled: false
+      quick_links:
+        weight: 61
+        enabled: false
+      quotator:
+        weight: 62
+        enabled: false
+      quotator_item:
+        weight: 63
+        enabled: false
+      smartbody:
+        weight: 64
+        enabled: false
+      smartbody_image:
+        weight: 65
+        enabled: false
+      social_grid:
+        weight: 66
+        enabled: false
+      stats:
+        weight: 67
+        enabled: false
+      stats_insert:
+        weight: 68
+        enabled: false
+      stats_reference:
+        weight: 69
+        enabled: false
+      switcher:
+        weight: 70
+        enabled: false
+      teaser:
+        weight: 71
+        enabled: false
+      teaser_insert:
+        weight: 72
+        enabled: false
+      teaser_reference:
+        weight: 73
+        enabled: false
+      video_html:
+        weight: 74
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,95 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+{{ attach_library('uccollege/addtoany') }}
+{{ masthead }}
+{{ global_alert }}
+<section class="l-container">
+
+  <article class="c-article">
+    <header class="c-headline">
+      <a href="{{ content.headline.topicUrl }}"
+         class="c-headline__topic t-heading--topic">{{ content.headline.topic }}</a>
+      <p class="c-headline__status">{{ event_data.status }}</p>
+      <h1 class="c-headline__heading">{{ event_data.title }}</h1>
+    </header>
+
+    <div class="c-article__media">
+      {% if event_data.image_url is not empty %}
+        <div class="c-photo">
+          <img src="{{ event_data.image_url }}" alt="" />
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="c-article__body">
+      <uc-share-links calendar="/event/{{ event_data.id }}/calendar.ics"></uc-share-links>
+    </div>
+
+    <div class="c-article__body">
+      <dl class="c-events__detail">
+
+        {% if event_data.when is not empty %}
+          <dt>When:</dt>
+          <dd>{% autoescape false %}{{ event_data.when }}{% endautoescape %}</dd>
+        {% endif %}
+
+        {% if event_data.location is not empty %}
+          <dt>Where:</dt>
+          <dd>{% autoescape false %}{{ event_data.location }}{% endautoescape %}</dd>
+        {% endif %}
+
+        {% if event_data.speaker_name is not empty %}
+          <dt>Speaker:</dt>
+          <dd>
+            {% autoescape false %}
+              {{ event_data.speaker_name}}{% if event_data.speaker_affiliation is not empty %}, {{ event_data.speaker_affiliation }}{% endif %}
+            {% endautoescape %}
+          </dd>
+        {% endif %}
+
+        {% if event_data.description is not empty %}
+          <dt>Description:</dt>
+          <dd>{% autoescape false %}{{ event_data.description }}{% endautoescape %}</dd>
+        {% endif %}
+
+        {% if event_data.contact is not empty %}
+          <dt>Contact:</dt>
+          <dd>{% autoescape false %}{{ event_data.contact }}{% endautoescape %}</dd>
+        {% endif %}
+
+        {% if event_data.notes is not empty %}
+          <dt class="c-events__detail--small">Notes:</dt>
+          <dd>{% autoescape false %}{{ event_data.notes }}{% endautoescape %}</dd>
+        {% endif %}
+      </dl>
+    </div>
+
+  </article>
+
+</section>
+
+{% if events.callout_featured.content|render %}
+  {% if events.callout_featured.theme == 'secondary'%}
+    {% set bg_class = 's-bg-secondary' %}
+  {% elseif events.callout_featured.theme == 'tertiary' %}
+    {% set bg_class = 's-bg-tertiary' %}
+  {% else %}
+    {% set bg_class = 's-bg' %}
+  {% endif %}
+<section class="l-stripe {{ bg_class }}">
+  {{ events.callout_featured.content }}
+</section>
+{% endif %}
+
+{{ footer }}

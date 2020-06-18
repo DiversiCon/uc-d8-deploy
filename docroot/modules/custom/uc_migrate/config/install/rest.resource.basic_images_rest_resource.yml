@@ -1,0 +1,19 @@
+uuid: f81af0f1-bfb0-41b4-b5c7-57c284e24802
+langcode: en
+status: true
+dependencies:
+  module:
+    - rest
+    - serialization
+    - uc_api
+    - user
+id: basic_images_rest_resource
+plugin_id: basic_images_rest_resource
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+  authentication:
+    - cookie

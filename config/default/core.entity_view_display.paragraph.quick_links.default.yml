@@ -1,0 +1,59 @@
+uuid: 29b96645-56f5-4d5d-9861-98d798cf01d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.quick_links.field_accordion_switch
+    - field.field.paragraph.quick_links.field_headline_text
+    - field.field.paragraph.quick_links.field_links_ultd
+    - field.field.paragraph.quick_links.field_single_link
+    - paragraphs.paragraphs_type.quick_links
+  module:
+    - link
+    - options
+    - text
+id: paragraph.quick_links.default
+targetEntityType: paragraph
+bundle: quick_links
+mode: default
+content:
+  field_accordion_switch:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_headline_text:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_links_ultd:
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_single_link:
+    weight: 3
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden:
+  search_api_excerpt: true

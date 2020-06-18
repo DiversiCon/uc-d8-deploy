@@ -1,0 +1,22 @@
+uuid: c97dddbe-b69c-4e85-91a3-85477560371c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: faculty
+label: Faculty
+type: 'canonical_entities:node'
+pattern: '[node:field_first_name]-[node:field_middle_name]-[node:field_last_name]-[node:field_degree]'
+selection_criteria:
+  8bbd1ee1-f6c0-4ec6-81d1-3ad1f8fe856b:
+    id: node_type
+    bundles:
+      faculty: faculty
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 8bbd1ee1-f6c0-4ec6-81d1-3ad1f8fe856b
+selection_logic: and
+weight: -5
+relationships: {  }

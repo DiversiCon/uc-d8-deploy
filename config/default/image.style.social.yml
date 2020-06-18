@@ -1,0 +1,17 @@
+uuid: 9b3da0b1-0bcf-4bf9-85a0-ba6185f8ecf8
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: social
+label: 'Social (1200 x 630)'
+effects:
+  f6f4b6b3-693e-46f8-9d4b-118df0b38939:
+    uuid: f6f4b6b3-693e-46f8-9d4b-118df0b38939
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 630
+      crop_type: focal_point

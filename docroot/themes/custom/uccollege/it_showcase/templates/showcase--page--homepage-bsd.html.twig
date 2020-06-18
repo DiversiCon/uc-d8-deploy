@@ -1,0 +1,102 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+
+{{ it_showcase_component('masthead', 0) }}
+{{ it_showcase_component('alert', 0) }}
+
+<section class="l-container">
+  <div class="grid-4up">
+    <div class="grid-4up__cell1">
+      {{ it_showcase_component('video_background', 5) }}
+    </div>
+
+    <div class="grid-4up__cell2 grid-internal">
+      {{ it_showcase_component('quotator', 1) }}
+      {{ it_showcase_component('sidebar-facts', 1) }}
+      {{ it_showcase_component('cta-block', 9) }}
+    </div>
+
+    <div class="grid-4up__cell3">
+      <p>Known for rigorous scholarship and interdisciplinary collaborations,
+        our offerings include undergraduate, graduate, medical, and postgraduate programs.
+        Our consolidated campus, fully integrated within the University, enables our basic
+        science and clinical faculty to teach at every educational level.</p>
+
+      <uc-accordion-group v-cloak :columns="2">
+        <uc-accordion title="Academic Units" :mobile-only="true" tag="h4">
+          <ul>
+            <li><a href="#">Interdisciplinary Committees</a></li>
+            <li><a href="#">Institutes & Centers</a></li>
+            <li><a href="#">Basic Science Departments</a></li>
+            <li><a href="#">Clinical Departments</a></li>
+          </ul>
+        </uc-accordion>
+
+        <uc-accordion title="Training" :mobile-only="true" tag="h4">
+          <ul>
+            <li><a href="#">Postdocs</a></li>
+            <li><a href="#">Residency & Fellowship</a></li>
+            <li><a href="#">Continuing Medical Education</a></li>
+            <li><a href="#">Chicago Fellows</a></li>
+          </ul>
+        </uc-accordion>
+      </uc-accordion-group>
+
+      <uc-accordion-group v-cloak :columns="2">
+        <uc-accordion title="MD & PhD Programs" :mobile-only="true" tag="h4">
+          <ul>
+            <li><a href="#">Biosciences PhD Programs</a></li>
+            <li><a href="#">Pritzker School of Medicine</a></li>
+            <li><a href="#">MD – PhD Programs(MD-PhD)</a></li>
+          </ul>
+        </uc-accordion>
+
+        <uc-accordion title="Undergraduate Programs" :mobile-only="true" tag="h4">
+          <ul>
+            <li><a href="#">Biology Major</a></li>
+            <li><a href="#">Neuroscience Major</a></li>
+          </ul>
+        </uc-accordion>
+      </uc-accordion-group>
+
+    </div>
+
+    <div class="grid-4up__cell4">
+      {{ it_showcase_component('tile', 2) }}
+      {{ it_showcase_component('tile', 3) }}
+    </div>
+  </div>
+</section>
+
+<section class="l-stripe s-bg">
+  <h3 class="t-heading--medium">Events</h3>
+
+  {{ it_showcase_component('callout', 12) }}
+
+  <a class="c-cta-link" href="#">Explore All Events</a>
+</section>
+
+{{ it_showcase_component('feature', 25) }}
+
+<section class="l-stripe s-bg-tertiary">
+  <h3 class="t-heading--medium">Leadership</h3>
+
+  {{ it_showcase_component('callout', 13) }}
+
+  <a class="c-cta-link" href="#">All Leadership</a>
+</section>
+
+{{ it_showcase_component('teaser', 7) }}
+
+{{ it_showcase_component('footer', 1) }}

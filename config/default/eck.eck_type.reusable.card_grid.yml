@@ -1,0 +1,9 @@
+uuid: 055be7be-974e-41c3-a2ee-bfc6afc166c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.reusable
+name: 'Card Grid'
+type: card_grid
+description: 'Grid of cards for linking to existing content as well as external content.'

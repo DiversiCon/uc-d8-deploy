@@ -1,0 +1,17 @@
+uuid: 851a8c9d-bfca-4aa0-8ab8-dccd2e89c438
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Versatile Hero page'
+type: versatile_hero
+description: 'No sidebars.<br><em>Versatile</em> page with Hero image, includes optional stats and most other components.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

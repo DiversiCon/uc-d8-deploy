@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * CTA-block Switcher
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set prospect_content = content.field_par_paragraph_single_0 %}
+{% set affiliate_content = content.field_par_paragraph_single_1 %}
+
+{% block paragraph %}
+  <uc-switcher v-cloak>
+    {% block content %}
+      <template slot="prospect">
+        {{ prospect_content }}
+      </template>
+
+      <template slot="affiliate">
+        {{ affiliate_content }}
+      </template>
+    {% endblock %}
+  </uc-switcher>
+{% endblock paragraph %}

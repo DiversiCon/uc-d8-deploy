@@ -1,0 +1,70 @@
+{#
+/**
+ * @file
+ * Person teaser display mode.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set title = content.field_headline_text %}
+{% set positions = content.field_positions %}
+{% set img = content.field_image_main %}
+{% set bio = content.body %}
+{% set email = content.field_email_address %}
+{% set full_profile_link = content.field_link_single.0['#url'] %}
+
+<uc-accordion
+    title="{{ node.field_headline_text.value|convertQuotes }}"
+    subtitle="{{ positions }}"
+    :open="false"
+    :mobile-only="true"
+    :inset-image="true"
+    tag="h3">
+  <div class="c-list__item">
+
+    <!--image-->
+    <div class="c-list__item-image">
+      <a href="{{ url }}" class="c-list__item-imagelink">
+        <div class="c-list__item-imagewrap">
+          <svg class="c-icon">
+            <use xlink:href="/themes/custom/uccollege/dist/icons.svg#phoenix" />
+          </svg>
+          {% if img|render is not empty %}
+            {{ img }}
+          {% endif %}
+        </div>
+      </a>
+    </div>
+    <!--text-->
+    <div class="c-list__item-text">
+      <h3 class="c-list__item-title"><a href="{{ url }}" class="c-list__item-titlelink">{{ title }}</a></h3>
+
+      {% if positions|render is not empty %}
+        <p class="c-list__item-subtitle">
+          {% autoescape false %}
+            {{ positions }}
+          {% endautoescape %}
+        </p>
+      {% endif %}
+
+      {% if bio|render is not empty %}
+        <div class="c-list__item-description">
+          {% if email %}
+            <p><a href="mailto:{{ email }}">{{ email }}</a></p>
+          {% endif %}
+
+          {% autoescape false %}
+            {{ bio }}
+          {% endautoescape %}
+
+          {% if full_profile_link %}
+          <ul class="">
+            <li><a href="{{ full_profile_link }}">View full profile</a></li>
+          </ul>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</uc-accordion>

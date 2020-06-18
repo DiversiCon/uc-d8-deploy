@@ -1,0 +1,34 @@
+{#
+/**
+ * @file
+ * Display contact information for a reusable contact entity.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set name_title = content.field_eck_name %}
+{% set position_title_1 = content.field_headline_text %}
+{% set position_title_2 = content.field_eck_title %}
+
+
+{% set img = content.field_image_main %}
+{% set email = eck_entity.field_email.value %}
+{% set phone = content.field_phone %}
+
+<tr>
+  <td>
+    <strong>
+      <div class="t-font--default">{{ name_title }}</div>
+      {{ position_title_1 }}
+      {% if position_title_2|render is not empty %}
+      <br /> {{ position_title_2 }}
+      {% endif %}
+    </strong>
+  </td>
+  <td>{{ phone }}<br>
+    {% if content.field_email|render is not empty %}
+      <a href="mailto:{{ email }}">{{ email }}</a>
+    {% endif %}
+  </td>
+</tr>

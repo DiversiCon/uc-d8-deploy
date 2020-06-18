@@ -1,0 +1,45 @@
+{#
+/**
+ * @file
+ * Callout with grouped content.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set heading = content.field_headline_text %}
+{% set subhead = content.field_subheadline_text %}
+{% set section = content.field_section %}
+{% set section_override = content.field_par_paragraph_single_0 %}
+{% set callout_content = content.field_paragraph_single %}
+{% set addl_txt = content.field_par_paragraph_single %}
+
+{% block paragraph %}
+  {% block content %}
+
+    {% if section_override|field_value %}
+      <h2 class="t-heading--topic">{{ section_override }}</h2>
+      {% if heading|field_value %}
+        <h3 class="t-heading--medium">{{ heading }}</h3>
+      {% endif %}
+    {% elseif section|field_value %}
+      <h2 class="t-heading--topic">{{ section }}</h2>
+      {% if heading|field_value %}
+        <h3 class="t-heading--medium">{{ heading }}</h3>
+      {% endif %}
+    {% elseif heading|field_value %}
+      <h2 class="t-heading--medium">{{ heading }}</h2>
+    {% endif %}
+
+    {% if subhead|field_value %}
+      <p class="c-callout__intro">{{ subhead }}</p>
+    {% endif %}
+
+    {{ callout_content }}
+
+    {{ addl_txt }}
+
+  {% endblock %}
+{% endblock paragraph %}

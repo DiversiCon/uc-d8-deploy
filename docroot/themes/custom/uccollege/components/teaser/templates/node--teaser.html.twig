@@ -1,0 +1,56 @@
+{#
+/**
+ * @file
+ * Landing Page Teaser
+ *
+ * Available variables:
+ * - has_video: A boolean that determines if the story has video content.
+ *   @see uc_sauce_preprocess_node()
+ *
+ * @see template_preprocess_node()
+ */
+#}
+{% set link = path('entity.node.canonical', {'node': node.id}) %}
+{% set link_tgt = '_self' %}
+{% set image = content.field_image_main %}
+{% set title = content.field_headline_text %}
+{% set subtitle = content.field_subheadline_text %}
+{% set type = node.bundle() %}
+{% if type == 'story' %}
+  {% set subtitle = content.field_byline %}
+{% elseif type == 'event' %}
+  {% set subtitle = content.field_event_date %}
+  {% set link_base = content.field_link_single.0 %}
+  {% set link = link_base['#url'] %}
+  {% set link_tgt = link_base['#options']['attributes']['target'] %}
+  {% set sub_sub = subtitle.0['#attributes']['datetime']|date("g:i A") %}
+{% elseif type == 'external' %}
+  {% set link_base = content.field_link_single.0 %}
+  {% set link = link_base['#url'] %}
+  {% set link_tgt = link_base['#options']['attributes']['target'] %}
+{% endif %}
+
+{% if has_video %}
+  {% set icon = 'video' %}
+{% endif %}
+
+<div class="c-teaser__img">
+  <a href="{{ link }}" target="{{ link_tgt }}">
+    {% if icon %}
+      <div class="c-media-icon">
+        <svg class="c-icon c-icon--{{ icon }}">
+          <use xlink:href="/themes/custom/uccollege/dist/icons.svg#{{ icon }}"></use>
+        </svg>
+      </div>
+    {% endif %}
+    {{ image }}
+  </a>
+</div>
+
+<a class="c-teaser__link" href="{{ link }}" target="{{ link_tgt }}">{{ title }}</a>
+{% if subtitle|field_value %}
+  <div class="c-teaser__subtitle">
+    {{ subtitle }}
+    {% if sub_sub %}<br>{{ sub_sub }}{% endif %}
+  </div>
+{% endif %}

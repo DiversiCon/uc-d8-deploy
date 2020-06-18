@@ -1,0 +1,37 @@
+uuid: 0a8b7970-83cf-4545-9634-3193885bcf92
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_par_smartbody
+    - node.type.generic
+    - paragraphs.paragraphs_type.smartbody
+  module:
+    - entity_reference_revisions
+id: node.generic.field_par_smartbody
+field_name: field_par_smartbody
+entity_type: node
+bundle: generic
+label: Smartbody
+description: 'Smartbody text'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      smartbody: smartbody
+    target_bundles_drag_drop:
+      accordion_group:
+        weight: 3
+        enabled: false
+      html_text:
+        weight: 4
+        enabled: false
+      smartbody:
+        enabled: true
+        weight: 6
+field_type: entity_reference_revisions

@@ -1,0 +1,21 @@
+uuid: b61ed3cf-94b4-4b72-9e82-9d1578ed6627
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_social_platforms
+    - paragraphs.paragraphs_type.social_platform_link
+  module:
+    - options
+id: paragraph.social_platform_link.field_social_platforms
+field_name: field_social_platforms
+entity_type: paragraph
+bundle: social_platform_link
+label: 'Social Platform'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

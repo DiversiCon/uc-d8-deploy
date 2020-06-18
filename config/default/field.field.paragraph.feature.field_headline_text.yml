@@ -1,0 +1,29 @@
+uuid: 4bb3ddd8-2f23-4292-9dd9-4b9e2598d182
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headline_text
+    - paragraphs.paragraphs_type.feature
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    smartbody: '0'
+    basic_html: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.feature.field_headline_text
+field_name: field_headline_text
+entity_type: paragraph
+bundle: feature
+label: Headline
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

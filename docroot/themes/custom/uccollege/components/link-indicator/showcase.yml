@@ -1,0 +1,19 @@
+link-indicator:
+  title: Link Indicator
+  description:
+  type: component
+  variants:
+  -
+    title: Default
+    caption:
+    content:
+      -
+
+link-indicator.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: link-indicator.component
+    index_hide: true
+    file: themes/custom/uccollege/components/link-indicator/README.md

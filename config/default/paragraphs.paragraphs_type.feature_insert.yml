@@ -1,0 +1,9 @@
+uuid: 40b98d74-df32-4293-a0a3-a2fff194a35b
+langcode: en
+status: true
+dependencies: {  }
+id: feature_insert
+label: 'Feature insert'
+icon_uuid: null
+description: 'Insert feature content, which can either be an existing feature-reference, or a unique feature-item'
+behavior_plugins: {  }

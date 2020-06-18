@@ -1,0 +1,9 @@
+uuid: b3ac22ff-6bdc-44e6-8cc6-683e3b9abf38
+langcode: en
+status: true
+dependencies: {  }
+id: card_grid
+label: 'Card Grid, Unique'
+icon_uuid: null
+description: 'Individual card grid component, used inside ECK'
+behavior_plugins: {  }

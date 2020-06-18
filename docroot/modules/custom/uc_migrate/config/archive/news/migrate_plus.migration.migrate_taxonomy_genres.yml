@@ -1,0 +1,53 @@
+langcode: en
+status: true
+id: migrate_taxonomy_genres
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: legacy
+label: 'Taxonomy: Genres'
+source:
+  plugin: d7_taxonomy_term
+  bundle: vocabulary_5
+process:
+  tid: tid
+  vid:
+    plugin: migration_lookup
+    migration: d7_taxonomy_vocabulary
+    source: vid
+  name: name
+  description/value: description
+  description/format: format
+  weight: weight
+  parent_id:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: parent
+    -
+      plugin: migration_lookup
+      migration: d7_taxonomy_term
+  parent:
+    plugin: default_value
+    default_value: 0
+    source: '@parent_id'
+  forum_container: is_container
+  changed: timestamp
+  field_machine_name: field_machine_name
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: genres
+migration_dependencies:
+  required:
+    - migrate_taxonomy_vocabulary
+  optional:
+    - d7_field_instance
+dependencies:
+  module:
+    - uc_migrate
+  enforced:
+    module:
+      - uc_migrate

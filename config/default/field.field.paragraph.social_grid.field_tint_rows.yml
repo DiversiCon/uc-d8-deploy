@@ -1,0 +1,25 @@
+uuid: 67e0bbdc-eec4-4a26-adb8-5ee4a1c8ecfe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_tint_rows
+    - paragraphs.paragraphs_type.social_grid
+id: paragraph.social_grid.field_tint_rows
+field_name: field_tint_rows
+entity_type: paragraph
+bundle: social_grid
+label: 'TINT Rows'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 4
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

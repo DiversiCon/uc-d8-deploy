@@ -1,0 +1,25 @@
+{#
+/**
+ * Publications preview block. Driven by data from the uc_cdr_client module.
+ *
+ * Available variables:
+ *  publications - An array of publication objects.
+ *  has_more_publications - A boolean to flag if the user has more publications to display.
+ *  all_publications_link - A link to the 'view all' publications page.
+ */
+#}
+
+{% for publication in publications %}
+  <div class="c-pub-list__item">
+    <h3 class="c-pub-list__item-title">
+      <a href="{{ publication.linkUrl }}" target="_blank">
+        {{ publication.title }}
+      </a>
+    </h3>
+    <p class="c-pub-list__item-publication">{{ publication.citation }}</p>
+  </div>
+{% endfor %}
+
+{% if has_more_publications %}
+<a href="{{ all_publications_link }}" class="c-pub-list__more-link">View All Publications</a>
+{% endif %}

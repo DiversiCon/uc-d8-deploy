@@ -1,0 +1,19 @@
+uuid: 92bdd95d-7fd8-41f2-ac99-6d092267864b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_thru_year
+    - paragraphs.paragraphs_type.awards
+id: paragraph.awards.field_thru_year
+field_name: field_thru_year
+entity_type: paragraph
+bundle: awards
+label: 'Thru Year'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

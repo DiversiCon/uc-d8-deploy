@@ -1,0 +1,28 @@
+uuid: c8ed9f71-6054-4390-9b5e-ab72b1b79938
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.footer
+    - field.storage.config_pages.field_media_image
+    - media.type.image
+id: config_pages.footer.field_media_image
+field_name: field_media_image
+entity_type: config_pages
+bundle: footer
+label: 'Footer Logo'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

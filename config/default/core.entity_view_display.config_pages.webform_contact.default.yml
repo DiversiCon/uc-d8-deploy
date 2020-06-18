@@ -1,0 +1,31 @@
+uuid: f2df24d2-108a-402b-a28b-79dd4ef54639
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.webform_contact
+    - field.field.config_pages.webform_contact.field_body
+    - field.field.config_pages.webform_contact.field_headline_text
+  module:
+    - text
+id: config_pages.webform_contact.default
+targetEntityType: config_pages
+bundle: webform_contact
+mode: default
+content:
+  field_body:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_headline_text:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  search_api_excerpt: true

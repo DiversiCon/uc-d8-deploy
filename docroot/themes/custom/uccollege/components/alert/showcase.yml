@@ -1,0 +1,25 @@
+alert:
+  title: Global Alert
+  description: Displays at the top of pages, under the navigation
+  type: component
+  attributes:
+    category: Callouts
+  variants:
+  -
+    title: Default
+    caption: "Click X to close. Saves timestamp to localStorage item called 'ucc-alert-sleep'."
+    content:
+      heading: TAKE NOTE
+      description: Book and supply purchase program ends at all area bookstores this Saturday, Oct. 20
+      url: "#"
+      urlText: More
+      urlTarget: "_blank"
+
+alert.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: alert.component
+    index_hide: true
+    file: themes/custom/uccollege/components/alert/README.md

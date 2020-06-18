@@ -1,0 +1,23 @@
+uuid: ebf63325-4666-4431-8728-635f25c30d3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_bool_single_0
+    - paragraphs.paragraphs_type.accordion_item
+id: paragraph.accordion_item.field_par_bool_single_0
+field_name: field_par_bool_single_0
+entity_type: paragraph
+bundle: accordion_item
+label: 'Mobile only?'
+description: 'Check this box so that this item is an accordion only on mobile views.'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'true'
+  off_label: 'false'
+field_type: boolean

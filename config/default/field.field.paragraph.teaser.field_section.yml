@@ -1,0 +1,29 @@
+uuid: c85cab80-e605-47d6-9430-0fc2561453ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section
+    - paragraphs.paragraphs_type.teaser
+    - taxonomy.vocabulary.section
+id: paragraph.teaser.field_section
+field_name: field_section
+entity_type: paragraph
+bundle: teaser
+label: Section
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      section: section
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,10 @@
+<section class="l-stripe l-stripe--narrow">
+  <h3 class="t-heading--medium">{{ content.field_headline_text }}</h3>
+  <uc-selector-program
+    datasource="/api/v1/programs"
+    {% if content.division %}default-division="{{ content.division }}"{% endif %}
+    {% if content.type %}default-type="{{ content.type }}"{% endif %}
+    {% if content.hideDivision %}:hide-division="true"{% endif %}
+    {% if content.hideType %}:hide-type="true"{% endif %}
+  ></uc-selector-program>
+</section>

@@ -1,0 +1,35 @@
+uuid: 1cfac371-3f01-495f-89b9-ca7f4fab0df5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_section_landing_page
+    - node.type.directory
+    - node.type.generic
+    - node.type.group
+    - node.type.page
+    - taxonomy.vocabulary.section
+id: taxonomy_term.section.field_section_landing_page
+field_name: field_section_landing_page
+entity_type: taxonomy_term
+bundle: section
+label: 'Section landing page'
+description: 'Specify the page that is used as the main landing page for this section.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      generic: generic
+      group: group
+      page: page
+      directory: directory
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: generic
+field_type: entity_reference

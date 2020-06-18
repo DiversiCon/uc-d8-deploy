@@ -1,0 +1,22 @@
+flickr:
+  title: Flickr Embed
+  description: Displays a Flickr gallery embed.
+  type: component
+  attributes:
+    category: Images & Media
+  variants:
+  -
+    title: Flickr
+    caption: Simple Flickr embed.
+    content:
+      flickr_id: 45251343@N07
+      photoset_id: 72157622811325971
+
+flickr.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: flickr.component
+    index_hide: true
+    file: themes/custom/uccollege/components/flickr/README.md

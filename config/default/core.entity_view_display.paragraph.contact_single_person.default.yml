@@ -1,0 +1,49 @@
+uuid: 6ec931c8-5eb1-4075-a8b4-a06fcd43a623
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.contact_single_person.field_email
+    - field.field.paragraph.contact_single_person.field_headline_text
+    - field.field.paragraph.contact_single_person.field_phone_number
+    - field.field.paragraph.contact_single_person.field_title
+    - paragraphs.paragraphs_type.contact_single_person
+  module:
+    - text
+id: paragraph.contact_single_person.default
+targetEntityType: paragraph
+bundle: contact_single_person
+mode: default
+content:
+  field_email:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_headline_text:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_phone_number:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_title:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  search_api_excerpt: true

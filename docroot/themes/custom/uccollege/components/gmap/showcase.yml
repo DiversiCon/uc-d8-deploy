@@ -1,0 +1,23 @@
+gmap:
+  title: Map
+  description: "Displays a single interactive Google Map"
+  type: component
+  attributes:
+    category: Images & Media
+  variants:
+  -
+    title: Default with optional heading
+    content:
+      lat: "41.79385"
+      lon: "-87.5963976"
+      heading: "Map of Hyde Park"
+      zoom: 15
+
+gmap.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: gmap.component
+    index_hide: true
+    file: themes/custom/uccollege/components/gmap/README.md

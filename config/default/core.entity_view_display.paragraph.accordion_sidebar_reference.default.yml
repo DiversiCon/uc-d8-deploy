@@ -1,0 +1,23 @@
+uuid: 723d558a-280d-456c-9ef4-dd80d670cd81
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.accordion_sidebar_reference.field_eck_reference
+    - paragraphs.paragraphs_type.accordion_sidebar_reference
+id: paragraph.accordion_sidebar_reference.default
+targetEntityType: paragraph
+bundle: accordion_sidebar_reference
+mode: default
+content:
+  field_eck_reference:
+    weight: 0
+    label: above
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

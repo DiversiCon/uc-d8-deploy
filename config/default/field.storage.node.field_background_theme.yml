@@ -1,0 +1,36 @@
+uuid: 6a74e23b-aa63-4ef2-bfc8-d24fe5b1a8a3
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_background_theme
+field_name: field_background_theme
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: primary
+      label: Gray
+    -
+      value: secondary
+      label: Yellow
+    -
+      value: tertiary
+      label: Violet
+    -
+      value: maroon
+      label: Maroon
+    -
+      value: blue
+      label: Blue
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

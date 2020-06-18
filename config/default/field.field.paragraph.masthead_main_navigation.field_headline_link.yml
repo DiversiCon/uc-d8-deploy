@@ -1,0 +1,23 @@
+uuid: aa7e480e-19ca-4d7a-a61a-599521db8f8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headline_link
+    - paragraphs.paragraphs_type.masthead_main_navigation
+  module:
+    - link
+id: paragraph.masthead_main_navigation.field_headline_link
+field_name: field_headline_link
+entity_type: paragraph
+bundle: masthead_main_navigation
+label: 'Section Link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

@@ -1,0 +1,268 @@
+uuid: 468ff4f2-4cc7-4c18-8a94-6c6264594d93
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.footer
+    - field.storage.config_pages.field_paragraph_multiples
+    - paragraphs.paragraphs_type.social_platform_link
+  module:
+    - entity_reference_revisions
+id: config_pages.footer.field_paragraph_multiples
+field_name: field_paragraph_multiples
+entity_type: config_pages
+bundle: footer
+label: 'Social Platform Links'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      social_platform_link: social_platform_link
+    target_bundles_drag_drop:
+      accordion_block:
+        weight: 81
+        enabled: false
+      accordion_item:
+        weight: 82
+        enabled: false
+      avatar:
+        weight: 83
+        enabled: false
+      callout:
+        weight: 84
+        enabled: false
+      callout_insert:
+        weight: 85
+        enabled: false
+      callout_item_reference:
+        weight: 86
+        enabled: false
+      callout_item_unique:
+        weight: 87
+        enabled: false
+      callout_reference:
+        weight: 88
+        enabled: false
+      card_grid:
+        weight: 89
+        enabled: false
+      card_grid_insert:
+        weight: 90
+        enabled: false
+      card_grid_item:
+        weight: 91
+        enabled: false
+      card_grid_reference:
+        weight: 92
+        enabled: false
+      components:
+        weight: 93
+        enabled: false
+      components_lower:
+        weight: 94
+        enabled: false
+      contact_group:
+        weight: 95
+        enabled: false
+      contact_group_list:
+        weight: 96
+        enabled: false
+      contact_person_reference:
+        weight: 97
+        enabled: false
+      contact_single_person:
+        weight: 98
+        enabled: false
+      cta_block:
+        weight: 99
+        enabled: false
+      cta_buttons:
+        weight: 100
+        enabled: false
+      cta_text_link:
+        weight: 101
+        enabled: false
+      custom_link:
+        weight: 102
+        enabled: false
+      date:
+        weight: 103
+        enabled: false
+      feature:
+        weight: 104
+        enabled: false
+      feature_4_square_images:
+        weight: 105
+        enabled: false
+      feature_4sq_img_link:
+        weight: 106
+        enabled: false
+      feature_components:
+        weight: 107
+        enabled: false
+      feature_image_link:
+        weight: 108
+        enabled: false
+      feature_insert:
+        weight: 109
+        enabled: false
+      feature_reference:
+        weight: 110
+        enabled: false
+      flickr_gallery:
+        weight: 111
+        enabled: false
+      generic_sidebar:
+        weight: 112
+        enabled: false
+      generic_sidebar_item:
+        weight: 113
+        enabled: false
+      hero_components:
+        weight: 114
+        enabled: false
+      home_page_grid:
+        weight: 115
+        enabled: false
+      html_text:
+        weight: 116
+        enabled: false
+      infographic:
+        weight: 117
+        enabled: false
+      link_list:
+        weight: 118
+        enabled: false
+      map:
+        weight: 119
+        enabled: false
+      masthead_main_navigation:
+        weight: 120
+        enabled: false
+      news_block:
+        weight: 121
+        enabled: false
+      news_external:
+        weight: 122
+        enabled: false
+      news_inernal:
+        weight: 123
+        enabled: false
+      news_list:
+        weight: 124
+        enabled: false
+      people_grouped_list:
+        weight: 125
+        enabled: false
+      people_grouped_list_group:
+        weight: 126
+        enabled: false
+      person_list_teasers:
+        weight: 127
+        enabled: false
+      photo_inset:
+        weight: 128
+        enabled: false
+      photo_nav_grid:
+        weight: 129
+        enabled: false
+      photo_nav_grid_item:
+        weight: 130
+        enabled: false
+      plain_text_component:
+        weight: 131
+        enabled: false
+      program_selector:
+        weight: 132
+        enabled: false
+      pullquote:
+        weight: 133
+        enabled: false
+      quick_links:
+        weight: 134
+        enabled: false
+      quick_links_two_column:
+        weight: 135
+        enabled: false
+      quotator_item:
+        weight: 136
+        enabled: false
+      ranged_stat:
+        weight: 137
+        enabled: false
+      ranged_stats:
+        weight: 138
+        enabled: false
+      section_taxonomy_component:
+        weight: 139
+        enabled: false
+      sidebar_gen_related:
+        weight: 140
+        enabled: false
+      sidebar_inquiries:
+        weight: 141
+        enabled: false
+      smartbody:
+        weight: 142
+        enabled: false
+      smartbody_image:
+        weight: 143
+        enabled: false
+      social_grid:
+        weight: 144
+        enabled: false
+      social_platform_link:
+        enabled: true
+        weight: 145
+      staff_selector:
+        weight: 146
+        enabled: false
+      stats:
+        weight: 147
+        enabled: false
+      stats_reference:
+        weight: 148
+        enabled: false
+      switcher:
+        weight: 149
+        enabled: false
+      switcher_cta:
+        weight: 150
+        enabled: false
+      switcher_getting_started:
+        weight: 151
+        enabled: false
+      teaser:
+        weight: 152
+        enabled: false
+      teaser_insert:
+        weight: 153
+        enabled: false
+      teaser_reference:
+        weight: 154
+        enabled: false
+      tile:
+        weight: 155
+        enabled: false
+      tile_insert:
+        weight: 156
+        enabled: false
+      tile_reference:
+        weight: 157
+        enabled: false
+      video_html:
+        weight: 158
+        enabled: false
+      video_youtube:
+        weight: 159
+        enabled: false
+      visual_nav_insert:
+        weight: 160
+        enabled: false
+field_type: entity_reference_revisions

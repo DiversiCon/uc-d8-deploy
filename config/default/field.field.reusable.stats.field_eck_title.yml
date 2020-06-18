@@ -1,0 +1,30 @@
+uuid: 36979d2a-133e-4005-b6cd-3d305eeadbfd
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.stats
+    - field.storage.reusable.field_eck_title
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: reusable.stats.field_eck_title
+field_name: field_eck_title
+entity_type: reusable
+bundle: stats
+label: Text
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

@@ -1,0 +1,102 @@
+stats:
+  title: Stats
+  description: Numeric statstics.
+  type: component
+  variants:
+  -
+    title: Stats, Featured
+    caption: "Stats with three items, within feature block"
+    content:
+      showcase_class: "c-feature__content"
+      items:
+      -
+        number: "80"
+        text: "students per incoming class"
+      -
+        number: "89"
+        text: "nobel laureates in university history"
+      -
+        number: "90"
+        text: "percent have presented at a conference"
+  -
+    title: Stats
+    caption: "Stats with two items, heading and description"
+    content:
+      heading: "2018 Class Demographics"
+      description: "Undergraduates thrive in an environment that encourages critical inquiry and independent thought."
+      items:
+      -
+        number: "45"
+        text: "percent of students study abroad"
+      -
+        number: "59"
+        text: "programs offered"
+  -
+    title: Stats with Underline
+    caption: "Stats with four items, default font sizes"
+    content:
+      heading: "Scholarly Opportunities"
+      underline: true
+      items:
+        - number: "81"
+          text: "percent participate in the NIH-funded Summer Research Program"
+        - number: "100"
+          text: "percent participate in a mentored research program"
+        - number: "76"
+          text: "percent have authored a research paper submitted for publication"
+        - number: "90"
+          text: "percent have given a conference presentation"
+  -
+    title: Large Stats with Underline
+    caption: "Large Stat numbers"
+    content:
+      heading: "2018 Class Demographics"
+      size: large
+      underline: true
+      items:
+        - number: "80"
+          text: "MD students"
+        - number: "10"
+          text: "MD/PhD students"
+        - number: "78"
+          text: "percent of students are out-of-state"
+        - number: "29"
+          text: "percent who are under represented in medicine"
+  -
+    title: Large Stats
+    caption: 'Large Stat with 3 numbers. Test on <a href="/it/showcase/component/containers">layout containers</a> page'
+    content:
+      heading: "By the Numbers"
+      size: large
+      items:
+        - number: "508"
+          text: "research active faculty"
+        - number: "$588,000"
+          text: "average NIH dollars per PI"
+        - number: "958"
+          text: "total faculty"
+
+  -
+    title: Large Stats
+    caption: 'Large Stat with 4 numbers for the education page.'
+    content:
+      heading: "By the Numbers"
+      size: large
+      items:
+        - number: "434"
+          text: "undergraduate biology & neuroscience majors"
+        - number: "547"
+          text: "pritzker school of medicine students"
+        - number: "18"
+          text: "distinct PhD programs in the biosciences"
+        - number: "961"
+          text: "graduate medicale trainees"
+
+stats.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: stats.component
+    index_hide: true
+    file: themes/custom/uccollege/components/stats/README.md

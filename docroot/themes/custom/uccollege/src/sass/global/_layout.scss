@@ -1,0 +1,194 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - layout
+// global layout classes - height, width, padding, margin, etc.
+// layout-specific classes should be prefixed with 'l-'
+
+.l-container {
+  padding: 0 rem-calc(20);
+
+  @include breakpoint(medium) {
+    padding: 0 rem-calc(40);
+  }
+
+  &--full {
+    padding: 0;
+  }
+
+  &__wrap {
+    background-color: $color-body;
+    margin: 0 auto;
+    max-width: $default-max-width;
+    padding-top: rem-calc(66);
+    position: relative;
+
+    @include breakpoint(nav) {
+      padding-top: rem-calc(179);
+
+      .no-nav & {
+        padding-top: rem-calc(128);
+      }
+    }
+  }
+}
+
+.l-stripe {
+  @extend .l-container;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: rem-calc(1200);
+  overflow-x: hidden;
+  text-align: center;
+
+  &[class*="s-"]:not(.l-stripe--narrow) {
+    padding: rem-calc(40);
+  }
+
+  > p {
+    max-width: rem-calc(880);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  // keep the last paragraph from adding
+  // to the bottom margin of container
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  &--narrow {
+    padding: rem-calc(40) rem-calc(20);
+
+    @include breakpoint(medium) {
+      padding: rem-calc(40);
+    }
+
+    @include breakpoint(large) {
+      padding: rem-calc(40) 11.71875%;
+    }
+  }
+  .t-heading--topic a,
+  .c-cta-link {
+    color: $color-black;
+  }
+
+  .c-stats.c-stats--large .c-stats__number {
+    font-size: rem-calc(65);
+
+    @include breakpoint(medium) {
+      font-size: rem-calc(100);
+    }
+  }
+  .c-stats.c-stats--large .c-stats__item {
+    flex: 1 1 100%;
+    margin-bottom: rem-calc(20);
+    width: auto;
+
+    @include breakpoint(medium) {
+      flex: 1 1 50%;
+    }
+
+    @include breakpoint(large) {
+      flex: 1 1 auto;
+    }
+  }
+}
+
+// generic content container for paragraphs falling
+// randomly within the body. Same width as headlines.
+.l-content {
+  @include font-sizes(16, 18);
+  margin: rem-calc(30) auto;
+  max-width: rem-calc(880);
+  overflow: auto; // prevent margin collapse
+
+  @include breakpoint(medium down) {
+    p:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.l-padding {
+  padding: 0 $default-padding-small;
+
+  @include breakpoint(medium) {
+    padding: 0 $default-padding-large;
+  }
+}
+
+.l-padding--all {
+  padding: $default-padding-small;
+
+  @include breakpoint(medium) {
+    padding: $default-padding-large;
+  }
+}
+
+.l-centered {
+  text-align: center;
+}
+
+.l-pb0 {
+  padding-bottom: 0;
+}
+
+.l-pt0 {
+  padding-top: 0;
+}
+
+// - - - - - - - - - - - - - - - - - - -
+// handling for when containers are
+// next to each other
+
+// l-container followed by another l-container (without the .l-stripe class)
+.l-container + .l-container:not(.l-stripe) {
+  margin-top: rem-calc(20);
+
+  .page-node-type-home & {
+    margin-top: rem-calc(10);
+  }
+
+  @include breakpoint(large) {
+    margin-top: rem-calc(40);
+  }
+}
+
+// l-container followed by l-stripe (with colored background)
+.l-container + .l-stripe[class*="s-"] {
+  margin: rem-calc(40) auto;
+
+  .page-node-type-home & {
+    margin: rem-calc(10) auto;
+  }
+}
+
+// l-container followed by l-stripe (with white background)
+.l-container + .l-stripe:not([class*="s-"]) {
+  margin: rem-calc(40) auto;
+}
+
+// l-container followed by l-stripe.l-stripe--narrow (with white background)
+.l-container + .l-stripe.l-stripe--narrow:not([class*="s-"]) {
+  margin: 0 auto;
+  //padding-top: rem-calc(5);
+}
+
+// l-stripe followed by l-stripe, both having no background colors
+.l-stripe:not([class*="s-"]) + .l-stripe:not([class*="s-"]) {
+  // prevent collapsing margins
+  &::before {
+    content: " ";
+    display: block;
+    margin-top: rem-calc(30);
+  }
+}
+
+// l-stripe with background, followed by l-stripe with no background
+.l-stripe[class*="s-"] + .l-stripe:not([class*="s-"]) {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.l-stripe--narrow:not([class*="s-"]) + .l-stripe--narrow:not([class*="s-"]) {
+  padding-top: 0;
+}

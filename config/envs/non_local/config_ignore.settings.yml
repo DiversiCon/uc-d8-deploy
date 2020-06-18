@@ -1,0 +1,13 @@
+ignored_config_entities:
+  - 'acquia_connector.settings:subscription_data.expiration_date'
+  - 'acquia_connector.settings:subscription_data.heartbeat_data'
+  - 'acquia_connector.settings:spi.site_environment'
+  - 'acquia_connector.settings:spi.site_uuid'
+  - 'acquia_connector.settings:spi.site_machine_name'
+  - 'acquia_connector.settings:spi.def_timestamp'
+  - 'acquia_search.settings:derived_key_salt'
+  - 'acquia_search.settings:version'
+  - 'search_api.server.acquia_search:backend_config.acquia_search_possible_cores'
+  - 'search_api_solr.settings:site_hash'
+_core:
+  default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk

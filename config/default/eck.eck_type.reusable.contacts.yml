@@ -1,0 +1,9 @@
+uuid: 11c6aea3-b829-4295-8082-2477b68a1889
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.reusable
+name: Contacts
+type: contacts
+description: 'Re-usable contacts, used in story bylines for example'

@@ -1,0 +1,30 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+{{ it_showcase_component('masthead', 0) }}
+
+<section class="l-container">
+	{% include '@uccollege/../components/headline/headline.html.twig' with {'content': content.headline} %}
+</section>
+
+
+
+<section class="l-container">
+  <uc-events-featured
+    :grid="true"
+    instance="pritzker"
+    endpoint="http://bsd-data.dev.uchicago.edu/api/node/event" />
+</section>
+
+
+{{ it_showcase_component('footer', 0) }}

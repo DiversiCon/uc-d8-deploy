@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a showcase item.
+ *
+ * Available variables:
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component
+ *    .template - based on path
+ *  content - array of content values.
+ *
+ */
+#}
+
+{% set suggest = showcase.template_path ~ '/showcase--' ~ showcase.type %}
+{% if showcase.template %}
+  {% set suggest = suggest ~ '--' ~ showcase.template %}
+{% endif %}
+{% set suggest = suggest ~ '.html.twig' %}
+
+<h2>Uh-oh!</h2>
+<p>A unique showcase prototype has not been created for this element.  To correct this issue you must create an appropriately named template override.</p>
+<div><strong>Suggested name: </strong></div>
+<pre>{{ showcase.template_suggestion }}</pre>

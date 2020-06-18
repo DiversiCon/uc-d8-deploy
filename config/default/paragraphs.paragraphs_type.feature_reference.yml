@@ -1,0 +1,9 @@
+uuid: 5e226876-499a-4c4d-abe6-f0e1dad0662f
+langcode: en
+status: true
+dependencies: {  }
+id: feature_reference
+label: 'Feature, Reference'
+icon_uuid: null
+description: 'Reference an existing feature from the ECK library'
+behavior_plugins: {  }

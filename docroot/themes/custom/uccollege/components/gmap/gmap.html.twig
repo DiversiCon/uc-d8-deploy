@@ -1,0 +1,14 @@
+{#
+/**
+ * map Twig Partial
+ *
+ */
+#}
+
+<uc-gmap
+		{% if content.heading %}heading="{{ content.heading }}"{% endif %}
+		{% if content.apikey %}apikey="{{ content.apikey }}"{% endif %}
+		{% if content.zoom %}:zoom="{{ content.zoom }}"{% endif %}
+		lat="{{ content.lat }}"
+		lon="{{ content.lon }}">
+</uc-gmap>

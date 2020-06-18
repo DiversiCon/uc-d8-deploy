@@ -1,0 +1,63 @@
+uuid: c4427467-5c27-458d-bbcf-af4314f71bac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.callout_item_unique.field_headline_text
+    - field.field.paragraph.callout_item_unique.field_image_link
+    - field.field.paragraph.callout_item_unique.field_image_main
+    - field.field.paragraph.callout_item_unique.field_par_html_single
+    - field.field.paragraph.callout_item_unique.field_subheadline_text
+    - paragraphs.paragraphs_type.callout_item_unique
+  module:
+    - link
+    - text
+id: paragraph.callout_item_unique.default
+targetEntityType: paragraph
+bundle: callout_item_unique
+mode: default
+content:
+  field_headline_text:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_image_link:
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_image_main:
+    weight: 3
+    label: hidden
+    settings:
+      view_mode: feature_view
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_par_html_single:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_subheadline_text:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  search_api_excerpt: true

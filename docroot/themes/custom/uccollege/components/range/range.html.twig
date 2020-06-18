@@ -1,0 +1,27 @@
+{#
+/**
+ * range Twig Partial
+ *
+ */
+#}
+
+<div class="c-range">
+	{% if content.headline %}<h2 class="t-heading--medium">{{ content.headline }}</h2>{% endif %}
+
+	{% for item in content.items %}
+		<p>{{ item.title }}</p>
+		<div class="c-range__wrap">
+			<div class="c-range__left">
+				<span>{{ item.left_prefix|default('from') }} </span>{{ item.left_text }}
+			</div>
+			<div class="c-range__center" aria-hidden="true">
+				<svg class="c-icon">
+					<use xlink:href="/themes/custom/uccollege/dist/icons.svg#range" />
+				</svg>
+			</div>
+			<div class="c-range__right">
+				<span>{{ item.right_prefix|default('to') }} </span>{{ item.right_text }}
+			</div>
+		</div>
+	{% endfor %}
+</div>

@@ -1,0 +1,105 @@
+{#
+/**
+ * list-filter Twig Partial
+ *
+ */
+#}
+
+<uc-list
+  datasource="{{ content.datasource }}"
+  categorysource="{{ content.categorysource }}"
+  :items-per-page="{{ content.itemsPerPage }}"
+  :filtered="{{ content.filtered }}"
+  {% if content.sidebar %}:sidebar="{{ content.sidebar }}"{% endif %}
+  :paginate="{{ content.paginate }}"
+  {% if content.preSelected %}pre-selected="{{ content.preSelected }}"{% endif %}
+  filter-title="College news">
+
+  <div class="c-sidebar-links s-bg">
+    <h2 class="c-sidebar-links__heading">Submissions</h2>
+    <ul class="c-sidebar-links__content">
+      <li class="c-sidebar-links__item">
+        <a href="#" class="c-sidebar-links__link">Submit an accomplishment for the next Honors &amp; Awards article.</a>
+      </li>
+      <li class="c-sidebar-links__item">
+        <a href="#" class="c-sidebar-links__link">Pitch a news story</a>
+      </li>
+    </ul>
+  </div>
+</uc-list>
+
+
+
+{# Hard-coded news results for testing only #}
+
+{#<div class="c-list">#}
+	{#<div class="c-list__content-wrap">#}
+		{#<section class="c-list__content">#}
+			{#<div class="c-list__item">#}
+				{#<div class="c-list__item-image">#}
+					{#<a href="#" class="c-list__item-imagelink">#}
+						{#<div class="c-list__item-imagewrap">#}
+							{#<svg class="c-icon">#}
+								{#<use xlink:href="/themes/custom/uccollege/dist/icons.svg#phoenix"></use>#}
+							{#</svg>#}
+							{#<img src="https://via.placeholder.com/300?text=FPO" alt="">#}
+						{#</div>#}
+					{#</a>#}
+				{#</div>#}
+				{#<div class="c-list__item-text">#}
+					{#<h3 class="c-list__item-title">#}
+						{#<a href="#" class="c-list__item-titlelink">This is a Title</a></h3>#}
+					{#<div class="c-list__item-description">#}
+						{#<p>This is a description. Ac diam ante a eu parturient luctus#}
+							{#dis a suspendisse himenaeos sagittis ut molestie a scelerisque.</p>#}
+					{#</div>#}
+					{#<p class="c-list__item-meta">#}
+						{#<span class="c-list__item-source">By <a href="#">Danika Kmetz</a></span>#}
+						{#<span class="c-list__separator"> | </span>#}
+						{#<time datetime="2018-09-04" class="c-list__item-date">September 4, 2018</time>#}
+					{#</p>#}
+				{#</div>#}
+			{#</div>#}
+
+			{#<div class="c-list__item">#}
+				{#<div class="c-list__item-image">#}
+					{#<a href="#" class="c-list__item-imagelink">#}
+						{#<div class="c-list__item-imagewrap">#}
+							{#<svg class="c-icon">#}
+								{#<use xlink:href="/themes/custom/uccollege/dist/icons.svg#phoenix"></use>#}
+							{#</svg>#}
+							{#<img src="https://via.placeholder.com/300?text=FPO" alt="">#}
+						{#</div>#}
+					{#</a>#}
+				{#</div>#}
+				{#<div class="c-list__item-text">#}
+					{#<h3 class="c-list__item-title">#}
+						{#<a href="#" class="c-list__item-titlelink">This is a Title</a></h3>#}
+					{#<div class="c-list__item-description">#}
+						{#<p>This is a description. Ac diam ante a eu parturient luctus#}
+							{#dis a suspendisse himenaeos sagittis ut molestie a scelerisque.</p>#}
+					{#</div>#}
+					{#<p class="c-list__item-meta">#}
+						{#<span class="c-list__item-source">By <a href="#">Danika Kmetz</a></span>#}
+						{#<span class="c-list__separator"> | </span>#}
+						{#<time datetime="2018-09-04" class="c-list__item-date">September 4, 2018</time>#}
+					{#</p>#}
+				{#</div>#}
+			{#</div>#}
+		{#</section>#}
+
+		{#<section class="c-list__sidebar">#}
+			{#<div class="c-sidebar-links s-bg">#}
+				{#<h2 class="c-sidebar-links__heading">Submissions</h2>#}
+				{#<ul class="c-sidebar-links__content">#}
+					{#<li class="c-sidebar-links__item">#}
+						{#<a href="#" class="c-sidebar-links__link">Submit an accomplishment for the next Honors &amp; Awards article.</a>#}
+					{#</li>#}
+					{#<li class="c-sidebar-links__item">#}
+						{#<a href="#" class="c-sidebar-links__link">Pitch a news story</a>#}
+					{#</li>#}
+				{#</ul>#}
+			{#</div>#}
+		{#</section>#}
+	{#</div>#}
+{#</div>#}

@@ -1,0 +1,30 @@
+uuid: 28191f4c-d982-4f8f-9c48-4d3e29161f93
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.tile_insert.field_par_paragraph_single
+    - paragraphs.paragraphs_type.tile_insert
+  module:
+    - paragraphs
+id: paragraph.tile_insert.default
+targetEntityType: paragraph
+bundle: tile_insert
+mode: default
+content:
+  field_par_paragraph_single:
+    weight: 101
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

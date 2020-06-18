@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_smartbody_components
+    - paragraphs.paragraphs_type.smartbody
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: JtG83oMgr9WpE-x4jGgInwdhbxaSEWCFyPvMbDM4Iqk
+id: paragraph.smartbody.field_smartbody_components
+field_name: field_smartbody_components
+entity_type: paragraph
+bundle: smartbody
+label: 'Smartbody components'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles: { }
+    target_bundles_drag_drop: { }
+field_type: entity_reference_revisions

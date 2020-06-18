@@ -1,0 +1,30 @@
+infographic:
+  title: Infographic
+  description:
+  type: component
+  attributes:
+    category: Images & Media
+  variants:
+  -
+    title: US Map
+    caption:
+    content:
+      image: "/themes/custom/uccollege/it_showcase/images/map-us.png"
+      alt: "Map of United States showing the 25 states students are from."
+  -
+    title: Pie Chart
+    caption:
+    content:
+      image: "/themes/custom/uccollege/it_showcase/images/infographic.png"
+      alt: "Pie chart showing 41% of students with no GAP years, 33% with 1 GAP year and 26% with 2+ GAP years"
+      link: "#"
+      target: "_blank"
+
+infographic.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: infographic.component
+    index_hide: true
+    file: themes/custom/uccollege/components/infographic/README.md

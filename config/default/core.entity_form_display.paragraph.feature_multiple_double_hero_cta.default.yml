@@ -1,0 +1,29 @@
+uuid: 43a94135-05b1-4f82-a264-9db57859511a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.feature_multiple_double_hero_cta.field_paragraphs_unlimited
+    - paragraphs.paragraphs_type.feature_multiple_double_hero_cta
+  module:
+    - paragraphs
+id: paragraph.feature_multiple_double_hero_cta.default
+targetEntityType: paragraph
+bundle: feature_multiple_double_hero_cta
+mode: default
+content:
+  field_paragraphs_unlimited:
+    weight: 0
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: feature_double_hero_cta
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+hidden:
+  created: true
+  status: true

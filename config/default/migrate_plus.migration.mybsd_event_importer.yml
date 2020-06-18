@@ -1,0 +1,165 @@
+uuid: e13c007c-8b16-4b0a-a9be-4405641e0406
+langcode: en
+status: true
+dependencies: {  }
+id: mybsd_event_importer
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: null
+label: 'Import events from myBSD'
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  urls: 'http://birenheide.com/uchicago/events/rssbsd.php'
+  data_parser_plugin: simple_xml
+  item_selector: /rss/channel/item
+  fields:
+    -
+      name: link
+      label: 'Detail Link'
+      selector: link
+    -
+      name: guid
+      label: GUID
+      selector: guid
+    -
+      name: updated
+      label: 'Last Updated Timestamp'
+      selector: tstamp
+    -
+      name: title
+      label: 'Event Title'
+      selector: Title
+    -
+      name: event_date
+      label: 'Event Date'
+      selector: EventDate
+    -
+      name: start_time
+      label: 'Event Start Time'
+      selector: startTime
+    -
+      name: end_time
+      label: 'Event End Time'
+      selector: endTime
+    -
+      name: department
+      label: Department
+      selector: department
+    -
+      name: department_other
+      label: 'Department Other'
+      selector: departmentother
+    -
+      name: building
+      label: Building
+      selector: Building
+    -
+      name: building_other
+      label: 'Building Other'
+      selector: Buildingother
+    -
+      name: room
+      label: Room
+      selector: Room
+    -
+      name: description
+      label: 'Event Description'
+      selector: Description
+    -
+      name: speaker_name
+      label: 'Speaker Name'
+      selector: SpeakerName
+    -
+      name: speaker_affiliation
+      label: 'Speaker Affiliation'
+      selector: SpeakerAffiliation
+    -
+      name: series_title
+      label: 'Series Title'
+      selector: SeriesTitle
+    -
+      name: contact_name
+      label: 'Contact Name'
+      selector: Name
+    -
+      name: contact_email
+      label: 'Contact Email'
+      selector: Email
+    -
+      name: contact_phone
+      label: 'Contact Phone'
+      selector: Phone
+    -
+      name: type
+      label: Type
+      selector: Type
+  ids:
+    guid:
+      type: string
+process:
+  field_external_id: guid
+  field_source:
+    plugin: default_value
+    default_value: myBSD
+  title:
+    plugin: skip_on_empty
+    method: row
+    source: title
+    message: 'Title field missing'
+  field_department:
+    plugin: entity_generate
+    source: department
+    value_key: name
+    bundle: event_departments
+    entity_type: taxonomy_term
+  field_description: description
+  field_contact:
+    plugin: concat
+    source:
+      - contact_name
+      - contact_email
+      - contact_phone
+    delimiter: ' '
+  field_event_dates/value:
+    -
+      plugin: concat
+      source:
+        - event_date
+        - start_time
+      delimiter: T
+    -
+      plugin: format_date
+      from_format: 'Y-m-d\TH:i:s'
+      to_format: 'Y-m-d\TH:i:s'
+  field_event_dates/end_value:
+    -
+      plugin: concat
+      source:
+        - event_date
+        - end_time
+      delimiter: T
+    -
+      plugin: format_date
+      from_format: 'Y-m-d\TH:i:s'
+      to_format: 'Y-m-d\TH:i:s'
+  field_location:
+    plugin: concat
+    source:
+      - building
+      - building_other
+      - room
+    delimiter: ' '
+  field_speaker_name: speaker_name
+  field_speaker_affiliation: speaker_affiliation
+  status:
+    plugin: default_value
+    default_value: 1
+  type:
+    plugin: default_value
+    default_value: event
+destination:
+  plugin: 'entity:node'
+migration_dependencies: null

@@ -1,0 +1,69 @@
+uuid: db382b13-7b2a-4b82-8c8a-c5b5bfdfd67a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.education_and_training.field_degree_earned
+    - field.field.paragraph.education_and_training.field_end_date
+    - field.field.paragraph.education_and_training.field_institution
+    - field.field.paragraph.education_and_training.field_location
+    - field.field.paragraph.education_and_training.field_major_field
+    - field.field.paragraph.education_and_training.field_start_date
+    - paragraphs.paragraphs_type.education_and_training
+id: paragraph.education_and_training.default
+targetEntityType: paragraph
+bundle: education_and_training
+mode: default
+content:
+  field_degree_earned:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_end_date:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_institution:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_location:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_major_field:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_start_date:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

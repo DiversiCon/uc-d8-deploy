@@ -1,0 +1,21 @@
+uuid: ca111a60-5345-44d7-a458-09426c06f7e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date_no_time
+    - node.type.generic
+  module:
+    - datetime
+id: node.generic.field_date_no_time
+field_name: field_date_no_time
+entity_type: node
+bundle: generic
+label: Date
+description: 'Optional, date to display in the headline'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

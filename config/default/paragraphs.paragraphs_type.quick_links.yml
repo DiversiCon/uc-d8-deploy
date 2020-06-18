@@ -1,0 +1,9 @@
+uuid: 77c82cf7-4ead-4ff4-9da5-7016323d40bb
+langcode: en
+status: true
+dependencies: {  }
+id: quick_links
+label: 'Quick Links'
+icon_uuid: null
+description: 'Sub-component of feature.'
+behavior_plugins: {  }

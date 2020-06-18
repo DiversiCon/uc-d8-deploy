@@ -1,0 +1,49 @@
+uuid: 22db9582-10ed-4180-98a3-d81b1266a28f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.academic_appointment.field_academic_unit_name
+    - field.field.paragraph.academic_appointment.field_department_name
+    - field.field.paragraph.academic_appointment.field_section_name
+    - field.field.paragraph.academic_appointment.field_title
+    - paragraphs.paragraphs_type.academic_appointment
+id: paragraph.academic_appointment.default
+targetEntityType: paragraph
+bundle: academic_appointment
+mode: default
+content:
+  field_academic_unit_name:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_department_name:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_section_name:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_title:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  search_api_excerpt: true

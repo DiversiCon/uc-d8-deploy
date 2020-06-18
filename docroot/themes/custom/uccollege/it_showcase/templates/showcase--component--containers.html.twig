@@ -1,0 +1,64 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ * Available variables:
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+
+<h1>.l-container__wrap</h1>
+<p>I am the main global wrapper, 1280px wide with no padding.</p>
+
+<section class="l-container">
+  <h1>.l-container</h1>
+  <p>I am a full-width container with left and right gutters</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque error in itaque necessitatibus nesciunt quo repellendus sit? Alias aperiam eius et ex, fugit quas reiciendis saepe sed tempora, tenetur velit.</p>
+</section>
+
+<section class="l-stripe s-bg">
+  <h2 class="t-heading--topic"><a href="#">FACULTY STORIES</a></h2>
+  <h3 class="t-heading--medium">.l-stripe.s-bg</h3>
+  <p>I am a full-width container with left and right gutters and gray background</p>
+  <p><a href="#">Example Link Here</a></p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque error in itaque necessitatibus nesciunt quo repellendus sit? Alias aperiam eius et ex, fugit quas reiciendis saepe sed tempora, tenetur velit.</p>
+</section>
+
+<section class="l-stripe s-bg-secondary">
+  <h2 class="t-heading--topic"><a href="#">FACULTY STORIES</a></h2>
+  <h3 class="t-heading--medium">.l-stripe.s-bg-secondary</h3>
+  <p>I am a full-width container with left and right gutters and yellow background</p>
+  <p><a href="#">Example Link Here</a></p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque error in itaque necessitatibus nesciunt quo repellendus sit? Alias aperiam eius et ex, fugit quas reiciendis saepe sed tempora, tenetur velit.</p>
+</section>
+
+<section class="l-stripe s-bg-tertiary">
+  <h2 class="t-heading--topic"><a href="#">FACULTY STORIES</a></h2>
+  <h3 class="t-heading--medium">.l-stripe.s-bg-tertiary</h3>
+  <p>I am a full-width container with left and right gutters and violet background</p>
+  <p><a href="#">Example Link Here</a></p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque error in itaque necessitatibus nesciunt quo repellendus sit? Alias aperiam eius et ex, fugit quas reiciendis saepe sed tempora, tenetur velit.</p>
+</section>
+
+<section class="l-stripe s-bg-tertiary">
+  {{ it_showcase_component('stats', 3) }}
+</section>
+
+<section class="l-stripe s-bg-tertiary">
+  {{ it_showcase_component('stats', 4) }}
+</section>
+
+<section class="l-container l-pb0">
+  <h2 class="t-heading--topic"><a href="#">FACULTY STORIES</a></h2>
+  <h2>Full-Width, no gutters</h2>
+</section>
+
+<section class="l-container l-container--full">
+  <img src="https://picsum.photos/1280/300?image=1057" alt="">
+</section>

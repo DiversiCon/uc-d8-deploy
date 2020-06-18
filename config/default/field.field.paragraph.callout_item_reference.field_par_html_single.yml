@@ -1,0 +1,30 @@
+uuid: 078e2123-bcc5-4052-9f6d-97d0a9fbb2d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_html_single
+    - paragraphs.paragraphs_type.callout_item_reference
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    simple_html: simple_html
+    plain: plain
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.callout_item_reference.field_par_html_single
+field_name: field_par_html_single
+entity_type: paragraph
+bundle: callout_item_reference
+label: 'Additional Calllout Text'
+description: 'Add a quote or additional text beneath the callout item.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

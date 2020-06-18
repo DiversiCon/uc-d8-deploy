@@ -1,0 +1,98 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - feature-quote component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-feature-quote {
+  margin: 0;
+  padding: rem-calc(10) rem-calc(10) rem-calc(20) rem-calc(10);
+  text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+
+  blockquote {
+    @include font-sans(bold);
+    font-size: rem-calc(16);
+    letter-spacing: rem-calc(-0.3);
+    line-height: rem-calc(22);
+    margin: 3% 0 0 rem-calc(20);
+    text-align: left;
+    width: 65%;
+  }
+
+  figcaption {
+    margin: 0 auto;
+  }
+
+  cite {
+    display: block;
+    margin: rem-calc(20) 0;
+    padding: 0 rem-calc(20);
+  }
+
+  &__attribution {
+    @include font-sans(bold);
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    font-style: normal;
+  }
+
+  &__attribution-extra {
+    display: block;
+    margin-top: rem-calc(5);
+    font-size: rem-calc(12);
+    font-weight: 400;
+  }
+
+  img {
+    border-radius: 50%;
+    height: 100%;
+    max-width: 220px;
+    width: 25%;
+    margin: 0 0 0 auto;
+  }
+
+  a {
+    font-size: rem-calc(16);
+  }
+
+  @include breakpoint(medium) {
+    display: block;
+
+    blockquote {
+      font-size: rem-calc(20);
+      line-height: rem-calc(26);
+      margin: rem-calc(20) rem-calc(30);
+      text-align: center;
+      width: auto;
+      padding: 0;
+    }
+
+    &__cite {
+      max-width: none;
+    }
+
+    &__cite-additional-info {
+      font-size: rem-calc(14);
+    }
+
+    img {
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  @include breakpoint(large) {
+    padding-top: 0;
+  };
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-feature-quote {
+    // sass linter doesn't like empty blocks :)
+  }
+}

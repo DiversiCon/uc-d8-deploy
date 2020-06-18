@@ -1,0 +1,65 @@
+uuid: ef771b6c-cc08-4d38-a41c-e3568a9c221c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.avatar.field_description
+    - field.field.paragraph.avatar.field_faculty_reference
+    - field.field.paragraph.avatar.field_media
+    - field.field.paragraph.avatar.field_single_link
+    - field.field.paragraph.avatar.field_title
+    - paragraphs.paragraphs_type.avatar
+  module:
+    - link
+    - text
+    - uc_cdr_client
+id: paragraph.avatar.default
+targetEntityType: paragraph
+bundle: avatar
+mode: default
+content:
+  field_description:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_faculty_reference:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: uc_cdr_client_external_reference_formatter
+    region: content
+  field_media:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_single_link:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_title:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  search_api_excerpt: true

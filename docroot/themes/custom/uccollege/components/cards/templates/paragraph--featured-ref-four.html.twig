@@ -1,0 +1,47 @@
+{#
+/**
+ * cards Twig Partial
+ *
+ */
+#}
+
+<uc-slider class="c-cards c-cards--4up" :breakpoint="1024" v-cloak>
+	<ul class="c-cards__content">
+		
+		{% for person in person_references %}
+
+			{% set url = path('entity.node.canonical', {'node':  person.entity.id}) %}
+			{% set img = person.image %}
+			{% set image = person.image %}
+			{% set title = person.entity.field_headline_text.value %}
+			{% set description = person.entity.field_office_title.value %}
+
+			<li class="c-card">
+				<div class="c-card__img">
+					<a href="{{ url }}">
+						<svg class="c-icon">
+							<use xlink:href="/themes/custom/uccollege/dist/icons.svg#phoenix"/>
+						</svg>
+						{% if image|render is not empty %}
+							<picture>
+								{{ image }}
+							</picture>
+						{% endif %}
+					</a>
+				</div>
+
+				<p class="c-card__status">{{ card.status }}</p>
+				<h2 class="c-card__heading">
+					<a href="{{ url }}">{% autoescape false %}{{ title }}{% endautoescape %}</a>
+				</h2>
+				
+					<div class="c-card__description">
+						{% autoescape false %}
+							{{ description }}
+						{% endautoescape %}
+					</div>
+			</li>
+		{% endfor %}
+
+	</ul>
+</uc-slider>

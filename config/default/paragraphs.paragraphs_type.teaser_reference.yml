@@ -1,0 +1,9 @@
+uuid: a13d84ec-8428-40ee-bd46-c613ceb02846
+langcode: en
+status: true
+dependencies: {  }
+id: teaser_reference
+label: 'Teaser, Reference'
+icon_uuid: null
+description: 'Teaser, referencing a landing page; used in the teaser insert'
+behavior_plugins: {  }

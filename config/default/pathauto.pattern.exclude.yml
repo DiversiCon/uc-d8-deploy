@@ -1,0 +1,23 @@
+uuid: 9037276d-8af4-4c7d-90b2-45d3e5c0aef2
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: exclude
+label: 'Exclude from SEO'
+type: 'canonical_entities:node'
+pattern: 'admin/[node:content-type]/[node:title]'
+selection_criteria:
+  abbe5d4f-43a5-4b89-a365-07bcfc123ba4:
+    id: node_type
+    bundles:
+      external: external
+      program: program
+    negate: false
+    context_mapping:
+      node: node
+    uuid: abbe5d4f-43a5-4b89-a365-07bcfc123ba4
+selection_logic: and
+weight: -5
+relationships: {  }

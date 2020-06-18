@@ -1,0 +1,31 @@
+uc_cdr.settings:
+  path: '/admin/uc_cdr/settings'
+  defaults:
+    _form: '\Drupal\uc_cdr\Form\CdrSettingsForm'
+    _title: 'UC CDR Settings'
+  requirements:
+    _permission: 'administer site configuration'
+uc_cdr.faculty_index:
+  path: '/api/faculty_index'
+  defaults:
+    _controller: '\Drupal\uc_cdr\Controller\CentralDataRepoController::getFacultyIndex'
+  requirements:
+    _permission: 'access content'
+uc_cdr.event_index:
+  path: '/api/event_index'
+  defaults:
+    _controller: '\Drupal\uc_cdr\Controller\CentralDataRepoController::getEventIndex'
+  requirements:
+    _permission: 'access content'
+uc_cdr.view_faculty_data:
+  path: '/api/faculty_data'
+  defaults:
+    _controller: '\Drupal\uc_cdr\Controller\CentralDataRepoController::getFacultyData'
+  requirements:
+    _permission: 'access content'
+uc_cdr.view_publication_data:
+  path: '/api/publication_data'
+  defaults:
+    _controller: '\Drupal\uc_cdr\Controller\CentralDataRepoController::getPublicationData'
+  requirements:
+    _permission: 'access content'

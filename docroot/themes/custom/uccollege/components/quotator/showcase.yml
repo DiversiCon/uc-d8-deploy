@@ -1,0 +1,71 @@
+quotator:
+  title: Quotator
+  description: Random quote display on the homepage
+  type: component
+  variants:
+  -
+    title: Default
+    content:
+      linktext: About Pritzker
+      linkurl: "#"
+      direction: "horizontal"
+      items:
+      -
+        text: "...to make an apple pie from scratch, you must first invent the universe."
+        attribution: "Carl Sagan,<br> AB’54, SB’55, SM’56, PhD’60"
+        image: "/themes/custom/uccollege/it_showcase/images/sagan.jpg"
+      -
+        text: "One of the most interesting and exciting things is what we just don’t know."
+        attribution: "Professor Wendy Freedman"
+        image: "/themes/custom/uccollege/it_showcase/images/quote-freedman.jpg"
+      -
+        text: "Every great advance in science has issued from a new audacity of the imagination."
+        attribution: "Prof. John Dewey, influential figure in education and social reform"
+        image: "/themes/custom/uccollege/it_showcase/images/quote-dewey.jpg"
+
+  -
+    title: Vertical
+    content:
+      linktext: About Pritzker
+      linkurl: "#"
+      direction: "vertical"
+      items:
+      -
+        text: "...to make an apple pie from scratch, you must first invent the universe."
+        attribution: "Carl Sagan,<br> AB’54, SB’55, SM’56, PhD’60"
+        image: "/themes/custom/uccollege/it_showcase/images/sagan.jpg"
+      -
+        text: "One of the most interesting and exciting things is what we just don’t know."
+        attribution: "Professor Wendy Freedman"
+        image: "/themes/custom/uccollege/it_showcase/images/quote-freedman.jpg"
+      -
+        text: "We actively seek to push the boundaries of biological and medical discovery..."
+        attribution: "Kenneth S. Polonsky, MD"
+        attribution_additional_info: "Dean and EVP Division of the Biological Science & Pritzker School of Medicine"
+        image: "https://via.placeholder.com/220&text=FPO"
+        linktext: "Dean's Welcome"
+        linkurl: "#"
+
+  -
+    title: Vertical Single Quote
+    content:
+      linktext: ""
+      linkurl: "#"
+      direction: "vertical"
+      items:
+      -
+        text: "...how the ecology of these interactions shapes evolutionary trajectories, and how evolutionary change in turn impacts ecology"
+        attribution: "Joy Bergelson, Ph.D."
+        attribution_additional_info: "Chair, Department of Ecology and Evolution"
+        image: "https://via.placeholder.com/220&text=FPO"
+        linktext: "Our Faculty"
+        linkurl: "#"
+
+quotator.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: quotator.component
+    index_hide: true
+    file: themes/custom/uccollege/components/quotator/README.md

@@ -1,0 +1,177 @@
+uuid: 30bafd86-94fe-4e88-b87e-057a4b092b47
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.generic.body
+    - field.field.node.generic.field_bool_template
+    - field.field.node.generic.field_date_no_time
+    - field.field.node.generic.field_headline_text
+    - field.field.node.generic.field_image_main
+    - field.field.node.generic.field_intro_paragraph
+    - field.field.node.generic.field_par_components
+    - field.field.node.generic.field_par_smartbody
+    - field.field.node.generic.field_paragraph_single_0
+    - field.field.node.generic.field_paragraph_single_1
+    - field.field.node.generic.field_paragraph_single_2
+    - field.field.node.generic.field_paragraph_single_3
+    - field.field.node.generic.field_paragraph_single_4
+    - field.field.node.generic.field_section
+    - field.field.node.generic.field_subheadline_text
+    - node.type.generic
+  module:
+    - datetime
+    - entity_reference_revisions
+    - smart_trim
+    - text
+    - user
+id: node.generic.default
+targetEntityType: node
+bundle: generic
+mode: default
+content:
+  body:
+    label: hidden
+    type: smart_trim
+    weight: 2
+    settings:
+      trim_length: 600
+      trim_type: chars
+      trim_suffix: ''
+      wrap_class: trimmed
+      more_text: More
+      more_class: more-link
+      summary_handler: full
+      wrap_output: false
+      more_link: false
+      trim_options:
+        text: false
+        trim_zero: false
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_date_no_time:
+    weight: 13
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: month_day_year
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_headline_text:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_image_main:
+    weight: 6
+    label: hidden
+    settings:
+      view_mode: image_uc_photo
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_intro_paragraph:
+    weight: 17
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_par_components:
+    weight: 18
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_par_smartbody:
+    type: entity_reference_revisions_entity_view
+    weight: 7
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_paragraph_single_0:
+    type: entity_reference_revisions_entity_view
+    weight: 10
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_paragraph_single_1:
+    type: entity_reference_revisions_entity_view
+    weight: 11
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_paragraph_single_2:
+    type: entity_reference_revisions_entity_view
+    weight: 14
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_paragraph_single_3:
+    type: entity_reference_revisions_entity_view
+    weight: 15
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_paragraph_single_4:
+    type: entity_reference_revisions_entity_view
+    weight: 16
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_section:
+    weight: 3
+    label: hidden
+    settings:
+      view_mode: headline
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_subheadline_text:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_bool_template: true
+  search_api_excerpt: true

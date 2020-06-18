@@ -1,0 +1,9 @@
+uuid: 3bf13c5d-c5a2-4ce0-8463-a6c52d9a8bc5
+langcode: en
+status: true
+dependencies: {  }
+id: events_list
+label: 'Events List'
+icon_uuid: null
+description: 'Display a searchable list of events. '
+behavior_plugins: {  }

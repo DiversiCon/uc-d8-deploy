@@ -1,0 +1,33 @@
+uuid: a3c78ace-4c4c-469b-9ad4-46fbc3f34bba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.graduate_program_websites.field_graduate_program_name
+    - field.field.paragraph.graduate_program_websites.field_graduate_program_url
+    - paragraphs.paragraphs_type.graduate_program_websites
+id: paragraph.graduate_program_websites.default
+targetEntityType: paragraph
+bundle: graduate_program_websites
+mode: default
+content:
+  field_graduate_program_name:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_graduate_program_url:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

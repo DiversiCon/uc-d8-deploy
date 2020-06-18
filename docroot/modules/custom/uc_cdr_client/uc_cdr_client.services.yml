@@ -1,0 +1,9 @@
+services:
+  uc_cdr_client.cdr_client:
+    class: Drupal\uc_cdr_client\CdrClient
+    arguments:
+      - '@http_client_factory'
+  uc_cdr_client.cdr_faculty_service:
+    class: Drupal\uc_cdr_client\Service\CdrFacultyService
+  uc_cdr_client.cdr_publication_service:
+    class: Drupal\uc_cdr_client\Service\PublicationService

@@ -1,0 +1,9 @@
+uuid: d9799b39-6d02-4b37-91f6-c0762ca7a934
+langcode: en
+status: true
+dependencies: {  }
+id: news_inernal
+label: 'News, Reference'
+icon_uuid: null
+description: '3 pieces of content items, referenced internally.'
+behavior_plugins: {  }

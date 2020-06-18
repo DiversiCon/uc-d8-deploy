@@ -1,0 +1,186 @@
+<?php
+
+/**
+ * @file
+ * Contains uc_cdr_client.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\config_pages\Entity\ConfigPages;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+
+/**
+ * Implements hook_help().
+ */
+function uc_cdr_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the uc_cdr module.
+    case 'help.page.uc_cdr_client':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Module facilitating client use of the UC CDR') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function uc_cdr_client_theme() {
+  return [
+    'cdr_event_detail' => [
+      'template' => 'page--event-detail',
+      'variables' => [
+        'event_data' => NULL
+      ],
+    ],
+    'cdr_faculty_profile' => [
+      'template' => 'page--faculty-profile',
+      'variables' => [
+        'faculty_data' => NULL,
+        'faculty_profile_page' => NULL,
+        'patient_information' => NULL,
+        'course_schedule' => NULL,
+      ],
+    ],
+    'cdr_publications' => [
+      'template' => 'page--publications',
+      'variables' => [
+        'publications_data' => NULL,
+      ],
+    ],
+    'cdr_publications_preview_block' => [
+      'template' => 'block--publications-preview',
+      'variables' => [
+        'publications' => NULL,
+        'has_more_publications' => NULL,
+        'all_publications_link' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function uc_cdr_client_preprocess_html(&$variables) {
+
+  $client = \Drupal::service('uc_cdr_client.cdr_client');
+
+  // Provide site instance ID to FE.
+  $instance_id = $client->getInstanceId();
+  $variables['#attached']['drupalSettings']['uc_cdr']['bsdInstanceId'] = $instance_id;
+
+  // Provide CDR API endpoint URL to FE.
+  $api_url = $client->getApiUrl();
+  $variables['#attached']['drupalSettings']['uc_cdr']['apiUrl'] = $api_url;
+}
+
+/**
+ * Implements hook_preprocess().
+ */
+function uc_cdr_client_preprocess(&$variables, $hook) {
+  $client = \Drupal::service('uc_cdr_client.cdr_client');
+
+  $variables['uc_cdr']['endpoint'] = $client->getApiUrl() . '/api';
+  $variables['uc_cdr']['instance_id'] = $client->getInstanceId();
+  $variables['uc_cdr']['endpoint_faculty'] = $client->getApiUrl() . '/api/node/faculty';
+  $variables['uc_cdr']['endpoint_faculty_publications'] = $client->getApiUrl() . '/api/node/publication';
+  $variables['uc_cdr']['endpoint_faculty_index'] = $client->getApiUrl() . '/api/faculty_index';
+
+  // For our specific uccollege theme hook.
+  if ($hook == 'cdr_event_detail') {
+    $events_config = ConfigPages::load('events');
+
+    if ($events_config != NULL) {
+      $variables['events']['callout_featured']['content'] = $events_config->get('field_callout')->view('default');
+      $variables['events']['callout_featured']['theme'] = $events_config->get('field_theme')->getValue()[0]['value'];
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function uc_cdr_client_entity_extra_field_info() {
+  $extra_fields = [];
+
+  // Create a pseudo field for displaying a preview list of publications.
+  $extra_fields['node']['person']['display']['pfield_publications_preview'] = [
+    'label' => t('Publications Preview'),
+    'weight' => 100,
+    'visible' => TRUE,
+  ];
+  $extra_fields['node']['group']['display']['pfield_publications_preview'] = [
+    'label' => t('Publications Preview'),
+    'weight' => 100,
+    'visible' => TRUE,
+  ];
+
+  return $extra_fields;
+}
+
+/**
+ * Implements hook_ENTITY_view().
+ */
+function uc_cdr_client_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  if ($view_mode == 'full') {
+    if ($display->getComponent('pfield_publications_preview')) {
+      /* @var \Drupal\uc_cdr_client\Service\PublicationService $publication_service */
+      $publication_service = \Drupal::service('uc_cdr_client.cdr_publication_service');
+
+      // Get the HTTP request.
+      $request = \Drupal::request();
+
+      // Get the list of publications for this node.
+      $publications = $publication_service->getPublicationsByPerson($request->getRequestUri());
+
+      // Determine if there are more than 10 publications available. If so, return only
+      // the first 10.
+      $has_more_publications = FALSE;
+      if (count($publications) > 10) {
+        $publications = array_splice($publications, 0, 10);
+        $has_more_publications = TRUE;
+      }
+
+      // For now I don't know of a better way to check in TWIG for an empty render array
+      // than to return an empty markup element.
+      if (!empty($publications)) {
+        $cache_tags = [];
+        foreach ($publications as $publication) {
+          $cache_tags[] = 'node:' . $publication->getDrupalId();
+        }
+
+        // The all publications link will vary depending on the content type.
+        $all_publications_link = $request->getRequestUri() . '/publications';
+        if ($entity->bundle() == 'person') {
+          // /people/{section}/{person_name}/publications
+          $all_publications_link = '/people' . str_replace('/people', '', $request->getRequestUri()) . '/publications';
+        }
+
+        // Build the render array for the pseudo field.
+        $build['pfield_publications_preview'] = [
+          '#theme' => 'cdr_publications_preview_block',
+          '#publications' => $publications,
+          '#all_publications_link' => $all_publications_link,
+          '#has_more_publications' => $has_more_publications,
+          '#cache' => [
+            'tags' => $cache_tags,
+          ],
+        ];
+      }
+      else {
+        $build['pfield_publications_preview'] = [
+          '#type' => 'markup',
+          '#markup' => '',
+          '#cache' => [
+            'max-age' => 0,
+          ],
+        ];
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+uuid: d7ad4809-d4b7-4ed0-8562-e345730f59bb
+langcode: en
+status: true
+dependencies: {  }
+id: home_page_grid
+label: 'Home Page Grid'
+icon_uuid: null
+description: 'Intro sections for the home page'
+behavior_plugins: {  }

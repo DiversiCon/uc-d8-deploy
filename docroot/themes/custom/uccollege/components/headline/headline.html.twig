@@ -1,0 +1,28 @@
+{#
+/**
+ * headline Twig Partial
+ *
+ */
+#}
+
+<header class="c-headline{% if content.theme %} c-headline--{{ content.theme }}{% endif %}">
+  {% if content.topic %}
+    <a href="{{ content.topicUrl }}" class="c-headline__topic t-heading--topic">{{ content.topic }}</a>
+  {% endif %}
+  <h1 class="c-headline__heading">
+	  {% autoescape false %}
+	  {{ content.heading }}
+  		{% endautoescape %}
+  </h1>
+  {% if content.description %}
+    <div class="c-headline__description">
+      {% autoescape false %}
+        {{ content.description }}
+      {% endautoescape %}
+    </div>
+  {% endif %}
+  {% if content.date %}
+    <p class="c-headline__date">{{ content.date }}</p>
+  {% endif %}
+</header>
+   

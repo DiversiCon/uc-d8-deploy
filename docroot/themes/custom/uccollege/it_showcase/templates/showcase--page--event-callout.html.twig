@@ -1,0 +1,53 @@
+{#
+/**
+ * @file
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+{{ it_showcase_component('masthead', 0) }}
+
+<section class="l-stripe s-bg-tertiary">
+  <h2 class="t-heading--medium">Featured Events</h2>
+  <p class="c-callout__intro">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt dolore aliqua.</p>
+
+  <uc-events-callout
+      instance="pritzker"
+      endpoint="http://bsd-data.dev.uchicago.edu/api/node/event">
+  </uc-events-callout>
+</section>
+
+<section class="l-stripe s-bg-tertiary">
+  <h2 class="t-heading--medium">Featured Events Not Showing Images</h2>
+  <p class="c-callout__intro">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt dolore aliqua.</p>
+
+  <uc-events-callout
+    instance="pritzker"
+    endpoint="http://bsd-data.dev.uchicago.edu/api/node/event"
+    :show-images="false">
+  </uc-events-callout>
+</section>
+
+<section class="l-stripe">
+  <h2 class="t-heading--medium">Curated Events</h2>
+  <p class="c-callout__intro">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt dolore aliqua.</p>
+
+  <uc-events-callout
+      callout-type="curated"
+      instance="pritzker"
+      :event-ids="[
+        'a5537de1-9554-486f-b871-c839bfb45829',
+        '8203be1c-5dbf-42eb-a0b0-76acf4c3b53f',
+        'e8baeb11-1163-4a8e-b16d-659c6fd14240',
+        '45f6303b-1e44-4afc-ad5c-80969686f3b4',
+      ]"
+  >
+  </uc-events-callout>
+</section>
+
+{{ it_showcase_component('footer', 0) }}

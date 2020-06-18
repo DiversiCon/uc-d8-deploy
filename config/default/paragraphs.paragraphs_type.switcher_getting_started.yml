@@ -1,0 +1,9 @@
+uuid: abfdc012-6f0d-4e76-b4e8-11d16a4037ec
+langcode: en
+status: true
+dependencies: {  }
+id: switcher_getting_started
+label: 'CTA Block'
+icon_uuid: null
+description: 'Content block with CTA buttons, and optional headline and sub-headline.'
+behavior_plugins: {  }

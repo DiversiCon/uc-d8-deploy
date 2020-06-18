@@ -1,0 +1,18 @@
+uuid: ef3da0da-b3bd-469e-8941-a30de5d4cc6d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.group
+id: node.group.title
+field_name: title
+entity_type: node
+bundle: group
+label: 'Admin Title'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

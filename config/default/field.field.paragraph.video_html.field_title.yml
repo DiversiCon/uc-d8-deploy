@@ -1,0 +1,19 @@
+uuid: d4be0e25-e759-4287-960c-9100874097ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.video_html
+id: paragraph.video_html.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: video_html
+label: 'Video Creator Credit'
+description: 'Currently, this only shows when authoring the homepage double hero feature.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,9 @@
+uuid: 87648916-bbd1-4c89-a721-ff28cb636e14
+langcode: en
+status: true
+dependencies: {  }
+id: sidebar_gen_related
+label: 'Related stories'
+icon_uuid: null
+description: '"You may also like, ..." sidebar that will manually reference items, unique per node'
+behavior_plugins: {  }

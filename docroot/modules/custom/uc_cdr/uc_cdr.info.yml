@@ -1,0 +1,25 @@
+name: 'UC Central Data Repository'
+type: module
+description: 'Module facilitating functionality of the UC CDR'
+core: 8.x
+package: 'Custom'
+
+dependencies:
+  - drupal:node
+  - drupal:taxonomy
+  - drupal:media
+  - drupal:field
+  - drupal:views
+  - consumer_image_styles:consumer_image_styles
+  - consumers:consumers
+  - datetime_range:datetime_range
+  - decoupled_router:decoupled_router
+  - jsonapi:jsonapi
+  - jsonapi_extras:jsonapi_extras
+  - migrate:migrate
+  - migrate_file:migrate_file
+  - migrate_plus:migrate_plus
+  - migrate_tools:migrate_tools
+  - rabbit_hole:rabbit_hole
+  - rh_node:rh_node
+  - uc_cdr:uc_cdr

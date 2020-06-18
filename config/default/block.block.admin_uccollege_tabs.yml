@@ -1,0 +1,20 @@
+uuid: 52ed7b7d-c955-47d9-b6e5-9ed487be284e
+langcode: en
+status: true
+dependencies:
+  theme:
+    - admin_uccollege
+id: admin_uccollege_tabs
+theme: admin_uccollege
+region: content
+weight: -1
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

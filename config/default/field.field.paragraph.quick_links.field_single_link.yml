@@ -1,0 +1,23 @@
+uuid: 1f67c245-fd5c-4ede-9833-653ef954980f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_single_link
+    - paragraphs.paragraphs_type.quick_links
+  module:
+    - link
+id: paragraph.quick_links.field_single_link
+field_name: field_single_link
+entity_type: paragraph
+bundle: quick_links
+label: 'Footer Link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

@@ -1,0 +1,53 @@
+{#
+/**
+ * cta-block Twig Partial
+ *
+ */
+#}
+
+{# Set the background class. #}
+{% set bg_class = '' %}
+
+{% if content.theme == 'primary' %}
+  {% set bg_class = 's-bg' %}
+{% elseif content.theme == 'secondary' %}
+  {% set bg_class = 's-bg-secondary' %}
+{% elseif content.theme == 'tertiary' %}
+  {% set bg_class = 's-bg-tertiary' %}
+{% endif %}
+
+
+{% if content.switcher %}
+  <uc-switcher v-cloak>
+    {% for item in content.items %}
+      <template slot="{{ item.type }}">
+        <div class="c-cta-block c-cta-block--{{ item.style }}">
+          <h4 class="c-cta-block__heading">{{ item.heading }}: </h4>
+          <div class="c-cta-block__links">
+            {% for link in item.links %}
+              <a href="{{ link.url }}" class="c-cta-block__link">{{ link.text }}</a>
+            {% endfor %}
+          </div>
+        </div>
+      </template>
+    {% endfor %}
+  </uc-switcher>
+{% elseif content.style == "bullets" %}
+  <div class="c-cta-block c-cta-block--{{ content.style }} {{ bg_class }}">
+    <h4 class="c-cta-block__heading">{{ content.heading }}: </h4>
+    <ul class="c-cta-block__links">
+      {% for link in content.links %}
+        <li><a href="{{ link.url }}" class="c-cta-block__link">{{ link.text }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+{% else %}
+  <div class="c-cta-block c-cta-block--{{ content.style }} {{ bg_class }}">
+    <h4 class="c-cta-block__heading">{{ content.heading }}: </h4>
+    <div class="c-cta-block__links">
+      {% for link in content.links %}
+        <a href="{{ link.url }}" class="c-cta-block__link">{{ link.text }}</a>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %} 

@@ -1,0 +1,36 @@
+{#
+/**
+ * @file
+ * Displays general information for the group, and a list of contacts.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{# Define variables. #}
+
+{% set group_name = paragraph.field_group_title.value %}
+{% set general_info = content.field_body %}
+{% set contact_list = content.field_par_paragraphs %}
+
+<uc-accordion title="{{ group_name }}">
+  <p>{{ general_info }}</p>
+
+  {% if contact_list|render is not empty %}
+
+  <div class="c-table table-scroll">
+    <table>
+      <thead>
+      <tr>
+        <th width="50%">Name/<wbr>Title</th>
+        <th width="50%">Contact</th>
+      </tr>
+      </thead>
+      <tbody>
+        {{ contact_list }}
+      </tbody>
+    </table>
+  </div>
+
+  {% endif %}
+</uc-accordion>

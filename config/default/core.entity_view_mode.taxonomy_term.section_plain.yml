@@ -1,0 +1,10 @@
+uuid: 3ea6e863-132e-4c9a-ba4e-40442e08db5b
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.section_plain
+label: 'Section, Plain'
+targetEntityType: taxonomy_term
+cache: true

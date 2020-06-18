@@ -1,0 +1,148 @@
+uuid: 81a8d033-8464-4a61-9fe9-19764e022654
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_quotator_items
+    - paragraphs.paragraphs_type.home_page_grid
+    - paragraphs.paragraphs_type.quotator_item
+  module:
+    - entity_reference_revisions
+id: paragraph.home_page_grid.field_quotator_items
+field_name: field_quotator_items
+entity_type: paragraph
+bundle: home_page_grid
+label: Items
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      quotator_item: quotator_item
+    target_bundles_drag_drop:
+      accordion_block:
+        weight: 41
+        enabled: false
+      accordion_item:
+        weight: 42
+        enabled: false
+      callout:
+        weight: 43
+        enabled: false
+      callout_insert:
+        weight: 44
+        enabled: false
+      callout_item_reference:
+        weight: 45
+        enabled: false
+      callout_item_unique:
+        weight: 46
+        enabled: false
+      callout_reference:
+        weight: 47
+        enabled: false
+      components:
+        weight: 48
+        enabled: false
+      components_lower:
+        weight: 49
+        enabled: false
+      cta_block:
+        weight: 50
+        enabled: false
+      cta_buttons:
+        weight: 51
+        enabled: false
+      cta_text_link:
+        weight: 52
+        enabled: false
+      custom_link:
+        weight: 53
+        enabled: false
+      feature:
+        weight: 54
+        enabled: false
+      feature_4sq_img_link:
+        weight: 55
+        enabled: false
+      feature_4_square_images:
+        weight: 56
+        enabled: false
+      feature_components:
+        weight: 57
+        enabled: false
+      feature_image_link:
+        weight: 58
+        enabled: false
+      feature_insert:
+        weight: 59
+        enabled: false
+      feature_reference:
+        weight: 60
+        enabled: false
+      home_page_grid:
+        weight: 61
+        enabled: false
+      html_text:
+        weight: 62
+        enabled: false
+      news_block:
+        weight: 63
+        enabled: false
+      news_external:
+        weight: 64
+        enabled: false
+      news_inernal:
+        weight: 65
+        enabled: false
+      pullquote:
+        weight: 66
+        enabled: false
+      quick_links:
+        weight: 67
+        enabled: false
+      quotator_item:
+        enabled: true
+        weight: 68
+      smartbody:
+        weight: 69
+        enabled: false
+      smartbody_image:
+        weight: 70
+        enabled: false
+      social_grid:
+        weight: 71
+        enabled: false
+      stats:
+        weight: 72
+        enabled: false
+      stats_insert:
+        weight: 73
+        enabled: false
+      stats_reference:
+        weight: 74
+        enabled: false
+      switcher:
+        weight: 75
+        enabled: false
+      switcher_cta:
+        weight: 76
+        enabled: false
+      teaser:
+        weight: 77
+        enabled: false
+      teaser_insert:
+        weight: 78
+        enabled: false
+      teaser_reference:
+        weight: 79
+        enabled: false
+      video_html:
+        weight: 80
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,23 @@
+uuid: cf9f00ea-25b4-4fea-a09c-4581b4797a6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.footer
+    - field.storage.config_pages.field_telephone
+  module:
+    - telephone
+id: config_pages.footer.field_telephone
+field_name: field_telephone
+entity_type: config_pages
+bundle: footer
+label: Phone
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 773.702.1234
+default_value_callback: ''
+settings: {  }
+field_type: telephone

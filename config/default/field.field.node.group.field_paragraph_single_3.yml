@@ -1,0 +1,217 @@
+uuid: cd8508fb-eb32-4016-ad50-9d0d79071423
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraph_single_3
+    - node.type.group
+    - paragraphs.paragraphs_type.sidebar_inquiries
+  module:
+    - entity_reference_revisions
+id: node.group.field_paragraph_single_3
+field_name: field_paragraph_single_3
+entity_type: node
+bundle: group
+label: 'Inquiry Sidebar'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      sidebar_inquiries: sidebar_inquiries
+    target_bundles_drag_drop:
+      sidebar_gen_related:
+        weight: 52
+        enabled: false
+      accordion_block:
+        weight: 53
+        enabled: false
+      accordion_item:
+        weight: 54
+        enabled: false
+      callout:
+        weight: 55
+        enabled: false
+      callout_insert:
+        weight: 56
+        enabled: false
+      callout_item_reference:
+        weight: 57
+        enabled: false
+      callout_item_unique:
+        weight: 58
+        enabled: false
+      callout_reference:
+        weight: 59
+        enabled: false
+      components:
+        weight: 60
+        enabled: false
+      components_lower:
+        weight: 61
+        enabled: false
+      cta_block:
+        weight: 62
+        enabled: false
+      cta_buttons:
+        weight: 63
+        enabled: false
+      cta_text_link:
+        weight: 64
+        enabled: false
+      custom_link:
+        weight: 65
+        enabled: false
+      feature:
+        weight: 66
+        enabled: false
+      feature_4_square_images:
+        weight: 67
+        enabled: false
+      feature_4sq_img_link:
+        weight: 68
+        enabled: false
+      feature_components:
+        weight: 69
+        enabled: false
+      feature_image_link:
+        weight: 70
+        enabled: false
+      feature_insert:
+        weight: 71
+        enabled: false
+      card_grid:
+        weight: 71
+        enabled: false
+      card_grid_insert:
+        weight: 72
+        enabled: false
+      feature_reference:
+        weight: 72
+        enabled: false
+      card_grid_item:
+        weight: 73
+        enabled: false
+      home_page_grid:
+        weight: 73
+        enabled: false
+      card_grid_reference:
+        weight: 74
+        enabled: false
+      html_text:
+        weight: 74
+        enabled: false
+      news_block:
+        weight: 75
+        enabled: false
+      news_external:
+        weight: 76
+        enabled: false
+      news_inernal:
+        weight: 77
+        enabled: false
+      photo_nav_grid:
+        weight: 78
+        enabled: false
+      photo_nav_grid_item:
+        weight: 79
+        enabled: false
+      program_selector:
+        weight: 80
+        enabled: false
+      date:
+        weight: 81
+        enabled: false
+      pullquote:
+        weight: 81
+        enabled: false
+      quick_links:
+        weight: 82
+        enabled: false
+      quotator_item:
+        weight: 83
+        enabled: false
+      sidebar_inquiries:
+        enabled: true
+        weight: 84
+      smartbody:
+        weight: 85
+        enabled: false
+      smartbody_image:
+        weight: 86
+        enabled: false
+      social_grid:
+        weight: 87
+        enabled: false
+      staff_selector:
+        weight: 88
+        enabled: false
+      stats:
+        weight: 89
+        enabled: false
+      generic_sidebar:
+        weight: 89
+        enabled: false
+      generic_sidebar_item:
+        weight: 90
+        enabled: false
+      stats_reference:
+        weight: 91
+        enabled: false
+      switcher:
+        weight: 92
+        enabled: false
+      switcher_cta:
+        weight: 93
+        enabled: false
+      masthead_main_navigation:
+        weight: 93
+        enabled: false
+      switcher_getting_started:
+        weight: 94
+        enabled: false
+      teaser:
+        weight: 95
+        enabled: false
+      teaser_insert:
+        weight: 96
+        enabled: false
+      news_list:
+        weight: 97
+        enabled: false
+      teaser_reference:
+        weight: 97
+        enabled: false
+      people_grouped_list:
+        weight: 98
+        enabled: false
+      tile:
+        weight: 98
+        enabled: false
+      people_grouped_list_group:
+        weight: 99
+        enabled: false
+      tile_insert:
+        weight: 99
+        enabled: false
+      photo_inset:
+        weight: 100
+        enabled: false
+      tile_reference:
+        weight: 100
+        enabled: false
+      video_html:
+        weight: 101
+        enabled: false
+      visual_nav_insert:
+        weight: 102
+        enabled: false
+      video_youtube:
+        weight: 125
+        enabled: false
+field_type: entity_reference_revisions

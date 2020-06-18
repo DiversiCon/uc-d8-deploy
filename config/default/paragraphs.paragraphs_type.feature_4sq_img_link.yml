@@ -1,0 +1,9 @@
+uuid: 02d4a9d0-cb4b-4dda-8a42-e3257dbb461c
+langcode: en
+status: true
+dependencies: {  }
+id: feature_4sq_img_link
+label: 'Feature, 4sq, Image and Link'
+icon_uuid: null
+description: 'A single image+link combo for use inside the Feature, 4-Square Images sub-component'
+behavior_plugins: {  }

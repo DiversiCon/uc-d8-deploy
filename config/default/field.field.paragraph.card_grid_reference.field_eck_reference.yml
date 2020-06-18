@@ -1,0 +1,29 @@
+uuid: eb9c6638-fad7-466b-b497-464df3bbd804
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.card_grid
+    - field.storage.paragraph.field_eck_reference
+    - paragraphs.paragraphs_type.card_grid_reference
+id: paragraph.card_grid_reference.field_eck_reference
+field_name: field_eck_reference
+entity_type: paragraph
+bundle: card_grid_reference
+label: 'Card Grid Reference'
+description: 'Reference an <a href="/admin/content/cardgrid" target="_blank">existing Card Grid (new window)</a>.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:reusable'
+  handler_settings:
+    target_bundles:
+      card_grid: card_grid
+    sort:
+      field: changed
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

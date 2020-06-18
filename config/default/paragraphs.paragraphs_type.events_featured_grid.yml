@@ -1,0 +1,9 @@
+uuid: f733aa1d-8985-46c7-bb2a-bc602b1fa39c
+langcode: en
+status: true
+dependencies: {  }
+id: events_featured_grid
+label: 'Events Featured, Grid'
+icon_uuid: null
+description: 'Display a list of the first nine featured events, in a grid format.'
+behavior_plugins: {  }

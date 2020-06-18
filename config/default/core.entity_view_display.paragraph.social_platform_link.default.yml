@@ -1,0 +1,37 @@
+uuid: ea61f93f-d9bb-4968-b92c-d11daa00a47c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.social_platform_link.field_single_link
+    - field.field.paragraph.social_platform_link.field_social_platforms
+    - paragraphs.paragraphs_type.social_platform_link
+  module:
+    - link
+    - options
+id: paragraph.social_platform_link.default
+targetEntityType: paragraph
+bundle: social_platform_link
+mode: default
+content:
+  field_single_link:
+    weight: 0
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_social_platforms:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+hidden:
+  search_api_excerpt: true

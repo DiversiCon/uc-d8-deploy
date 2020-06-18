@@ -1,0 +1,17 @@
+uuid: 427a09ec-db04-4949-adf3-ec5aa07c452b
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: larger
+label: 'Larger (768x768)'
+effects:
+  38252b8d-56aa-4a79-898f-4d771e3fbde9:
+    uuid: 38252b8d-56aa-4a79-898f-4d771e3fbde9
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 768
+      height: 768
+      crop_type: focal_point

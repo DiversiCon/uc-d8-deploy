@@ -1,0 +1,67 @@
+uuid: e0c3c1b7-c105-4725-ba7d-bd68c6cb4ded
+langcode: en
+status: true
+dependencies: {  }
+id: faculty_publication_importer
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: faculty_import
+label: 'Import Publications for Faculty'
+source:
+  data_parser_plugin: jsonpath
+  item_selector: '$..Publications[*]'
+  fields:
+    -
+      name: pmid
+      label: PMID
+      selector: PMID
+    -
+      name: author_list
+      label: 'Author List'
+      selector: AuthorList
+    -
+      name: publication_venue
+      label: 'Publication Venue'
+      selector: PublicationVenue
+    -
+      name: citation
+      label: Citation
+      selector: Citation
+    -
+      name: publication
+      label: Publication
+      selector: Publication
+    -
+      name: publication_date
+      label: 'Publication Date'
+      selector: PublicationDate
+    -
+      name: year
+      label: Year
+      selector: Year
+    -
+      name: label
+      label: Label
+      selector: Label
+  ids:
+    pmid:
+      type: integer
+process:
+  field_pmid: pmid
+  field_author_list: author_list
+  field_publication_venue: publication_venue
+  field_citation: citation
+  field_publication: publication
+  field_publication_date/value:
+    plugin: format_date
+    from_format: 'Y-m-d\TH:i:s'
+    to_format: Y-m-d
+    source: publication_date
+  field_year: year
+  field_label: label
+destination:
+  plugin: 'entity_reference_revisions:paragraph'
+  default_bundle: publications
+migration_dependencies: {  }

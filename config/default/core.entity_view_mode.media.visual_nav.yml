@@ -1,0 +1,10 @@
+uuid: ce5b022f-c8f5-47cc-b5c1-1b641f81ff0d
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.visual_nav
+label: 'Visual Nav (590 x 290)'
+targetEntityType: media
+cache: true

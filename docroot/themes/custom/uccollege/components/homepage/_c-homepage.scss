@@ -1,0 +1,161 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - homepage component
+// Styles for structure and component
+// specific to the homepage only
+
+.page-node-type-home {
+  .l-container {
+    overflow: hidden;
+  }
+
+  .c-homepage-grid {
+    overflow: hidden;
+  }
+
+  // Academics cell
+  .grid-4up__cell3 {
+    font-size: 1rem;
+
+    .t-heading--topic {
+      margin: rem-calc(9) 0 rem-calc(25) 0;
+    }
+    .c-accordion__heading {
+      @include font-sizes(16, 20);
+    }
+    ul {
+      > li:not(.c-accordion__item)::before {
+        color: $color-secondary;
+      }
+    }
+
+    p {
+      @include font-sans(bold);
+      line-height: 1.38;
+    }
+
+    @include breakpoint(large) {
+      p {
+        text-align: center;
+      }
+    }
+  }
+
+  .grid-4up__cell2 {
+
+    &.grid-internal {
+      grid-area: cell2;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-bottom: rem-calc(30);
+
+      display: grid;
+      grid-template-columns: 100%;
+      grid-auto-rows: auto;
+      grid-template-areas:
+        "header"
+        "left"
+        "right"
+        "footer";
+
+      .t-heading--topic {
+        margin-bottom: rem-calc(24);
+        grid-area: header;
+      }
+
+      @include breakpoint(large) {
+        grid-gap: rem-calc(10);
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: auto;
+        grid-template-areas:
+          "left right"
+          "footer footer";
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .grid-4up__cell1 {
+    height: 100%;
+    margin: 0 calc(50% - 50vw);
+    overflow: hidden;
+    position: relative;
+
+    @include breakpoint(large) {
+      margin: 0;
+    }
+
+    .grid-4up__img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+
+      img {
+        object-fit: cover;
+
+        @include breakpoint(large) {
+          max-width: none;
+          max-height: 800px;
+        }
+      }
+    }
+
+    .grid-4up__heading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      &-text {
+        color: $color-white;
+        font-size: rem-calc(35);
+        line-height: 1.1;
+        text-align: center;
+
+        &.s-text-black {
+          color: $color-black;
+        }
+      }
+
+      @include breakpoint(large) {
+        &-text {
+          font-size: rem-calc(50);
+        }
+      }
+
+      @media screen and (min-width: 640px) and (max-width: 1023px) {
+        &-text {
+          font-size: rem-calc(70);
+        }
+      }
+
+      @include breakpoint(xlarge) {
+        &-text {
+          font-size: rem-calc(70);
+          letter-spacing: rem-calc(-1.4);
+        }
+      }
+    }
+  }
+
+  .c-teaser {
+    padding-top: rem-calc(20);
+    padding-bottom: rem-calc(20);
+  }
+
+  @include breakpoint(medium down) {
+    .c-feature__content [class*="t-heading"] {
+      text-align: center;
+    }
+  }
+}

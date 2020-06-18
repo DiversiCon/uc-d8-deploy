@@ -1,0 +1,36 @@
+{#
+/**
+ * headline Twig Partial, included in Drupal node templates
+ *
+ */
+#}
+
+{% set topic = content.field_section %}
+{% set heading = content.field_headline_text %}
+{% set headline_theme = content.field_headline_theme|field_value|render %}
+{% set description = content.field_subheadline_text %}
+{% set date = node.createdtime|format_date('month_day_year') %}
+{% set content_type = node.bundle() %}
+{% set dateline = content.field_date_no_time %}
+{%
+  set classes = [
+    'c-headline',
+    headline_theme == 'Large' ? 'c-headline--lg',
+  ]
+%}
+
+<header{{ attributes.addClass(classes) }}>
+  {% if topic|field_value %}
+    {{ topic }}
+  {% endif %}
+  <h1 class="c-headline__heading">{{ heading }}</h1>
+  {% if description|field_value %}
+    <div class="c-headline__description">
+      {{ description }}
+    </div>
+  {% endif %}
+
+  {% if dateline|field_value %}
+    <p class="c-headline__date">{{ dateline }}</p>
+  {% endif %}
+</header>

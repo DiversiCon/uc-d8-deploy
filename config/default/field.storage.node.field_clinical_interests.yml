@@ -1,0 +1,20 @@
+uuid: 8b7e627d-1d5b-4d06-91f1-050b51b62cb6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_clinical_interests
+field_name: field_clinical_interests
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

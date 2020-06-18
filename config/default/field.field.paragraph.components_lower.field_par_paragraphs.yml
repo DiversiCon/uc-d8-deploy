@@ -1,0 +1,166 @@
+uuid: f953da5d-427a-4c41-8545-2347ab5b4c84
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_paragraphs
+    - paragraphs.paragraphs_type.components_lower
+    - paragraphs.paragraphs_type.social_grid
+  module:
+    - entity_reference_revisions
+id: paragraph.components_lower.field_par_paragraphs
+field_name: field_par_paragraphs
+entity_type: paragraph
+bundle: components_lower
+label: 'Available Components, Lower'
+description: 'Lower section components'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      social_grid: social_grid
+    target_bundles_drag_drop:
+      social_grid:
+        enabled: true
+        weight: 0
+      accordion_block:
+        weight: 32
+        enabled: false
+      accordion_item:
+        weight: 33
+        enabled: false
+      callout:
+        weight: 34
+        enabled: false
+      callout_insert:
+        weight: 35
+        enabled: false
+      callout_item_reference:
+        weight: 36
+        enabled: false
+      callout_item_unique:
+        weight: 37
+        enabled: false
+      callout_reference:
+        weight: 38
+        enabled: false
+      components:
+        weight: 39
+        enabled: false
+      components_lower:
+        weight: 40
+        enabled: false
+      custom_link:
+        weight: 41
+        enabled: false
+      feature:
+        weight: 42
+        enabled: false
+      feature_4_square_images:
+        weight: 43
+        enabled: false
+      feature_4sq_img_link:
+        weight: 44
+        enabled: false
+      feature_components:
+        weight: 45
+        enabled: false
+      feature_image_link:
+        weight: 46
+        enabled: false
+      feature_insert:
+        weight: 47
+        enabled: false
+      feature_reference:
+        weight: 48
+        enabled: false
+      home_page_grid:
+        weight: 49
+        enabled: false
+      html_text:
+        weight: 50
+        enabled: false
+      pullquote:
+        weight: 51
+        enabled: false
+      quick_links:
+        weight: 52
+        enabled: false
+      quotator_item:
+        weight: 54
+        enabled: false
+      smartbody:
+        weight: 55
+        enabled: false
+      cta_block:
+        weight: 56
+        enabled: false
+      smartbody_image:
+        weight: 56
+        enabled: false
+      cta_buttons:
+        weight: 57
+        enabled: false
+      stats:
+        weight: 58
+        enabled: false
+      cta_text_link:
+        weight: 58
+        enabled: false
+      stats_insert:
+        weight: 59
+        enabled: false
+      stats_reference:
+        weight: 60
+        enabled: false
+      switcher:
+        weight: 61
+        enabled: false
+      video_html:
+        weight: 62
+        enabled: false
+      news_block:
+        weight: 69
+        enabled: false
+      news_external:
+        weight: 70
+        enabled: false
+      news_inernal:
+        weight: 71
+        enabled: false
+      photo_nav_grid:
+        weight: 72
+        enabled: false
+      photo_nav_grid_item:
+        weight: 73
+        enabled: false
+      program_selector:
+        weight: 74
+        enabled: false
+      switcher_cta:
+        weight: 85
+        enabled: false
+      teaser:
+        weight: 86
+        enabled: false
+      teaser_insert:
+        weight: 87
+        enabled: false
+      teaser_reference:
+        weight: 88
+        enabled: false
+      tile:
+        weight: 89
+        enabled: false
+      tile_insert:
+        weight: 90
+        enabled: false
+      tile_reference:
+        weight: 91
+        enabled: false
+field_type: entity_reference_revisions

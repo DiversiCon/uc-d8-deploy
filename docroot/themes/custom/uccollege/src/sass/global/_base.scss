@@ -1,0 +1,95 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - base
+// project defaults for base elements - h1-h6, p, a, etc.
+// classes should not be used in this file
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body {
+  @include font-sans;
+  @include font-sizes(14, 16);
+  background: $color-white;
+  color: $color-primary;
+  text-align: left;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+a {
+  color: $color-link;
+  text-decoration-skip-ink: auto;
+  &:hover,
+  &:focus,
+  &:active {
+    color: $color-link-hover;
+    text-decoration: none;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include font-sans(bold);
+  @include font-sizes(28, 40);
+  padding: 0;
+  letter-spacing: rem-calc(-0.8);
+  margin: 0 0 rem-calc(15) 0;
+}
+
+p,
+li {
+  line-height: 1.375;
+}
+
+p {
+  margin: 0 0 rem-calc(30) 0;
+}
+
+ol {
+  @include list(numeric);
+}
+
+strong {
+  font-weight: $font-weight-bold;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  &.lazyload:not([src]) { //hide broken image symbol (https://github.com/aFarkas/lazysizes#broken-image-symbol)
+    visibility: hidden;
+  }
+}
+
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+}
+
+dt {
+  @include font-sans(bold);
+  margin-bottom: rem-calc(5);
+}
+
+dd {
+  line-height: 1.38;
+  margin: 0 0 rem-calc(22) 0;
+}

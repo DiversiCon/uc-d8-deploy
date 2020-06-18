@@ -1,0 +1,42 @@
+uuid: 622374a3-7f83-4f05-9a5b-6e22c0b4a3f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.home_quad_two_tiles.field_par_paragraph_single
+    - field.field.paragraph.home_quad_two_tiles.field_par_paragraph_single_0
+    - paragraphs.paragraphs_type.home_quad_two_tiles
+  module:
+    - paragraphs
+id: paragraph.home_quad_two_tiles.default
+targetEntityType: paragraph
+bundle: home_quad_two_tiles
+mode: default
+content:
+  field_par_paragraph_single:
+    weight: 0
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: tile_insert
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_par_paragraph_single_0:
+    weight: 1
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+hidden:
+  created: true
+  status: true

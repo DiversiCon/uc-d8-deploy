@@ -1,0 +1,29 @@
+theme_dev:
+  css:
+    base:
+      https://cloud.typography.com/6526092/7344352/css/fonts.css: {}
+
+theme_prod:
+  css:
+    base:
+      https://cloud.typography.com/6526092/6581792/css/fonts.css: {}
+
+theme_base:
+  version: 1.x
+  css:
+    base:
+      dist/site.css: {}
+  js:
+    https://apis.google.com/js/api.js: {}
+    dist/site.js: {}
+theme_header:
+  header: true
+  js:
+    dist/modernizr.min.js: {}
+theme_admin:
+  css:
+    base:
+      dist/admin.css: {}
+addtoany:
+  js:
+    https://static.addtoany.com/menu/page.js: { attributes: { async: true }, type: external, minified: true }

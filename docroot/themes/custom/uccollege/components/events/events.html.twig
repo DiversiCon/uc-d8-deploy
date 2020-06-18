@@ -1,0 +1,12 @@
+{#
+/**
+ * events Twig Partial
+ *
+ */
+#}
+
+<uc-events
+		endpoint="http://bsd-data.dev.uchicago.edu/api/event_index"
+    instance="pritzker"
+		{% if content.featured %}:featured="{{ content.featured }}"{% endif %}>
+</uc-events>

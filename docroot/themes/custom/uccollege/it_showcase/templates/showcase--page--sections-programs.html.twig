@@ -1,0 +1,83 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+{{ it_showcase_component('masthead', 0) }}
+
+<section class="l-container">
+
+	<article class="c-article">
+		<header class="c-headline">
+			<h1 class="c-headline__heading">Sections & Programs</h1>
+		</header>
+
+		<div class="c-article__media">
+			{{ it_showcase_component('photo', 2) }}
+		</div>
+
+		<div class="c-article__body">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+
+      <uc-accordion-group v-cloak heading="Sections & Programs">
+        <uc-accordion title="Academic Pediatrics" tag="h3">
+          <p>Accordion content here</p>
+        </uc-accordion>
+        <uc-accordion title="Allergy and Immunology" tag="h3">
+          <p>Accordion content here</p>
+        </uc-accordion>
+        <uc-accordion title="Cardiology" tag="h3">
+          <p>The faculty of the section of Pediatric Cardiology are leaders in
+            clinical care, teaching and research. Our clinical program offers
+            the full spectrum of care in all sub-specialty areas of pediatric
+            cardiology. Research in the section focuses on the evaluation of
+            the latest devices for non-surgical repair of congenital heart anomalies.</p>
+
+          <h4>Section Chief</h4>
+
+          <figure class="c-avatar">
+            <img src="https://via.placeholder.com/110&text=FPO" alt="Alt text here">
+            <figcaption>
+              <p class="c-avatar__title">Daniel H. Gruenstein, MD</p>
+              <p class="c-avatar__text">Associate Professor <br>Chief, Section of Pediatric Cardiology
+              </p>
+            </figcaption>
+          </figure>
+
+          <ul>
+            <li><a href="#">See our full team of Cardiology</a></li>
+          </ul>
+
+          <p><strong>Contact Information</strong><br>
+          5839 S. Maryland Ave, MC 4051<br>
+          Chicago, IL 60637</p>
+
+          <p>Phone: 773-702-6172<br>
+            Fax: 773- 702-2319</p>
+        </uc-accordion>
+        <uc-accordion title="Child Advocacy and Protective Services" tag="h3">
+          <p>Accordion content here</p>
+        </uc-accordion>
+        <uc-accordion title="Chronic Disease" tag="h3">
+          <p>Accordion content here</p>
+        </uc-accordion>
+        <uc-accordion title="Critical Care" tag="h3">
+          <p>Accordion content here</p>
+        </uc-accordion>
+      </uc-accordion-group>
+    </div>
+
+	</article>
+</section>
+
+{{ it_showcase_component('visual_nav', 2) }}
+
+{{ it_showcase_component('footer', 0) }}

@@ -1,0 +1,35 @@
+uuid: 5eb1eb1d-5d18-4a62-95c0-624330a7cf50
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.home_quad_two_tiles.field_par_paragraph_single
+    - field.field.paragraph.home_quad_two_tiles.field_par_paragraph_single_0
+    - paragraphs.paragraphs_type.home_quad_two_tiles
+  module:
+    - entity_reference_revisions
+id: paragraph.home_quad_two_tiles.default
+targetEntityType: paragraph
+bundle: home_quad_two_tiles
+mode: default
+content:
+  field_par_paragraph_single:
+    weight: 0
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_par_paragraph_single_0:
+    weight: 1
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

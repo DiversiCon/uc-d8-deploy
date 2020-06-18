@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Custom link paragraph.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set url = content.field_headline_link.0['#url'] %}
+{% set url_tgt = content.field_headline_link.0['#options']['attributes']['target'] %}
+{% set text = content.field_headline_text|field_value|render %}
+
+{% block paragraph %}
+  {% block content %}
+    {% if text %}
+      {% if url %}
+        <a href="{{ url }}" target="{{ url_tgt }}">{{ text }}</a>
+      {% else %}
+        {{ text }}
+      {% endif %}
+    {% elseif url %}
+      <a href="{{ url }}" target="{{ url_tgt }}">{{ url }}</a>
+    {% endif %}
+  {% endblock %}
+{% endblock paragraph %}

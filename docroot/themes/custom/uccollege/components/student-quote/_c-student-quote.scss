@@ -1,0 +1,86 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - student-quote component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-student-quote {
+  padding: rem-calc(22);
+  margin: rem-calc(40) 0;
+  .c-article__body & {
+    padding: 0;
+  }
+  blockquote {
+    @include font-sizes(16, 20);
+    font-weight: $font-weight-bold;
+    text-align: center;
+    margin: 0 auto;
+    max-width: rem-calc(600);
+    position: relative;
+    p {
+      line-height: 1.5;
+      margin: 0;
+    }
+    .c-icon {
+      width: rem-calc(33);
+      height: rem-calc(29);
+      margin-bottom: rem-calc(16);
+    }
+  }
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: rem-calc(31);
+  }
+  cite {
+    font-style: normal;
+    font-weight: $font-weight-normal;
+    margin-left: rem-calc(10);
+  }
+  &__img {
+    width: rem-calc(111);
+    img {
+      display: block;
+      border-radius: 50%;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  &__attribution,
+  &__year {
+    display: block;
+    text-align: left;
+  }
+  &__attribution {
+    @include font-sizes(14, 16);
+  }
+  &__year {
+    font-size: rem-calc(14);
+    margin-top: rem-calc(5);
+  }
+
+  @include breakpoint(medium) {
+    blockquote {
+      .c-icon {
+        margin-bottom: rem-calc(10);
+      }
+    }
+    footer {
+      margin-top: rem-calc(21);
+    }
+  }
+
+  @include breakpoint(large) {
+    blockquote {
+      //padding: 0 rem-calc(60);
+    }
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-student-quote {
+    // sass linter doesn't like empty blocks :)
+  }
+}

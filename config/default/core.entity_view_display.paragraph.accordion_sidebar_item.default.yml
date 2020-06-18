@@ -1,0 +1,42 @@
+uuid: 1539d718-29de-4a30-b185-0d3724d8044a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.accordion_sidebar_item.field_body
+    - field.field.paragraph.accordion_sidebar_item.field_bool_intro_toggle
+    - field.field.paragraph.accordion_sidebar_item.field_headline_text
+    - paragraphs.paragraphs_type.accordion_sidebar_item
+  module:
+    - text
+id: paragraph.accordion_sidebar_item.default
+targetEntityType: paragraph
+bundle: accordion_sidebar_item
+mode: default
+content:
+  field_body:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_bool_intro_toggle:
+    weight: 2
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_headline_text:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  search_api_excerpt: true

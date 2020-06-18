@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * @file
+ * Contains uc_search.module.
+ */
+
+/**
+ * Implements hook_theme().
+ *
+ * Provide a theme template for the search page.
+ *
+ * @param $existing
+ * @param $type
+ * @param $theme
+ * @param $path
+ *
+ * @return array
+ */
+function uc_search_theme($existing, $type, $theme, $path) {
+  return [
+    'uc_search' => [
+      'variables' => [
+        'datasource' => NULL,
+        'filtered' => NULL,
+        'itemsPerPage' => NULL,
+        'paginate' => NULL,
+        'isSearch' => NULL,
+      ],
+    ],
+  ];
+}

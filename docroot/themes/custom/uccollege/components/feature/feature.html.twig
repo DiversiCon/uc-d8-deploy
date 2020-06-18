@@ -1,0 +1,90 @@
+{#
+/**
+ * feature Twig Partial
+ *
+ */
+#}
+
+<div class="l-container c-feature__container">
+  <div class="c-feature {{ content.bgClass }} {% if content.intro %} c-feature--intro {% endif %} {% if content.flipped %} c-feature--flipped{% endif %} {% if content.breaking %} c-feature--breaking{% endif %}">
+    <div class="c-feature__image">
+
+      {% if content.imgtype == "grid" %}
+      <div class="grid-4sq">
+        {% for img in content.images %}
+          <div class="grid-4sq__cell">
+            <div class="grid-4sq__content">
+              <a href="{{ img.link }}"><span>{{ img.title }}</span>
+                <img src="{{ img.file }}" alt="{{ img.title }}"></a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      {% else %}
+        {% if content.image.link %}
+          <a href="{{ content.image.link }}">
+            <img src="{{ content.image.file }}" alt="{{ content.image.caption }}">
+          </a>
+        {% else %}
+          <img src="{{ content.image.file }}" alt="{{ content.image.caption }}">
+        {% endif %}
+      {% endif %}
+    </div>
+
+    {% if content.image.caption %}
+      <div class="c-feature__caption">
+        {{ content.image.caption }}
+      </div>
+    {% endif %}
+
+    <div class="c-feature__wrap">
+      <div class="c-feature__content">
+        {% if content.topic %}
+          {% if content.topiclink %}
+            <h2 class="t-heading--topic"><a href="{{ content.topiclink }}">{{ content.topic }}</a></h2>
+          {% else %}
+            <h2 class="t-heading--topic">{{ content.topic }}</h2>
+          {% endif %}
+        {% endif %}
+
+        {% if content.homepage %}
+          <h3 class="t-heading--medium">{{ content.heading }}</h3>
+          {% else %}
+          <h1 class="t-heading--medium">{{ content.heading }}</h1>
+        {% endif %}
+
+        {% if content.factcard %}
+
+          {% include '@uccollege/../components/factcard/factcard.html.twig' with {'content': content.factcard} %}
+
+        {% else %}
+          {% autoescape false %}
+          {{ content.text }}
+          {% endautoescape %}
+
+          {% if content.logo %}
+
+            {% include '@uccollege/../components/logo/logo.html.twig' with {'content': content.logo} %}
+
+          {% endif %}
+
+          {% if content.avatar %}
+
+            {% include '@uccollege/../components/avatar/avatar.html.twig' with {'content': content.avatar} %}
+
+          {% endif %}
+        {% endif %}
+      </div>
+
+      {% if content.bottom %}
+        <div class="c-feature__bottom">
+          {% autoescape false %}
+            {{ content.bottom }}
+          {% endautoescape %}
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+slider:
+  title: Slider
+  description:
+  type: component
+  variants:
+    -
+      title: Default
+      caption:
+      content:
+        -
+
+slider.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: slider.component
+    index_hide: true
+    file: themes/custom/uccollege/components/slider/README.md

@@ -1,0 +1,24 @@
+uuid: 7b5e4999-7a16-4745-97e8-534d77a3ced3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.date.field_date
+    - paragraphs.paragraphs_type.date
+  module:
+    - datetime
+id: paragraph.date.default
+targetEntityType: paragraph
+bundle: date
+mode: default
+content:
+  field_date:
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

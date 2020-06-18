@@ -1,0 +1,5 @@
+name: 'UChicago Custom Twig Filters'
+type: module
+description: 'Various Twig Filters'
+core: 8.x
+package: 'UChicago'

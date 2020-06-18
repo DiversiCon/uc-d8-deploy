@@ -1,0 +1,20 @@
+pullquote:
+  title: Pull Quote
+  description: "Displays a pull quote within an article. (Note: this is only a component because of its social sharing feature)"
+  type: component
+  variants:
+  -
+    title: Pull Quote
+    caption: "Displays a pull quote within an article. (Note: this is only a component because of its social sharing feature)"
+    content:
+      quote: "“The last thing I want to do is become a parody of my past success. I knew I needed to step back before I went too far in one direction.”"
+      attribution: "Ryan Kuang"
+
+pullquote.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: pullquote.component
+    index_hide: true
+    file: themes/custom/uccollege/components/pullquote/README.md

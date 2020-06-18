@@ -1,0 +1,28 @@
+logo:
+  title: Logo
+  description: 'Displays a logo.'
+  type: component
+  variants:
+    -
+      title: Default
+      content:
+        src: "/themes/custom/uccollege/it_showcase/images/logo.png"
+        alt: "Alt Text"
+
+    -
+      title: With a Link
+      content:
+        src: "/themes/custom/uccollege/it_showcase/images/logo.png"
+        alt: "Alt Text"
+        link:
+          url: "#"
+          target: "_blank"
+
+logo.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: logo.component
+    index_hide: true
+    file: themes/custom/uccollege/components/logo/README.md

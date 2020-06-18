@@ -1,0 +1,176 @@
+<?php
+
+/**
+ * @file
+ * Contains uc_cdr.module.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Cache\Cache;
+
+/**
+ * Implements hook_migration_plugins_alter().
+ */
+function uc_cdr_migration_plugins_alter(array &$migrations) {
+
+  // Grab Feed URL and date values from config.
+  $config = \Drupal::service('config.factory')->getEditable('uc_cdr.settings');
+  $feed_settings = $config->get('event_feed_overrides');
+
+  foreach ($migrations as $id => $migration) {
+    if (isset($feed_settings[$id])) {
+      $url = $feed_settings[$id]['url'];
+      $params = [];
+      foreach ($feed_settings[$id]['parameters'] as $param) {
+        $name = $param['name'];
+        $type = $param['type'];
+        $value = $param['value'];
+        switch ($type) {
+          case 'strtotime':
+            $params[$name] = date('Ymd', strtotime($value));
+            break;
+
+          case 'string':
+            $params[$name] = $value;
+            break;
+
+          default:
+            break;
+        }
+      }
+      $feed_url = (count($params)) ? $url . '?' . http_build_query($params) : $url;
+      $migrations[$id]['source']['urls'] = $feed_url;
+    }
+  }
+
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function uc_cdr_form_node_event_edit_form_alter(&$form, &$form_state, $form_id) {
+
+  $form['field_source']['widget'][0]['value']['#attributes']['readonly'] = TRUE;
+
+  if (!empty($form['field_source']['widget'][0]['value']['#default_value'])) {
+    $form['title']['widget'][0]['value']['#attributes']['readonly'] = TRUE;
+    $form['field_event_dates']['widget'][0]['value']['#attributes']['readonly'] = TRUE;
+    $form['field_event_dates']['widget'][0]['end_value']['#attributes']['readonly'] = TRUE;
+    $form['field_all_day']['widget']['value']['#attributes']['readonly'] = TRUE;
+    $form['field_department']['widget'][0]['target_id']['#attributes']['readonly'] = TRUE;
+    $form['field_event_tags']['widget'][0]['target_id']['#attributes']['readonly'] = TRUE;
+    $form['field_event_tags']['widget']['add_more']['#attributes']['disabled'] = TRUE;
+
+    $fields = [
+      'field_contact',
+      'field_description',
+      'field_event_tags',
+      'field_external_id',
+      'field_location',
+      'field_notes',
+      'field_speaker_name',
+      'field_speaker_affiliation',
+    ];
+
+    foreach ($fields as $field) {
+      $form[$field]['widget'][0]['value']['#attributes']['readonly'] = TRUE;
+    }
+  }
+
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function uc_cdr_form_node_event_form_alter(&$form, &$form_state, $form_id) {
+  $form['field_source']['widget'][0]['value']['#attributes']['disabled'] = TRUE;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ *
+ * Set External ID if it is not already set.  This is essential for a bunch
+ * of crap that was inherited from BSD.
+ *
+ *   $uuid_service = \Drupal::service('uuid');
+ *   $uuid = $uuid_service->generate();
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ */
+function uc_cdr_node_presave(EntityInterface $entity) {
+  if ($entity->getType() == 'faculty') {
+    $external_id = $entity->get('field_external_id')->value;
+    if (!$external_id || is_null($external_id)) {
+      $uuid = $entity->get('uuid')->value;
+      if ($uuid) {
+        $entity->set('field_external_id', $uuid);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_update().
+ *
+ * This would not normally be needed. However, faculty content is managed
+ * via the migrate module, including associated images.  The problem occurs
+ * when the source data points to a new image that has the same name as the
+ * original.  When this occurs we can trigger it to be ingested but Drupal
+ * does not know anything has changed, and derivative becomes permanently stale.
+ *
+ * It is here because there was not a clear option for executing this at the
+ * right time, with access to all of the required information in a usable
+ * context.
+ */
+function uc_cdr_entity_update(EntityInterface $entity) {
+
+  // Faculty nodes require a special touch to regenerate images styles.
+  if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'faculty') {
+    $flush = FALSE;
+    $message = '';
+
+    // We must have an image.
+    if ($entity->get('field_faculty_image')->entity) {
+
+      // Get the original image URI.
+      $image = $entity->get('field_faculty_image')->entity->getFileUri();
+      $prior_image = $entity->original->get('field_faculty_image')->entity->getFileUri();
+
+      // If image has changed then we definitely flush.
+      if ($image !== $prior_image) {
+        $flush = TRUE;
+        $message .= ' (Name) ';
+      }
+
+      // If the image date is different then we flush also.
+      /*
+      if ($entity->get('field_image_date')->value) {
+        $date = $entity->get('field_image_date')->value;
+        if ($date !== $entity->original->get('field_image_date')->value) {
+          $flush = TRUE;
+          $message .= ' (Date) ';
+        }
+      }
+      */
+
+      // Flush as needed.
+      if ($flush) {
+        /* @var ImageStyle $style */
+        $style = \Drupal::entityTypeManager()->getStorage('image_style')->load('faculty_image');
+        if ($style) {
+          $style->flush($image);
+          \Drupal::logger('uc_cdr')->info('Image cache flushed for ' . $image . $message);
+        }
+      }
+    }
+
+    // Additionally, invalidate any relevant cache tags.
+    $cache_tags = [
+      'api:faculty:index',
+      'cdr_related',
+      'cdr:faculty_index',
+    ];
+
+    Cache::invalidateTags($cache_tags);
+  }
+}

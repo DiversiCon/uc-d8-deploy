@@ -1,0 +1,29 @@
+uuid: 37121fe7-3bbb-4ef5-b5f6-e20adccee2ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.video
+    - field.storage.reusable.field_image_main
+    - media.type.image
+id: reusable.video.field_image_main
+field_name: field_image_main
+entity_type: reusable
+bundle: video
+label: 'Poster Image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: changed
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

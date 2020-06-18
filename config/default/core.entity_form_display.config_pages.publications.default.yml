@@ -1,0 +1,29 @@
+uuid: 680a5f58-e746-4cfd-ac9e-c1117b3d6243
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.publications
+    - field.field.config_pages.publications.field_cp_boolean
+    - field.field.config_pages.publications.field_hide
+id: config_pages.publications.default
+targetEntityType: config_pages
+bundle: publications
+mode: default
+content:
+  field_cp_boolean:
+    weight: 0
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_hide:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+hidden:
+  label: true

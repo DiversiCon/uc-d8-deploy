@@ -1,0 +1,11 @@
+uuid: 70c88ffd-6f90-452d-b7ff-17c3d11f13c7
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:34667fac-a4e4-44cb-b41e-7060b5336478'
+id: callout_reference
+label: 'Callout, Reference'
+icon_uuid: null
+description: 'Reference an existing callout from the ECK library'
+behavior_plugins: {  }

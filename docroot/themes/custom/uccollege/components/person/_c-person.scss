@@ -1,0 +1,29 @@
+.c-person {
+  &__image {
+    display: block;
+    margin: 0 auto;
+    max-width: 300px;
+  }
+
+  &__publication {
+    a {
+      color: $color-primary;
+    }
+  }
+}
+
+.page-node-type-person {
+  .t-heading--medium {
+    margin-bottom: 0;
+  }
+
+  .c-factcard {
+    &__item-heading {
+      text-align: center;
+
+      @include breakpoint(medium) {
+        text-align: left;
+      }
+    }
+  }
+}

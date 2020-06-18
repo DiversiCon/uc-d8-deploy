@@ -1,0 +1,29 @@
+uuid: 2db8cc6a-7765-4623-859c-f925c844263e
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.stats
+    - field.storage.paragraph.field_eck_reference
+    - paragraphs.paragraphs_type.home_page_grid
+id: paragraph.home_page_grid.field_eck_reference
+field_name: field_eck_reference
+entity_type: paragraph
+bundle: home_page_grid
+label: 'Stat Reference 1'
+description: 'Reference <a href="/admin/content/stats" target="_blank">existing stats (new window)</a>'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:reusable'
+  handler_settings:
+    target_bundles:
+      stats: stats
+    sort:
+      field: changed
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

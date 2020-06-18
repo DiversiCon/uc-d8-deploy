@@ -1,0 +1,37 @@
+{#
+/**
+ * @file
+ * Accordion group, block wrapper
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set accordion_groups = content.field_par_paragraphs %}
+{% set accordion_section_headline = content.field_headline_text %}
+{% set accordion_section_head_link_url = content.field_headline_link.0['#url'] %}
+{% set accordion_section_head_link_tgt = content.field_headline_link.0['#options']['attributes']['target'] %}
+{% set accordion_section_content = content.field_body %}
+{% set footer_link = content.field_par_paragraph_single %}
+
+{% block paragraph %}
+  {% block content %}
+    {% if accordion_section_headline|field_value %}
+      <h2 class="t-heading--medium">
+        {% if accordion_section_head_link_url %}
+          <a href="{{ accordion_section_head_link_url }}" target="{{ accordion_section_head_link_tgt }}">{{ accordion_section_headline }}</a>
+        {% else %}
+          {{ accordion_section_headline }}
+        {% endif %}
+      </h2>
+    {% endif %}
+
+    {{ accordion_section_content }}
+
+    {{ accordion_groups }}
+
+    {{ footer_link }}
+  {% endblock %}
+{% endblock paragraph %}

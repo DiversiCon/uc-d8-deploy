@@ -1,0 +1,30 @@
+uuid: 3bbc13b8-e4a3-40f1-b252-45710acf1774
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_subheadline_text_0
+    - paragraphs.paragraphs_type.quick_links_two_column
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.quick_links_two_column.field_subheadline_text_0
+field_name: field_subheadline_text_0
+entity_type: paragraph
+bundle: quick_links_two_column
+label: 'Left List, Title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

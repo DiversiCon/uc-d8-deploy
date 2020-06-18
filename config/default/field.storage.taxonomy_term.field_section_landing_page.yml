@@ -1,0 +1,20 @@
+uuid: dec6ea2a-9030-4d3d-a5f6-35dd95c37f7e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: taxonomy_term.field_section_landing_page
+field_name: field_section_landing_page
+entity_type: taxonomy_term
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,27 @@
+uuid: 2edfce59-36ca-477b-b8d9-6e795748d207
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_headline_text
+    - node.type.group
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    basic_html: '0'
+    plain_text: '0'
+id: node.group.field_headline_text
+field_name: field_headline_text
+entity_type: node
+bundle: group
+label: Headline
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

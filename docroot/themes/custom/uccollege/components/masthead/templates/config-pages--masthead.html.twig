@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Masthead
+ *
+ * @see template_preprocess_config_pages()
+ *
+ * @ingroup themeable
+ */
+#}
+
+<uc-masthead :nav-data='{
+  "items":
+    {{ nav_items|raw }},
+  "switcher": [
+    {{ prospect_links|raw }}
+  ],
+  "site_logo": "{{ site_logo }}",
+  "site_logo_alt": "{{ site_logo_alt }}"
+}'>
+</uc-masthead>

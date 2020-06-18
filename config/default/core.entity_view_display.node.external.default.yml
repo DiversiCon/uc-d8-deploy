@@ -1,0 +1,72 @@
+uuid: 4708c4d0-589e-45cd-bc2b-ac1a9285355c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.external.field_date_no_time
+    - field.field.node.external.field_headline_text
+    - field.field.node.external.field_image_main
+    - field.field.node.external.field_link_single
+    - field.field.node.external.field_subheadline_text
+    - node.type.external
+  module:
+    - datetime
+    - link
+    - text
+    - user
+id: node.external.default
+targetEntityType: node
+bundle: external
+mode: default
+content:
+  field_date_no_time:
+    weight: 105
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_headline_text:
+    weight: 103
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_image_main:
+    weight: 101
+    label: hidden
+    settings:
+      view_mode: feature_4sq_view
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_link_single:
+    weight: 102
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_subheadline_text:
+    weight: 104
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  search_api_excerpt: true

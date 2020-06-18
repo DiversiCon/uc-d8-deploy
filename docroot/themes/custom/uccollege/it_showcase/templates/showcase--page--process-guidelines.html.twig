@@ -1,0 +1,121 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+{{ it_showcase_component('masthead', 0) }}
+{{ it_showcase_component('alert', 0) }}
+
+<section class="l-container">
+
+	<article class="c-article">
+		<header class="c-headline c-headline--sm">
+			<a href="#" class="c-headline__topic t-heading--topic">Office of Academic Affairs</a>
+			<h1 class="c-headline__heading">BSD Appointive Process Guidelines</h1>
+			<div class="c-headline__description">
+				<p>Appointments, Reappointments, Promotions, and Tenure PROCESS Guidelines[1]</p>
+			</div>
+      <p class="c-headline__date">2018-08-28</p>
+		</header>
+
+		<div class="c-article__sidebar">
+{#			<div class="c-sidebar-links">#}
+{#				<h2 class="c-sidebar-links__heading">You may also like…</h2>#}
+{#				<ul class="c-sidebar-links__content">#}
+{#					<li class="c-sidebar-links__item"><a href="#" class="c-sidebar-links__link">Lorem ipsum dolor sit amet adipiscing elit</a></li>#}
+{#					<li class="c-sidebar-links__item"><a href="#" class="c-sidebar-links__link">Excepteur sint occaecat cupida proident sunt</a></li>#}
+{#					<li class="c-sidebar-links__item"><a href="#" class="c-sidebar-links__link">Nemo enim ipsam voluptat quia voluptas</a></li>#}
+{#				</ul>#}
+{#			</div>#}
+
+      <uc-accordion-group v-cloak heading="Around the OAA">
+        <uc-accordion title="About the OAA">
+          <p><a href="#">Open Position Descriptions SOM track</a></p>
+          <p><a href="#">Open Position Descriptions BSD track</a></p>
+          <p><a href="#">Additional Open Position Descriptions</a></p>
+          <p><a href="#">Letter Templates</a></p>
+          <p><a href="#">Forms and Guidance</a></p>
+        </uc-accordion>
+
+        <uc-accordion title="Open Searches">
+          <ul>
+            <li><a href="#">Lorem ipsum dolor sit amet adipiscing elit</a></li>
+            <li><a href="#">Excepteur sint occaecat cupida proident sunt</a></li>
+            <li><a href="#">Nemo enim ipsam voluptat quia voluptas</a></li>
+          </ul>
+        </uc-accordion>
+        <uc-accordion title="Appointments">
+          <p>Accordion content here</p>
+        </uc-accordion>
+        <uc-accordion title="Promotions">
+          <p>Accordion content here</p>
+        </uc-accordion>
+        <uc-accordion title="Staff Resources">
+          <p>Accordion content here</p>
+        </uc-accordion>
+        <uc-accordion title="Events">
+          <p>Accordion content here</p>
+        </uc-accordion>
+      </uc-accordion-group>
+		</div>
+
+		<div class="c-article__body">
+      <p>1. In the BSD, the definitive statement of criteria is "Pathways for successful faculty development and
+        promotion" (May 2011), <a href="http://tiny.cc/BSDPathways">http://tiny.cc/BSDPathways</a>.</p>
+
+      <p>2. Each department should distribute to its faculty its policy regarding which BSD faculty tracks and ranks may
+        attend faculty meetings and vote on departmental recommendations in addition to any departmental processes to be
+        followed, e.g., whether a research seminar or an ad hoc committee is required in particular cases. This policy
+        should be distributed annually to all faculty and individually to faculty candidates for reappointment,
+        promotion, or tenure. Departments have reasonable discretion in setting these policies, excepting that in tenure
+        recommendations the votes of the tenured faculty must be reported separately from those of other eligible
+        voters. If a department needs to make an exception to its policies and/or these guidelines, it should first notify the
+        Office of Academic Affairs[<a href="#">2</a>], which will seek advice as to whether the intended exception poses
+        any issues. Additionally, appointive actions should be guided by the following resolution endorsed by the department chairs
+        of the BSD:</p>
+
+      <blockquote><p>The Shils Report states: "All academic appointments to University faculties must be treated with great
+          seriousness. They should, wherever it is at all possible, be made on the basis of careful study by members of
+          the appointive body... All appointments...must be conducted with the same thorough deliberation, the same
+          careful
+          study of relevant documentation and other evidence, and the same process of consultation." The BSD concurs
+          with
+          this statement. In the BSD, the deliberations preceding votes on appointments, reappointments, promotions, or
+          tenure should be among the most robust and open discussions that the faculty have.</p>
+
+        <p>Chairs and Section Chiefs can facilitate our objectives by:
+          (a)Making all relevant documentation and evidence available to the faculty eligible to vote
+          (b)Providing ample notice of discussions so that faculty can arrange their schedules to participate or
+          provide</p>
+
+        <p>written/electronic assessments for consideration in the discussion
+          (c)Providing sufficient time for a complete discussion
+          (d)Ensuring that all candidates receive full discussion whether the expected outcome is positive or
+          negative</p>
+
+        <p>In turn, frank and robust discussions rely upon the faculty's observance of strict confidentiality.
+          Nonetheless,
+          candidates for appointive actions should be fully apprised well in advance of relevant deadlines for
+          submission of
+          materials and decision announcements, the process of decision-making, and the criteria to be applied. When any
+          exceptions to these guidelines are necessary, they should be disclosed in advance to the BSD Office of
+          Academic
+          Affairs2, which will arrange for their review, or to the Dean.</p></blockquote>
+
+      <p>3. The primary responsibility for applying the criteria and evaluating a candidate&apos;s performance in
+        relation to them lies with the departmental faculty eligible to vote.</p>
+    </div>
+	</article>
+</section>
+
+{{ it_showcase_component('visual_nav', 2) }}
+
+{{ it_showcase_component('footer', 0) }}

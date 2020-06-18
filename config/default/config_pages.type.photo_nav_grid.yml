@@ -1,0 +1,14 @@
+uuid: 2587e1fc-61e4-423c-95f5-829efbde4c79
+langcode: en
+status: true
+dependencies: {  }
+id: photo_nav_grid
+label: 'Visual Nav'
+context:
+  show_warning: true
+  group:
+    language: false
+menu:
+  path: /admin/config/visual_nav
+  weight: -43
+  description: 'Set Visual Navigation'

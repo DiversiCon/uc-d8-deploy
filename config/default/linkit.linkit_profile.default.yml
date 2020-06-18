@@ -1,0 +1,43 @@
+uuid: 5b493b0f-b0f8-4846-8ad3-711e87244d33
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - node
+    - uc_cdr_client
+id: default
+label: Default
+description: ''
+attributes:
+  target:
+    id: target
+    weight: 0
+    settings:
+      widget_type: simple_checkbox
+matchers:
+  fe550e0f-c065-4c90-b6e3-ec2e125479d0:
+    uuid: fe550e0f-c065-4c90-b6e3-ec2e125479d0
+    id: 'entity:node'
+    weight: 0
+    settings:
+      result_description: Content
+      bundles: {  }
+      group_by_bundle: false
+      include_unpublished: true
+  4c2b9104-ed3b-47dd-ab78-ade343f9185e:
+    uuid: 4c2b9104-ed3b-47dd-ab78-ade343f9185e
+    id: 'entity:media'
+    weight: 0
+    settings:
+      result_description: Document
+      bundles:
+        document: document
+      group_by_bundle: false
+  d28df512-5565-4170-bb3f-bfdc8c779e7f:
+    uuid: d28df512-5565-4170-bb3f-bfdc8c779e7f
+    id: external_reference
+    weight: 0
+    settings:
+      reference_types:
+        faculty: faculty

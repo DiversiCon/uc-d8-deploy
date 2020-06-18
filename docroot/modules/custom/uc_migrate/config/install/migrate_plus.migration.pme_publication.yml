@@ -1,0 +1,150 @@
+uuid: fa12704b-e053-4716-85a8-e024e10dd239
+langcode: en
+status: true
+dependencies: {  }
+id: pme_publication
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: pme_migration
+label: 'Import PME Publication Nodes'
+source:
+  urls: 'http://pme-cms.dev.uchicago.edu/migrate/publication_pages'
+  item_selector: /
+  fields:
+    -
+      name: entry_id
+      label: 'Entry ID'
+      selector: entry_id
+    -
+      name: title
+      label: Title
+      selector: title
+    -
+      name: url_title
+      label: 'URL Title'
+      selector: url_title
+    -
+      name: section
+      label: 'Section'
+      selector: section
+    -
+      name: entry_date
+      label: 'Entry Date'
+      selector: entry_date
+    -
+      name: edit_date
+      label: 'Edit Date'
+      selector: edit_date
+    -
+      name: headline
+      label: 'Headline'
+      selector: headline
+    -
+      name: external_url
+      label: 'External URL'
+      selector: external_url
+    -
+      name: publication_title
+      label: 'Publication title'
+      selector: publication_title
+    -
+      name: authors
+      label: 'Authors'
+      selector: authors
+    -
+      name: group
+      label: 'Group'
+      selector: group
+    -
+      name: people
+      label: 'People'
+      selector: people
+    -
+      name: journal
+      label: 'Journal'
+      selector: journal
+    -
+      name: journal_page
+      label: 'Journal page'
+      selector: journal_page
+    -
+      name: journal_year
+      label: 'Journal year'
+      selector: journal_year
+    -
+      name: citation
+      label: 'Citation'
+      selector: citation
+    -
+      name: main_image
+      label: 'Main Image'
+      selector: main_image
+    -
+      name: category
+      label: 'Category'
+      selector: category
+  ids:
+    entry_id:
+      type: integer
+process:
+  langcode:
+    plugin: default_value
+    default_value: en
+  title: title
+  field_publication: journal
+  field_publication_venue: journal_page
+  field_year: journal_year
+  # field_label: overview
+  field_publication_date: entry_date
+  field_citation: citation
+  field_link_single: external_url
+  field_image_main/target_id:
+    plugin: migration_lookup
+    migration: pme_media_publication_images
+    source: main_image
+  field_section:
+    plugin: migration_lookup
+    migration: pme_group_section
+    no_stub: true
+    source: group
+  field_author_list: authors
+  field_associated_people:
+    plugin: sub_process
+    source: people
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration:
+          - pme_people_person
+          - pme_people_faculty
+          - pme_group
+        source_ids:
+          pme_people_person:
+            - id
+          pme_people_faculty:
+            - id
+          pme_group:
+            - id
+        no_stub: true
+  status:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: default_value
+    default_value: 1
+  created: entry_date
+  changed: edit_date
+  moderation_state:
+    plugin: default_value
+    default_value: published
+  type:
+    plugin: default_value
+    default_value: publication
+destination:
+  plugin: 'entity:node'
+migration_dependencies:
+  required:
+    - pme_file_publication_images
+    - pme_media_publication_images

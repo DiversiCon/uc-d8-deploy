@@ -1,0 +1,105 @@
+uuid: 4f3ac91f-ad15-40d8-aebc-88d1bd0482ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.group.body
+    - field.field.node.group.field_bool_template
+    - field.field.node.group.field_date_no_time
+    - field.field.node.group.field_description
+    - field.field.node.group.field_external_id
+    - field.field.node.group.field_extra_info
+    - field.field.node.group.field_headline_text
+    - field.field.node.group.field_image_main
+    - field.field.node.group.field_intro_paragraph
+    - field.field.node.group.field_lead_faculty
+    - field.field.node.group.field_link_single
+    - field.field.node.group.field_par_components
+    - field.field.node.group.field_par_smartbody
+    - field.field.node.group.field_paragraph_single_0
+    - field.field.node.group.field_paragraph_single_1
+    - field.field.node.group.field_paragraph_single_2
+    - field.field.node.group.field_paragraph_single_3
+    - field.field.node.group.field_paragraph_single_4
+    - field.field.node.group.field_section
+    - field.field.node.group.field_subheadline_text
+    - field.field.node.group.field_topics
+    - node.type.group
+  module:
+    - link
+    - text
+    - user
+id: node.group.teaser
+targetEntityType: node
+bundle: group
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 5
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_link_single:
+    type: link
+    weight: 6
+    region: content
+    label: hidden
+    settings:
+      trim_length: 80
+      target: _blank
+      url_only: false
+      url_plain: false
+      rel: '0'
+    third_party_settings: {  }
+  links:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  pfield_alumni_list:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  pfield_members_list:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  pfield_publications_preview:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_bool_template: true
+  field_contact_person: true
+  field_date_no_time: true
+  field_description: true
+  field_external_id: true
+  field_extra_info: true
+  field_headline_text: true
+  field_hide_sidebar: true
+  field_image_main: true
+  field_intro_paragraph: true
+  field_lead_faculty: true
+  field_par_components: true
+  field_par_smartbody: true
+  field_paragraph_single_0: true
+  field_paragraph_single_1: true
+  field_paragraph_single_2: true
+  field_paragraph_single_3: true
+  field_paragraph_single_4: true
+  field_section: true
+  field_subheadline_text: true
+  field_topics: true
+  search_api_excerpt: true

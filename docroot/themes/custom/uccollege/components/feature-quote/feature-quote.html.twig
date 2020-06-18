@@ -1,0 +1,17 @@
+{#
+/**
+ * feature-quote Twig Partial
+ *
+ */
+#}
+
+<figure class="c-feature-quote">
+  <img src="{{ content.img }}" alt="{{ content.alt }}">
+  <blockquote>
+    “{{ content.text }}”
+  </blockquote>
+  <figcaption>
+    <cite>— {{ content.attribution }}</cite>
+    <a href="{{ content.linkUrl }}">{{ content.linkText }}</a>
+  </figcaption>
+</figure>

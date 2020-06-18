@@ -1,0 +1,9 @@
+uuid: 7b0f2307-ccfd-4dad-ac2e-fddffc3c09ab
+langcode: en
+status: true
+dependencies: {  }
+id: staff_selector
+label: 'Staff Selector'
+icon_uuid: null
+description: 'Discover our programs selector.'
+behavior_plugins: {  }

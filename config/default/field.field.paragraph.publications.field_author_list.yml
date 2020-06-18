@@ -1,0 +1,19 @@
+uuid: 562fc554-d9dd-4380-a358-4b57c359c3bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_author_list
+    - paragraphs.paragraphs_type.publications
+id: paragraph.publications.field_author_list
+field_name: field_author_list
+entity_type: paragraph
+bundle: publications
+label: 'Author List'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

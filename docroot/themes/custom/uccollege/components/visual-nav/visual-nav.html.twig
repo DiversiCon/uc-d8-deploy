@@ -1,0 +1,28 @@
+{#
+/**
+ * visual-nav Twig Partial
+ *
+ */
+#}
+
+
+<section class="l-container c-visual-nav__container">
+  <div class="c-visual-nav">
+    <h2 class="t-heading--medium">{{ content.heading }}</h2>
+    <ul>
+      {% for item in content.items %}
+      <li class="c-visual-nav__cell{{ item.cell }}">
+        <a href="{{ item.link }}">
+          <div class="c-visual-nav__cta">{{ item.title }}</div>
+          <picture>
+            {% if item.square %}
+            <source media="(max-width: 767px)" srcset="{{ item.square }}">
+            {% endif %}
+            <img src="{{ item.image }}" alt="{{ item.title }}">
+          </picture>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

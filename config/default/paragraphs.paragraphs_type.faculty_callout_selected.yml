@@ -1,0 +1,9 @@
+uuid: 7fd77f6a-ca95-468e-98dc-66062252a1ab
+langcode: en
+status: true
+dependencies: {  }
+id: faculty_callout_selected
+label: 'Faculty Callout, Selected'
+icon_uuid: null
+description: 'Display a callout of selected faculty members.'
+behavior_plugins: {  }

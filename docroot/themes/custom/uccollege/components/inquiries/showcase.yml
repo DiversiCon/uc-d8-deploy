@@ -1,0 +1,32 @@
+inquiries:
+  title: Inquiries
+  description: Displays inquiries (contact) information for use in sidebar.
+  type: component
+  attributes:
+    category: Sidebar
+  variants:
+  -
+    title: Inquiries
+    caption: Displays inquiries (contact) information for use in sidebar.
+    content:
+      heading: "Inquiries"
+      sections:
+      - contactName: "Marielle Sainvilus"
+        contactTitle: "Director of Public Affairs"
+        contactDept: "University Communications"
+        links:
+        - text: "msainvilus@uchicago.edu"
+          icon: "email-solid"
+          url: "#"
+        - text: "(773) 834-9159"
+          icon: "phone-solid"
+          url: "#"
+
+inquiries.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: inquiries.component
+    index_hide: true
+    file: themes/custom/uccollege/components/inquiries/README.md

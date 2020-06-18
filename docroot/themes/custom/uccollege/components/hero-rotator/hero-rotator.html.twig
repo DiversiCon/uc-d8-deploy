@@ -1,0 +1,50 @@
+{#
+/**
+ * hero-rotator Twig Partial
+ *
+ */
+#}
+
+<uc-hero-rotator :heroes="[
+  {% for hero in content.items %}
+  {
+    'headline_start': '{{ hero.headline_start }}',
+    'headline_problem': '{{ hero.headline_problem }}',
+    'headline_solution': '{{ hero.headline_solution }}',
+    'cta': {
+      'url': '{{ hero.cta.url }}',
+      'target': '{{ hero.cta.target }}',
+      'text': '{{ hero.cta.text }}',
+    },
+    'left_media': {
+      {% if hero.left_media.type == 'image' %}
+      'type': 'image',
+      'image': '{{ hero.left_media.image }}',
+      {% else %}
+      'type': 'video',
+      'background': '{{ hero.left_media.background }}',
+      'poster': '{{ hero.left_media.poster }}',
+      'width': '{{ hero.left_media.width }}',
+      'height': '{{ hero.left_media.height }}',
+      'alt': '{{ hero.left_media.alt }}',
+      'src': '{{ hero.left_media.src }}',
+      {% endif %}
+    },
+    'right_media': {
+      {% if hero.right_media.type == 'image' %}
+      'type': 'image',
+      'image': '{{ hero.right_media.image }}',
+      {% else %}
+      'type': 'video',
+      'background': '{{ hero.right_media.background }}',
+      'poster': '{{ hero.right_media.poster }}',
+      'width': '{{ hero.right_media.width }}',
+      'height': '{{ hero.right_media.height }}',
+      'alt': '{{ hero.right_media.alt }}',
+      'src': '{{ hero.right_media.src }}',
+      {% endif %}
+    },
+  },
+  {% endfor %}
+]">
+</uc-hero-rotator>

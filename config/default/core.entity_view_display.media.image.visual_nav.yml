@@ -1,0 +1,35 @@
+uuid: 4b4743f8-49ee-43ec-bab9-fa88cd4994e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.visual_nav
+    - field.field.media.image.field_image_caption
+    - field.field.media.image.field_image_credit
+    - field.field.media.image.field_media_image
+    - image.style.two_to_one
+    - media.type.image
+  module:
+    - image
+id: media.image.visual_nav
+targetEntityType: media
+bundle: image
+mode: visual_nav
+content:
+  field_media_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: two_to_one
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  created: true
+  field_image_caption: true
+  field_image_credit: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

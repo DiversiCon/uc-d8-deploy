@@ -1,0 +1,295 @@
+uuid: cbb32893-09e7-45d6-a169-d9e2a1e497bf
+langcode: en
+status: true
+dependencies: {  }
+id: faculty_importer
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: faculty_import
+label: 'Import Faculty'
+source:
+  item_selector: /
+  fields:
+    -
+      name: sk_person_id
+      label: 'SK Person ID'
+      selector: SKPersonID
+    -
+      name: first_name
+      label: 'First Name'
+      selector: FirstName
+    -
+      name: middle_name
+      label: 'Middle Name'
+      selector: MiddleName
+    -
+      name: last_name
+      label: 'Last Name'
+      selector: LastName
+    -
+      name: degree
+      label: Degree
+      selector: Degree
+    -
+      name: preferred_name
+      label: 'Preferred Name'
+      selector: PreferredName
+    -
+      name: email
+      label: Email
+      selector: Email
+    -
+      name: physician_profile_url
+      label: 'Physician Profile URL'
+      selector: PhysicianProfileURL
+    -
+      name: photo_url
+      label: 'Photo URL'
+      selector: PhotoURL
+    -
+      name: show_photo
+      label: 'Show Photo'
+      selector: ShowPhoto
+    -
+      name: administrative_title
+      label: 'Administrative Title'
+      selector: AdministrativeTitle
+    -
+      name: primary_department
+      label: 'Primary Department'
+      selector: PrimaryDepartment
+    -
+      name: primary_section
+      label: 'Primary Section'
+      selector: PrimarySection
+    -
+      name: academic_appointment
+      label: 'Academic Appointment'
+      selector: AcademicAppointment
+    -
+      name: section_chief
+      label: 'Section Chief'
+      selector: SectionChief
+    -
+      name: clinical_interests
+      label: 'Clinical Interests'
+      selector: ClinicalInterests
+    -
+      name: research_scholarly_interests
+      label: 'Research And Scholarly Interests'
+      selector: ResearchAndScholarlyInterestsKeywords
+    -
+      name: graduate_program_websites
+      label: 'Graduate Program Websites'
+      selector: GraduateProgramWebsites
+    -
+      name: websites
+      label: Websites
+      selector: Websites
+    -
+      name: overview
+      label: Overview
+      selector: Overviews/0/Overview
+    -
+      name: education_and_training
+      label: 'Education and Training'
+      selector: EducationAndTraining
+    -
+      name: awards
+      label: Awards
+      selector: Awards
+    -
+      name: publications
+      label: Publications
+      selector: Publications
+  ids:
+    sk_person_id:
+      type: string
+  constants:
+    file_destination: 'public://faculty-images/'
+process:
+  title:
+    -
+      plugin: build_faculty_name
+      source:
+        - first_name
+        - middle_name
+        - last_name
+  field_external_id: sk_person_id
+  field_first_name: first_name
+  field_middle_name: middle_name
+  field_last_name: last_name
+  field_degree: degree
+  field_preferred_name: preferred_name
+  field_email: email
+  field_research_network_link: research_network_link
+  field_physician_profile_url: physician_profile_url
+  field_faculty_image:
+    plugin: image_import
+    source: photo_url
+    destination: constants/file_destination
+    reuse: false
+    skip_on_error: true
+  field_show_photo:
+    plugin: static_map
+    source: show_photo
+    map:
+      'Y': true
+      'N': false
+    default_value: true
+  field_administrative_title: administrative_title
+  temp_departments:
+    plugin: build_primary_department
+    source: primary_department
+  field_primary_department:
+    plugin: sub_process
+    source: '@temp_departments'
+    process:
+      target_id:
+        plugin: entity_generate
+        source: DeptName
+        value_key: name
+        bundle_key: vid
+        bundle: faculty_departments
+        entity_type: taxonomy_term
+  field_primary_section:
+    plugin: entity_generate
+    source: primary_section
+    value_key: name
+    bundle: faculty_sections
+    entity_type: taxonomy_term
+  field_academic_appointment:
+    plugin: sub_process
+    source: academic_appointment
+    process:
+      temp_paragraphs:
+        plugin: build_academic_appointment
+      target_id:
+        plugin: extract
+        source: '@temp_paragraphs'
+        index:
+          - 0
+      target_revision_id:
+        plugin: extract
+        source: '@temp_paragraphs'
+        index:
+          - 1
+  field_section_chief: section_chief
+  field_clinical_interests:
+    plugin: sub_process
+    source: clinical_interests
+    process:
+      target_id:
+        plugin: entity_generate
+        source: ClinicalInterest
+        value_key: name
+        bundle_key: vid
+        bundle: faculty_clinical_interests
+        entity_type: taxonomy_term
+  field_research_and_scholarly_int:
+    plugin: sub_process
+    source: research_scholarly_interests
+    process:
+      target_id:
+        plugin: entity_generate
+        source: Keyword
+        value_key: name
+        bundle_key: vid
+        bundle: faculty_keywords
+        entity_type: taxonomy_term
+  field_graduate_program_websites:
+    plugin: sub_process
+    source: graduate_program_websites
+    process:
+      temp_paragraphs:
+        plugin: build_grad_program_websites
+      target_id:
+        plugin: extract
+        source: '@temp_paragraphs'
+        index:
+          - 0
+      target_revision_id:
+        plugin: extract
+        source: '@temp_paragraphs'
+        index:
+          - 1
+  field_websites:
+    plugin: sub_process
+    source: websites
+    process:
+      temp_paragraphs:
+        plugin: build_websites
+      target_id:
+        plugin: extract
+        source: '@temp_paragraphs'
+        index:
+          - 0
+      target_revision_id:
+        plugin: extract
+        source: '@temp_paragraphs'
+        index:
+          - 1
+  field_overview: overview
+  field_education_and_training:
+    plugin: sub_process
+    source: education_and_training
+    process:
+      temp_paragraphs:
+        plugin: build_education_training
+      target_id:
+        plugin: extract
+        source: '@temp_paragraphs'
+        index:
+          - 0
+      target_revision_id:
+        plugin: extract
+        source: '@temp_paragraphs'
+        index:
+          - 1
+  field_awards:
+    plugin: sub_process
+    source: awards
+    process:
+      temp_paragraphs:
+        plugin: build_awards
+      target_id:
+        plugin: extract
+        source: '@temp_paragraphs'
+        index:
+          - 0
+      target_revision_id:
+        plugin: extract
+        source: '@temp_paragraphs'
+        index:
+          - 1
+  field_publications:
+    plugin: sub_process
+    source: publications
+    process:
+      temporary_ids:
+        plugin: migration_lookup
+        migration: faculty_publication_importer
+        source: PMID
+      target_id:
+        plugin: extract
+        source: '@temporary_ids'
+        index:
+          - 0
+      target_revision_id:
+        plugin: extract
+        source: '@temporary_ids'
+        index:
+          - 1
+  status:
+    plugin: default_value
+    default_value: 1
+  type:
+    plugin: default_value
+    default_value: faculty
+destination:
+  plugin: 'entity:node'
+migration_dependencies:
+  optional:
+    - faculty_publication_importer

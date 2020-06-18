@@ -1,0 +1,9 @@
+uuid: d464e3f5-7019-42a1-a134-0c177057ab5f
+langcode: en
+status: true
+dependencies: {  }
+id: cta_buttons
+label: 'CTA Buttons'
+icon_uuid: null
+description: 'button style of CTA link inside the CTA Block'
+behavior_plugins: {  }

@@ -1,0 +1,99 @@
+{#
+/**
+ * @file
+ * Example implementation for Clinical Departments page.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+{{ it_showcase_component('masthead', 0) }}
+
+<section class="l-container">
+
+  <article class="c-article">
+    <header class="c-headline">
+      <a href="#" class="c-headline__topic t-heading--topic">About</a>
+      <h1 class="c-headline__heading">Clinical Departments</h1>
+    </header>
+
+    <div class="c-article__media">
+      {{ it_showcase_component('photo', 2) }}
+    </div>
+
+    <div class="c-article__body">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    </div>
+
+    <div class="c-article__body">
+      <h3 class="t-heading--list">Departments</h3>
+      <ul>
+        <li><a href="#">Anesthesia and Critical Care</a></li>
+        <li><a href="#">Family Medicine</a></li>
+        <li><a href="#">Medicine</a></li>
+        <li><a href="#">Neurology</a></li>
+        <li><a href="#">Obstetrics and Gynecology</a></li>
+        <li><a href="#">Ophthalmology and Visual Science</a></li>
+        <li><a href="#">Orthopedic Surgery and Rehabilitation Medicine</a></li>
+        <li><a href="#">Pathology</a></li>
+        <li><a href="#">Pediatrics</a></li>
+        <li><a href="#">Psychiatry and Behavioral Neuroscience</a></li>
+        <li><a href="#">Radiation and Cellular Oncology</a></li>
+        <li><a href="#">Radiology</a></li>
+        <li><a href="#">Surgery</a></li>
+      </ul>
+    </div>
+
+  </article>
+</section>
+
+<section class="l-stripe l-stripe--narrow s-bg">
+  <h2 class="t-heading--medium">Other Departments, Committees, Institutes, and Centers</h2>
+
+  <uc-accordion-group v-cloak>
+    <uc-accordion title="Basic Science Departments">
+      Content here.
+    </uc-accordion>
+
+    <uc-accordion title="Interdisciplinary Committees">
+      Content here.
+    </uc-accordion>
+
+    <uc-accordion title="Institutes">
+      Content here.
+    </uc-accordion>
+
+    <uc-accordion title="Centers">
+      Content here.
+    </uc-accordion>
+  </uc-accordion-group>
+
+</section>
+
+<section class="l-stripe s-bg-tertiary">
+  <h3 class="t-heading--medium">Related Resources</h3>
+
+  {{ it_showcase_component('callout', 14)  }}
+</section>
+
+{{ it_showcase_component('visual_nav', 1) }}
+
+<section class="l-container">
+  <uc-switcher v-cloak>
+    <template slot="prospect">
+      <div class="l-stripe c-button__group">
+        <h2 class="t-heading--medium">Get started</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <a href="#" target="" class="c-button">Education</a>
+        <a href="#" target="" class="c-button">Research</a>
+        <a href="#" target="" class="c-button">Patient Care</a>
+      </div>
+    </template>
+  </uc-switcher>
+</section>
+
+{{ it_showcase_component('footer', 0) }}

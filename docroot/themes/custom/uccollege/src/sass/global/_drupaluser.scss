@@ -1,0 +1,59 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - drupaluser
+// add styles for drupal user/authoring
+// these styles should be kept to a minimum
+//
+
+#block-uccollege-anon-tabs {
+  padding: 4rem rem-calc(20) rem-calc(20);
+  //add dash styles to lists
+  ul {
+    @extend .s-dash;
+    > li:not(.c-accordion__item)::before {
+      color: $color-secondary;
+    }
+  }
+  .visually-hidden {
+    @include sr-only();
+  }
+
+  @include breakpoint(medium) {
+    padding: 4rem rem-calc(40) rem-calc(20);
+  }
+}
+
+.user-login-form,
+.user-form,
+.user-pass {
+  @extend .c-form;
+  padding: 1rem rem-calc(20);
+  max-width: rem-calc(600);
+  fieldset {
+    border-color: $color-black;
+  }
+  .description {
+    color: $color-maroon;
+    font-size: rem-calc(14);
+    font-style: italic;
+    margin: rem-calc(-20) 0 rem-calc(31); //move closer to input
+  }
+  .form-checkboxes {
+    padding: 1rem;
+    input {
+      display: inline;
+      width: auto;
+    }
+    label {
+      display: inline;
+      font-size: rem-calc(18);
+    }
+  }
+
+  @include breakpoint(medium) {
+    padding: 1rem rem-calc(40);
+  }
+}
+
+.user-register-form {
+  max-width: rem-calc(800);
+}

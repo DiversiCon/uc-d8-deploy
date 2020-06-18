@@ -1,0 +1,10 @@
+uuid: a180764d-1d97-49f5-976a-98937392d2ce
+langcode: en
+status: true
+dependencies: {  }
+id: template_editor
+label: 'Template Editor'
+weight: -7
+is_admin: null
+permissions:
+  - 'allow template editing'

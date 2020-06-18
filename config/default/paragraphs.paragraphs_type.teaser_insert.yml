@@ -1,0 +1,9 @@
+uuid: fd5d29c2-c0bc-4e77-9848-1d291341cfa9
+langcode: en
+status: true
+dependencies: {  }
+id: teaser_insert
+label: 'Teaser Insert'
+icon_uuid: null
+description: 'Insert a teaser item'
+behavior_plugins: {  }

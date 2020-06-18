@@ -1,0 +1,96 @@
+/* Tint overrides for Article Personalization */
+#collectionHolder {
+  display: none !important;
+}
+
+.post-holder {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.post-type-icon,
+.post .post-type-icon {
+  flex: 1;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.post.text-only .post-type-icon i {
+  font-size: 2rem;
+  margin-left: 0;
+  left: inherit;
+  top: inherit;
+}
+
+.post .post-type-icon i {
+  right: 0;
+  top: 0;
+}
+
+.post-type-icon + .urlLink {
+  flex: 1;
+  display: block;
+  order: 2;
+}
+
+.post-content {
+  flex: 1;
+  order: 1;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.post .post-title {
+  font-size: 18px;
+  line-height: 1.33;
+  letter-spacing: -0.5px;
+}
+
+.post-text {
+  flex: 1;
+  order: 2;
+}
+
+.post .post-footer {
+  flex: 1;
+  order: 1;
+  margin-bottom: 28px;
+  padding-top: 0;
+}
+
+.chiclet {
+  display: none;
+}
+
+.post {
+  box-shadow: none;
+}
+
+.post .post-acct img {
+  width: 40px;
+  height: 40px;
+}
+
+.post .post-acct .names {
+  font-size: 14px;
+}
+
+.post .post-acct .names b {
+  font-size: 20px;
+}
+
+.post-timeago {
+  color: rgba(22, 22, 22, 0.3);
+}
+
+.v3-post a.external-link,
+.connected-hashtag {
+  color: #800000;
+}
+
+.tflex-content {
+  margin: 0 !important;
+}

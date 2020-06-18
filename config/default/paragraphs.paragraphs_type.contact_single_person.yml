@@ -1,0 +1,9 @@
+uuid: b1c215e3-1d5d-422c-996e-59eed8fd41e6
+langcode: en
+status: true
+dependencies: {  }
+id: contact_single_person
+label: 'Contact Person, Unique'
+icon_uuid: null
+description: 'Contact information for a unique (non-shareable) person.'
+behavior_plugins: {  }

@@ -1,0 +1,29 @@
+uuid: cfe1752e-4003-4673-a171-a9a493b7e776
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_section
+    - node.type.group
+    - taxonomy.vocabulary.section
+id: node.group.field_section
+field_name: field_section
+entity_type: node
+bundle: group
+label: Section
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      section: section
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

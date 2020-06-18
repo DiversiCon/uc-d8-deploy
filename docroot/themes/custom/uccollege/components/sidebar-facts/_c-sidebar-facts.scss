@@ -1,0 +1,111 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - sidebar-facts component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-sidebar-facts {
+  font-size: 1rem;
+  margin: rem-calc(-5) calc(50% - 50vw) 0 calc(50% - 50vw);
+  padding: rem-calc(20);
+  text-align: center;
+
+  @include breakpoint(large) {
+    margin: 0;
+    padding: rem-calc(30);
+  }
+
+  h2 {
+    a {
+      color: $color-black;
+    }
+  }
+
+  &__headline {
+    font-size: rem-calc(20);
+    margin-bottom: rem-calc(9);
+
+    a {
+      color: $color-black;
+      text-decoration: underline;
+
+      &:hover,
+      &:focus,
+      &:active {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__item {
+    &:first-child {
+      border-bottom: 1px solid $color-black;
+      margin-bottom: rem-calc(20);
+      padding-bottom: rem-calc(14);
+
+      @include breakpoint(large) {
+        margin-bottom: rem-calc(27);
+        padding-bottom: rem-calc(26);
+      }
+    }
+
+    p {
+      margin-bottom: 0;
+      letter-spacing: rem-calc(-0.16);
+    }
+
+    ul {
+      @include list(emdash, $color-secondary);
+      li {
+        padding-left: 1.5rem;
+        margin-bottom: rem-calc(7);
+      }
+    }
+
+    &--align-left {
+      text-align: left;
+    }
+
+    &--dept {
+      font-size: rem-calc(12);
+      margin-top: rem-calc(28);
+      a {
+        font-weight: $font-weight-bold;
+        font-size: rem-calc(14);
+      }
+    }
+
+    .s-bg-tertiary & {
+      border-color: $color-white;
+
+      ul {
+        li::before {
+          color: $color-white;
+        }
+      }
+    }
+  }
+
+  .grid-internal & {
+    grid-area: right;
+  }
+
+  &__footer {
+    text-align: left;
+
+    span {
+      font-size: rem-calc(12);
+    }
+
+    a {
+      font-size: rem-calc(14);
+    }
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-sidebar-facts {
+    // sass linter doesn't like empty blocks :)
+  }
+}

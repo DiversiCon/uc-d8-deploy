@@ -1,0 +1,150 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - typography
+// global typography styles
+// typography classes should be prefixed with "t-"
+
+@mixin font-sans($weight: book) {
+  font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
+  font-style: normal;
+
+  // available weights: 400, 500, 700
+  @if ($weight == bold) {
+    font-weight: 500;
+  } @else {
+    font-weight: 400;
+  }
+}
+
+.t-heading {
+
+  &--topic {
+    font-size: rem-calc(14);
+    color: $color-secondary;
+    letter-spacing: rem-calc(2.8);
+    text-transform: uppercase;
+    text-align: center;
+
+    a {
+      text-decoration: underline;
+    }
+
+    &:hover,
+    a:hover,
+    a:active,
+    a:focus {
+      text-decoration: none;
+    }
+  }
+
+  &--extra-small {
+    @include font-sizes(16, 16);
+  }
+
+  &--small {
+    @include font-sizes(18, 20);
+  }
+
+  &--medium {
+    @include font-sizes(28, 40);
+  }
+
+  &--large {
+    @include font-sizes(28, 70);
+  }
+
+  // headings above bulleted (dashed) lists
+  &--list {
+    font-size: 1rem;
+    font-weight: $font-weight-bold;
+    letter-spacing: normal;
+    margin-bottom: rem-calc(16);
+  }
+
+  // 2-up grid block with a headline with superscript
+  &--superscript {
+    @include font-sizes(24, 48);
+    color: $color-white;
+    letter-spacing: rem-calc(-1);
+    margin-bottom: 0;
+
+    span {
+      @include font-sizes(24, 48);
+      vertical-align: top;
+      position: relative;
+      top: rem-calc(-60);
+    }
+
+    @include breakpoint(medium down) {
+      color: $color-primary;
+      br {
+        display: none;
+      }
+      span {
+        top: rem-calc(-36);
+      }
+    }
+  }
+}
+
+.t-left {
+  text-align: left;
+}
+
+.t-center {
+  text-align: center;
+}
+
+//drupal wysiwyg/rich text editor
+.t-text {
+  margin: 0 auto rem-calc(47);
+  max-width: $text-max-width;
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: rem-calc(16);
+    line-height: 1.375;
+  }
+
+  h2 {
+    font-size: rem-calc(20);
+  }
+
+  h3 {
+    font-size: rem-calc(18);
+  }
+
+  //add dash styles to lists
+  ul {
+    @extend .s-dash;
+    margin-bottom: rem-calc(30);
+  }
+
+  p,
+  li {
+    line-height: 1.625;
+  }
+
+  @include breakpoint(large) {
+    margin-bottom: rem-calc(56);
+  }
+}
+
+// utility classes for one-off or random places where
+// font sizes need to be different in inconsistent ways
+.t-font {
+  &--small {
+    @include font-sizes(12, 14);
+  }
+  &--default {
+    @include font-sizes(14, 16);
+  }
+  &--medium {
+    @include font-sizes(16, 20);
+  }
+  &--large {
+    @include font-sizes(28, 40);
+  }
+}

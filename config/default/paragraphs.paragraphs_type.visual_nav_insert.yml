@@ -1,0 +1,9 @@
+uuid: fd1339f7-c910-442c-9022-c5d3bf80776b
+langcode: en
+status: true
+dependencies: {  }
+id: visual_nav_insert
+label: 'Visual Nav, Insert'
+icon_uuid: null
+description: 'Inserts the global config_page visual nav as a block'
+behavior_plugins: {  }

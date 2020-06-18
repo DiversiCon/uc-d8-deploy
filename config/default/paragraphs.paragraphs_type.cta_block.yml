@@ -1,0 +1,9 @@
+uuid: 10fe7317-9726-4bc8-b994-8deb90e50406
+langcode: en
+status: true
+dependencies: {  }
+id: cta_block
+label: 'CTA Block'
+icon_uuid: null
+description: 'This component displays a block with either a multiple CTAs or text and a link. It is typically used within the Switcher component.'
+behavior_plugins: {  }

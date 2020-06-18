@@ -1,0 +1,32 @@
+{#
+/**
+ * button Twig Partial
+ *
+ */
+#}
+
+{% if content.switcher %}
+
+  <uc-switcher>
+    {% for group in content.items %}
+    <template slot="affiliate">
+      {% for item in group.affiliate %}
+        <a class="c-button {% if content.reversed %}c-button--reverse{% endif %}" href="{{ item.url }}">{{ item.text }}</a>
+      {% endfor %}
+    </template>
+
+    <template slot="prospect">
+      {% for item in group.prospect %}
+        <a class="c-button {% if content.reversed %}c-button--reverse{% endif %}" href="{{ item.url }}">{{ item.text }}</a>
+      {% endfor %}
+    </template>
+    {% endfor %}
+  </uc-switcher>
+
+{% else %}
+
+  {% for item in content.items %}
+  <a class="c-button {% if content.reversed %}c-button--reverse{% endif %}" href="{{ item.url }}">{{ item.text }}</a>
+  {% endfor %}
+
+{% endif %}

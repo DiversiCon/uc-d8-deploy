@@ -1,0 +1,30 @@
+uuid: df95fd37-747f-4ce1-9383-4706fff791e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_html_single
+    - paragraphs.paragraphs_type.accordion_item
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    plain: plain
+    simple_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.accordion_item.field_par_html_single
+field_name: field_par_html_single
+entity_type: paragraph
+bundle: accordion_item
+label: 'Accordion Content'
+description: 'Content inside the accordion item.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

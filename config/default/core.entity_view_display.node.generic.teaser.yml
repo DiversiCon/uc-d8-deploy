@@ -1,0 +1,64 @@
+uuid: 92cd355c-1bb9-4c88-b3d1-769a45b58dfd
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.generic.body
+    - field.field.node.generic.field_bool_template
+    - field.field.node.generic.field_date_no_time
+    - field.field.node.generic.field_headline_text
+    - field.field.node.generic.field_image_main
+    - field.field.node.generic.field_intro_paragraph
+    - field.field.node.generic.field_par_components
+    - field.field.node.generic.field_par_smartbody
+    - field.field.node.generic.field_paragraph_single_0
+    - field.field.node.generic.field_paragraph_single_1
+    - field.field.node.generic.field_paragraph_single_2
+    - field.field.node.generic.field_paragraph_single_3
+    - field.field.node.generic.field_paragraph_single_4
+    - field.field.node.generic.field_section
+    - field.field.node.generic.field_subheadline_text
+    - node.type.generic
+  module:
+    - text
+    - user
+id: node.generic.teaser
+targetEntityType: node
+bundle: generic
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_bool_template: true
+  field_contact_person: true
+  field_date_no_time: true
+  field_headline_text: true
+  field_hide_sidebar: true
+  field_image_main: true
+  field_intro_paragraph: true
+  field_par_components: true
+  field_par_smartbody: true
+  field_paragraph_single_0: true
+  field_paragraph_single_1: true
+  field_paragraph_single_2: true
+  field_paragraph_single_3: true
+  field_paragraph_single_4: true
+  field_section: true
+  field_subheadline_text: true
+  search_api_excerpt: true

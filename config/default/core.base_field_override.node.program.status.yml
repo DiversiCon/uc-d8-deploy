@@ -1,0 +1,22 @@
+uuid: 37d54742-10f2-4681-a459-9ecdfc4c6ffb
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.program
+id: node.program.status
+field_name: status
+entity_type: node
+bundle: program
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

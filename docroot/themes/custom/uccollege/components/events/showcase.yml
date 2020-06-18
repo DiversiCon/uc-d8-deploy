@@ -1,0 +1,68 @@
+events:
+  title: events
+  description:
+  type: component
+  variants:
+    - title: Default
+      caption:
+      content:
+          something: "green"
+    - title: Featured Events
+      caption:
+      content:
+          featured: "true"
+          something: "blue"
+
+list-events:
+  title: Events Endpoint
+  description:
+  type: endpoint
+  variants:
+    -
+      title: Default
+      caption:
+      content:
+        items:
+          - title: "SNaHP Week of Action: Petition Day"
+            date: 12-03-2019
+            timeStart: 12:00:00
+            timeEnd: 13:00:00
+            location: Biological Sciences Learning Center, Lobby
+            address: 924 East 57th Street, Chicago, IL
+            url: '#'
+          - title: Conflict Resolution Mini-Course
+            date: 12-01-2019
+            timeStart: 10:00:00
+            timeEnd: 16:00:00
+            location:
+            url: '#'
+            status: new
+          - title: "Coggeshall: Ice Skating, Cookies and Cocoa!"
+            date: 12-01-2019
+            timeStart: 15:30:00
+            timeEnd: 17:30:00
+            location: Midway Skating Rink
+            url: '#'
+            status: cancelled
+          - title: "COI/COM seminar - Guido Silvestri, M.D., Emory University"
+            date: 12-03-2019
+            timeStart: 16:00:00
+            timeEnd: 17:00:00
+            location: Biological Sciences Learning Center, Room 115
+            address: 924 East 57th Street, Chicago, IL
+            url: '#'
+          - title: "Rowley - Comedy Show"
+            date: 12-02-2019
+            timeStart: 16:00:00
+            timeEnd: 18:00:00
+            location: Second City
+            url: '#'
+
+events.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: events.component
+    index_hide: true
+    file: themes/custom/uccollege/components/events/README.md

@@ -1,0 +1,41 @@
+uuid: 9a3f44e1-d881-4641-91c2-832ef06f2dc6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.person_list_teasers.field_content_multiple
+    - field.field.paragraph.person_list_teasers.field_par_paragraph_single
+    - paragraphs.paragraphs_type.person_list_teasers
+  module:
+    - paragraphs
+id: paragraph.person_list_teasers.default
+targetEntityType: paragraph
+bundle: person_list_teasers
+mode: default
+content:
+  field_content_multiple:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_par_paragraph_single:
+    weight: 1
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: sidebar_gen_related
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

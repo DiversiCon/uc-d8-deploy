@@ -1,0 +1,16 @@
+{#
+/**
+ * list-filter Twig Partial
+ *
+ */
+#}
+
+<uc-list
+  datasource="{{ content.datasource }}"
+  categorysource="{{ content.categorysource }}"
+  :items-per-page="{{ content.itemsPerPage }}"
+  :filtered="{{ content.filtered }}"
+  {% if content.sidebar %}:sidebar="{{ content.sidebar }}"{% endif %}
+  :paginate="{{ content.paginate }}"
+  {% if content.preSelected %}pre-selected="{{ content.preSelected }}"{% endif %}>
+</uc-list>

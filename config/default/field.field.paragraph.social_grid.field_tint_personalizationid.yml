@@ -1,0 +1,21 @@
+uuid: 46792e60-bd7a-41f6-bb64-08d48cb0725c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_tint_personalizationid
+    - paragraphs.paragraphs_type.social_grid
+id: paragraph.social_grid.field_tint_personalizationid
+field_name: field_tint_personalizationid
+entity_type: paragraph
+bundle: social_grid
+label: 'TINT Personalization ID'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: '88392'
+default_value_callback: ''
+settings: {  }
+field_type: string

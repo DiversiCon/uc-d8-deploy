@@ -1,0 +1,77 @@
+
+uc_cdr_client.central_data_repo_controller_renderEventPage:
+  path: '/event/{event_id}'
+  defaults:
+    _controller: '\Drupal\uc_cdr_client\Controller\CentralDataRepoClientController::renderEventPage'
+  requirements:
+    _permission: 'access content'
+
+uc_cdr_client.share_event_calendar:
+  path: '/event/{event_id}/calendar.ics'
+  defaults:
+    _controller: '\Drupal\uc_cdr_client\Controller\CentralDataRepoClientController::getEventCalendar'
+  requirements:
+    _permission: 'access content'
+
+uc_cdr_client.central_data_repo_controller_renderFacultyProfilePage:
+  path: '/faculty/{url_alias}'
+  defaults:
+    _controller: '\Drupal\uc_cdr_client\Controller\CentralDataRepoClientController::renderFacultyProfilePage'
+  requirements:
+    _permission: 'access content'
+
+uc_cdr_client.central_data_repo_controller_renderFacultyPublicationsPage:
+  path: '/faculty/{url_alias}/publications'
+  defaults:
+    _controller: '\Drupal\uc_cdr_client\Controller\CentralDataRepoClientController::renderFacultyPublicationsPage'
+  requirements:
+    _permission: 'access content'
+
+uc_cdr_client.event_autocomplete:
+  path: '/event/autocomplete'
+  defaults:
+    _controller: '\Drupal\uc_cdr_client\Controller\CentralDataRepoClientController::handleEventAutocomplete'
+  methods:  [GET]
+  requirements:
+    _permission: 'access content'
+
+uc_cdr_client.faculty_autocomplete:
+  path: '/faculty/autocomplete'
+  defaults:
+    _controller: '\Drupal\uc_cdr_client\Controller\CentralDataRepoClientController::handleFacultyAutocomplete'
+  methods:  [GET]
+  requirements:
+    _permission: 'access content'
+
+uc_cdr_client.department_autocomplete:
+  path: '/department/autocomplete'
+  defaults:
+    _controller: '\Drupal\uc_cdr_client\Controller\CentralDataRepoClientController::handleDepartmentAutocomplete'
+  methods:  [GET]
+  requirements:
+    _permission: 'access content'
+
+uc_cdr_client.link_external_reference_autocomplete:
+  path: '/link_external_reference_autocomplete/{target_type}/{selection_handler}/{selection_settings_key}'
+  defaults:
+    _controller: '\Drupal\uc_cdr_client\Controller\LinkExternalReferenceAutocompleteController::handleAutocomplete'
+  requirements:
+    _permission: 'access content'
+
+uc_cdr_client.person_publications:
+  path: '/people/{section}/{person_name}/publications'
+  defaults:
+    _controller: '\Drupal\uc_cdr_client\Controller\PublicationsController::getPersonPublications'
+  requirements:
+    _permission: 'access content'
+  options:
+    _admin_route: FALSE
+
+uc_cdr_client.group_publications:
+  path: '/group/{group_name}/publications'
+  defaults:
+    _controller: '\Drupal\uc_cdr_client\Controller\PublicationsController::getGroupPublications'
+  requirements:
+    _permission: 'access content'
+  options:
+    _admin_route: FALSE

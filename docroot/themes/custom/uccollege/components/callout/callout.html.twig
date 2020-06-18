@@ -1,0 +1,64 @@
+{#
+/**
+ * callout Twig Partial
+ *
+ */
+#}
+
+{% if content.rectangle %}
+  {% set rect_class = ' c-callout--rect' %}
+{% endif %}
+
+{% if content.events %}
+  {% set event_class = ' c-callout--event' %}
+{% endif %}
+
+<uc-slider class="c-callout{{ rect_class }}{{ event_class }}"
+           {% if content.breakpoint is defined and content.breakpoint == 0 %} :breakpoint="{{ content.breakpoint }}" {% endif %} v-cloak>
+  <template v-slot:default="slotProps">
+    <ul>
+      {% for item in content.items %}
+      <li>
+        {% if item.link %}<a href="{{ item.link }}">{% endif %}
+
+          {% if item.image %}
+          <img src="{{ item.image }}" alt="{{ item.headline }}">
+          {% endif %}
+
+          {% if item.month %}
+          <time datetime="">
+            <span class="month">{{ item.month }}</span>
+            <span class="day">{{ item.day }}</span>
+          </time>
+          {% endif %}
+
+          <p class="c-callout__item-text">{{ item.headline }}
+          {% if item.subhead %}
+            {% autoescape false %}
+            <span>{{ item.subhead }}</span>
+            {% endautoescape %}
+          {% endif %}
+          </p>
+          {% if item.text %}
+            <div class="c-callout__text">
+              {% autoescape false %}
+              {{ item.text }}
+              {% endautoescape %}
+            </div>
+          {% endif %}
+          {% if item.link %}</a>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+
+    <div class="c-callout__button-wrap">
+      <a href="#" @click.prevent="slotProps.prevSlide()" class="swiper-button-prev">
+        <uc-icon glyph="arrow-left"></uc-icon>
+      </a>
+      <a href="#" @click.prevent="slotProps.nextSlide($event)" class="swiper-button-next">
+        <uc-icon glyph="arrow-right"></uc-icon>
+      </a>
+    </div>
+  </template>
+</uc-slider>
+

@@ -1,0 +1,9 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - Flickr Gallery Component
+// This component handles embedding of
+// flickr galleries within articles
+
+.c-flickr {
+  @include responsive-embed();
+  margin-bottom: rem-calc(30);
+}

@@ -1,0 +1,21 @@
+uuid: dea4e979-9c7c-4f0c-b17d-6cfbeebfcaea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_background_theme
+    - node.type.page
+  module:
+    - options
+id: node.page.field_background_theme
+field_name: field_background_theme
+entity_type: node
+bundle: page
+label: 'Background Color'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

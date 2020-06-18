@@ -1,0 +1,53 @@
+tile:
+  title: Tile
+  description: Tile block for homepage
+  type: component
+  attributes:
+    category: Callouts
+  variants:
+  -
+    title: Default Tile
+    caption: Default tile with white background
+    content:
+      heading: Scientists Tease Out Quantum Secrets
+      text: "Researchers used IBM's Quantum Experience, an open-access quantum computer, to test fundamental principles of quantum mechanics."
+      image: "https://via.placeholder.com/300&text=FPO"
+      link: "#"
+
+  -
+    title: Inverted Tile
+    caption: Tile with dark background and white text
+    content:
+      inverted: true
+      heading: "IME Distinguished Colloquium Series - Alberto Salleo"
+      text: "<strong>Wed. March. 20, 2019</strong><br> 4:00 – 5:00 p.m.<br> Knapp Center for Biomedical Discovery<br> Room 1103"
+      image: "https://via.placeholder.com/300&text=FPO"
+      link: "#"
+      icon: calendar
+
+  -
+    title: Inverted Tile 2
+    content:
+      inverted: true
+      heading: "Human Genetics Seminar<br />Priya Moorjani"
+      text: "<strong>Wed. Feb. 6, 2019</strong><br />12:00 – 1:00 p.m.<br />Knapp Center for Biomedical Discovery, Room 1103"
+      #image: "https://via.placeholder.com/580&text=FPO"
+      link: "#"
+      icon: calendar
+
+  -
+    title: Default Tile 2
+    content:
+      heading: "A ‘noisier’ cell calls for a simpler circadian clock"
+      text: Studies by UChicago researchers show why some internal clocks are like wristwatches and some hourglasses.
+      image: "https://via.placeholder.com/580&text=FPO"
+      link: "#"
+
+tile.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: tile.component
+    index_hide: true
+    file: themes/custom/uccollege/components/tile/README.md

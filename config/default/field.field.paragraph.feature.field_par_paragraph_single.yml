@@ -1,0 +1,69 @@
+uuid: 323db285-6e19-45fe-b950-4236ec7ef6ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_paragraph_single
+    - paragraphs.paragraphs_type.feature
+    - paragraphs.paragraphs_type.feature_4_square_images
+    - paragraphs.paragraphs_type.feature_image_link
+  module:
+    - entity_reference_revisions
+id: paragraph.feature.field_par_paragraph_single
+field_name: field_par_paragraph_single
+entity_type: paragraph
+bundle: feature
+label: Media
+description: 'Choose a type of media to add to the feature'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      feature_image_link: feature_image_link
+      feature_4_square_images: feature_4_square_images
+    target_bundles_drag_drop:
+      accordion_block:
+        weight: -27
+        enabled: false
+      components:
+        weight: -26
+        enabled: false
+      feature:
+        weight: -25
+        enabled: false
+      feature_components:
+        weight: -24
+        enabled: false
+      feature_insert:
+        weight: -23
+        enabled: false
+      feature_image_link:
+        enabled: true
+        weight: -22
+      feature_4_square_images:
+        enabled: true
+        weight: -21
+      feature_reference:
+        weight: -20
+        enabled: false
+      html_text:
+        weight: -19
+        enabled: false
+      pullquote:
+        weight: -18
+        enabled: false
+      smartbody:
+        weight: -17
+        enabled: false
+      smartbody_image:
+        weight: -16
+        enabled: false
+      social_grid:
+        weight: -15
+        enabled: false
+field_type: entity_reference_revisions

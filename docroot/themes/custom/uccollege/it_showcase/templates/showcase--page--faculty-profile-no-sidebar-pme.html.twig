@@ -1,0 +1,30 @@
+{# /** * @file * Default theme implementation to display a node. * * content - array of content
+values. * showcase - array of showcase settings. * .type - index, page or component. * .template -
+based on path. * .template_path - path to template override * */ #}
+
+{% include '@uccollege/../components/masthead/masthead-ime.html.twig' %}
+
+{% include '@uccollege/../components/feature/feature.html.twig' with {'content': content.feature} %}
+
+<div class="l-container">
+  <div class="c-content">
+    <div class="c-content__body">
+      <p>
+        <strong>
+          Professor Awschalom received his bSc in physics from the University of Illinois at Urbana-Champaign, and his PhD in experimental physics from Cornell University. He was a Research Staff member and Manager of the Nonequilibrium Physics Department at the IBM Watson Research Center in Yorktown Heights, New York.
+        </strong>
+      </p>
+      <p>
+        In 1991 he joined the University of California-Santa Barbara as a Professor of Physics, and in 2001 was additionally appointed as a Professor of Electrical and Computer Engineering. Prior to joining IME, he served as the Peter J. Clarke Professor and Director of the California NanoSystems Institute, and Director of the Center for Spintronics and Quantum Computation.
+      </p>
+      <p>
+        Professor Awschalom received the American Physical Society Oliver E. Buckley Prize and Julius Edgar Lilienfeld Prize, the European Physical Society Europhysics Prize, the Materials Research Society David Turnbull Award and Outstanding Investigator Prize, the AAAS Newcomb Cleveland Prize, the International Magnetism Prize and the Néel Medal from the International Union of Pure and Applied Physics, and an IBM Outstanding Innovation Award. He is a member of the American Academy of Arts and Sciences, the National Academy of Sciences, the National Academy of Engineering, and the European Academy of Sciences.
+      </p>
+      <p>To download a copy of Professor Awschalom's most updated biography, please <a href="#">click here</a>.</p>
+      {% include '@uccollege/../components/accordion/accordion.html.twig' with {'content':
+      content.accordion} %}
+    </div>
+  </div>
+</div>
+
+{{ it_showcase_component('footer', 0) }}

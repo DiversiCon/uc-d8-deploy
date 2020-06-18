@@ -1,0 +1,50 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+
+{{ it_showcase_component('masthead', 0) }}
+{{ it_showcase_component('alert', 0) }}
+
+{{ it_showcase_component('feature', 7) }}
+
+<div class="l-stripe">
+	{{ it_showcase_component('stats', 3) }}
+</div>
+
+
+<div class="l-stripe">
+	<h2 class="t-heading--medium">The class hailed from 25 states</h2>
+	<p class="t-heading--small">(and 49 different colleges and universities):</p>
+	{{ it_showcase_component('infographic', 0) }}
+</div>
+
+<div class="l-stripe">
+	{{ it_showcase_component('range', 0) }}
+</div>
+
+<div class="l-stripe">
+	<h2 class="t-heading--medium">Nearly 60% of the class took at least one year between
+		completing a bachelor's degree and beginning medical school:</h2>
+	{{ it_showcase_component('infographic', 1) }}
+</div>
+
+<div class="l-stripe">
+	<h2 class="t-heading--medium"> In Their Words</h2>
+	<h3 class="t-heading--small"><strong><em>Why the entering class of 2017 chose the University of Chicago</em></strong></h3>
+	{{ it_showcase_component('student-quote', 0) }}
+	{{ it_showcase_component('student-quote', 1) }}
+	{{ it_showcase_component('student-quote', 2) }}
+	{{ it_showcase_component('student-quote', 3) }}
+</div>
+
+{{ it_showcase_component('footer', 0) }}

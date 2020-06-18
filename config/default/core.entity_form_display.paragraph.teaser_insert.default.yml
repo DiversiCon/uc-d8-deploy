@@ -1,0 +1,30 @@
+uuid: 52cfcfa6-e8e7-440e-ab27-f1045f5043f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.teaser_insert.field_par_paragraph_single
+    - paragraphs.paragraphs_type.teaser_insert
+  module:
+    - paragraphs
+id: paragraph.teaser_insert.default
+targetEntityType: paragraph
+bundle: teaser_insert
+mode: default
+content:
+  field_par_paragraph_single:
+    weight: 101
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

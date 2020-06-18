@@ -1,0 +1,25 @@
+uuid: c95b4cb8-e139-4d21-9543-3637616cc302
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.hero_components.field_par_paragraph_single
+    - paragraphs.paragraphs_type.hero_components
+  module:
+    - entity_reference_revisions
+id: paragraph.hero_components.default
+targetEntityType: paragraph
+bundle: hero_components
+mode: default
+content:
+  field_par_paragraph_single:
+    weight: 0
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

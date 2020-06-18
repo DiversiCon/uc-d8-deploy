@@ -1,0 +1,9 @@
+uuid: 1c1f4fa3-5b7e-4148-8b6b-76f84583c6d1
+langcode: en
+status: true
+dependencies: {  }
+id: home_quad_two_tiles
+label: 'Homepage Quadrant: Two Tiles'
+icon_uuid: null
+description: 'Display two tiles in a homepage quadrant.'
+behavior_plugins: {  }

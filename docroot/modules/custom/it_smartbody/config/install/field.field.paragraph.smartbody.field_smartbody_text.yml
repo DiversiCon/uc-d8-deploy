@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_smartbody_text
+    - paragraphs.paragraphs_type.smartbody
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    smartbody: smartbody
+    rich_text: '0'
+    html_full: '0'
+    html_title: '0'
+    plain_text: '0'
+_core:
+  default_config_hash: NHxnTvuKsj6tEjWr3OU1E_e8Hphd5o_F4zjao30R5bU
+id: paragraph.smartbody.field_smartbody_text
+field_name: field_smartbody_text
+entity_type: paragraph
+bundle: smartbody
+label: 'Smartbody text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

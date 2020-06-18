@@ -1,0 +1,26 @@
+generic:
+  title: Generic
+  description: Displays generic title/text information for use in sidebar.
+  type: component
+  attributes:
+    category: Sidebar
+  variants:
+    -
+      title: Generic
+      caption: Displays generic title/text information for use in sidebar.
+      content:
+        heading: "Generic"
+        sections:
+        - itemTitle: "Item One"
+          itemText: "<p>Followed by some text as entered by the user.</p> <p>Followed by some text as entered by the user.</p>"
+        - itemTitle: "Item Two"
+          itemText: "<p>Followed by more text as entered by the user.</p>"
+
+generic.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: generic.component
+    index_hide: true
+    file: themes/custom/uccollege/components/generic/README.md

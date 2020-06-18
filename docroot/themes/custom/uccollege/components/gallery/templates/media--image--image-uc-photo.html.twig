@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Individual images inside the gallery component
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set caption = content.field_image_caption|field_value|render %}
+{% set credit = content.field_image_credit|field_value|render %}
+
+<uc-photo
+  img-full="{{ photo.imgFull }}"
+  img-large="{{ photo.imgLarge }}"
+  img-medium="{{ photo.imgMedium }}"
+  img-small="{{ photo.imgSmall }}"
+  description="{{ caption|convertQuotes }}"
+  credit="{{ credit|convertQuotes }}"
+  alt="{{ photo.alt|convertQuotes }}">
+</uc-photo>

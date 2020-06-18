@@ -1,0 +1,14 @@
+uuid: 3cf85647-ab18-495c-8da3-9a42fe9c876b
+langcode: en
+status: true
+dependencies: {  }
+id: document
+label: Document
+description: 'Any standard document format (i.e. PDF, docx, etc.).'
+source: file
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_file
+field_map:
+  name: name

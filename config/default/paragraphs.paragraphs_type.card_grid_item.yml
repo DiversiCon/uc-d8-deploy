@@ -1,0 +1,9 @@
+uuid: 14594b03-c7f8-45ea-b3d2-5b6f666e5dc0
+langcode: en
+status: true
+dependencies: {  }
+id: card_grid_item
+label: 'Card Grid Item'
+icon_uuid: null
+description: 'Unique card item used in Card Grid'
+behavior_plugins: {  }

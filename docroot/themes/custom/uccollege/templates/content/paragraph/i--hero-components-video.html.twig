@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Displays video hero component.
+ *
+ * @see uccollege_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{# Set in the preprocessor. #}
+{% extends extend_path %}
+
+{# Override the content block. #}
+{% block content %}
+
+  {# Declare variables. #}
+  {% set video_id = hero_component.field_video_id.value %}
+  {% set headline = hero_component.field_headline_text.value %}
+  {% set credit = hero_component.field_eck_title.value %}
+
+  {# component_video_poster variable is set in the preprocessor. #}
+
+  <uc-video
+      poster="{{ component_video_poster }}"
+      videoid="{{ video_id }}"
+      description="{{ headline }}"
+      credit="{{ credit }}">
+  </uc-video>
+
+{% endblock %}

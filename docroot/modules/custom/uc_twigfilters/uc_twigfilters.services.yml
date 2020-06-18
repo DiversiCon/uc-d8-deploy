@@ -1,0 +1,5 @@
+services:
+  uc_twigfilters.twig_extension:
+    class: Drupal\uc_twigfilters\TwigExtension\uc_twigfiltersExtension
+    tags:
+    - { name: twig.extension }

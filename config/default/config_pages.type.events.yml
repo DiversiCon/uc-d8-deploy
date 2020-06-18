@@ -1,0 +1,14 @@
+uuid: 94aba2d5-22f6-4ff3-9016-f0f904475651
+langcode: en
+status: true
+dependencies: {  }
+id: events
+label: Events
+context:
+  show_warning: true
+  group:
+    language: false
+menu:
+  path: /admin/config/events
+  weight: -41
+  description: Events

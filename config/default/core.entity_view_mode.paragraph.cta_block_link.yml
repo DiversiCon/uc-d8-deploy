@@ -1,0 +1,10 @@
+uuid: e1937c90-def6-4de3-bcf6-4c75a794e251
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.cta_block_link
+label: 'CTA Block Link'
+targetEntityType: paragraph
+cache: true

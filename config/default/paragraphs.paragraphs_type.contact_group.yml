@@ -1,0 +1,9 @@
+uuid: 5959d505-d327-4ad9-9174-ad0f5aead5fb
+langcode: en
+status: true
+dependencies: {  }
+id: contact_group
+label: 'Contact Group'
+icon_uuid: null
+description: 'Represents general contact information for a department, group or office. Can also provide a list of individual contacts.'
+behavior_plugins: {  }

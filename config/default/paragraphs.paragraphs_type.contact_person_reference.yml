@@ -1,0 +1,9 @@
+uuid: eeb8322b-34c7-4047-95bb-7662eb15c5d0
+langcode: en
+status: true
+dependencies: {  }
+id: contact_person_reference
+label: 'Contact Person, Reference'
+icon_uuid: null
+description: 'Contact information for a person already created for a directory listing, or person listing.'
+behavior_plugins: {  }

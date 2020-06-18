@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ * Available variables:
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+
+<section class="l-container">
+
+  <article class="c-article">
+    <div class="c-article__sidebar">
+      {% include '@uccollege/../components/generic/generic.html.twig' with {'content': content} %}
+    </div>
+  </article>
+
+</section>

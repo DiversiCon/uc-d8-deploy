@@ -1,0 +1,17 @@
+uuid: b3409c48-235f-493d-9d67-3b0a9dc93523
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: hero_1200x525
+label: 'Hero (1200x525)'
+effects:
+  68b4f686-83dc-4cf2-b5c7-5765cdc36261:
+    uuid: 68b4f686-83dc-4cf2-b5c7-5765cdc36261
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 525
+      crop_type: focal_point

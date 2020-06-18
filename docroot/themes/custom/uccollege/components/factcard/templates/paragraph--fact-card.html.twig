@@ -1,0 +1,34 @@
+{#
+/**
+ * @file
+ * Fact card outer wrapper
+ *
+ * see contrib @paragraph module
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set title = content.field_par_html_text_title %}
+{% set name_toggle = content.field_boolean|render|striptags|trim %}
+
+{% block paragraph %}
+  {% block content %}
+    <div class="c-factcard">
+      <div class="c-factcard__ctn">
+        {% if not (name_toggle) %}
+          {% if title|field_value %}
+            <h4 class="c-factcard__heading">{{ title }}</h4>
+          {% endif %}
+        {% endif %}
+        <ul class="c-factcard__content">
+          {% if (name_toggle) %}
+            <li class="c-factcard__item c-factcard__name">{{ title }}</li>
+          {% endif %}
+          {{ content.field_par_paragraph_ultd }}
+        </ul>
+      </div>
+    </div>
+  {% endblock %}
+{% endblock paragraph %}

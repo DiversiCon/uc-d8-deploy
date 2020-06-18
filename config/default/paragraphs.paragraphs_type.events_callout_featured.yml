@@ -1,0 +1,9 @@
+uuid: bf0ee08f-a982-4153-9551-bb234391ab8f
+langcode: en
+status: true
+dependencies: {  }
+id: events_callout_featured
+label: 'Events Callout, Featured'
+icon_uuid: null
+description: 'Display a callout of featured events.'
+behavior_plugins: {  }

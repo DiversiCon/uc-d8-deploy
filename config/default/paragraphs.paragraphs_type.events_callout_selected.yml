@@ -1,0 +1,9 @@
+uuid: 2ca9b9a9-19fb-4ae9-9ca0-ac53fcce4308
+langcode: en
+status: true
+dependencies: {  }
+id: events_callout_selected
+label: 'Events Callout, Selected'
+icon_uuid: null
+description: 'Display a callout of selected events.'
+behavior_plugins: {  }

@@ -1,0 +1,7 @@
+uc_search.search:
+  path: 'search'
+  defaults:
+    _controller: '\Drupal\uc_search\Controller\SearchController::showSearch'
+    _title: 'Search'
+  requirements:
+    _permission: 'access content'

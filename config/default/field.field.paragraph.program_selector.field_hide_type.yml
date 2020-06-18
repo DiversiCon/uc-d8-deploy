@@ -1,0 +1,23 @@
+uuid: 0a05be90-8c7d-4007-96ba-f8157a170969
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_hide_type
+    - paragraphs.paragraphs_type.program_selector
+id: paragraph.program_selector.field_hide_type
+field_name: field_hide_type
+entity_type: paragraph
+bundle: program_selector
+label: 'Hide Program Type'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,29 @@
+uuid: ec990a40-5d89-462c-87df-4e73b57d44d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.feature
+    - field.storage.paragraph.field_eck_reference
+    - paragraphs.paragraphs_type.feature_reference
+id: paragraph.feature_reference.field_eck_reference
+field_name: field_eck_reference
+entity_type: paragraph
+bundle: feature_reference
+label: 'Feature Reference'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:reusable'
+  handler_settings:
+    target_bundles:
+      feature: feature
+    sort:
+      field: changed
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

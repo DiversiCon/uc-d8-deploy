@@ -1,0 +1,64 @@
+{#
+/**
+ * @file
+ * Callout inside wrapper with headline
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set rect_check = content.field_par_bool_single_0|field_value|render|render %}
+{% set slider_classes = [
+    'c-callout',
+    rect_check ? 'c-callout--rect',
+  ]
+%}
+{% set heading = content.field_headline_text %}
+{% set subhead = content.field_subheadline_text %}
+{% set section = content.field_section %}
+{% set section_override = content.field_par_paragraph_single_0 %}
+{% set items = content.field_par_paragraphs_four %}
+{% set addl_txt = content.field_par_paragraph_single %}
+
+{% block paragraph %}
+  {% block content %}
+
+    {% if section_override|field_value %}
+      <h2 class="t-heading--topic">{{ section_override }}</h2>
+      {% if heading|field_value %}
+        <h3 class="t-heading--medium">{{ heading }}</h3>
+      {% endif %}
+    {% elseif section|field_value %}
+      <h2 class="t-heading--topic">{{ section }}</h2>
+      {% if heading|field_value %}
+        <h3 class="t-heading--medium">{{ heading }}</h3>
+      {% endif %}
+    {% elseif heading|field_value %}
+      <h2 class="t-heading--medium">{{ heading }}</h2>
+    {% endif %}
+
+    {% if subhead|field_value %}
+      <p class="c-callout__intro">{{ subhead }}</p>
+    {% endif %}
+    <uc-slider{{ attributes.addClass(slider_classes) }} {{ co_breakpoint ? ':breakpoint="1024"' }} v-cloak>
+      <template v-slot:default="slotProps">
+        <ul>
+          {{ items }}
+        </ul>
+
+        <div class="c-callout__button-wrap">
+          <a href="#" @click.prevent="slotProps.prevSlide()" class="swiper-button-prev" aria-label="previous slide">
+            <uc-icon glyph="arrow-left"></uc-icon>
+          </a>
+          <a href="#" @click.prevent="slotProps.nextSlide($event)" class="swiper-button-next" aria-label="next slide">
+            <uc-icon glyph="arrow-right"></uc-icon>
+          </a>
+        </div>
+      </template>
+    </uc-slider>
+
+    {{ addl_txt }}
+
+  {% endblock %}
+{% endblock paragraph %}

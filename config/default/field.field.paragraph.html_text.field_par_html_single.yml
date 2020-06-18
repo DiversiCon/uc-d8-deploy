@@ -1,0 +1,31 @@
+uuid: 3bad15be-5b64-441f-bed0-01080135e20c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_html_single
+    - paragraphs.paragraphs_type.html_text
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    custml_html: custml_html
+    simple_html: '0'
+    smartbody: '0'
+    plain: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.html_text.field_par_html_single
+field_name: field_par_html_single
+entity_type: paragraph
+bundle: html_text
+label: 'Body text'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

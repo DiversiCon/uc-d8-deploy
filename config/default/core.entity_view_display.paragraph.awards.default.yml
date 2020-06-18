@@ -1,0 +1,49 @@
+uuid: f8cbca69-e61c-4118-8388-e855989b293d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.awards.field_institution
+    - field.field.paragraph.awards.field_name
+    - field.field.paragraph.awards.field_thru_year
+    - field.field.paragraph.awards.field_year
+    - paragraphs.paragraphs_type.awards
+id: paragraph.awards.default
+targetEntityType: paragraph
+bundle: awards
+mode: default
+content:
+  field_institution:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_name:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_thru_year:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_year:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  search_api_excerpt: true

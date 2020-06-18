@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+
+{{ it_showcase_component('masthead', 0) }}
+
+<section class="l-container">
+	<header class="c-headline c-list__headline">
+		<a href="#" class="c-headline__topic t-heading--topic">About</a>
+		<h1 class="c-headline__heading">About Our Deans</h1>
+		<div class="c-headline__description">
+			<p>Learn more about the deans of the Pritzker School of Medicine.</p>
+		</div>
+	</header>
+
+	{{ it_showcase_component('list-deans', 0) }}
+
+
+</section>
+
+{{ it_showcase_component('footer', 0) }}

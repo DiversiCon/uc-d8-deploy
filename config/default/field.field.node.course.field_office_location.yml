@@ -1,0 +1,19 @@
+uuid: c0a3fcc1-84c0-48d2-9a4f-cc27ab7e28a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_office_location
+    - node.type.course
+id: node.course.field_office_location
+field_name: field_office_location
+entity_type: node
+bundle: course
+label: Location
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

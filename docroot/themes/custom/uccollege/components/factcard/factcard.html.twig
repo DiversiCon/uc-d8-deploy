@@ -1,0 +1,31 @@
+<div class="c-factcard">
+  <div class="c-factcard__ctn">
+    {% if content.heading %}
+      <h2 class="c-factcard__heading">{{ content.heading }}</h2>
+    {% endif %}
+    <ul class="c-factcard__content">
+      {% if content.name %}
+        <li class="c-factcard__item c-factcard__name">{{ content.name }}</li>
+      {% endif %}
+      {% for item in content.items %}
+          <li class="c-factcard__item {% if item.icon %} c-factcard__item-icon {% endif %}">
+            {% if item.icon %}
+              <svg class="c-icon">
+                <use xlink:href="/themes/custom/uccollege/dist/icons.svg#{{ item.icon }}" />
+              </svg>
+            {% endif %}
+            {% if item.label %}
+              <strong>{{ item.label }}:</strong>
+            {% endif %}
+            {% if item.url %}
+              <a href="{{ item.url }}">{{ item.text }}</a>
+            {% else %}
+              {% autoescape false %}
+                {{ item.text }}
+              {% endautoescape %}
+            {% endif %}
+          </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+uuid: fabd572d-22ed-4bbd-b460-a28ec79da3c2
+langcode: en
+status: true
+dependencies: {  }
+name: max_width_768
+label: 'Max-Width, 768px'
+effects:
+  f68624c3-2053-4975-872a-18855c3739ab:
+    uuid: f68624c3-2053-4975-872a-18855c3739ab
+    id: image_scale
+    weight: 1
+    data:
+      width: 768
+      height: null
+      upscale: false

@@ -1,0 +1,9 @@
+uuid: 87616be7-09e2-448a-a629-a9240f3b3f08
+langcode: en
+status: true
+dependencies: {  }
+id: pullquote
+label: PullQuote
+icon_uuid: null
+description: 'Pull-quote insert into smartbody'
+behavior_plugins: {  }

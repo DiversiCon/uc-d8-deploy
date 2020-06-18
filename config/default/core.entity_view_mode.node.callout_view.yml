@@ -1,0 +1,10 @@
+uuid: efc234b1-9b50-4a12-bb2c-3b4173cce191
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.callout_view
+label: 'Callout View'
+targetEntityType: node
+cache: true

@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * Renders external content in a 'Callout View' display mode.
+ *
+ * @see template_preprocess_node()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set link = content.field_link_single %}
+{% set img = content.field_image_main %}
+{% set headline = content.field_headline_text %}
+{% set subhead = content.field_subheadline_text %}
+
+<a href="{{ link.0['#url'] }}" target="_blank">
+  {# {{ drupal_image(node.field_image_main.entity.field_media_image.entity.fid, 'large', { alt: '' }) }} #}
+  {{ img }}
+  <p class="c-callout__item-text">{{ headline }}</p>
+  {% if subhead|field_value %}
+    <span>{{ subhead }}</span>
+  {% endif %}
+</a>

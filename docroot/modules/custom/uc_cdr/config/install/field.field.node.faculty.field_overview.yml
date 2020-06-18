@@ -1,0 +1,19 @@
+uuid: 140f0e6d-b115-422c-b302-ca78de163ef0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_overview
+    - node.type.faculty
+id: node.faculty.field_overview
+field_name: field_overview
+entity_type: node
+bundle: faculty
+label: Overview
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,39 @@
+{% set title_1 = content.field_headline_text %}
+{% set title_2 = content.field_eck_title %}
+{% set email = content.field_email %}
+{% set name = content.field_eck_name %}
+{% set phone = content.field_phone %}
+
+<div class="c-inquiries__section">
+  {% if name|field_value %}
+    <div class="c-inquiries__contact">
+      <p><strong>{{ name }}</strong></p>
+      {% if title_1|field_value %}
+        <p>{{ title_1 }}</p>
+      {% endif %}
+      {% if title_2|field_value %}
+        <p>{{ title_2 }}</p>
+      {% endif %}
+    </div>
+  {% endif %}
+  {% if email|field_value or phone|field_value %}
+    <ul class="c-inquiries__links">
+      {% if email|field_value %}
+        <li class="c-inquiries__link">
+            <svg class="c-icon">
+              <use xlink:href="/themes/custom/uccollege/dist/icons.svg#email-solid" />
+            </svg>
+          {{ email }}
+        </li>
+      {% endif %}
+      {% if phone|field_value %}
+        <li class="c-inquiries__link">
+          <svg class="c-icon">
+            <use xlink:href="/themes/custom/uccollege/dist/icons.svg#phone-solid" />
+          </svg>
+          {{ phone }}
+        </li>
+      {% endif %}
+    </ul>
+  {% endif %}
+</div>

@@ -1,0 +1,30 @@
+{#
+/**
+ * dropdown Twig Partial
+ *
+ */
+#}
+
+<uc-dropdown
+  name="division"
+  display-name="Collegiate Division"
+  :options="[
+    {
+      'name' : 'All',
+      'value': 'all'
+    },
+    {
+      'name' : 'Option One',
+      'value' : '1'
+    },
+    {
+      'name' : 'Option Two',
+      'value' : '2'
+    },
+    {
+      'name' : 'Option Three',
+      'value' : '3'
+    }
+  ]"
+  :on-select="function() { return true }">
+</uc-dropdown>

@@ -1,0 +1,9 @@
+uuid: cb043b7b-346a-46a8-bf3c-daf74b51f4c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.reusable
+name: Stats
+type: stats
+description: 'Re-usable "stats" content, used on the homepage and in features'

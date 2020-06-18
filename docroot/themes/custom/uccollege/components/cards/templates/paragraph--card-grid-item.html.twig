@@ -1,0 +1,63 @@
+{#
+/**
+ * Card Grid item, Unique
+ *
+ * card variable for image object
+ * @see template_preprocess_paragraph()
+ */
+#}
+
+{% set theme = content.field_card_grid_theme|field_value|render %}
+{% set url_base = content.field_image_link.0 %}
+{% set url = url_base['#url'] %}
+{% set url_tgt = url_base['#options']['attributes']['target'] %}
+{% set heading = content.field_headline_text %}
+{% set card_content = content.field_par_paragraph_single %}
+{% set classes = [
+    'c-card',
+    theme == 'double' ? 'c-card--double',
+  ]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+  <div class="c-card__img">
+    {% if url %} {# url is optional, so the image and heading isn't always clickable #}
+    <a href="{{ url }}" target="{{ url_tgt }}">
+      {% endif %}
+      <svg class="c-icon">
+        <use xlink:href="/themes/custom/uccollege/dist/icons.svg#phoenix" />
+      </svg>
+      {% if card.image %}
+        {% if theme == 'double' %} {# Double width card #}
+          <picture>
+            <source media="(min-width: 1024px)" srcset="{{ card.imageLg }}">
+            <img src="{{ card.image }}" alt="{{ card.alt }}" />
+          </picture>
+        {% else %} {# Single width card #}
+          <picture>
+            <img src="{{ card.image }}" alt="{{ card.alt }}" />
+          </picture>
+        {% endif %} {# end card.double if/else #}
+      {% endif %} {# end card.image if #}
+      {% if url %}
+    </a>
+    {% endif %}
+  </div>
+  {% if url %}
+    <h2 class="c-card__heading"><a href="{{ url }}" target="{{ url_tgt }}">{% autoescape false %}{{ heading }}{% endautoescape %}</a></h2>
+  {% else %}
+    <h2 class="c-card__heading">{% autoescape false %}{{ heading }}{% endautoescape %}</h2>
+  {% endif %}
+  <div class="c-card__description">
+    {{ card_content }}
+    {# @TODO: provide hall support with markup below, currently not supporting hall
+      {% if card.expansion %}
+        <span class="c-card__stats c-card__expansion"><strong>Campus Expansion:</strong> {{ card.expansion }}</span>
+      {% endif %}
+      <span class="c-card__stats c-card__houses"><strong>Houses:</strong> {{ card.houses }}</span>
+      <span class="c-card__stats c-card__rooms"><strong>Rooms:</strong> {{ card.rooms }}</span>
+      <span class="c-card__stats c-card__roomtypes"><strong>Room Types:</strong> {{ card.roomtypes }}</span>
+    {% endif %}
+    #}
+  </div>
+</div>

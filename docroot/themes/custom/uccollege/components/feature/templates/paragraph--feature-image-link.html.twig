@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Main image and optional link used in feature component
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set image = content.field_image_main %}
+{% set image_url = content.field_image_link.0['#url'] %}
+{% set image_url_tgt = content.field_image_link.0['#options']['attributes']['target'] %}
+
+{% block paragraph %}
+  {% block content %}
+
+    {% if image_url %}
+      <a href="{{ image_url }}" target="{{ image_url_tgt }}">
+        {{ image }}
+      </a>
+    {% else %}
+      {{ image }}
+    {% endif %}
+
+  {% endblock %}
+{% endblock paragraph %}

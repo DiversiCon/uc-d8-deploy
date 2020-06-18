@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * Events featured, grid format.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+<section class="l-container">
+  <uc-events-featured
+      :grid="true"
+      instance="{{ uc_cdr.instance_id }}"
+      endpoint="{{ uc_cdr.endpoint }}/node/event">
+  </uc-events-featured>
+</section>

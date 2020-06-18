@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+{{ it_showcase_component('masthead', 0) }}
+
+<section class="l-container">
+
+	<article class="c-article">
+		<header class="c-headline">
+			<a href="#" class="c-headline__topic t-heading--topic">About</a>
+			<h1 class="c-headline__heading">Dean’s Welcome</h1>
+		</header>
+
+		<div class="c-article__media">
+			{{ it_showcase_component('photo', 2) }}
+		</div>
+
+		<div class="c-article__body">
+			<p><strong>The Division of the Biological Sciences encompasses a wide range of fields of inquiry spanning the basic biological sciences and clinical disciplines. Our outstanding basic, translational, and clinical research enterprise is characterized by a fundamental commitment to original inquiry</strong></p>
+      <p>We provide a full spectrum of education—collegiate, graduate, medical, and postgraduate—characterized by a passionate commitment to rigorous scholarship and interdisciplinary effort.</p>
+      <p>Our faculty is among the very finest in the nation, and we have several top academic and research programs, including the highly ranked biological sciences graduate programs (#13 in US News &amp; World Report) and University of Chicago <a href="#">Pritzker School of Medicine</a> (#18 in US News &amp; World Report). Our graduate program in Paleontology is currently ranked #1, and our Ecology &amp; Evolution program is ranked #8. Our faculty and alumni have been recognized for their distinguished work through numerous awards and honorific societies including through elected membership in the National Academy of Sciences, and the National Academy of Medicine, the American Academy of Arts &amp; Sciences, and the National Medal of Science.</p>
+      <p>As a community of scholars, clinicians, teachers, researchers, students, and fellows, we actively seek to push the boundaries of biological and medical discovery. Leveraging the broader institutional strengths of the University of Chicago and University of Chicago Medicine, we are committed to the highest level of research, education and patient care. This important work would not be possible without donors and our active community of alumni, who believe in and support our mission. We encourage you to learn more and to become a part of the work that we’re doing.</p>
+    </div>
+
+    <div class="c-article__body">
+			{{ it_showcase_component('avatar', 1) }}
+		</div>
+
+	</article>
+</section>
+
+{{ it_showcase_component('footer', 0) }}

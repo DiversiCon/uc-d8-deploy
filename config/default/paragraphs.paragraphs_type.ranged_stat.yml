@@ -1,0 +1,9 @@
+uuid: d8b3a994-709f-435e-9a65-a4e6854b79c7
+langcode: en
+status: true
+dependencies: {  }
+id: ranged_stat
+label: 'Single Ranged Stat Component'
+icon_uuid: null
+description: 'Provides a single ranged stat. Used as a part of the Ranged Stats component.'
+behavior_plugins: {  }

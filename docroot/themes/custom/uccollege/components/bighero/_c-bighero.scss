@@ -1,0 +1,43 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - bighero component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-bighero {
+  background: #d3e3f0;
+  position: relative;
+  &__text {
+    text-align: center;
+    padding: rem-calc(30) rem-calc(46);
+  }
+  &__heading {
+    font-size: rem-calc(76);
+  }
+  &__description {
+    font-size: rem-calc(20);
+  }
+
+  @include breakpoint(large) {
+    &__text {
+      padding: 0;
+      width: 30%;
+      position: absolute;
+      top: 8%;
+      left: 10%;
+    }
+    &__heading {
+      font-size: rem-calc(110);
+    }
+    &__description {
+      font-size: rem-calc(23);
+    }
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-bighero {
+    // sass linter doesn't like empty blocks :)
+  }
+}

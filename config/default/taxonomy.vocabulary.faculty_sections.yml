@@ -1,0 +1,8 @@
+uuid: 37110151-41a0-47a0-96cb-e3727d2b8c51
+langcode: en
+status: true
+dependencies: {  }
+name: 'Faculty Sections'
+vid: faculty_sections
+description: ''
+weight: 0

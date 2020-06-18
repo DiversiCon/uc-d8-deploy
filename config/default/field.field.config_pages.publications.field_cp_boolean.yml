@@ -1,0 +1,23 @@
+uuid: 4382a15c-f7f3-43b0-9aa9-38d51f28517e
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.publications
+    - field.storage.config_pages.field_cp_boolean
+id: config_pages.publications.field_cp_boolean
+field_name: field_cp_boolean
+entity_type: config_pages
+bundle: publications
+label: 'Hide Topics Dropdown for Groups'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

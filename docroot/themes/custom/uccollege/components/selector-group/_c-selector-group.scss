@@ -1,0 +1,87 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - selector component
+// Styles for the selector, which contains
+// dropdowns and related content
+
+.c-selector-group {
+  &__results {
+    margin-bottom: rem-calc(40);
+
+    h2 {
+      font-size: rem-calc(24);
+      margin-bottom: rem-calc(21);
+    }
+
+    ul {
+      @include list;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      @include breakpoint(xlarge) {
+        justify-content: flex-start;;
+      }
+    }
+
+    li {
+      font-size: rem-calc(14);
+      line-height: 1.6;
+      margin-bottom: rem-calc(40);
+      overflow: hidden;
+      width: 100%;
+
+      @include breakpoint(nav) {
+        width: 48%;
+      }
+
+      h3 {
+        line-height: 1.2;
+        margin-bottom: rem-calc(4);
+      }
+
+      img {
+        float: left;
+        height: auto;
+        margin-right: rem-calc(20);
+        width: 30.4%;
+
+        @include breakpoint(medium) {
+          width: 25.3%;
+        }
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+
+      a {
+        display: block;
+      }
+    }
+  }
+
+  // media object trick to prevent content wrapping:
+  // http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+  &__ctn {
+    overflow: hidden;
+    _overflow: visible;
+    zoom: 1;
+
+    a[href *= "mailto"] {
+      overflow-wrap: break-word;
+    }
+
+    @include breakpoint(large) {
+      &:nth-child(even) {
+        padding-right: rem-calc(30);
+      }
+    }
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-selector {
+    // sass linter doesn't like empty blocks :)
+  }
+}

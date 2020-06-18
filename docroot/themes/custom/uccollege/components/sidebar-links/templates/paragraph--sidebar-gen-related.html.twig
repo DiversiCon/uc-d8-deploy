@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * Sidebar links
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set heading = content.field_headline_text %}
+{% set links = content.field_par_paragraphs %}
+
+{% if side == 'right' %}
+  {% set sidebar_bg = 's-bg' %}
+{% endif %}
+
+{% block paragraph %}
+  {% block content %}
+    <div class="c-sidebar-links {{ sidebar_bg }}">
+      {% if heading|field_value %}
+        <h2 class="c-sidebar-links__heading">{{ heading }}</h2>
+      {% endif %}
+      <ul class="c-sidebar-links__content">
+        {{ links }}
+      </ul>
+    </div>
+  {% endblock %}
+{% endblock paragraph %}

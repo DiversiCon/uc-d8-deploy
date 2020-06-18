@@ -1,0 +1,22 @@
+uuid: a7a0dac4-6c31-4f7f-a06d-a24b0cf50d6f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.versatile_hero
+id: node.versatile_hero.status
+field_name: status
+entity_type: node
+bundle: versatile_hero
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

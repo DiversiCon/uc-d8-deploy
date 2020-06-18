@@ -1,0 +1,11 @@
+uuid: 14e8de31-261b-475b-a0da-18fe4648aeb7
+langcode: en
+status: true
+dependencies: {  }
+name: Person
+type: person
+description: 'College staff directory content.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

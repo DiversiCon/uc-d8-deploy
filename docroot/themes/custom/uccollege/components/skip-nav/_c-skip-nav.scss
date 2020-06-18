@@ -1,0 +1,20 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - skip-nav component
+
+.c-skip-nav {
+  @include skip-link();
+
+  &:active,
+  &:focus {
+    background-color: $color-secondary;
+    color: $color-white;
+    padding: rem-calc(8);
+    left: rem-calc(88);
+    top: rem-calc(15);
+
+    @include breakpoint(nav) {
+      left: rem-calc(256);
+      top: 0;
+    }
+  }
+}

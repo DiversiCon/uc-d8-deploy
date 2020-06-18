@@ -1,0 +1,71 @@
+uuid: 89b7ac2e-fa88-4995-9826-4e2f5b43ffc2
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.person_image_full
+    - field.field.media.image.field_image_caption
+    - field.field.media.image.field_image_credit
+    - field.field.media.image.field_media_image
+    - image.style.faculty_image
+    - media.type.image
+  module:
+    - image
+    - text
+    - user
+id: media.image.person_image_full
+targetEntityType: media
+bundle: image
+mode: person_image_full
+content:
+  created:
+    label: hidden
+    type: timestamp
+    weight: 3
+    region: content
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings: {  }
+  field_image_caption:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_image_credit:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_media_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: faculty_image
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  name:
+    type: string
+    weight: 0
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  uid:
+    label: hidden
+    type: author
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  search_api_excerpt: true
+  thumbnail: true

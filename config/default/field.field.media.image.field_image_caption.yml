@@ -1,0 +1,30 @@
+uuid: d775a4de-2467-4e5a-b2fa-b341a62832c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_image_caption
+    - media.type.image
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: media.image.field_image_caption
+field_name: field_image_caption
+entity_type: media
+bundle: image
+label: 'Image Caption'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

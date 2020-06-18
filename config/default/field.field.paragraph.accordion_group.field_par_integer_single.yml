@@ -1,0 +1,25 @@
+uuid: 42070278-70a7-447e-b080-5183dc0a0e6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_integer_single
+    - paragraphs.paragraphs_type.accordion_group
+id: paragraph.accordion_group.field_par_integer_single
+field_name: field_par_integer_single
+entity_type: paragraph
+bundle: accordion_group
+label: Columns
+description: 'The number of columns an accordion item will take up.'
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  min: 1
+  max: 2
+  prefix: ''
+  suffix: ''
+field_type: integer

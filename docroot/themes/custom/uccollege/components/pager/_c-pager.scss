@@ -1,0 +1,40 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - pager component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.pager {
+  font-size: rem-calc(23);
+  font-weight: $font-weight-bold;
+  padding: 0;
+  &__items {
+    @include list(inline);
+    text-align: center;
+  }
+  &__item--link {
+    a {
+      display: block;
+      color: $color-black;
+      text-decoration: none;
+      border-bottom: 6px solid transparent;
+      padding: rem-calc(6);
+      &:hover,
+      &:focus {
+        border-color: $color-maroon;
+      }
+    }
+    &.is-active {
+      a {
+        border-color: $color-maroon;
+      }
+    }
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .pager {
+    // sass linter doesn't like empty blocks :)
+  }
+}

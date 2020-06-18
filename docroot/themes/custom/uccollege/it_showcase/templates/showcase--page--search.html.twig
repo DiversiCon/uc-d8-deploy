@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+
+{{ it_showcase_component('masthead', 0) }}
+
+{#{% include '@uccollege/../components/list/list.html.twig' with {'content': content.list} %}#}
+
+{#{% include '@uccollege/../components/pager/pager.html.twig' with {'content': content} %}#}
+
+<div class="l-container">
+    {% if content.heading %}
+      <header class="c-list__headline c-headline">
+        <h1 class="c-headline__heading">{{ content.heading }}</h1>
+        {% if content.description %}
+          <div class="c-headline__description">
+            {% autoescape false %}
+              {{ content.description }}
+            {% endautoescape %}
+          </div>
+        {% endif %}
+      </header>
+    {% endif %}
+
+    <uc-searchform></uc-searchform>
+
+    {{ it_showcase_component('list-sorted', 0) }}
+
+
+</div>
+{{ it_showcase_component('footer', 0) }}

@@ -1,0 +1,9 @@
+uuid: cb0136be-afc7-4786-afd1-0e0f40be4811
+langcode: en
+status: true
+dependencies: {  }
+id: avatar
+label: Avatar
+icon_uuid: null
+description: 'Used to display information about a person, including an image, title, description and optional link.'
+behavior_plugins: {  }

@@ -1,0 +1,23 @@
+uuid: 2b591b9e-3ce5-492f-a230-b4d1a7d1fcca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_bool_single_0
+    - paragraphs.paragraphs_type.callout
+id: paragraph.callout.field_par_bool_single_0
+field_name: field_par_bool_single_0
+entity_type: paragraph
+bundle: callout
+label: 'Rectangle Images?'
+description: 'Check this box to make the images in the callout rectangles, instead of the default circle images.'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

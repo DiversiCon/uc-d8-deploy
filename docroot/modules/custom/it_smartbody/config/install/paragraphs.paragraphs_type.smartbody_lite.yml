@@ -1,0 +1,9 @@
+uuid: ffb72e82-2538-40dc-b4b2-0e9614a2ae4c
+langcode: en
+status: true
+dependencies: {  }
+id: smartbody_lite
+label: 'Smartbody Lite'
+icon_uuid: null
+description: 'Smartbody text and components that are intended to be displayed inside of a content area.'
+behavior_plugins: {  }

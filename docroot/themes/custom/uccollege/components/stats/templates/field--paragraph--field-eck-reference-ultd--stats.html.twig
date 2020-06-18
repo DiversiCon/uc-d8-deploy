@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ * Field wrapper for stat items as <li>
+ *
+ * @see template_preprocess_field()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% for item in items %}
+  {% set additionclass = ( loop.length > 3 ) ? 'c-stats__item--half' : '' %}
+  <li class="c-stats__item {{ additionclass }}">
+    {{ item.content }}
+  </li>
+{% endfor %}

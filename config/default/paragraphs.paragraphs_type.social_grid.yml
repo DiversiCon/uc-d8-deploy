@@ -1,0 +1,9 @@
+uuid: 26456e9e-bf0a-4865-9064-2194d440029d
+langcode: en
+status: true
+dependencies: {  }
+id: social_grid
+label: 'Social Grid'
+icon_uuid: null
+description: 'TINT social wall'
+behavior_plugins: {  }

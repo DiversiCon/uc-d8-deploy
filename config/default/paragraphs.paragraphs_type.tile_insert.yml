@@ -1,0 +1,9 @@
+uuid: d0a13d5d-83eb-41c8-a385-a4bf2b8723d1
+langcode: en
+status: true
+dependencies: {  }
+id: tile_insert
+label: 'Tile Insert'
+icon_uuid: null
+description: 'Insert a tile item'
+behavior_plugins: {  }

@@ -1,0 +1,9 @@
+uuid: 0de604bb-8200-4875-8621-4f895a41f65d
+langcode: en
+status: true
+dependencies: {  }
+id: featured_ref_four
+label: 'Featured leadership'
+icon_uuid: null
+description: 'Reference 4x person nodes'
+behavior_plugins: {  }

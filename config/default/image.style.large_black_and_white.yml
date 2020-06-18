@@ -1,0 +1,24 @@
+uuid: 25d72526-b4d1-4707-bd6c-10baae9a00ac
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+_core:
+  default_config_hash: J2n0RpFzS0-bgSyxjs6rSdgxB1rb-bTAgqywNx_964M
+name: large_black_and_white
+label: 'Large Black and White (640x640)'
+effects:
+  382a15ba-a7b3-4ea6-9f63-d8d4d527936d:
+    uuid: 382a15ba-a7b3-4ea6-9f63-d8d4d527936d
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 640
+      height: 640
+      crop_type: focal_point
+  7a19f164-9c13-495b-8e79-349cada0ced1:
+    uuid: 7a19f164-9c13-495b-8e79-349cada0ced1
+    id: image_desaturate
+    weight: 2
+    data: {  }

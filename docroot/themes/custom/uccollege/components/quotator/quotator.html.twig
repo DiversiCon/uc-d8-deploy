@@ -1,0 +1,19 @@
+{#
+/**
+ * quotator Twig Partial
+ *
+ */
+#}
+
+<uc-quotator :quotes="[
+    {% for quote in content.items %}
+      {
+        'text' : '{{ quote.text }}',
+        'attribution' : '{{ quote.attribution }}',
+        'attribution_additional_info': '{{ quote.attribution_additional_info }}',
+        'image' : '{{ quote.image }}',
+        'linktext': '{{ quote.linktext|convertForJson }}',
+        'linkurl': '{{ quote.linkurl }}'
+      },
+    {% endfor %}
+]" linktext="{{ content.linktext }}" linkurl="{{ content.linkurl }}" direction="{{ content.direction }}"></uc-quotator>

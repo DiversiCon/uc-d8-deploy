@@ -1,0 +1,23 @@
+uuid: 629ba5eb-014a-4205-815a-25e6c32e3dc8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_hide
+    - paragraphs.paragraphs_type.events_callout_featured
+id: paragraph.events_callout_featured.field_hide
+field_name: field_hide
+entity_type: paragraph
+bundle: events_callout_featured
+label: 'Hide Images'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

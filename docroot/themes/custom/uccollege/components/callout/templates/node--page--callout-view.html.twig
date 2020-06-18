@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * When referencing existing content in a callout, this is the template that will render
+ *
+ * @see template_preprocess_node()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set img = content.field_image_main %}
+{% set headline = content.field_headline_text %}
+{% set subhead = content.field_subheadline_text %}
+
+<a href="{{ url }}">
+  {{ drupal_image(node.field_image_main.entity.field_media_image.entity.id, 'large', { alt: '' }) }}
+  <p class="c-callout__item-text">{{ headline }}</p>
+  {% if subhead|field_value %}
+    <span>{{ subhead }}</span>
+  {% endif %}
+</a>

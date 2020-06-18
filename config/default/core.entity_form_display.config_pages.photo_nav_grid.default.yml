@@ -1,0 +1,28 @@
+uuid: 83f39595-07c9-40c4-814e-0c74aede7782
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.photo_nav_grid
+    - field.field.config_pages.photo_nav_grid.field_single_paragraph_1
+  module:
+    - paragraphs
+id: config_pages.photo_nav_grid.default
+targetEntityType: config_pages
+bundle: photo_nav_grid
+mode: default
+content:
+  field_single_paragraph_1:
+    type: entity_reference_paragraphs
+    weight: 0
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: photo_nav_grid
+    third_party_settings: {  }
+    region: content
+hidden:
+  label: true

@@ -1,0 +1,19 @@
+uuid: a5b98abd-ed58-4776-9ac2-a6f19a478543
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_section_landing_page_query
+    - taxonomy.vocabulary.section
+id: taxonomy_term.section.field_section_landing_page_query
+field_name: field_section_landing_page_query
+entity_type: taxonomy_term
+bundle: section
+label: 'Section landing page query string'
+description: 'Optionally enter a query string to be attached to the landing page URL (<em> i.e. section=9</em>).  This should only be used where appropriate.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

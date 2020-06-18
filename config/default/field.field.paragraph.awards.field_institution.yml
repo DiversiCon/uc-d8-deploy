@@ -1,0 +1,19 @@
+uuid: 6e79b915-3cb6-43ad-8ef3-7452dc6293c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_institution
+    - paragraphs.paragraphs_type.awards
+id: paragraph.awards.field_institution
+field_name: field_institution
+entity_type: paragraph
+bundle: awards
+label: Institution
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

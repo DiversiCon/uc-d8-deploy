@@ -1,0 +1,33 @@
+uuid: 228ef7b8-ae79-4f4e-8b93-3a290fb8a1c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.sidebar_inquiries.field_eck_reference_ultd
+    - field.field.paragraph.sidebar_inquiries.field_headline_text
+    - paragraphs.paragraphs_type.sidebar_inquiries
+  module:
+    - text
+id: paragraph.sidebar_inquiries.default
+targetEntityType: paragraph
+bundle: sidebar_inquiries
+mode: default
+content:
+  field_eck_reference_ultd:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: inquiry
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_headline_text:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  search_api_excerpt: true

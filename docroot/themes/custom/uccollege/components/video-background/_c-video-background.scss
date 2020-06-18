@@ -1,0 +1,97 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - video-background component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-video-background {
+  height: 100%;
+  margin: 0 calc(50% - 50vw);
+  position: relative;
+  max-width: rem-calc(600);
+  max-height: rem-calc(600);
+
+  .grid-2up__cell1 &,
+  .grid-2up__cell2 & {
+    margin: 0;
+  }
+
+  .c-hero-rotator .grid-2up__cell1 &,
+  .c-hero-rotator .grid-2up__cell2 & {
+    position: absolute;
+    top: 0;
+    max-width: none;
+    max-height: none;
+    height: auto !important;
+  }
+
+  @include breakpoint(large) {
+    margin: 0;
+
+    .c-feature__image & {
+      max-height: rem-calc(595); //force square when in feature component
+    }
+  }
+
+  video,
+  img {
+    display: block; //for videos
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  &__wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+  }
+
+  &__heading {
+    color: $color-white;
+    font-size: rem-calc(32);
+    line-height: 1.1;
+    margin: 0;
+    padding: 0 rem-calc(20);
+    text-align: center;
+
+    @include breakpoint(large) {
+      font-size: rem-calc(50);
+      padding: 0 rem-calc(40);
+    }
+
+    @media screen and (min-width: 640px) and (max-width: 1023px) {
+      font-size: rem-calc(60);
+    }
+
+    @include breakpoint(xlarge) {
+      font-size: rem-calc(60);
+      letter-spacing: rem-calc(-1.4);
+    }
+  }
+
+  &__controls {
+    padding: rem-calc(20);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+
+    svg {
+      fill: $color-white;
+      height: 1rem;
+      width: 1rem;
+    }
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-video-background {
+    // sass linter doesn't like empty blocks :)
+  }
+}

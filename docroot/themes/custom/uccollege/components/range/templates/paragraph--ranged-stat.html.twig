@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * A single stat range.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{# Template variables. #}
+{% set title = content.field_headline_text %}
+{% set left_stat = content.field_short_text %}
+{% set right_stat = content.field_short_text_2 %}
+
+{% set left_prefix = (content.field_affix|render) ? content.field_affix : 'from' %}
+{% set right_prefix = (content.field_affix_2|render) ? content.field_affix_2 : 'to' %}
+
+<p>{{ title }}</p>
+<div class="c-range__wrap">
+  <div class="c-range__left">
+    <span>{{ left_prefix }} </span>{{ left_stat }}
+  </div>
+  <div class="c-range__center" aria-hidden="true">
+    <svg class="c-icon">
+      <use xlink:href="/themes/custom/uccollege/dist/icons.svg#range" />
+    </svg>
+  </div>
+  <div class="c-range__right">
+    <span>{{ right_prefix }} </span>{{ right_stat }}
+  </div>
+</div>

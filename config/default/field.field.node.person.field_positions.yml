@@ -1,0 +1,19 @@
+uuid: 484caa30-62e9-4443-a522-4136f6271d53
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_positions
+    - node.type.person
+id: node.person.field_positions
+field_name: field_positions
+entity_type: node
+bundle: person
+label: Positions
+description: 'Positions or titles currently held by the person, each on a separate line.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

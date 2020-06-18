@@ -1,0 +1,20 @@
+uuid: 42a9ae00-ba0b-47c3-a6bf-bcf5d7379876
+langcode: en
+status: true
+dependencies: {  }
+name: faculty_image
+label: 'Faculty Image'
+effects:
+  9e756622-5839-4679-87d6-2f95331d1674:
+    uuid: 9e756622-5839-4679-87d6-2f95331d1674
+    id: image_scale_and_crop
+    weight: -9
+    data:
+      width: 600
+      height: 600
+      anchor: center-top
+  a1ba2efa-8c8f-4570-92d8-900d65cd946d:
+    uuid: a1ba2efa-8c8f-4570-92d8-900d65cd946d
+    id: image_desaturate
+    weight: -10
+    data: {  }

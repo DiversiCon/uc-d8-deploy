@@ -1,0 +1,177 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - cards component
+
+.c-cards {
+  max-width: rem-calc(1200);
+  overflow: hidden;
+
+  &:not(.c-cards--4up) {
+    .c-cards__content::after {
+      content: "";
+      flex: 0 1 32.75%;
+    }
+  }
+  &__heading {
+    font-size: rem-calc(28);
+    text-align: center;
+    margin: rem-calc(38) rem-calc(17) rem-calc(29);
+    padding-right: 1rem;
+  }
+  &__description {
+    display: none;
+    font-size: rem-calc(14);
+    text-align: center;
+    max-width: rem-calc(880);
+    margin: 0 auto rem-calc(29);
+  }
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  &__cta {
+    text-align: center;
+  }
+
+  @include breakpoint(large) {
+    margin: rem-calc(10) auto;
+    &__content {
+      justify-content: space-between;
+    }
+    &__heading {
+      font-size: rem-calc(40);
+      margin: rem-calc(58) rem-calc(17) rem-calc(14);
+    }
+    &__description {
+      display: block;
+      font-size: rem-calc(16);
+      margin-bottom: rem-calc(37);
+    }
+  }
+
+  @include breakpoint(xlarge) {
+    padding: 0;
+  }
+}
+
+.c-card {
+  &:not(.swiper-slide) {
+    flex: 0 1 48.2%;
+  }
+  margin-bottom: rem-calc(27);
+  p {
+    margin: 0;
+  }
+  &__img {
+    background: $color-dkgrey;
+    color: $color-black;
+    margin-bottom: rem-calc(14);
+    position: relative;
+    padding-bottom: 100%; //sqaure ratio
+    overflow: hidden;
+    picture,
+    .c-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    picture {
+      display: block;
+      max-width: none;
+      max-height: none;
+      margin: 0 auto;
+      width: 100%; //no cropping of image
+    }
+    .c-icon {
+      color: $color-black;
+      opacity: 0.5;
+      width: 100%;
+      height: 100%;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      & + .c-card__heading a {
+        color: $color-maroon;
+        text-decoration: underline;
+      }
+    }
+  }
+  &__heading {
+    @include font-sizes(16, 24);
+    margin: 0;
+    a {
+      color: inherit;
+      text-decoration: none;
+      &:hover,
+      &:focus,
+      &:active {
+        color: $color-maroon;
+        text-decoration: underline;
+      }
+    }
+    strong {
+      color: $color-maroon;
+      font-weight: inherit;
+    }
+  }
+  &__description {
+    @include font-sizes(14, 16);
+    line-height: 1.5;
+    padding-top: rem-calc(8);
+  }
+
+  &__status {
+    color: $color-secondary;
+    font-size: rem-calc(14);
+    text-transform: uppercase;
+  }
+
+  &__date {
+    font-weight: $font-weight-bold;
+  }
+
+  @include breakpoint(large) {
+    &:not(.swiper-slide) {
+      flex: 0 1 32.75%;
+    }
+    margin-bottom: rem-calc(40);
+  }
+}
+
+// 4-up cards
+.c-cards.c-cards--4up {
+  overflow: hidden;
+
+  .c-cards__content {
+    flex-wrap: nowrap;
+  }
+
+  .c-card {
+    margin-right: 10px;
+    margin-bottom: rem-calc(10);
+    width: 24.33%;
+    text-align: center;
+
+    &.swiper-slide {
+      width: 100%;
+    }
+
+    &__heading {
+      font-size: rem-calc(20);
+    }
+
+    &__description,
+    &__heading {
+      padding-left: rem-calc(20);
+      padding-right: rem-calc(20);
+    }
+
+    &__date {
+      font-weight: $font-weight-normal;
+    }
+  }
+}

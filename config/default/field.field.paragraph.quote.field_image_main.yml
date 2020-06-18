@@ -1,0 +1,28 @@
+uuid: d43cd37e-5ddd-4f27-85f8-e5e09503892e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image_main
+    - media.type.image
+    - paragraphs.paragraphs_type.quote
+id: paragraph.quote.field_image_main
+field_name: field_image_main
+entity_type: paragraph
+bundle: quote
+label: 'Quote Author Image'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

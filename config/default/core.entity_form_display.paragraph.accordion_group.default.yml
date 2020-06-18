@@ -1,0 +1,73 @@
+uuid: e916e3a8-aae5-4a66-b54d-1443df566829
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.accordion_group.field_par_bool_single_0
+    - field.field.paragraph.accordion_group.field_par_integer_single
+    - field.field.paragraph.accordion_group.field_par_paragraphs
+    - field.field.paragraph.accordion_group.field_title
+    - paragraphs.paragraphs_type.accordion_group
+  module:
+    - field_group
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_group_options:
+      children:
+        - field_par_bool_single_0
+        - field_par_integer_single
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        label: 'Group Options'
+        required_fields: true
+        id: ''
+        classes: ''
+        open: false
+      label: 'Group Options'
+      region: content
+id: paragraph.accordion_group.default
+targetEntityType: paragraph
+bundle: accordion_group
+mode: default
+content:
+  field_par_bool_single_0:
+    weight: 3
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_par_integer_single:
+    weight: 4
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_par_paragraphs:
+    weight: 2
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: accordion_item
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

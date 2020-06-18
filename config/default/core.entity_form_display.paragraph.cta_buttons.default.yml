@@ -1,0 +1,43 @@
+uuid: 85716b59-d787-4c70-a570-8b2e75753faa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cta_buttons.field_par_paragraph_single_0
+    - field.field.paragraph.cta_buttons.field_par_paragraph_single_1
+    - paragraphs.paragraphs_type.cta_buttons
+  module:
+    - paragraphs
+id: paragraph.cta_buttons.default
+targetEntityType: paragraph
+bundle: cta_buttons
+mode: default
+content:
+  field_par_paragraph_single_0:
+    weight: 101
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: custom_link
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_par_paragraph_single_1:
+    weight: 102
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

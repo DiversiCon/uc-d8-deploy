@@ -1,0 +1,30 @@
+uuid: 026ade7e-47cf-473f-9bdc-19b0583bc295
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.accordion_sidebar.field_par_paragraphs
+    - paragraphs.paragraphs_type.accordion_sidebar
+  module:
+    - paragraphs
+id: paragraph.accordion_sidebar.default
+targetEntityType: paragraph
+bundle: accordion_sidebar
+mode: default
+content:
+  field_par_paragraphs:
+    weight: 0
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: accordion_sidebar_group
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

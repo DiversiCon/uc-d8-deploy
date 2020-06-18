@@ -1,0 +1,33 @@
+uuid: df86ef6f-bb49-45be-b9e8-15d995292a7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_label_text
+    - paragraphs.paragraphs_type.people_grouped_list
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.people_grouped_list.field_label_text
+field_name: field_label_text
+entity_type: paragraph
+bundle: people_grouped_list
+label: 'Filter label'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 'Filter by group'
+    format: plain
+default_value_callback: ''
+settings: {  }
+field_type: text

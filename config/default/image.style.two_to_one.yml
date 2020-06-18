@@ -1,0 +1,17 @@
+uuid: 187a4a55-bcd7-46a2-bb78-e4b9bfa63e02
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: two_to_one
+label: 'Two to One (590x290)'
+effects:
+  21642546-adcf-46c4-906c-ea06910afed2:
+    uuid: 21642546-adcf-46c4-906c-ea06910afed2
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 590
+      height: 290
+      crop_type: focal_point

@@ -1,0 +1,17 @@
+uuid: f323b80b-90cf-456b-9f68-7368c53222fd
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Versatile page'
+type: directory
+description: 'No sidebars.<br><em>Directory</em> type of page, containing directories, lists, and most other components.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

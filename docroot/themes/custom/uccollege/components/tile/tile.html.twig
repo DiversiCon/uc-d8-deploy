@@ -1,0 +1,32 @@
+{#
+/**
+ * tile Twig Partial
+ *
+ */
+#}
+
+<div class="c-tile {% if content.inverted %}c-tile--inverted{% endif %}">
+  <div class="c-tile__img">
+    <a href="{{ content.link }}">
+      {% if content.icon %}
+        <div class="c-tile__img-imagewrap">
+          <svg class="c-icon c-icon--phoenix">
+            <use xlink:href="/themes/custom/uccollege/dist/icons.svg#phoenix" />
+          </svg>
+          {% if content.image %}
+            <img src="{{ content.image }}" alt="{{ content.heading }}">
+          {% endif %}
+          <div class="c-media-icon">
+            <uc-icon glyph="{{ content.icon }}"></uc-icon>
+          </div>
+        </div>
+      {% else %}
+        <img src="{{ content.image }}" alt="{{ content.heading }}">
+      {% endif %}
+    </a>
+  </div>
+  <div class="c-tile__content">
+    <h2 class="c-tile__title"><a href="{{ content.link }}">{{ content.heading|raw }}</a></h2>
+    <p>{{ content.text|raw }}</p>
+  </div>
+</div>

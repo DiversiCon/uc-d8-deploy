@@ -1,0 +1,31 @@
+tint_embed:
+  title: Tint Social Embed
+  description: Displays either single social cards from Tint, or a tiled grid.
+  type: component
+  attributes:
+    category: Images & Media
+  variants:
+  -
+    title: Public Feed
+    caption: This is a four-column grid of all "public" posts in this Tint.\
+    content:
+      personalizationId: 926525
+      tintId: college-test
+      columns: 4
+  -
+    title: Custom Rows
+    caption: 3 columns and 4 rows specified, which calculates the total tiles
+    content:
+      personalizationId: 926525
+      tintId: college-test
+      columns: 3
+      rows: 4
+
+tint-embed.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: tint_embed.component
+    index_hide: true
+    file: themes/custom/uccollege/components/tint-embed/README.md

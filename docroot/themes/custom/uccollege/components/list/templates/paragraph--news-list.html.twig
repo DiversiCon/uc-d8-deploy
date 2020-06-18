@@ -1,0 +1,17 @@
+{#
+/**
+ * News list component
+ */
+#}
+
+<uc-list
+  datasource="/api/v1/news/list/"
+  categorysource="/api/v1/news/section"
+  :items-per-page="{{ paragraph.field_items_per_page.value }}"
+  :filtered="{{ content.filtered }}"
+  :paginate="{{ content.paginate }}"
+  {% if content.preSelected %}pre-selected="{{ content.preSelected }}"{% endif %}
+  filter-title="{{ content.field_label_text|render|striptags|trim|convertQuotes }}">
+
+  {{ content.field_par_paragraph_single }}
+</uc-list>

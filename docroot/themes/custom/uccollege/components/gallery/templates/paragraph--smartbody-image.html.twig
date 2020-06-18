@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Photo, Gallery if multiple, element
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set title = content.field_headline_text|field_value|render %}
+{% set images = content.field_images %}
+
+{% block paragraph %}
+  {% block content %}
+    <section class="l-stripe l-stripe--narrow">
+      <uc-gallery title="{{ title|convertQuotes }}">
+        {{ images }}
+      </uc-gallery>
+    </section>
+  {% endblock %}
+{% endblock paragraph %}

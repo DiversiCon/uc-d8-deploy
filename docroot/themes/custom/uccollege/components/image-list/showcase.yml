@@ -1,0 +1,57 @@
+image-list:
+  title: Image List
+  description: List of Images with optional heading and subheading
+  type: component
+  attributes:
+    category: Images & Media
+  variants:
+  -
+    title: Image List
+    caption: List of Images with optional heading and subheading
+    content:
+      heading: "House Communities"
+      subheading: "East"
+      images:
+      -
+        src: "/themes/custom/uccollege/it_showcase/images/crests/yuen.png"
+        alt: "YUEN"
+        link: "#"
+      -
+        src: "/themes/custom/uccollege/it_showcase/images/crests/boyer.png"
+        alt: "BOYER"
+      -
+        src: "/themes/custom/uccollege/it_showcase/images/crests/behar.png"
+        alt: "BEHAR"
+        link: "#"
+      -
+        src: "/themes/custom/uccollege/it_showcase/images/crests/dougan.png"
+        alt: "DOUGAN-NIKLASON"
+  -
+    title: Image List
+    caption: List of Images with optional subheading
+    content:
+      subheading: "West"
+      images:
+      -
+        src: "/themes/custom/uccollege/it_showcase/images/crests/rogers.png"
+        alt: "ROGERS"
+        link: "#"
+      -
+        src: "/themes/custom/uccollege/it_showcase/images/crests/strongin.png"
+        alt: "STRONGIN"
+      -
+        src: "/themes/custom/uccollege/it_showcase/images/crests/thangaraj.png"
+        alt: "THANGARAJ"
+        link: "#"
+      -
+        src: "/themes/custom/uccollege/it_showcase/images/crests/trott.png"
+        alt: "TROTT"
+
+image-list.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: image-list.component
+    index_hide: true
+    file: themes/custom/uccollege/components/image-list/README.md

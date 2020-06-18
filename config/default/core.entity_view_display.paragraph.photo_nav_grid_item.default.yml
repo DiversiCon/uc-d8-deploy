@@ -1,0 +1,38 @@
+uuid: cafd93d9-61b1-44ff-a99b-a41fecac2662
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.photo_nav_grid_item.field_image_link
+    - field.field.paragraph.photo_nav_grid_item.field_image_main
+    - paragraphs.paragraphs_type.photo_nav_grid_item
+  module:
+    - link
+id: paragraph.photo_nav_grid_item.default
+targetEntityType: paragraph
+bundle: photo_nav_grid_item
+mode: default
+content:
+  field_image_link:
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_image_main:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

@@ -1,0 +1,59 @@
+// admin styles
+// note: this is for logged in users, when they're on the main theme
+//@import "dependencies";
+//@import "../../../admin_42/sass/inc/toolbar";
+@import "global/settings";
+
+// tab styling, for admin UI
+#block-tabs {
+  background-color: $color-grey;
+  clear: both;
+  margin-bottom: 1.7rem;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  z-index: $zindex-authtabs;
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    background-color: #eee;
+    display: inline;
+    float: left;
+    padding: 7px 0;
+    text-align: center;
+    a {
+      padding: 7px 2em;
+      &.is-active {
+        background-color: #e0e0e0;
+      }
+      &:hover {
+        background-color: #ddd;
+      }
+    }
+  }
+}
+.adminimal-admin-toolbar {
+  .l-container__wrap { // reset for Drupal author's toolbar
+    padding-top: 0;
+  }
+  .c-masthead { // reset for Drupal author's toolbar
+    position: relative;
+  }
+  pre.sf-dump { // output from dpm() in .theme
+    z-index: $zindex-sfdump; // fix for admin-menu-toolbar
+  }
+}
+
+/* notifications from Drupal */
+.notification-messages-area {
+  background-color: $color-secondary;
+  color: $color-body;
+  padding: 7px 15px;
+  position: relative;
+  z-index: $zindex-authtabs;
+  a {
+    color: $color-body;
+  }
+}

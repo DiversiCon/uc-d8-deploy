@@ -1,0 +1,44 @@
+uuid: 5f326aa4-cc50-4379-9b0b-a3cb56e4f014
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ranged_stats.field_headline_text
+    - field.field.paragraph.ranged_stats.field_par_paragraphs
+    - paragraphs.paragraphs_type.ranged_stats
+  module:
+    - allowed_formats
+    - paragraphs
+    - text
+id: paragraph.ranged_stats.default
+targetEntityType: paragraph
+bundle: ranged_stats
+mode: default
+content:
+  field_headline_text:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_par_paragraphs:
+    weight: 1
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

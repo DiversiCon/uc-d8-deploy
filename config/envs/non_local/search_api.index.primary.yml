@@ -1,0 +1,312 @@
+uuid: cbffb3ae-a186-40f8-85ba-1dd7db368215
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - search_api
+    - uc_cdr_client
+  config:
+    - field.storage.node.field_byline
+    - field.storage.node.field_headline_text
+    - field.storage.node.field_image_main
+    - field.storage.node.field_section
+    - field.storage.node.field_par_smartbody
+    - field.storage.node.field_subheadline_text
+    - search_api.server.acquia_search
+id: primary
+name: 'Primary Index'
+description: ''
+read_only: false
+field_settings:
+  created:
+    label: 'Authored on'
+    datasource_id: 'entity:node'
+    property_path: created
+    type: date
+    dependencies:
+      module:
+        - node
+  event_alias:
+    label: 'URL alias'
+    datasource_id: cdr_event
+    property_path: event_alias
+    type: text
+    boost: !!float 5
+  event_speaker:
+    label: 'Event speaker'
+    datasource_id: cdr_event
+    property_path: event_speaker
+    type: text
+    boost: !!float 13
+  event_speaker_affiliation:
+    label: 'Event speaker affiliation'
+    datasource_id: cdr_event
+    property_path: event_speaker_affiliation
+    type: text
+    boost: !!float 8
+  event_status:
+    label: Status
+    datasource_id: cdr_event
+    property_path: event_status
+    type: boolean
+  event_title:
+    label: 'Event title'
+    datasource_id: cdr_event
+    property_path: event_title
+    type: text
+    boost: !!float 21
+  event_uuid:
+    label: 'Event ID'
+    datasource_id: cdr_event
+    property_path: event_uuid
+    type: string
+  faculty_alias:
+    label: 'URL alias'
+    datasource_id: cdr_faculty
+    property_path: faculty_alias
+    type: text
+    boost: !!float 5
+  faculty_clinical_interests:
+    label: 'Faculty clinical interests'
+    datasource_id: cdr_faculty
+    property_path: faculty_clinical_interests
+    type: text
+    boost: !!float 3
+  faculty_departments:
+    label: 'Faculty departments'
+    datasource_id: cdr_faculty
+    property_path: faculty_departments
+    type: text
+    boost: !!float 3
+  faculty_name:
+    label: 'Faculty name'
+    datasource_id: cdr_faculty
+    property_path: faculty_name
+    type: text
+    boost: !!float 21
+  faculty_scholarly_interests:
+    label: 'Faculty scholarly interests'
+    datasource_id: cdr_faculty
+    property_path: faculty_scholarly_interests
+    type: text
+    boost: !!float 3
+  faculty_section:
+    label: 'Faculty section'
+    datasource_id: cdr_faculty
+    property_path: faculty_section
+    type: text
+  faculty_status:
+    label: Status
+    datasource_id: cdr_faculty
+    property_path: faculty_status
+    type: boolean
+  faculty_uuid:
+    label: 'Faculty ID'
+    datasource_id: cdr_faculty
+    property_path: faculty_uuid
+    type: string
+  field_byline:
+    label: Byline
+    datasource_id: 'entity:node'
+    property_path: field_byline
+    type: text
+    boost: !!float 5
+    dependencies:
+      config:
+        - field.storage.node.field_byline
+  field_headline_text:
+    label: Headline
+    datasource_id: 'entity:node'
+    property_path: field_headline_text
+    type: text
+    boost: !!float 13
+    dependencies:
+      config:
+        - field.storage.node.field_headline_text
+  field_image_main:
+    label: Image
+    datasource_id: 'entity:node'
+    property_path: field_image_main
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_image_main
+  field_par_smartbody:
+    label: Smartbody
+    datasource_id: 'entity:node'
+    property_path: field_par_smartbody
+    type: text
+    boost: !!float 5
+    dependencies:
+      config:
+        - field.storage.node.field_par_smartbody
+  field_section:
+    label: Section
+    datasource_id: 'entity:node'
+    property_path: field_section
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_section
+  field_subheadline_text:
+    label: Sub-headline
+    datasource_id: 'entity:node'
+    property_path: field_subheadline_text
+    type: text
+    boost: !!float 13
+    dependencies:
+      config:
+        - field.storage.node.field_subheadline_text
+  rendered_item:
+    label: 'Rendered HTML output'
+    property_path: rendered_item
+    type: text
+    boost: !!float 5
+    configuration:
+      roles:
+        anonymous: anonymous
+      view_mode:
+        cdr_event:
+          cdr_event: ''
+        cdr_faculty:
+          cdr_faculty: ''
+        'entity:node':
+          course: default
+          directory: default
+          external: default
+          generic: default
+          page: default
+          person: default
+          program: default
+          story: default
+          versatile_hero: default
+  status:
+    label: Published
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    dependencies:
+      module:
+        - node
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: !!float 21
+    dependencies:
+      module:
+        - node
+datasource_settings:
+  cdr_event: {  }
+  cdr_faculty: {  }
+  'entity:node':
+    bundles:
+      default: true
+      selected:
+        - event
+        - faculty
+        - home
+        - publication
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  html_filter:
+    all_fields: false
+    fields:
+      - event_speaker
+      - event_speaker_affiliation
+      - event_title
+      - faculty_clinical_interests
+      - faculty_name
+      - faculty_scholarly_interests
+      - rendered_item
+      - title
+    title: true
+    alt: true
+    tags:
+      a: 2
+      b: 2
+      h1: 3
+      strong: 2
+    weights:
+      preprocess_index: -15
+      preprocess_query: -15
+  ignorecase:
+    all_fields: false
+    fields:
+      - event_speaker
+      - event_speaker_affiliation
+      - event_title
+      - faculty_clinical_interests
+      - faculty_departments
+      - faculty_name
+      - faculty_scholarly_interests
+      - faculty_section
+      - rendered_item
+      - title
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+  rendered_item: {  }
+  stemmer:
+    all_fields: false
+    fields:
+      - event_title
+      - faculty_clinical_interests
+      - faculty_scholarly_interests
+      - rendered_item
+      - title
+    exceptions:
+      mexican: mexic
+      texan: texa
+    weights:
+      preprocess_index: 0
+      preprocess_query: 0
+  tokenizer:
+    all_fields: false
+    fields:
+      - event_speaker
+      - event_speaker_affiliation
+      - event_title
+      - faculty_clinical_interests
+      - faculty_departments
+      - faculty_name
+      - faculty_scholarly_interests
+      - rendered_item
+      - title
+    spaces: ''
+    overlap_cjk: 1
+    minimum_word_size: '3'
+    weights:
+      preprocess_index: -6
+      preprocess_query: -6
+  type_boost:
+    boosts:
+      cdr_event:
+        datasource_boost: !!float 21
+      cdr_faculty:
+        datasource_boost: !!float 21
+      'entity:node':
+        datasource_boost: !!float 3
+        bundle_boosts:
+          directory: !!float 8
+          generic: !!float 3
+          group: !!float 21
+          page: !!float 13
+          person: !!float 3
+          story: !!float 1
+          versatile_hero: !!float 8
+    weights:
+      preprocess_index: 0
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: acquia_search

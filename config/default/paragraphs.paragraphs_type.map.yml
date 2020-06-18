@@ -1,0 +1,9 @@
+uuid: 002bac56-7136-4e33-8fa2-250dae89fbfe
+langcode: en
+status: true
+dependencies: {  }
+id: map
+label: 'Map Component'
+icon_uuid: null
+description: 'Display a Google map with an optional heading.'
+behavior_plugins: {  }

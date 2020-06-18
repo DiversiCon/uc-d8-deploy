@@ -1,0 +1,384 @@
+feature:
+  title: Multi-Link Feature
+  description: 2-column block with image(s) on left, content on right
+  type: component
+  attributes:
+    category: Promos
+  variants:
+  -
+    title: Academics
+    content:
+      bgClass: 's-bg-blue'
+      imgtype: single
+      heading: Academics
+      text: '<p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</strong></p> <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> <uc-accordion-group v-cloak> <uc-accordion title="Quick Links" :mobile-only="true" tag="p"> <ul> <li><a href="#">Lorem ipsum dolor</a></li> <li><a href="#">Sit amet consectetur</a></li> <li><a href="#">Adipiscing labore</a></li> <li><a href="#">Tempor incididunt elit</a></li> </ul> </uc-accordion> </uc-accordion-group>'
+      image:
+        file: "/themes/custom/uccollege/it_showcase/images/intro-academics2.jpg"
+        link: "#"
+  -
+    title: Advising
+    content:
+      bgClass: 's-bg-maroon'
+      imgtype: single
+      heading: About Advising
+      text: '<p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</strong></p>  <uc-accordion-group v-cloak> <uc-accordion title="Quick Links" :mobile-only="true" tag="p"> <ul> <li><a href="#">Lorem ipsum dolor</a></li> <li><a href="#">Sit amet consectetur</a></li> <li><a href="#">Adipiscing labore</a></li> <li><a href="#">Tempor incididunt elit</a></li> </ul> </uc-accordion> </uc-accordion-group>'
+      image:
+        file: "/themes/custom/uccollege/it_showcase/images/intro-advising.jpg"
+        link: "#"
+  -
+    title: Policies
+    content:
+      bgClass: 's-bg-tertiary'
+      imgtype: single
+      topic: Advising
+      topiclink: "#"
+      heading: "Policies & Resources"
+      text: '<p><strong>Different units in the University are responsible for various policy documents depending on the communities involved. We’ve collected some of the more common ones for you here. Your College adviser can assist you with any policy questions you may have.</strong></p>  <uc-accordion-group v-cloak> <uc-accordion title="Quick Links" :mobile-only="true" tag="p"> <ul> <li><a href="#">Lorem ipsum dolor</a></li> <li><a href="#">Sit amet consectetur</a></li> <li><a href="#">Adipiscing labore</a></li> <li><a href="#">Tempor incididunt elit</a></li> </ul> </uc-accordion> </uc-accordion-group>'
+      image:
+        file: "/themes/custom/uccollege/it_showcase/images/intro-policies.jpg"
+        link: "#"
+  -
+    title: Why Pritzker (homepage)
+    content:
+      bgClass: 's-bg-secondary'
+      imgtype: single
+      topic: Why Pritzker
+      topiclink: "#"
+      heading: A diverse and interdisciplinary mission
+      homepage: true
+      text: '<p><strong>Our students say our academic and research reputation, the quality of our faculty, and the success of our graduates all influenced their decision to choose Pritzker for their medical education. In addition, they cite five distinctive attributes that set us apart from other medical schools.</strong></p> <div><p class="c-accordion__heading">More about Pritzker</p><ul><li><a href="#">Our History</a></li><li><a href="#">Our Deans</a></li><li><a href="#">School Policies</a></li><li><a href="#">Contact Us</a></li></ul></div>'
+      image:
+        file: "/themes/custom/uccollege/it_showcase/images/intro-why-pritzker.jpg"
+        link: "#"
+  -
+    title: "Making a Difference (flipped)"
+    caption: "Flipped layout with photo on the right"
+    content:
+      imgtype: single
+      heading: Making a difference
+      homepage: true
+      text: '<p><strong>Our students gain a strong foundation in both the basic sciences and clinical scenarios throughout their time here, and we believe research and community service are important skills to solidify this foundation.</strong></p><p><a href="#">Explore All Research Programs</a></p><p><a href="#">Explore All Service Opportunities</a></p>'
+      flipped: true
+      image:
+        file: "/themes/custom/uccollege/it_showcase/images/intro-difference.jpg"
+        link: "#"
+  -
+    title: "Alumni Corner"
+    content:
+      imgtype: single
+      heading: Interact and build successful connections
+      topic: Alumni Corner
+      topiclink: "#"
+      homepage: true
+      text: '<p>The Medical & Biological Sciences Alumni Association’s (MBSAA) mission is to support the University of Chicago byproviding activities that engage alumni in the life of the school.</p><uc-accordion-group :columns="2" v-cloak><uc-accordion title="Resources" :mobile-only="true" tag="p"><ul><li><a href="#">Verification and Licensure</a></li><li><a href="#">Update Your Information</a></li><li><a href="#">Publications</a></li></ul></uc-accordion><uc-accordion title="Get Involved" :mobile-only="true" tag="p"><ul><li><a href="#">Volunteer</a></li><li><a href="#">Make a Gift</a></li><li><a href="#">Reunion</a></li></ul></uc-accordion></uc-accordion-group>'
+      image:
+        file: "/themes/custom/uccollege/it_showcase/images/intro-alumni.jpg"
+        link: "#"
+  -
+    title: "Admissions"
+    content:
+      imgtype: single
+      heading: Admissions
+      text: '<p>As a medical school located on the campus of a world class university, our medical students have the opportunity to take advantage of the resources of one of our country’s greatest centers of learning.</p><figure class="c-avatar"><div class="c-avatar__image"><div class="c-avatar__image-wrap"><img src="/themes/custom/uccollege/it_showcase/images/headshot-01.jpg" alt="Alt text here"></div></div><figcaption><p class="c-avatar__title">Keme Carter, MD</p><p class="c-avatar__text">Associate Professor of Medicine<br> Associate Dean for Admissions</p><div class="c-avatar__link"> — <a href="#" target="_blank">A message from our dean</a></div></figcaption></figure><uc-accordion-group v-cloak><uc-accordion title="Resources" :mobile-only="true" tag="p"><ul><li><a href="#">Verification and Licensure</a></li><li><a href="#">Update Your Information</a></li><li><a href="#">Publications</a></li></ul></uc-accordion></uc-accordion-group>'
+      image:
+        file: "/themes/custom/uccollege/it_showcase/images/intro-alumni.jpg"
+        link: "#"
+
+  -
+    title: "Entering Class"
+    content:
+      imgtype: single
+      heading: Entering Class of 2018
+      topic: Admissions
+      topiclink: "#"
+      text: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim ad minim venim quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat.</p><h3 class="t-heading--list">Quick Links</h3><ul><li><a href="#">Lorem ipsum dolor</a></li><li><a href="#">Sit amet consectetur</a></li><li><a href="#">Adipiscing labore</a></li></ul>'
+      image:
+        file: "/themes/custom/uccollege/it_showcase/images/intro-admissions.jpg"
+        link: "#"
+
+  -
+    title: "Student Life"
+    content:
+      imgtype: single
+      heading: Student Life
+      text: '<p><strong>Our students set ambitious goals and work hard to achieve them. These efforts manifest themselves not only in the classroom and the lab, but also in extracurricular activities and community service.</strong></p><p>Our students take an active role in student governance, serving as members of committees and councils that contribute to initiatives dealing with curriculum, admissions, and student life.</p><h3 class="t-heading--list">Quick Links</h3><ul><li><a href="#">Dean Council</a></li><li><a href="#">Pritzker Chiefs</a></li><li><a href="#">Graduation</a></li></ul>'
+      image:
+        file: "/themes/custom/uccollege/it_showcase/images/intro-student-life.jpg"
+        link: "#"
+
+  -
+    title: "Student Support and Wellness"
+    content:
+      imgtype: single
+      heading: Student Support and Wellness
+      text: '<p>All Pritzker students are supported by a broad network of faculty and staff. The Office of Student Affairs and Programs and the Office of Multicultural Affairs are two of the many entry points for students to access important services and information. <a href="#">Learn more</a></p><h3 class="t-heading--list">Quick Links</h3><ul><li><a href="#">Pritzker Wellness Initiative</a></li><li><a href="#">Health Care and Counseling</a></li><li><a href="#">Ombudspersons</a></li><li><a href="#">Pritzker Sibs</a></li><li><a href="#">Wellness Links and Resources</a></li><li><a href="#">Pritzker Poetry Contest</a></li></ul>'
+      image:
+        file: "https://via.placeholder.com/768&text=FPO"
+        link: "#"
+
+  -
+    title: "The Identity and Inclusion (i2i) Committee"
+    content:
+      imgtype: single
+      heading: The Identity and Inclusion (i2i) Committee
+      flipped: true
+      text: '<p>The committee is responsible for providing ongoing direction for programs and/or curricula at Pritzker that support an inclusive learning environment and promote respectful and effective communication with diverse patients and colleagues around issues of identity.</p><ul><li><a href="#">Learn more about i2i</a></li><li><a href="#">i2i Grants</a></li></ul>'
+      image:
+        file: "https://via.placeholder.com/768&text=FPO"
+        link: "#"
+
+  -
+    title: "Advising Societies"
+    content:
+      imgtype: single
+      heading: Advising Societies
+      text: '<p><strong>All students are assigned to one of eight Career Advisors through their membership in one of the four Pritzker Societies. They are named for key figures who made seminal contributions to research, clinical care, and education at the University of Chicago.</strong></p><p>The Pritzker Societies provide a context and opportunity for gaining advice over time from a broad array of individuals, ranging from peers to faculty.</p><h3 class="t-heading--list">Quick Links</h3><ul><li><a href="#">The Coggeshall Society</a></li><li><a href="#">The DeLee Society</a></li><li><a href="#">The Huggins Society</a></li><li><a href="#">The Rowley Society</a></li></ul>'
+      image:
+        file: "https://via.placeholder.com/768&text=FPO"
+        link: "#"
+
+  -
+    title: "Incoming Students Orientation"
+    content:
+      imgtype: single
+      heading: Incoming Students Orientation
+      flipped: true
+      text: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <a href="#">Learn more</a></p><h3 class="t-heading--list">Quick Links</h3><ul><li><a href="#">Mailings</a></li><li><a href="#">Housing</a></li><li><a href="#">E-Surveys</a></li><li><a href="#">Dates and Contacts</a></li><li><a href="#">White Coat Ceremony</a></li></ul>'
+      image:
+        file: "https://via.placeholder.com/768&text=FPO"
+        link: "#"
+
+  -
+    title: "Incoming Students Orientation"
+    content:
+      imgtype: single
+      heading: Community Service
+      text: '<p><strong>Pritzker students have the opportunity to participate in Service-Learning activities through our Days of Service;providing clinical care at our student-run free clinics; or leading health education activities at partnerschools.</strong></p><p>These efforts complement the goal of University of Chicago Medicine&apos;s Urban Health Initiative to improve the long-term health of residents of the South Side of Chicago. First and third years may apply to be Schweitzer Fellows, with funding to support community projects completed over the following year.</p><div class="c-stats "><ul class="c-stats__list"><li class="c-stats__item "><strong class="c-stats__number">26</strong><p class="c-stats__text"> avg. number of clinic patients our students served per month </p></li><li class="c-stats__item "><strong class="c-stats__number">90</strong><p class="c-stats__text"> percent volunteer at free clinics </p></li><li class="c-stats__item "><strong class="c-stats__number">5</strong><p class="c-stats__text"> student-run clinics that provide free health care to the underserved  </p></li></ul></div>'
+      image:
+        file: "/themes/custom/uccollege/it_showcase/images/intro-difference.jpg"
+        link: "#"
+
+  -
+    title: "Student-Run Free Clinics"
+    content:
+      imgtype: single
+      heading: Student-Run Free Clinics
+      flipped: true
+      text: '<p><strong>The mission of our free clinics is to provide superior health care in a compassionate manner, ever mindful of each patient&apos;s dignity and individuality. We have five community clinics throughout Chicago—treating uninsured patients in communities that are underserved by the healthcare system.</strong></p><p>This service work is an investment in medical training that serves the community at the same time.</p><h3 class="t-heading--list">Quick Links</h3><ul><li><a href="#">Bridgeport Free Clinic</a></li><li><a href="#">CommunityHealth Clinic</a></li><li><a href="#">Maria Shelter Medical Clinic</a></li><li><a href="#">New Life Volunteering Society (NLVS)</a></li><li><a href="#">Washington Park Children’s Free Health Clinic</a></li></ul>'
+      image:
+        file: "https://via.placeholder.com/768&text=FPO"
+        link: "#"
+
+  -
+    title: "Community-Based Medical Education"
+    content:
+      imgtype: single
+      heading: Community-Based Medical Education
+      text: '<p><strong>The Department of Family Medicine plays a leading role in Community Based Medical Education at the Pritzker School of Medicine and in the University of Chicago Medicine&apos;s Urban Health Initiative. Medical students have multiple opportunities to learn about and serve different communities on Chicago&apos;s South Side.</strong></p><h3 class="t-heading--list">Quick Links</h3><ul><li><a href="#">Family Medicine Clerkship</a></li><li><a href="#">Community Health Scholars Track</a></li><li><a href="#">REACH</a></li><li><a href="#">South Side Healthcare Collaborative</a></li><li><a href="#">Service Learning Mini-Grants </a></li></ul>'
+      image:
+        file: "https://via.placeholder.com/768&text=FPO"
+        link: "#"
+
+  -
+    title: "Faculty Profile"
+    content:
+      imgtype: single
+      heading: Sarah Rana, MD
+      topic: Faculty Profiles
+      topiclink: "#"
+      factcard:
+        name: Chief, section of Maternal-fetal Illum aut rerum consequatur enim qui eligendi aspernatur.
+        items:
+          -
+            icon:
+            label: Clinical Interests
+            url:
+            text: Illum aut rerum consequatur enim qui eligendi aspernatur. Quas magni aperiam asperiores dolores voluptas. Labore fuga illo enim eveniet quod aut. Ullam soluta totam sequi accusamus. Magnam similique id exercitationem molestias et et. Et exercitationem ut adipisci nesciunt nobis voluptatum adipisci quo.
+          -
+            icon:
+            label: Reasearch and Scholary Instrests
+            url:
+            text: Illum aut rerum consequatur enim qui eligendi aspernatur. Quas magni aperiam asperiores dolores voluptas.
+          -
+            icon:
+            label: Contact
+            url:
+            text: '<a href="#">Website</a>'
+          -
+            icon: 'email-solid'
+            label:
+            url: '#'
+            text: msainvilus@uchicago.edu
+      image:
+        file: "https://via.placeholder.com/768&text=FPO"
+        link: "#"
+
+  -
+    title: Institutes
+    content:
+      imgtype: single
+      heading: Institutes
+      flipped: true
+      text: '<p><strong>We connect investigators from the Biological Sciences Division with faculty and students across the University and its affiliates and enable cutting edge research to thrive.</strong></p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum tortor ex, quis viverra purus ornare sit amet. Sed non diam ex. Aliquam viverra nunc. <a href="#">View All Institutes</a></p> <h3 class="t-heading--list">Quick Links</h3><ul><li><a href="#">Duchossis Family Institute</a></li><li><a href="#">Grossman Institute for Neuroscience, Quantitative Biology & Human Behavior</a></li><li><a href="#">Institute for Biophysical Dynamics</a></li></ul>'
+      image:
+        file: "https://via.placeholder.com/768&text=FPO"
+        link: "#"
+
+  -
+    title: Centers
+    content:
+      imgtype: single
+      heading: Centers
+      text: '<p><strong>We connect investigators from the Biological Sciences Division with faculty and students across the University and its affiliates and enable cutting edge research to thrive.</strong></p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum tortor ex, quis viverra purus ornare sit amet. Sed non diam ex. Aliquam viverra nunc. <a href="#">View All Centers</a></p> <h3 class="t-heading--list">Quick Links</h3><ul><li><a href="#">Center for Health and Social Sciences</a></li><li><a href="#">The University of Chicago Medicine Comprehensive Cancer Center</a></li><li><a href="#">Microbiome Center</a></li><li><a href="#">MacLean Center for Clinical Medical Ethics</a></li></ul>'
+      image:
+        file: "https://via.placeholder.com/768&text=FPO"
+        link: "#"
+
+  -
+    title: "Diversity & Inclusion"
+    content:
+      imgtype: single
+      heading: Diversity & Inclusion
+      flipped: false
+      text: '<p><strong>The Biological Sciences Division is committed to creating an inclusive culture that enables every individual who comes here to thrive. A diverse, multicultural faculty, staff, and student population enhances our ability to conduct cutting edge research, innovate education and excellent patient care.</strong></p><p>We believe that the study of biology and medicine is most productive when we bring our full perspectives as unique individuals to the work that we do. Learn more about the resources available to enhance diversity and inclusion throughout the division.</p><h3 class="t-heading--list">Quick Links</h3><ul><li><a href="#">BSD Office of Diversity & Inclusion</a></li><li><a href="#">Diversity Grants Program</a></li><li><a href="#">Resources Groups</a></li></ul>'
+      image:
+        file: "https://via.placeholder.com/768&text=FPO"
+        link: "#"
+
+  -
+    title: "Alumni & Giving"
+    content:
+      imgtype: single
+      heading: Alumni & Giving
+      flipped: true
+      text: '<p><strong>We are supported by a large community of alumni and donors throughout the world. Your contributions enable us to conduct research, educate future leaders, provide the most advanced health care, and improve the lives of millions.</strong></p><p>We invite you to learn more about the ways in which giving to the Biological Sciences Division will enable us to further our mission. Our alumni are invited to connect with us through the Medical & Biological Sciences Alumni Association (MBSAA). The MBSAA supports the University of Chicago by providing activities that engage alumni in the life of school.</p><h3 class="t-heading--list">Quick Links</h3><ul><li><a href="#">Giving</a></li><li><a href="#">Medical & Biological Sciences Alumni Association</a></li><li><a href="#">The University of Chicago Campaign: Impact and Inquiry</a></li></ul>'
+      image:
+        file: "https://via.placeholder.com/768&text=FPO"
+        link: "#"
+
+  -
+    title: "Graduate Programs"
+    content:
+      imgtype: single
+      heading: Graduate Programs
+      flipped: true
+      text: '<p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fermentum eu libero sit amet finibus. Vestibulum a odio vel mauris bibendum consectetur. Nunc mollis ipsum.</strong></p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dignissim iaculis lectus, ac facilisis nisi congue eu. Nullam hendrerit dui in congue faucibus. Maecenas nec.</p><h3 class="t-heading--list">Quick Links</h3><ul><li><a href="#">Lorem ipsum dolor</a></li><li><a href="#">Sit amet consectur</a></li><li><a href="#">Adipiscing labore</a></li><li><a href="#">Lorem ipsum dolor</a></li></ul>'
+      image:
+        file: "https://via.placeholder.com/768&text=FPO"
+        link: "#"
+
+  -
+    title: "Pritzker School of Medicine"
+    content:
+      imgtype: single
+      heading: Pritzker School of Medicine
+      flipped: false
+      text: '<p><strong>At the University of Chicago, in an atmosphere of interdisciplinary scholarship and discovery, the Pritzker School of Medicine is dedicated to inspiring diverse students of exceptional promise to become leaders and innovators in science and medicine for the betterment of humanity.</strong></p><h3 class="t-heading--list">Quick Links</h3><ul><li><a href="#">Lorem ipsum dolor</a></li><li><a href="#">Sit amet consectur</a></li><li><a href="#">Adipiscing labore</a></li></ul>'
+      image:
+        file: "https://via.placeholder.com/768&text=FPO"
+        link: "#"
+
+  -
+    title: "Biological Sciences Collegiate Division"
+    content:
+      imgtype: single
+      heading: Biological Sciences Collegiate Division
+      flipped: true
+      text: '<p><strong>The Biological Sciences Collegiate Division is the home to the biological sciences curriculum at the University of Chicago. The College believes that knowledge of biology is essential for understanding ourselves and the world in which we live.</strong></p><p>The BSCD, provides a variety of biology courses for all College students, prospective biologists and non-biologists alike.</p><h3 class="t-heading--list">Quick Links</h3><ul><li><a href="#">Lorem ipsum dolor</a></li><li><a href="#">Sit amet consectur</a></li><li><a href="#">Adipiscing labore</a></li><li><a href="#">Lorem ipsum dolor</a></li></ul>'
+      image:
+        file: "https://via.placeholder.com/768&text=FPO"
+        link: "#"
+
+  -
+    title: "University of Chicago Faculty Practice"
+    content:
+      imgtype: single
+      heading: University of Chicago Faculty Practice
+      flipped: true
+      text: '<p><strong>Working closely with the Dean, UCMC President Sharon O''Keefe, clinical department chairs and clinical faculty, Dr. Flynn serves as the head of the University of Chicago Faculty Practice (UCFP) and president of UChicago Medicine''s expanding care network.</strong></p><p>He provides leadership of all physician practices, both on campus and in the community. He leads the continued extension of our physician practices in the Chicago area, working to strengthen our relationships with referring physicians, to ensure our clinicians are represented in administrative functions, and to facilitate engagement of our faculty practice into other aspects of the institution''s mission.</p>'
+      image:
+        file: "https://via.placeholder.com/768&text=FPO"
+        link: "#"
+      avatar:
+        title: John Flynn, MD, MBA, MEd
+        text: "Dean for Clinical Affairs and Chief Physician<br />of the University of Chicago Medicine"
+        img:
+          src: "https://via.placeholder.com/110&text=FPO"
+          alt: "Alt text here"
+  -
+    title: UChicago Medicine
+    content:
+      imgtype: single
+      heading: UChicago Medicine
+      flipped: true
+      text: '<p><strong>At the forefront of medicine since its founding in 1927, UChicago Medicine also includes the University of Chicago Pritzker School of Medicine and the University of Chicago Medical Center. US News & World Report consistently ranks our hospitals among the best in the nation and our medical school as one of the top 10 in the country.</strong></p> <p>Our Clinical Departments are tightly integrated with UChicago Medicine with many of our faculty also being practicing physicians.</p> <h3 class="t-heading--list">Quick Links</h3><ul><li><a href="#">The University of Chicago Medicine</a></li><li><a href="#">Clinical Trials</a></li><li><a href="#">Patient Services</a></li></ul>'
+      image:
+        file: "https://via.placeholder.com/768&text=FPO"
+        link: "#"
+  -
+    title: Feature with Logo
+    content:
+      imgtype: single
+      heading: Patient Care
+      flipped: false
+      text: '<p><strong>At the forefront of medicine since its founding in 1927, UChicago Medicine also includes University of Chicago Pritzker School of Medicine and the University of Chicago Medical Center. <em>US News & World Report</em> consistently ranks our hospitals among the best in the nation and our medical school as one of the top 10 in the country.</strong></p><h3 class="t-heading--list">Quick Links</h3><ul><li><a href="#">The University of Chicago Medicine</a></li><li><a href="#">UChicago Medicine Conditions and Services</a></li><li><a href="#">Clinical Trials</a></li><li><a href="#">Patient Services</a></li></ul>'
+      image:
+        file: "https://via.placeholder.com/768&text=FPO"
+        link: "#"
+      logo:
+        src: "https://via.placeholder.com/200x100&text=FPO"
+        alt: "Alt Text"
+
+  -
+    title: Research
+    content:
+      imgtype: single
+      heading: Research
+      flipped: true
+      text: '<p><strong>The Department of Ecology & Evolution hosts diverse faculty and student interests in the ecological and evolutionary processes that underlie patterns of life on earth.</strong></p><p>The research interests of our faculty include population genetics, molecular evolution, quantitative genetics, animal behavior, plant and animal ecology, evolutionary theory, systematic paleontology, and related subjects.</p><h3 class="t-heading--list">Quick Links</h3><ul><li><a href="#">Behavior</a></li><li><a href="#">Ecology</a></li><li><a href="#">Evolution and Genetics</a></li></ul>'
+      image:
+        file: "https://via.placeholder.com/768&text=FPO"
+        link: "#"
+
+  -
+    title: Education
+    content:
+      imgtype: single
+      heading: Education
+      flipped: false
+      text: '<p><strong>Our students accomplish a lot: they perform research all around the world, publish in top-tier journals, are awarded prestigious fellowships and grants, and pursue rewarding and interesting careers in and out of academia.</strong></p><p>All students have in common a set of research questions that examine ecological and evolutionary processes that underlie patterns of life on earth.</p><h3 class="t-heading--list">Quick Links</h3><ul><li><a href="#">Overview</a></li><li><a href="#">Our Students</a></li><li><a href="#">Admissions</a></li><li><a href="#">Courses</a></li><li><a href="#">Training Grant</a></li></ul>'
+      image:
+        file: "https://via.placeholder.com/768&text=FPO"
+        link: "#"
+
+  -
+    title: Facilities
+    content:
+      imgtype: single
+      heading: Facilities
+      flipped: true
+      text: '<p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</strong></p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><h3 class="t-heading--list">Quick Links</h3><ul><li><a href="#">Argonne National Laboratory</a></li><li><a href="#">Brookfield Zoo</a></li><li><a href="#">Fermi National Accelerator Laboratory</a></li><li><a href="#">Courses</a></li><li><a href="#">Field Museum of Natural History</a></li></ul><p><a href="#">See all Facilities</a></p>'
+      image:
+        file: "https://via.placeholder.com/768&text=FPO"
+        link: "#"
+  -
+    title: Breaking News
+    content:
+      flipped: true
+      breaking: true
+      bgClass: 's-bg-blue'
+      imgtype: single
+      topic: 'Breaking News'
+      heading: 'The new UChicago Institute of Molecular Engineering'
+      text: '<p>The Institute of Molecular Engineering is now officially the Institute of Molecular Engineering. This changes mean we can lorem ipsum dolor sit amet adipiscing elit.</p> <p><a href="#">Watch the announcement now</a> <span class="c-feature__duration">	<svg class="c-icon"><use xlink:href="/themes/custom/uccollege/dist/icons.svg#video"/></svg> 28:02</span></p> <p><a href="#">What it means to become the Institute of Molecular Engineering</a></p>'
+      image:
+        file: "/themes/custom/uccollege/it_showcase/images/breaking-molecular.jpg"
+
+feature.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: feature.component
+    index_hide: true
+    file: themes/custom/uccollege/components/feature/README.md

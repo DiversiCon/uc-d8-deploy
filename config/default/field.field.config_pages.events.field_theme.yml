@@ -1,0 +1,21 @@
+uuid: 3a2d1b7b-d308-4830-b503-064c6478dc46
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.events
+    - field.storage.config_pages.field_theme
+  module:
+    - options
+id: config_pages.events.field_theme
+field_name: field_theme
+entity_type: config_pages
+bundle: events
+label: 'Background Theme'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

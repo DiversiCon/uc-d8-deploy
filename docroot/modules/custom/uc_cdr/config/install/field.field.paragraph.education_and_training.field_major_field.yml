@@ -1,0 +1,19 @@
+uuid: f34006ec-b6ee-42a7-87f1-1c317e11ec02
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_major_field
+    - paragraphs.paragraphs_type.education_and_training
+id: paragraph.education_and_training.field_major_field
+field_name: field_major_field
+entity_type: paragraph
+bundle: education_and_training
+label: 'Major Field'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

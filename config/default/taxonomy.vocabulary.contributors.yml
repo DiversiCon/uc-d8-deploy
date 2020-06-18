@@ -1,0 +1,8 @@
+uuid: d3e6ecb9-6441-4ebf-993b-9b6e0921c19c
+langcode: en
+status: true
+dependencies: {  }
+name: Contributors
+vid: contributors
+description: 'Story and photo credits/contributors'
+weight: 0

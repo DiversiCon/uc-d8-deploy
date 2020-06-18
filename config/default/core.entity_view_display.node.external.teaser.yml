@@ -1,0 +1,59 @@
+uuid: 130486e2-d40e-4a78-aae3-8a39fe2debea
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.external.field_headline_text
+    - field.field.node.external.field_image_main
+    - field.field.node.external.field_link_single
+    - field.field.node.external.field_subheadline_text
+    - node.type.external
+  module:
+    - link
+    - text
+    - user
+id: node.external.teaser
+targetEntityType: node
+bundle: external
+mode: teaser
+content:
+  field_headline_text:
+    type: text_default
+    weight: 0
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_image_main:
+    type: entity_reference_entity_view
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      view_mode: feature_4sq_view
+      link: false
+    third_party_settings: {  }
+  field_link_single:
+    type: link
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_subheadline_text:
+    type: text_default
+    weight: 0
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_date_no_time: true
+  links: true
+  search_api_excerpt: true

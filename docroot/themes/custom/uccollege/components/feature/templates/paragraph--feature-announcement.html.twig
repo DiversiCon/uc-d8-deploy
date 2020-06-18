@@ -1,0 +1,45 @@
+{#
+/**
+ * @file
+ * Feature Announcement
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set node_context = elements['#node'] ? 1 : 0 %}
+{% set background = paragraph.field_background_theme.value %}
+{% set image_flip = paragraph.field_bool_intro_toggle.value %}
+{% set feature_image = content.field_paragraph_single %}
+{% set tag = paragraph.field_title.value %}
+{% set heading = paragraph.field_headline_text.value %}
+{% set text_content = content.field_body %}
+{% set links = content.field_links_ultd %}
+
+<div class="l-container c-feature__container">
+  <div class="c-feature c-feature--breaking{% if image_flip %} c-feature--flipped{% endif %}{% if background %} s-bg-{{ background }}{% endif %}">
+    <div class="c-feature__image">
+      {{ feature_image }}
+    </div>
+
+    <div class="c-feature__wrap">
+      <div class="c-feature__content">
+        {% if tag %}
+        <h2 class="t-heading--topic">{{ tag }}</h2>
+        {% endif %}
+
+        {% if node_context %}
+          <h1 class="t-heading--medium">{{ heading }}</h1>
+        {% else %}
+          <h2 class="t-heading--medium">{{ heading }}</h2>
+        {% endif %}
+
+        {{ text_content }}
+
+        {{ links }}
+      </div>
+    </div>
+  </div>
+</div>

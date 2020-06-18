@@ -1,0 +1,75 @@
+uuid: 6ff4d8bb-5da8-4297-a380-800a1b7cbf46
+langcode: en
+status: true
+dependencies:
+  module:
+    - editor
+    - uc_sauce
+name: 'Basic HTML'
+format: basic_html
+weight: -9
+filters:
+  filter_autop:
+    id: filter_autop
+    provider: filter
+    status: true
+    weight: -49
+    settings: {  }
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: -46
+    settings: {  }
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: true
+    weight: -50
+    settings:
+      allowed_html: '<em class> <strong class> <cite class> <blockquote cite class> <code class> <ul type class> <ol start type class> <li class> <dl class> <dt class> <dd class> <h2 id class> <h3 id class> <h4 id class> <h5 id class> <h6 id class> <img src alt data-entity-type data-entity-uuid class> <u class> <p class> <a href hreflang !href accesskey id rel target title class> <table class> <caption class> <tbody class> <thead class> <tfoot class> <th class> <td class> <tr class> <drupal-entity * data-* class> <br>'
+      filter_html_help: true
+      filter_html_nofollow: false
+  filter_url:
+    id: filter_url
+    provider: filter
+    status: true
+    weight: -48
+    settings:
+      filter_url_length: 72
+  filter_uc_table_wrap:
+    id: filter_uc_table_wrap
+    provider: uc_sauce
+    status: true
+    weight: -47
+    settings: {  }
+  editor_file_reference:
+    id: editor_file_reference
+    provider: editor
+    status: false
+    weight: -44
+    settings: {  }
+  filter_html_image_secure:
+    id: filter_html_image_secure
+    provider: filter
+    status: false
+    weight: -40
+    settings: {  }
+  filter_align:
+    id: filter_align
+    provider: filter
+    status: false
+    weight: -42
+    settings: {  }
+  filter_caption:
+    id: filter_caption
+    provider: filter
+    status: false
+    weight: -41
+    settings: {  }
+  filter_html_escape:
+    id: filter_html_escape
+    provider: filter
+    status: false
+    weight: -45
+    settings: {  }

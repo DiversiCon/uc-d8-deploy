@@ -1,0 +1,12 @@
+{#
+/**
+ * @file
+ * main links <li>
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% for item in items %}
+  <li class="c-footer__link">{{ item.content }}</li>
+{% endfor %}

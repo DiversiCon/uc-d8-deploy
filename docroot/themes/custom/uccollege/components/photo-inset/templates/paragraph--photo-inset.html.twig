@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Photo-inset paragraph.
+ *
+ * see contrib @paragraph module
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set img = content.field_image_main %}
+
+{% block paragraph %}
+  {% block content %}
+    <figure class="c-photo-inset">
+      {{ img }}
+    </figure>
+  {% endblock %}
+{% endblock paragraph %}

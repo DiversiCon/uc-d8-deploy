@@ -1,0 +1,69 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - range component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-range {
+  @include font-sans(bold);
+  @include font-sizes(18, 20);
+  text-align: center;
+  margin: 0 auto;
+
+  .t-heading--medium {
+    margin-bottom: rem-calc(33);
+
+    @include breakpoint(medium) {
+      margin-bottom: rem-calc(55);
+    }
+  }
+
+  p {
+    margin-bottom: rem-calc(11);
+  }
+
+  &__wrap {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: rem-calc(33);
+
+    @include breakpoint(medium) {
+      margin-bottom: rem-calc(55);
+    }
+  }
+
+  &__left,
+  &__right {
+    @include font-sizes(28, 40);
+
+    span {
+      @include sr-only;
+    }
+  }
+
+  &__left {
+    text-align: right;
+  }
+
+  &__right {
+    text-align: left;
+  }
+
+  &__center {
+    margin: rem-calc(-6) rem-calc(15) 0 rem-calc(15);
+
+    @include breakpoint(medium) {
+      margin: rem-calc(-6) rem-calc(27) 0 rem-calc(27);
+    }
+
+    svg {
+      height: rem-calc(8);
+      min-width: rem-calc(122);
+
+      @include breakpoint(medium) {
+        min-width: rem-calc(150);
+      }
+    }
+  }
+}

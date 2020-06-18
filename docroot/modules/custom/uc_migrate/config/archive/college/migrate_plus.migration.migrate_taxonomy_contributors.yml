@@ -1,0 +1,63 @@
+langcode: en
+status: true
+id: migrate_taxonomy_contributors
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: legacy
+label: 'Taxonomy: Contributors'
+source:
+  plugin: d7_taxonomy_term
+  bundle: contributors
+process:
+  tid: tid
+  vid:
+    plugin: migration_lookup
+    migration: migrate_taxonomy_vocabulary
+    source: vid
+  name: name
+  description/value: description
+  description/format: format
+  weight: weight
+  parent_id:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: parent
+    -
+      plugin: migration_lookup
+      migration: migrate_taxonomy_contributors
+  parent:
+    plugin: default_value
+    default_value: 0
+    source: '@parent_id'
+  forum_container: is_container
+  changed: timestamp
+  field_machine_name: field_machine_name
+  field_class: field_class
+  field_office_title: field_office_title
+  field_biography:
+    plugin: iterator
+    source: field_biography
+    process:
+      value: value
+      format:
+        plugin: default_value
+        default_value: basic_html
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: contributors
+migration_dependencies:
+  required:
+    - migrate_taxonomy_vocabulary
+  optional:
+    - d7_field_instance
+dependencies:
+  module:
+    - uc_migrate
+  enforced:
+    module:
+      - uc_migrate

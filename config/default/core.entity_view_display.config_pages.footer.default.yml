@@ -1,0 +1,93 @@
+uuid: e7b62266-b6e7-4b72-bde4-15f64a0bd1b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.footer
+    - field.field.config_pages.footer.field_cp_paragraphs_ultd
+    - field.field.config_pages.footer.field_headline_text
+    - field.field.config_pages.footer.field_media_image
+    - field.field.config_pages.footer.field_paragraph_multiples
+    - field.field.config_pages.footer.field_subheadline_text
+    - field.field.config_pages.footer.field_subheadline_text_1
+    - field.field.config_pages.footer.field_telephone
+    - field.field.config_pages.footer.field_text_html_short_single_0
+    - field.field.config_pages.footer.field_text_html_short_single_1
+  module:
+    - entity_reference_revisions
+    - text
+id: config_pages.footer.default
+targetEntityType: config_pages
+bundle: footer
+mode: default
+content:
+  field_cp_paragraphs_ultd:
+    weight: 4
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_headline_text:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_media_image:
+    weight: 15
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_paragraph_multiples:
+    type: entity_reference_revisions_entity_view
+    weight: 14
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_subheadline_text:
+    weight: 9
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_subheadline_text_1:
+    weight: 10
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_telephone:
+    weight: 11
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_text_html_short_single_0:
+    weight: 12
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_text_html_short_single_1:
+    weight: 13
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  search_api_excerpt: true

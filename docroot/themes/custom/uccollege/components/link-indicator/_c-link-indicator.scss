@@ -1,0 +1,14 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - link-indicator component
+
+.c-link-indicator {
+  display: inline-block;
+  font-size: rem-calc(12);
+  margin-left: rem-calc(8);
+
+  .c-icon {
+    width: rem-calc(8);
+    height: rem-calc(11);
+    vertical-align: rem-calc(-1);
+  }
+}

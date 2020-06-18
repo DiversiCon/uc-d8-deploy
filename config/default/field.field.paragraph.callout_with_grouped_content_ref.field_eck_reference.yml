@@ -1,0 +1,28 @@
+uuid: c938ba4f-9f51-4903-b9b7-86b1f2842d90
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.callout_grouped_content
+    - field.storage.paragraph.field_eck_reference
+    - paragraphs.paragraphs_type.callout_with_grouped_content_ref
+id: paragraph.callout_with_grouped_content_ref.field_eck_reference
+field_name: field_eck_reference
+entity_type: paragraph
+bundle: callout_with_grouped_content_ref
+label: 'Callout Grouped Content Reference'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:reusable'
+  handler_settings:
+    target_bundles:
+      callout_grouped_content: callout_grouped_content
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

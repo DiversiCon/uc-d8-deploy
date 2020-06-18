@@ -1,0 +1,187 @@
+alphalist:
+  title: alphalist
+  description:
+  type: component
+  variants:
+    -
+      title: Default
+      caption:
+      content:
+        -
+
+alphalist-endpoint-faculty:
+  title: Faculty Index Endpoint
+  description:
+  type: endpoint
+  variants:
+    -
+      title: Default
+      caption:
+      content:
+        data:
+          - firstName: Valerie
+            lastName: Abadie
+            suffix:
+            title: Assistant Professor
+            department:
+              - Medicine
+            section:
+              - Gastroenterology
+            interests:
+              - Fatty Liver
+              - Hepatology
+              - Cirrhosis
+              - Liver
+              - Obesity
+            websites:
+              - name: Second website
+                link: '#'
+              - name: Abadie Gastroenterology lab
+                link: '#'
+            topics:
+              - Spintronics
+              - Solid-state quantum information processing
+              - Magnetic semiconductors
+              - Nanomagnetism
+              - Time-resolved magneto-optical spectroscopy
+            research_group:
+              url: '#'
+              name: Awschalom Group
+            image: 'https://lorempixel.com/300/300/abstract/'
+            id: 1
+          - firstName: Henry
+            lastName: Abarbanel
+            suffix:
+            title: Associate Professor
+            department:
+              - Medicine
+            section:
+              - Emergency Medicine
+            interests:
+              - Action Potentials
+              - Neurons
+              - Nerve Net
+              - Synapses
+              - Models
+              - Neurological
+            websites:
+              - name: Abarbanel Gastroenterology lab
+                link: '#'
+            image: 'https://lorempixel.com/300/300/abstract/'
+            id: 2
+          - firstName: Elmer
+            lastName: Abbo
+            suffix:
+            title: Assistant Professor
+            department:
+              - Medicine
+            section:
+              - General Internal Medicine
+            interests:
+              - Terminal Care
+              - Cardiopulmonary Resuscitation
+              - Advance Directives
+              - Physician-Patient Relations
+            websites:
+              - name: website here
+                link: '#'
+            topics:
+              - Quantum information processing
+              - Quantum many-body physics
+              - Quantum optics
+            research_group:
+              url: '#'
+              name: Bernien Group
+            image: 'https://lorempixel.com/300/300/abstract/'
+            id: 3
+          - firstName: Kristen
+            lastName: Cook
+            suffix:
+            title: Postdoctoral Fellow
+            department:
+              - Biochem/Mol Bio
+            section:
+            interests:
+              - Molecular Biology
+            websites:
+              - name: website here
+                link: '#'
+            topics:
+              - Quantum computing
+              - Quantum communication
+              - Quantum sensing
+            image: 'https://lorempixel.com/300/300/abstract/'
+            id: 4
+          - firstName: Chandrika
+            lastName: Abburi
+            suffix: MD, PhD
+            title: Professor
+            department:
+              - Anesthesiology
+            section:
+            interests:
+              - Ciliary Body
+              - Vascular Endothelial Growth Factor A
+              - Fetal Stem Cells
+              - Calcium-Binding Proteins
+            websites:
+              - name: Abburi Anesthesia Lab
+                link: '#'
+            topics:
+              - Immunology
+              - Systems biology
+            research_group:
+              url: '#'
+              name: Chevier Group
+            image: 'https://lorempixel.com/300/300/abstract/'
+            id: 5
+          - firstName: Emma
+            lastName: Childs
+            suffix:
+            title: Research Associate
+            department:
+              - Psychiatry & Behav. Neurosci
+              - Medicine
+            section:
+            interests:
+              - Neurological
+            websites:
+              - name: 'website here'
+                link: '#'
+            topics:
+              - Quantum computing
+              - Quantum communication
+              - Quantum sensing
+            image: 'https://lorempixel.com/300/300/abstract/'
+            id: 6
+          - firstName: Margaret
+            lastName: Gardel
+            suffix:
+            title: Associate Professor
+            department:
+              - Physics
+            section:
+            interests:
+              - Cytoskeleton, Actin
+              - Cell Mechanics
+              - Adhesion, Cell
+              - Migration, Cell
+              - Myosin
+            topics:
+              - Quantum computing
+              - Quantum communication
+              - Quantum sensing
+            research_group:
+              url: '#'
+              name: Cleland Group
+            image: 'https://lorempixel.com/300/300/abstract/'
+            id: 7
+
+alphalist.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: alphalist.component
+    index_hide: true
+    file: themes/custom/uccollege/components/alphalist/README.md

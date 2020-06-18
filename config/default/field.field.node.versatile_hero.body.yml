@@ -1,0 +1,32 @@
+uuid: 95890845-fb4e-4512-a7aa-abcf4881f924
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.versatile_hero
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    simple_html: '0'
+    smartbody: '0'
+    plain: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: node.versatile_hero.body
+field_name: body
+entity_type: node
+bundle: versatile_hero
+label: 'Intro text'
+description: 'Introductory text to be shown below the hero/stats section.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

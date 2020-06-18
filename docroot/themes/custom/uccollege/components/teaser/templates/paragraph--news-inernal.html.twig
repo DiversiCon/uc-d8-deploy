@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * Teaser template for news, internal component
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set ref_1 = content.field_content_reference %}
+{% set ref_2 = content.field_content_reference_1 %}
+{% set ref_3 = content.field_content_reference_single %}
+
+{% block paragraph %}
+  {% block content %}
+
+    <ul>
+      <li>{{ ref_1 }}</li>
+      <li>{{ ref_2 }}</li>
+      <li>{{ ref_3 }}</li>
+    </ul>
+
+  {% endblock %}
+{% endblock paragraph %}

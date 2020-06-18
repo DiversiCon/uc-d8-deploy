@@ -1,0 +1,23 @@
+uuid: 02c2a6ca-d465-4817-8fdd-b52d564164bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_links_ultd
+    - node.type.person
+  module:
+    - link
+id: node.person.field_links_ultd
+field_name: field_links_ultd
+entity_type: node
+bundle: person
+label: 'Website Links'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

@@ -1,0 +1,20 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ * Available variables:
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+{{ attach_library('uccollege/addtoany') }}
+
+<uc-pullquote
+  quote="{{ content.quote }}"
+  attribution="{{ content.attribution }}">
+</uc-pullquote>

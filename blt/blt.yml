@@ -1,0 +1,52 @@
+project:
+  machine_name: uccqe
+  prefix: CQE
+  human_name: 'University of Chicago, Chicago Quantum Exchange'
+  profile:
+    name: minimal
+  local:
+    protocol: http
+    hostname: cqe.local
+git:
+  default_branch: dev
+  remotes:
+    - 'git@github.com:DiversiCon/uc-d8-deploy.git'
+deploy:
+  tag_source: true
+drush:
+  aliases:
+    remote: pantheon.test
+    local: self
+    ci: self
+  default_alias: '${drush.aliases.local}'
+validate:
+  twig:
+    filters: [convertForJson, convertQuotes, field_value]
+    functions: [it_showcase_component]
+modules:
+  local:
+    enable: {  }
+    uninstall: {  }
+  ci:
+    enable: {  }
+    uninstall: {  }
+  dev:
+    enable: {  }
+    uninstall: {  }
+  test:
+    enable: {  }
+    uninstall: {  }
+  prod:
+    enable: {  }
+    uninstall: {  }
+disable-targets:
+  blt:
+    init: [{ git-hook: true }]
+  internal:
+    git-hook: { execute: { pre-commit: false, commit-msg: false } }
+sync:
+  commands:
+    - 'source:build:composer'
+    - 'drupal:sync:db'
+    - 'uc:update'
+    - 'frontend:setup'

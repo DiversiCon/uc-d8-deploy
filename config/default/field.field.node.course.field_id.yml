@@ -1,0 +1,19 @@
+uuid: 87617a7f-1e41-4929-bd39-2259a53ad17e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_id
+    - node.type.course
+id: node.course.field_id
+field_name: field_id
+entity_type: node
+bundle: course
+label: 'Course Id'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

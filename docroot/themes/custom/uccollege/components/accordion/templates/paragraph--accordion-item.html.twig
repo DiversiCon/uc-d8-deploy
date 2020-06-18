@@ -1,0 +1,30 @@
+{#
+/**
+ * @file
+ * Accordion item, referenced inside the accordion block
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set heading = content.field_headline_text|field_value|render %}
+{% set bool_open = content.field_bool_intro_toggle|field_value|render %}
+{% set bool_mobile = content.field_par_bool_single_0|field_value|render %}
+{% set tag = content.field_list_html_tags|field_value|render %}
+{% set html = content.field_par_html_single %}
+{% set smartbody = content.field_par_paragraph_single %}
+
+{% block paragraph %}
+  {% block content %}
+    <uc-accordion
+      title="{{ heading|convertQuotes }}"
+      :open="{{ bool_open }}"
+      :mobile-only="{{ bool_mobile }}"
+      tag="{{ tag|convertQuotes }}"
+    >
+      {{ smartbody }}
+    </uc-accordion>
+  {% endblock %}
+{% endblock paragraph %}

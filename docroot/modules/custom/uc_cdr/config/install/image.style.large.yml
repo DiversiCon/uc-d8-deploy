@@ -1,0 +1,19 @@
+uuid: 82219d1d-d274-4493-879c-3061fa30002b
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+_core:
+  default_config_hash: J2n0RpFzS0-bgSyxjs6rSdgxB1rb-bTAgqywNx_964M
+name: large
+label: 'Large (640×640)'
+effects:
+  382a15ba-a7b3-4ea6-9f63-d8d4d527936d:
+    uuid: 382a15ba-a7b3-4ea6-9f63-d8d4d527936d
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 640
+      height: 640
+      crop_type: focal_point

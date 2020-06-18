@@ -1,0 +1,20 @@
+{#
+/**
+ * @file
+ * Fact card phone field
+ * also used in media_contact_contact
+ *
+ * @see ucnews/templates/field.html.twig
+ *
+ * @see template_preprocess_field()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% for item in items %}
+  <li {{ attributes.addClass(class_type) }}>
+    <svg class="c-icon"><use xlink:href="/themes/custom/ucnews/dist/icons.svg#phone-solid"></use></svg>
+    {{ item.content|render|striptags('a,i,em,b,u,strong')|trim }}
+  </li>
+{% endfor %}

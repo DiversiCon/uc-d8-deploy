@@ -1,0 +1,9 @@
+uuid: 6b5d09d2-d696-4322-91a1-98c5e5b5feb1
+langcode: en
+status: true
+dependencies: {  }
+id: people_grouped_list_group
+label: 'People, Grouped List - Group'
+icon_uuid: null
+description: 'Group of person content to be used by People, Grouped List component.'
+behavior_plugins: {  }

@@ -1,0 +1,18 @@
+uuid: 7fab463c-ea11-4f1d-84d4-e0d9be248b5a
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+id: reusable.field_email
+field_name: field_email
+entity_type: reusable
+type: email
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

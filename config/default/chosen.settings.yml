@@ -1,0 +1,20 @@
+minimum_single: 0
+minimum_multiple: 0
+disable_search_threshold: 0
+minimum_width: 0
+jquery_selector: 'select:visible'
+search_contains: true
+disable_search: false
+allow_single_deselect: true
+placeholder_text_multiple: 'Choose some options'
+placeholder_text_single: 'Choose an option'
+no_results_text: 'No results match'
+disabled_themes:
+  uccollege_anon: uccollege_anon
+  seven: '0'
+  adminimal_theme: '0'
+  admin_uccollege: '0'
+  uccollege: '0'
+chosen_include: 0
+_core:
+  default_config_hash: JUHKHJeHl1bWXY41HMIcDR-VmAWvJ4OJycDubCkIeDU

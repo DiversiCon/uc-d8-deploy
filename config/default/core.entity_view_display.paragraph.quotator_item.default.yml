@@ -1,0 +1,72 @@
+uuid: ce2a64bc-c1a1-4515-a243-908f64aec686
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.quotator_item.field_faculty_reference
+    - field.field.paragraph.quotator_item.field_headline_text
+    - field.field.paragraph.quotator_item.field_image_main
+    - field.field.paragraph.quotator_item.field_label_text
+    - field.field.paragraph.quotator_item.field_single_link
+    - field.field.paragraph.quotator_item.field_subheadline_text
+    - paragraphs.paragraphs_type.quotator_item
+  module:
+    - link
+    - text
+    - uc_cdr_client
+id: paragraph.quotator_item.default
+targetEntityType: paragraph
+bundle: quotator_item
+mode: default
+content:
+  field_faculty_reference:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: uc_cdr_client_external_reference_formatter
+    region: content
+  field_headline_text:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_image_main:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_label_text:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_single_link:
+    weight: 4
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_subheadline_text:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  search_api_excerpt: true

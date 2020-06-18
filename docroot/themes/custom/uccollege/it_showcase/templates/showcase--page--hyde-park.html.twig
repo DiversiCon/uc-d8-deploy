@@ -1,0 +1,84 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+{{ it_showcase_component('masthead', 0) }}
+{{ it_showcase_component('alert', 0) }}
+
+<section class="l-container">
+
+	<article class="c-article">
+		<header class="c-headline">
+			<a href="#" class="c-headline__topic t-heading--topic">About</a>
+			<h1 class="c-headline__heading">Life in Hyde Park</h1>
+			<div class="c-headline__description">
+				<p>The Pritzker School of Medicine is one of the few medical schools in this country to be located physically on the University campus. </p>
+			</div>
+		</header>
+
+		<div class="c-article__media">
+			{{ it_showcase_component('photo', 0) }}
+		</div>
+
+		<div class="c-article__sidebar">
+			<div class="c-sidebar-links">
+				<h2 class="c-sidebar-links__heading">You may also like…</h2>
+				<ul class="c-sidebar-links__content">
+					<li class="c-sidebar-links__item"><a href="#" class="c-sidebar-links__link">Lorem ipsum dolor sit amet adipiscing elit</a></li>
+					<li class="c-sidebar-links__item"><a href="#" class="c-sidebar-links__link">Excepteur sint occaecat cupida proident sunt</a></li>
+					<li class="c-sidebar-links__item"><a href="#" class="c-sidebar-links__link">Nemo enim ipsam voluptat quia voluptas</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="c-article__body">
+			<p>Known for its gothic architecture, the University of Chicago campus in Hyde Park is home to nearly 14,000
+				undergraduate and graduate students and six professional schools.</p>
+
+			<h2>Hyde Park and Chicago</h2>
+			<p>The campus is located in the Hyde Park neighborhood, just seven miles south of downtown Chicago. Hyde
+				Park is a historic area known for its political and social activism, strong sense of community, and many
+				historic and architectural landmarks. It has been cited as one of the most racially and economically
+				integrated urban communities in the United States. Hyde Park boasts dozens of museums and cultural
+				institutions, a wide variety of cafes and bakeries, and a large number of one-of-a-kind shops and
+				independent bookstores. Our neighborhood will soon be home to another distinctive attraction: the Obama
+				Presidential Center.</p>
+		</div>
+
+		<div class="c-article__media">
+			{{ it_showcase_component('gallery', 0) }}
+		</div>
+
+		<div class="c-article__body">
+			<p>Only a twenty minute train or bus ride from downtown Chicago, the city is literally at your doorstep.
+				Chicago is the third-largest metropolitan area in the nation, home to more than 200 theaters and art
+				galleries, 552 parks, and 26 miles of lakefront trails. Students can take advantage of these attractions
+				by using the city's robust public transit system, which includes buses, trains, and the L--our nickname
+				for the elevated rapid transit trains.</p>
+
+			<h2>University of Chicago Medical Center & Facilities</h2>
+			<p>Our students practice medicine in a number of state-of-the-art facilities. The 10-story, 1.2 million
+				square-foot Center for Care and Discovery serves as the core of the medical campus. Additional campus
+				facilities include the Comer Children's Hospital, Duchossois Center for Advanced Medicine, and Mitchell
+				Hospital. We offer clinical experiences at NorthShore University HealthSystem, La Rabida Children's
+				Hospital, and Lake Shore HealthCare and Rehabilitation Centre.</p>
+		</div>
+
+		<div class="c-article__media">
+			{{ it_showcase_component('gmap', 0) }}
+		</div>
+	</article>
+</section>
+
+{{ it_showcase_component('visual_nav', 0) }}
+
+{{ it_showcase_component('footer', 0) }}

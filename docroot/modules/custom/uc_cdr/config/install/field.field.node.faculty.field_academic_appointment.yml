@@ -1,0 +1,46 @@
+uuid: 679434b4-b4f3-47ce-ae5f-4ab3dbe01f3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_academic_appointment
+    - node.type.faculty
+    - paragraphs.paragraphs_type.academic_appointment
+  module:
+    - entity_reference_revisions
+id: node.faculty.field_academic_appointment
+field_name: field_academic_appointment
+entity_type: node
+bundle: faculty
+label: 'Academic Appointment'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      academic_appointment: academic_appointment
+    target_bundles_drag_drop:
+      academic_appointment:
+        enabled: true
+        weight: 7
+      awards:
+        weight: 8
+        enabled: false
+      education_and_training:
+        weight: 9
+        enabled: false
+      graduate_program_websites:
+        weight: 10
+        enabled: false
+      publications:
+        weight: 11
+        enabled: false
+      websites:
+        weight: 12
+        enabled: false
+field_type: entity_reference_revisions

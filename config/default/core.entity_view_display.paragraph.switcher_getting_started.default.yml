@@ -1,0 +1,42 @@
+uuid: 5b731407-c1e3-44f9-a756-18729cb2824f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.switcher_getting_started.field_body
+    - field.field.paragraph.switcher_getting_started.field_headline_text
+    - field.field.paragraph.switcher_getting_started.field_par_paragraphs_four
+    - paragraphs.paragraphs_type.switcher_getting_started
+  module:
+    - entity_reference_revisions
+    - text
+id: paragraph.switcher_getting_started.default
+targetEntityType: paragraph
+bundle: switcher_getting_started
+mode: default
+content:
+  field_body:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_headline_text:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_par_paragraphs_four:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: button
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

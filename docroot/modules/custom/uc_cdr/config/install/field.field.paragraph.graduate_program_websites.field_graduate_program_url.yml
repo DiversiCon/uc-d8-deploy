@@ -1,0 +1,19 @@
+uuid: 5180dd94-35a8-4c6f-aa3a-f370803fa410
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_graduate_program_url
+    - paragraphs.paragraphs_type.graduate_program_websites
+id: paragraph.graduate_program_websites.field_graduate_program_url
+field_name: field_graduate_program_url
+entity_type: paragraph
+bundle: graduate_program_websites
+label: 'Graduate Program URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

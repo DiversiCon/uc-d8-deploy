@@ -1,0 +1,55 @@
+uuid: 897ae3ee-0c60-48fb-9ae8-94049916ad40
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.fact_item.field_body
+    - field.field.paragraph.fact_item.field_content_alignment
+    - field.field.paragraph.fact_item.field_single_link
+    - field.field.paragraph.fact_item.field_title
+    - paragraphs.paragraphs_type.fact_item
+  module:
+    - link
+    - options
+    - text
+id: paragraph.fact_item.default
+targetEntityType: paragraph
+bundle: fact_item
+mode: default
+content:
+  field_body:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_content_alignment:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_single_link:
+    weight: 2
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_title:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  search_api_excerpt: true

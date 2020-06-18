@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Custom link paragraph.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set url = content.field_headline_link.0['#url'] %}
+{% set url_tgt = content.field_headline_link.0['#options']['attributes']['target'] %}
+{% set text = content.field_headline_text %}
+{% set classes = 'c-sidebar-links__link' %}
+
+{% block paragraph %}
+  {% block content %}
+    {% if text|field_value %}
+      {% if url %}
+        <li class="c-sidebar-links__item">
+          <a href="{{ url }}" target="{{ url_tgt }}" class="{{ classes }}">{{ text }}</a>
+        </li>
+      {% else %}
+        {{ text }}
+      {% endif %}
+    {% elseif url %}
+      <li class="c-sidebar-links__item">
+        <a href="{{ url }}" target="{{ url_tgt }}" class="{{ classes }}">{{ url }}</a>
+      </li>
+    {% endif %}
+  {% endblock %}
+{% endblock paragraph %}

@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * Contact form headline
+ *
+ * @see template_preprocess_config_pages()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set headline = content.field_headline_text %}
+{% set desc = content.field_body %}
+<div class="c-headline">
+  <h1 class="c-headline__heading">{{ headline }}</h1>
+  <div class="c-headline__description">
+    {{ desc }}
+  </div>
+</div>

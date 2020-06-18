@@ -1,0 +1,36 @@
+{#
+/**
+ * @file
+ * Item, used inside the Visual Nav component
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set headline_link = content.field_image_link %}
+{% set url = headline_link.0['#url'] %}
+{% set url_tgt = headline_link.0['#options']['attributes']['target'] %}
+{% set title = headline_link.0['#title'] %}
+{% set parent_field = paragraph.get('parent_field_name').getValue()[0]['value'] %}
+
+{% block paragraph %}
+  {% block content %}
+
+    <a href="{{ url }}" target="{{ url_tgt }}">
+      <div class="c-visual-nav__cta">{{ title }}</div>
+
+      <picture>
+        {% if parent_field == 'field_feature_4sq_img_2' %}
+          <source media="(max-width: 767px)" srcset="{{ image.sq }}">
+          <img src="{{ image.two_one }}" alt="{{ image.alt }}">
+        {% else %}
+        <img src="{{ image.sq }}" alt="{{ image.alt }}">
+        {% endif %}
+      </picture>
+
+    </a>
+
+  {% endblock %}
+{% endblock paragraph %}

@@ -1,0 +1,84 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - tile component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+
+.c-tile {
+  @include font-sans;
+  height: 100%;
+  text-align: center;
+
+  a {
+    color: $color-primary;
+  }
+
+  .t-heading--topic {
+    font-size: rem-calc(14);
+  }
+
+  &__title {
+    font-size: rem-calc(24);
+    a {
+      text-decoration: none;
+
+      &:hover,
+      &:focus,
+      &:active {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__img {
+    position: relative;
+
+    &-imagewrap {
+      background: $color-dkgrey;
+      color: $color-black;
+      position: relative;
+      padding-bottom: 100%; //sqaure ratio
+      overflow: hidden;
+      img,
+      .c-icon--phoenix {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      img {
+        display: block;
+        max-width: none;
+        max-height: none;
+        margin: 0 auto;
+        width: 100%; //no cropping of image
+      }
+      .c-icon--phoenix {
+        opacity: 0.5;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__content {
+    padding: rem-calc(18) rem-calc(20) rem-calc(55);
+
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &--inverted {
+    background-color: $color-bg-tertiary;
+    color: $color-white;
+
+    h2,
+    a {
+      color: $color-white;
+    }
+  }
+}

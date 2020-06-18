@@ -1,0 +1,9 @@
+uuid: 391b5fdc-6862-4eb6-a940-b11ce8ef6641
+langcode: en
+status: true
+dependencies: {  }
+id: ranged_stats
+label: 'Ranged Stats'
+icon_uuid: null
+description: 'Displays a series of ranged stats with an optional accompanying headline.'
+behavior_plugins: {  }

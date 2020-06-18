@@ -1,0 +1,19 @@
+uuid: 47c00ea0-0ac2-4869-88ce-2b8e6cc5b801
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - uc_cdr_client
+id: paragraph.field_faculty_reference
+field_name: field_faculty_reference
+entity_type: paragraph
+type: uc_cdr_client_external_reference
+settings: {  }
+module: uc_cdr_client
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

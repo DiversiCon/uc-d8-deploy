@@ -1,0 +1,25 @@
+uuid: ecc12014-bcb3-43ce-be8c-23d24728d69c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cta_text_link.field_par_paragraph_single
+    - paragraphs.paragraphs_type.cta_text_link
+  module:
+    - entity_reference_revisions
+id: paragraph.cta_text_link.default
+targetEntityType: paragraph
+bundle: cta_text_link
+mode: default
+content:
+  field_par_paragraph_single:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: cta_block_link
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

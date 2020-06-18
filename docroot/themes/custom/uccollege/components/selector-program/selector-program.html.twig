@@ -1,0 +1,14 @@
+{#
+/**
+ * selector Twig Partial
+ *
+ */
+#}
+
+<uc-selector-program
+  datasource="{{ content.datasource }}"
+  {% if content.division %}default-division="{{ content.division }}"{% endif %}
+  {% if content.type %}default-type="{{ content.type }}"{% endif %}
+  {% if content.hideDivision %}:hide-division="true"{% endif %}
+  {% if content.hideType %}:hide-type="true"{% endif %}
+></uc-selector-program>

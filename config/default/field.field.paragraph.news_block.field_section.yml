@@ -1,0 +1,29 @@
+uuid: d90c9472-4f3a-41be-a91b-a01ce5ec1b44
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section
+    - paragraphs.paragraphs_type.news_block
+    - taxonomy.vocabulary.section
+id: paragraph.news_block.field_section
+field_name: field_section
+entity_type: paragraph
+bundle: news_block
+label: Section
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      section: section
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

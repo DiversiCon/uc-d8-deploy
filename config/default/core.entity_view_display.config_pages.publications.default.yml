@@ -1,0 +1,35 @@
+uuid: 3f56aa32-07e8-47de-bda8-2f36327dd6bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.publications
+    - field.field.config_pages.publications.field_cp_boolean
+    - field.field.config_pages.publications.field_hide
+id: config_pages.publications.default
+targetEntityType: config_pages
+bundle: publications
+mode: default
+content:
+  field_cp_boolean:
+    weight: 0
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_hide:
+    weight: 1
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+hidden:
+  search_api_excerpt: true

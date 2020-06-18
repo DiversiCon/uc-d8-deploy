@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Feedback webform template
+ *
+ * @see template_preprocess_webform()
+ * @see _webform_form_after_build()
+ *
+ * @ingroup themeable
+ */
+#}
+
+<section class="l-container">
+  <article class="c-article">
+
+    {{ form_headline }}
+
+    <div class="c-article__body">
+      <div class="c-form">
+        <form{{ attributes }}>
+          {{ title_prefix }}
+          {{ children }}
+          {{ title_suffix }}
+        </form>
+      </div>
+    </div>
+  </article>
+</section>

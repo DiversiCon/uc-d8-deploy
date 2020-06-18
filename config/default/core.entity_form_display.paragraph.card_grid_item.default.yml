@@ -1,0 +1,82 @@
+uuid: 2126233f-1d5f-4873-a9dd-0a18e57927ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.media_entity_browser
+    - field.field.paragraph.card_grid_item.field_card_grid_theme
+    - field.field.paragraph.card_grid_item.field_headline_text
+    - field.field.paragraph.card_grid_item.field_image_link
+    - field.field.paragraph.card_grid_item.field_image_main
+    - field.field.paragraph.card_grid_item.field_par_paragraph_single
+    - paragraphs.paragraphs_type.card_grid_item
+  module:
+    - allowed_formats
+    - entity_browser
+    - link_attributes
+    - paragraphs
+    - text
+id: paragraph.card_grid_item.default
+targetEntityType: paragraph
+bundle: card_grid_item
+mode: default
+content:
+  field_headline_text:
+    weight: 102
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_image_link:
+    weight: 501
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+    third_party_settings: {  }
+    type: link_attributes
+    region: content
+  field_image_main:
+    weight: 103
+    settings:
+      entity_browser: media_entity_browser
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: eb_thumb
+      field_widget_replace: false
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  field_par_paragraph_single:
+    weight: 104
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+hidden:
+  created: true
+  field_card_grid_theme: true
+  status: true
+  uid: true

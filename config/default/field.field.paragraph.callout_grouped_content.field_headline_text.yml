@@ -1,0 +1,30 @@
+uuid: 97e58844-caf6-446d-b161-ab34726b2344
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headline_text
+    - paragraphs.paragraphs_type.callout_grouped_content
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.callout_grouped_content.field_headline_text
+field_name: field_headline_text
+entity_type: paragraph
+bundle: callout_grouped_content
+label: 'Callout Section Headline'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

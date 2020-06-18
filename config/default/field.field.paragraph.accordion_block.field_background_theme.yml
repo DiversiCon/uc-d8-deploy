@@ -1,0 +1,21 @@
+uuid: c7b8238e-ca4a-4cbc-99a1-a1974c23f895
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_background_theme
+    - paragraphs.paragraphs_type.accordion_block
+  module:
+    - options
+id: paragraph.accordion_block.field_background_theme
+field_name: field_background_theme
+entity_type: paragraph
+bundle: accordion_block
+label: 'Background Theme'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,23 @@
+uuid: 7ad5ad75-d29f-47dd-9383-aaaafc19c22b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image_link
+    - paragraphs.paragraphs_type.photo_nav_grid_item
+  module:
+    - link
+id: paragraph.photo_nav_grid_item.field_image_link
+field_name: field_image_link
+entity_type: paragraph
+bundle: photo_nav_grid_item
+label: 'Link and Headline'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

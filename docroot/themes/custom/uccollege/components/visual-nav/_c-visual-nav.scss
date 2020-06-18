@@ -1,0 +1,124 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - visual-nav component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-visual-nav {
+  &__container {
+    padding-top: 0;
+    margin-top: rem-calc(-40);
+
+    @include breakpoint(medium) {
+      margin-top: rem-calc(-10);
+    }
+  }
+
+  ul {
+    @include list;
+    display: grid;
+    grid-gap: rem-calc(10);
+    grid-template-rows: auto;
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "cell1"
+      "cell2"
+      "cell3"
+      "cell4";
+    margin: 0 calc(50% - 50vw);
+  }
+
+  @include breakpoint(medium) {
+    overflow: hidden;
+    ul {
+      grid-template-columns: 50% 25% 25%;
+      grid-template-areas:
+        "cell1 cell2 cell2"
+        "cell1 cell3 cell4";
+      margin: 0;
+    }
+  }
+
+  li {
+    overflow: hidden;
+    a {
+      display: block;
+      color: $color-primary;
+      height: 100%;
+      position: relative;
+
+      picture {
+        height: 100%;
+      }
+
+      img {
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+
+    @include breakpoint(large) {
+      max-height: rem-calc(290);
+    }
+  }
+
+  &__cta {
+    background-color: $color-bg-secondary;
+    font-size: rem-calc(14);
+    font-weight: $font-weight-bold;
+    letter-spacing: rem-calc(2.8);
+    padding: rem-calc(11) rem-calc(20);
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-decoration: underline;
+    text-transform: uppercase;
+    white-space: nowrap;
+    z-index: 10;
+
+    a:hover &,
+    a:focus &,
+    a:active & {
+      text-decoration: none;
+    }
+  }
+
+  li.c-visual-nav__cell1 {
+    grid-area: cell1;
+    max-height: rem-calc(590);
+  }
+
+  &__cell2 {
+    grid-area: cell2;
+  }
+
+  &__cell3 {
+    grid-area: cell3;
+  }
+
+  &__cell4 {
+    grid-area: cell4;
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-visual-nav {
+    @include breakpoint(medium) {
+      ul {
+        @include xy-grid();
+
+        li {
+          max-height: inherit;
+        }
+      }
+
+      &__cell1,
+      &__cell2,
+      &__cell3,
+      &__cell4 {
+        @include xy-cell(50%, false);
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Displays a list of courses.
+ *
+ * Available variables:
+ *  courses - Courses associated with the listing.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set headline = paragraph.field_headline_text.value %}
+
+<section class="l-stripe l-stripe--narrow">
+  <uc-accordion-group heading="{{ headline }}" :heading-centered="true" v-cloak>
+    {% for course in courses %}
+      <uc-accordion title="{{ course['#node'].field_course_name.value }}">
+      {{ course }}
+      </uc-accordion>
+    {% endfor %}
+  </uc-accordion-group>
+</section>

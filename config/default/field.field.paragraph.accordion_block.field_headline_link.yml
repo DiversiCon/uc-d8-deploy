@@ -1,0 +1,23 @@
+uuid: 41d20a45-65a0-4fad-996b-cc54e5036fab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headline_link
+    - paragraphs.paragraphs_type.accordion_block
+  module:
+    - link
+id: paragraph.accordion_block.field_headline_link
+field_name: field_headline_link
+entity_type: paragraph
+bundle: accordion_block
+label: 'Headline Link'
+description: 'Optionally wrap the headline in a link'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

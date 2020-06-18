@@ -1,0 +1,122 @@
+visual_nav:
+  title: Visual Navigation
+  description: Displays a grid of photos with text CTAs
+  type: component
+  attributes:
+    category: Images & Media
+  variants:
+  -
+    title: Default
+    content:
+      heading: Get to know us
+      items:
+      -
+        image: "/themes/custom/uccollege/it_showcase/images/visual-nav1.jpg"
+        title: Academics
+        link: "#"
+        cell: 1
+      -
+        image: "/themes/custom/uccollege/it_showcase/images/visual-nav2.jpg"
+        square: "/themes/custom/uccollege/it_showcase/images/visual-nav2-square.jpg"
+        title: Scholarly Opportunities
+        link: "#"
+        cell: 2
+      -
+        image: "/themes/custom/uccollege/it_showcase/images/visual-nav3.jpg"
+        title: Admissions
+        link: "#"
+        cell: 3
+      -
+        image: "/themes/custom/uccollege/it_showcase/images/visual-nav4.jpg"
+        title: Student Life
+        link: "#"
+        cell: 4
+
+  -
+    title: Clinical Departments
+    content:
+      heading: Explore the Biological Sciences Division
+      items:
+      -
+        image: "/themes/custom/uccollege/it_showcase/images/visual-nav-clinical-1.jpg"
+        title: About
+        link: "#"
+        cell: 1
+      -
+        image: "/themes/custom/uccollege/it_showcase/images/visual-nav-clinical-2.jpg"
+        square: "/themes/custom/uccollege/it_showcase/images/visual-nav-clinical-2b.jpg"
+        title: Research
+        link: "#"
+        cell: 2
+      -
+        image: "/themes/custom/uccollege/it_showcase/images/visual-nav-clinical-3.png"
+        title: Education
+        link: "#"
+        cell: 3
+      -
+        image: "/themes/custom/uccollege/it_showcase/images/visual-nav-clinical-4.jpg"
+        title: Our Faculty
+        link: "#"
+        cell: 4
+  -
+    title: Sections & Programs
+    content:
+      heading: Explore Pediatrics
+      items:
+        -
+          image: "/themes/custom/uccollege/it_showcase/images/visual-nav-clinical-1.jpg"
+          title: About
+          link: "#"
+          cell: 1
+        -
+          image: "/themes/custom/uccollege/it_showcase/images/visual-nav-clinical-2.jpg"
+          square: "/themes/custom/uccollege/it_showcase/images/visual-nav-clinical-2b.jpg"
+          title: Research
+          link: "#"
+          cell: 2
+        -
+          image: "/themes/custom/uccollege/it_showcase/images/visual-nav-clinical-3.png"
+          title: Education
+          link: "#"
+          cell: 3
+        -
+          image: "/themes/custom/uccollege/it_showcase/images/visual-nav-clinical-4.jpg"
+          title: People
+          link: "#"
+          cell: 4
+
+  -
+    title: Office of Academic Affairs
+    content:
+      heading: Around the OAA
+      items:
+      -
+        image: "https://via.placeholder.com/768&text=FPO"
+        title: About The OAA
+        link: "#"
+        cell: 1
+      -
+        image: "https://via.placeholder.com/768&text=FPO"
+        square: "https://via.placeholder.com/768&text=FPO"
+        title: Faculty Appointments
+        link: "#"
+        cell: 2
+      -
+        image: "https://via.placeholder.com/768&text=FPO"
+        title: A-Z document list
+        link: "#"
+        cell: 3
+      -
+        image: "https://via.placeholder.com/768&text=FPO"
+        title: Lorem Ipsum
+        link: "#"
+        cell: 4
+
+visual-nav.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: visual_nav.component
+    index_hide: true
+    file: themes/custom/uccollege/components/visual-nav/README.md

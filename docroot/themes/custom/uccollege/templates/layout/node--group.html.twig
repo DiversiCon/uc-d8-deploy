@@ -1,0 +1,127 @@
+{#
+/**
+ * @file
+ * Generic page template
+ *
+ * Available variables:
+ * - hero_component_available: A boolean that indicates if the hero_component has value.
+ *   Due to the nested nature of the paragraph type it takes more than one check to determine this.
+ *
+ * @ingroup themeable
+ */
+#}
+{% set main_media = content.field_image_main %}
+{% set hero_components = content.field_intro_paragraph %}
+
+{% set sidebar = content.field_paragraph_single_3 %}
+{% set sidebar_1 = content.field_paragraph_single_2 %}
+{% set sidebar_2 = content.field_paragraph_single_4 %}
+
+{% set main_body = content.field_par_smartbody %}
+{% set primary_investigator = content.field_lead_faculty %}
+{% set current_research = content.field_description %}
+{% set publications_preview = content.pfield_publications_preview %}
+{% set collaborators = content.field_extra_info %}
+{% set alumni = content.pfield_alumni_list %}
+{% set members = content.pfield_members_list %}
+
+{% set visual_nav = content.field_paragraph_single_0 %}
+{% set switcher = content.field_paragraph_single_1 %}
+
+{{ content.content_moderation_control }}
+
+<section class="l-container">
+  <article class="c-article">
+
+    {% include '@uccollege/components/headline/templates/node--inc--headline.html.twig' %}
+
+    {% if main_media|field_value or hero_component_available %}
+      <div class="c-article__media">
+
+        {% if hero_component_available %}
+          {{ hero_components }}
+        {% else %}
+          {{ main_media }}
+        {% endif %}
+
+      </div>
+    {% endif %}
+
+    {% if sidebar|field_value or sidebar_1|field_value or sidebar_2|field_value %}
+      <div class="c-article__sidebar">
+        {{ sidebar_2 }}
+        {{ sidebar }}
+        {{ sidebar_1 }}
+      </div>
+    {% endif %}
+
+    <div class="c-article__body">
+      {{ main_body }}
+
+      <p class="c-avatar__title">Principal Investigator</p>
+      <figure class="c-avatar">
+        <div class="c-avatar__image">
+          <div class="c-avatar__image-wrap">
+            {% if pi_data.show_photo and pi_data.photo %}
+              <a href="/faculty{{ pi_data.url_alias }}">
+                <img src="{{ pi_data.photo }}" alt="{{ pi_data.name }}">
+              </a>
+            {% else %}
+              <div class="c-avatar__image-placeholder">
+                <a href="/faculty{{ pi_data.url_alias }}">
+                  <svg class="c-icon">
+                    <use xlink:href="/themes/custom/uccollege/dist/icons.svg#phoenix"/>
+                  </svg>
+                </a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+        <figcaption>
+          <p class="c-avatar__title">
+            <a href="/faculty{{ pi_data.url_alias }}">{{ pi_data.name }}</a>
+          </p>
+          <p class="c-avatar__text"><a href="mailto:{{ pi_data.email }}">{{ pi_data.email }}</a></p>
+        </figcaption>
+      </figure>
+
+      <uc-accordion-group v-cloak>
+
+        {% if current_research|render is not empty %}
+          <uc-accordion title="Current Research">
+            {{ current_research }}
+          </uc-accordion>
+        {% endif %}
+
+        {% if members|render is not empty %}
+          <uc-accordion title="Group Members" two-column="true">
+            {{ members }}
+          </uc-accordion>
+        {% endif %}
+
+        {% if publications_preview|render is not empty %}
+          <uc-accordion title="Publications">
+            {{ publications_preview }}
+          </uc-accordion>
+        {% endif %}
+
+        {% if collaborators|render is not empty %}
+          <uc-accordion title="Collaborators">
+            {{ collaborators }}
+          </uc-accordion>
+        {% endif %}
+
+        {% if alumni|render is not empty %}
+          <uc-accordion title="Alumni" two-column="true">
+            {{ alumni }}
+          </uc-accordion>
+        {% endif %}
+
+      </uc-accordion-group>
+    </div>
+  </article>
+</section>
+
+{{ content.field_par_components }}
+{{ visual_nav }}
+{{ switcher }}

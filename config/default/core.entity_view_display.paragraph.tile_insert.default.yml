@@ -1,0 +1,25 @@
+uuid: 52ca27cf-6cd6-4a6e-ab2c-dd567fa75702
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.tile_insert.field_par_paragraph_single
+    - paragraphs.paragraphs_type.tile_insert
+  module:
+    - entity_reference_revisions
+id: paragraph.tile_insert.default
+targetEntityType: paragraph
+bundle: tile_insert
+mode: default
+content:
+  field_par_paragraph_single:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

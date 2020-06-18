@@ -1,0 +1,18 @@
+uuid: 243cd0fd-4765-4b4a-acf1-66cff852686c
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Group
+type: group
+description: 'Lab/Research Groups.<br>Content used to define <em>groups</em> to which people, publications and other content may be assigned.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

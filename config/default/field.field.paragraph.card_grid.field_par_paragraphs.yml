@@ -1,0 +1,199 @@
+uuid: 50716d86-4c19-4c0b-b233-1cd9e0113e0b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_par_paragraphs
+    - paragraphs.paragraphs_type.card_grid
+    - paragraphs.paragraphs_type.card_grid_item
+  module:
+    - entity_reference_revisions
+id: paragraph.card_grid.field_par_paragraphs
+field_name: field_par_paragraphs
+entity_type: paragraph
+bundle: card_grid
+label: Cards
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      card_grid_item: card_grid_item
+    target_bundles_drag_drop:
+      accordion_block:
+        weight: 57
+        enabled: false
+      accordion_item:
+        weight: 58
+        enabled: false
+      callout:
+        weight: 59
+        enabled: false
+      callout_insert:
+        weight: 60
+        enabled: false
+      callout_item_reference:
+        weight: 61
+        enabled: false
+      callout_item_unique:
+        weight: 62
+        enabled: false
+      callout_reference:
+        weight: 63
+        enabled: false
+      card_grid:
+        weight: 64
+        enabled: false
+      card_grid_insert:
+        weight: 65
+        enabled: false
+      card_grid_item:
+        enabled: true
+        weight: 66
+      card_grid_item_reference:
+        weight: 67
+        enabled: false
+      card_grid_reference:
+        weight: 68
+        enabled: false
+      components:
+        weight: 69
+        enabled: false
+      components_lower:
+        weight: 70
+        enabled: false
+      cta_block:
+        weight: 71
+        enabled: false
+      cta_buttons:
+        weight: 72
+        enabled: false
+      cta_text_link:
+        weight: 73
+        enabled: false
+      custom_link:
+        weight: 74
+        enabled: false
+      feature:
+        weight: 75
+        enabled: false
+      date:
+        weight: 76
+        enabled: false
+      feature_4_square_images:
+        weight: 76
+        enabled: false
+      feature_4sq_img_link:
+        weight: 77
+        enabled: false
+      feature_components:
+        weight: 78
+        enabled: false
+      feature_image_link:
+        weight: 79
+        enabled: false
+      feature_insert:
+        weight: 80
+        enabled: false
+      feature_reference:
+        weight: 81
+        enabled: false
+      home_page_grid:
+        weight: 82
+        enabled: false
+      html_text:
+        weight: 83
+        enabled: false
+      news_block:
+        weight: 84
+        enabled: false
+      news_external:
+        weight: 85
+        enabled: false
+      news_inernal:
+        weight: 86
+        enabled: false
+      photo_nav_grid:
+        weight: 87
+        enabled: false
+      photo_nav_grid_item:
+        weight: 88
+        enabled: false
+      program_selector:
+        weight: 89
+        enabled: false
+      pullquote:
+        weight: 90
+        enabled: false
+      quick_links:
+        weight: 91
+        enabled: false
+      quotator_item:
+        weight: 92
+        enabled: false
+      sidebar_gen_related:
+        weight: 93
+        enabled: false
+      sidebar_inquiries:
+        weight: 94
+        enabled: false
+      smartbody:
+        weight: 95
+        enabled: false
+      smartbody_image:
+        weight: 96
+        enabled: false
+      social_grid:
+        weight: 97
+        enabled: false
+      staff_selector:
+        weight: 98
+        enabled: false
+      stats:
+        weight: 99
+        enabled: false
+      stats_insert:
+        weight: 100
+        enabled: false
+      stats_reference:
+        weight: 101
+        enabled: false
+      switcher:
+        weight: 102
+        enabled: false
+      switcher_cta:
+        weight: 103
+        enabled: false
+      switcher_getting_started:
+        weight: 104
+        enabled: false
+      teaser:
+        weight: 105
+        enabled: false
+      teaser_insert:
+        weight: 106
+        enabled: false
+      teaser_reference:
+        weight: 107
+        enabled: false
+      tile:
+        weight: 108
+        enabled: false
+      tile_insert:
+        weight: 109
+        enabled: false
+      tile_reference:
+        weight: 110
+        enabled: false
+      video_html:
+        weight: 111
+        enabled: false
+      visual_nav_insert:
+        weight: 112
+        enabled: false
+field_type: entity_reference_revisions

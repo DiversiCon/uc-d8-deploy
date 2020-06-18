@@ -1,0 +1,21 @@
+uuid: 8e10e321-354b-4dfa-b86e-ed11158b7496
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_headline_theme
+    - node.type.directory
+  module:
+    - options
+id: node.directory.field_headline_theme
+field_name: field_headline_theme
+entity_type: node
+bundle: directory
+label: 'Headline Theme'
+description: 'Optional Headline Theme'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

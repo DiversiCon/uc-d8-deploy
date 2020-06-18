@@ -1,0 +1,30 @@
+{#
+/**
+ * generic Twig Partial
+ *
+ */
+#}
+
+<div class="c-generic">
+  <div class="c-generic__ctn">
+    <h2 class="c-generic__heading">{{ content.heading }}</h2>
+    {% for section in content.sections %}
+      <div class="c-generic__section">
+        {% if section.itemTitle or section.itemText %}
+          <div class="c-generic__item">
+            {% if section.itemTitle %}
+              <h3 class="c-generic__item-title">{{ section.itemTitle }}</h3>
+            {% endif %}
+            {% if section.itemText %}
+              <div class="c-generic__item-text">
+                {% autoescape false %}
+                  {{ section.itemText }}
+                {% endautoescape %}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>

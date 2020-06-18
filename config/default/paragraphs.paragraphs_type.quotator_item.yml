@@ -1,0 +1,9 @@
+uuid: 53928bf8-f051-4c89-8ab9-5f4252347684
+langcode: en
+status: true
+dependencies: {  }
+id: quotator_item
+label: 'Quotator Item'
+icon_uuid: null
+description: 'referenced by the quotator'
+behavior_plugins: {  }

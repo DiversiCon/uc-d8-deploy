@@ -1,0 +1,9 @@
+uuid: e97e9f47-078f-4a25-9195-6f6b5c6d4f9c
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.reusable
+name: Video
+type: video
+description: 'YouTube videos'

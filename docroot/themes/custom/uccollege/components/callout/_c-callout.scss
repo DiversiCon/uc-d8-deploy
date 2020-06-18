@@ -1,0 +1,183 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - callout component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-callout {
+  overflow: hidden;
+  margin: 2rem 0;
+
+  ul {
+    @include list;
+    display: flex;
+    justify-content: center;
+  }
+
+  li {
+    text-align: center;
+    width: 19.65%;
+    margin-right: 6.667%;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  a {
+    color: $color-primary;
+    text-decoration: none;
+
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+
+  &__item-text {
+    @include font-sizes(18, 20);
+    letter-spacing: -0.4px;
+    margin: 0;
+    font-weight: 500;
+
+    span {
+      @include font-sizes(14, 16);
+      display: block;
+      font-weight: $font-weight-normal;
+      margin-top: rem-calc(6);
+    }
+  }
+
+  img {
+    border-radius: 50%;
+    height: auto;
+    margin-bottom: rem-calc(20);
+  }
+
+  .c-icon {
+    color: #000;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+  }
+
+  &.c-callout--rect img {
+    border-radius: 0;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 95%;
+    width: auto;
+
+    @include breakpoint(large) {
+      max-height: 220px;
+      max-width: 220px;
+    }
+  }
+
+  &.c-callout--event,
+  &.c-callout--faculty {
+    ul {
+      li {
+        padding: 0 rem-calc(20);
+
+        @include breakpoint(large) {
+          padding: 0;
+        }
+      }
+    }
+
+    time {
+      display: block;
+      margin-bottom: rem-calc(15);
+
+      .month {
+        display: block;
+        font-size: rem-calc(34);
+      }
+
+      .day {
+        display: block;
+        font-size: rem-calc(70);
+        line-height: rem-calc(65);
+      }
+
+      @include breakpoint(large) {
+        margin-bottom: rem-calc(20);
+      }
+    }
+
+    .c-callout__img {
+      position: relative;
+      padding-bottom: 100%;
+      margin-bottom: rem-calc(20);
+      background: $color-dkgrey;
+      color: $color-black;
+      border-radius: 50%;
+
+      .c-icon,
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    &.swiper-container {
+      padding-right: 80px;
+    }
+  }
+
+  &__text {
+    margin-top: 1rem;
+
+    @include breakpoint(medium down) {
+      padding: 0 rem-calc(20);
+    }
+  }
+
+  // Use this in paragraph(s) directly above
+  // callouts to hide them on mobile, per designs
+  &__intro {
+    @include breakpoint(medium down) {
+      display: none;
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+  }
+
+  @include breakpoint(large) {
+    margin: rem-calc(40) 0;
+
+    &.c-slider.swiper-container {
+      margin-left: rem-calc(-40);
+      margin-right: rem-calc(-40);
+
+      .swiper-button-prev,
+      .swiper-button-next {
+        background-image: none;
+        display: block;
+      }
+    }
+
+    .c-icon--arrow-right,
+    .c-icon--arrow-left {
+      height: rem-calc(23);
+      width: rem-calc(20);
+    }
+
+    .swiper-button-next {
+      right: rem-calc(6);
+    }
+
+    .swiper-button-prev {
+      left: rem-calc(6);
+    }
+
+    .swiper-button-disabled {
+      display: none;
+    }
+  }
+}

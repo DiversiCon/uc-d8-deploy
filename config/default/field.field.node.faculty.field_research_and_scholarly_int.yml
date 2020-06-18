@@ -1,0 +1,29 @@
+uuid: 9c07a8af-4b7c-4973-83db-0920f1031b04
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_research_and_scholarly_int
+    - node.type.faculty
+    - taxonomy.vocabulary.faculty_keywords
+id: node.faculty.field_research_and_scholarly_int
+field_name: field_research_and_scholarly_int
+entity_type: node
+bundle: faculty
+label: 'Research and Scholarly Interest Keywords'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      faculty_keywords: faculty_keywords
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

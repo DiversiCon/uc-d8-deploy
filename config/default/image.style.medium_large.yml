@@ -1,0 +1,17 @@
+uuid: 5eb6ab0b-b314-4bf7-a3a5-408691e3015d
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: medium_large
+label: 'Medium-Large (470x470)'
+effects:
+  6648c876-a9d5-4908-866b-b2cd1e7d4e84:
+    uuid: 6648c876-a9d5-4908-866b-b2cd1e7d4e84
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 470
+      height: 470
+      crop_type: focal_point

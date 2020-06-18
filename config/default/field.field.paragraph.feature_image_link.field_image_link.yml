@@ -1,0 +1,23 @@
+uuid: 1b88a781-9c53-465e-97cd-498b49314b49
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image_link
+    - paragraphs.paragraphs_type.feature_image_link
+  module:
+    - link
+id: paragraph.feature_image_link.field_image_link
+field_name: field_image_link
+entity_type: paragraph
+bundle: feature_image_link
+label: 'Image link'
+description: 'Optionally add a link'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

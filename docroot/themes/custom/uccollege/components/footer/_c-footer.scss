@@ -1,0 +1,188 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - footer component
+// This is the global footer at the very bottom of all pages.
+//
+
+.c-footer {
+  background: $color-white;
+  color: $color-black;
+  max-width: $default-max-width;
+  padding: rem-calc(30) rem-calc(20);
+
+  &__content {
+    display: grid;
+    grid-gap: 0;
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "ftContact"
+      "ftLinks"
+      "ftLogo";
+    font-size: rem-calc(14);
+    border-top: 2px solid;
+    padding-top: rem-calc(32);
+    margin: 0 auto;
+
+    .c-footer--hasLogo & {
+      grid-template-areas:
+        "ftContact"
+        "ftLinks"
+        "ftLogo";
+    }
+  }
+  &__contact {
+    grid-area: ftContact;
+    padding: 0 0 rem-calc(30) rem-calc(40);
+    position: relative;
+    .c-footer--hasLogo & {
+      padding-bottom: 0;
+    }
+    p {
+      margin: 0;
+    }
+    .c-footer__icon.c-icon,
+    .c-footer__icon .c-icon-container svg {
+      width: rem-calc(25);
+      height: rem-calc(31);
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &-name,
+    &-office {
+      font-size: rem-calc(16);
+      font-weight: $font-weight-bold;
+    }
+    &-office,
+    &-citystate,
+    &-phone {
+      padding-bottom: rem-calc(14);
+    }
+    p.c-footer__dept {
+      margin-bottom: rem-calc(26);
+      a {
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+  &__links {
+    @include list(emdash);
+    grid-area: ftLinks;
+    border-top: 2px solid $color-primary;
+    border-bottom: 2px solid $color-primary;
+    padding: rem-calc(27) 0;
+    margin: 0 0 rem-calc(27) 0;
+  }
+  &__link {
+    padding-left: 1.5rem;
+    a {
+      color: $color-black;
+      &:hover,
+      &:focus,
+      &:active {
+        color: $color-maroon;
+        text-decoration: none;
+      }
+    }
+    &:not(:last-child) {
+      margin-bottom: rem-calc(14);
+    }
+  }
+  &__social {
+    @include list(inline);
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+
+    .c-footer--hasLogo & {
+      margin: rem-calc(24) 0 0 rem-calc(-22);
+    }
+
+    &-link {
+      display: block;
+      color: $color-black;
+      border-bottom: 3px solid transparent;
+      padding: 0 rem-calc(16) rem-calc(16);
+      &:hover,
+      &:focus,
+      &:active {
+        color: $color-black;
+        border-color: $color-maroon;
+      }
+
+      @include breakpoint(medium) {
+        padding: 0 rem-calc(20) rem-calc(20);
+      }
+    }
+  }
+
+  &__logo {
+    display: none;
+    grid-area: ftLogo;
+
+    svg {
+      height: rem-calc(78);
+      width: rem-calc(153);
+    }
+
+    img {
+      display: block;
+      max-width: rem-calc(153);
+      width: auto;
+      height: auto;
+    }
+
+    .c-footer--hasLogo & {
+      display: block;
+    }
+  }
+
+  @include breakpoint(large) {
+    padding: rem-calc(40);
+    &__content {
+      grid-template-columns: 45% 30.83% 1fr;
+      grid-template-areas: "ftContact ftLinks ftLogo";
+      font-size: 1rem;
+      padding-top: rem-calc(40);
+
+      .c-footer--hasLogo & {
+        grid-template-areas: "ftContact ftLinks ftLogo";
+      }
+    }
+    &__contact {
+      padding-left: rem-calc(76);
+      .c-footer__icon.c-icon,
+      .c-footer__icon .c-icon-container svg {
+        width: rem-calc(61);
+        height: rem-calc(74);
+      }
+    }
+    &__links {
+      border: 0;
+      margin-top: 0;
+      padding-top: 0;
+    }
+    &__logo {
+      text-align: right;
+    }
+    &__social {
+      border-top: 0;
+      padding-top: 0;
+      justify-content: flex-end;
+
+      .c-footer--hasLogo & {
+        margin: rem-calc(30) 0 0 rem-calc(-22);
+        padding: 0;
+        justify-content: flex-start;
+      }
+      &-link {
+        padding: 0 rem-calc(13) rem-calc(13);
+      }
+    }
+  }
+
+  @include breakpoint(xlarge) {
+    .c-footer--hasLogo &__content {
+      grid-template-columns: 53.33% 30.83% 1fr;
+    }
+  }
+}

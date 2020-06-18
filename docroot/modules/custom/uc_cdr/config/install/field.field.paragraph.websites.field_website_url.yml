@@ -1,0 +1,19 @@
+uuid: 26cadbfd-2ac0-447a-973f-18f3f1d72d82
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_website_url
+    - paragraphs.paragraphs_type.websites
+id: paragraph.websites.field_website_url
+field_name: field_website_url
+entity_type: paragraph
+bundle: websites
+label: 'Website URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

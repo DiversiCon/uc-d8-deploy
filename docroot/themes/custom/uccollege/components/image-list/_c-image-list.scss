@@ -1,0 +1,64 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - image-list component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+// This files should be included by src/sass/components/_components.scss
+
+.c-image-list {
+  padding: rem-calc(20);
+  &__heading,
+  &__subheading {
+    font-size: rem-calc(18);
+    margin-bottom: rem-calc(19);
+  }
+  &__heading {
+    margin-bottom: rem-calc(38);
+  }
+  &__list {
+    @include list();
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__item {
+    width: 50%;
+    margin-bottom: rem-calc(20);
+  }
+  &__img {
+    width: 100%;
+    max-width: 92px;
+    margin: 0 auto;
+  }
+  .c-article__body & {
+    padding: 0;
+  }
+
+  @include breakpoint(petite) {
+    &__img {
+      max-width: 130px;
+    }
+  }
+
+  @include breakpoint(medium) {
+    &__item {
+      width: 25%;
+      .c-article__body & {
+        width: 50%;
+      }
+    }
+  }
+
+  @include breakpoint(large) {
+    &__item {
+      .c-article__body & {
+        width: 25%;
+      }
+    }
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-image-list {
+    // sass linter doesn't like empty blocks :)
+  }
+}

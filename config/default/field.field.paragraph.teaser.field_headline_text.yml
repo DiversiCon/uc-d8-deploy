@@ -1,0 +1,30 @@
+uuid: 4f7e798a-722a-4c58-b4d5-91683d4127ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headline_text
+    - paragraphs.paragraphs_type.teaser
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.teaser.field_headline_text
+field_name: field_headline_text
+entity_type: paragraph
+bundle: teaser
+label: 'Teaser Headline'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

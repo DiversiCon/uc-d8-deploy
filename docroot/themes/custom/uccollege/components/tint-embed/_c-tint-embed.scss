@@ -1,0 +1,18 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - tint-embed component
+// Add basic info on the component here. Add more
+// detailed info to this folder's README.md
+
+.c-tint-embed {
+  &__wrap {
+    padding: 0 rem-calc(20);
+
+    @include breakpoint(medium) {
+      padding: rem-calc(20) rem-calc(40);
+    }
+  }
+
+  &__heading {
+    text-align: center;
+  }
+}

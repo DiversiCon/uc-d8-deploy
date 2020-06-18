@@ -1,0 +1,10 @@
+uuid: 87db39c5-3cbf-491d-a3ed-eec7e7434039
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.smartbody_view
+label: 'Smartbody View'
+targetEntityType: paragraph
+cache: true

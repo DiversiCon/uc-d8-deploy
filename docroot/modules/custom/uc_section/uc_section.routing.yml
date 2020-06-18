@@ -1,0 +1,14 @@
+uc_section.landing.alias_confirm:
+  path: '/admin/section/landing/alias/confirm'
+  defaults:
+    _title: 'Confirm section landing page alias updates'
+    _form: '\Drupal\uc_section\Form\LandingAliasConfirmForm'
+  requirements:
+    _permission: 'create and edit url aliases'
+uc_section.section_autocomplete:
+  path: '/api/v1/section/autocomplete/{target_type}/{selection_handler}/{selection_settings_key}'
+  defaults:
+    _controller: '\Drupal\uc_section\Controller\SectionAutocompleteController::handleAutocomplete'
+  requirements:
+    # Unrestricted access OK.
+    _access: 'TRUE'

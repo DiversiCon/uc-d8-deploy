@@ -1,0 +1,23 @@
+uuid: f44bb58e-49ba-465e-b92c-3851e331deb8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link_single
+    - node.type.person
+  module:
+    - link
+id: node.person.field_link_single
+field_name: field_link_single
+entity_type: node
+bundle: person
+label: 'Full Profile Link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

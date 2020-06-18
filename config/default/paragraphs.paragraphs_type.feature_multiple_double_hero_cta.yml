@@ -1,0 +1,9 @@
+uuid: 12233846-cb2e-46cd-93a7-ee0bcb0b57a3
+langcode: en
+status: true
+dependencies: {  }
+id: feature_multiple_double_hero_cta
+label: 'Feature, Multiple Double Hero CTA'
+icon_uuid: null
+description: 'Displays multiple double hero components.'
+behavior_plugins: {  }

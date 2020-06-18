@@ -1,0 +1,20 @@
+{#
+/**
+ * @file
+ * Accordion sidebar item.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set heading = content.field_headline_text|field_value|render %}
+{% set bool_open = paragraph.field_bool_intro_toggle.value %}
+{% set item_content = content.field_body %}
+
+<uc-accordion
+    title="{{ heading|convertQuotes }}"
+    :open="{{ bool_open }}">
+  {{ item_content }}
+</uc-accordion>

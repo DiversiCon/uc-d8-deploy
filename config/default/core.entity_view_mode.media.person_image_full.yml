@@ -1,0 +1,10 @@
+uuid: e4c15d43-67ed-4572-b1fe-5f2b186e11e6
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.person_image_full
+label: 'Person Image, Full'
+targetEntityType: media
+cache: true

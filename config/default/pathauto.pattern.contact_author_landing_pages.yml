@@ -1,0 +1,23 @@
+uuid: 855b64e4-e37a-4acc-baf7-251f4003232b
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - eck
+id: contact_author_landing_pages
+label: 'Contact/Author Landing Pages'
+type: 'canonical_entities:reusable'
+pattern: 'stories/author/[reusable:title]'
+selection_criteria:
+  1b94e36b-cfac-4e02-b4ba-d4ace3a9e346:
+    id: 'entity_bundle:reusable'
+    bundles:
+      contacts: contacts
+    negate: false
+    context_mapping:
+      reusable: reusable
+    uuid: 1b94e36b-cfac-4e02-b4ba-d4ace3a9e346
+selection_logic: and
+weight: -5
+relationships: {  }

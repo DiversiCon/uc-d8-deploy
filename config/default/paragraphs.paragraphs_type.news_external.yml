@@ -1,0 +1,9 @@
+uuid: 53369f15-a3a5-476c-aed2-81fe4ddbcc33
+langcode: en
+status: true
+dependencies: {  }
+id: news_external
+label: 'News, External'
+icon_uuid: null
+description: 'Reference an external feed of news items'
+behavior_plugins: {  }

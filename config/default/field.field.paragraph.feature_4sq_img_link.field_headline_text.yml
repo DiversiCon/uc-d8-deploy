@@ -1,0 +1,29 @@
+uuid: 28d60b12-5075-4793-ba16-cf84cd57624f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headline_text
+    - paragraphs.paragraphs_type.feature_4sq_img_link
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    smartbody: '0'
+    basic_html: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: paragraph.feature_4sq_img_link.field_headline_text
+field_name: field_headline_text
+entity_type: paragraph
+bundle: feature_4sq_img_link
+label: 'Image title'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

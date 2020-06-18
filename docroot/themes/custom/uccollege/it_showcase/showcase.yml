@@ -1,0 +1,1202 @@
+#
+# Showcase Item Definition
+#
+# You may place a showcase.yml file in any subdirectory in the default theme directory.  Each showcase.yml file may
+# define multiple items including components, pages and endpoints.
+#
+# Use the following structure to define showcase items that can be rendered in the Showcase.
+#   primary_key:  the primary key of each section is equivalent to the machine_name of the Drupal component.
+#     title:  component title, used in showcase index and as page title of the showcase page.
+#     description:  component description used in showcase index.
+#     type: component|endpoint|page
+#     enabled:  true|false, if not enabled the component will not be included in Showcase.
+#     attributes: array of attributes
+#       category: comma separate list of values used for categorization
+#       thumbnail: thumbnail image
+#       sidebar: true|false (only applies to components)
+#       full_page: true|false (only applies to pages)
+#       body_class: optional classes to add to the page
+#     variants:  array of variants (pages and endpoints only expect one variant)
+#       -
+#         title: string value (only useful for components)
+#         caption: string value (only useful for components)
+#         content:
+#           field:  value
+#           ...
+#       ...
+#
+# The following provides examples for creating components, pages and endpoints in the showcase.
+#
+
+containers:
+  title: Layout Containers
+  description: Various high-level containers that will contain other components.
+  type: component
+  attributes:
+    category: Layout
+  variants:
+  -
+    title: Layout Containers
+    description: Various high-level containers that will contain other components.
+    content:
+
+grid_4up:
+  title: Grid, 4-up
+  description: "2-column, 2-row grid used on the homepage"
+  type: component
+  attributes:
+    category: Layout
+  variants:
+  -
+    title: Default
+    content:
+
+grid_2up:
+  title: Grid, 2-up
+  description: "2-column, 1-row grid used on landing pages"
+  type: component
+  attributes:
+    category: Layout
+  variants:
+  -
+    title: Default
+    content:
+
+grid_1col:
+  title: Grid, 1-column
+  description: "1-column layout, 900px wide on desktop"
+  type: component
+  attributes:
+    category: Layout
+  variants:
+  -
+    title: Default
+    content:
+
+grid_article:
+  title: Article Grid
+  description: "Multi-column grid for generic template pages"
+  type: component
+  attributes:
+    category: Layout
+  variants:
+  -
+    title: Default
+    content:
+
+
+#
+# Showcase Pages
+#
+# Use the following to define pages that can be rendered in the Showcase.
+#
+#   primary_key:  the primary key of each section is equivalent to the machine_name of the Drupal page.
+#     title:  page title.
+#     description:  page description used in showcase index.
+#     enabled:  true|false, if not enabled the page will not be included in Showcase.
+#     full_page:  true|false, true=render page without site header/footer, false=use site header/footer.
+#
+
+homepage:
+  title: Homepage
+  description:
+  type: page
+  enabled: true
+  links:
+  - text: Desktop
+    link: https://zpl.io/VOml8dY
+    target: _blank
+  - text: Mobile
+    link: https://zpl.io/boZweNZ
+    target: _blank
+  attributes:
+    full_page: false
+    body_class: 'page-node-type-home'
+  variants:
+    -
+      content:
+
+homepage_bsd:
+  title: Homepage BSD
+  description:
+  type: page
+  enabled: true
+  links:
+  - text: Desktop
+    link: https://zpl.io/VxRy533
+    target: _blank
+  - text: Mobile
+    link: https://zpl.io/2yzLk1p
+    target: _blank
+  attributes:
+    full_page: false
+    body_class: 'page-node-type-home'
+  variants:
+    -
+      content:
+
+homepage_department:
+  title: Homepage Department
+  description:
+  type: page
+  enabled: true
+  links:
+    - text: Desktop
+      link: https://zpl.io/VYK3RYe
+      target: _blank
+  attributes:
+    full_page: false
+    body_class: 'page-node-type-home'
+  variants:
+    -
+      content:
+
+homepage_pme:
+  title: PME Homepage
+  description:
+  type: page
+  enabled: true
+  links:
+    - text: Desktop
+      link: https://zpl.io/VYKj6PJ
+      target: _blank
+    - text: Mobile
+      link: https://zpl.io/a7Oq7NE
+      target: _blank
+  attributes:
+    full_page: false
+    body_class: 'page-node-type-home'
+    category: PME
+  variants:
+    -
+      content:
+
+homepage_pme_breaking:
+  title: PME Breaking News Homepage
+  description:
+  type: page
+  enabled: true
+  links:
+    - text: Desktop
+      link: https://zpl.io/Vx08JYk
+      target: _blank
+    - text: Mobile
+      link: https://zpl.io/agQeoyZ
+      target: _blank
+  attributes:
+    full_page: false
+    body_class: 'page-node-type-home'
+    category: PME
+  variants:
+    -
+      content:
+
+maintmode:
+  title: Maintenance Mode
+  description: Built-in Drupal page that is displayed when the site is in Maintenance Mode.
+  type: page
+  enabled: true
+  links: { }
+  attributes:
+    full_page: true
+    body_class: 'maintenance-page'
+  variants:
+  -
+    content:
+
+about:
+  title: About
+  description:
+  type: page
+  links:
+  - text: Desktop
+    link: https://zpl.io/bWklx0j
+    target: _blank
+  - text: Mobile
+    link: https://zpl.io/brldZ6L
+    target: _blank
+  variants:
+  -
+    content:
+      feature:
+        imgtype: single
+        heading: About
+        text: '<p><strong>A message from the Dean Boyer. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</strong></p> <p><a href="#" class="c-cta-link">More from the Dean</a></p>  <uc-accordion-group v-cloak> <uc-accordion title="Quick Links" :mobile-only="true" tag="p"> <ul> <li><a href="#">Lorem ipsum dolor</a></li> <li><a href="#">Sit amet consectetur</a></li> <li><a href="#">Adipiscing labore</a></li> <li><a href="#">Tempor incididunt elit</a></li> </ul> </uc-accordion> </uc-accordion-group>'
+        flipped: false
+        image:
+          file: "/themes/custom/uccollege/it_showcase/images/intro-policies.jpg"
+          link: "#"
+
+about_variation:
+  title: About Variation
+  description:
+  type: page
+  links:
+  - text: Desktop
+    link: https://zpl.io/aXw6KYl
+    target: _blank
+  - text: Mobile
+    link: https://zpl.io/am9KLNA
+    target: _blank
+
+  variants:
+  -
+    content:
+      feature:
+        imgtype: single
+        heading: About
+        flipped: false
+        text: '<p><strong>We create new knowledge of living systems, train the next generation of leaders in biology and medicine, and advance the forefront of healthy through innovative patient care.</strong></p><p>We are committed to our tripartite mission of advancing research, education, and patient care. Our basic translational and clinical research enterprise is characterized by a fundamental commitment to original inquiry, innovation and discovery. Distinguished educational programs that prepare the next generation of scholars, clinicians and leaders in biology and academic medicine are at the heart of what makes us unique.</p><h3 class="t-heading--list">Quick Links</h3><ul><li><a href="#">Deans Welcome</a></li><li><a href="#">Leadership</a></li><li><a href="#">Our History</a></li><li><a href="#">Maps & Directions</a></li><li><a href="#">Give</a></li></ul>'
+        image:
+          file: "https://via.placeholder.com/768&text=FPO"
+          link: "#"
+
+about_deans:
+  title: About Our Deans
+  description:
+  type: page
+  links:
+  - text: Desktop
+    link: https://zpl.io/bA4YjWB
+    target: _blank
+  - text: Mobile
+    link: https://zpl.io/aN9RZ8n
+    target: _blank
+  variants:
+  -
+    content:
+
+academics:
+  title: Academics
+  description:
+  type: page
+  links:
+  - text: Desktop
+    link: https://zpl.io/adPlJ5n
+    target: _blank
+  - text: Mobile
+    link: https://zpl.io/a8PX01J
+    target: _blank
+  variants:
+  -
+    content:
+
+admissions:
+  title: Admissions
+  description:
+  type: page
+  links:
+  - text: Desktop
+    link: https://zpl.io/bWklxEe
+    target: _blank
+  - text: Mobile
+    link: https://zpl.io/a8PX00J
+    target: _blank
+  variants:
+  -
+    content:
+
+clinical_departments:
+  title: Clinical Departments
+  description:
+  type: page
+  links:
+  - text: Desktop
+    link: https://zpl.io/2jvEy56
+    target: _blank
+  - text: Mobile
+    link: https://zpl.io/aBBNe9L
+    target: _blank
+  variants:
+  -
+    content:
+
+community_service:
+  title: Community Service
+  description:
+  type: page
+  links:
+    - text: Desktop
+      link: https://zpl.io/2Zkd9KE
+      target: _blank
+    - text: Mobile
+      link: https://zpl.io/aM9YB3K
+      target: _blank
+  variants:
+    -
+      content:
+
+council:
+  title: Dean's Council
+  description:
+  type: page
+  links:
+    - text: Desktop
+      link: https://zpl.io/2Zkd9KE
+      target: _blank
+    - text: Mobile
+      link: https://zpl.io/aM9YB3K
+      target: _blank
+  variants:
+    -
+      content:
+        headline:
+          heading: '2018-2019 Dean’s Council Student Representatives'
+
+courses:
+  title: First Year Courses
+  description:
+  type: page
+  attributes:
+    body_class: 'page-node-type-directory'
+  links:
+    - text: Desktop
+      link: https://zpl.io/bld7WG0
+      target: _blank
+  variants:
+    -
+      content:
+        headline:
+          heading: 'First Year Courses'
+          description: '<p>Courses are organized by the quarter in which they are taught. Follow the links on each course name to obtain a brief description of the content.</p>'
+
+education:
+  title: Education
+  description:
+  type: page
+  links:
+  - text: Desktop
+    link: https://zpl.io/V0RlzPE
+    target: _blank
+  - text: Mobile
+    link: https://zpl.io/VKPl1Eq
+    target: _blank
+
+  variants:
+  -
+    content:
+      feature:
+        imgtype: single
+        heading: Education
+        flipped: false
+        text: '<p><strong>Known for rigorous scholarship and interdisciplinary collaborations, our offerings include undergraduate, graduate, medical, and postgraduate programs.</strong></p><p>Our consolidated campus, fully integrated within the University, enables our basic science and clinical faculty to teach at every educational level.</p><h3 class="t-heading--list">Quick Links</h3><ul><li><a href="#">Lorem ipsum dolor</a></li><li><a href="#">Sit amet consectetur</a></li><li><a href="#">Lorem ipsum</a></li></ul>'
+        image:
+          file: "https://via.placeholder.com/768&text=FPO"
+          link: "#"
+
+entering_class:
+  title: Entering Class
+  description:
+  type: page
+  links:
+    - text: Desktop
+      link: https://zpl.io/beLl0Eq
+      target: _blank
+    - text: Mobile
+      link: https://zpl.io/VD4X0mw
+      target: _blank
+  variants:
+    -
+      content:
+
+event-list:
+  title: Events List
+  description: Generic event list with search field
+  type: page
+  links:
+    - text: Desktop
+      link: https://zpl.io/bWgoJ9j
+      target: _blank
+    - text: Mobile
+      link: https://zpl.io/bWgGR71
+      target: _blank
+  variants:
+    -
+      content:
+        headline:
+          heading: 'Pritzker Events'
+          topic: 'Student Life'
+          topicUrl: '#'
+          description: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean enim ex, dictum blandit.</p>'
+
+event-list-featured:
+  title: Featured Events List
+  description: Featured Event list with 4-up image blocks
+  type: page
+  links:
+    - text: Desktop
+      link: https://zpl.io/a3g5Lkl
+      target: _blank
+    - text: Mobile
+      link: https://zpl.io/2jvq47O
+      target: _blank
+  variants:
+    -
+      content:
+        headline:
+          heading: 'Pritzker Events'
+          topic: 'Student Life'
+          topicUrl: '#'
+          description: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean enim ex, dictum blandit.</p>'
+
+event-featured:
+  title: Featured Events Grid
+  description: Featured Event grid with 3 per row (2 on mobile)
+  type: page
+  links:
+    - text: Desktop
+      link: https://zpl.io/aXwAedg
+      target: _blank
+    - text: Mobile
+      link: https://zpl.io/V1zGXLm
+      target: _blank
+  variants:
+    -
+      content:
+        headline:
+          heading: 'Featured Events'
+          topic: 'Pritzker Events'
+          topicUrl: '#'
+          description: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean enim ex, dictum blandit.</p>'
+
+event-callout:
+  title: Event Callout
+  description: Featured event callout.
+  type: page
+  links:
+    - text: Desktop
+      link: https://zpl.io/a3g5LYl
+      target: _blank
+  variants:
+    -
+      content:
+
+event-detail:
+  title: Event Detail
+  description: Full Event detail page
+  type: page
+  links:
+    - text: Desktop
+      link: https://zpl.io/2vK9wGv
+      target: _blank
+    - text: Mobile
+      link: https://zpl.io/aMKA0ZN
+      target: _blank
+  attributes:
+    body_class: 'page-node-type-event'
+  variants:
+    -
+      content:
+        headline:
+          heading: 'Coggeshall: Ice Skating, Cookies and Cocoa!'
+          topic: 'Student Life'
+          topicUrl: '#'
+          status: 'updated'  
+        event:
+          image: '/themes/custom/uccollege/it_showcase/images/hero-hydepark-768.jpg'
+          title: 'Coggeshall: Ice Skating, Cookies and Cocoa!'
+          status: updated
+          when: 'Saturday, December 1, 2018 3:30 – 5:30 p.m.'
+          where: '<a href="#">Midway Skating Rink.</a> On the midway between University and Ellis'
+          description: "Coggeshall takes the ice at the rink on Midway Plaisance with cookies from Fabiana's and hot chocolate from Starbucks. Warm up with us afterwards at the Pub for some appetizers and Society cheer!"
+          contact: '<a href="#">Pritzker School of Medicine</a>'
+          tags:
+            - name: Meetings
+              link: '#'
+            - name: Another
+              link: '#'
+          notes: "Persons with disabilities who need an accommodation in order to participate in this event should contact the event sponsor for assistance. For events on the <a href=\"#\">Student Events Calendar</a>, please contact ORCSA at (773) 702-8787. <a href=\"#\">Information on Assistive Listening Device</a>"
+
+contact:
+  title: Contact
+  description:
+  type: page
+  links:
+  - text: Desktop
+    link: https://zpl.io/V0JY9Rx
+    target: _blank
+  - text: Mobile
+    link: https://zpl.io/V1wYy9X
+    target: _blank
+  variants:
+  -
+    content:
+      headline:
+        heading: 'Contact Us'
+        description: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean enim dictum blandit. </p>'
+        topic: About
+        topicUrl: "#"
+
+history:
+  title: Facts & History
+  description:
+  type: page
+  links:
+    - text: Desktop
+      link: https://zpl.io/2G94P3E
+      target: _blank
+    - text: Mobile
+      link: https://zpl.io/VkwkZ1q
+      target: _blank
+  variants:
+    -
+      content:
+
+hyde_park:
+  title: Life in Hyde Park
+  description:
+  type: page
+  links:
+  - text: Desktop
+    link: https://zpl.io/2Zko5gJ
+    target: _blank
+  - text: Mobile
+    link: https://zpl.io/aBqYmqK
+    target: _blank
+  variants:
+  -
+    content:
+
+leadership:
+  title: Leadership
+  description:
+  type: page
+  links:
+    - text: Desktop
+      link: https://zpl.io/2Zko5gJ
+      target: _blank
+    - text: Mobile
+      link: https://zpl.io/andPzjv
+      target: _blank
+  variants:
+    -
+      content:
+        headline:
+          heading: 'Leadership'
+          topic: About
+          topicUrl: "#"
+
+news:
+  title: News
+  description:
+  type: page
+  links:
+  - text: Desktop
+    link: https://zpl.io/2jPBjKO
+    target: _blank
+  - text: Mobile
+    link: https://zpl.io/a3KY36x
+    target: _blank
+  variants:
+  -
+    content:
+      list:
+        heading: "Pritzker News"
+        description: "<p>Eros fringilla adipiscing interdum a sit in tempor a lacinia dui parturient adipiscing ullamcorper sociis parturient et.</p>"
+
+news-nosidebar:
+  title: News, no sidebar
+  description:
+  type: page
+  links:
+    - text: Desktop
+      link: https://zpl.io/VqKd114
+      target: _blank
+    - text: Mobile
+      link: https://zpl.io/a8p5EEQ
+      target: _blank
+  variants:
+    -
+      content:
+        list:
+          heading: "News"
+          description: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean enim dictum blandit. </p>"
+          sidebar: false
+
+
+patient_care:
+  title: Patient Care
+  description:
+  type: page
+  links:
+  - text: Desktop
+    link: https://zpl.io/a75zpop
+    target: _blank
+  - text: Mobile
+    link: https://zpl.io/a3ez8EA
+    target: _blank
+  variants:
+  -
+    content:
+      feature:
+        imgtype: single
+        heading: Patient Care
+        flipped: false
+        text: '<p><strong>At the forefront of medicine since its founding in 1927, UChicago Medicine also includes University of Chicago Pritzker School of Medicine and the University of Chicago Medical Center. <em>US News & World Report</em> consistently ranks our hospitals among the best in the nation and our medical school as one of the top 10 in the country.</strong></p><h3 class="t-heading--list">Quick Links</h3><ul><li><a href="#">The University of Chicago Medicine</a></li><li><a href="#">UChicago Medicine Conditions and Services</a></li><li><a href="#">Clinical Trials</a></li><li><a href="#">Patient Services</a></li></ul>'
+        image:
+          file: "https://via.placeholder.com/768&text=FPO"
+          link: "#"
+        logo:
+          src: "https://via.placeholder.com/200x100&text=FPO"
+          alt: "Alt Text"
+
+publications:
+  title: Publications
+  description:
+  type: page
+  attributes:
+    body_class: 'page-node-type-directory'
+  links:
+    - text: Desktop
+      link: https://zpl.io/brvMxeX
+      target: _blank
+  variants:
+    -
+      content:
+        headline:
+          heading: 'Publications'
+          theme: 'lg'
+          topic: "Sarosh Rana"
+          topicUrl: "#"
+
+publications_pme:
+  title: PME Publications
+  description:
+  type: page
+  attributes:
+    body_class: 'page-node-type-directory'
+    category: PME
+  links:
+    - text: Desktop
+      link: https://zpl.io/brvMxeX
+      target: _blank
+  variants:
+    -
+      content:
+        headline:
+          heading: 'Publications'
+          theme: 'lg'
+          topic: "Sarosh Rana"
+          topicUrl: "#"
+
+research:
+  title: Research
+  description:
+  type: page
+  links:
+  - text: Desktop
+    link: https://zpl.io/brW7Gn3
+    target: _blank
+  - text: Mobile
+    link: https://zpl.io/bJ9PEQD
+    target: _blank
+  variants:
+  -
+    content:
+      feature:
+        imgtype: single
+        heading: Research
+        text: '<p><strong>Research in the Biological Sciences Division includes a broad spectrum of basic, clinical, translational and community spanning 10 basic science and 11 clinical departments along with multiple interdisciplinary Institutes and Centers.</strong></p> <p>Our long standing eminence in the Darwinian brings distinction to diverse programs ranging from the study of the microbiome-immunity and wellness, evolutionary cell biology, health-care data science, and genetic medicine, as examples.</p> <h3 class="t-heading--list">Quick Links</h3><ul><li><a href="#">Basic Science Departments</a></li><li><a href="#">Clinical Departments</a></li><li><a href="#">Office of the Dean for Basic Science</a></li><li><a href="#">Institute for Translational Medicine</a></li><li><a href="#">Office of Clinical Research</a></li></ul>'
+        flipped: false
+        image:
+          file: "https://via.placeholder.com/768&text=FPO"
+          link: "#"
+
+scholarly_opportunities:
+  title: Scholarly Opportunities
+  description:
+  type: page
+  links:
+    - text: Desktop
+      link: https://zpl.io/V0J8BBo
+      target: _blank
+    - text: Mobile
+      link: https://zpl.io/25wXBBn
+      target: _blank
+  variants:
+    -
+      content:
+
+science_departments:
+  title: Science Departments
+  description:
+  type: page
+  links:
+  - text: Desktop
+    link: https://zpl.io/bWgryN1
+    target: _blank
+  - text: Mobile
+    link: https://zpl.io/29OyJJy
+    target: _blank
+  variants:
+  -
+    content:
+
+search:
+  title: Search Results
+  description:
+  type: page
+  links:
+  - text: Desktop
+    link: https://zpl.io/V1wYJ6Z
+    target: _blank
+  - text: Mobile
+    link: https://zpl.io/2Goe76W
+    target: _blank
+  variants:
+  -
+    content:
+
+student_life:
+  title: Student Life
+  description:
+  type: page
+  links:
+  - text: Desktop
+    link: https://zpl.io/2GoMk0m
+    target: _blank
+  - text: Mobile
+    link: https://zpl.io/VQ9gm34
+    target: _blank
+  variants:
+  -
+    content:
+
+error:
+  title: Error Page
+  description: Page for the errors (404, 403)
+  type: page
+  links:
+  - text: Desktop
+    link: https://zpl.io/bzWngLX
+    target: _blank
+  - text: Mobile
+    link: https://zpl.io/2ymyAPy
+    target: _blank
+  variants:
+  -
+    content:
+
+faculty_index:
+  title: Faculty Index
+  description:
+  type: page
+  links:
+    - text: Desktop
+      link: https://zpl.io/25GQNw0
+      target: _blank
+    - text: Mobile
+      link: https://zpl.io/VqK4jv4
+      target: _blank
+  variants:
+    -
+      content:
+        headline:
+          heading: 'Our Faculty'
+          theme: 'lg'
+
+faculty_index_pme:
+  title: PME Faculty Directory
+  description:
+  type: page
+  links:
+    - text: Desktop
+      link: https://zpl.io/aMPMxO3
+      target: _blank
+    - text: Mobile
+      link: https://zpl.io/2yqmjG9
+      target: _blank 
+  attributes:
+    category: PME    
+  variants:
+    -
+      content:
+        headline:
+          topic: 'People'
+          heading: 'Faculty Directory'
+          description: 'The Institute for Molecular Engineering team is made up of researchers and innovators who each bring a unique skill set and expertise.'
+          theme: 'lg'
+
+faculty_index_bysection:
+  title: Faculty Index, Default Department
+  description: Dropdown filters by section
+  type: page
+  links:
+    - text: Desktop
+      link: https://zpl.io/25GQNw0
+      target: _blank
+    - text: Mobile
+      link: https://zpl.io/VqK4jv4
+      target: _blank
+  variants:
+    -
+      content:
+        headline:
+          heading: 'Our Faculty'
+          theme: 'lg'
+
+faculty_index_nodropdown:
+  title: Faculty Index, Default Department, No dropdown
+  description:
+  type: page
+  links:
+    - text: Desktop
+      link: https://zpl.io/25GQNw0
+      target: _blank
+    - text: Mobile
+      link: https://zpl.io/VqK4jv4
+      target: _blank
+  variants:
+    -
+      content:
+        headline:
+          heading: 'Our Faculty'
+          theme: 'lg'
+
+faculty_profile:
+  title: Faculty Profile
+  description:
+  type: page
+  links:
+  - text: Desktop
+    link: https://zpl.io/2pnNGno
+    target: _blank
+  - text: Mobile
+    link: https://zpl.io/2jvOJxx
+    target: _blank
+  variants:
+  -
+    content:
+      feature:
+        imgtype: single
+        heading: Sarosh Rana, MD, MPH
+        topic: Our Faculty
+        topiclink: "#"
+        factcard:
+          name: Chief, Section of Maternal-Fetal Medicine Professor of Obstetrics and Gynecology
+          items:
+            -
+              icon:
+              label: Clinical Interests
+              url:
+              text: Preeclampsia, Pregnancy & Childbirth, Maternal-Fetal Medicine (High-Risk Pregnancy Care,Hypertension in Pregnancy, Targeted Ultrasounds, Maternal-Fetal Medicine, OB/GYN
+            -
+              icon:
+              label: Research and Scholarly Interests
+              url:
+              text: <a href="#">Angiogenic factors</a>, <a href="#">Preeclampsia</a>, <a href="#">Maternal morbidity</a>
+            -
+              icon:
+              label: Websites
+              url:
+              text: '<a href="#">Rana Preeclampsia lab</a>'
+            -
+              icon:
+              label: Contact
+              url:
+              text: '<a href="mailto:srana2@bsd.uchicago.edu">srana2@bsd.uchicago.edu</a><span>(773) 702-5200</span>'
+            -
+              icon:
+              label: Graduate Program Affiliation
+              url:
+              text: '<a href="#">Cancer Biology</a>'
+        image:
+          file: "https://via.placeholder.com/768&text=FPO"
+          link: "#"
+      accordion:
+        columns: 1
+        items:
+        -
+          heading: Education & Training
+          html:
+            - "<p><strong>Medical School</strong><br>Jawaharlal Nehru Medical College, Aligarh, India</p><p><strong>Internship</strong><br>Jawaharlal Nehru Medical College, Aligarh, India (Internal Medicine)<br><br>Mayo Clinic, Rochester, MN (General Surgery)</p>"
+            - "accordion content here 2"
+        -
+          heading: Accordion Two
+          html: "accordion content here"
+        -
+          heading: Accordion Three
+          html:
+            - "<a href='#'>accordion</a> content here"
+            - "accordion content here 2"
+
+faculty_profile_no_sidebar:
+  title: Faculty Profile - No Sidebar
+  description:
+  type: page
+  links:
+  - text: Desktop
+    link: https://zpl.io/2pnNGno
+    target: _blank
+  - text: Mobile
+    link: https://zpl.io/2jvOJxx
+    target: _blank
+  variants:
+  -
+    content:
+      feature:
+        imgtype: single
+        heading: Sarosh Rana, MD, MPH
+        topic: Our Faculty
+        topiclink: "#"
+        factcard:
+          name: Chief, Section of Maternal-Fetal Medicine Professor of Obstetrics and Gynecology
+          items:
+            -
+              icon:
+              label: Clinical Interests
+              url:
+              text: Preeclampsia, Pregnancy & Childbirth, Maternal-Fetal Medicine (High-Risk Pregnancy Care,Hypertension in Pregnancy, Targeted Ultrasounds, Maternal-Fetal Medicine, OB/GYN
+            -
+              icon:
+              label: Research and Scholarly Interests
+              url:
+              text: <a href="#">Angiogenic factors</a>, <a href="#">Preeclampsia</a>, <a href="#">Maternal morbidity</a>
+            -
+              icon:
+              label: Websites
+              url:
+              text: '<a href="#">Rana Preeclampsia lab</a>'
+            -
+              icon:
+              label: Contact
+              url:
+              text: 'srana2@bsd.uchicago.edu<span>(773) 702-5200</span>'
+            -
+              icon:
+              label: Graduate Program Affiliation
+              url:
+              text: '<a href="#">Cancer Biology</a>'
+        image:
+          file: "https://via.placeholder.com/768&text=FPO"
+          link: "#"
+      accordion:
+        columns: 1
+        items:
+        -
+          heading: Education & Training
+          html:
+            - "<p><strong>Medical School</strong><br>Jawaharlal Nehru Medical College, Aligarh, India</p><p><strong>Internship</strong><br>Jawaharlal Nehru Medical College, Aligarh, India (Internal Medicine)<br><br>Mayo Clinic, Rochester, MN (General Surgery)</p>"
+            - "accordion content here 2"
+        -
+          heading: Accordion Two
+          html: "accordion content here"
+        -
+          heading: Accordion Three
+          html:
+            - "<a href='#'>accordion</a> content here"
+            - "accordion content here 2"
+
+faculty_profile_pme:
+  title: PME Faculty Profile
+  description:
+  type: page
+  links:
+  - text: Desktop
+    link: https://zpl.io/2pnNGno
+    target: _blank
+  - text: Mobile
+    link: https://zpl.io/2jvOJxx
+    target: _blank
+  attributes:
+    category: PME 
+  variants:
+  -
+    content:
+      feature:
+        imgtype: single
+        heading: David Awschalom
+        topic: Faculty Directory
+        topiclink: "#"
+        factcard:
+          name: Liew Family Professor in Molecular Engineering and Deputy Director for Space, Infrastructure, and Facilities
+          items:
+            -
+              icon:
+              label: Research Topics
+              url:
+              text: Spintronics, Solid-state Quantum Information Processing, Magnetic Semicounductors, Nanomagnetism, Time-Resolved Magneto-Optical Spectroscopy
+            -
+              icon:
+              label: Research and Scholarly Interests
+              url:
+              text: <a href="#">Angiogenic factors</a>, <a href="#">Preeclampsia</a>, <a href="#">Maternal morbidity</a>
+            -
+              icon:
+              label: Websites
+              url:
+              text: '<a href="#">Awschalom Group</a>'
+            -
+              icon:
+              label: Contact
+              url:
+              text: '<a href="mailto:awsch@uchicago.edu">awsch@uchicago.edu</a><span>(773)702-7746</span>'
+        image:
+          file: "https://via.placeholder.com/768&text=FPO"
+          link: "#"
+      accordion:
+        columns: 1
+        items:
+        -
+          heading: Current Research
+          html:
+            - "<p><strong>Tempus vestibulum hac</strong> orci a a fames interdum sit scelerisque parturient a elit mattis varius risus tincidunt hac.</p>"
+            - "accordion content here 2"
+        -
+          heading: Accordion Two
+          html: "accordion content here"
+        -
+          heading: Accordion Three
+          html:
+            - "<a href='#'>accordion</a> content here"
+            - "accordion content here 2"
+
+faculty_profile_no_sidebar_pme:
+  title: PME Faculty Profile - No Sidebar
+  description:
+  type: page
+  links:
+  - text: Desktop
+    link: https://zpl.io/2pnNGno
+    target: _blank
+  - text: Mobile
+    link: https://zpl.io/2jvOJxx
+    target: _blank
+  attributes:
+    category: PME  
+  variants:
+  -
+    content:
+      feature:
+        imgtype: single
+        heading: David Awschalom
+        topic: Faculty Directory
+        topiclink: "#"
+        factcard:
+          name: Liew Family Professor in Molecular Engineering and Deputy Director for Space, Infrastructure, and Facilities
+          items:
+            -
+              icon:
+              label: Research Topics
+              url:
+              text: Spintronics, Solid-state Quantum Information Processing, Magnetic Semicounductors, Nanomagnetism, Time-Resolved Magneto-Optical Spectroscopy
+            -
+              icon:
+              label: Research and Scholarly Interests
+              url:
+              text: <a href="#">Angiogenic factors</a>, <a href="#">Preeclampsia</a>, <a href="#">Maternal morbidity</a>
+            -
+              icon:
+              label: Websites
+              url:
+              text: '<a href="#">Awschalom Group</a>'
+            -
+              icon:
+              label: Contact
+              url:
+              text: '<a href="mailto:awsch@uchicago.edu">awsch@uchicago.edu</a><span>(773)702-7746</span>'
+        image:
+          file: "https://via.placeholder.com/768&text=FPO"
+          link: "#"
+      accordion:
+        columns: 1
+        items:
+        -
+          heading: Current Research
+          html:
+            - "<p><strong>Tempus vestibulum hac</strong> orci a a fames interdum sit scelerisque parturient a elit mattis varius risus tincidunt hac.</p>"
+            - "accordion content here 2"
+        -
+          heading: Accordion Two
+          html: "accordion content here"
+        -
+          heading: Accordion Three
+          html:
+            - "<a href='#'>accordion</a> content here"
+            - "accordion content here 2"
+
+faculty-callout:
+  title: Faculty Callout
+  description: Faculty callouts.
+  type: page
+  variants:
+    -
+      content:
+
+dean_bio:
+  title: Dean Bio
+  description:
+  type: page
+  links:
+  - text: Desktop
+    link: https://zpl.io/VqK8Ql7
+    target: _blank
+  - text: Mobile
+    link: #
+    target: _blank
+  variants:
+  -
+    content:
+
+person_profile_pme:
+  title: PME Person Profile
+  description:
+  type: page
+  links:
+  - text: Desktop
+    link: https://zpl.io/anykoDY
+    target: _blank
+  - text: Mobile
+    link: https://zpl.io/bekq5Nm
+    target: _blank
+  attributes:
+    category: PME
+    body_class: 'page-node-type-person'
+  variants:
+  -
+    content:
+
+deans_welcome:
+  title: Dean's Welcome
+  description:
+  type: page
+  links:
+  - text: Desktop
+    link: https://zpl.io/boKnAZG
+    target: _blank
+  - text: Mobile
+    link: #
+    target: _blank
+  variants:
+  -
+    content:
+
+sections_programs:
+  title: Sections & Programs
+  description:
+  type: page
+  links:
+  - text: Desktop
+    link: https://zpl.io/a313ZAl
+    target: _blank
+  - text: Mobile
+    link: https://zpl.io/VOxod6Y
+    target: _blank
+  variants:
+  -
+    content:
+
+process_guidelines:
+  title: Process Guidelines
+  description:
+  type: page
+  links:
+  - text: Desktop
+    link: https://zpl.io/29O31Oz
+    target: _blank
+  - text: Mobile
+    link: #
+    target: _blank
+  variants:
+  -
+    content:

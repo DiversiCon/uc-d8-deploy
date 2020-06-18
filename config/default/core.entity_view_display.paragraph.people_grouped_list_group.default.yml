@@ -1,0 +1,32 @@
+uuid: 4aaefd5e-d2e9-4d1b-8073-052c3ca98928
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.people_grouped_list_group.field_group_title
+    - field.field.paragraph.people_grouped_list_group.field_person_reference_ultd
+    - paragraphs.paragraphs_type.people_grouped_list_group
+  module:
+    - text
+id: paragraph.people_grouped_list_group.default
+targetEntityType: paragraph
+bundle: people_grouped_list_group
+mode: default
+content:
+  field_group_title:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_person_reference_ultd:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  search_api_excerpt: true

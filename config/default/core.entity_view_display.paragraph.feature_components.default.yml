@@ -1,0 +1,25 @@
+uuid: 15d651ea-6b1e-44b2-974f-e88da93df51b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.feature_components.field_par_paragraphs
+    - paragraphs.paragraphs_type.feature_components
+  module:
+    - entity_reference_revisions
+id: paragraph.feature_components.default
+targetEntityType: paragraph
+bundle: feature_components
+mode: default
+content:
+  field_par_paragraphs:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

@@ -1,0 +1,28 @@
+uuid: 1eef5ed0-aee2-43a4-8318-6027b96f8f85
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.events
+    - eck.eck_type.reusable.callout_grouped_content
+    - field.storage.config_pages.field_callout
+id: config_pages.events.field_callout
+field_name: field_callout
+entity_type: config_pages
+bundle: events
+label: 'Featured Events Callout'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:reusable'
+  handler_settings:
+    target_bundles:
+      callout_grouped_content: callout_grouped_content
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: callout
+field_type: entity_reference

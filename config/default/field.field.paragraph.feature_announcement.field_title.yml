@@ -1,0 +1,19 @@
+uuid: 57eeb1a8-f350-47c0-9f3a-42403b4119d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.feature_announcement
+id: paragraph.feature_announcement.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: feature_announcement
+label: Tag
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

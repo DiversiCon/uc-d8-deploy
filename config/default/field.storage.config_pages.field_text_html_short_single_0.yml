@@ -1,0 +1,20 @@
+uuid: 7da16110-889b-4420-b291-0b21b548ca3a
+langcode: en
+status: true
+dependencies:
+  module:
+    - config_pages
+    - text
+id: config_pages.field_text_html_short_single_0
+field_name: field_text_html_short_single_0
+entity_type: config_pages
+type: text
+settings:
+  max_length: 999
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

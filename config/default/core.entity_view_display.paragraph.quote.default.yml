@@ -1,0 +1,49 @@
+uuid: 78d83caf-0d0a-4cb1-802e-8103a784d9bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.quote.field_description_plaintext
+    - field.field.paragraph.quote.field_image_main
+    - field.field.paragraph.quote.field_number_text
+    - field.field.paragraph.quote.field_title
+    - paragraphs.paragraphs_type.quote
+id: paragraph.quote.default
+targetEntityType: paragraph
+bundle: quote
+mode: default
+content:
+  field_description_plaintext:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_image_main:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: feature_4sq_view
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_number_text:
+    weight: 4
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_title:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  search_api_excerpt: true

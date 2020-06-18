@@ -1,0 +1,9 @@
+{% set heading = content.field_headline_text %}
+{% set desc = content.field_eck_title %}
+
+{% if heading[0] %}
+  <strong class="c-stats__number">{{ heading }}</strong>
+{% endif %}
+{% if desc[0] %}
+  <p class="c-stats__text">{{ desc }}</p>
+{% endif %}

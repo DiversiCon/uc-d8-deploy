@@ -1,0 +1,47 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+
+{{ it_showcase_component('masthead', 0) }}
+{{ it_showcase_component('alert', 0) }}
+
+<section class="l-container">
+  <div class="grid-4up grid-4up--hide-bottom-quadrants">
+    <div class="grid-4up__cell1">
+      {{ it_showcase_component('video_background', 6) }}
+    </div>
+
+    <div class="grid-4up__cell2 grid-internal">
+      {{ it_showcase_component('quotator', 2) }}
+      {{ it_showcase_component('sidebar-facts', 2) }}
+    </div>
+  </div>
+</section>
+
+{{ it_showcase_component('feature', 27) }}
+
+<section class="l-stripe s-bg-tertiary">
+  <h3 class="t-heading--medium">Events</h3>
+
+  {{ it_showcase_component('callout', 16) }}
+
+  <a class="c-cta-link" href="#">Explore All Events</a>
+</section>
+
+{{ it_showcase_component('feature', 28) }}
+
+{{ it_showcase_component('feature', 29) }}
+
+{{ it_showcase_component('teaser', 8) }}
+
+{{ it_showcase_component('footer', 0) }}

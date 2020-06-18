@@ -1,0 +1,33 @@
+uuid: 88d16c57-f077-4514-85a6-535395cb469e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.flickr_gallery.field_flickr_id
+    - field.field.paragraph.flickr_gallery.field_photoset_id
+    - paragraphs.paragraphs_type.flickr_gallery
+id: paragraph.flickr_gallery.default
+targetEntityType: paragraph
+bundle: flickr_gallery
+mode: default
+content:
+  field_flickr_id:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_photoset_id:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

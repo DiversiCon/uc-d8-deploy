@@ -1,0 +1,19 @@
+uuid: 8bc86654-32f1-40d4-a8b3-fc5cb0546547
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+    - text
+id: taxonomy_term.field_biography
+field_name: field_biography
+entity_type: taxonomy_term
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

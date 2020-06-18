@@ -1,0 +1,11 @@
+uuid: ad56f7a1-66b6-4417-8d15-b174d8a0ac12
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.publication
+id: node_type_publication
+action: access_denied
+allow_override: 0
+redirect: ''
+redirect_code: 301

@@ -1,0 +1,59 @@
+
+it_showcase.index:
+  path: 'it/showcase'
+  defaults:
+    _controller: '\Drupal\it_showcase\Controller\ShowcaseController::showIndex'
+    _title: 'Showcase'
+  requirements:
+    _permission: 'access showcase pages'
+
+it_showcase.summary:
+  path: 'it/showcase/summary'
+  defaults:
+    _controller: '\Drupal\it_showcase\Controller\ShowcaseController::showSummary'
+    _title: 'Showcase Summary'
+  requirements:
+    _permission: 'access showcase pages'
+
+it_showcase.item:
+  path: 'it/showcase/{type}/{id}'
+  defaults:
+    _controller: '\Drupal\it_showcase\Controller\ShowcaseController::showItem'
+    _title: 'Showcase Item'
+  methods:  [GET]
+  requirements:
+    _permission: 'access showcase pages'
+
+it_showcase.readme:
+  path: 'it/showcase/readme'
+  defaults:
+    _controller: '\Drupal\it_showcase\Controller\ShowcaseController::showReadMe'
+    _title: 'Showcase Readme'
+  requirements:
+    _permission: 'access showcase pages'
+
+it_showcase.status:
+  path: 'it/showcase/status'
+  defaults:
+    _controller: '\Drupal\it_showcase\Controller\ShowcaseController::showStatus'
+    _title: 'Showcase Status'
+  requirements:
+    _permission: 'access showcase pages'
+
+it_showcase.api.list:
+  path: 'it/showcase/api/v1/list'
+  defaults:
+    _controller: '\Drupal\it_showcase\Controller\ShowcaseController::apiList'
+    _title: 'Showcase List API Endpoint'
+  requirements:
+    _permission: 'access showcase pages'
+
+it_showcase.refresh:
+  path: 'it/showcase/refresh'
+  defaults:
+    _controller: '\Drupal\it_showcase\Controller\ShowcaseController::refreshData'
+    _title: 'Showcase Refresh'
+  options:
+    no_cache: TRUE
+  requirements:
+    _permission: 'access showcase pages'

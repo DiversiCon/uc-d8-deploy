@@ -1,0 +1,9 @@
+uuid: aa2e5c30-3cad-4a03-affb-cce61656037b
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.reusable
+name: Feature
+type: feature
+description: 'Re-usable "feature" content, used on the homepage for example'

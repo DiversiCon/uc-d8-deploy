@@ -1,0 +1,9 @@
+uuid: d0db5763-c309-460a-b6b0-a36155a36f37
+langcode: en
+status: true
+dependencies: {  }
+id: link_list
+label: 'Link List'
+icon_uuid: null
+description: 'Provides a list of links.'
+behavior_plugins: {  }

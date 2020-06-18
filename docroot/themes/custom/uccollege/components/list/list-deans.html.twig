@@ -1,0 +1,92 @@
+{#
+/**
+ * list-filter Twig Partial
+ *
+ */
+#}
+
+
+<div class="c-list {% if content.style %}c-list--{{ content.style }}{% endif %}">
+	<div class="c-list__content-wrap c-content c-content--sidebar-right">
+		<section class="c-list__content">
+
+			<uc-accordion-group
+					v-cloak
+					:single="{{ content.single|default('false') }}"
+					:columns="{{ content.columns|default('1') }}">
+
+			<!--list items go here-->
+			{% for item in content.items %}
+				<uc-accordion
+						title="{{ item.title|convertQuotes }}"
+						subtitle="{{ item.positions }}"
+						:open="false"
+						:inset-image="true"
+						:mobile-only="true"
+						tag="{{ item.tag|default('h3') }}">
+				<div class="c-list__item">
+
+					<!--image-->
+					<div class="c-list__item-image">
+						<a href="{{ item.url }}" class="c-list__item-imagelink">
+							<div class="c-list__item-imagewrap">
+								<svg class="c-icon">
+									<use xlink:href="/themes/custom/uccollege/dist/icons.svg#phoenix" />
+								</svg>
+								{% if item.img %}
+									<img src="{{ item.img }}" alt="{{ item.alt }}" />
+								{% endif %}
+							</div>
+						</a>
+					</div>
+					<!--text-->
+					<div class="c-list__item-text">
+						<h3 class="c-list__item-title"><a href="{{ item.url }}" class="c-list__item-titlelink">{{ item.title }}</a></h3>
+						{% if item.positions %}
+							<p class="c-list__item-subtitle">
+								{% autoescape false %}
+								{{ item.positions }}
+								{% endautoescape %}
+							</p>
+						{% endif %}
+
+						{% if item.description %}
+							<div class="c-list__item-description">
+								{% if item.email %}
+									<p><a href="mailto:{{item.email}}">{{item.email}}</a></p>
+								{% endif %}
+
+								{% autoescape false %}
+									{{ item.description }}
+								{% endautoescape %}
+
+								<ul class="">
+									<li><a href="{{ item.url }}">{{ item.urlText }}</a></li>
+								</ul>
+							</div>
+						{% endif %}
+
+					</div>
+				</div>
+				</uc-accordion>
+			{% endfor %}
+			</uc-accordion-group>
+		</section>
+
+
+		<div class="c-content__sidebar c-list__sidebar">
+			<div class="c-sidebar-links s-bg">
+				<h2 class="c-sidebar-links__heading">Quick Links</h2>
+				<ul class="c-sidebar-links__content">
+					<li class="c-sidebar-links__item"><a href="#" class="c-sidebar-links__link">Contact Us</a></li>
+					<li class="c-sidebar-links__item"><a href="#" class="c-sidebar-links__link">How to Apply</a></li>
+					<li class="c-sidebar-links__item"><a href="#" class="c-sidebar-links__link">Check Application Status</a></li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+

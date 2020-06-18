@@ -1,0 +1,21 @@
+uc_sauce.home:
+  path: 'home'
+  defaults:
+    _controller: '\Drupal\uc_sauce\Controller\HomeController::showHome'
+    _title: 'Home'
+  requirements:
+    _permission: 'access content'
+uc_sauce.settings.gmap:
+  path: '/admin/config/system/gmap-settings'
+  defaults:
+    _form: '\Drupal\uc_sauce\Form\GoogleMapSettingsForm'
+    _title: 'Google Map Settings'
+  requirements:
+    _permission: 'administer site configuration'
+
+uc_sauce.custom_link_autocomplete:
+  path: '/custom_link_autocomplete/{target_type}/{selection_handler}/{selection_settings_key}'
+  defaults:
+    _controller: '\Drupal\uc_sauce\Controller\CustomLinkAutocompleteController::handleAutocomplete'
+  requirements:
+    _access: 'TRUE'

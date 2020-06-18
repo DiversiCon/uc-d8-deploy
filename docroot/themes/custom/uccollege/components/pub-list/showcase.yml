@@ -1,0 +1,50 @@
+pub-list:
+  title: Pub List
+  description: List of Publications
+  type: component
+  variants:
+  -
+    title: Pub List
+    caption:
+    content:
+      items:
+      -
+#        url: "https://www.ncbi.nlm.nih.gov/pubmed/30920918"
+        title: "Preeclampsia"
+        authors: "Rana S, Lemoine E, Granger J, Karumanchi SA."
+        publication: "Circ Res. 2019 Mar 29;124(7):1094-1112. doi: 10.1161/CIRCRESAHA.118.313276."
+        pub_id: "PMID: 30920918"
+      -
+        url: "https://www.ncbi.nlm.nih.gov/pubmed/30798660"
+        title: "Angiogenic Factor Estimation as a Warning Sign of Preeclampsia-Related Peripartum Morbidity Among Hospitalized Patients."
+        authors: "Lopes Perdigao J, Chinthala S, Mueller A, Minhas R, Ramadan H, Nasim R, Naseem H, Young D, Shahul S, Chan SL, Yeo KJ, Rana S."
+        publication: "Hypertension. 2019 Apr;73(4):868-877. doi: 10.1161/HYPERTENSIONAHA.118.12205."
+        pub_id: "PMID: 30798660"
+      -
+        url: "https://www.ncbi.nlm.nih.gov/pubmed/30577972"
+        title: "Hypertensive Diseases of Pregnancy Increase Risk of Readmission With Heart Failure: A National Readmissions Study "
+        authors: "Nizamuddin J, Gupta A, Patel V, Minhaj M, Nizamuddin SL, Mueller AL, Naseem H, Tung A, Rana S, Shahul S."
+        publication: "Mayo Clin Proc. 2018 Dec 19. pii: S0025-6196(18)30681-5. doi: 10.1016/j.mayocp.2018.08.032. [Epub ahead of print]"
+        pub_id: "PMID: 30577972"
+      -
+        url: "https://www.ncbi.nlm.nih.gov/pubmed/30527096"
+        title: "Association of antepartum blood pressure levels and angiogenic profile among women with chronic hypertension"
+        authors: "Minhas R, Young D, Naseem R, Mueller A, Chinthala S, Perdigao JL, Yeo KJ, Chan SL, Tung A, White JB, Shahul S, Rana S."
+        publication: "Pregnancy Hypertens. 2018 Oct;14:110-114. doi: 10.1016/j.preghy.2018.09.003. Epub 2018 Sep 5."
+        pub_id: "PMID: 30527096"
+      -
+        url: "https://www.ncbi.nlm.nih.gov/pubmed/30177034"
+        title: "Angiogenic biomarkers in triage and risk for preeclampsia with severe features"
+        authors: "Rana S, Salahuddin S, Mueller A, Berg AH, Thadhani RI, Karumanchi SA."
+        publication: "Pregnancy Hypertens. 2018 Jul;13:100-106. doi: 10.1016/j.preghy.2018.05.008. Epub 2018 May 25."
+        pub_id: "PMID: 30177034"  
+        
+
+pub-list.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: pub-list.component
+    index_hide: true
+    file: themes/custom/uccollege/components/pub-list/README.md

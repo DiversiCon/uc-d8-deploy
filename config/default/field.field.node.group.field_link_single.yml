@@ -1,0 +1,23 @@
+uuid: 6c3102ef-ab07-40bb-a6f7-47e459994e17
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link_single
+    - node.type.group
+  module:
+    - link
+id: node.group.field_link_single
+field_name: field_link_single
+entity_type: node
+bundle: group
+label: 'External Group Link'
+description: 'Optional link to an external group web page.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

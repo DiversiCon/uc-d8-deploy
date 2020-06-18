@@ -1,0 +1,9 @@
+uuid: b354c843-60c7-4b3e-9200-207504b82c1f
+langcode: en
+status: true
+dependencies: {  }
+id: accordion_sidebar
+label: 'Accordion Sidebar, Unique'
+icon_uuid: null
+description: 'Display an accordion in the sidebar.'
+behavior_plugins: {  }

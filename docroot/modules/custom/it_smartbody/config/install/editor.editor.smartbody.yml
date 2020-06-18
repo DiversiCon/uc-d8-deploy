@@ -1,0 +1,53 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.smartbody
+  module:
+    - ckeditor
+_core:
+  default_config_hash: 6Oz8sbdYBqlX3PuzG-jpHYY5EuhWD5oVyW-MEI7qdSM
+format: smartbody
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formatting
+          items:
+            - Bold
+            - Italic
+        -
+          name: Links
+          items:
+            - DrupalLink
+            - DrupalUnlink
+        -
+          name: Lists
+          items:
+            - BulletedList
+            - NumberedList
+        -
+          name: Media
+          items:
+            - Blockquote
+            - DrupalImage
+            - smartbodycomp
+        -
+          name: Tools
+          items:
+            - Source
+  plugins:
+    language:
+      language_list: un
+    stylescombo:
+      styles: ''
+image_upload:
+  status: false
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

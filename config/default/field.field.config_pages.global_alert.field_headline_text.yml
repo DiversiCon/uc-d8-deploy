@@ -1,0 +1,30 @@
+uuid: dc30c3a6-ca4c-403d-a5a2-dffe41500226
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.global_alert
+    - field.storage.config_pages.field_headline_text
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: config_pages.global_alert.field_headline_text
+field_name: field_headline_text
+entity_type: config_pages
+bundle: global_alert
+label: Headline
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

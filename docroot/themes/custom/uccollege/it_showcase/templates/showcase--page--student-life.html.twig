@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ */
+#}
+{{ it_showcase_component('masthead', 0) }}
+
+{{ it_showcase_component('feature', 8) }}
+
+<section class="l-stripe s-bg-tertiary">
+  <h2 class="t-heading--medium">Pritzker Events</h2>
+  <p class="c-callout__intro">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt dolore aliqua. </p>
+
+  {{ it_showcase_component('callout', 8) }}
+
+	<a class="c-cta-link" href="#">Explore All Pritzker Events</a>
+</section>
+
+{{ it_showcase_component('feature', 9) }}
+{{ it_showcase_component('feature', 10) }}
+
+<section class="l-stripe s-bg-secondary">
+	<h2 class="t-heading--medium">Balancing your life at Pritzker</h2>
+	<p class="c-callout__intro">Take the time to pursue other interests, participate in a wide variety of activities and connect with others at Pritzker. </p>
+
+	{{ it_showcase_component('callout', 9) }}
+
+	<a class="c-cta-link" href="#">Explore All Student Organizations</a>
+</section>
+
+{{ it_showcase_component('feature', 11) }}
+{{ it_showcase_component('feature', 12) }}
+
+{{ it_showcase_component('footer', 0) }}

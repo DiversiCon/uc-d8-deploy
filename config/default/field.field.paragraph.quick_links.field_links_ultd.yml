@@ -1,0 +1,23 @@
+uuid: 72365a4f-f176-45b1-9f41-ed71f62af069
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_links_ultd
+    - paragraphs.paragraphs_type.quick_links
+  module:
+    - link
+id: paragraph.quick_links.field_links_ultd
+field_name: field_links_ultd
+entity_type: paragraph
+bundle: quick_links
+label: Links
+description: 'If title and URL are blank <b>on save</b>, they will be removed automatically'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

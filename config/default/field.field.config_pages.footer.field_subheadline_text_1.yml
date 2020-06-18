@@ -1,0 +1,33 @@
+uuid: 4c9354a0-7f9e-46c0-86b0-d6ebe54718ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.footer
+    - field.storage.config_pages.field_subheadline_text_1
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    simple_html: '0'
+    basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
+    plain_text: '0'
+id: config_pages.footer.field_subheadline_text_1
+field_name: field_subheadline_text_1
+entity_type: config_pages
+bundle: footer
+label: Building
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'Harper Memorial Library'
+    format: plain
+default_value_callback: ''
+settings: {  }
+field_type: text

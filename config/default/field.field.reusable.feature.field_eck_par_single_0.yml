@@ -1,0 +1,82 @@
+uuid: 6c0ed66f-46f5-4cd0-b0ec-277ec05f3bdc
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.feature
+    - field.storage.reusable.field_eck_par_single_0
+    - paragraphs.paragraphs_type.feature
+  module:
+    - entity_reference_revisions
+id: reusable.feature.field_eck_par_single_0
+field_name: field_eck_par_single_0
+entity_type: reusable
+bundle: feature
+label: 'Feature Component'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      feature: feature
+    target_bundles_drag_drop:
+      accordion_block:
+        weight: 8
+        enabled: false
+      components:
+        weight: 9
+        enabled: false
+      feature:
+        enabled: true
+        weight: 10
+      feature_components:
+        weight: 11
+        enabled: false
+      html_text:
+        weight: 12
+        enabled: false
+      smartbody:
+        weight: 13
+        enabled: false
+      social_grid:
+        weight: 14
+        enabled: false
+      accordion_item:
+        weight: 20
+        enabled: false
+      callout:
+        weight: 21
+        enabled: false
+      callout_insert:
+        weight: 22
+        enabled: false
+      callout_reference:
+        weight: 23
+        enabled: false
+      feature_4sq_img_link:
+        weight: 26
+        enabled: false
+      feature_4_square_images:
+        weight: 27
+        enabled: false
+      feature_image_link:
+        weight: 29
+        enabled: false
+      feature_insert:
+        weight: 30
+        enabled: false
+      feature_reference:
+        weight: 31
+        enabled: false
+      pullquote:
+        weight: 33
+        enabled: false
+      smartbody_image:
+        weight: 35
+        enabled: false
+field_type: entity_reference_revisions

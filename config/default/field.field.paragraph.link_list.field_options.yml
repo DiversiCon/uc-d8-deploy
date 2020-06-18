@@ -1,0 +1,23 @@
+uuid: c215a08e-58ca-4285-9d50-5718708a6cca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_options
+    - paragraphs.paragraphs_type.link_list
+  module:
+    - options
+id: paragraph.link_list.field_options
+field_name: field_options
+entity_type: paragraph
+bundle: link_list
+label: 'List Type'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: bullets
+default_value_callback: ''
+settings: {  }
+field_type: list_string

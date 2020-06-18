@@ -1,0 +1,254 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - list component
+// styles for lists in news and search
+//
+//
+
+.c-list {
+  padding: 0;
+
+  &__content {
+    grid-area: content;
+    margin-top: rem-calc(30);
+  }
+
+  .c-headline + & {
+    padding-top: 0;
+  }
+  &__headline {
+    padding-bottom: rem-calc(7);
+  }
+  &__pager {
+    grid-area: footer;
+    margin-bottom: rem-calc(30);
+  }
+  &__skip {
+    a {
+      @include skip-link(static);
+    }
+  }
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.08;
+    border-bottom: 2px solid $color-black;
+    padding-bottom: rem-calc(30);
+    margin-bottom: rem-calc(30);
+    &-image {
+      width: 35.8%;
+      max-width: 345px;
+    }
+    &-imagelink {
+      display: block;
+      position: relative;
+    }
+    &-imagewrap {
+      background: $color-dkgrey;
+      color: $color-black;
+      position: relative;
+      padding-bottom: 100%; //sqaure ratio
+      overflow: hidden;
+      img,
+      .c-icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      img {
+        display: block;
+        max-width: none;
+        max-height: none;
+        margin: 0 auto;
+        width: 100%; //no cropping of image
+      }
+      .c-icon {
+        opacity: 0.5;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &-text {
+      padding: 0 0 0 rem-calc(15);
+      width: 66.66667%;
+      a {
+        color: $color-black;
+        text-decoration: none;
+        &:hover,
+        &:focus,
+        &:active {
+          color: $color-secondary;
+          text-decoration: underline;
+        }
+      }
+    }
+    &-title {
+      font-family: inherit;
+      font-size: rem-calc(18);
+      margin-bottom: 1rem;
+    }
+    &-subtitle {
+      @include font-sans(bold);
+    }
+    &-description {
+      font-size: rem-calc(14);
+      line-height: 1.2;
+      margin-bottom: rem-calc(14);
+      a {
+        text-decoration: underline;
+      }
+      p {
+        font-weight: $font-weight-bold;
+        margin: 0;
+      }
+      p + p {
+        margin-top: 1rem;
+      }
+    }
+    &-meta {
+      font-size: rem-calc(14);
+      margin-bottom: 0;
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
+  &__separator {
+    padding: 0 rem-calc(6);
+  }
+
+  &__noresults {
+    text-align: center;
+  }
+
+  @include breakpoint(medium) {
+    &__headline {
+      padding-bottom: rem-calc(40);
+    }
+    &__content {
+      margin-top: 0;
+    }
+    &__item {
+      border-bottom: 0;
+      margin-bottom: 0;
+      padding: 0 0 rem-calc(10);
+      &-text {
+        padding: rem-calc(24) 0 0 rem-calc(40);
+      }
+      &-title {
+        font-size: rem-calc(32);
+      }
+      &-description {
+        font-size: rem-calc(16);
+      }
+    }
+  }
+
+  @include breakpoint(large) {
+    &__headline {
+      padding-bottom: rem-calc(76);
+      .c-headline__heading {
+        font-size: rem-calc(70);
+      }
+      .c-headline__description {
+        font-size: rem-calc(20);
+      }
+    }
+    &__pager {
+      margin-bottom: 0;
+    }
+    &__sidebar {
+      margin-top: 0;
+    }
+    &__item {
+      &-title {
+        font-size: rem-calc(40);
+      }
+    }
+  }
+
+  // list items with horizontal rules between (non-news lists).
+  // These also become accordions on mobile
+  &--ruled {
+    .c-list__item {
+      border-bottom: 0;
+      flex-direction: column;
+      padding-bottom: 0;
+
+      @include breakpoint(large) {
+        flex-direction: row;
+      }
+
+      @media screen and (min-width: 1080px) {
+        border-bottom: 2px solid #000;
+        padding-bottom: rem-calc(40);
+        margin-bottom: rem-calc(40);
+      }
+    }
+
+    .c-accordion-group .no-accordion:last-child .c-list__item {
+      border: 0;
+    }
+
+    .c-list__item-title,
+    .c-list__item-subtitle {
+      @include breakpoint(medium down) {
+        display: none;
+      }
+    }
+
+    .c-list__item-image {
+      padding: 0 rem-calc(20);
+
+      @include breakpoint (medium down) {
+        margin-bottom: rem-calc(30);
+        width: 100%;
+      }
+
+      @include breakpoint (medium) {
+        padding: 0;
+      }
+    }
+
+    .c-accordion__item--hasInset .c-list__item-image {
+      display: none;
+    }
+
+    .c-list__item-description {
+      margin-bottom: 0;
+
+      a {
+        color: $color-secondary;
+      }
+      p {
+        font-weight: normal;
+        margin-bottom: rem-calc(30);
+      }
+      ul {
+        @extend .s-dash;
+      }
+      :last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .c-list__item-text {
+      @include breakpoint(medium down) {
+        padding: 0;
+        width: auto;
+      }
+    }
+
+    @include breakpoint(large) {
+      .c-accordion__heading {
+        display: none;
+      }
+    }
+  }
+}
+
+// IE11 fallbacks (or other browsers without css grid support)
+.no-cssgrid {
+  .c-list {
+    // sass linter doesn't like empty blocks :)
+  }
+}

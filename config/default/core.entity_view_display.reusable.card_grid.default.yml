@@ -1,0 +1,29 @@
+uuid: 0aa746c8-28b6-4e0f-9478-f0bf5afb16b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.reusable.card_grid
+    - field.field.reusable.card_grid.field_eck_par_single_0
+  module:
+    - entity_reference_revisions
+id: reusable.card_grid.default
+targetEntityType: reusable
+bundle: card_grid
+mode: default
+content:
+  field_eck_par_single_0:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  changed: true
+  created: true
+  search_api_excerpt: true
+  title: true
+  uid: true

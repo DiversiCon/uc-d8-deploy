@@ -1,0 +1,27 @@
+uuid: bc2291ca-d3dc-423a-a0d8-c4d93accd319
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_layout
+field_name: field_layout
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: layout_stats
+      label: 'With Stats Section'
+    -
+      value: layout_facts
+      label: 'With Facts Section'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

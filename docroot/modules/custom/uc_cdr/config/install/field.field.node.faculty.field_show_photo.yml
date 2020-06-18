@@ -1,0 +1,23 @@
+uuid: a963d434-8110-4f96-b3a3-c7ed65785b2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_show_photo
+    - node.type.faculty
+id: node.faculty.field_show_photo
+field_name: field_show_photo
+entity_type: node
+bundle: faculty
+label: 'Show Photo?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

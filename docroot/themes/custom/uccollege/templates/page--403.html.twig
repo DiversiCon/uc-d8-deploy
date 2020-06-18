@@ -1,0 +1,36 @@
+{#
+/**
+ * @file
+ * 4xx pages, hardcoded files @TODO: convert to paragraph component
+ *
+ * @see template_preprocess_node()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set headline_obj = content.field_paragraph_single_1[0]['#paragraph'] %}
+{% set heading = headline_obj.get('field_par_html_text_title').getValue()[0]['value'] %}
+{% set description = headline_obj.get('field_par_body').getValue()[0]['value'] %}
+{% set imgSmall = '/themes/custom/uccollege/it_showcase/images/404.png' %}
+{% set img = '/themes/custom/uccollege/it_showcase/images/404.png' %}
+
+<div class="l-container__wrap" id="app">
+	<uc-skip-nav text="Skip to main content"></uc-skip-nav>
+  {% if page.help %}
+    {{ page.help }}
+  {% endif %}
+  {{ masthead }}
+
+	<div class="c-404">
+		<div class="c-404__text">
+			<h1 class="c-404__heading">Oops!</h1>
+			<div class="c-404__description">
+				The page you are looking for is not here. Try going back to the <a href="/">homepage</a>.
+			</div>
+		</div>
+		<img class="c-404__img" src="{{ img }}" alt="">
+	</div>
+
+  {{ footer }}
+</div>

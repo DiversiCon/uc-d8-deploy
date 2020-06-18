@@ -1,0 +1,56 @@
+uuid: 956ca8db-9785-47c7-8cf6-cacdcd8b94a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.home_quad_header_text_and_links.field_body
+    - field.field.paragraph.home_quad_header_text_and_links.field_headline_text
+    - field.field.paragraph.home_quad_header_text_and_links.field_links_ultd
+    - field.field.paragraph.home_quad_header_text_and_links.field_par_paragraph_single
+    - paragraphs.paragraphs_type.home_quad_header_text_and_links
+  module:
+    - entity_reference_revisions
+    - link
+    - text
+id: paragraph.home_quad_header_text_and_links.default
+targetEntityType: paragraph
+bundle: home_quad_header_text_and_links
+mode: default
+content:
+  field_body:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_headline_text:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_links_ultd:
+    weight: 2
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_par_paragraph_single:
+    weight: 3
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

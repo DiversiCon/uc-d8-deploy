@@ -1,0 +1,27 @@
+uuid: 57882579-c3ae-4754-a9ec-1580345f101c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subheadline_text
+    - node.type.generic
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain: plain
+    basic_html: '0'
+    plain_text: '0'
+id: node.generic.field_subheadline_text
+field_name: field_subheadline_text
+entity_type: node
+bundle: generic
+label: Sub-headline
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

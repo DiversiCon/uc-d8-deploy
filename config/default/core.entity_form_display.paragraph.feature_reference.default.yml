@@ -1,0 +1,26 @@
+uuid: 5bd47b57-7cf1-403f-af17-0472ebf197ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.feature_reference.field_eck_reference
+    - paragraphs.paragraphs_type.feature_reference
+id: paragraph.feature_reference.default
+targetEntityType: paragraph
+bundle: feature_reference
+mode: default
+content:
+  field_eck_reference:
+    weight: 101
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

@@ -1,0 +1,35 @@
+details:
+  title: Details
+  description: Displays details about a campus house.
+  type: component
+  variants:
+  -
+    title: Details
+    caption: Displays details about a campus house.
+    content:
+      stats:
+      -
+        number: '9'
+        label: 'Houses'
+      -
+        number: '62'
+        label: 'Rooms'
+      items:
+      -
+        label: 'Room Types:'
+        description: '22 Singles, 40 Doubles'
+      -
+        label: 'Dining Hall:'
+        description: 'Arley D. Cathey Residential Dining'
+      -
+        label: 'Built:'
+        description: '2016'
+
+details.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: details.component
+    index_hide: true
+    file: themes/custom/uccollege/components/details/README.md

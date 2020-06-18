@@ -1,0 +1,8 @@
+uuid: 4e68163c-df6e-43f0-aea7-20778707f60a
+langcode: en
+status: true
+dependencies: {  }
+name: 'Event Departments'
+vid: event_departments
+description: ''
+weight: 0

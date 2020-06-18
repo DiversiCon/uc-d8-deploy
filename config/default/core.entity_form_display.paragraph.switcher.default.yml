@@ -1,0 +1,30 @@
+uuid: 21067d76-1e39-4a42-b4de-a9b184e6384d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.switcher.field_par_paragraph_single
+    - paragraphs.paragraphs_type.switcher
+  module:
+    - paragraphs
+id: paragraph.switcher.default
+targetEntityType: paragraph
+bundle: switcher
+mode: default
+content:
+  field_par_paragraph_single:
+    weight: 101
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

@@ -1,0 +1,20 @@
+{#
+/**
+ * @file
+ * Fact card twitter field
+ * also used in media_contact_contact
+ *
+ * @see ucnews/templates/field.html.twig
+ *
+ * @see template_preprocess_field()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% for item in items %}
+  <li {{ attributes.addClass(class_type) }}>
+    <svg class="c-icon"><use xlink:href="/themes/custom/ucnews/dist/icons.svg#twitter-solid"></use></svg>
+    <a target="_blank" href="https://twitter.com/{{ item.content|render|striptags|trim }}">@{{ item.content }}</a>
+  </li>
+{% endfor %}

@@ -1,0 +1,33 @@
+uuid: 5d4224ba-cf06-42f9-aab7-20bcc8a905f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.smartbody_image.field_headline_text
+    - field.field.paragraph.smartbody_image.field_images
+    - paragraphs.paragraphs_type.smartbody_image
+  module:
+    - text
+id: paragraph.smartbody_image.default
+targetEntityType: paragraph
+bundle: smartbody_image
+mode: default
+content:
+  field_headline_text:
+    weight: -1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_images:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: image_uc_photo
+      link: false
+    third_party_settings: {  }
+    region: content
+hidden:
+  search_api_excerpt: true

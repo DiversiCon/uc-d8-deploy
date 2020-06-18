@@ -1,0 +1,33 @@
+uuid: 4419a277-de29-419f-88ae-da1f89afe1c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.smartbody_lite.field_smartbody_components
+    - field.field.paragraph.smartbody_lite.field_smartbody_text
+    - paragraphs.paragraphs_type.smartbody_lite
+  module:
+    - entity_reference_revisions
+    - text
+id: paragraph.smartbody_lite.default
+targetEntityType: paragraph
+bundle: smartbody_lite
+mode: default
+content:
+  field_smartbody_components:
+    weight: 0
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_smartbody_text:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

@@ -1,0 +1,8 @@
+uuid: 8fd7fb79-af3b-4cea-9aef-05428c395712
+langcode: en
+status: true
+dependencies: {  }
+name: 'Faculty Keywords'
+vid: faculty_keywords
+description: ''
+weight: 0

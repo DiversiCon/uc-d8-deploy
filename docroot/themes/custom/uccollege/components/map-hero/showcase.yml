@@ -1,0 +1,22 @@
+map_hero:
+  title: Map Hero
+  description: "Container that shows a large photo and can switch to an interactive Google Map"
+  type: component
+  attributes:
+    category: Images & Media
+  variants:
+  -
+    title: Default
+    content:
+      lat: "41.794676"
+      lon: "-87.598664"
+      image: "/themes/custom/uccollege/it_showcase/images/hall-campus-north.jpg"
+
+map-hero.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: map_hero.component
+    index_hide: true
+    file: themes/custom/uccollege/components/map-hero/README.md

@@ -1,0 +1,46 @@
+photo:
+  title: Photo, large
+  description: Displays a single, full-width photo with caption.
+  type: component
+  attributes:
+    category: Images & Media
+  variants:
+  -
+    title: Photo, large
+    caption: Displays a single, full-width photo with caption.
+    content:
+      imgFull: "/themes/custom/uccollege/it_showcase/images/hero-hydepark.jpg"
+      imgLarge: "/themes/custom/uccollege/it_showcase/images/hero-hydepark-1024.jpg"
+      imgMedium: "/themes/custom/uccollege/it_showcase/images/hero-hydepark-768.jpg"
+      imgSmall: "/themes/custom/uccollege/it_showcase/images/hero-hydepark-480.jpg"
+      description: "University of Chicago campus located in Hyde Park"
+      alt: "this is alt text"
+  -
+    title: Photo, small
+    caption:
+    content:
+      imgFull: "https://via.placeholder.com/300&text=FPO"
+      imgLarge: "https://via.placeholder.com/300&text=FPO"
+      imgMedium: "https://via.placeholder.com/300&text=FPO"
+      imgSmall: "https://via.placeholder.com/300&text=FPO"
+      description:
+      alt: "FPO Image"
+  -
+    title: Photo, large, no Caption
+    caption:
+    content:
+      imgFull: "https://via.placeholder.com/900x505&text=FPO"
+      imgLarge: "https://via.placeholder.com/900x505&text=FPO"
+      imgMedium: "https://via.placeholder.com/900x505&text=FPO"
+      imgSmall: "https://via.placeholder.com/900x505&text=FPO"
+      description:
+      alt: "this is alt text"
+
+photo.readme:
+  title: Readme
+  description:
+  type: readme
+  attributes:
+    related_id: photo.component
+    index_hide: true
+    file: themes/custom/uccollege/components/photo/README.md

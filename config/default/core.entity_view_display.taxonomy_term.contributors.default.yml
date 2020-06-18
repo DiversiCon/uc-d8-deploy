@@ -1,0 +1,58 @@
+uuid: 5841f16c-593e-4e4f-949a-7b813e4c745a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.contributors.field_biography
+    - field.field.taxonomy_term.contributors.field_class
+    - field.field.taxonomy_term.contributors.field_image_main
+    - field.field.taxonomy_term.contributors.field_office_title
+    - taxonomy.vocabulary.contributors
+  module:
+    - options
+    - text
+id: taxonomy_term.contributors.default
+targetEntityType: taxonomy_term
+bundle: contributors
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_biography:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_class:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_image_main:
+    type: entity_reference_entity_view
+    weight: 4
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_office_title:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  search_api_excerpt: true

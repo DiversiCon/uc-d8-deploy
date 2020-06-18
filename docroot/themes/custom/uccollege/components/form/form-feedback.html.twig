@@ -1,0 +1,48 @@
+{#
+/**
+ * Feedback Form Twig Partial
+ *
+ */
+#}
+
+<uc-form inline-template>
+  <div class="c-form">
+    <form action="/" method="post" @submit.prevent="handleSubmit">
+      <label for="category">Select feedback category</label>
+      <div class="c-form__select-ctn">
+        <select name="category" id="category"
+                v-model="category"
+                v-on:input="$v.category.$touch()"
+                :class="{ 'c-form--hasError': $v.category.$error }">
+          <option value="Category1" selected="selected">&mdash; Category1</option>
+          <option value="Category2">&mdash; Category2</option>
+          <option value="Category3">&mdash; Category3</option>
+        </select>
+        <div class="c-form__error" v-show="$v.category.$error">Please choose a category.</div>
+      </div>
+
+      <label for="comments">Please tell us what you'd like to talk about...</label>
+      <textarea name="comments" id="comments" cols="30" rows="10"
+                v-model="comments"
+                v-on:input="$v.comments.$touch()"
+                :class="{ 'c-form--hasError': $v.comments.$error }"></textarea>
+      <div class="c-form__error" v-show="$v.comments.$error">Please include a comment.</div>
+
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name"
+             v-model="name"
+             v-on:input="$v.name.$touch()"
+             :class="{ 'c-form--hasError': $v.name.$error }">
+      <div class="c-form__error" v-show="$v.name.$error">Enter your full name.</div>
+
+      <label for="email">Email Address</label>
+      <input type="text" name="email" id="email"
+             v-model="email"
+             v-on:input="$v.email.$touch()"
+             :class="{ 'c-form--hasError': $v.email.$error }">
+      <div class="c-form__error" v-show="$v.email.$error">Enter your email address.</div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</uc-form>

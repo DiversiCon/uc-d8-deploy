@@ -1,0 +1,31 @@
+uuid: b3bef12e-adc9-4b09-9934-47e5b599c2d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.group
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    simple_html: '0'
+    smartbody: '0'
+    plain: '0'
+    raw_input: '0'
+    plain_text: '0'
+    custml_html: '0'
+id: node.group.field_description
+field_name: field_description
+entity_type: node
+bundle: group
+label: 'Current Research'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

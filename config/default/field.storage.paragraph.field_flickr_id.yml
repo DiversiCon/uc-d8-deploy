@@ -1,0 +1,21 @@
+uuid: 804ee6fa-0716-45b5-aeb4-18f393daeccf
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_flickr_id
+field_name: field_flickr_id
+entity_type: paragraph
+type: string
+settings:
+  max_length: 64
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

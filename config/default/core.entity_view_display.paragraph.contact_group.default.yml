@@ -1,0 +1,44 @@
+uuid: fb897d4a-e8a6-441c-b70b-1fbe63148a58
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.contact_group.field_body
+    - field.field.paragraph.contact_group.field_description_plaintext
+    - field.field.paragraph.contact_group.field_group_title
+    - field.field.paragraph.contact_group.field_par_paragraphs
+    - paragraphs.paragraphs_type.contact_group
+  module:
+    - entity_reference_revisions
+    - text
+id: paragraph.contact_group.default
+targetEntityType: paragraph
+bundle: contact_group
+mode: default
+content:
+  field_body:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_group_title:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_par_paragraphs:
+    weight: 0
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  field_description_plaintext: true
+  search_api_excerpt: true

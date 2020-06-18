@@ -1,0 +1,21 @@
+uuid: d7900c1e-22f2-4975-8bdd-851e7d70cc20
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_background_theme
+    - paragraphs.paragraphs_type.stats
+  module:
+    - options
+id: paragraph.stats.field_background_theme
+field_name: field_background_theme
+entity_type: paragraph
+bundle: stats
+label: 'Background Theme'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

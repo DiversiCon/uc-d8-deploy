@@ -1,0 +1,28 @@
+{#
+/**
+ * image-list Twig Partial
+ *
+ */
+#}
+
+<div class="c-image-list">
+  {% if content.heading %}
+    <h2 class="c-image-list__heading">{{ content.heading }}</h2>
+  {% endif %}
+  {% if content.subheading %}
+    <h3 class="c-image-list__subheading">{{ content.subheading }}</h3>
+  {% endif %}
+   <ul class="c-image-list__list">
+    {% for image in content.images %}
+      <li class="c-image-list__item">
+        {% if image.link %}
+          <a href="{{ image.link }}" class="c-image-list__link">
+         {% endif %}
+            <img src="{{ image.src }}" alt="{{ image.alt }}" title="{{ image.alt }}" class="c-image-list__img" />
+        {% if image.link %}    
+          </a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>

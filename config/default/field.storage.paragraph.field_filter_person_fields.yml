@@ -1,0 +1,42 @@
+uuid: f0cda5e4-bf70-42f7-afbc-1a404dfd2cb2
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_filter_person_fields
+field_name: field_filter_person_fields
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: name
+      label: Name
+    -
+      value: image
+      label: Image
+    -
+      value: email
+      label: Email
+    -
+      value: positions
+      label: Positions
+    -
+      value: title
+      label: 'Office Title'
+    -
+      value: location
+      label: 'Office Location'
+    -
+      value: phone
+      label: Phone
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

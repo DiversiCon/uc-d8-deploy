@@ -1,0 +1,236 @@
+uuid: 641230c8-8ec2-4e32-99f0-d8f3017b2c23
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.faculty.field_academic_appointment
+    - field.field.node.faculty.field_administrative_title
+    - field.field.node.faculty.field_awards
+    - field.field.node.faculty.field_clinical_interests
+    - field.field.node.faculty.field_degree
+    - field.field.node.faculty.field_education_and_training
+    - field.field.node.faculty.field_email
+    - field.field.node.faculty.field_external_id
+    - field.field.node.faculty.field_faculty_image
+    - field.field.node.faculty.field_first_name
+    - field.field.node.faculty.field_graduate_program_websites
+    - field.field.node.faculty.field_last_name
+    - field.field.node.faculty.field_middle_name
+    - field.field.node.faculty.field_overview
+    - field.field.node.faculty.field_physician_profile_url
+    - field.field.node.faculty.field_preferred_name
+    - field.field.node.faculty.field_primary_department
+    - field.field.node.faculty.field_primary_section
+    - field.field.node.faculty.field_publications
+    - field.field.node.faculty.field_research_and_scholarly_int
+    - field.field.node.faculty.field_section_chief
+    - field.field.node.faculty.field_show_photo
+    - field.field.node.faculty.field_websites
+    - node.type.faculty
+  module:
+    - entity_reference_revisions
+    - image
+    - user
+id: node.faculty.default
+targetEntityType: node
+bundle: faculty
+mode: default
+content:
+  field_academic_appointment:
+    type: entity_reference_revisions_entity_view
+    weight: 118
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_administrative_title:
+    weight: 111
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_awards:
+    type: entity_reference_revisions_entity_view
+    weight: 122
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_clinical_interests:
+    weight: 127
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_degree:
+    weight: 105
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_education_and_training:
+    type: entity_reference_revisions_entity_view
+    weight: 121
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_email:
+    weight: 107
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_external_id:
+    weight: 101
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_faculty_image:
+    weight: 126
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_first_name:
+    weight: 102
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_graduate_program_websites:
+    type: entity_reference_revisions_entity_view
+    weight: 119
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_last_name:
+    weight: 103
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_middle_name:
+    weight: 104
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_overview:
+    weight: 117
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_physician_profile_url:
+    weight: 109
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_preferred_name:
+    weight: 106
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_primary_department:
+    weight: 124
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_primary_section:
+    weight: 125
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_publications:
+    type: entity_reference_revisions_entity_view
+    weight: 123
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_research_and_scholarly_int:
+    weight: 116
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_section_chief:
+    weight: 114
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_show_photo:
+    weight: 128
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_websites:
+    type: entity_reference_revisions_entity_view
+    weight: 120
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  search_api_excerpt: true
