@@ -44,7 +44,7 @@ modules:
 command-hooks:
   post-deploy-build:
     dir: '${deploy.dir}/docroot'
-    command: echo 'Holy Cow!' && rm -rf .gitignore
+    command: rm -rf .gitignore
 
 disable-targets:
   blt:
