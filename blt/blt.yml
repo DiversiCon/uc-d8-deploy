@@ -23,6 +23,7 @@ validate:
   twig:
     filters: [convertForJson, convertQuotes, field_value]
     functions: [it_showcase_component]
+
 modules:
   local:
     enable: {  }
@@ -39,11 +40,18 @@ modules:
   prod:
     enable: {  }
     uninstall: {  }
+
+command-hooks:
+  post-deploy-build:
+    dir: '${deploy.dir}/docroot'
+    command: echo 'Holy Cow!' && rm -rf .gitignore
+
 disable-targets:
   blt:
     init: [{ git-hook: true }]
   internal:
     git-hook: { execute: { pre-commit: false, commit-msg: false } }
+
 sync:
   commands:
     - 'source:build:composer'
