@@ -90,6 +90,7 @@
         "enyo/dropzone": "^4.3",
         "flow/jsonpath": "^0.4.0",
         "harvesthq/chosen": "^1.8",
+        "oomphinc/composer-installers-extender": "^1.1.2",
         "pantheon-systems/drupal-integrations": "^8",
         "pantheon-systems/quicksilver-pushback": "^2",
         "pheromone/phpcs-security-audit": "^2.0",

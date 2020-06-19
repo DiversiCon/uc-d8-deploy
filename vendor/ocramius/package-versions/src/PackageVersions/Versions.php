@@ -47,7 +47,7 @@ final class Versions
   'doctrine/inflector' => 'v1.2.0@e11d84c6e018beedd929cff5220969a3c6d1d462',
   'doctrine/lexer' => '1.0.2@1febd6c3ef84253d7c815bed85fc622ad207a9f8',
   'drupal/address' => '1.8.0@8.x-1.8',
-  'drupal/admin_toolbar' => '2.2.0@8.x-2.2',
+  'drupal/admin_toolbar' => '2.3.0@8.x-2.3',
   'drupal/adminimal_admin_toolbar' => '1.11.0@8.x-1.11',
   'drupal/adminimal_theme' => '1.5.0@8.x-1.5',
   'drupal/allowed_formats' => '1.2.0@8.x-1.2',
@@ -114,7 +114,7 @@ final class Versions
   'drupal/restui' => '1.18.0@8.x-1.18',
   'drupal/robotstxt' => '1.4.0@8.x-1.4',
   'drupal/role_based_theme_switcher' => '1.0.0@8.x-1.0',
-  'drupal/schema_metatag' => '1.5.0@8.x-1.5',
+  'drupal/schema_metatag' => '1.6.0@8.x-1.6',
   'drupal/search_api' => '1.17.0@8.x-1.17',
   'drupal/search_api_solr' => '1.2.0@8.x-1.2',
   'drupal/simple_sitemap' => '3.7.0@8.x-3.7',
@@ -278,7 +278,7 @@ final class Versions
   'symfony/var-exporter' => 'v4.4.10@f311af6e44fefedbd4f1e23e97607ef0f917bfcc',
   'textalk/websocket' => '1.3.1@fe348408a43cc646d08a3ae73e7877370441c7ee',
   'theseer/tokenizer' => '1.1.3@11336f6f84e16a720dae9d8e6ed5019efa85a0f9',
-  'ifthen/uccqe' => 'dev-master@0b9b87428750bb6332ef74c5f843375d17b10e35',
+  'ifthen/uccqe' => 'dev-master@83dc389e8666b465cc2b6556d837b83b2ca944b9',
 );
 
     private function __construct()
