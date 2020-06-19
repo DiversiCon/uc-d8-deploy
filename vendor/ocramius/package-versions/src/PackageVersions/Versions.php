@@ -81,7 +81,7 @@ final class Versions
   'drupal/devel' => '2.1.0@8.x-2.1',
   'drupal/draggableviews' => '1.2.0@8.x-1.2',
   'drupal/dropzonejs' => '2.1.0@8.x-2.1',
-  'drupal/eck' => '1.0.0-alpha4@8.x-1.0-alpha4',
+  'drupal/eck' => '1.0.0-beta1@8.x-1.0-beta1',
   'drupal/entity_browser' => '2.5.0@8.x-2.5',
   'drupal/entity_browser_entity_form' => '2.5.0@',
   'drupal/entity_clone' => 'dev-1.x@9265e35',
@@ -278,7 +278,7 @@ final class Versions
   'symfony/var-exporter' => 'v4.4.10@f311af6e44fefedbd4f1e23e97607ef0f917bfcc',
   'textalk/websocket' => '1.3.1@fe348408a43cc646d08a3ae73e7877370441c7ee',
   'theseer/tokenizer' => '1.1.3@11336f6f84e16a720dae9d8e6ed5019efa85a0f9',
-  'ifthen/uccqe' => 'dev-master@6451ce4f857f094c15022eb412ee9a50291c3c3a',
+  'ifthen/uccqe' => 'dev-master@0b9b87428750bb6332ef74c5f843375d17b10e35',
 );
 
     private function __construct()

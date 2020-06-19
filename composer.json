@@ -44,7 +44,7 @@
         "drupal/devel": "^2.1",
         "drupal/draggableviews": "^1.0",
         "drupal/dropzonejs": "^2.0@alpha",
-        "drupal/eck": "1.0-alpha4",
+        "drupal/eck": "1.0-beta1",
         "drupal/entity_browser": "^2",
         "drupal/entity_clone": "1.x-dev#9265e35",
         "drupal/entityqueue": "^1.0@alpha",
@@ -165,7 +165,8 @@
         "composer-exit-on-patch-failure": true,
         "installer-types": [
             "bower-asset",
-            "npm-asset"
+            "npm-asset",
+            "library"
         ],
         "installer-paths": {
             "docroot/core": ["type:drupal-core"],
@@ -178,7 +179,10 @@
             "docroot/libraries/{$name}": [
                 "type:drupal-library",
                 "type:bower-asset",
-                "type:npm-asset"
+                "type:npm-asset",
+                "harvesthq/chosen",
+                "enyo/dropzone"
+
             ],
             "drush/Commands/{$name}": [
                 "type:drupal-drush"

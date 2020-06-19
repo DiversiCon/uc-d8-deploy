@@ -47,30 +47,44 @@ class EckEntityType extends ConfigEntityBase implements EckEntityTypeInterface {
   /**
    * If this entity type has an "Author" base field.
    *
-   * @var boolean
+   * @var bool
    */
   protected $uid;
 
   /**
    * If this entity type has a "Title" base field.
    *
-   * @var boolean
+   * @var bool
    */
   protected $title;
 
   /**
    * If this entity type has a "Created" base field.
    *
-   * @var boolean
+   * @var bool
    */
   protected $created;
 
   /**
    * If this entity type has a "Changed" base field.
    *
-   * @var boolean
+   * @var bool
    */
   protected $changed;
+
+  /**
+   * {@inheritdoc}
+   */
+  public function preSave(EntityStorageInterface $storage) {
+    // Entity ids are limited to 32 characters, but since eck adds '_type' to
+    // the id of it's bundle storage, that id would be too long. we therefore
+    // limit the id to 27 characters.
+    if (strlen($this->id()) > ECK_ENTITY_ID_MAX_LENGTH) {
+      throw new \RuntimeException("Entity id has more than " . ECK_ENTITY_ID_MAX_LENGTH . " characters.");
+    }
+
+    parent::preSave($storage);
+  }
 
   /**
    * {@inheritdoc}
@@ -81,7 +95,7 @@ class EckEntityType extends ConfigEntityBase implements EckEntityTypeInterface {
     // Clear the router cache to prevent RouteNotFoundException while creating
     // the edit link.
     \Drupal::service('router.builder')->rebuild();
-    $edit_link = $this->link(t('Edit entity type'));
+    $edit_link = $this->toLink(t('Edit entity type'), 'edit-form')->toString();
 
     if ($update) {
       $this->logger($this->id())->notice(
@@ -90,21 +104,13 @@ class EckEntityType extends ConfigEntityBase implements EckEntityTypeInterface {
       );
     }
     else {
-      // Clear caches first.
-      $this->entityTypeManager()->clearCachedDefinitions();
-
-      // Notify storage to create the database schema.
-      $entity_type = $this->entityTypeManager()->getDefinition($this->id());
-      \Drupal::service('entity_type.listener')
-        ->onEntityTypeCreate($entity_type);
-
       $this->logger($this->id())->notice(
         'Entity type %label has been added.',
         ['%label' => $this->label(), 'link' => $edit_link]
       );
     }
 
-    \Drupal::entityDefinitionUpdateManager()->applyUpdates();
+    \Drupal::service('eck.entity.entity_update_service')->applyUpdates($this->id());
   }
 
   /**
@@ -177,18 +183,30 @@ class EckEntityType extends ConfigEntityBase implements EckEntityTypeInterface {
     return \Drupal::getContainer()->get('logger.factory')->get($channel);
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function hasAuthorField() {
     return isset($this->uid) && $this->uid;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function hasChangedField() {
     return isset($this->changed) && $this->changed;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function hasCreatedField() {
     return isset($this->created) && $this->created;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function hasTitleField() {
     return isset($this->title) && $this->title;
   }
