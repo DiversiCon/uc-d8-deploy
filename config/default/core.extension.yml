@@ -120,7 +120,7 @@ module:
   pathauto: 1
   views: 10
   paragraphs: 11
-  it_edu: 1000
+  minimal: 1000
 theme:
   stable: 0
   classy: 0
@@ -129,6 +129,6 @@ theme:
   uccollege: 0
   admin_uccollege: 0
   uccollege_anon: 0
-profile: it_edu
+profile: minimal
 _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc

@@ -278,7 +278,7 @@ final class Versions
   'symfony/var-exporter' => 'v4.4.10@f311af6e44fefedbd4f1e23e97607ef0f917bfcc',
   'textalk/websocket' => '1.3.1@fe348408a43cc646d08a3ae73e7877370441c7ee',
   'theseer/tokenizer' => '1.1.3@11336f6f84e16a720dae9d8e6ed5019efa85a0f9',
-  'ifthen/uccqe' => 'dev-master@0e1a142da12e7701d8d7ab832c7acae8e97e5fed',
+  'ifthen/uccqe' => 'dev-master@6451ce4f857f094c15022eb412ee9a50291c3c3a',
 );
 
     private function __construct()
