@@ -87,7 +87,7 @@ class EckEntityTypeFormBase extends EntityForm {
 
     $form['base_fields'] = [
       '#type' => 'fieldset',
-      '#title' => t('Available base fields'),
+      '#title' => $this->t('Available base fields'),
     ];
 
     $config = \Drupal::config('eck.eck_entity_type.' . $eck_entity_type->id());
@@ -96,7 +96,7 @@ class EckEntityTypeFormBase extends EntityForm {
 
       $form['base_fields'][$field] = [
         '#type' => 'checkbox',
-        '#title' => t('%field field', ['%field' => ucfirst($title)]),
+        '#title' => $this->t('%field field', ['%field' => ucfirst($title)]),
         '#default_value' => $config->get($field),
       ];
     }

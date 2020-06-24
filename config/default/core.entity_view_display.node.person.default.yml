@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.person.field_name
     - field.field.node.person.field_office_location
     - field.field.node.person.field_office_title
+    - field.field.node.person.field_organization
     - field.field.node.person.field_paragraph_single_0
     - field.field.node.person.field_person_type
     - field.field.node.person.field_phone
@@ -118,6 +119,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
+  field_organization:
+    weight: 17
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_paragraph_single_0:
     weight: 8
     label: hidden

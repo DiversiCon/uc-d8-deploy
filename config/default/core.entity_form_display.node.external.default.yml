@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.external.field_headline_text
     - field.field.node.external.field_image_main
     - field.field.node.external.field_link_single
+    - field.field.node.external.field_organization
     - field.field.node.external.field_subheadline_text
     - node.type.external
     - workflows.workflow.editorial
@@ -16,9 +17,46 @@ dependencies:
     - content_moderation
     - datetime
     - entity_browser
+    - field_group
     - link_attributes
     - path
     - text
+    - uc_organization
+third_party_settings:
+  field_group:
+    group_details:
+      children:
+        - title
+        - field_date_no_time
+        - field_organization
+      parent_name: ''
+      weight: 0
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: true
+        required_fields: true
+      label: Details
+    group_main_content:
+      children:
+        - field_headline_text
+        - field_subheadline_text
+        - field_link_single
+        - field_image_main
+      parent_name: ''
+      weight: 1
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: true
+        required_fields: true
+      label: 'Main content'
 id: node.external.default
 targetEntityType: node
 bundle: external
@@ -31,13 +69,13 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_date_no_time:
-    weight: 26
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_headline_text:
-    weight: 3
+    weight: 4
     settings:
       size: 60
       placeholder: ''
@@ -48,7 +86,7 @@ content:
     type: text_textfield
     region: content
   field_image_main:
-    weight: 2
+    weight: 7
     settings:
       entity_browser: media_entity_browser
       field_widget_display: rendered_entity
@@ -63,7 +101,7 @@ content:
     type: entity_browser_entity_reference
     region: content
   field_link_single:
-    weight: 1
+    weight: 6
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -78,8 +116,18 @@ content:
     third_party_settings: {  }
     type: link_attributes
     region: content
+  field_organization:
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: uc_organization_autocomplete
+    region: content
   field_subheadline_text:
-    weight: 4
+    weight: 5
     settings:
       size: 60
       placeholder: ''
@@ -91,40 +139,19 @@ content:
     region: content
   moderation_state:
     type: moderation_state_default
-    weight: 11
+    weight: 2
     settings: {  }
     region: content
     third_party_settings: {  }
   path:
     type: path
-    weight: 9
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 7
-    region: content
-    third_party_settings: {  }
-  status:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 12
-    region: content
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 8
-    region: content
-    third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60
@@ -141,8 +168,11 @@ content:
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 10
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  promote: true
+  status: true
+  sticky: true

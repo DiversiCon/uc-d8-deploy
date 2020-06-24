@@ -1,0 +1,24 @@
+uuid: 1d1f5881-13aa-44d2-a69e-88fa881041e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_no_organization
+  module:
+    - user
+id: user.user.field_no_organization
+field_name: field_no_organization
+entity_type: user
+bundle: user
+label: 'No Organization'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

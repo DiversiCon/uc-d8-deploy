@@ -380,95 +380,91 @@ function _uc_section_parse_querystring($query_string) {
 function uc_section_node_access(NodeInterface $node, $op, AccountInterface $account) {
 
   // Only restricting access for update and delete.
-  $ops = ['update', 'delete', 'view'];
+  $ops = ['update', 'delete'];
   if (in_array($op, $ops)) {
 
     // Restrict access based on section associated with the current node and user sections.
     $user_sections = new UserSections($account->id());
     $section_id = _uc_section_node_section($node);
     $allowed = $user_sections->isSectionAllowed($section_id);
-    if (!$allowed && $op !== 'view') {
+    if (!$allowed) {
       return AccessResult::forbidden('Section not permitted.');
     }
   }
 }
 
 /**
- * Implements hook_node_access_records().
+ * Implements hook_node_access_records_alter().
  *
- * Ram array $grants.
+ * @TODO: Removed after it was deemed this is not needed for our purposes.
  *
+ * Add our grants to the $grants array as needed.
+ *
+ * @param array $grants
  * @param \Drupal\node\NodeInterface $node
- *
- * @return array
  */
+/*
+function uc_section_node_access_records_alter(array &$grants, NodeInterface $node) {
 
-/**
- * Function uc_section_node_access_records_alter(array &$grants, \Drupal\node\NodeInterface $node) {.
- */
-function uc_section_node_access_records(NodeInterface $node) {
-
-  // We only care about nodes that have a section value.
+  // We only care about nodes that have a section field.
   if ($node->hasField('field_section')) {
-    if ($node->get('field_section')->getValue()) {
-      $grants = [];
 
-      // Add a grant for the section related to this node.
-      $section = _uc_section_node_section($node);
-      if ($section) {
-        $grants[] = [
-          'realm' => 'uc_section',
-          'gid' => $section,
-          'grant_view' => 1,
-          'grant_update' => 1,
-          'grant_delete' => 1,
-        ];
-      }
-      // If no section then use a special gid.
-      else {
-        $grants[] = [
-          'realm' => 'uc_section',
-          'gid' => -1,
-          'grant_view' => 1,
-          'grant_update' => 1,
-          'grant_delete' => 1,
-        ];
-      }
-
-      // Add a grant to represent all sections access.
+    // Get section value and add grants for the section related to this node.
+    $section = _uc_section_node_section($node);
+    if ($section) {
       $grants[] = [
         'realm' => 'uc_section',
-        'gid' => 0,
+        'gid' => $section,
         'grant_view' => 1,
         'grant_update' => 1,
         'grant_delete' => 1,
       ];
+    }
+    // If no section then use a special gid.
+    else {
+      $grants[] = [
+        'realm' => 'uc_section',
+        'gid' => 999999,
+        'grant_view' => 1,
+        'grant_update' => 1,
+        'grant_delete' => 1,
+      ];
+    }
 
-      // For some reason we need to add this back.
-      // @TODO: Perhaps we should be using hook_node_access_records_alter instead.
-      if ($node->isPublished()) {
-        $grants[] = [
-          'realm' => 'all',
-          'gid' => 0,
-          'grant_view' => 1,
-          'grant_update' => 0,
-          'grant_delete' => 0,
-        ];
-      }
+    // Add a grant to represent all sections access.
+    $grants[] = [
+      'realm' => 'uc_section',
+      'gid' => 0,
+      'grant_view' => 1,
+      'grant_update' => 1,
+      'grant_delete' => 1,
+    ];
 
-      return $grants;
+    // For some reason we need to add this back.
+    if ($node->isPublished()) {
+      $grants[] = [
+        'realm' => 'all',
+        'gid' => 0,
+        'grant_view' => 1,
+        'grant_update' => 0,
+        'grant_delete' => 0,
+      ];
     }
   }
 }
+*/
 
 /**
  * Implements hook_node_grants().
+ *
+ * @TODO: Removed after it was deemed this is not needed for our purposes.
  *
  * @param \Drupal\Core\Session\AccountInterface $account
  * @param $op
  *
  * @return array
  */
+/*
 function uc_section_node_grants(AccountInterface $account, $op) {
   // Only restricting access for update and delete.
   $ops = ['update', 'delete'];
@@ -484,6 +480,7 @@ function uc_section_node_grants(AccountInterface $account, $op) {
     return $grants;
   }
 }
+*/
 
 /**
  * Alter the query before it is executed.

@@ -3,8 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.user.field_all_organizations
     - field.storage.user.field_all_sections
+    - field.storage.user.field_allowed_organizations
     - field.storage.user.field_allowed_sections
+    - field.storage.user.field_no_organization
     - field.storage.user.field_no_section
     - taxonomy.vocabulary.section
   module:
@@ -356,6 +359,199 @@ display:
           type: ul
           separator: ', '
           plugin_id: user_roles
+        field_allowed_organizations:
+          id: field_allowed_organizations
+          table: user__field_allowed_organizations
+          field: field_allowed_organizations
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Allowed organizations'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: ul
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_all_organizations:
+          id: field_all_organizations
+          table: user__field_all_organizations
+          field: field_all_organizations
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'All Organizations'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: unicode-yes-no
+            format_custom_true: ''
+            format_custom_false: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_no_organization:
+          id: field_no_organization
+          table: user__field_no_organization
+          field: field_no_organization
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'No Organization'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: unicode-yes-no
+            format_custom_true: ''
+            format_custom_false: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         field_allowed_sections:
           id: field_allowed_sections
           table: user__field_allowed_sections
@@ -1144,8 +1340,11 @@ display:
         - user.permissions
       max-age: 0
       tags:
+        - 'config:field.storage.user.field_all_organizations'
         - 'config:field.storage.user.field_all_sections'
+        - 'config:field.storage.user.field_allowed_organizations'
         - 'config:field.storage.user.field_allowed_sections'
+        - 'config:field.storage.user.field_no_organization'
         - 'config:field.storage.user.field_no_section'
   page_1:
     display_plugin: page
@@ -1181,6 +1380,9 @@ display:
         - user.permissions
       max-age: 0
       tags:
+        - 'config:field.storage.user.field_all_organizations'
         - 'config:field.storage.user.field_all_sections'
+        - 'config:field.storage.user.field_allowed_organizations'
         - 'config:field.storage.user.field_allowed_sections'
+        - 'config:field.storage.user.field_no_organization'
         - 'config:field.storage.user.field_no_section'

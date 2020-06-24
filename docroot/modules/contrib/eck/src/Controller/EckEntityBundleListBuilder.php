@@ -58,9 +58,9 @@ class EckEntityBundleListBuilder extends ConfigEntityListBuilder {
    * {@inheritdoc}
    */
   public function buildHeader() {
-    $header['title'] = t('Name');
+    $header['title'] = $this->t('Name');
     $header['description'] = [
-      'data' => t('Description'),
+      'data' => $this->t('Description'),
       'class' => [RESPONSIVE_PRIORITY_MEDIUM],
     ];
 
@@ -99,7 +99,7 @@ class EckEntityBundleListBuilder extends ConfigEntityListBuilder {
    */
   public function render() {
     $build = parent::render();
-    $build['table']['#empty'] = t(
+    $build['table']['#empty'] = $this->t(
       'No bundles available. @link.',
       [
         '@link' => Link::fromTextAndUrl($this->t('Add new bundle'), new Url('eck.entity.' . $this->entityType->id() . '.add'))

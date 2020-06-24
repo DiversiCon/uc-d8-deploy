@@ -1,0 +1,8 @@
+uuid: b492b642-bb92-4067-854a-1f9960baca05
+langcode: en
+status: true
+dependencies: {  }
+name: Organization
+vid: organization
+description: 'Member Organizations/Institutions'
+weight: 0

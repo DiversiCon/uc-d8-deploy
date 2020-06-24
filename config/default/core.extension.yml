@@ -106,6 +106,7 @@ module:
   uc_api: 0
   uc_cdr: 0
   uc_cdr_client: 0
+  uc_organization: 0
   uc_sauce: 0
   uc_search: 0
   uc_section: 0

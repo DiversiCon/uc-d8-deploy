@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.story.field_headline_text
     - field.field.node.story.field_image_main
     - field.field.node.story.field_intro_paragraph
+    - field.field.node.story.field_organization
     - field.field.node.story.field_par_smartbody
     - field.field.node.story.field_paragraph_single_1
     - field.field.node.story.field_paragraph_single_2
@@ -91,6 +92,7 @@ hidden:
   field_bool_template: true
   field_date_no_time: true
   field_intro_paragraph: true
+  field_organization: true
   field_par_smartbody: true
   field_paragraph_single_1: true
   field_paragraph_single_2: true

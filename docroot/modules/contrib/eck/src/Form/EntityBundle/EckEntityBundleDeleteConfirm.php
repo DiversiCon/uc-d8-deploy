@@ -45,7 +45,7 @@ class EckEntityBundleDeleteConfirm extends EntityDeleteForm {
    * {@inheritdoc}
    */
   public function getQuestion() {
-    return t('Are you sure you want to delete the entity bundle %type?', ['%type' => $this->entity->label()]);
+    return $this->t('Are you sure you want to delete the entity bundle %type?', ['%type' => $this->entity->label()]);
   }
 
   /**
@@ -59,7 +59,7 @@ class EckEntityBundleDeleteConfirm extends EntityDeleteForm {
    * {@inheritdoc}
    */
   public function getConfirmText() {
-    return t('Delete');
+    return $this->t('Delete');
   }
 
   /**

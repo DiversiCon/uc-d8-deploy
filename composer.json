@@ -44,9 +44,9 @@
         "drupal/devel": "^2.1",
         "drupal/draggableviews": "^1.0",
         "drupal/dropzonejs": "^2.0@alpha",
-        "drupal/eck": "1.0-beta1",
+        "drupal/eck": "1.0-beta2",
         "drupal/entity_browser": "^2",
-        "drupal/entity_clone": "1.x-dev#9265e35",
+        "drupal/entity_clone": "^1.0@alpha",
         "drupal/entityqueue": "^1.0@alpha",
         "drupal/field_group": "^3.0",
         "drupal/flood_unblock": "^1.5",
@@ -79,17 +79,20 @@
         "drupal/search_api_solr": "1.2",
         "drupal/smart_trim": "^1.1",
         "drupal/simple_sitemap": "^3.5",
-        "drupal/smtp": "dev-1.x",
+        "drupal/smtp": "^1.0@rc",
         "drupal/stage_file_proxy": "^1.0@alpha",
         "drupal/token_custom": "^1.0@alpha",
         "drupal/twig_field_value": "^1.1",
         "drupal/twig_tweak": "^2.1",
+        "drupal/upgrade_status": "^2.9",
         "drupal/views_bulk_operations": "^2.4",
         "drupal/webform": "^5.2",
         "drush/drush": "~10.2",
         "enyo/dropzone": "^4.3",
         "flow/jsonpath": "^0.4.0",
         "harvesthq/chosen": "^1.8",
+        "mglaman/phpstan-drupal": "0.12.0",
+        "nikic/php-parser": "^4.5",
         "oomphinc/composer-installers-extender": "^1.1.2",
         "pantheon-systems/drupal-integrations": "^8",
         "pantheon-systems/quicksilver-pushback": "^2",
@@ -114,7 +117,6 @@
         "jcalderonzumba/gastonjs": "^1.0.2",
         "jcalderonzumba/mink-phantomjs-driver": "^0.3.1",
         "mikey179/vfsstream": "~1.2",
-        "sensiolabs-de/deprecation-detector": "0.1.0-alpha4",
         "squizlabs/php_codesniffer": "^3.4.0",
         "symfony/phpunit-bridge": "^3.4.3"
     },
@@ -226,13 +228,7 @@
                 "Disabled update module shouldn't produce a status report warning, https://www.drupal.org/project/drupal/issues/2869592#comment-12097889": "https://www.drupal.org/files/issues/2869592-remove-update-warning-7.patch",
                 "views theme hooks, https://www.drupal.org/project/drupal/issues/2923634#comment-12561788": "https://www.drupal.org/files/issues/2018-04-07/2923634-35.patch",
                 "taxonomy theme hooks, https://www.drupal.org/project/drupal/issues/2767243#comment-12285508": "https://www.drupal.org/files/issues/core-theme-suggestion-for-taxonomy-view-modes-2767243-14.patch",
-                "Avoid error when $options is NULL in buildUrl(), https://www.drupal.org/project/drupal/issues/2871217": "https://www.drupal.org/files/issues/2871217-null-options-url-11.patch",
-                "Array merge failure on line 153 of core/lib/Drupal/Core/Utility/LinkGenerator.php, https://www.drupal.org/project/drupal/issues/2596937": "https://www.drupal.org/files/issues/array_merge_failure_on-2596937-65.patch"
-            },
-            "drupal/entity_clone": {
-                "https://www.drupal.org/node/2706639 => 2800203 - Event dispatcher for clone events": "https://www.drupal.org/files/issues/entity_clone-event_dispatcher-2800203-5.patch",
-                "2706639 - Support for cloning nodes that have another entities attached": "https://www.drupal.org/files/issues/entity_clone-attached_entities-2706639-25.patch",
-                "2769823 - Getting error after clicking on abort clone button": "https://www.drupal.org/files/issues/entity_clone-abort_clone_causes_fatal_error-2769823-4.patch"
+                "Avoid error when $options is NULL in buildUrl(), https://www.drupal.org/project/drupal/issues/2871217": "https://www.drupal.org/files/issues/2871217-null-options-url-11.patch"
             },
             "drupal/migrate_plus": {
                 "3007709 - Add XPath-style filtering ability in JSON data parser plugin": "https://www.drupal.org/files/issues/2018-11-14/migrate_plus-json-xpath-filtering-3007709-8.patch"

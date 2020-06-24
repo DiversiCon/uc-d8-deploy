@@ -5,6 +5,7 @@ namespace Drupal\eck\Entity;
 use Drupal\Core\Config\Entity\ConfigEntityBase;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\eck\EckEntityTypeInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
  * Defines the ECK Entity Type config entities.
@@ -43,6 +44,8 @@ use Drupal\eck\EckEntityTypeInterface;
  * @ingroup eck
  */
 class EckEntityType extends ConfigEntityBase implements EckEntityTypeInterface {
+
+  use StringTranslationTrait;
 
   /**
    * If this entity type has an "Author" base field.
@@ -95,7 +98,7 @@ class EckEntityType extends ConfigEntityBase implements EckEntityTypeInterface {
     // Clear the router cache to prevent RouteNotFoundException while creating
     // the edit link.
     \Drupal::service('router.builder')->rebuild();
-    $edit_link = $this->toLink(t('Edit entity type'), 'edit-form')->toString();
+    $edit_link = $this->toLink($this->t('Edit entity type'), 'edit-form')->toString();
 
     if ($update) {
       $this->logger($this->id())->notice(

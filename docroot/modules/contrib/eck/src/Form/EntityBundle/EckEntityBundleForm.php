@@ -187,7 +187,7 @@ class EckEntityBundleForm extends EntityForm {
       $context = array_merge(
         $t_args,
         [
-          'link' => Link::fromTextAndUrl(t('View'), new Url('eck.entity.' . $type->getEntityType()
+          'link' => Link::fromTextAndUrl($this->t('View'), new Url('eck.entity.' . $type->getEntityType()
             ->getBundleOf() . '_type.list'))->toString(),
         ]
       );

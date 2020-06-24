@@ -1,0 +1,45 @@
+uuid: e5f589f2-085c-4b70-9892-b6b92d339fd5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.organization.field_full_name
+    - field.field.taxonomy_term.organization.field_logo_image
+    - field.field.taxonomy_term.organization.field_organization_landing_page
+    - field.field.taxonomy_term.organization.field_organization_landing_query
+    - taxonomy.vocabulary.organization
+  module:
+    - file
+    - text
+id: taxonomy_term.organization.default
+targetEntityType: taxonomy_term
+bundle: organization
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_full_name:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_logo_image:
+    weight: 1
+    label: hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+hidden:
+  field_organization_landing_page: true
+  field_organization_landing_query: true
+  search_api_excerpt: true

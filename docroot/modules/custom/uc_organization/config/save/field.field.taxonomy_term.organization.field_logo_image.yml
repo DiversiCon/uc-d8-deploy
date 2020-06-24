@@ -1,0 +1,27 @@
+uuid: 4aba9345-a857-4d97-b0ab-6b0c8edd21c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_logo_image
+    - taxonomy.vocabulary.organization
+  module:
+    - file
+id: taxonomy_term.organization.field_logo_image
+field_name: field_logo_image
+entity_type: taxonomy_term
+bundle: organization
+label: 'Logo image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: images/organization
+  file_extensions: 'png svg'
+  max_filesize: ''
+  description_field: true
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

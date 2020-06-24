@@ -123,6 +123,8 @@ class UserSections {
   /**
    * Method to get array section based grant ids.
    *
+   * @TODO: Not currently used since code in uc_section.module was omitted.
+   *
    * @return array
    *   Grant ID's array.
    */
@@ -138,7 +140,7 @@ class UserSections {
 
     // No section represents a grant id.
     if ($this->noSection) {
-      $gids[] = -1;
+      $gids[] = 999999;
     }
 
     return $gids;

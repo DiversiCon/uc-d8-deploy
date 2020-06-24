@@ -11,7 +11,6 @@ use PHPStan\Reflection\MethodReflection;
 use PHPStan\Reflection\ParametersAcceptorSelector;
 use PHPStan\ShouldNotHappenException;
 use PHPStan\Type\Constant\ConstantBooleanType;
-use Psr\Container\ContainerInterface;
 
 class ServiceDynamicReturnTypeExtension implements DynamicMethodReturnTypeExtension
 {
@@ -27,7 +26,7 @@ class ServiceDynamicReturnTypeExtension implements DynamicMethodReturnTypeExtens
 
     public function getClass(): string
     {
-        return ContainerInterface::class;
+        return 'Symfony\Component\DependencyInjection\ContainerInterface';
     }
 
     public function isMethodSupported(MethodReflection $methodReflection): bool
@@ -56,12 +55,6 @@ class ServiceDynamicReturnTypeExtension implements DynamicMethodReturnTypeExtens
         if ($methodReflection->getName() === 'get') {
             $service = $this->serviceMap->getService($serviceId);
             if ($service instanceof DrupalServiceDefinition) {
-                // Work around Drupal misusing the SplString class for string
-                // pseudo-services such as 'app.root'.
-                // @see https://www.drupal.org/project/drupal/issues/3074585
-                if ($service->getClass() === 'SplString') {
-                    return new StringType();
-                }
                 return new ObjectType($service->getClass() ?? $serviceId);
             }
             return $returnType;

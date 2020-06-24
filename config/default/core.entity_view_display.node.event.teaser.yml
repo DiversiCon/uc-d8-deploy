@@ -4,6 +4,23 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.event.field_all_day
+    - field.field.node.event.field_contact
+    - field.field.node.event.field_department
+    - field.field.node.event.field_description
+    - field.field.node.event.field_event_dates
+    - field.field.node.event.field_event_image
+    - field.field.node.event.field_event_image_caption
+    - field.field.node.event.field_event_status
+    - field.field.node.event.field_event_tags
+    - field.field.node.event.field_external_id
+    - field.field.node.event.field_featured
+    - field.field.node.event.field_location
+    - field.field.node.event.field_notes
+    - field.field.node.event.field_organization
+    - field.field.node.event.field_source
+    - field.field.node.event.field_speaker_affiliation
+    - field.field.node.event.field_speaker_name
     - node.type.event
   module:
     - user
@@ -31,6 +48,7 @@ hidden:
   field_featured: true
   field_location: true
   field_notes: true
+  field_organization: true
   field_source: true
   field_speaker_affiliation: true
   field_speaker_name: true

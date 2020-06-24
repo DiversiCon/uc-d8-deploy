@@ -4,6 +4,19 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.publication.field_associated_people
+    - field.field.node.publication.field_author_list
+    - field.field.node.publication.field_citation
+    - field.field.node.publication.field_label
+    - field.field.node.publication.field_link_single
+    - field.field.node.publication.field_organization
+    - field.field.node.publication.field_pmid
+    - field.field.node.publication.field_publication
+    - field.field.node.publication.field_publication_date
+    - field.field.node.publication.field_publication_venue
+    - field.field.node.publication.field_section
+    - field.field.node.publication.field_topics
+    - field.field.node.publication.field_year
     - node.type.publication
   module:
     - user
@@ -23,6 +36,7 @@ hidden:
   field_citation: true
   field_label: true
   field_link_single: true
+  field_organization: true
   field_pmid: true
   field_publication: true
   field_publication_date: true

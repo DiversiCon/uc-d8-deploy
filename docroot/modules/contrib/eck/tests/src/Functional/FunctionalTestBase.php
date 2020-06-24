@@ -3,12 +3,15 @@
 namespace Drupal\Tests\eck\Functional;
 
 use Drupal\Core\Url;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Tests\BrowserTestBase;
 
 /**
  * Provides common functionality for ECK functional tests.
  */
 abstract class FunctionalTestBase extends BrowserTestBase {
+
+  use StringTranslationTrait;
 
   /**
    * {@inheritdoc}
@@ -64,7 +67,7 @@ abstract class FunctionalTestBase extends BrowserTestBase {
       $edit[$field] = TRUE;
     }
 
-    $this->drupalPostForm(Url::fromRoute('eck.entity_type.add'), $edit, t('Create entity type'));
+    $this->drupalPostForm(Url::fromRoute('eck.entity_type.add'), $edit, $this->t('Create entity type'));
     $this->assertSession()->statusCodeEquals(200);
     $this->assertSession()->responseContains("Entity type <em class=\"placeholder\">$label</em> has been added.");
     return ['id' => $id, 'label' => $label];
@@ -110,7 +113,7 @@ abstract class FunctionalTestBase extends BrowserTestBase {
       $edit[$field . '_title_override'] = $title_override;
     }
 
-    $this->drupalPostForm(Url::fromRoute("eck.entity.{$entity_type}_type.add"), $edit, t('Save bundle'));
+    $this->drupalPostForm(Url::fromRoute("eck.entity.{$entity_type}_type.add"), $edit, $this->t('Save bundle'));
     $this->assertSession()->responseContains("The entity bundle <em class=\"placeholder\">$label</em> has been added.");
 
     return $edit;
@@ -143,7 +146,7 @@ abstract class FunctionalTestBase extends BrowserTestBase {
       $edit[$field . '_title_override'] = $title_override;
     }
 
-    $this->drupalPostForm(NULL, $edit, t('Save bundle'));
+    $this->drupalPostForm(NULL, $edit, $this->t('Save bundle'));
     $this->assertSession()->responseContains("The entity bundle <em class=\"placeholder\">$label</em> has been updated.");
   }
 

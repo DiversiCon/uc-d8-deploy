@@ -4,9 +4,11 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.callout_view
+    - field.field.node.external.field_date_no_time
     - field.field.node.external.field_headline_text
     - field.field.node.external.field_image_main
     - field.field.node.external.field_link_single
+    - field.field.node.external.field_organization
     - field.field.node.external.field_subheadline_text
     - node.type.external
   module:
@@ -60,4 +62,5 @@ content:
     third_party_settings: {  }
 hidden:
   field_date_no_time: true
+  field_organization: true
   search_api_excerpt: true

@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.person.field_name
     - field.field.node.person.field_office_location
     - field.field.node.person.field_office_title
+    - field.field.node.person.field_organization
     - field.field.node.person.field_paragraph_single_0
     - field.field.node.person.field_person_type
     - field.field.node.person.field_phone
@@ -105,6 +106,7 @@ hidden:
   field_name: true
   field_office_location: true
   field_office_title: true
+  field_organization: true
   field_paragraph_single_0: true
   field_person_type: true
   field_phone: true

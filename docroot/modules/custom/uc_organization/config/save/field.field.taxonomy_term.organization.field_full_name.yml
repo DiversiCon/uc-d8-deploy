@@ -1,0 +1,19 @@
+uuid: d2eb6033-8ae9-4bb5-9fdf-51c4c7a72788
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_full_name
+    - taxonomy.vocabulary.organization
+id: taxonomy_term.organization.field_full_name
+field_name: field_full_name
+entity_type: taxonomy_term
+bundle: organization
+label: 'Full Name'
+description: 'Provide the full name of the organization or institution to be used within the CMS when it is appropriate.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

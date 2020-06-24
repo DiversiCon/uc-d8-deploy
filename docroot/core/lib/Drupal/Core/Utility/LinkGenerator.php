@@ -158,7 +158,7 @@ class LinkGenerator implements LinkGeneratorInterface {
 
     // Move attributes out of options since generateFromRoute() doesn't need
     // them. Make sure the "href" comes first for testing purposes.
-    $attributes = array_merge(['href' => ''], $variables['options']['attributes']);
+    $attributes = ['href' => ''] + $variables['options']['attributes'];
     unset($variables['options']['attributes']);
     $url->setOptions($variables['options']);
 

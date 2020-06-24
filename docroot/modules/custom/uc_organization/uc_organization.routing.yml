@@ -1,0 +1,14 @@
+uc_organization.landing.alias_confirm:
+  path: '/admin/organization/landing/alias/confirm'
+  defaults:
+    _title: 'Confirm organization landing page alias updates'
+    _form: '\Drupal\uc_organization\Form\LandingAliasConfirmForm'
+  requirements:
+    _permission: 'create and edit url aliases'
+uc_organization.organization_autocomplete:
+  path: '/api/v1/organization/autocomplete/{target_type}/{selection_handler}/{selection_settings_key}'
+  defaults:
+    _controller: '\Drupal\uc_organization\Controller\OrganizationAutocompleteController::handleAutocomplete'
+  requirements:
+    # Unrestricted access OK.
+    _access: 'TRUE'

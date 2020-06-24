@@ -3,10 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_all_organizations
     - field.field.user.user.field_all_sections
+    - field.field.user.user.field_allowed_organizations
     - field.field.user.user.field_allowed_sections
     - field.field.user.user.field_name_first
     - field.field.user.user.field_name_last
+    - field.field.user.user.field_no_organization
     - field.field.user.user.field_no_section
   module:
     - field_group
@@ -29,6 +32,22 @@ third_party_settings:
         required_fields: true
       label: 'Section permissions'
       region: content
+    group_organization_permissions:
+      children:
+        - field_all_organizations
+        - field_no_organization
+        - field_allowed_organizations
+      parent_name: ''
+      weight: 4
+      format_type: details
+      region: content
+      format_settings:
+        description: ''
+        open: true
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Organization permissions'
 id: user.user.default
 targetEntityType: user
 bundle: user
@@ -39,12 +58,25 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_all_organizations:
+    weight: 9
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_all_sections:
     weight: 8
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
+    region: content
+  field_allowed_organizations:
+    weight: 11
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
     region: content
   field_allowed_sections:
     weight: 10
@@ -67,6 +99,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_no_organization:
+    weight: 10
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_no_section:
     weight: 9

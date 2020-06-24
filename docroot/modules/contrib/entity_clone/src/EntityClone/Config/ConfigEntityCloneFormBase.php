@@ -2,10 +2,11 @@
 
 namespace Drupal\entity_clone\EntityClone\Config;
 
+use Drupal\Core\Config\Entity\ConfigEntityStorage;
 use Drupal\Core\Entity\EntityHandlerInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
-use Drupal\Core\Entity\EntityTypeManager;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\StringTranslation\TranslationManager;
 use Drupal\entity_clone\EntityClone\EntityCloneFormInterface;
@@ -17,23 +18,28 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class ConfigEntityCloneFormBase implements EntityHandlerInterface, EntityCloneFormInterface {
 
   /**
-   * The entity type manager.
+   * The string translation.
    *
    * @var \Drupal\Core\StringTranslation\TranslationManager
    */
   protected $translationManager;
 
+  /**
+   * The entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
   protected $entityTypeManager;
 
   /**
    * Constructs a new ConfigEntityCloneFormBase.
    *
-   * @param \Drupal\Core\Entity\EntityTypeManager $entity_type_manager
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
    * @param \Drupal\Core\StringTranslation\TranslationManager $translation_manager
    *   The string translation manager.
    */
-  public function __construct(EntityTypeManager $entity_type_manager, TranslationManager $translation_manager) {
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, TranslationManager $translation_manager) {
     $this->entityTypeManager = $entity_type_manager;
     $this->translationManager = $translation_manager;
   }
@@ -51,24 +57,31 @@ class ConfigEntityCloneFormBase implements EntityHandlerInterface, EntityCloneFo
   /**
    * {@inheritdoc}
    */
-  public function formElement(EntityInterface $entity) {
+  public function formElement(EntityInterface $entity, $parent = TRUE) {
     $form = [];
 
     if ($this->entityTypeManager->getDefinition($entity->getEntityTypeId())->getKey('label')) {
-      $form['label'] = array(
+      $form['label'] = [
         '#type' => 'textfield',
         '#title' => $this->translationManager->translate('New Label'),
         '#maxlength' => 255,
         '#required' => TRUE,
-      );
+      ];
     }
 
-    $form['id'] = array(
+    // In common casse, config entities IDs are limited to 64 characters ...
+    $max_length = 64;
+    if ($entity->getEntityType()->getBundleOf()) {
+      // ... Except for bundle definition, that are limited to 32 characters.
+      $max_length = EntityTypeInterface::BUNDLE_MAX_LENGTH;
+    }
+
+    $form['id'] = [
       '#type' => 'machine_name',
       '#title' => $this->translationManager->translate('New Id'),
-      '#maxlength' => 255,
+      '#maxlength' => $max_length,
       '#required' => TRUE,
-    );
+    ];
 
     // If entity must have a prefix
     // (e.g. entity_form_mode, entity_view_mode, ...).
@@ -88,7 +101,7 @@ class ConfigEntityCloneFormBase implements EntityHandlerInterface, EntityCloneFo
   /**
    * {@inheritdoc}
    */
-  public function getNewValues(FormStateInterface $form_state) {
+  public function getValues(FormStateInterface $form_state) {
     // If entity must have a prefix
     // (e.g. entity_form_mode, entity_view_mode, ...).
     $field_prefix = '';

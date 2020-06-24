@@ -1,0 +1,610 @@
+<?php
+
+/**
+ * @file
+ * Contains uc_organization.module.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\views\Views;
+use Drupal\views\Plugin\views\query\Sql;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\node\NodeInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
+use Drupal\taxonomy\TermInterface;
+use Drupal\Core\Render\BubbleableMetadata;
+use Drupal\uc_organization\UserOrganizations;
+use Drupal\Core\Access\AccessResult;
+use Drupal\views\ViewExecutable;
+use Drupal\Core\Cache\Cache;
+use Drupal\Core\Form\FormState;
+
+/**
+ * The following block provides custom tokens for organization based pathauto.
+ */
+
+/**
+ * Implements hook_token_info().
+ */
+function uc_organization_token_info() {
+  $info = [];
+  $info['tokens']['node']['organization_path'] = [
+    'name' => t('Organization path'),
+    'description' => t('Organization based fragment for Pathauto URL.'),
+  ];
+
+  return $info;
+}
+
+/**
+ * Implements hook_tokens().
+ *
+ * @param $type
+ * @param $tokens
+ * @param array $data
+ * @param array $options
+ * @param \Drupal\Core\Render\BubbleableMetadata $bubbleable_metadata
+ *
+ * @return array
+ */
+function uc_organization_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
+  $replacements = [];
+
+  // If we're looking at nodes.
+  if ($type == 'node') {
+    foreach ($tokens as $name => $original) {
+
+      // Only interested in organization_path token.
+      if ($name == 'organization_path') {
+        $organization_path = '';
+
+        // Get node object.
+        if (isset($data['node']) && $data['node']) {
+          $node = $data['node'];
+
+          // Get organization designation and related term object.
+          if ($node->get('field_organization')) {
+            $term = $node->get('field_organization')->entity;
+
+            if ($term) {
+              // Set default token value based on organization.
+              $organization_path = strtolower(preg_replace("![^a-z0-9]+!i", "-", $term->getName()));
+
+              // Get organization landing page.
+              if ($term->get('field_organization_landing_page')) {
+                $landing = $term->get('field_organization_landing_page')->getValue();
+                if ($landing && isset($landing[0]['target_id'])) {
+                  $landing_nid = $landing[0]['target_id'];
+
+                  // If landing page nid equals this nid then we use nothing.
+                  if ($landing_nid == $node->id()) {
+                    $organization_path = '';
+                  }
+                }
+              }
+            }
+          }
+        }
+        $replacements[$original] = $organization_path;
+      }
+    }
+  }
+
+  return $replacements;
+}
+
+/**
+ * The following block tries to mitigate one of the issues introduced above.
+ * This is a chicken/egg situation that is caused by the landing page alias
+ * being influenced by whether or not is it a main organization landing page as
+ * defined in the organization taxonomy terms.
+ *
+ * A main organization landing page does not include the organization as part of
+ * the alias to avoid redundancy.
+ *    Instead of: /about/about  (organization/title used by all other pages)
+ *    We use: /about (title only used by organization landing pages)
+ *
+ * The problem arises because the landing page must be created before it can
+ * be set as the main organization landing page.  When created the alias will be
+ * based on organization/title.  When it is set as the main organization landing
+ * page in the organization taxonomy term nothing is done with the alias of the
+ * landing page (it will still be organization/title).  However, subsequently
+ * saving the landing page will produce a different alias since it is now a main
+ * organization landing page (it will become title only).
+ *
+ * To get the desired effect user must, create landing page, set landing page
+ * in organization term, edit/save landing page to get correct alias.  OR, they
+ * have the option of manually specifying alias instead of auto-generate.
+ *
+ *
+ *
+ * Opted to leave this task to future Russ due to lack of time.
+ */
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Add extra submit handler to taxonomy term pages for organization vocabulary.
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param $form_id
+ */
+function uc_organization_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  // Only interested in organization taxonomy term edit pages.
+  if ($form_id == 'taxonomy_term_organization_form') {
+
+    // Set an additional submit handler for organizations.
+    $form['actions']['submit']['#submit'][] = 'uc_organization_landing_alias_confirm';
+    \Drupal::request()->query->get('destination');
+
+    // Save current value of organization landing page for future use.
+    $uc_landing_was = NULL;
+    /* @var \Drupal\taxonomy\Entity\Term $term */
+    $term = $form_state->getFormObject()->getEntity();
+    if ($term) {
+      $original = $term->get('field_organization_landing_page');
+      if ($original && $original->getValue()) {
+        if (isset($original->getValue()[0]) && isset($original->getValue()[0]['target_id'])) {
+          $uc_landing_was = $original->getValue()[0]['target_id'];
+        }
+      }
+    }
+    $form_state->addBuildInfo('uc_landing_was', $uc_landing_was);
+
+    // If we have a destination query parameter, remove and save it for later.
+    $destination = \Drupal::request()->query->get('destination');
+    if ($destination) {
+      \Drupal::request()->query->remove('destination');
+      $form_state->addBuildInfo('uc_destination', $destination);
+    }
+
+  }
+
+  // Only interested in user form.
+  if ($form_id == 'user_form') {
+    $user = $form_state->getStorage();
+    if ($user && isset($user['user'])) {
+      $uid = \Drupal::currentUser()->id();
+      $user_organizations = new UserOrganizations($uid);
+      if ($uid == $user['user']->id() && !$user_organizations->isUserAdmin()) {
+        $form['field_all_organizations']['#disabled'] = TRUE;
+        $form['field_no_organization']['#disabled'] = TRUE;
+        $form['field_allowed_organizations']['#disabled'] = TRUE;
+      }
+
+    }
+  }
+
+}
+
+/**
+ *
+ */
+function uc_organization_landing_alias_confirm(&$form, FormStateInterface $form_state) {
+
+  // Get the original value for organization landing page.
+  $was = NULL;
+  $destination = FALSE;
+  $build_info = $form_state->getBuildInfo();
+  if ($build_info) {
+    if (isset($build_info['uc_landing_was'])) {
+      $was = $build_info['uc_landing_was'];
+    }
+    if (isset($build_info['uc_destination'])) {
+      $destination = $build_info['uc_destination'];
+    }
+  }
+
+  // Get new value for organization landing page.
+  $is = NULL;
+  $current = $form_state->getValue('field_organization_landing_page');
+  if ($current) {
+    $is = $current[0]['target_id'];
+  }
+
+  // If the organization landing page has changed, then redirect for more input.
+  if ($was !== $is) {
+
+    // Prepare URL for redirect based on what we know.
+    $parameters = ['was' => $was, 'is' => $is];
+    $options = ['absolute' => TRUE];
+    if ($destination) {
+      $options['query'] = ['destination' => $destination];
+    }
+    $url = Url::fromRoute('uc_organization.landing.alias_confirm', $parameters, $options);
+
+    $form_state->setRedirectUrl($url);
+  }
+}
+
+/**
+ * The following block includes code to alter the URL of organization terms.
+ */
+
+/**
+ * Implements hook_entity_type_alter().
+ *
+ * Foundation for overriding the URL's for organization taxonomy.
+ * First we unset the canonical link template for organization taxonomy
+ * and replace with a uri callback. Un-setting the uri template is
+ * necessary for the uri callbacks to work.
+ * This also adds a UriCallback for all taxonomy terms.
+ *
+ * @param array $entity_types
+ */
+function uc_organization_entity_type_alter(array &$entity_types) {
+  if (isset($entity_types['taxonomy_term'])) {
+    $entity_types['taxonomy_term']->setUriCallback('_uc_organization_taxonomy_url');
+    $links = $entity_types['taxonomy_term']->get('links');
+    unset($links['canonical']);
+    $entity_types['taxonomy_term']->set('links', $links);
+  }
+}
+
+/**
+ * Implements hook_entity_bundle_info_alter().
+ *
+ * Exceptions for overriding the URL's for organization taxonomy.
+ * Next we add a different callback for the organization taxonomy bundle.
+ *
+ * @param array $bundles
+ */
+function uc_organization_entity_bundle_info_alter(&$bundles) {
+  if (isset($bundles['taxonomy_term']['organization'])) {
+    $bundles['taxonomy_term']['organization']['uri_callback'] = '_uc_organization_redirect_uri';
+  }
+}
+
+/**
+ * Prepares variables for taxonomy term templates.
+ *
+ * Drupal core includes a bug that uses a deprecated function to generate URL.
+ *   $variables['url'] = $term->url();
+ *
+ * @param array $variables
+ *
+ * @throws \Drupal\Core\Entity\EntityMalformedException
+ * @throws \Drupal\Core\Entity\Exception\UndefinedLinkTemplateException
+ */
+function uc_organization_preprocess_taxonomy_term(&$variables) {
+  /** @var \Drupal\taxonomy\TermInterface $term */
+  $term = $variables['term'];
+
+  // We're only interested in organization vocabulary.
+  if ($term->bundle() == 'organization') {
+    $current_node = \Drupal::routeMatch()->getParameter('node');
+
+    // Ensure we are viewing a node, and the term has a organization landing page set.
+    if ($current_node instanceof NodeInterface) {
+      $landing_page_id = NULL;
+
+      // Set the URL cache context to ensure that this is cached on a per page basis.
+      $variables['#cache']['contexts'][] = 'url';
+
+      // If there is an associated organization landing page, set the landing page node id
+      // and get the URL for the landing page.
+      if (!$term->get('field_organization_landing_page')->isEmpty()) {
+        $landing_page_id = $term->get('field_organization_landing_page')->getValue()[0]['target_id'];
+        $variables['organization']['url'] = $term->toUrl()->toString();
+      }
+
+      // If the currently displayed node id does NOT match the associated organization
+      // landing page node id, display the link and URL.
+      if ($current_node->id() != $landing_page_id) {
+        $variables['organization']['display'] = TRUE;
+      }
+    }
+  }
+}
+
+/**
+ * Taxonomy URI callback for all taxonomy terms, to be overridden for
+ * organization.
+ *
+ * @param \Drupal\taxonomy\TermInterface $term
+ *
+ * @return \Drupal\Core\Url
+ */
+function _uc_organization_taxonomy_url(TermInterface $term) {
+  return new Url('entity.taxonomy_term.canonical', ['taxonomy_term' => $term->id()]);
+}
+
+/**
+ * Taxonomy organization bundle URI callback for organization taxonomy terms.
+ *
+ * @param \Drupal\taxonomy\TermInterface $term
+ *
+ * @return \Drupal\Core\Url
+ */
+function _uc_organization_redirect_uri(TermInterface $term) {
+  if ($term->field_organization_landing_page->isEmpty() === FALSE && !is_null($term->field_organization_landing_page[0]->entity)) {
+    /* @var \Drupal\Core\Url $url_info */
+    $url_info = $term->field_organization_landing_page[0]->entity->urlInfo();
+    if ($url_info) {
+      if ($term->hasField('field_organization_landing_query') && $term->field_organization_landing_query[0]) {
+        $query_string = _uc_organization_parse_querystring($term->field_organization_landing_query[0]->value);
+        if ($query_string) {
+          $url_info->setOption('query', $query_string);
+        }
+      }
+      return $url_info;
+    }
+  }
+  return new Url('entity.taxonomy_term.canonical', ['taxonomy_term' => $term->id()]);
+}
+
+/**
+ * Helper function to parse query string value into array.
+ *
+ * @param $query_string
+ *
+ * @return array
+ */
+function _uc_organization_parse_querystring($query_string) {
+  $query = [];
+  if ($query_string) {
+    $items = explode('&', $query_string);
+    foreach ($items as $delta => $item) {
+      $parts = explode('=', $item);
+      if ($parts) {
+        if (isset($parts[0]) && isset($parts[1])) {
+          $query[$parts[0]] = $parts[1];
+        }
+        else {
+          if (isset($parts[0])) {
+            $query[$parts[0]] = NULL;
+          }
+        }
+      }
+    }
+  }
+
+  return $query;
+}
+
+/**
+ * The following block includes code to implement organization based permission.
+ */
+
+/**
+ * Implements hook_node_access().
+ *
+ * @param \Drupal\node\NodeInterface $node
+ * @param string $op
+ * @param \Drupal\Core\Session\AccountInterface $account
+ *
+ * @return \Drupal\Core\Access\AccessResult
+ */
+function uc_organization_node_access(NodeInterface $node, $op, AccountInterface $account) {
+
+  // Only restricting access for update and delete.
+  $ops = ['update', 'delete'];
+  if (in_array($op, $ops)) {
+
+    // Restrict access based on organization associated with the current node
+    // and user organizations.
+    $user_organizations = new UserOrganizations($account->id());
+    $organization_id = _uc_organization_node_organization($node);
+    $allowed = $user_organizations->isOrganizationAllowed($organization_id);
+    if (!$allowed) {
+      return AccessResult::forbidden('Organization not permitted.');
+    }
+  }
+}
+
+/**
+ * Implements hook_node_access_records_alter().
+ *
+ * @TODO: Removed after it was deemed this is not needed for our purposes.
+ *
+ * Add our grants to the $grants array as needed.
+ *
+ * @param array $grants
+ * @param \Drupal\node\NodeInterface $node
+ */
+/*
+function uc_organization_node_access_records_alter(array &$grants, NodeInterface $node) {
+
+  // We only care about nodes that have a organization field.
+  if ($node->hasField('field_organization')) {
+
+    // Get organization value and add grants for the organization related to this node.
+    $organization = _uc_organization_node_organization($node);
+    if ($organization) {
+      $grants[] = [
+        'realm' => 'uc_organization',
+        'gid' => $organization,
+        'grant_view' => 1,
+        'grant_update' => 1,
+        'grant_delete' => 1,
+      ];
+    }
+    // If no organization then use a special gid.
+    else {
+      $grants[] = [
+        'realm' => 'uc_organization',
+        'gid' => 999999,
+        'grant_view' => 1,
+        'grant_update' => 1,
+        'grant_delete' => 1,
+      ];
+    }
+
+    // Add a grant to represent all organizations access.
+    $grants[] = [
+      'realm' => 'uc_organization',
+      'gid' => 0,
+      'grant_view' => 1,
+      'grant_update' => 1,
+      'grant_delete' => 1,
+    ];
+
+    // For some reason we need to add this back.
+    if ($node->isPublished()) {
+      $grants[] = [
+        'realm' => 'all',
+        'gid' => 0,
+        'grant_view' => 1,
+        'grant_update' => 0,
+        'grant_delete' => 0,
+      ];
+    }
+  }
+}
+*/
+
+/**
+ * Implements hook_node_grants().
+ *
+ * @TODO: Removed after it was deemed this is not needed for our purposes.
+ *
+ * @param \Drupal\Core\Session\AccountInterface $account
+ * @param $op
+ *
+ * @return array
+ */
+/*
+function uc_organization_node_grants(AccountInterface $account, $op) {
+  // Only restricting access for update and delete.
+  $ops = ['update', 'delete'];
+  if (in_array($op, $ops)) {
+
+    // Restrict access based on user allowed organizations.
+    $user_organizations = new UserOrganizations($account->id());
+    $gids = $user_organizations->getOrganizationGids();
+    $grants = [];
+    if ($gids) {
+      $grants['uc_organization'] = $gids;
+    }
+    return $grants;
+  }
+}
+*/
+
+/**
+ * Alter the query before it is executed.
+ *
+ * @param \Drupal\views\ViewExecutable $view
+ *   The view object about to be processed.
+ * @param \Drupal\views\Plugin\views\query\Sql $query
+ *   The query plugin object for the query.
+ *
+ * @throws \Drupal\Component\Plugin\Exception\PluginException
+ */
+function uc_organization_views_query_alter(ViewExecutable $view, Sql $query) {
+
+  // Only interested in content view.
+  // if ($view->id() == 'my_views' && $view->getDisplay()->display['id'] == 'my_display') {.
+  if ($view->id() == 'content') {
+
+    // Get current users allowed organizations.
+    $user_organizations = new UserOrganizations(\Drupal::currentUser()->id());
+    if ($user_organizations->isUserValid()) {
+      $organizations = $user_organizations->getAllowedOrganizationIds();
+
+      // User must have organizations.
+      if ($organizations) {
+
+        // If all organizations are not allowed we limit results.
+        if (!$user_organizations->isAllOrganizationsAllowed()) {
+
+          // Add join and condition for organizations assigned to current user.
+          $configuration = [
+            'type' => 'LEFT OUTER',
+            'table' => 'node__field_organization',
+            'field' => 'entity_id',
+            'left_table' => 'node_field_data',
+            'left_field' => 'nid',
+            'operator' => '=',
+          ];
+          /* @var Drupal\views\Plugin\views\join\JoinPluginBase $join */
+          $join = Views::pluginManager('join')->createInstance('standard', $configuration);
+          $rel = $query->addRelationship('uc_organization', $join, 'node_field_data');
+          $query->addTable('node__field_organization', $rel, $join, 'uc_organization');
+          if ($user_organizations->isNoOrganizationAllowed()) {
+            $query->addWhereExpression(
+              0,
+              'uc_organization.field_organization_target_id IN (:organizations[]) OR uc_organization.field_organization_target_id IS NULL',
+              [':organizations[]' => $organizations]
+            );
+          }
+          else {
+            $query->addWhere('', 'uc_organization.field_organization_target_id', $organizations, 'IN');
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param $form_id
+ */
+function uc_organization_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (isset($form['field_organization'])) {
+    $form['field_organization']['#element_validate'][] = '_uc_organization_node_validate';
+  }
+}
+
+/**
+ * Validate callback for field organization.
+ *
+ * @param $element
+ * @param \Drupal\Core\Form\FormState $form_state
+ * @param $form
+ */
+function _uc_organization_node_validate($element, FormState $form_state, $form) {
+
+  // Nothing special needs to happen if we have a organization.
+  $organization = $form_state->getValue('field_organization');
+  if ($organization && isset($organization[0]['target_id']) && $organization[0]['target_id']) {
+    // All good.
+  }
+  // If we have not organization then user must have permission.
+  else {
+    $user_organizations = new UserOrganizations(\Drupal::currentUser()->id());
+    if (!$user_organizations->isNoOrganizationAllowed() && !$user_organizations->isUserAdmin()) {
+      $form_state->setErrorByName('field_organization', 'You may not remove the organization unless you have the proper permissions.');
+    }
+  }
+
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ *
+ * Invalidate appropriate cache tag when user is updated.
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ */
+function uc_organization_user_update(EntityInterface $entity) {
+  if ($entity->getEntityTypeId() == 'user') {
+    Cache::invalidateTags(['user_list', 'node_view', 'local_task']);
+  }
+}
+
+/**
+ * Helper function to get node organization target id value.
+ *
+ * @param \Drupal\node\NodeInterface $node
+ *
+ * @return int
+ */
+function _uc_organization_node_organization(&$node) {
+  $organization = 0;
+  if ($node->hasField('field_organization') && $node->get('field_organization')->getValue()) {
+    $value = $node->get('field_organization')->getValue();
+    if (isset($value[0]) && isset($value[0]['target_id'])) {
+      $organization = $value[0]['target_id'];
+    }
+  }
+
+  return $organization;
+}

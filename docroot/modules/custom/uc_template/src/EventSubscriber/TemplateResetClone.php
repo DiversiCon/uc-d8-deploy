@@ -2,8 +2,8 @@
 
 namespace Drupal\uc_template\EventSubscriber;
 
-use Drupal\entity_clone\Events\EntityCloneEvent;
-use Drupal\entity_clone\Events\EntityCloneEvents;
+use Drupal\entity_clone\Event\EntityCloneEvent;
+use Drupal\entity_clone\Event\EntityCloneEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
 
@@ -23,11 +23,8 @@ class TemplateResetClone implements EventSubscriberInterface {
   /**
    * Clones entity reference revisions fields.
    *
-   * @param \Drupal\entity_clone\Events\EntityCloneEvent $event
+   * @param \Drupal\entity_clone\Event\EntityCloneEvent $event
    *   Event object.
-   *
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
-   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
   public function onEntityCloned(EntityCloneEvent $event) {
     $entity = $event->getClonedEntity();

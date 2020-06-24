@@ -1,9 +1,9 @@
 parameters:
-	bootstrapFiles:
+	autoload_files:
 		- drupal-autoloader.php
 	excludes_analyse:
-		- '*.api.php'
-		- '*/tests/fixtures/*.php'
+		- *.api.php
+		- */tests/fixtures/*.php
 	fileExtensions:
 		- module
 		- theme
@@ -12,14 +12,14 @@ parameters:
 		- profile
 		- engine
 	drupal:
-		drupal_root: '%currentWorkingDirectory%'
+		drupal_root: null
 		entityTypeStorageMapping:
 			node: Drupal\node\NodeStorage
 			taxonomy_term: Drupal\taxonomy\TermStorage
 			user: Drupal\user\UserStorage
 parametersSchema:
 	drupal: structure([
-		drupal_root: string()
+		drupal_root: schema(string(), nullable())
 		entityTypeStorageMapping: arrayOf(string())
 	])
 rules:

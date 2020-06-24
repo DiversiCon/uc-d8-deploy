@@ -54,7 +54,7 @@ class LocalTaskEntityTest extends FunctionalTestBase {
       'eck_entity_type' => $this->entityTypeInfo['id'],
       'eck_entity_bundle' => $this->bundleInfo['type'],
     ];
-    $this->drupalPostForm(Url::fromRoute("eck.entity.add", $route_args), $edit, t('Save'));
+    $this->drupalPostForm(Url::fromRoute("eck.entity.add", $route_args), $edit, $this->t('Save'));
 
     $route_args = [
       $this->entityTypeInfo['id'] => 1,
@@ -96,7 +96,7 @@ class LocalTaskEntityTest extends FunctionalTestBase {
       ':label' => $label,
     ]);
 
-    $this->assertEquals(1, count($links), t('Link with label %label found and its route is :route', [
+    $this->assertEquals(1, count($links), $this->t('Link with label %label found and its route is :route', [
       ':route' => $route,
       '%label' => $label,
     ]));

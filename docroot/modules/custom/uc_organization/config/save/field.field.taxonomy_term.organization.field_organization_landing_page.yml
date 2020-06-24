@@ -1,0 +1,35 @@
+uuid: d2b764eb-3a0b-4cae-9145-2a0e4f621fcb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_organization_landing_page
+    - node.type.directory
+    - node.type.generic
+    - node.type.page
+    - node.type.versatile_hero
+    - taxonomy.vocabulary.organization
+id: taxonomy_term.organization.field_organization_landing_page
+field_name: field_organization_landing_page
+entity_type: taxonomy_term
+bundle: organization
+label: 'Organization landing page'
+description: 'Specify the page that is used as the main landing page for this organization.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      generic: generic
+      page: page
+      versatile_hero: versatile_hero
+      directory: directory
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: generic
+field_type: entity_reference

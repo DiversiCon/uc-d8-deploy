@@ -4,12 +4,14 @@ status: true
 dependencies:
   config:
     - node.type.directory
+    - node.type.external
     - node.type.generic
     - node.type.group
     - node.type.home
     - node.type.page
     - node.type.person
     - node.type.program
+    - node.type.publication
     - node.type.story
     - node.type.versatile_hero
   module:
@@ -30,12 +32,17 @@ type_settings:
       label: Draft
       published: false
       default_revision: false
-      weight: -2
+      weight: -3
     published:
       label: Published
       published: true
       default_revision: true
       weight: -1
+    submitted:
+      published: false
+      default_revision: true
+      label: Submitted
+      weight: -2
     unpublished:
       published: false
       default_revision: true
@@ -47,23 +54,23 @@ type_settings:
       from:
         - published
       to: archived
-      weight: 0
+      weight: 1
     archived_draft:
       label: 'Restore to Draft'
       from:
         - archived
       to: draft
-      weight: 1
+      weight: 2
     archived_published:
       label: Restore
       from:
         - archived
       to: published
-      weight: 2
+      weight: 3
     create_new_draft:
       label: 'Create New Draft'
       to: draft
-      weight: -3
+      weight: -4
       from:
         - draft
         - published
@@ -71,27 +78,41 @@ type_settings:
     publish:
       label: Publish
       to: published
-      weight: -2
+      weight: -1
       from:
         - draft
         - published
+        - submitted
         - unpublished
+    reject:
+      label: Reject
+      from:
+        - submitted
+      to: draft
+      weight: -2
+    submit:
+      label: 'Submit for Approval'
+      from:
+        - draft
+      to: submitted
+      weight: -3
     unpublish:
       label: Unpublish
       from:
-        - draft
         - published
       to: unpublished
-      weight: -1
+      weight: 0
   entity_types:
     node:
       - directory
+      - external
       - generic
       - group
       - home
       - page
       - person
       - program
+      - publication
       - story
       - versatile_hero
   default_moderation_state: draft

@@ -1,0 +1,73 @@
+form_settings:
+  config_pages:
+    default_value: false
+    disable: false
+    hidden: false
+  consumer:
+    default_value: false
+    disable: false
+    hidden: false
+  content_moderation_state:
+    default_value: false
+    disable: false
+    hidden: false
+  crop:
+    default_value: false
+    disable: false
+    hidden: false
+  entity_subqueue:
+    default_value: false
+    disable: false
+    hidden: false
+  file:
+    default_value: false
+    disable: false
+    hidden: false
+  media:
+    default_value: false
+    disable: false
+    hidden: false
+  node:
+    default_value: false
+    disable: false
+    hidden: false
+  path_alias:
+    default_value: false
+    disable: false
+    hidden: false
+  redirect:
+    default_value: false
+    disable: false
+    hidden: false
+  search_api_task:
+    default_value: false
+    disable: false
+    hidden: false
+  taxonomy_term:
+    default_value: false
+    disable: false
+    hidden: false
+  token_custom:
+    default_value: false
+    disable: false
+    hidden: false
+  user:
+    default_value: false
+    disable: false
+    hidden: false
+  webform_submission:
+    default_value: false
+    disable: false
+    hidden: false
+  menu_link_content:
+    default_value: false
+    disable: false
+    hidden: false
+  paragraph:
+    default_value: false
+    disable: false
+    hidden: false
+  reusable:
+    default_value: false
+    disable: false
+    hidden: false

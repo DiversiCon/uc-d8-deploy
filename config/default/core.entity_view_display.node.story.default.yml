@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.story.field_headline_text
     - field.field.node.story.field_image_main
     - field.field.node.story.field_intro_paragraph
+    - field.field.node.story.field_organization
     - field.field.node.story.field_par_smartbody
     - field.field.node.story.field_paragraph_single_1
     - field.field.node.story.field_paragraph_single_2
@@ -83,6 +84,14 @@ content:
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
+    region: content
+  field_organization:
+    weight: 117
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   field_par_smartbody:
     weight: 106

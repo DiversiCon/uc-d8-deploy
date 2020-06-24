@@ -26,7 +26,6 @@ class EntityClonePermissions implements ContainerInjectionInterface {
    */
   protected $translationManager;
 
-
   /**
    * Constructs a new EntityClonePermissions instance.
    *
@@ -60,7 +59,7 @@ class EntityClonePermissions implements ContainerInjectionInterface {
     $permissions = [];
 
     foreach ($this->entityTypeManager->getDefinitions() as $entity_type_id => $entity_type) {
-      $permissions['clone ' . $entity_type_id . ' entity'] = $this->translationManager->translate('Clone all <em>@label</em> entities', [
+      $permissions['clone ' . $entity_type_id . ' entity'] = $this->translationManager->translate('Clone all <em>@label</em> entities.', [
         '@label' => $entity_type->getLabel(),
       ]);
     }

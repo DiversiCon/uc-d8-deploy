@@ -1,0 +1,9 @@
+name: 'UChicago Organization Customizations'
+type: module
+description: 'University of Chicago custom organization oriented functionality and permissions.'
+core: 8.x
+package: 'UChicago'
+
+dependencies:
+- drupal:node
+- drupal:taxonomy
