@@ -4,6 +4,6 @@ status: true
 dependencies:
   config:
     - eck.eck_entity_type.reusable
-name: Callout
 type: callout
+name: Callout
 description: 'Re-usable "callout" content, used in landing and home pages'

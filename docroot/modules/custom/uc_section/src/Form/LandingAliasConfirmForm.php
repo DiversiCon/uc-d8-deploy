@@ -2,9 +2,15 @@
 
 namespace Drupal\uc_section\Form;
 
+use Drupal\Core\Database\Connection;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Messenger\Messenger;
+use Drupal\Core\Session\AccountInterface;
 use Drupal\node\Entity\Node;
+use Drupal\pathauto\PathautoGenerator;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class LandingAliasConfirmForm.
@@ -13,7 +19,88 @@ use Drupal\node\Entity\Node;
  */
 class LandingAliasConfirmForm extends FormBase {
 
+  /**
+   * User account.
+   *
+   * @var \Drupal\Core\Session\AccountInterface
+   */
+  protected $account;
+
+  /**
+   * Array of form information for each affected node.
+   *
+   * @var array
+   */
   protected $affected = [];
+
+  /**
+   * Current request stack.
+   *
+   * @var \Symfony\Component\HttpFoundation\Request
+   */
+  protected $currentRequest;
+
+  /**
+   * Database service.
+   *
+   * @var \Drupal\Core\Database\Connection
+   */
+  protected $dbService;
+
+  /**
+   * Messenger service.
+   *
+   * @var \Drupal\Core\Messenger\Messenger
+   */
+  protected $formMessenger;
+
+  /**
+   * Pathauto generator service.
+   *
+   * @var \Drupal\pathauto\PathautoGenerator
+   */
+  protected $pathAuto;
+
+  /**
+   * Landing page form class constructor.
+   *
+   * @param \Drupal\Core\Session\AccountInterface $account
+   *   Current user account.
+   * @param \Symfony\Component\HttpFoundation\Request $current_request
+   *   Current request.
+   * @param \Drupal\Core\Database\Connection $database
+   *   Database service.
+   * @param \Drupal\Core\Messenger\Messenger $messenger
+   *   Messenger service.
+   * @param \Drupal\pathauto\PathautoGenerator $pathauto
+   *   Messenger service.
+   */
+  public function __construct(AccountInterface $account,
+                              Request $current_request,
+                              Connection $database,
+                              Messenger $messenger,
+                              PathautoGenerator $pathauto) {
+    $this->account = $account;
+    $this->currentRequest = $current_request;
+    $this->dbService = $database;
+    $this->formMessenger = $messenger;
+    $this->pathAuto = $pathauto;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container) {
+    // Instantiates this form class.
+    return new static(
+    // Load the service required to construct this class.
+      $container->get('current_user'),
+      $container->get('request_stack')->getCurrentRequest(),
+      $container->get('database'),
+      $container->get('messenger'),
+      $container->get('pathauto.generator')
+    );
+  }
 
   /**
    * {@inheritdoc}
@@ -24,12 +111,22 @@ class LandingAliasConfirmForm extends FormBase {
 
   /**
    * {@inheritdoc}
+   *
+   * @param array $form
+   *   Form array.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   Form state array.
+   *
+   * @return array
+   *   Form array.
+   *
+   * @throws \Drupal\Core\Entity\EntityMalformedException
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
     // Get old/new section landing page nid.
-    $nid_was = \Drupal::request()->query->get('was', NULL);
-    $nid_is = \Drupal::request()->query->get('is', NULL);
+    $nid_was = $this->currentRequest->query->get('was', NULL);
+    $nid_is = $this->currentRequest->query->get('is', NULL);
     $form['nid_was'] = [
       '#type' => 'hidden',
       '#value' => $nid_was,
@@ -115,15 +212,22 @@ class LandingAliasConfirmForm extends FormBase {
 
   /**
    * {@inheritdoc}
+   *
+   * @param array $form
+   *   Form array.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   Form state array.
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     if ($form_state->getValue('nid_was') || $form_state->getValue('nid_is')) {
       $this->saveNode($form_state->getValue('nid_was'));
       $this->saveNode($form_state->getValue('nid_is'));
-      drupal_set_message($this->t('Aliases updated.'));
+      $this->formMessenger->addMessage($this->t('Aliases updated.'));
     }
     else {
-      drupal_set_message($this->t('No alias updates required.'));
+      $this->formMessenger->addMessage($this->t('No alias updates required.'));
     }
   }
 
@@ -131,11 +235,16 @@ class LandingAliasConfirmForm extends FormBase {
    * Cancel submit handler.
    */
   public function cancelForm() {
-    drupal_set_message($this->t('Alias update skipped.'));
+    $this->formMessenger->addMessage($this->t('Alias update skipped.'));
   }
 
   /**
    * Save a node.
+   *
+   * @param string|int $nid
+   *   Node ID.
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
    */
   private function saveNode($nid) {
     if ($nid) {
@@ -146,14 +255,20 @@ class LandingAliasConfirmForm extends FormBase {
 
   /**
    * Helper function to get a node.
+   *
+   * @param string|int $nid
+   *   Node ID.
+   * @param string $which
+   *   Which way "is" or "was".
+   *
+   * @throws \Drupal\Core\Entity\EntityMalformedException
    */
   private function getAffectedNode($nid, $which) {
     if ($nid) {
       $node = Node::load($nid);
       if ($node) {
-        $scheme = \Drupal::request()->getSchemeAndHttpHost();
-        $path = \Drupal::service('pathauto.generator')
-          ->createEntityAlias($node, 'return');
+        $scheme = $this->currentRequest->getSchemeAndHttpHost();
+        $path = $this->pathAuto->createEntityAlias($node, 'return');
         $this->affected[] = [
           'which' => $which,
           'nid' => $nid,
@@ -168,13 +283,18 @@ class LandingAliasConfirmForm extends FormBase {
 
   /**
    * Helper function to get a key value.
+   *
+   * @param string|int $nid
+   *   Node ID.
+   *
+   * @return bool|mixed
+   *   Value.
    */
   private function getKeyValue($nid) {
     $value = FALSE;
 
-    $database = \Drupal::service('database');
     /* @var \Drupal\Core\Database\Query\Select $query */
-    $query = $database->select('key_value', 'k');
+    $query = $this->dbService->select('key_value', 'k');
     $query->condition('k.collection', 'pathauto_state.node');
     $query->condition('k.name', $nid);
     $query->addField('k', 'value');

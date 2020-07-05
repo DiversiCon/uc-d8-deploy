@@ -5,5 +5,6 @@ dependencies: {  }
 id: sidebar_inquiries
 label: Inquiries
 icon_uuid: null
+icon_default: null
 description: 'Sidebar element for generic page, announcements'
 behavior_plugins: {  }

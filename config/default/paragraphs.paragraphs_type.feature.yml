@@ -5,5 +5,6 @@ dependencies: {  }
 id: feature
 label: 'Feature, Unique'
 icon_uuid: null
+icon_default: null
 description: 'Feature component; "intro" for landing pages, and also used in homepage and in the middle of other pages. Similar to headline.'
 behavior_plugins: {  }

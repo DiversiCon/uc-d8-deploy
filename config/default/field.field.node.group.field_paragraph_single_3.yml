@@ -25,9 +25,6 @@ settings:
     target_bundles:
       sidebar_inquiries: sidebar_inquiries
     target_bundles_drag_drop:
-      sidebar_gen_related:
-        weight: 52
-        enabled: false
       accordion_block:
         weight: 53
         enabled: false
@@ -49,6 +46,18 @@ settings:
       callout_reference:
         weight: 59
         enabled: false
+      card_grid:
+        weight: 71
+        enabled: false
+      card_grid_insert:
+        weight: 72
+        enabled: false
+      card_grid_item:
+        weight: 73
+        enabled: false
+      card_grid_reference:
+        weight: 74
+        enabled: false
       components:
         weight: 60
         enabled: false
@@ -66,6 +75,9 @@ settings:
         enabled: false
       custom_link:
         weight: 65
+        enabled: false
+      date:
+        weight: 81
         enabled: false
       feature:
         weight: 66
@@ -85,26 +97,23 @@ settings:
       feature_insert:
         weight: 71
         enabled: false
-      card_grid:
-        weight: 71
-        enabled: false
-      card_grid_insert:
-        weight: 72
-        enabled: false
       feature_reference:
         weight: 72
         enabled: false
-      card_grid_item:
-        weight: 73
+      generic_sidebar:
+        weight: 89
+        enabled: false
+      generic_sidebar_item:
+        weight: 90
         enabled: false
       home_page_grid:
         weight: 73
         enabled: false
-      card_grid_reference:
-        weight: 74
-        enabled: false
       html_text:
         weight: 74
+        enabled: false
+      masthead_main_navigation:
+        weight: 93
         enabled: false
       news_block:
         weight: 75
@@ -115,6 +124,18 @@ settings:
       news_inernal:
         weight: 77
         enabled: false
+      news_list:
+        weight: 97
+        enabled: false
+      people_grouped_list:
+        weight: 98
+        enabled: false
+      people_grouped_list_group:
+        weight: 99
+        enabled: false
+      photo_inset:
+        weight: 100
+        enabled: false
       photo_nav_grid:
         weight: 78
         enabled: false
@@ -124,9 +145,6 @@ settings:
       program_selector:
         weight: 80
         enabled: false
-      date:
-        weight: 81
-        enabled: false
       pullquote:
         weight: 81
         enabled: false
@@ -135,6 +153,9 @@ settings:
         enabled: false
       quotator_item:
         weight: 83
+        enabled: false
+      sidebar_gen_related:
+        weight: 52
         enabled: false
       sidebar_inquiries:
         enabled: true
@@ -154,12 +175,6 @@ settings:
       stats:
         weight: 89
         enabled: false
-      generic_sidebar:
-        weight: 89
-        enabled: false
-      generic_sidebar_item:
-        weight: 90
-        enabled: false
       stats_reference:
         weight: 91
         enabled: false
@@ -167,9 +182,6 @@ settings:
         weight: 92
         enabled: false
       switcher_cta:
-        weight: 93
-        enabled: false
-      masthead_main_navigation:
         weight: 93
         enabled: false
       switcher_getting_started:
@@ -181,26 +193,14 @@ settings:
       teaser_insert:
         weight: 96
         enabled: false
-      news_list:
-        weight: 97
-        enabled: false
       teaser_reference:
         weight: 97
-        enabled: false
-      people_grouped_list:
-        weight: 98
         enabled: false
       tile:
         weight: 98
         enabled: false
-      people_grouped_list_group:
-        weight: 99
-        enabled: false
       tile_insert:
         weight: 99
-        enabled: false
-      photo_inset:
-        weight: 100
         enabled: false
       tile_reference:
         weight: 100
@@ -208,10 +208,10 @@ settings:
       video_html:
         weight: 101
         enabled: false
-      visual_nav_insert:
-        weight: 102
-        enabled: false
       video_youtube:
         weight: 125
+        enabled: false
+      visual_nav_insert:
+        weight: 102
         enabled: false
 field_type: entity_reference_revisions

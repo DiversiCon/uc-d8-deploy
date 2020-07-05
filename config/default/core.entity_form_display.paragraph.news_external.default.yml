@@ -5,30 +5,13 @@ dependencies:
   config:
     - field.field.paragraph.news_external.field_api_datasource
     - paragraphs.paragraphs_type.news_external
-  module:
-    - field_group
-third_party_settings:
-  field_group:
-    group_advanced:
-      children:
-        - field_api_datasource
-      parent_name: ''
-      weight: 0
-      format_type: details
-      format_settings:
-        id: ''
-        classes: ''
-        open: false
-        required_fields: true
-      label: Advanced
-      region: content
 id: paragraph.news_external.default
 targetEntityType: paragraph
 bundle: news_external
 mode: default
 content:
   field_api_datasource:
-    weight: 101
+    weight: 1
     settings:
       size: 60
       placeholder: ''

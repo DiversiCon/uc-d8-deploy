@@ -1,0 +1,23 @@
+uuid: bd2f82fb-4381-497e-b9dd-4dbd514cce3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bool_template
+    - node.type.publication
+id: node.publication.field_bool_template
+field_name: field_bool_template
+entity_type: node
+bundle: publication
+label: 'Template?'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

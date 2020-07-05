@@ -8,7 +8,24 @@ dependencies:
     - paragraphs.paragraphs_type.people_grouped_list_group
   module:
     - allowed_formats
+    - field_group
     - text
+third_party_settings:
+  field_group:
+    group_group_people:
+      children:
+        - field_person_reference_ultd
+      parent_name: ''
+      weight: 1
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: true
+        required_fields: true
+      label: 'Group People'
 id: paragraph.people_grouped_list_group.default
 targetEntityType: paragraph
 bundle: people_grouped_list_group
@@ -26,7 +43,7 @@ content:
     type: text_textfield
     region: content
   field_person_reference_ultd:
-    weight: 1
+    weight: 2
     settings:
       match_operator: CONTAINS
       size: 60

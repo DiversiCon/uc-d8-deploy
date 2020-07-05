@@ -5,5 +5,6 @@ dependencies: {  }
 id: accordion_sidebar_reference
 label: 'Accordion Sidebar, Reference'
 icon_uuid: null
+icon_default: null
 description: 'Reference an existing sidebar from the reusable content library.'
 behavior_plugins: {  }

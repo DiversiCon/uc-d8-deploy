@@ -7,5 +7,6 @@ dependencies:
 id: callout_reference
 label: 'Callout, Reference'
 icon_uuid: null
+icon_default: null
 description: 'Reference an existing callout from the ECK library'
 behavior_plugins: {  }

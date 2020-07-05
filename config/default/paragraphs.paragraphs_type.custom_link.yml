@@ -5,5 +5,6 @@ dependencies: {  }
 id: custom_link
 label: Link
 icon_uuid: null
+icon_default: null
 description: 'This is a customized link, multi-field custom wrapper'
 behavior_plugins: {  }

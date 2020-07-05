@@ -1,8 +1,12 @@
 <?php
 
+// @codingStandardsIgnoreFile
+
 namespace Drupal\it_showcase\Plugin\Showcase;
 
+use Drupal;
 use Drupal\Core\Plugin\PluginBase;
+use Drupal\it_showcase\Annotation\ShowcaseItemPlugin;
 use Drupal\it_showcase\PluginManager\ItemPluginInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -114,8 +118,16 @@ class YamlLegacyComponents extends PluginBase implements ItemPluginInterface, Co
    * @return array
    */
   private function findDefinitions() {
+    /* @var \Drupal\Core\File\FileSystemInterface $file_system */
+    $file_system = Drupal::service('file_system');
+
     $definitions = [];
-    $files = file_scan_directory($this->getThemePath(), '/^components.yml$/');
+    $files = [];
+
+    foreach ($this->getThemePaths() as $theme_directory) {
+      $files = array_merge($files, $file_system->scanDirectory($theme_directory, '/^components.yml$/'));
+    }
+
     foreach ($files as $uri => $file) {
       $definitions += $this->loadYaml($uri);
     }
@@ -195,13 +207,25 @@ class YamlLegacyComponents extends PluginBase implements ItemPluginInterface, Co
   }
 
   /**
-   * Helper function to get default theme path.
+   * Helper function to get default theme paths.
    *
-   * @return string
+   * @return array
    */
-  private function getThemePath() {
-    $default_theme = $this->themeHandler->getDefault();
-    return $this->themeHandler->getTheme($default_theme)->getPath();
+  private function getThemePaths() {
+    $theme_paths = [];
+
+    // Get the default theme.
+    $default_theme = $this->themeHandler->getTheme($this->themeHandler->getDefault());
+
+    // Add the default theme path to the list.
+    $theme_paths[] = $default_theme->getPath();
+
+    // If there is a base theme for our default theme, get the base theme path as well.
+//    if ($default_theme->base_theme) {
+//      $theme_paths[] = $this->themeHandler->getTheme($default_theme->base_theme)->getPath();
+//    }
+
+    return $theme_paths;
   }
 
 }

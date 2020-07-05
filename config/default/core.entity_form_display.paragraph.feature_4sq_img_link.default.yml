@@ -19,7 +19,7 @@ bundle: feature_4sq_img_link
 mode: default
 content:
   field_headline_text:
-    weight: 102
+    weight: 0
     settings:
       size: 60
       placeholder: ''
@@ -30,7 +30,7 @@ content:
     type: text_textfield
     region: content
   field_image_link:
-    weight: 103
+    weight: 1
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -46,7 +46,7 @@ content:
     type: link_attributes
     region: content
   field_image_main:
-    weight: 101
+    weight: 2
     settings:
       entity_browser: media_entity_browser
       field_widget_display: rendered_entity

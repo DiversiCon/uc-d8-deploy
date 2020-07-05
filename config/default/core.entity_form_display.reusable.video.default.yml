@@ -13,7 +13,6 @@ dependencies:
   module:
     - allowed_formats
     - entity_browser
-    - path
     - text
 id: reusable.video.default
 targetEntityType: reusable
@@ -21,28 +20,6 @@ bundle: video
 mode: default
 content:
   field_description:
-    weight: 4
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings:
-      allowed_formats:
-        hide_help: '1'
-        hide_guidelines: '1'
-    type: text_textfield
-    region: content
-  field_eck_title:
-    weight: 5
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings:
-      allowed_formats:
-        hide_help: '1'
-        hide_guidelines: '1'
-    type: text_textfield
-    region: content
-  field_headline_text:
     weight: 3
     settings:
       size: 60
@@ -53,8 +30,30 @@ content:
         hide_guidelines: '1'
     type: text_textfield
     region: content
-  field_image_main:
+  field_eck_title:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_headline_text:
     weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_image_main:
+    weight: 5
     settings:
       entity_browser: media_entity_browser
       field_widget_display: rendered_entity
@@ -76,12 +75,6 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  path:
-    type: path
-    weight: 6
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 0
@@ -92,4 +85,5 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  path: true
   uid: true

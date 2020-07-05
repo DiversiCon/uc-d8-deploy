@@ -5,5 +5,6 @@ dependencies: {  }
 id: html_text
 label: 'HTML Text'
 icon_uuid: null
+icon_default: null
 description: 'Basic HTML input'
 behavior_plugins: {  }

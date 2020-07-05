@@ -13,5 +13,5 @@ type: directory
 description: 'No sidebars.<br><em>Directory</em> type of page, containing directories, lists, and most other components.'
 help: ''
 new_revision: true
-preview_mode: 1
+preview_mode: 0
 display_submitted: false

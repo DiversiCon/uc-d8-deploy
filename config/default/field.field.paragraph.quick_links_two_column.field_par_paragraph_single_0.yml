@@ -12,7 +12,7 @@ id: paragraph.quick_links_two_column.field_par_paragraph_single_0
 field_name: field_par_paragraph_single_0
 entity_type: paragraph
 bundle: quick_links_two_column
-label: 'Right List, Footer Link'
+label: 'Right Footer'
 description: ''
 required: false
 translatable: true
@@ -25,211 +25,364 @@ settings:
     target_bundles:
       custom_link: custom_link
     target_bundles_drag_drop:
+      academic_appointment:
+        weight: 127
+        enabled: false
       accordion_block:
-        weight: 70
-        enabled: false
-      accordion_item:
-        weight: 71
-        enabled: false
-      avatar:
-        weight: 72
-        enabled: false
-      callout:
-        weight: 73
-        enabled: false
-      callout_insert:
-        weight: 74
-        enabled: false
-      callout_item_reference:
-        weight: 75
-        enabled: false
-      callout_item_unique:
         weight: 76
         enabled: false
-      callout_reference:
+      accordion_group:
+        weight: 130
+        enabled: false
+      accordion_item:
         weight: 77
         enabled: false
-      card_grid:
+      accordion_sidebar:
+        weight: 133
+        enabled: false
+      accordion_sidebar_group:
+        weight: 135
+        enabled: false
+      accordion_sidebar_item:
+        weight: 136
+        enabled: false
+      accordion_sidebar_reference:
+        weight: 139
+        enabled: false
+      avatar:
         weight: 78
         enabled: false
-      card_grid_insert:
+      awards:
+        weight: 142
+        enabled: false
+      callout:
         weight: 79
         enabled: false
-      card_grid_item:
+      callout_grouped_content:
+        weight: 145
+        enabled: false
+      callout_insert:
         weight: 80
         enabled: false
-      card_grid_reference:
+      callout_item_reference:
         weight: 81
         enabled: false
-      components:
+      callout_item_unique:
         weight: 82
         enabled: false
-      components_lower:
+      callout_reference:
         weight: 83
         enabled: false
-      cta_block:
+      callout_with_grouped_content_ref:
+        weight: 150
+        enabled: false
+      card_grid:
         weight: 84
         enabled: false
-      cta_buttons:
+      card_grid_insert:
         weight: 85
         enabled: false
-      cta_text_link:
+      card_grid_item:
         weight: 86
+        enabled: false
+      card_grid_reference:
+        weight: 87
+        enabled: false
+      components:
+        weight: 88
+        enabled: false
+      components_lower:
+        weight: 89
+        enabled: false
+      contact_group:
+        weight: 153
+        enabled: false
+      contact_group_list:
+        weight: 154
+        enabled: false
+      contact_person_reference:
+        weight: 155
+        enabled: false
+      contact_single_person:
+        weight: 156
+        enabled: false
+      course_listing:
+        weight: 157
+        enabled: false
+      cta_block:
+        weight: 90
+        enabled: false
+      cta_buttons:
+        weight: 91
+        enabled: false
+      cta_text_link:
+        weight: 92
         enabled: false
       custom_link:
         enabled: true
-        weight: 87
+        weight: 75
       date:
-        weight: 88
-        enabled: false
-      feature:
-        weight: 89
-        enabled: false
-      feature_4_square_images:
-        weight: 90
-        enabled: false
-      feature_4sq_img_link:
-        weight: 91
-        enabled: false
-      feature_components:
-        weight: 92
-        enabled: false
-      feature_image_link:
         weight: 93
         enabled: false
-      feature_insert:
+      education_and_training:
+        weight: 158
+        enabled: false
+      events_callout_featured:
+        weight: 159
+        enabled: false
+      events_callout_selected:
+        weight: 160
+        enabled: false
+      events_featured_grid:
+        weight: 161
+        enabled: false
+      events_list:
+        weight: 162
+        enabled: false
+      events_list_featured:
+        weight: 163
+        enabled: false
+      events_single_tile:
+        weight: 164
+        enabled: false
+      fact_block:
+        weight: 165
+        enabled: false
+      fact_item:
+        weight: 166
+        enabled: false
+      faculty_callout_selected:
+        weight: 167
+        enabled: false
+      faculty_index:
+        weight: 168
+        enabled: false
+      feature:
         weight: 94
         enabled: false
-      feature_reference:
+      feature_4_square_images:
         weight: 95
         enabled: false
-      flickr_gallery:
+      feature_4sq_img_link:
         weight: 96
         enabled: false
-      generic_sidebar:
+      feature_announcement:
+        weight: 170
+        enabled: false
+      feature_components:
         weight: 97
         enabled: false
-      generic_sidebar_item:
+      feature_double_hero_cta:
+        weight: 171
+        enabled: false
+      feature_image:
+        weight: 172
+        enabled: false
+      feature_image_link:
         weight: 98
         enabled: false
-      home_page_grid:
+      feature_insert:
         weight: 99
         enabled: false
-      html_text:
+      feature_multiple_double_hero_cta:
+        weight: 173
+        enabled: false
+      feature_reference:
         weight: 100
         enabled: false
-      link_list:
+      featured_ref_four:
+        weight: 169
+        enabled: false
+      flickr_gallery:
         weight: 101
         enabled: false
-      masthead_main_navigation:
+      generic_sidebar:
         weight: 102
         enabled: false
-      news_block:
+      generic_sidebar_item:
         weight: 103
         enabled: false
-      news_external:
+      graduate_program_websites:
+        weight: 174
+        enabled: false
+      group_list:
+        weight: 175
+        enabled: false
+      hero_components:
+        weight: 176
+        enabled: false
+      home_page_grid:
         weight: 104
         enabled: false
-      news_inernal:
+      home_page_grid_b:
+        weight: 177
+        enabled: false
+      home_quad_header_text_and_links:
+        weight: 178
+        enabled: false
+      home_quad_two_tiles:
+        weight: 179
+        enabled: false
+      html_text:
         weight: 105
         enabled: false
-      news_list:
+      html_text_two_column:
+        weight: 180
+        enabled: false
+      infographic:
+        weight: 181
+        enabled: false
+      link_list:
         weight: 106
         enabled: false
-      people_grouped_list:
+      logo:
+        weight: 182
+        enabled: false
+      map:
+        weight: 183
+        enabled: false
+      masthead_main_navigation:
         weight: 107
         enabled: false
-      people_grouped_list_group:
+      news_block:
         weight: 108
         enabled: false
-      photo_inset:
+      news_external:
         weight: 109
         enabled: false
-      photo_nav_grid:
+      news_inernal:
         weight: 110
         enabled: false
-      photo_nav_grid_item:
+      news_list:
         weight: 111
         enabled: false
-      plain_text_component:
+      people_grouped_list:
         weight: 112
         enabled: false
-      program_selector:
+      people_grouped_list_group:
         weight: 113
         enabled: false
-      pullquote:
+      person_list_teasers:
+        weight: 184
+        enabled: false
+      photo_inset:
         weight: 114
         enabled: false
-      quick_links:
+      photo_nav_grid:
         weight: 115
         enabled: false
-      quick_links_two_column:
+      photo_nav_grid_item:
         weight: 116
         enabled: false
-      quotator_item:
+      plain_text_component:
         weight: 117
         enabled: false
-      section_taxonomy_component:
+      program_selector:
         weight: 118
         enabled: false
-      sidebar_gen_related:
+      publications:
+        weight: 185
+        enabled: false
+      publications_list:
+        weight: 186
+        enabled: false
+      pullquote:
         weight: 119
         enabled: false
-      sidebar_inquiries:
+      quick_links:
         weight: 120
         enabled: false
-      smartbody:
+      quick_links_two_column:
         weight: 121
         enabled: false
-      smartbody_image:
+      quotator_item:
         weight: 122
         enabled: false
-      social_grid:
+      quote:
+        weight: 187
+        enabled: false
+      quote_list:
+        weight: 188
+        enabled: false
+      ranged_stat:
+        weight: 189
+        enabled: false
+      ranged_stats:
+        weight: 190
+        enabled: false
+      section_taxonomy_component:
         weight: 123
         enabled: false
-      staff_selector:
+      sidebar_gen_related:
         weight: 124
         enabled: false
-      stats:
+      sidebar_inquiries:
         weight: 125
         enabled: false
-      stats_reference:
+      smartbody:
         weight: 126
         enabled: false
-      switcher:
-        weight: 127
-        enabled: false
-      switcher_cta:
+      smartbody_image:
         weight: 128
         enabled: false
-      switcher_getting_started:
+      smartbody_lite:
+        weight: 191
+        enabled: false
+      social_grid:
         weight: 129
         enabled: false
-      teaser:
-        weight: 130
+      social_platform_link:
+        weight: 192
         enabled: false
-      teaser_insert:
+      staff_selector:
         weight: 131
         enabled: false
-      teaser_reference:
+      stats:
         weight: 132
         enabled: false
-      tile:
-        weight: 133
-        enabled: false
-      tile_insert:
+      stats_reference:
         weight: 134
         enabled: false
-      tile_reference:
-        weight: 135
-        enabled: false
-      video_html:
-        weight: 136
-        enabled: false
-      video_youtube:
+      switcher:
         weight: 137
         enabled: false
-      visual_nav_insert:
+      switcher_cta:
         weight: 138
+        enabled: false
+      switcher_getting_started:
+        weight: 140
+        enabled: false
+      teaser:
+        weight: 141
+        enabled: false
+      teaser_insert:
+        weight: 143
+        enabled: false
+      teaser_reference:
+        weight: 144
+        enabled: false
+      tile:
+        weight: 146
+        enabled: false
+      tile_insert:
+        weight: 147
+        enabled: false
+      tile_reference:
+        weight: 148
+        enabled: false
+      video_html:
+        weight: 149
+        enabled: false
+      video_youtube:
+        weight: 151
+        enabled: false
+      visual_nav_insert:
+        weight: 152
+        enabled: false
+      webform_component:
+        weight: 193
+        enabled: false
+      websites:
+        weight: 194
         enabled: false
 field_type: entity_reference_revisions

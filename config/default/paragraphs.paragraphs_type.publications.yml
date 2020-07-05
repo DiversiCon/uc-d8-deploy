@@ -5,5 +5,6 @@ dependencies: {  }
 id: publications
 label: Publications
 icon_uuid: null
+icon_default: null
 description: ''
 behavior_plugins: {  }

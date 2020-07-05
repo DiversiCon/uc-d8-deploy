@@ -1,0 +1,49 @@
+diff --git a/sass/content-form-layout.scss b/sass/content-form-layout.scss
+index d65f41b..ed2f664 100644
+--- a/sass/content-form-layout.scss
++++ b/sass/content-form-layout.scss
+@@ -269,3 +269,44 @@ $action-bar-height: 50px;
+     }
+   }
+ }
++
++/**
++ * Custom additions to node edit forms:
++ * - provide the ability to have 2-columns in editing.
++ * - provide some extra breathing room before certain entity reference revisions fields.
++ */
++.content-form__layout {
++  box-sizing: border-box;
++
++  /* Provide the ability to have 2-columns in editing. */
++  .content-entry-flex-wrap {
++    @include for-desktop-and-up {
++      display: flex;
++    }
++
++    margin-bottom: 2rem;
++
++    .main-content-section-wrap {
++      @include for-desktop-and-up {
++        margin-right: $it_padding;
++        padding-right: $it_padding;
++        width: $it_width_left;
++      }
++    }
++    .content-sidebar-wrap {
++      @include for-desktop-and-up {
++        width: 100% - $it_width_left - (2 * $it_padding);
++      }
++    }
++  }
++
++  .field--type-entity-reference-revisions,
++  .field--name-field-links-ultd {
++    .field-multiple-table {
++      thead,
++      .field-multiple-drag.paragraph-bullet {
++        display: none;
++      }
++    }
++  }
++}

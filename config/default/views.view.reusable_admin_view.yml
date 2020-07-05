@@ -625,7 +625,7 @@ display:
     display_plugin: page
     id: admin_callouts
     display_title: Callouts
-    position: 1
+    position: 2
     display_options:
       display_extenders: {  }
       path: admin/content/callouts
@@ -635,7 +635,7 @@ display:
         description: ''
         expanded: false
         parent: ''
-        weight: -10
+        weight: 110
         context: '0'
         menu_name: admin
       display_description: 'ECK Reusable: Callouts'
@@ -760,7 +760,7 @@ display:
     display_plugin: page
     id: admin_cardgrid
     display_title: 'Card Grid'
-    position: 1
+    position: 4
     display_options:
       display_extenders: {  }
       path: admin/content/cardgrid
@@ -770,7 +770,7 @@ display:
         description: ''
         expanded: false
         parent: ''
-        weight: -9
+        weight: 130
         context: '0'
         menu_name: admin
       display_description: 'ECK Reusable: Card Grid'
@@ -895,7 +895,7 @@ display:
     display_plugin: page
     id: admin_contacts
     display_title: Contacts
-    position: 1
+    position: 5
     display_options:
       display_extenders: {  }
       path: admin/content/contacts
@@ -905,7 +905,7 @@ display:
         description: ''
         expanded: false
         parent: ''
-        weight: -10
+        weight: 140
         context: '0'
         menu_name: admin
       display_description: 'ECK Reusable: Contacts'
@@ -1092,7 +1092,7 @@ display:
     display_plugin: page
     id: admin_features
     display_title: Features
-    position: 1
+    position: 6
     display_options:
       display_extenders: {  }
       path: admin/content/features
@@ -1102,7 +1102,7 @@ display:
         description: ''
         expanded: false
         parent: ''
-        weight: -9
+        weight: 160
         context: '0'
         menu_name: admin
       display_description: 'ECK Reusable: Features'
@@ -1227,7 +1227,7 @@ display:
     display_plugin: page
     id: admin_videos
     display_title: Videos
-    position: 1
+    position: 8
     display_options:
       display_extenders: {  }
       path: admin/content/videos
@@ -1237,7 +1237,7 @@ display:
         description: ''
         expanded: false
         parent: ''
-        weight: -10
+        weight: 180
         context: '0'
         menu_name: admin
       display_description: 'ECK Reusable: Videos'
@@ -1739,7 +1739,7 @@ display:
     display_plugin: page
     id: page_1
     display_title: Stats
-    position: 1
+    position: 7
     display_options:
       display_extenders: {  }
       path: admin/content/stats
@@ -1749,7 +1749,7 @@ display:
         description: ''
         expanded: false
         parent: ''
-        weight: -9
+        weight: 170
         context: '0'
         menu_name: admin
       display_description: 'ECK Reusable: Stats'
@@ -2263,7 +2263,7 @@ display:
     display_plugin: page
     id: page_2
     display_title: 'Callouts Grouped Content'
-    position: 1
+    position: 3
     display_options:
       display_extenders: {  }
       path: admin/content/callouts-grouped
@@ -2273,7 +2273,7 @@ display:
         description: ''
         expanded: false
         parent: ''
-        weight: -10
+        weight: 120
         context: '0'
         menu_name: admin
       display_description: 'ECK Reusable: Callouts Grouped Content'
@@ -2408,7 +2408,7 @@ display:
         description: ''
         expanded: false
         parent: ''
-        weight: -10
+        weight: 100
         context: '0'
         menu_name: admin
       display_description: 'ECK Reusable: Accordion Sidebar'

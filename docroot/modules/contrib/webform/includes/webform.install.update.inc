@@ -60,9 +60,9 @@ function webform_update_8001() {
   foreach ($schema as $item_name => $item) {
     foreach ($item as $table_name => $table_schema) {
       foreach ($table_schema as $schema_key => $schema_data) {
-        if ($schema_key == 'fields') {
+        if ($schema_key === 'fields') {
           foreach ($schema_data as $field_name => $field_data) {
-            if (preg_match('/_target_id$/', $field_name) && $field_data['description'] == 'The ID of the webform entity.' && $schema[$item_name][$table_name]['fields'][$field_name]['length'] === 255) {
+            if (preg_match('/_target_id$/', $field_name) && $field_data['description'] === 'The ID of the webform entity.' && $schema[$item_name][$table_name]['fields'][$field_name]['length'] === 255) {
               $schema[$item_name][$table_name]['fields'][$field_name]['length'] = 32;
               if ($database_schema->tableExists($table_name)) {
                 $database_schema->changeField($table_name, $field_name, $field_name, $schema[$item_name][$table_name]['fields'][$field_name]);
@@ -132,7 +132,7 @@ function webform_update_8006() {
   // Fix key_value.collection which was no updated during the migration.
   $module_handler = \Drupal::moduleHandler();
   $database_type = Database::getConnection('default')->databaseType();
-  if ($module_handler->moduleExists('webform') && !$module_handler->moduleExists('webform') && $database_type == 'mysql') {
+  if ($module_handler->moduleExists('webform') && !$module_handler->moduleExists('webform') && $database_type === 'mysql') {
     $database = \Drupal::database();
 
     $select = $database->select('key_value', 'kv');
@@ -510,10 +510,10 @@ function webform_update_8025() {
   foreach ($schema as $item_name => $item) {
     foreach ($item as $table_name => $table_schema) {
       foreach ($table_schema as $schema_key => $schema_data) {
-        if ($schema_key == 'fields') {
+        if ($schema_key === 'fields') {
           foreach ($schema_data as $field_name => $field_data) {
             $is_webform_field_status = (isset($webform_tables[$table_name]) && $field_name === $webform_tables[$table_name] . '_status');
-            $is_webform_field_integer = ($field_data['type'] == 'int');
+            $is_webform_field_integer = ($field_data['type'] === 'int');
             if ($is_webform_field_status && $is_webform_field_integer) {
               $temp_field_name = $field_name . '_temp';
 
@@ -630,7 +630,7 @@ function webform_update_8030() {
   foreach ($config_factory->listAll('webform.webform.') as $webform_config_name) {
     $webform_config = $config_factory->getEditable($webform_config_name);
     $data = $webform_config->getRawData();
-    $data['settings']['draft'] = ($data['settings']['draft'] == TRUE) ? WebformInterface::DRAFT_AUTHENTICATED : WebformInterface::DRAFT_NONE;
+    $data['settings']['draft'] = ($data['settings']['draft'] === TRUE) ? WebformInterface::DRAFT_AUTHENTICATED : WebformInterface::DRAFT_NONE;
     $webform_config->setData($data)->save();
   }
 }
@@ -758,7 +758,7 @@ function webform_update_8035() {
     $data = $webform_config->getRawData();
     $has_handler = FALSE;
     foreach ($data['handlers'] as &$handler) {
-      if ($handler['id'] == 'email') {
+      if ($handler['id'] === 'email') {
         if (isset($handler['settings']['states']) && is_array($handler['settings']['states'])) {
           $handler['settings']['states'] = array_values(array_filter($handler['settings']['states']));
         }
@@ -829,7 +829,7 @@ function webform_update_8039() {
   foreach ($config_factory->listAll('webform.webform.') as $webform_config_name) {
     $webform_config = $config_factory->getEditable($webform_config_name);
     $data = $webform_config->getRawData();
-    if (isset($data['dependencies']['enforced']['module']) && $data['dependencies']['enforced']['module'] == ['webform_templates']) {
+    if (isset($data['dependencies']['enforced']['module']) && $data['dependencies']['enforced']['module'] === ['webform_templates']) {
       if (!file_exists("$config_install_directory/$webform_config_name.yml")) {
         unset($data['dependencies']['enforced']['module']);
         if (empty($data['dependencies']['enforced'])) {
@@ -1039,7 +1039,7 @@ function _webform_update_8046_convert_data(array $data) {
   $actions_element = [];
   $settings = $data['settings'];
   foreach ($button_names as $button_name) {
-    $settings_prefix = ($button_name == 'submit') ? 'form_' . $button_name : $button_name . '_button';
+    $settings_prefix = ($button_name === 'submit') ? 'form_' . $button_name : $button_name . '_button';
     if (!empty($settings[$settings_prefix . '_label'])) {
       $actions_element['#' . $button_name . '__label'] = $settings[$settings_prefix . '_label'];
     }
@@ -1191,7 +1191,7 @@ function webform_update_8057() {
         $settings = [];
         foreach ($handler['settings'] as $settings_key => $setting_value) {
           $settings[$settings_key] = $setting_value;
-          if ($settings_key == 'excluded_elements') {
+          if ($settings_key === 'excluded_elements') {
             $settings['ignore_access'] = FALSE;
           }
         }
@@ -1333,7 +1333,7 @@ function webform_update_8065() {
         $settings = [];
         foreach ($handler['settings'] as $settings_key => $setting_value) {
           $settings[$settings_key] = $setting_value;
-          if ($settings_key == 'ignore_access') {
+          if ($settings_key === 'ignore_access') {
             $settings['exclude_empty'] = TRUE;
           }
         }
@@ -2001,7 +2001,7 @@ function webform_update_8107() {
 function webform_update_8108() {
   /** @var \Drupal\block\Entity\Block $block */
   foreach (\Drupal::entityTypeManager()->getStorage('block')->loadMultiple() as $block) {
-    if ($block->getPluginId() == 'webform_block') {
+    if ($block->getPluginId() === 'webform_block') {
       $webform_id = $block->getPlugin()->getConfiguration()['webform_id'];
       if (\Drupal::entityTypeManager()->getStorage('webform')->load($webform_id)) {
         $block->save();
@@ -3187,7 +3187,7 @@ function webform_update_8170() {
         unset($settings['draft_custom_data']);
       }
 
-      if ($handler['settings'] != $settings) {
+      if ($handler['settings'] !== $settings) {
         $handler_updated = TRUE;
         $handler['settings'] = $settings;
       }
@@ -3751,4 +3751,106 @@ function webform_update_8195() {
  */
 function webform_update_8196() {
   _webform_update_webform_settings();
+}
+
+/**
+ * Issue #3144962: Webform cards.
+ */
+function webform_update_8197() {
+  _webform_update_admin_settings();
+}
+
+/******************************************************************************/
+// Webform 6.x.
+/******************************************************************************/
+
+/**
+ * Issue #3087699: JQuery UI is being phased out from Drupal core.
+ */
+function webform_update_8600() {
+  // Make sure webform_editorial.module is manually uninstalled before
+  // installing any new modules.
+  webform_update_8604();
+
+  \Drupal::service('module_installer')->install([
+    'jquery_ui',
+    'jquery_ui_datepicker',
+    'jquery_ui_tabs',
+    'jquery_ui_tooltip',
+  ]);
+}
+
+/**
+ * Issue #3106961: [Webform 8.x-6.x] Improve token naming conventions.
+ */
+function webform_update_8601() {
+  $config_factory = \Drupal::configFactory();
+  foreach ($config_factory->listAll('webform.webform.') as $webform_config_name) {
+    $webform_config = $config_factory->getEditable($webform_config_name);
+    $yaml = Yaml::encode($webform_config->getRawData());
+    if (strpos($yaml, '[webform_submission:view-url]') !== FALSE
+      || strpos($yaml, '[webform_submission:update-url]') !== FALSE) {
+      $yaml = str_replace('[webform_submission:view-url]', '[webform_submission:token-view-url]', $yaml);
+      $yaml = str_replace('[webform_submission:update-url]', '[webform_submission:token-update-url]', $yaml);
+      $webform_config->setData(Yaml::decode($yaml));
+    }
+  }
+}
+
+/**
+ * Issue #3104392: Webform URL aliases should begin with a forward slash.
+ */
+function webform_update_8602() {
+  $config_factory = \Drupal::configFactory();
+
+  // Update admin default base path.
+  $admin_config = $config_factory->getEditable('webform.settings');
+  $default_page_base_path = $admin_config->get('settings.default_page_base_path');
+  $default_page_base_path = '/' . trim($default_page_base_path, '/');
+  $admin_config->set('settings.default_page_base_path', $default_page_base_path)
+    ->save();
+
+  // Update webform custom base path.
+  foreach ($config_factory->listAll('webform.webform.') as $webform_config_name) {
+    $webform_config = $config_factory->getEditable($webform_config_name);
+    $data = $webform_config->getRawData();
+    $data['settings']['page_submit_path'] = '/' . trim($data['settings']['page_submit_path'], '/');
+    $data['settings']['page_confirm_path'] = '/' . trim($data['settings']['page_confirm_path'], '/');
+    $webform_config->setData($data)->save();
+  }
+}
+
+/**
+ * Issue #3088780: Add the ability to disable user IP tracking for all forms.
+ */
+function webform_update_8603() {
+  _webform_update_admin_settings();
+  _webform_update_webform_settings();
+}
+
+/**
+ * Issue #3144019: Move webform_editorial to webform_test_editorial.
+ */
+function webform_update_8604() {
+  // Remove the webform_editorial.module which has changed to the
+  // webform_test_editorial.module, which is now a test module.
+
+  // Remove 'webform_editorial' from core.extensions.
+  $extension_config = \Drupal::configFactory()->getEditable('core.extension');
+  $module = $extension_config->get('module');
+  if (isset($module['webform_editorial'])) {
+    unset($module['webform_editorial']);
+    $extension_config->set('module', $module);
+    $extension_config->save();
+  }
+
+  // Remove 'webform_editorial' from system.schema.
+  \Drupal::keyValue('system.schema')->delete('webform_editorial');
+}
+
+/**
+ * Issue #3144962: Webform cards.
+ */
+function webform_update_8605() {
+  _webform_update_admin_settings();
 }

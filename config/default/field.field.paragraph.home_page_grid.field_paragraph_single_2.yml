@@ -106,11 +106,11 @@ settings:
       feature:
         weight: 112
         enabled: false
-      feature_4sq_img_link:
-        weight: 113
-        enabled: false
       feature_4_square_images:
         weight: 114
+        enabled: false
+      feature_4sq_img_link:
+        weight: 113
         enabled: false
       feature_components:
         weight: 115
@@ -123,6 +123,9 @@ settings:
         enabled: false
       feature_reference:
         weight: 118
+        enabled: false
+      featured_ref_four:
+        weight: 170
         enabled: false
       flickr_gallery:
         weight: 119
@@ -276,8 +279,5 @@ settings:
         enabled: false
       visual_nav_insert:
         weight: 169
-        enabled: false
-      featured_ref_four:
-        weight: 170
         enabled: false
 field_type: entity_reference_revisions

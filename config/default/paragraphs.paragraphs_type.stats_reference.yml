@@ -5,5 +5,6 @@ dependencies: {  }
 id: stats_reference
 label: 'Stats, Reference, Three'
 icon_uuid: null
+icon_default: null
 description: 'Reference up to 3 items from existing stats ECK bundle'
 behavior_plugins: {  }

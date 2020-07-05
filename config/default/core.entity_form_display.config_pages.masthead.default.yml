@@ -13,6 +13,7 @@ dependencies:
     - field_group
     - link_attributes
     - paragraphs
+    - paragraphs_features
 third_party_settings:
   field_group:
     group_main_navigation:
@@ -36,11 +37,11 @@ third_party_settings:
       weight: 1
       format_type: details
       format_settings:
-        label: 'Utility Nav'
-        open: true
+        description: ''
         required_fields: true
         id: ''
         classes: content-entry-flex-wrap
+        open: false
       label: 'Utility Nav'
       region: content
     group_affiliate_links:
@@ -90,28 +91,40 @@ content:
     type: link_attributes
     region: content
   field_cp_paragraphs_ultd:
-    type: entity_reference_paragraphs
+    type: paragraphs
     weight: 0
     settings:
       title: Paragraph
       title_plural: Paragraphs
       edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: masthead_main_navigation
-    third_party_settings: {  }
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
     region: content
   field_media_image:
     weight: 0
     settings:
       entity_browser: media_entity_browser
       field_widget_display: rendered_entity
+      field_widget_display_settings:
+        view_mode: eb_thumb
       field_widget_edit: true
       field_widget_remove: true
       open: true
       selection_mode: selection_append
-      field_widget_display_settings:
-        view_mode: default
       field_widget_replace: false
     third_party_settings: {  }
     type: entity_browser_entity_reference

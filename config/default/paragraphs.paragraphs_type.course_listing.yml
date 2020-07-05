@@ -5,5 +5,6 @@ dependencies: {  }
 id: course_listing
 label: 'Course Listing'
 icon_uuid: null
+icon_default: null
 description: 'Select courses to be displayed in an accordion list.'
 behavior_plugins: {  }

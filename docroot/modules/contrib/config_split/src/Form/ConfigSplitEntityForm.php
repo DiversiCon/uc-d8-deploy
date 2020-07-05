@@ -4,6 +4,7 @@ namespace Drupal\config_split\Form;
 
 use Drupal\Core\Entity\EntityForm;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Site\Settings;
 
 /**
  * Class ConfigSplitEntityForm.
@@ -32,7 +33,7 @@ class ConfigSplitEntityForm extends EntityForm {
       '#title' => $this->t('Label'),
       '#maxlength' => 255,
       '#default_value' => $config->label(),
-      '#description' => $this->t("Label for the Configuration Split Setting."),
+      '#description' => $this->t("Label for the Configuration Split setting."),
       '#required' => TRUE,
     ];
 
@@ -52,7 +53,7 @@ class ConfigSplitEntityForm extends EntityForm {
     $form['static_fieldset']['description'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Description'),
-      '#description' => $this->t('Describe this config split setting. The text will be displayed on the <em>Configuration Split Setting</em> list page.'),
+      '#description' => $this->t('Describe this config split setting. The text will be displayed on the <em>Configuration Split setting</em> list page.'),
       '#default_value' => $config->get('description'),
     ];
     $form['static_fieldset']['folder'] = [
@@ -77,9 +78,9 @@ class ConfigSplitEntityForm extends EntityForm {
     $form['blacklist_fieldset'] = [
       '#type' => 'fieldset',
       '#title' => $this->t('Complete Split'),
-      '#description' => $this->t("<em>Complete Split/Blacklist:</em> 
+      '#description' => $this->t("<em>Complete Split/Blacklist:</em>
        Configuration listed here will be removed from the sync directory and
-       saved in the split directory instead. Modules will be removed from 
+       saved in the split directory instead. Modules will be removed from
        core.extension when exporting (and added back when importing with the
        split enabled.)"),
     ];
@@ -90,8 +91,19 @@ class ConfigSplitEntityForm extends EntityForm {
     }, $module_handler->getModuleList());
     // Add the existing ones with the machine name so they do not get lost.
     $modules = $modules + array_combine(array_keys($config->get('module')), array_keys($config->get('module')));
+
+    // Sorting module list by name for making selection easier.
+    asort($modules, SORT_NATURAL | SORT_FLAG_CASE);
+
+    $multiselect_type = 'select';
+    if (!$this->useSelectList()) {
+      $multiselect_type = 'checkboxes';
+      // Add the css library if we use checkboxes.
+      $form['#attached']['library'][] = 'config_split/config-split-form';
+    }
+
     $form['blacklist_fieldset']['module'] = [
-      '#type' => 'select',
+      '#type' => $multiselect_type,
       '#title' => $this->t('Modules'),
       '#description' => $this->t('Select modules to split. Configuration depending on the modules is automatically split off completely as well.'),
       '#options' => $modules,
@@ -107,7 +119,7 @@ class ConfigSplitEntityForm extends EntityForm {
       return $theme_handler->getName($theme->getName());
     }, $theme_handler->listInfo());
     $form['blacklist_fieldset']['theme'] = [
-      '#type' => 'select',
+      '#type' => $multiselect_type,
       '#title' => $this->t('Themes'),
       '#description' => $this->t('Select themes to split.'),
       '#options' => $themes,
@@ -120,8 +132,9 @@ class ConfigSplitEntityForm extends EntityForm {
     // @codingStandardsIgnoreEnd
 
     $options = array_combine($this->configFactory()->listAll(), $this->configFactory()->listAll());
-    $form['blacklist_fieldset']['blacklist_select'] = [
-      '#type' => 'select',
+
+    $form['blacklist_fieldset']['blacklist_picker'] = [
+      '#type' => $multiselect_type,
       '#title' => $this->t('Configuration items'),
       '#description' => $this->t('Select configuration to split. Configuration depending on split modules does not need to be selected here specifically.'),
       '#options' => $options,
@@ -140,16 +153,16 @@ class ConfigSplitEntityForm extends EntityForm {
     $form['graylist_fieldset'] = [
       '#type' => 'fieldset',
       '#title' => $this->t('Conditional Split'),
-      '#description' => $this->t("<em>Conditional Split/Graylist:</em> 
-       Configuration listed here will be left untouched in the main sync 
+      '#description' => $this->t("<em>Conditional Split/Graylist:</em>
+       Configuration listed here will be left untouched in the main sync
        directory. The <em>currently active</em> version will be exported to the
        split directory.<br />
        Use this for configuration that is different on your site but which
        should also remain in the main sync directory."),
     ];
 
-    $form['graylist_fieldset']['graylist_select'] = [
-      '#type' => 'select',
+    $form['graylist_fieldset']['graylist_picker'] = [
+      '#type' => $multiselect_type,
       '#title' => $this->t('Configuration items'),
       '#description' => $this->t('Select configuration to split conditionally.'),
       '#options' => $options,
@@ -202,18 +215,59 @@ class ConfigSplitEntityForm extends EntityForm {
     $extensions = $this->config('core.extension');
     // Add the configs modules so we can save inactive splits.
     $module_list = $extensions->get('module') + $this->entity->get('module');
-    $form_state->setValue('module', array_intersect_key($module_list, $form_state->getValue('module')));
-    $form_state->setValue('theme', array_intersect_key($extensions->get('theme'), $form_state->getValue('theme')));
+
+    $moduleSelection = $this->readValuesFromPicker($form_state->getValue('module'));
+    $form_state->setValue('module', array_intersect_key($module_list, $moduleSelection));
+
+    $themeSelection = $this->readValuesFromPicker($form_state->getValue('theme'));
+    $form_state->setValue('theme', array_intersect_key($extensions->get('theme'), $themeSelection));
+
+    $blacklistSelection = $this->readValuesFromPicker($form_state->getValue('blacklist_picker'));
     $form_state->setValue('blacklist', array_merge(
-      array_keys($form_state->getValue('blacklist_select')),
+      array_keys($blacklistSelection),
       $this->filterConfigNames($form_state->getValue('blacklist_text'))
     ));
+
+    $graylistSelection = $this->readValuesFromPicker($form_state->getValue('graylist_picker'));
     $form_state->setValue('graylist', array_merge(
-      array_keys($form_state->getValue('graylist_select')),
+      array_keys($graylistSelection),
       $this->filterConfigNames($form_state->getValue('graylist_text'))
     ));
 
     parent::submitForm($form, $form_state);
+  }
+
+  /**
+   * If the chosen module is active, the form must use select field.
+   *
+   * @return bool
+   *   True if the form must use a select field
+   */
+  protected function useSelectList() {
+    return $this->moduleHandler->moduleExists('chosen');
+  }
+
+  /**
+   * Read values selected depending on widget used: select or checkbox.
+   *
+   * @param array $pickerSelection
+   *   The form value array.
+   *
+   * @return array
+   *   Array of selected values
+   */
+  protected function readValuesFromPicker(array $pickerSelection) {
+    if ($this->useSelectList()) {
+      $moduleSelection = $pickerSelection;
+    }
+    else {
+      // Checkboxes return a value for each item. We only keep the selected one.
+      $moduleSelection = array_filter($pickerSelection, function ($value) {
+        return $value;
+      });
+    }
+
+    return $moduleSelection;
   }
 
   /**
@@ -247,20 +301,20 @@ class ConfigSplitEntityForm extends EntityForm {
 
     switch ($status) {
       case SAVED_NEW:
-        $this->messenger()->addStatus($this->t('Created the %label Configuration Split Setting.', [
+        $this->messenger()->addStatus($this->t('Created the %label Configuration Split setting.', [
           '%label' => $config_split->label(),
         ]));
         break;
 
       default:
-        $this->messenger()->addStatus($this->t('Saved the %label Configuration Split Setting.', [
+        $this->messenger()->addStatus($this->t('Saved the %label Configuration Split setting.', [
           '%label' => $config_split->label(),
         ]));
     }
     $folder = $form_state->getValue('folder');
     if (!empty($folder) && !file_exists($folder)) {
       $this->messenger()->addWarning(
-        $this->t('The storage path "%path" for %label Configuration Split Setting does not exist. Make sure it exists and is writable.',
+        $this->t('The storage path "%path" for %label Configuration Split setting does not exist. Make sure it exists and is writable.',
           [
             '%label' => $config_split->label(),
             '%path' => $folder,
@@ -280,9 +334,7 @@ class ConfigSplitEntityForm extends EntityForm {
    *   True if the folder is inside the sync directory.
    */
   protected static function isConflicting($folder) {
-    global $config_directories;
-
-    return strpos(rtrim($folder, '/') . '/', rtrim($config_directories[CONFIG_SYNC_DIRECTORY], '/') . '/') !== FALSE;
+    return strpos(rtrim($folder, '/') . '/', rtrim(Settings::get('config_sync_directory'), '/') . '/') !== FALSE;
   }
 
 }

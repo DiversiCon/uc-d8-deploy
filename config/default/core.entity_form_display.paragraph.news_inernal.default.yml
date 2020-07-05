@@ -7,13 +7,33 @@ dependencies:
     - field.field.paragraph.news_inernal.field_content_reference_1
     - field.field.paragraph.news_inernal.field_content_reference_single
     - paragraphs.paragraphs_type.news_inernal
+  module:
+    - field_group
+third_party_settings:
+  field_group:
+    group_stories:
+      children:
+        - field_content_reference
+        - field_content_reference_1
+        - field_content_reference_single
+      parent_name: ''
+      weight: 0
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: 'Reference <a href="/admin/content" target="_blank">existing content (new window)</a>'
+        open: true
+        required_fields: true
+      label: Stories
 id: paragraph.news_inernal.default
 targetEntityType: paragraph
 bundle: news_inernal
 mode: default
 content:
   field_content_reference:
-    weight: 101
+    weight: 1
     settings:
       match_operator: CONTAINS
       size: 60
@@ -23,7 +43,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_content_reference_1:
-    weight: 102
+    weight: 2
     settings:
       match_operator: CONTAINS
       size: 60
@@ -33,7 +53,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_content_reference_single:
-    weight: 103
+    weight: 3
     settings:
       match_operator: CONTAINS
       size: 60

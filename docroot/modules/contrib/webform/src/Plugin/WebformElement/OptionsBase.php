@@ -343,19 +343,7 @@ abstract class OptionsBase extends WebformElementBase {
           $value = WebformOptionsHelper::getOptionText($value, $element['#options'], $options_description);
         }
 
-        // Build a render array that uses #plain_text so that
-        // HTML characters are escaped.
-        // @see \Drupal\Core\Render\Renderer::ensureMarkupIsSafe
-        if ($value === '0') {
-          // Issue #2765609: #plain_text doesn't render empty-like values
-          // (e.g. 0 and "0").
-          // Workaround: Use #markup until this issue is fixed.
-          // @todo Remove workaround once only Drupal 8.7.x is supported.
-          $build = ['#markup' => $value];
-        }
-        else {
-          $build = ['#plain_text' => $value];
-        }
+        $build = ['#markup' => $value];
 
         $options += ['prefixing' => TRUE];
         if ($options['prefixing']) {
@@ -633,17 +621,17 @@ abstract class OptionsBase extends WebformElementBase {
    */
   public function buildExportHeader(array $element, array $options) {
     $options_format = ($element['#webform_multiple'] ? $options['options_multiple_format'] : $options['options_single_format']);
-    if ($options_format == 'separate' && isset($element['#options'])) {
+    if ($options_format === 'separate' && isset($element['#options'])) {
       $header = [];
       foreach ($element['#options'] as $option_value => $option_text) {
         // Note: If $option_text is an array (typically a tableselect row)
         // always use $option_value.
-        $title = ($options['options_item_format'] == 'key' || is_array($option_text)) ? $option_value : $option_text;
+        $title = ($options['options_item_format'] === 'key' || is_array($option_text)) ? $option_value : $option_text;
         $header[] = $title;
       }
       // Add 'Other' option to header.
       if ($this instanceof WebformElementOtherInterface) {
-        $header[] = ($options['options_item_format'] == 'key') ? 'other' : $this->t('Other');
+        $header[] = ($options['options_item_format'] === 'key') ? 'other' : $this->t('Other');
       }
       return $this->prefixExportHeader($header, $element, $options);
     }
@@ -658,7 +646,7 @@ abstract class OptionsBase extends WebformElementBase {
   public function buildExportRecord(array $element, WebformSubmissionInterface $webform_submission, array $export_options) {
     $element_options = (isset($element['#options'])) ? $element['#options'] : [];
     $options_format = ($element['#webform_multiple'] ? $export_options['options_multiple_format'] : $export_options['options_single_format']);
-    if ($options_format == 'separate') {
+    if ($options_format === 'separate') {
       $value = $this->getRawValue($element, $webform_submission);
 
       $record = [];
@@ -675,7 +663,7 @@ abstract class OptionsBase extends WebformElementBase {
           unset($value[$option_value]);
           $record[] = ($deltas) ? ($deltas[$option_value] + 1) : 'X';
         }
-        elseif ($value == $option_value) {
+        elseif ($value === $option_value) {
           $value = '';
           $record[] = ($deltas) ? ($deltas[$option_value] + 1) : 'X';
         }
@@ -690,7 +678,7 @@ abstract class OptionsBase extends WebformElementBase {
       return $record;
     }
     else {
-      if ($export_options['options_item_format'] == 'key') {
+      if ($export_options['options_item_format'] === 'key') {
         $element['#format'] = 'raw';
       }
       return parent::buildExportRecord($element, $webform_submission, $export_options);

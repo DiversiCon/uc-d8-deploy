@@ -2,12 +2,12 @@
 
 namespace Drupal\role_based_theme_switcher\Form;
 
+use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Extension\ThemeHandler;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\user\Entity\Role;
-use Drupal\Core\Extension\ThemeHandler;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\Core\Config\ConfigFactoryInterface;
 
 /**
  * Configure Role Based settings for this site.
@@ -19,12 +19,14 @@ use Drupal\Core\Config\ConfigFactoryInterface;
  * @link https://www.drupal.org/sandbox/pen/2760771 description
  */
 class AdminSettingsForm extends ConfigFormBase {
+
   /**
    * Protected themeGlobal variable.
    *
    * @var themeGlobal
    */
   protected $themeGlobal;
+
   /**
    * Protected configFactory variable.
    *
@@ -45,8 +47,8 @@ class AdminSettingsForm extends ConfigFormBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-        $container->get('theme_handler'),
-        $container->get('config.factory')
+      $container->get('theme_handler'),
+      $container->get('config.factory')
     );
   }
 
@@ -55,15 +57,6 @@ class AdminSettingsForm extends ConfigFormBase {
    */
   public function getFormId() {
     return 'role_admin_settings';
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  protected function getEditableConfigNames() {
-    return [
-      'role_based_theme_switcher.RoleBasedThemeSwitchConfig',
-    ];
   }
 
   /**
@@ -80,32 +73,33 @@ class AdminSettingsForm extends ConfigFormBase {
     // Load Themes List.
     $themes = $this->themeGlobal->listInfo();
     // Prepare array.
-    $themeNames = array('' => '--Select--');
+    $themeNames = ['' => '--Select--'];
     foreach ($themes as $key => $value) {
       $themeNames[$key] = $key;
     }
     // Load Roles.
     $roles = Role::loadMultiple();
-    $roleThemes = $this->configFactory->get('role_based_theme_switcher.RoleBasedThemeSwitchConfig')->get('roletheme');
-    $form['role_theme'] = array(
+    $roleThemes = $this->configFactory->get('role_based_theme_switcher.RoleBasedThemeSwitchConfig')
+      ->get('roletheme');
+    $form['role_theme'] = [
       '#type' => 'table',
-      '#header' => array(
+      '#header' => [
         $this->t('Label'),
         $this->t('Themes List'),
         $this->t('Weight'),
-      ),
-      '#empty' => $this->t('There are no items yet. Add an item.', array()),
+      ],
+      '#empty' => $this->t('There are no items yet. Add an item.', []),
       // TableDrag: Each array value is a list of callback arguments for
       // drupal_add_tabledrag().The #id of the table is automatically prepended;
       // if there is none, an HTML ID is auto-generated.
-      '#tabledrag' => array(
-        array(
+      '#tabledrag' => [
+        [
           'action' => 'order',
           'relationship' => 'sibling',
           'group' => 'role_theme-order-weight',
-        ),
-      ),
-    );
+        ],
+      ],
+    ];
     // Check if anything is assigned.
     // If any role is aasigned any theme.
     // Else Load list of themes on with all roles.
@@ -150,30 +144,30 @@ class AdminSettingsForm extends ConfigFormBase {
       // weight.
       // $form['role_theme'][$id]['#weight'] = (int) $roleThemes[$id]['weight'];
       // Some table columns containing raw markup.
-      $form['role_theme'][$id]['label'] = array(
-        '#plain_text' => $this->t('@id User', array('@id' => ucfirst($id))),
-      );
+      $form['role_theme'][$id]['label'] = [
+        '#plain_text' => $this->t('@id User', ['@id' => ucfirst($id)]),
+      ];
 
-      $form['role_theme'][$id]['id'] = array(
+      $form['role_theme'][$id]['id'] = [
         '#type' => 'select',
         '#title' => $this->t('Select Theme'),
         '#options' => $themeNames,
         '#default_value' => (string) $roleThemes[$id]['id'],
-      );
+      ];
       // TableDrag: Weight column element.
-      $form['role_theme'][$id]['weight'] = array(
+      $form['role_theme'][$id]['weight'] = [
         '#type' => 'weight',
         '#title_display' => 'invisible',
         '#default_value' => (int) $roleThemes[$id]['weight'],
         // Classify the weight element for #tabledrag.
-        '#attributes' => array('class' => array('role_theme-order-weight')),
-      );
+        '#attributes' => ['class' => ['role_theme-order-weight']],
+      ];
     }
-    $form['actions'] = array('#type' => 'actions');
-    $form['actions']['submit'] = array(
+    $form['actions'] = ['#type' => 'actions'];
+    $form['actions']['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Save changes'),
-    );
+    ];
 
     return parent::buildForm($form, $form_state);
   }
@@ -199,7 +193,10 @@ class AdminSettingsForm extends ConfigFormBase {
     $rollTheme = $form_state->getValue('role_theme');
     $role_arr = [];
     foreach ($rollTheme as $key => $value) {
-      $role_arr[(int) $value['weight']] = ['theme' => $value['id'], 'role' => $key];
+      $role_arr[(int) $value['weight']] = [
+        'theme' => $value['id'],
+        'role' => $key,
+      ];
 
       $roles[] = $key;
     }
@@ -209,15 +206,27 @@ class AdminSettingsForm extends ConfigFormBase {
     foreach ($role_arr as $new_key => $new_value) {
 
       if (in_array($new_value['role'], $roles)) {
-        $roll_array[$new_value['role']] = ['id' => $new_value['theme'], 'weight' => $new_key];
+        $roll_array[$new_value['role']] = [
+          'id' => $new_value['theme'],
+          'weight' => $new_key,
+        ];
       }
     }
     $roleThemes = $this->config('role_based_theme_switcher.RoleBasedThemeSwitchConfig');
     $roleThemes->set('roletheme', $roll_array);
     $roleThemes->save();
-    drupal_set_message($this->t("Role theme configuration saved succefully"));
+    $this->messenger()->addMessage($this->t("Role theme configuration saved succefully"));
     // Clearing cache for anonymous users.
     drupal_flush_all_caches();
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function getEditableConfigNames() {
+    return [
+      'role_based_theme_switcher.RoleBasedThemeSwitchConfig',
+    ];
   }
 
 }

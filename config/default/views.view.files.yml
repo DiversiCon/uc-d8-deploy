@@ -216,12 +216,10 @@ display:
           clear_on_exposed: true
           action_title: Action
           selected_actions:
-            views_bulk_operations_delete_entity: views_bulk_operations_delete_entity
-            pathauto_update_alias: 0
-            'entity:save_action:file': 0
-          preconfiguration:
-            views_bulk_operations_delete_entity:
-              label_override: 'Delete selected files'
+            -
+              action_id: views_bulk_operations_delete_entity
+              preconfiguration:
+                label_override: 'Delete selected files'
           plugin_id: views_bulk_operations_bulk_form
         fid:
           id: fid
@@ -878,9 +876,11 @@ display:
         type: tab
         title: Files
         description: ''
+        expanded: false
+        parent: ''
+        weight: 900
+        context: '0'
         menu_name: admin
-        weight: 0
-        context: ''
       display_description: ''
       defaults:
         pager: true

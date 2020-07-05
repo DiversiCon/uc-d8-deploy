@@ -27,7 +27,7 @@ filters:
     status: true
     weight: -50
     settings:
-      allowed_html: '<em class> <strong class> <cite class> <blockquote cite class> <code class> <ul type class> <ol start type class> <li class> <dl class> <dt class> <dd class> <h2 id class> <h3 id class> <h4 id class> <h5 id class> <h6 id class> <img src alt data-entity-type data-entity-uuid class> <u class> <p class> <a href hreflang !href accesskey id rel target title class> <table class> <caption class> <tbody class> <thead class> <tfoot class> <th class> <td class> <tr class> <drupal-entity * data-* class> <br>'
+      allowed_html: '<em class> <strong class> <cite class> <blockquote cite class> <code class> <ul type class> <ol start type class> <li class> <dl class> <dt class> <dd class> <h2 id class> <h3 id class> <h4 id class> <h5 id class> <h6 id class> <img src alt data-entity-type data-entity-uuid data-entity-substitution class> <u class> <p class> <a href hreflang !href accesskey id rel target title class data-entity-type data-entity-uuid data-entity-substitution> <table class> <caption class> <tbody class> <thead class> <tfoot class> <th class> <td class> <tr class> <drupal-entity * data-* class> <br>'
       filter_html_help: true
       filter_html_nofollow: false
   filter_url:
@@ -73,3 +73,10 @@ filters:
     status: false
     weight: -45
     settings: {  }
+  linkit:
+    id: linkit
+    provider: linkit
+    status: true
+    weight: -51
+    settings:
+      title: false

@@ -15,51 +15,52 @@ dependencies:
     - workflows.workflow.editorial
   module:
     - allowed_formats
-    - content_moderation
     - entity_browser
     - field_group
     - paragraphs
+    - paragraphs_features
     - path
     - text
+    - uc_sauce
 third_party_settings:
   field_group:
     group_top_grid:
       children:
         - field_intro_paragraph
       parent_name: ''
-      weight: 2
-      format_type: details
+      weight: 1
+      format_type: fieldset
       format_settings:
-        id: ''
-        classes: ''
-        open: true
+        description: ''
         required_fields: true
+        id: ''
+        classes: 'content-form__form-section paragraphs-container'
       label: 'Top Grid'
       region: content
     group_main_content:
       children:
         - field_par_components
       parent_name: ''
-      weight: 3
-      format_type: details
+      weight: 2
+      format_type: fieldset
       format_settings:
-        id: ''
-        classes: ''
-        open: true
+        description: ''
         required_fields: true
+        id: ''
+        classes: 'content-form__form-section paragraphs-container'
       label: 'Main Content (Components)'
       region: content
     group_lower_section_social_:
       children:
         - field_lower_section_components
       parent_name: ''
-      weight: 4
-      format_type: details
+      weight: 3
+      format_type: fieldset
       format_settings:
-        id: ''
-        classes: ''
-        open: true
+        description: ''
         required_fields: true
+        id: ''
+        classes: 'content-form__form-section paragraphs-container'
       label: 'Lower Section (Social)'
       region: content
     group_meta:
@@ -68,15 +69,30 @@ third_party_settings:
         - field_subheadline_text
         - field_image_main
       parent_name: ''
-      weight: 1
-      format_type: details
+      weight: 4
+      format_type: fieldset
+      format_settings:
+        description: ''
+        required_fields: true
+        id: ''
+        classes: content-form__form-section
+      label: 'Meta, Social'
+      region: content
+    group_system:
+      children:
+        - field_bool_template
+      parent_name: ''
+      weight: 6
+      format_type: details_sidebar
+      region: content
       format_settings:
         id: ''
         classes: ''
-        open: false
-        required_fields: true
-      label: 'Meta, Social'
-      region: content
+        description: ''
+        open: true
+        required_fields: false
+        weight: -3
+      label: System
 id: node.home.default
 targetEntityType: node
 bundle: home
@@ -84,12 +100,12 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   field_bool_template:
-    weight: 6
+    weight: 7
     settings:
       display_label: true
     third_party_settings: {  }
@@ -122,16 +138,28 @@ content:
     type: entity_browser_entity_reference
     region: content
   field_intro_paragraph:
-    type: entity_reference_paragraphs
+    type: paragraphs
     weight: 9
     settings:
       title: Paragraph
       title_plural: Paragraphs
       edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: _none
-    third_party_settings: {  }
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
     region: content
   field_lower_section_components:
     weight: 26
@@ -139,11 +167,23 @@ content:
       title: Paragraph
       title_plural: Paragraphs
       edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: components_lower
-    third_party_settings: {  }
-    type: entity_reference_paragraphs
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
+    type: paragraphs
     region: content
   field_par_components:
     weight: 10
@@ -151,11 +191,23 @@ content:
       title: Paragraph
       title_plural: Paragraphs
       edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: _none
-    third_party_settings: {  }
-    type: entity_reference_paragraphs
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
+    type: paragraphs
     region: content
   field_subheadline_text:
     weight: 28
@@ -169,14 +221,14 @@ content:
     type: text_textfield
     region: content
   moderation_state:
-    type: moderation_state_default
-    weight: 5
+    type: thunder_moderation_state_default
+    weight: 7
     settings: {  }
     region: content
     third_party_settings: {  }
   path:
     type: path
-    weight: 7
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -190,7 +242,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 9
+    weight: 10
     settings:
       match_operator: CONTAINS
       size: 60
@@ -199,7 +251,7 @@ content:
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 8
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }

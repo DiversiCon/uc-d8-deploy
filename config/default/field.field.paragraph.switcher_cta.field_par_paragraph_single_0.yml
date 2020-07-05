@@ -142,9 +142,6 @@ settings:
       teaser_reference:
         weight: 81
         enabled: false
-      video_html:
-        weight: 82
-        enabled: false
       tile:
         weight: 83
         enabled: false
@@ -153,5 +150,8 @@ settings:
         enabled: false
       tile_reference:
         weight: 85
+        enabled: false
+      video_html:
+        weight: 82
         enabled: false
 field_type: entity_reference_revisions

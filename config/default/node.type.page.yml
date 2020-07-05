@@ -1,7 +1,14 @@
 uuid: 3fa4442f-0415-41d5-bc70-e577f7fa38c4
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
 name: 'Landing page'
 type: page
 description: 'Standard <em>landing page</em> content such as Academics, Advising, Student Life and others.'

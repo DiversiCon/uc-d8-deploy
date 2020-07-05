@@ -16,11 +16,12 @@ third_party_settings:
     smartbody: '0'
     raw_input: '0'
     plain_text: '0'
+    custml_html: '0'
 id: paragraph.news_block.field_headline_text
 field_name: field_headline_text
 entity_type: paragraph
 bundle: news_block
-label: 'News Block Headline'
+label: Headline
 description: ''
 required: false
 translatable: true

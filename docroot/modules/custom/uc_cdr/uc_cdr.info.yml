@@ -1,7 +1,7 @@
 name: 'UC Central Data Repository'
 type: module
 description: 'Module facilitating functionality of the UC CDR'
-core: 8.x
+core_version_requirement: ^8 || ^9
 package: 'Custom'
 
 dependencies:

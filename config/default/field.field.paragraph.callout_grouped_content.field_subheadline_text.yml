@@ -16,11 +16,12 @@ third_party_settings:
     smartbody: '0'
     raw_input: '0'
     plain_text: '0'
+    custml_html: '0'
 id: paragraph.callout_grouped_content.field_subheadline_text
 field_name: field_subheadline_text
 entity_type: paragraph
 bundle: callout_grouped_content
-label: Sub-headline
+label: Subheadline
 description: ''
 required: false
 translatable: true

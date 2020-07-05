@@ -5,5 +5,6 @@ dependencies: {  }
 id: callout_grouped_content
 label: 'Callout with Grouped Content'
 icon_uuid: null
+icon_default: null
 description: 'A callout that references a group of content, rather than individual items. Currently only used for the Event related callouts.'
 behavior_plugins: {  }

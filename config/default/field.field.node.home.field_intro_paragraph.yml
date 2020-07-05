@@ -30,74 +30,11 @@ settings:
       accordion_block:
         weight: 23
         enabled: false
-      accordion_item:
-        weight: 24
-        enabled: false
-      callout:
-        weight: 25
-        enabled: false
-      callout_insert:
-        weight: 26
-        enabled: false
-      callout_item_reference:
-        weight: 27
-        enabled: false
-      callout_item_unique:
-        weight: 28
-        enabled: false
-      callout_reference:
-        weight: 29
-        enabled: false
-      components:
-        weight: 30
-        enabled: false
-      feature:
-        weight: 31
-        enabled: false
-      feature_4_square_images:
-        weight: 32
-        enabled: false
-      feature_4sq_img_link:
-        weight: 33
-        enabled: false
-      feature_components:
-        weight: 34
-        enabled: false
-      feature_image_link:
-        weight: 35
-        enabled: false
-      feature_insert:
-        weight: 36
-        enabled: false
-      feature_reference:
-        weight: 37
-        enabled: false
-      home_page_grid:
-        enabled: true
-        weight: 38
-      home_page_grid_b:
-        enabled: true
-        weight: 39
-      html_text:
-        weight: 40
-        enabled: false
-      pullquote:
-        weight: 41
-        enabled: false
-      quick_links:
-        weight: 42
-        enabled: false
-      smartbody:
-        weight: 43
-        enabled: false
-      smartbody_image:
-        weight: 44
-        enabled: false
-      social_grid:
-        weight: 45
-        enabled: false
       accordion_group:
         weight: 46
+        enabled: false
+      accordion_item:
+        weight: 24
         enabled: false
       accordion_sidebar:
         weight: 47
@@ -114,8 +51,23 @@ settings:
       avatar:
         weight: 51
         enabled: false
+      callout:
+        weight: 25
+        enabled: false
       callout_grouped_content:
         weight: 52
+        enabled: false
+      callout_insert:
+        weight: 26
+        enabled: false
+      callout_item_reference:
+        weight: 27
+        enabled: false
+      callout_item_unique:
+        weight: 28
+        enabled: false
+      callout_reference:
+        weight: 29
         enabled: false
       callout_with_grouped_content_ref:
         weight: 53
@@ -131,6 +83,9 @@ settings:
         enabled: false
       card_grid_reference:
         weight: 57
+        enabled: false
+      components:
+        weight: 30
         enabled: false
       components_lower:
         weight: 58
@@ -195,6 +150,27 @@ settings:
       faculty_index:
         weight: 78
         enabled: false
+      feature:
+        weight: 31
+        enabled: false
+      feature_4_square_images:
+        weight: 32
+        enabled: false
+      feature_4sq_img_link:
+        weight: 33
+        enabled: false
+      feature_components:
+        weight: 34
+        enabled: false
+      feature_image_link:
+        weight: 35
+        enabled: false
+      feature_insert:
+        weight: 36
+        enabled: false
+      feature_reference:
+        weight: 37
+        enabled: false
       featured_ref_four:
         weight: 79
         enabled: false
@@ -209,6 +185,15 @@ settings:
         enabled: false
       hero_components:
         weight: 83
+        enabled: false
+      home_page_grid:
+        enabled: true
+        weight: 38
+      home_page_grid_b:
+        enabled: true
+        weight: 39
+      html_text:
+        weight: 40
         enabled: false
       html_text_two_column:
         weight: 84
@@ -264,6 +249,12 @@ settings:
       program_selector:
         weight: 101
         enabled: false
+      pullquote:
+        weight: 41
+        enabled: false
+      quick_links:
+        weight: 42
+        enabled: false
       quick_links_two_column:
         weight: 102
         enabled: false
@@ -291,8 +282,17 @@ settings:
       sidebar_inquiries:
         weight: 110
         enabled: false
+      smartbody:
+        weight: 43
+        enabled: false
+      smartbody_image:
+        weight: 44
+        enabled: false
       smartbody_lite:
         weight: 111
+        enabled: false
+      social_grid:
+        weight: 45
         enabled: false
       social_platform_link:
         weight: 112

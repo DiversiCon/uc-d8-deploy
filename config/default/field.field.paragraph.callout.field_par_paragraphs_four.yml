@@ -33,20 +33,14 @@ settings:
       accordion_item:
         weight: -40
         enabled: false
+      avatar:
+        weight: 72
+        enabled: false
       callout:
         weight: -39
         enabled: false
       callout_insert:
         weight: -38
-        enabled: false
-      callout_reference:
-        weight: -37
-        enabled: false
-      components:
-        weight: -36
-        enabled: false
-      feature:
-        weight: -35
         enabled: false
       callout_item_reference:
         enabled: true
@@ -54,41 +48,8 @@ settings:
       callout_item_unique:
         enabled: true
         weight: -33
-      feature_4sq_img_link:
-        weight: -32
-        enabled: false
-      feature_4_square_images:
-        weight: -31
-        enabled: false
-      feature_components:
-        weight: -30
-        enabled: false
-      feature_image_link:
-        weight: -29
-        enabled: false
-      feature_insert:
-        weight: -28
-        enabled: false
-      feature_reference:
-        weight: -27
-        enabled: false
-      html_text:
-        weight: -26
-        enabled: false
-      pullquote:
-        weight: -25
-        enabled: false
-      smartbody:
-        weight: -24
-        enabled: false
-      smartbody_image:
-        weight: -23
-        enabled: false
-      social_grid:
-        weight: -22
-        enabled: false
-      avatar:
-        weight: 72
+      callout_reference:
+        weight: -37
         enabled: false
       card_grid:
         weight: 78
@@ -101,6 +62,9 @@ settings:
         enabled: false
       card_grid_reference:
         weight: 81
+        enabled: false
+      components:
+        weight: -36
         enabled: false
       components_lower:
         weight: 83
@@ -120,6 +84,27 @@ settings:
       date:
         weight: 88
         enabled: false
+      feature:
+        weight: -35
+        enabled: false
+      feature_4_square_images:
+        weight: -31
+        enabled: false
+      feature_4sq_img_link:
+        weight: -32
+        enabled: false
+      feature_components:
+        weight: -30
+        enabled: false
+      feature_image_link:
+        weight: -29
+        enabled: false
+      feature_insert:
+        weight: -28
+        enabled: false
+      feature_reference:
+        weight: -27
+        enabled: false
       flickr_gallery:
         weight: 96
         enabled: false
@@ -131,6 +116,9 @@ settings:
         enabled: false
       home_page_grid:
         weight: 99
+        enabled: false
+      html_text:
+        weight: -26
         enabled: false
       link_list:
         weight: 101
@@ -171,6 +159,9 @@ settings:
       program_selector:
         weight: 113
         enabled: false
+      pullquote:
+        weight: -25
+        enabled: false
       quick_links:
         weight: 115
         enabled: false
@@ -188,6 +179,15 @@ settings:
         enabled: false
       sidebar_inquiries:
         weight: 120
+        enabled: false
+      smartbody:
+        weight: -24
+        enabled: false
+      smartbody_image:
+        weight: -23
+        enabled: false
+      social_grid:
+        weight: -22
         enabled: false
       staff_selector:
         weight: 124

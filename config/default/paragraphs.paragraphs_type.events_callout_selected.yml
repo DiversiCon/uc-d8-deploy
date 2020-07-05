@@ -5,5 +5,6 @@ dependencies: {  }
 id: events_callout_selected
 label: 'Events Callout, Selected'
 icon_uuid: null
+icon_default: null
 description: 'Display a callout of selected events.'
 behavior_plugins: {  }

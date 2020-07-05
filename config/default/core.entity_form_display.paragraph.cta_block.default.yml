@@ -9,21 +9,54 @@ dependencies:
     - paragraphs.paragraphs_type.cta_block
   module:
     - allowed_formats
+    - field_group
     - paragraphs
+    - paragraphs_features
     - text
+third_party_settings:
+  field_group:
+    group_cta_essentials:
+      children:
+        - field_headline_text
+        - field_background_theme
+      parent_name: ''
+      weight: 0
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: true
+        required_fields: true
+      label: 'CTA Essentials'
+    group_cta_links:
+      children:
+        - field_par_paragraph_single
+      parent_name: ''
+      weight: 3
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: true
+        required_fields: true
+      label: 'CTA Links'
 id: paragraph.cta_block.default
 targetEntityType: paragraph
 bundle: cta_block
 mode: default
 content:
   field_background_theme:
-    weight: 0
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_headline_text:
-    weight: 1
+    weight: 2
     settings:
       size: 60
       placeholder: ''
@@ -34,16 +67,28 @@ content:
     type: text_textfield
     region: content
   field_par_paragraph_single:
-    weight: 2
+    weight: 4
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: _none
-    third_party_settings: {  }
-    type: entity_reference_paragraphs
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
+    type: paragraphs
     region: content
 hidden:
   created: true

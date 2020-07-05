@@ -5,5 +5,6 @@ dependencies: {  }
 id: webform_component
 label: 'Webform Component'
 icon_uuid: null
+icon_default: null
 description: 'Add a webform.'
 behavior_plugins: {  }

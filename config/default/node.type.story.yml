@@ -1,7 +1,14 @@
 uuid: 5aaa3db3-0595-4919-8043-57fe1801f30f
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
 name: Story
 type: story
 description: 'Student <em>stories</em>, faculty stories and campus news.'

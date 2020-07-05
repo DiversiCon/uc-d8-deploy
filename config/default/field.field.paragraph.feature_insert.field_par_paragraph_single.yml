@@ -30,36 +30,6 @@ settings:
       accordion_block:
         weight: -23
         enabled: false
-      components:
-        weight: -22
-        enabled: false
-      feature_reference:
-        enabled: true
-        weight: -21
-      feature:
-        enabled: true
-        weight: -20
-      feature_components:
-        weight: -19
-        enabled: false
-      feature_insert:
-        weight: -18
-        enabled: false
-      html_text:
-        weight: -17
-        enabled: false
-      pullquote:
-        weight: -16
-        enabled: false
-      smartbody:
-        weight: -15
-        enabled: false
-      smartbody_image:
-        weight: -14
-        enabled: false
-      social_grid:
-        weight: -13
-        enabled: false
       accordion_item:
         weight: 20
         enabled: false
@@ -69,23 +39,17 @@ settings:
       callout_insert:
         weight: 22
         enabled: false
-      callout_reference:
-        weight: 23
-        enabled: false
-      feature_4sq_img_link:
-        weight: 26
-        enabled: false
-      feature_4_square_images:
-        weight: 27
-        enabled: false
-      feature_image_link:
-        weight: 29
-        enabled: false
       callout_item_reference:
         weight: 51
         enabled: false
       callout_item_unique:
         weight: 52
+        enabled: false
+      callout_reference:
+        weight: 23
+        enabled: false
+      components:
+        weight: -22
         enabled: false
       components_lower:
         weight: 55
@@ -102,8 +66,32 @@ settings:
       custom_link:
         weight: 59
         enabled: false
+      feature:
+        enabled: true
+        weight: -20
+      feature_4_square_images:
+        weight: 27
+        enabled: false
+      feature_4sq_img_link:
+        weight: 26
+        enabled: false
+      feature_components:
+        weight: -19
+        enabled: false
+      feature_image_link:
+        weight: 29
+        enabled: false
+      feature_insert:
+        weight: -18
+        enabled: false
+      feature_reference:
+        enabled: true
+        weight: -21
       home_page_grid:
         weight: 67
+        enabled: false
+      html_text:
+        weight: -17
         enabled: false
       news_block:
         weight: 69
@@ -123,11 +111,23 @@ settings:
       program_selector:
         weight: 74
         enabled: false
+      pullquote:
+        weight: -16
+        enabled: false
       quick_links:
         weight: 76
         enabled: false
       quotator_item:
         weight: 77
+        enabled: false
+      smartbody:
+        weight: -15
+        enabled: false
+      smartbody_image:
+        weight: -14
+        enabled: false
+      social_grid:
+        weight: -13
         enabled: false
       stats:
         weight: 81

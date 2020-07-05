@@ -2,7 +2,10 @@
 
 namespace Drupal\it_showcase\Plugin\Showcase;
 
+use Drupal;
 use Drupal\Core\Plugin\PluginBase;
+// @codingStandardsIgnoreLine
+use Drupal\it_showcase\Annotation\ShowcaseItemPlugin;
 use Drupal\it_showcase\PluginManager\ItemPluginInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -34,11 +37,15 @@ use Drupal\it_showcase\ShowcaseItem;
 class YamlDefinitions extends PluginBase implements ItemPluginInterface, ContainerFactoryPluginInterface {
 
   /**
+   * Cache backend.
+   *
    * @var \Drupal\Core\Cache\CacheBackendInterface
    */
   protected $cacheBackend;
 
   /**
+   * YAML serializer.
+   *
    * @var \Drupal\Component\Serialization\Yaml
    */
   protected $yaml;
@@ -65,26 +72,31 @@ class YamlDefinitions extends PluginBase implements ItemPluginInterface, Contain
   private $config;
 
   /**
+   * Item definitions.
+   *
    * @var array
    */
   protected $itemDefinitions;
 
   /**
-   * @var \Drupal\it_showcase\ShowcaseItemInterface
-   */
-  protected $showcaseItem;
-
-  /**
    * YamlDefinitions constructor.
    *
    * @param array $configuration
-   * @param $plugin_id
-   * @param $plugin_definition
-   * @param \Drupal\Core\Cache\CacheBackendInterface $cache_backend
-   * @param \Drupal\Component\Serialization\Yaml $yaml_serializer
-   * @param \Drupal\Core\Extension\ThemeHandlerInterface $theme_handler
-   * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
-   * @param \Drupal\Core\Config\ConfigFactory $config_factory
+   *   Plugin configuration.
+   * @param string $plugin_id
+   *   Plugin ID.
+   * @param mixed $plugin_definition
+   *   Plugin definition.
+   * @param \Drupal\Core\Cache\CacheBackendInterface|object $cache_backend
+   *   Cache backend service.
+   * @param \Drupal\Component\Serialization\Yaml|object $yaml_serializer
+   *   Serialization service.
+   * @param \Drupal\Core\Extension\ThemeHandlerInterface|object $theme_handler
+   *   Theme handler service.
+   * @param \Drupal\Core\Extension\ModuleHandlerInterface|object $module_handler
+   *   Module handler service.
+   * @param \Drupal\Core\Config\ConfigFactory|object $config_factory
+   *   Configuration factory service.
    */
   public function __construct(
     array $configuration,
@@ -123,6 +135,41 @@ class YamlDefinitions extends PluginBase implements ItemPluginInterface, Contain
   }
 
   /**
+   * Helper function to find showcase item definitions in YAML files.
+   *
+   * YAML files may exist in default theme directory or modules/custom
+   * directory.  The theme directory will have precedence for duplicates. Thus,
+   * you may override a module define showcase item in the theme directory.
+   *
+   * @return array
+   *   Array of showcase item definitions.
+   */
+  private function findDefinitions() {
+    /* @var \Drupal\Core\File\FileSystemInterface $file_system */
+    $file_system = Drupal::service('file_system');
+
+    $definitions = [];
+    $directories = [
+      'docs',
+      $this->getModulesPath(),
+    ];
+
+    $directories = array_merge($directories, $this->getThemePaths());
+    foreach ($directories as $path) {
+      if (file_exists($path)) {
+        $files = $file_system->scanDirectory($path, '/^showcase.yml$/');
+        foreach ($files as $uri => $file) {
+          $definitions += $this->loadYaml($uri);
+        }
+      }
+    }
+
+    return $definitions;
+  }
+
+  /**
+   * Get showcase item definitions.
+   *
    * @inheritdoc
    */
   public function getDefinitions() {
@@ -145,28 +192,44 @@ class YamlDefinitions extends PluginBase implements ItemPluginInterface, Contain
   }
 
   /**
-   * Helper function to find showcase item definitions in YAML files.
-   * YAML files may exist in default theme directory or modules/custom
-   * directory.  The theme directory will have precedence for duplicates. Thus,
-   * you may override a module define showcase item in the theme directory.
+   * Helper function to get default modules path.
    *
-   * @return array
+   * Either from settings or based on wherever showcase module is located
+   * if setting unavailable.
+   *
+   * @return string
+   *   Path to modules directory.
    */
-  private function findDefinitions() {
-    $definitions = [];
-    $directories = [
-      $this->getModulesPath(),
-      $this->getThemePath(),
-    ];
-
-    foreach ($directories as $delta => $path) {
-      $files = file_scan_directory($path, '/^showcase.yml$/');
-      foreach ($files as $uri => $file) {
-        $definitions += $this->loadYaml($uri);
-      }
+  private function getModulesPath() {
+    $modules_path = trim($this->config->get("paths.modules"), '/') . '/';
+    if (!$modules_path) {
+      $modules_path = $this->moduleHandler->getModule('it_showcase')->getPath() . '/../';
     }
 
-    return $definitions;
+    return $modules_path;
+  }
+
+  /**
+   * Helper function to get default theme paths.
+   *
+   * @return array
+   *   Array of theme paths.
+   */
+  private function getThemePaths() {
+    $theme_paths = [];
+
+    // Get the default theme.
+    $default_theme = $this->themeHandler->getTheme($this->themeHandler->getDefault());
+
+    // Add the default theme path to the list.
+    $theme_paths[] = $default_theme->getPath();
+
+    // If a base theme exists for default theme, get base theme path as well.
+    // if ($default_theme->base_theme) {
+    // $theme_paths[] =
+    // $this->themeHandler->getTheme($default_theme->base_theme)->getPath();
+    // }
+    return $theme_paths;
   }
 
   /**
@@ -182,13 +245,16 @@ class YamlDefinitions extends PluginBase implements ItemPluginInterface, Contain
    * endpoint an readme can all have the same base id.
    *
    * @param string $file_uri
+   *   Path to a YAML file with showcase item definitions.
    *
-   * @return mixed
+   * @return array
+   *   Array of showcase item definitions.
    */
   protected function loadYaml($file_uri) {
     $definitions = [];
 
     // Get data from YAML file.
+    // @codingStandardsIgnoreLine
     $data = $this->yaml->decode(file_get_contents($file_uri));
 
     // Let's now go through the data, validate and normalize.
@@ -225,31 +291,6 @@ class YamlDefinitions extends PluginBase implements ItemPluginInterface, Contain
     }
 
     return $definitions;
-  }
-
-  /**
-   * Helper function to get default theme path.
-   *
-   * @return string
-   */
-  private function getThemePath() {
-    $default_theme = $this->themeHandler->getDefault();
-    return $this->themeHandler->getTheme($default_theme)->getPath();
-  }
-
-  /**
-   * Helper function to get default modules path from settings or based on
-   * wherever showcase module is located if setting unavailable.
-   *
-   * @return string
-   */
-  private function getModulesPath() {
-    $modules_path = trim($this->config->get("paths.modules"), '/') . '/';
-    if (!$modules_path) {
-      $modules_path = $this->moduleHandler->getModule('it_showcase')->getPath() . '/../';
-    }
-
-    return $modules_path;
   }
 
 }

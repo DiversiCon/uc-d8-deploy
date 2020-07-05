@@ -27,9 +27,6 @@ settings:
       plain_text_component: plain_text_component
       section_taxonomy_component: section_taxonomy_component
     target_bundles_drag_drop:
-      simple_component_provider:
-        weight: 70
-        enabled: false
       accordion_block:
         weight: 71
         enabled: false
@@ -179,6 +176,9 @@ settings:
         enabled: false
       sidebar_inquiries:
         weight: 120
+        enabled: false
+      simple_component_provider:
+        weight: 70
         enabled: false
       smartbody:
         weight: 121

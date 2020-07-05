@@ -3,6 +3,7 @@
 namespace Drupal\webform\Plugin\WebformElement;
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\webform\Plugin\WebformElementDisplayOnInterface;
 
 /**
  * Provides a 'item' element.
@@ -21,11 +22,11 @@ class WebformMore extends WebformMarkupBase {
    */
   protected function defineDefaultProperties() {
     return [
-      'more_title' => \Drupal::config('webform.settings')->get('element.default_more_title'),
+      'more_title' => $this->configFactory->get('webform.settings')->get('element.default_more_title'),
       'more' => '',
       'attributes' => [],
       // Markup settings.
-      'display_on' => static::DISPLAY_ON_FORM,
+      'display_on' => WebformElementDisplayOnInterface::DISPLAY_ON_FORM,
     ] + $this->defineDefaultBaseProperties();
   }
 

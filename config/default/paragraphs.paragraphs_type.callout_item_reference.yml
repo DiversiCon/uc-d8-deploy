@@ -5,5 +5,6 @@ dependencies: {  }
 id: callout_item_reference
 label: 'Callout Item, Reference'
 icon_uuid: null
+icon_default: null
 description: 'Referenced from inside Callout, Unique, this will reference nodes as items for callouts.'
 behavior_plugins: {  }

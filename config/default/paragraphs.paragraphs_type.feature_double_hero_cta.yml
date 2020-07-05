@@ -5,5 +5,6 @@ dependencies: {  }
 id: feature_double_hero_cta
 label: 'Feature, Double Hero CTA'
 icon_uuid: null
+icon_default: null
 description: 'Displays a two hero combination of picture/video with an accompanying headline and CTA link.'
 behavior_plugins: {  }

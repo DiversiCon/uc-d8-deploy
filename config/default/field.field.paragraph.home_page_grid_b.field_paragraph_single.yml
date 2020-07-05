@@ -27,6 +27,9 @@ settings:
       feature_multiple_double_hero_cta: feature_multiple_double_hero_cta
       feature_announcement: feature_announcement
     target_bundles_drag_drop:
+      academic_appointment:
+        weight: 122
+        enabled: false
       accordion_block:
         weight: 109
         enabled: false
@@ -51,6 +54,9 @@ settings:
       avatar:
         weight: 116
         enabled: false
+      awards:
+        weight: 131
+        enabled: false
       callout:
         weight: 117
         enabled: false
@@ -65,12 +71,6 @@ settings:
         enabled: false
       callout_item_unique:
         weight: 121
-        enabled: false
-      feature_multiple_double_hero_cta:
-        enabled: true
-        weight: 121
-      academic_appointment:
-        weight: 122
         enabled: false
       callout_reference:
         weight: 122
@@ -102,9 +102,6 @@ settings:
       contact_group_list:
         weight: 131
         enabled: false
-      awards:
-        weight: 131
-        enabled: false
       contact_person_reference:
         weight: 132
         enabled: false
@@ -128,6 +125,9 @@ settings:
         enabled: false
       date:
         weight: 139
+        enabled: false
+      education_and_training:
+        weight: 155
         enabled: false
       events_callout_featured:
         weight: 140
@@ -168,17 +168,14 @@ settings:
       feature_4sq_img_link:
         weight: 152
         enabled: false
-      feature_components:
-        weight: 153
-        enabled: false
       feature_announcement:
         enabled: true
         weight: 154
+      feature_components:
+        weight: 153
+        enabled: false
       feature_double_hero_cta:
         weight: 154
-        enabled: false
-      education_and_training:
-        weight: 155
         enabled: false
       feature_image:
         weight: 155
@@ -189,6 +186,9 @@ settings:
       feature_insert:
         weight: 157
         enabled: false
+      feature_multiple_double_hero_cta:
+        enabled: true
+        weight: 121
       feature_reference:
         weight: 158
         enabled: false
@@ -204,6 +204,12 @@ settings:
       generic_sidebar_item:
         weight: 162
         enabled: false
+      graduate_program_websites:
+        weight: 180
+        enabled: false
+      group_list:
+        weight: 181
+        enabled: false
       hero_components:
         weight: 163
         enabled: false
@@ -212,6 +218,12 @@ settings:
         enabled: false
       home_page_grid_b:
         weight: 165
+        enabled: false
+      home_quad_header_text_and_links:
+        weight: 185
+        enabled: false
+      home_quad_two_tiles:
+        weight: 186
         enabled: false
       html_text:
         weight: 166
@@ -258,13 +270,7 @@ settings:
       photo_inset:
         weight: 180
         enabled: false
-      graduate_program_websites:
-        weight: 180
-        enabled: false
       photo_nav_grid:
-        weight: 181
-        enabled: false
-      group_list:
         weight: 181
         enabled: false
       photo_nav_grid_item:
@@ -276,14 +282,14 @@ settings:
       program_selector:
         weight: 184
         enabled: false
+      publications:
+        weight: 206
+        enabled: false
+      publications_list:
+        weight: 207
+        enabled: false
       pullquote:
         weight: 185
-        enabled: false
-      home_quad_header_text_and_links:
-        weight: 185
-        enabled: false
-      home_quad_two_tiles:
-        weight: 186
         enabled: false
       quick_links:
         weight: 186
@@ -345,14 +351,8 @@ settings:
       switcher_cta:
         weight: 205
         enabled: false
-      publications:
-        weight: 206
-        enabled: false
       switcher_getting_started:
         weight: 206
-        enabled: false
-      publications_list:
-        weight: 207
         enabled: false
       teaser:
         weight: 207

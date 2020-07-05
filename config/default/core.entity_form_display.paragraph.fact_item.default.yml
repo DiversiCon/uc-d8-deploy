@@ -20,22 +20,37 @@ third_party_settings:
         - field_title
         - field_single_link
       parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        description: ''
+        open: true
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Headline
+      region: content
+    group_teaser:
+      children:
+        - field_body
+      parent_name: ''
       weight: 1
-      format_type: fieldset
+      format_type: details
+      region: content
       format_settings:
         id: ''
         classes: ''
         description: ''
+        open: true
         required_fields: true
-      label: Headline
-      region: content
+      label: Teaser
 id: paragraph.fact_item.default
 targetEntityType: paragraph
 bundle: fact_item
 mode: default
 content:
   field_body:
-    weight: 2
+    weight: 3
     settings:
       rows: 3
       placeholder: ''
@@ -46,7 +61,7 @@ content:
     type: text_textarea
     region: content
   field_content_alignment:
-    weight: 0
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     type: options_select

@@ -5,5 +5,6 @@ dependencies: {  }
 id: tile
 label: 'Tile, Unique'
 icon_uuid: null
+icon_default: null
 description: 'Unique tile item, used in the teaser insert for the homepage'
 behavior_plugins: {  }

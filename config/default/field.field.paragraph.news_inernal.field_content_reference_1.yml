@@ -11,7 +11,7 @@ id: paragraph.news_inernal.field_content_reference_1
 field_name: field_content_reference_1
 entity_type: paragraph
 bundle: news_inernal
-label: 'Content Reference 2'
+label: 'Story 2'
 description: ''
 required: true
 translatable: false

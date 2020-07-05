@@ -3,8 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - node.type.course
     - node.type.directory
+    - node.type.event
     - node.type.external
+    - node.type.faculty
     - node.type.generic
     - node.type.group
     - node.type.home
@@ -104,8 +107,11 @@ type_settings:
       weight: 0
   entity_types:
     node:
+      - course
       - directory
+      - event
       - external
+      - faculty
       - generic
       - group
       - home

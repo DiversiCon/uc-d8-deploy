@@ -38,6 +38,15 @@ settings:
       accordion_item:
         weight: 95
         enabled: false
+      accordion_sidebar:
+        weight: 103
+        enabled: false
+      accordion_sidebar_group:
+        weight: 104
+        enabled: false
+      accordion_sidebar_item:
+        weight: 105
+        enabled: false
       avatar:
         weight: 96
         enabled: false
@@ -59,20 +68,11 @@ settings:
       callout_reference:
         weight: 102
         enabled: false
-      accordion_sidebar:
-        weight: 103
-        enabled: false
       card_grid:
         weight: 103
         enabled: false
-      accordion_sidebar_group:
-        weight: 104
-        enabled: false
       card_grid_insert:
         weight: 104
-        enabled: false
-      accordion_sidebar_item:
-        weight: 105
         enabled: false
       card_grid_item:
         weight: 105
@@ -98,6 +98,9 @@ settings:
       contact_single_person:
         weight: 112
         enabled: false
+      course_listing:
+        weight: 122
+        enabled: false
       cta_block:
         weight: 113
         enabled: false
@@ -116,6 +119,9 @@ settings:
       events_callout_featured:
         enabled: true
         weight: 118
+      events_callout_selected:
+        enabled: true
+        weight: 129
       events_featured_grid:
         weight: 119
         enabled: false
@@ -125,14 +131,20 @@ settings:
       events_list_featured:
         weight: 121
         enabled: false
-      fact_block:
-        weight: 122
+      events_single_tile:
+        weight: 136
         enabled: false
-      course_listing:
+      fact_block:
         weight: 122
         enabled: false
       fact_item:
         weight: 123
+        enabled: false
+      faculty_callout_selected:
+        enabled: true
+        weight: 139
+      faculty_index:
+        weight: 140
         enabled: false
       feature:
         weight: 124
@@ -149,9 +161,6 @@ settings:
       feature_image_link:
         weight: 128
         enabled: false
-      events_callout_selected:
-        enabled: true
-        weight: 129
       feature_insert:
         weight: 129
         enabled: false
@@ -173,26 +182,20 @@ settings:
       hero_components:
         weight: 135
         enabled: false
-      events_single_tile:
-        weight: 136
-        enabled: false
       home_page_grid:
         weight: 136
         enabled: false
       html_text:
         weight: 137
         enabled: false
+      html_text_two_column:
+        weight: 149
+        enabled: false
       infographic:
         weight: 138
         enabled: false
-      faculty_callout_selected:
-        enabled: true
-        weight: 139
       link_list:
         weight: 139
-        enabled: false
-      faculty_index:
-        weight: 140
         enabled: false
       logo:
         weight: 140
@@ -220,9 +223,6 @@ settings:
         enabled: false
       people_grouped_list_group:
         weight: 148
-        enabled: false
-      html_text_two_column:
-        weight: 149
         enabled: false
       person_list_teasers:
         weight: 149

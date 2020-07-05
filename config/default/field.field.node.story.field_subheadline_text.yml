@@ -11,14 +11,17 @@ dependencies:
 third_party_settings:
   allowed_formats:
     plain: plain
-    smartbody: '0'
+    simple_html: '0'
     basic_html: '0'
+    smartbody: '0'
+    raw_input: '0'
     plain_text: '0'
+    custml_html: '0'
 id: node.story.field_subheadline_text
 field_name: field_subheadline_text
 entity_type: node
 bundle: story
-label: Sub-headline
+label: Subheadline
 description: ''
 required: false
 translatable: true

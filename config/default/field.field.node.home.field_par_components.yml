@@ -28,12 +28,12 @@ settings:
       accordion_group:
         weight: 4
         enabled: false
-      html_text:
-        weight: 5
-        enabled: false
       components:
         enabled: true
         weight: 6
+      html_text:
+        weight: 5
+        enabled: false
       smartbody:
         weight: 6
         enabled: false

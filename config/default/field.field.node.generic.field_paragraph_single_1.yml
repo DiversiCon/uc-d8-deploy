@@ -28,8 +28,14 @@ settings:
       accordion_block:
         weight: 48
         enabled: false
+      accordion_group:
+        weight: 85
+        enabled: false
       accordion_item:
         weight: 49
+        enabled: false
+      avatar:
+        weight: 87
         enabled: false
       callout:
         weight: 50
@@ -46,11 +52,35 @@ settings:
       callout_reference:
         weight: 54
         enabled: false
+      card_grid:
+        weight: 93
+        enabled: false
+      card_grid_insert:
+        weight: 94
+        enabled: false
+      card_grid_item:
+        weight: 95
+        enabled: false
+      card_grid_reference:
+        weight: 96
+        enabled: false
       components:
         weight: 55
         enabled: false
       components_lower:
         weight: 56
+        enabled: false
+      contact_group:
+        weight: 99
+        enabled: false
+      contact_group_list:
+        weight: 100
+        enabled: false
+      contact_person_reference:
+        weight: 101
+        enabled: false
+      contact_single_person:
+        weight: 102
         enabled: false
       cta_block:
         weight: 57
@@ -63,6 +93,9 @@ settings:
         enabled: false
       custom_link:
         weight: 60
+        enabled: false
+      date:
+        weight: 107
         enabled: false
       feature:
         weight: 61
@@ -85,129 +118,6 @@ settings:
       feature_reference:
         weight: 67
         enabled: false
-      home_page_grid:
-        weight: 68
-        enabled: false
-      html_text:
-        weight: 69
-        enabled: false
-      news_block:
-        weight: 70
-        enabled: false
-      news_external:
-        weight: 71
-        enabled: false
-      news_inernal:
-        weight: 72
-        enabled: false
-      photo_nav_grid:
-        weight: 73
-        enabled: false
-      photo_nav_grid_item:
-        weight: 74
-        enabled: false
-      program_selector:
-        weight: 75
-        enabled: false
-      pullquote:
-        weight: 76
-        enabled: false
-      quick_links:
-        weight: 77
-        enabled: false
-      quotator_item:
-        weight: 78
-        enabled: false
-      smartbody:
-        weight: 79
-        enabled: false
-      smartbody_image:
-        weight: 80
-        enabled: false
-      social_grid:
-        weight: 81
-        enabled: false
-      stats:
-        weight: 82
-        enabled: false
-      sidebar_gen_related:
-        weight: 83
-        enabled: false
-      stats_reference:
-        weight: 84
-        enabled: false
-      sidebar_inquiries:
-        weight: 84
-        enabled: false
-      accordion_group:
-        weight: 85
-        enabled: false
-      switcher:
-        weight: 85
-        enabled: false
-      switcher_cta:
-        weight: 86
-        enabled: false
-      avatar:
-        weight: 87
-        enabled: false
-      switcher_getting_started:
-        enabled: true
-        weight: 88
-      staff_selector:
-        weight: 88
-        enabled: false
-      teaser:
-        weight: 89
-        enabled: false
-      teaser_insert:
-        weight: 90
-        enabled: false
-      teaser_reference:
-        weight: 91
-        enabled: false
-      tile:
-        weight: 92
-        enabled: false
-      card_grid:
-        weight: 93
-        enabled: false
-      tile_insert:
-        weight: 93
-        enabled: false
-      card_grid_insert:
-        weight: 94
-        enabled: false
-      tile_reference:
-        weight: 94
-        enabled: false
-      card_grid_item:
-        weight: 95
-        enabled: false
-      video_html:
-        weight: 95
-        enabled: false
-      visual_nav_insert:
-        weight: 96
-        enabled: false
-      card_grid_reference:
-        weight: 96
-        enabled: false
-      contact_group:
-        weight: 99
-        enabled: false
-      contact_group_list:
-        weight: 100
-        enabled: false
-      contact_person_reference:
-        weight: 101
-        enabled: false
-      contact_single_person:
-        weight: 102
-        enabled: false
-      date:
-        weight: 107
-        enabled: false
       flickr_gallery:
         weight: 115
         enabled: false
@@ -220,6 +130,12 @@ settings:
       hero_components:
         weight: 118
         enabled: false
+      home_page_grid:
+        weight: 68
+        enabled: false
+      html_text:
+        weight: 69
+        enabled: false
       infographic:
         weight: 121
         enabled: false
@@ -231,6 +147,15 @@ settings:
         enabled: false
       masthead_main_navigation:
         weight: 124
+        enabled: false
+      news_block:
+        weight: 70
+        enabled: false
+      news_external:
+        weight: 71
+        enabled: false
+      news_inernal:
+        weight: 72
         enabled: false
       news_list:
         weight: 128
@@ -247,11 +172,29 @@ settings:
       photo_inset:
         weight: 132
         enabled: false
+      photo_nav_grid:
+        weight: 73
+        enabled: false
+      photo_nav_grid_item:
+        weight: 74
+        enabled: false
       plain_text_component:
         weight: 135
         enabled: false
+      program_selector:
+        weight: 75
+        enabled: false
+      pullquote:
+        weight: 76
+        enabled: false
+      quick_links:
+        weight: 77
+        enabled: false
       quick_links_two_column:
         weight: 139
+        enabled: false
+      quotator_item:
+        weight: 78
         enabled: false
       quote:
         weight: 141
@@ -265,10 +208,67 @@ settings:
       section_taxonomy_component:
         weight: 144
         enabled: false
+      sidebar_gen_related:
+        weight: 83
+        enabled: false
+      sidebar_inquiries:
+        weight: 84
+        enabled: false
+      smartbody:
+        weight: 79
+        enabled: false
+      smartbody_image:
+        weight: 80
+        enabled: false
+      social_grid:
+        weight: 81
+        enabled: false
       social_platform_link:
         weight: 150
         enabled: false
+      staff_selector:
+        weight: 88
+        enabled: false
+      stats:
+        weight: 82
+        enabled: false
+      stats_reference:
+        weight: 84
+        enabled: false
+      switcher:
+        weight: 85
+        enabled: false
+      switcher_cta:
+        weight: 86
+        enabled: false
+      switcher_getting_started:
+        enabled: true
+        weight: 88
+      teaser:
+        weight: 89
+        enabled: false
+      teaser_insert:
+        weight: 90
+        enabled: false
+      teaser_reference:
+        weight: 91
+        enabled: false
+      tile:
+        weight: 92
+        enabled: false
+      tile_insert:
+        weight: 93
+        enabled: false
+      tile_reference:
+        weight: 94
+        enabled: false
+      video_html:
+        weight: 95
+        enabled: false
       video_youtube:
         weight: 163
+        enabled: false
+      visual_nav_insert:
+        weight: 96
         enabled: false
 field_type: entity_reference_revisions

@@ -2,7 +2,7 @@ name: The College
 type: theme
 description: 'University of Chicago, The College, Drupal 8 theme'
 package: Core
-core: 8.x
+core_version_requirement: ^8 || ^9
 base theme: false
 
 libraries:

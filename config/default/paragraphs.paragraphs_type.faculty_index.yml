@@ -5,5 +5,6 @@ dependencies: {  }
 id: faculty_index
 label: 'Faculty Index'
 icon_uuid: null
+icon_default: null
 description: 'Display a searchable list of faculty members.'
 behavior_plugins: {  }

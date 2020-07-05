@@ -4,6 +4,6 @@ status: true
 dependencies:
   config:
     - eck.eck_entity_type.reusable
-name: 'Callout with Grouped Content'
 type: callout_grouped_content
+name: 'Callout with Grouped Content'
 description: 'A callout that references a group of content, rather than individual items. Currently only used for the Featured Events Callout.'

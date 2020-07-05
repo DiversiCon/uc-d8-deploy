@@ -5,5 +5,6 @@ dependencies: {  }
 id: card_grid_reference
 label: 'Card Grid, Reference'
 icon_uuid: null
+icon_default: null
 description: 'Reference an existing ECK Card Grid'
 behavior_plugins: {  }

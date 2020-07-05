@@ -11,6 +11,7 @@ dependencies:
   module:
     - field_group
     - paragraphs
+    - paragraphs_features
 third_party_settings:
   field_group:
     group_group_options:
@@ -18,16 +19,29 @@ third_party_settings:
         - field_par_bool_single_0
         - field_par_integer_single
       parent_name: ''
-      weight: 0
+      weight: 1
       format_type: details
       format_settings:
-        label: 'Group Options'
         required_fields: true
         id: ''
         classes: ''
         open: false
       label: 'Group Options'
       region: content
+    group_accordion_items:
+      children:
+        - field_par_paragraphs
+      parent_name: ''
+      weight: 2
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: true
+        required_fields: true
+      label: 'Accordion Items'
 id: paragraph.accordion_group.default
 targetEntityType: paragraph
 bundle: accordion_group
@@ -48,19 +62,31 @@ content:
     type: number
     region: content
   field_par_paragraphs:
-    weight: 2
+    weight: 3
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: accordion_item
-    third_party_settings: {  }
-    type: entity_reference_paragraphs
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
+    type: paragraphs
     region: content
   field_title:
-    weight: 1
+    weight: 0
     settings:
       size: 60
       placeholder: ''

@@ -1,0 +1,46 @@
+/**
+ * @file
+ * Styling for it_showcase toolbar module.
+ *
+ * There are more elements targeted below than actually exist.  The tray
+ * functionality has not been implemented but CSS was retained for potential
+ * use in the future.
+ */
+
+.toolbar .toolbar-tray-vertical .edit-it-showcase-toolbar {
+  text-align: right; /* LTR */
+  padding: 1em;
+}
+
+[dir="rtl"] .toolbar .toolbar-tray-vertical .edit-it-showcase-toolbar {
+  text-align: left;
+}
+
+.toolbar .toolbar-tray-horizontal .edit-it-showcase-toolbar {
+  float: right; /* LTR */
+}
+
+[dir="rtl"] .toolbar .toolbar-tray-horizontal .edit-it-showcase-toolbar {
+  float: left;
+}
+
+.toolbar .toolbar-tray-horizontal .toolbar-menu {
+  float: left; /* LTR */
+}
+
+[dir="rtl"] .toolbar .toolbar-tray-horizontal .toolbar-menu {
+  float: right;
+}
+
+.toolbar .toolbar-bar .toolbar-icon-it-showcase:before {
+  background-image: url(../icons/bebebe/showcase.svg);
+}
+
+.toolbar-bar .toolbar-icon-it-showcase:active:before,
+.toolbar-bar .toolbar-icon-it-showcase.is-active:before {
+  background-image: url(../icons/ffffff/showcase.svg);
+}
+
+.toolbar-horizontal .toolbar-horizontal-item-hidden {
+  display: none;
+}

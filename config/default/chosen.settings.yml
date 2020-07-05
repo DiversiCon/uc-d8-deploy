@@ -1,8 +1,8 @@
 minimum_single: 0
 minimum_multiple: 0
 disable_search_threshold: 0
-minimum_width: 0
-jquery_selector: 'select:visible'
+minimum_width: 150
+jquery_selector: 'select:not([id*=''edit-moderation-state-0''])'
 search_contains: true
 disable_search: false
 allow_single_deselect: true
@@ -12,9 +12,12 @@ no_results_text: 'No results match'
 disabled_themes:
   uccollege_anon: uccollege_anon
   seven: '0'
-  adminimal_theme: '0'
-  admin_uccollege: '0'
+  thunder_admin: '0'
   uccollege: '0'
+  admin_uccollege: '0'
+  adminimal_theme: '0'
 chosen_include: 0
 _core:
   default_config_hash: JUHKHJeHl1bWXY41HMIcDR-VmAWvJ4OJycDubCkIeDU
+max_shown_results: null
+use_relative_width: false

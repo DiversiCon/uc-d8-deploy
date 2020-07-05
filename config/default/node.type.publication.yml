@@ -14,5 +14,5 @@ type: publication
 description: 'Academic <em>publications</em> with contributions by staff, faculty and researchers.'
 help: ''
 new_revision: true
-preview_mode: 1
+preview_mode: 0
 display_submitted: true

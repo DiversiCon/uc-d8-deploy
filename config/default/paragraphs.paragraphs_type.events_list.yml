@@ -5,5 +5,6 @@ dependencies: {  }
 id: events_list
 label: 'Events List'
 icon_uuid: null
+icon_default: null
 description: 'Display a searchable list of events. '
 behavior_plugins: {  }

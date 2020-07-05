@@ -34,6 +34,9 @@ settings:
       callout:
         weight: 54
         enabled: false
+      callout_insert:
+        weight: 900
+        enabled: false
       callout_item_reference:
         weight: 56
         enabled: false
@@ -42,6 +45,18 @@ settings:
         enabled: false
       callout_reference:
         weight: 58
+        enabled: false
+      card_grid:
+        weight: 64
+        enabled: false
+      card_grid_insert:
+        weight: 65
+        enabled: false
+      card_grid_item:
+        weight: 66
+        enabled: false
+      card_grid_reference:
+        weight: 68
         enabled: false
       components:
         enabled: true
@@ -58,20 +73,14 @@ settings:
       cta_text_link:
         weight: 63
         enabled: false
-      card_grid:
-        weight: 64
-        enabled: false
       custom_link:
         weight: 64
         enabled: false
-      card_grid_insert:
-        weight: 65
+      date:
+        weight: 74
         enabled: false
       feature:
         weight: 65
-        enabled: false
-      card_grid_item:
-        weight: 66
         enabled: false
       feature_4_square_images:
         weight: 66
@@ -79,17 +88,26 @@ settings:
       feature_4sq_img_link:
         weight: 67
         enabled: false
-      card_grid_reference:
-        weight: 68
-        enabled: false
       feature_components:
         weight: 68
         enabled: false
       feature_image_link:
         weight: 69
         enabled: false
+      feature_insert:
+        weight: 920
+        enabled: false
       feature_reference:
         weight: 71
+        enabled: false
+      flickr_gallery:
+        weight: 90
+        enabled: false
+      generic_sidebar:
+        weight: 91
+        enabled: false
+      generic_sidebar_item:
+        weight: 92
         enabled: false
       home_page_grid:
         weight: 72
@@ -97,10 +115,10 @@ settings:
       html_text:
         weight: 73
         enabled: false
-      news_block:
-        weight: 74
+      masthead_main_navigation:
+        weight: 85
         enabled: false
-      date:
+      news_block:
         weight: 74
         enabled: false
       news_external:
@@ -108,6 +126,18 @@ settings:
         enabled: false
       news_inernal:
         weight: 76
+        enabled: false
+      news_list:
+        weight: 89
+        enabled: false
+      people_grouped_list:
+        weight: 94
+        enabled: false
+      people_grouped_list_group:
+        weight: 95
+        enabled: false
+      photo_inset:
+        weight: 96
         enabled: false
       photo_nav_grid:
         weight: 77
@@ -136,9 +166,6 @@ settings:
       smartbody:
         weight: 85
         enabled: false
-      masthead_main_navigation:
-        weight: 85
-        enabled: false
       smartbody_image:
         weight: 86
         enabled: false
@@ -151,41 +178,20 @@ settings:
       stats:
         weight: 89
         enabled: false
-      news_list:
-        weight: 89
-        enabled: false
-      flickr_gallery:
-        weight: 90
-        enabled: false
       stats_reference:
-        weight: 91
-        enabled: false
-      generic_sidebar:
         weight: 91
         enabled: false
       switcher:
         weight: 92
         enabled: false
-      generic_sidebar_item:
-        weight: 92
-        enabled: false
       switcher_cta:
         weight: 93
-        enabled: false
-      people_grouped_list:
-        weight: 94
         enabled: false
       switcher_getting_started:
         weight: 94
         enabled: false
-      people_grouped_list_group:
-        weight: 95
-        enabled: false
       teaser:
         weight: 95
-        enabled: false
-      photo_inset:
-        weight: 96
         enabled: false
       teaser_insert:
         weight: 96
@@ -205,16 +211,10 @@ settings:
       video_html:
         weight: 101
         enabled: false
-      visual_nav_insert:
-        weight: 102
-        enabled: false
       video_youtube:
         weight: 121
         enabled: false
-      callout_insert:
-        weight: 900
-        enabled: false
-      feature_insert:
-        weight: 920
+      visual_nav_insert:
+        weight: 102
         enabled: false
 field_type: entity_reference_revisions

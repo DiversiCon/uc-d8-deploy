@@ -8,7 +8,9 @@ context:
   show_warning: true
   group:
     language: false
+  fallback:
+    language: ''
 menu:
-  path: /admin/config/contact-form
+  path: /admin/config/content/contact-form
   weight: -42
   description: 'Contact Us, Headline Fields'

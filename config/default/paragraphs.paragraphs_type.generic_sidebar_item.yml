@@ -5,5 +5,6 @@ dependencies: {  }
 id: generic_sidebar_item
 label: 'Generic sidebar, Item'
 icon_uuid: null
+icon_default: null
 description: 'Individual generic title/text element used to build a generic sidebar component.'
 behavior_plugins: {  }

@@ -4,6 +4,26 @@ php_version: 7.3
 drush_version: 9
 enforce_https: 'transitional+subdomains'
 workflows:
+  deploy_product:
+    after:
+      - type: webphp
+        description: Perform minimal install
+        script: private/scripts/quicksilver/install/drush_install_minimal.php
+      - type: webphp
+        description: Set predefined site UUID
+        script: private/scripts/quicksilver/install/drush_cset_site.php
+      - type: webphp
+        description: Import project configuration
+        script: private/scripts/quicksilver/install/drush_cim.php
+      - type: webphp
+        description: Clear cache to be safe before next configuration import
+        script: private/scripts/quicksilver/install/drush_cr.php
+      - type: webphp
+        description: Import project configuration again to get new stuff
+        script: private/scripts/quicksilver/install/drush_cim.php
+      - type: webphp
+        description: Clear cache again since we are done
+        script: private/scripts/quicksilver/install/drush_cr.php
   deploy:
     after:
       - type: webphp

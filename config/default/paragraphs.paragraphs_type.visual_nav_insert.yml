@@ -5,5 +5,6 @@ dependencies: {  }
 id: visual_nav_insert
 label: 'Visual Nav, Insert'
 icon_uuid: null
+icon_default: null
 description: 'Inserts the global config_page visual nav as a block'
 behavior_plugins: {  }

@@ -14,73 +14,75 @@ dependencies:
     - allowed_formats
     - field_group
     - paragraphs
+    - paragraphs_features
     - text
 third_party_settings:
   field_group:
-    group_headline_and_meta:
+    group_section_link_override:
       children:
-        - group_section_link_override
         - field_section
-        - field_headline_text
-        - field_subheadline_text
+        - field_par_paragraph_single_0
       parent_name: ''
-      weight: 0
+      weight: 1
       format_type: details
       format_settings:
-        label: 'Headline and Meta'
+        description: ''
         open: true
         required_fields: true
         id: ''
         classes: ''
-      label: 'Headline and Meta'
-      region: content
-    group_section_link_override:
-      children:
-        - field_par_paragraph_single_0
-      parent_name: group_headline_and_meta
-      weight: 20
-      format_type: details
-      format_settings:
-        label: 'Section Link, Override'
-        required_fields: true
-        id: ''
-        classes: ''
-        open: false
-      label: 'Section Link, Override'
+      label: 'Callout Section'
       region: content
     group_main_content:
       children:
         - field_paragraph_single
       parent_name: ''
-      weight: 1
+      weight: 3
       format_type: details
       format_settings:
-        id: ''
-        classes: ''
+        description: ''
         open: true
         required_fields: true
-      label: 'Main Content'
+        id: ''
+        classes: ''
+      label: 'Callout Items'
       region: content
     group_bottom_of_callout:
       children:
         - field_par_paragraph_single
       parent_name: ''
+      weight: 4
+      format_type: details
+      format_settings:
+        description: ''
+        open: true
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Callout Footer'
+      region: content
+    group_callout_headline:
+      children:
+        - field_headline_text
+        - field_subheadline_text
+      parent_name: ''
       weight: 2
       format_type: details
+      region: content
       format_settings:
         id: ''
         classes: ''
+        description: ''
         open: true
         required_fields: true
-      label: 'Bottom of Callout'
-      region: content
+      label: 'Callout Headline'
 id: paragraph.callout_grouped_content.default
 targetEntityType: paragraph
 bundle: callout_grouped_content
 mode: default
 content:
   field_headline_text:
-    weight: 23
+    weight: 22
     settings:
       size: 60
       placeholder: ''
@@ -96,35 +98,71 @@ content:
       title: Paragraph
       title_plural: Paragraphs
       edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: _none
-    third_party_settings: {  }
-    type: entity_reference_paragraphs
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
+    type: paragraphs
     region: content
   field_par_paragraph_single_0:
-    weight: 21
+    weight: 23
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
-    type: entity_reference_paragraphs
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
+    type: paragraphs
     region: content
   field_paragraph_single:
     weight: 2
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: _none
-    third_party_settings: {  }
-    type: entity_reference_paragraphs
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
+    type: paragraphs
     region: content
   field_section:
     weight: 22
@@ -137,7 +175,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_subheadline_text:
-    weight: 24
+    weight: 23
     settings:
       size: 60
       placeholder: ''

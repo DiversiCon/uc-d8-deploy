@@ -25,9 +25,6 @@ settings:
     target_bundles:
       feature_4sq_img_link: feature_4sq_img_link
     target_bundles_drag_drop:
-      feature_4_square_images:
-        weight: 15
-        enabled: false
       accordion_block:
         weight: 16
         enabled: false
@@ -36,6 +33,9 @@ settings:
         enabled: false
       feature:
         weight: 18
+        enabled: false
+      feature_4_square_images:
+        weight: 15
         enabled: false
       feature_4sq_img_link:
         enabled: true

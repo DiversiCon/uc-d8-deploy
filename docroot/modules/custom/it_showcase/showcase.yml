@@ -1,6 +1,9 @@
-it_showcase:
+
+it-showcase:
   title: Showcase Module
   description: Showcase information and reference
   type: readme
   attributes:
+    category: Development
     file: modules/custom/it_showcase/README.md
+    index_hide: true

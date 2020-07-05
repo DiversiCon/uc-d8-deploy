@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.faculty.field_academic_appointment
     - field.field.node.faculty.field_administrative_title
     - field.field.node.faculty.field_awards
+    - field.field.node.faculty.field_bool_template
     - field.field.node.faculty.field_clinical_interests
     - field.field.node.faculty.field_degree
     - field.field.node.faculty.field_description
@@ -34,14 +35,33 @@ dependencies:
     - field.field.node.faculty.field_websites
     - image.style.thumbnail
     - node.type.faculty
+    - workflows.workflow.editorial
   module:
-    - content_moderation
+    - field_group
     - image
     - link_attributes
     - paragraphs
     - path
     - telephone
     - text
+    - uc_sauce
+third_party_settings:
+  field_group:
+    group_system:
+      children:
+        - field_bool_template
+      parent_name: ''
+      weight: 30
+      format_type: details_sidebar
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: true
+        required_fields: false
+        weight: -3
+      label: System
 id: node.faculty.default
 targetEntityType: node
 bundle: faculty
@@ -49,7 +69,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 34
+    weight: 35
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -85,6 +105,13 @@ content:
       default_paragraph_type: ''
     third_party_settings: {  }
     region: content
+  field_bool_template:
+    type: boolean_checkbox
+    weight: 39
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_clinical_interests:
     weight: 29
     settings:
@@ -327,14 +354,14 @@ content:
     third_party_settings: {  }
     region: content
   moderation_state:
-    type: moderation_state_default
-    weight: 30
+    type: thunder_moderation_state_default
+    weight: 31
     settings: {  }
     region: content
     third_party_settings: {  }
   path:
     type: path
-    weight: 31
+    weight: 32
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -348,7 +375,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 33
+    weight: 34
     settings:
       match_operator: CONTAINS
       size: 60
@@ -357,7 +384,7 @@ content:
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 32
+    weight: 33
     region: content
     settings: {  }
     third_party_settings: {  }

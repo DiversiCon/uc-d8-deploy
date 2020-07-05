@@ -1,0 +1,23 @@
+uuid: 9c81ad96-5dfc-4ed4-98e5-b42c66b09320
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bool_template
+    - node.type.faculty
+id: node.faculty.field_bool_template
+field_name: field_bool_template
+entity_type: node
+bundle: faculty
+label: 'Template?'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

@@ -1,0 +1,11 @@
+it_showcase.markdown:
+  version: 1.x
+  css:
+    theme:
+      css/it_showcase.markdown.css: {}
+
+it_showcase.toolbar:
+  version: 1.x
+  css:
+    component:
+      css/it_showcase.toolbar.css: {}

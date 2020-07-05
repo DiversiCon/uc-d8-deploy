@@ -5,5 +5,6 @@ dependencies: {  }
 id: cta_block
 label: 'CTA Block'
 icon_uuid: null
+icon_default: null
 description: 'This component displays a block with either a multiple CTAs or text and a link. It is typically used within the Switcher component.'
 behavior_plugins: {  }

@@ -8,7 +8,9 @@ context:
   show_warning: true
   group:
     language: false
+  fallback:
+    language: ''
 menu:
-  path: /admin/config/events
+  path: /admin/config/content/events
   weight: -41
   description: Events

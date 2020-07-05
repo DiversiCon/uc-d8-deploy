@@ -2,6 +2,8 @@
 
 namespace Drupal\it_showcase;
 
+use Drupal;
+
 /**
  * Class ShowcaseItem.
  *
@@ -84,6 +86,9 @@ class ShowcaseItem implements ShowcaseItemInterface {
     if (isset($this->itemDefinition['attributes']['category'])) {
       $categories = explode(',', $this->itemDefinition['attributes']['category']);
     }
+    foreach ($categories as $index => $category) {
+      $categories[$index] = trim($category);
+    }
     return $categories;
   }
 
@@ -127,6 +132,13 @@ class ShowcaseItem implements ShowcaseItemInterface {
    */
   public function getRelatedShowcaseId() {
     return (isset($this->itemDefinition['attributes']['related_id'])) ? $this->itemDefinition['attributes']['related_id'] : NULL;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getRelatedReadmeShowcaseIds() {
+    return (isset($this->itemDefinition['attributes']['related_readme_ids'])) ? $this->itemDefinition['attributes']['related_readme_ids'] : [];
   }
 
   /**
@@ -259,13 +271,20 @@ class ShowcaseItem implements ShowcaseItemInterface {
 
   /**
    * {@inheritdoc}
+   *
+   * @TODO: Not sure what was happening here, related ID should not be involved.
+   *
+   *  I believe the original intent was to hide any readme that was related to
+   *  another showcase item based on that readme being introduced in some form
+   *  as a part of the related item.
    */
   public function isHiddenOnIndex() {
     if ($this->getRelatedShowcaseId()) {
       return (isset($this->itemDefinition['attributes']['index_hide'])) ? $this->itemDefinition['attributes']['index_hide'] : FALSE;
     }
     else {
-      return FALSE;
+      return (isset($this->itemDefinition['attributes']['index_hide'])) ? $this->itemDefinition['attributes']['index_hide'] : FALSE;
+      // This was the original return value: return FALSE; saving for now.
     }
   }
 
@@ -290,13 +309,13 @@ class ShowcaseItem implements ShowcaseItemInterface {
    *    $status = FALSE;
    *  }
    *  else {
-   *    // Must have variants on non-readme showcase items.
-   *    if ($definition['type'] !== 'readme' && !isset($defition['variants'])) {
-   *      $status = FALSE;
-   *    }
+   *  // Must have variants on non-readme showcase items.
+   *  if ($definition['type'] !== 'readme' && !isset($definition['variants'])) {
+   *    $status = FALSE;
+   *  }
    * }
    */
-  public function setArray($definition = []) {
+  public function setArray(array $definition = []) {
     $status = TRUE;
     $this->itemDefinition = [];
 
@@ -353,7 +372,7 @@ class ShowcaseItem implements ShowcaseItemInterface {
   /**
    * {@inheritdoc}
    */
-  public function setLink($link) {
+  public function setLink(array $link) {
     if (!isset($this->itemDefinition['links'])) {
       $this->itemDefinition['links'] = [];
     }
@@ -363,7 +382,7 @@ class ShowcaseItem implements ShowcaseItemInterface {
   /**
    * {@inheritdoc}
    */
-  public function setLinks($links) {
+  public function setLinks(array $links) {
     $this->itemDefinition['links'] = $links;
   }
 
@@ -434,14 +453,14 @@ class ShowcaseItem implements ShowcaseItemInterface {
   /**
    * {@inheritdoc}
    */
-  public function setVariants($variants = []) {
+  public function setVariants(array $variants = []) {
     $this->itemDefinition['variants'] = $variants;
   }
 
   /**
    * {@inheritdoc}
    */
-  public function validate($theme_path) {
+  public function validate(array $theme_paths) {
 
     // Get a saved version if we have it.
     if (isset($this->itemStatus) && $this->itemStatus) {
@@ -455,10 +474,12 @@ class ShowcaseItem implements ShowcaseItemInterface {
         'title' => $this->getTitle(),
       ];
 
-      // Check template file.
-      $status['template'] = $this->checkTemplateFile($theme_path);
-      if ($status['template']['message'] !== 'Ok') {
-        $status['messages'][] = 'template: Could not find template file';
+      // Check template file on component and page types.
+      if ($this->getType() == 'page' || $this->getType() == 'component') {
+        $status['template'] = $this->checkTemplateFile($theme_paths);
+        if ($status['template']['message'] !== 'Ok') {
+          $status['messages'][] = 'template: Could not find template file';
+        }
       }
 
       // Check id.
@@ -467,7 +488,7 @@ class ShowcaseItem implements ShowcaseItemInterface {
       }
 
       // Check type.
-      $types = ['component', 'endpoint', 'page'];
+      $types = ['component', 'endpoint', 'page', 'readme'];
       if (!in_array($this->getType(), $types)) {
         $status['messages'][] = $this->getType() . ': Invalid showcase item type';
       }
@@ -492,22 +513,32 @@ class ShowcaseItem implements ShowcaseItemInterface {
   /**
    * Helper function to check for template file.
    *
-   * @param string $theme_path
+   * @param array $theme_paths
    *   Theme path.
    *
    * @return array
    *   Template array.
    */
-  private function checkTemplateFile($theme_path) {
+  private function checkTemplateFile(array $theme_paths) {
+    /* @var \Drupal\Core\File\FileSystemInterface $file_system */
+    $file_system = Drupal::service('file_system');
+
     $template = [
       'file' => $this->getTemplateSuggestion(),
       'message' => 'Ok',
     ];
 
+    $files = [];
     // Check theme directory.
-    $files = file_scan_directory($theme_path, '/^' . $this->getTemplateSuggestionLegacy() . '$/');
+    foreach ($theme_paths as $theme_path) {
+      $files += $file_system->scanDirectory($theme_path, '/^' . $this->getTemplateSuggestionLegacy() . '$/');
+    }
+
     if (!$files) {
-      $files = file_scan_directory($theme_path, '/^' . $this->getTemplateSuggestion() . '$/');
+      foreach ($theme_paths as $theme_path) {
+        $files += $file_system->scanDirectory($theme_path, '/^' . $this->getTemplateSuggestion() . '$/');
+      }
+
       if (!$files) {
         $template['message'] = 'Template file not found in default theme directory';
       }

@@ -5,5 +5,6 @@ dependencies: {  }
 id: events_list_featured
 label: 'Events List, Featured'
 icon_uuid: null
+icon_default: null
 description: 'Display the first four featured events, with a searchable list of featured events below.'
 behavior_plugins: {  }

@@ -62,21 +62,15 @@ class DrupalAutoloader
 
     public function register(Container $container): void
     {
-        $startPath = null;
         $drupalParams = $container->getParameter('drupal');
-        $drupalRoot = $drupalParams['drupal_root'] ?? null;
-        if ($drupalRoot !== null && realpath($drupalRoot) !== false && is_dir($drupalRoot)) {
-            $startPath = $drupalRoot;
-        } else {
-            $startPath = dirname($GLOBALS['autoloaderInWorkingDirectory']);
-        }
+        $drupalRoot = $drupalParams['drupal_root'];
         $finder = new DrupalFinder();
-        $finder->locateRoot($startPath);
+        $finder->locateRoot($drupalRoot);
 
         $drupalRoot = $finder->getDrupalRoot();
         $drupalVendorRoot = $finder->getVendorDir();
         if (! (bool) $drupalRoot || ! (bool) $drupalVendorRoot) {
-            throw new \RuntimeException("Unable to detect Drupal at $startPath");
+            throw new \RuntimeException("Unable to detect Drupal at $drupalRoot");
         }
 
         $this->drupalRoot = $drupalRoot;
@@ -106,6 +100,7 @@ class DrupalAutoloader
         $this->addThemeNamespaces();
         $this->registerPs4Namespaces($this->namespaces);
         $this->loadLegacyIncludes();
+        require_once $this->drupalRoot . '/core/tests/bootstrap.php';
 
         foreach ($this->moduleData as $extension) {
             $this->loadExtension($extension);
@@ -139,6 +134,11 @@ class DrupalAutoloader
         }
         foreach ($this->themeData as $extension) {
             $this->loadExtension($extension);
+            $theme_dir = $this->drupalRoot . '/' . $extension->getPath();
+            $theme_settings_file = $theme_dir . '/theme-settings.php';
+            if (file_exists($theme_settings_file)) {
+                $this->loadAndCatchErrors($theme_settings_file);
+            }
         }
 
         if (class_exists(\Drush\Drush::class)) {
@@ -240,24 +240,12 @@ class DrupalAutoloader
             $module_dir = $this->drupalRoot . '/' . $module->getPath();
             $this->namespaces["Drupal\\$module_name"] = $module_dir . '/src';
 
-            // @see drupal_phpunit_get_extension_namespaces
+            // Extensions can have a \Drupal\Tests\extension namespace for test cases, traits, and other classes such
+            // as those that extend \Drupal\TestSite\TestSetupInterface.
+            // @see drupal_phpunit_get_extension_namespaces()
             $module_test_dir = $module_dir . '/tests/src';
             if (is_dir($module_test_dir)) {
-                $suite_names = ['Unit', 'Kernel', 'Functional', 'FunctionalJavascript', 'Build'];
-                foreach ($suite_names as $suite_name) {
-                    $suite_dir = $module_test_dir . '/' . $suite_name;
-                    if (is_dir($suite_dir)) {
-                        // Register the PSR-4 directory for PHPUnit-based suites.
-                        $this->namespaces["Drupal\\Tests\\$module_name\\$suite_name"] = $suite_dir;
-                    }
-
-                    // Extensions can have a \Drupal\extension\Traits namespace for
-                    // cross-suite trait code.
-                    $trait_dir = $module_test_dir . '/Traits';
-                    if (is_dir($trait_dir)) {
-                        $this->namespaces["Drupal\\Tests\\$module_name\\Traits"] = $trait_dir;
-                    }
-                }
+                $this->namespaces["Drupal\\Tests\\$module_name"] = $module_test_dir;
             }
 
             $servicesFileName = $module_dir . '/' . $module_name . '.services.yml';

@@ -5,5 +5,6 @@ dependencies: {  }
 id: callout_item_unique
 label: 'Callout Item, Unique'
 icon_uuid: null
+icon_default: null
 description: 'Referenced from inside Callout, Unique, this will create unique items for callouts.'
 behavior_plugins: {  }

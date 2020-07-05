@@ -5,5 +5,6 @@ dependencies: {  }
 id: quick_links_two_column
 label: 'Quick Links Two Column'
 icon_uuid: null
+icon_default: null
 description: 'Display a two column quick link list. Can optionally convert to an accordion.'
 behavior_plugins: {  }

@@ -1,0 +1,23 @@
+uuid: 5f33de9d-9404-48d5-aa43-67f437c3d1bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bool_template
+    - node.type.course
+id: node.course.field_bool_template
+field_name: field_bool_template
+entity_type: node
+bundle: course
+label: 'Template?'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

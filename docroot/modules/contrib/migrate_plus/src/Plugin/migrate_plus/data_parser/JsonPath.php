@@ -76,9 +76,24 @@ class JsonPath extends DataParserPluginBase implements ContainerFactoryPluginInt
 
         if ($field_data->count() == 1) {
           $field_data = $field_data->first();
-        } else {
+
+          // When retrieving nested data the first item can be another JSONPath
+          // object. We need to extract its data.
+          if ($field_data instanceof JSONPathSelector) {
+            $field_data = $field_data->data();
+          }
+        }
+        else {
           $field_data = $field_data->data();
         }
+
+        // JSONPath converts JSON objects to PHP objects which cause Migrate to
+        // fail when using the SubProcess process plugin. This function
+        // recursively converts those objects to arrays to prevent this issue.
+        $toArray = function ($x) use (&$toArray) {
+          return (is_scalar($x) || is_null($x)) ? $x : array_map($toArray, (array) $x);
+        };
+        $field_data = $toArray($field_data);
 
         $this->currentItem[$field_name] = $field_data;
       }

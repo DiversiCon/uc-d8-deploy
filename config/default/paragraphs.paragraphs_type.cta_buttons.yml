@@ -5,5 +5,6 @@ dependencies: {  }
 id: cta_buttons
 label: 'CTA Buttons'
 icon_uuid: null
+icon_default: null
 description: 'button style of CTA link inside the CTA Block'
 behavior_plugins: {  }

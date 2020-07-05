@@ -67,11 +67,11 @@ settings:
       feature:
         weight: 62
         enabled: false
-      feature_4sq_img_link:
-        weight: 63
-        enabled: false
       feature_4_square_images:
         weight: 64
+        enabled: false
+      feature_4sq_img_link:
+        weight: 63
         enabled: false
       feature_components:
         weight: 65
@@ -118,6 +118,12 @@ settings:
       quotator_item:
         weight: 79
         enabled: false
+      sidebar_gen_related:
+        enabled: true
+        weight: 82
+      sidebar_inquiries:
+        weight: 83
+        enabled: false
       smartbody:
         weight: 80
         enabled: false
@@ -127,11 +133,8 @@ settings:
       social_grid:
         weight: 82
         enabled: false
-      sidebar_gen_related:
-        enabled: true
-        weight: 82
-      sidebar_inquiries:
-        weight: 83
+      staff_selector:
+        weight: 88
         enabled: false
       stats:
         weight: 83
@@ -147,9 +150,6 @@ settings:
         enabled: false
       switcher_cta:
         weight: 87
-        enabled: false
-      staff_selector:
-        weight: 88
         enabled: false
       switcher_getting_started:
         weight: 88

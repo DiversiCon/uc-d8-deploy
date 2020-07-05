@@ -3,7 +3,8 @@ langcode: en
 status: true
 dependencies: {  }
 id: ranged_stat
-label: 'Single Ranged Stat Component'
+label: 'Single Ranged Stat'
 icon_uuid: null
+icon_default: null
 description: 'Provides a single ranged stat. Used as a part of the Ranged Stats component.'
 behavior_plugins: {  }

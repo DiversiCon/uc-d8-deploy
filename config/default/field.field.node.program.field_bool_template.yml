@@ -1,0 +1,23 @@
+uuid: 57b79f6f-5875-4336-abeb-ff64d566bdab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bool_template
+    - node.type.program
+id: node.program.field_bool_template
+field_name: field_bool_template
+entity_type: node
+bundle: program
+label: 'Template?'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

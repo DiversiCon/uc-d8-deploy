@@ -5,5 +5,6 @@ dependencies: {  }
 id: card_grid_item
 label: 'Card Grid Item'
 icon_uuid: null
+icon_default: null
 description: 'Unique card item used in Card Grid'
 behavior_plugins: {  }

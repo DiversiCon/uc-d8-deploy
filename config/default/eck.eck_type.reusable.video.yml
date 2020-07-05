@@ -4,6 +4,6 @@ status: true
 dependencies:
   config:
     - eck.eck_entity_type.reusable
-name: Video
 type: video
+name: Video
 description: 'YouTube videos'

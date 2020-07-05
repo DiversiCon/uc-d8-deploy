@@ -11,6 +11,7 @@ interface ShowcaseItemInterface {
    * Constructs a new ShowcaseController object.
    *
    * @param string $id
+   *   A showcase item ID.
    */
   public function __construct($id);
 
@@ -20,6 +21,7 @@ interface ShowcaseItemInterface {
    * The output here should be the same as the expected input YAML structure.
    *
    * @return array
+   *   Array of showcase item information.
    */
   public function getArray();
 
@@ -27,6 +29,7 @@ interface ShowcaseItemInterface {
    * Get body class attribute.
    *
    * @return string
+   *   A body class attribute.
    */
   public function getBodyClass();
 
@@ -34,6 +37,7 @@ interface ShowcaseItemInterface {
    * Get array of body class attribute values.
    *
    * @return array
+   *   Array of body class attributes.
    */
   public function getBodyClasses();
 
@@ -41,6 +45,7 @@ interface ShowcaseItemInterface {
    * Get item categories array.
    *
    * @return array
+   *   Array of showcase item categories.
    */
   public function getCategories();
 
@@ -48,6 +53,7 @@ interface ShowcaseItemInterface {
    * Get item category.
    *
    * @return string
+   *   A showcase item category.
    */
   public function getCategory();
 
@@ -55,6 +61,7 @@ interface ShowcaseItemInterface {
    * Get item description.
    *
    * @return string
+   *   A showcase item description.
    */
   public function getDescription();
 
@@ -62,6 +69,7 @@ interface ShowcaseItemInterface {
    * Get file attribute.
    *
    * @return string
+   *   A showcase item file attribute.
    */
   public function getFileAttribute();
 
@@ -69,6 +77,7 @@ interface ShowcaseItemInterface {
    * Get item links.
    *
    * @return array
+   *   Array of showcase item links.
    */
   public function getLinks();
 
@@ -76,6 +85,7 @@ interface ShowcaseItemInterface {
    * Get showcase path for item.
    *
    * @return string
+   *   A showcase item path.
    */
   public function getPath();
 
@@ -83,13 +93,23 @@ interface ShowcaseItemInterface {
    * Get related showcase id.
    *
    * @return string
+   *   A showcase item related showcase item ID.
    */
   public function getRelatedShowcaseId();
+
+  /**
+   * Get related showcase readme ID's.
+   *
+   * @return array
+   *   A list of related showcase readme items.
+   */
+  public function getRelatedReadmeShowcaseIds();
 
   /**
    * Get short title.
    *
    * @return string
+   *   A showcase item short title.
    */
   public function getShortTitle();
 
@@ -97,6 +117,7 @@ interface ShowcaseItemInterface {
    * Get showcase source plugin for item.
    *
    * @return string
+   *   A showcase item source plugin ID.
    */
   public function getSourcePlugin();
 
@@ -104,6 +125,7 @@ interface ShowcaseItemInterface {
    * Get showcase source file for item.
    *
    * @return string
+   *   A showcase item source file path.
    */
   public function getSourceFile();
 
@@ -111,6 +133,7 @@ interface ShowcaseItemInterface {
    * Get item template id.
    *
    * @return string
+   *   A showcase item template ID.
    */
   public function getTemplateId();
 
@@ -118,6 +141,7 @@ interface ShowcaseItemInterface {
    * Get item template suggestion.
    *
    * @return string
+   *   A showcase item template suggestion.
    */
   public function getTemplateSuggestion();
 
@@ -125,6 +149,7 @@ interface ShowcaseItemInterface {
    * Get legacy item template suggestion.
    *
    * @return string
+   *   A showcase item legacy template suggestion.
    */
   public function getTemplateSuggestionLegacy();
 
@@ -132,6 +157,7 @@ interface ShowcaseItemInterface {
    * Get item thumbnail.
    *
    * @return string
+   *   A showcase item thumbnail.
    */
   public function getThumbnail();
 
@@ -139,6 +165,7 @@ interface ShowcaseItemInterface {
    * Get item title.
    *
    * @return string
+   *   A showcase item title.
    */
   public function getTitle();
 
@@ -146,6 +173,7 @@ interface ShowcaseItemInterface {
    * Get item type.  (component, page, endpoint)
    *
    * @return string
+   *   A showcase item type.
    */
   public function getType();
 
@@ -153,8 +181,10 @@ interface ShowcaseItemInterface {
    * Get variant array by delta.
    *
    * @param int $delta
+   *   A showcase item variant delta.
    *
    * @return array
+   *   Array containing a showcase item variant.
    */
   public function getVariant($delta = 0);
 
@@ -162,8 +192,10 @@ interface ShowcaseItemInterface {
    * Get variant caption by delta.
    *
    * @param int $delta
+   *   A showcase item variant delta.
    *
    * @return string
+   *   A showcase item variant caption.
    */
   public function getVariantCaption($delta = 0);
 
@@ -171,8 +203,10 @@ interface ShowcaseItemInterface {
    * Get variant content array by delta.
    *
    * @param int $delta
+   *   A showcase item variant delta.
    *
    * @return array
+   *   Array containing a showcase item variant.
    */
   public function getVariantContent($delta = 0);
 
@@ -185,8 +219,10 @@ interface ShowcaseItemInterface {
    * Get variant title by delta.
    *
    * @param int $delta
+   *   A showcase item variant delta.
    *
    * @return string
+   *   A showcase item variant title.
    */
   public function getVariantTitle($delta = 0);
 
@@ -194,6 +230,7 @@ interface ShowcaseItemInterface {
    * Get item id (namespaced).
    *
    * @return string
+   *   A namespaced showcase item ID.
    */
   public function id();
 
@@ -201,6 +238,7 @@ interface ShowcaseItemInterface {
    * Get base item id.
    *
    * @return string
+   *   A showcase item base ID.
    */
   public function idBase();
 
@@ -210,6 +248,7 @@ interface ShowcaseItemInterface {
    * Optional for pages only.
    *
    * @return bool
+   *   Boolean indicating whether or not a showcase item is a full page item.
    */
   public function isFullPage();
 
@@ -219,6 +258,7 @@ interface ShowcaseItemInterface {
    * Optional for readme only.
    *
    * @return bool
+   *   Boolean indicating whether or not a showcase item is hidden in the index.
    */
   public function isHiddenOnIndex();
 
@@ -228,6 +268,7 @@ interface ShowcaseItemInterface {
    * Optional for components only.
    *
    * @return bool
+   *   Boolean indicating whether or not a showcase item is a sidebar element.
    */
   public function isSidebar();
 
@@ -235,6 +276,7 @@ interface ShowcaseItemInterface {
    * Is item enabled?
    *
    * @return bool
+   *   Boolean indicating whether or not a showcase item is enabled.
    */
   public function isEnabled();
 
@@ -244,15 +286,18 @@ interface ShowcaseItemInterface {
    * The input here should be the same as the expected input YAML structure.
    *
    * @param array $definition
+   *   An array with fully formed showcase item array.
    *
    * @return bool
+   *   Boolean indicating success/failure.
    */
-  public function setArray($definition = []);
+  public function setArray(array $definition = []);
 
   /**
    * Set body class.
    *
    * @param string $class
+   *   A showcase item body class.
    */
   public function setBodyClass($class);
 
@@ -260,6 +305,7 @@ interface ShowcaseItemInterface {
    * Set item category.
    *
    * @param string $category
+   *   A showcase item category.
    */
   public function setCategory($category);
 
@@ -267,6 +313,7 @@ interface ShowcaseItemInterface {
    * Set item description.
    *
    * @param string $description
+   *   A showcase item description.
    */
   public function setDescription($description);
 
@@ -274,6 +321,7 @@ interface ShowcaseItemInterface {
    * Set item enabled value.
    *
    * @param bool $value
+   *   Boolean indicating whether or not a showcase item is enabled.
    */
   public function setEnabled($value);
 
@@ -281,6 +329,7 @@ interface ShowcaseItemInterface {
    * Set full page item value.
    *
    * @param bool $value
+   *   Boolean indicating whether or not a showcase item is a full page item.
    */
   public function setFullPage($value);
 
@@ -288,6 +337,7 @@ interface ShowcaseItemInterface {
    * Set hidden on index value.
    *
    * @param bool $value
+   *   Boolean indicating whether or not to hide a showcase item in the index.
    */
   public function setHiddenOnIndex($value);
 
@@ -295,20 +345,23 @@ interface ShowcaseItemInterface {
    * Set single item link.
    *
    * @param array $link
+   *   A showcase item link array.
    */
-  public function setLink($link);
+  public function setLink(array $link);
 
   /**
    * Set item links.
    *
    * @param array $links
+   *   Array of showcase item links.
    */
-  public function setLinks($links);
+  public function setLinks(array $links);
 
   /**
    * Set showcase path for item.
    *
    * @param string $path
+   *   A showcase item path.
    */
   public function setPath($path);
 
@@ -316,6 +369,7 @@ interface ShowcaseItemInterface {
    * Set short title attribute.
    *
    * @param bool $value
+   *   A showcase item short title.
    */
   public function setShortTitle($value);
 
@@ -323,6 +377,7 @@ interface ShowcaseItemInterface {
    * Set sidebar item value.
    *
    * @param bool $value
+   *   Boolean indicating whether a showcase item is a sidebar element.
    */
   public function setSidebar($value);
 
@@ -330,6 +385,7 @@ interface ShowcaseItemInterface {
    * Set item source plugin value.
    *
    * @param string $plugin
+   *   A showcase item source plugin name.
    */
   public function setSourcePlugin($plugin);
 
@@ -337,6 +393,7 @@ interface ShowcaseItemInterface {
    * Set item source file value.
    *
    * @param string $file
+   *   A showcase item source file path.
    */
   public function setSourceFile($file);
 
@@ -344,6 +401,7 @@ interface ShowcaseItemInterface {
    * Set item thumbnail.
    *
    * @param string $thumbnail
+   *   A showcase item thumbnail.
    */
   public function setThumbnail($thumbnail);
 
@@ -351,6 +409,7 @@ interface ShowcaseItemInterface {
    * Set item title.
    *
    * @param string $title
+   *   A showcase item title.
    */
   public function setTitle($title);
 
@@ -358,8 +417,10 @@ interface ShowcaseItemInterface {
    * Set item type.
    *
    * @param string $type
+   *   A showcase item type.
    *
    * @return bool
+   *   Boolean indicating success/failure.
    */
   public function setType($type);
 
@@ -367,14 +428,16 @@ interface ShowcaseItemInterface {
    * Set all variants via array.
    *
    * @param array $variants
+   *   Array of showcase item variants.
    */
-  public function setVariants($variants = []);
+  public function setVariants(array $variants = []);
 
   /**
    * Validate item.
    *
-   * @param string $theme_path
+   * @param array $theme_paths
+   *   Array of theme paths.
    */
-  public function validate($theme_path);
+  public function validate(array $theme_paths);
 
 }

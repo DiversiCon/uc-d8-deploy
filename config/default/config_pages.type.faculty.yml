@@ -8,7 +8,9 @@ context:
   show_warning: true
   group:
     language: false
+  fallback:
+    language: ''
 menu:
-  path: /admin/config/faculty
+  path: /admin/config/content/faculty
   weight: -42
   description: Faculty

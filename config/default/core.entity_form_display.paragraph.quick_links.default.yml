@@ -10,9 +10,40 @@ dependencies:
     - paragraphs.paragraphs_type.quick_links
   module:
     - allowed_formats
+    - field_group
     - link_attributes
     - text
     - uc_cdr_client
+third_party_settings:
+  field_group:
+    group_links:
+      children:
+        - field_links_ultd
+      parent_name: ''
+      weight: 1
+      format_type: details
+      region: content
+      format_settings:
+        description: ''
+        open: true
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Quick Links'
+    group_footer:
+      children:
+        - field_single_link
+      parent_name: ''
+      weight: 2
+      format_type: details
+      region: content
+      format_settings:
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+        open: false
+      label: 'Quick Links Footer'
 id: paragraph.quick_links.default
 targetEntityType: paragraph
 bundle: quick_links
@@ -30,23 +61,24 @@ content:
     type: text_textfield
     region: content
   field_links_ultd:
-    weight: 1
+    weight: 2
     settings:
       placeholder_url: ''
       placeholder_title: ''
       enabled_attributes:
-        target: true
-        id: false
-        name: false
-        rel: false
-        class: false
-        accesskey: false
-        aria-label: false
+        target: target
+        id: 0
+        name: 0
+        rel: 0
+        class: 0
+        accesskey: 0
+        aria-label: 0
+        title: 0
     third_party_settings: {  }
     type: link_external_reference_with_attributes
     region: content
   field_single_link:
-    weight: 4
+    weight: 3
     settings:
       placeholder_url: ''
       placeholder_title: ''

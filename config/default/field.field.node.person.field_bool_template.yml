@@ -1,0 +1,23 @@
+uuid: 517483d2-3f8d-4e27-bec3-31413a24d78e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bool_template
+    - node.type.person
+id: node.person.field_bool_template
+field_name: field_bool_template
+entity_type: node
+bundle: person
+label: 'Template?'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

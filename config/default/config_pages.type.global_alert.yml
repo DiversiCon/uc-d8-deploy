@@ -8,7 +8,9 @@ context:
   show_warning: true
   group:
     language: false
+  fallback:
+    language: ''
 menu:
-  path: /admin/config/alert
+  path: /admin/config/navigation/alert
   weight: -45
   description: 'Masthead Alert'

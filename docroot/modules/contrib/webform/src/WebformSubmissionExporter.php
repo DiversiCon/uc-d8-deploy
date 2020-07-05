@@ -281,7 +281,7 @@ class WebformSubmissionExporter implements WebformSubmissionExporterInterface {
     // Append webform exporter default options.
     $exporter_plugins = $this->exporterManager->getInstances();
     foreach ($exporter_plugins as $element_type => $element_plugin) {
-      $this->defaultOptions += $element_plugin->defaultConfiguration();
+      $this->defaultOptions = $element_plugin->defaultConfiguration() + $this->defaultOptions;
     }
 
     // Append webform element default options.
@@ -661,7 +661,7 @@ class WebformSubmissionExporter implements WebformSubmissionExporterInterface {
           'completed' => $this->t('Completed submissions only'),
           'draft' => $this->t('Drafts only'),
         ],
-        '#access' => ($webform->getSetting('draft') != WebformInterface::DRAFT_NONE),
+        '#access' => ($webform->getSetting('draft') !== WebformInterface::DRAFT_NONE),
       ];
     }
 
@@ -902,7 +902,7 @@ class WebformSubmissionExporter implements WebformSubmissionExporterInterface {
     }
 
     // Filter by latest.
-    if ($export_options['range_type'] == 'latest' && $export_options['range_latest']) {
+    if ($export_options['range_type'] === 'latest' && $export_options['range_latest']) {
       // Clone the query and use it to get latest sid starting sid.
       $latest_query = clone $query;
       $latest_query->sort('created', 'DESC');
@@ -1054,18 +1054,6 @@ class WebformSubmissionExporter implements WebformSubmissionExporterInterface {
    */
   public function isBatch() {
     return ($this->isArchive() || ($this->getTotal() >= $this->getBatchLimit()));
-  }
-
-  /**
-   * Construct an instance of archive tar object.
-   *
-   * @return \Archive_Tar
-   *   Archive tar object.
-   *
-   * @deprecated Scheduled for removal in Webform 8.x-6.x
-   */
-  protected function getArchiveTar() {
-    return new \Archive_Tar($this->getArchiveFilePath(), 'gz');
   }
 
 }

@@ -18,6 +18,7 @@ use Drupal\webform\Utility\WebformOptionsHelper;
 use Drupal\webform\Plugin\WebformElementBase;
 use Drupal\webform\WebformInterface;
 use Drupal\webform\WebformSubmissionInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides a base for composite elements.
@@ -48,6 +49,38 @@ abstract class WebformCompositeBase extends WebformElementBase implements Webfor
    * @var array
    */
   protected $elementsManagedFiles = [];
+
+  /**
+   * The file system service.
+   *
+   * @var \Drupal\Core\File\FileSystemInterface
+   */
+  protected $fileSystem;
+
+  /**
+   * The renderer.
+   *
+   * @var \Drupal\Core\Render\RendererInterface
+   */
+  protected $renderer;
+
+  /**
+   * The webform submission generation service.
+   *
+   * @var \Drupal\webform\WebformSubmissionGenerateInterface
+   */
+  protected $generate;
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition);
+    $instance->fileSystem = $container->get('file_system');
+    $instance->renderer = $container->get('renderer');
+    $instance->generate = $container->get('webform_submission.generate');
+    return $instance;
+  }
 
   /****************************************************************************/
   // Property definitions.
@@ -513,7 +546,7 @@ abstract class WebformCompositeBase extends WebformElementBase implements Webfor
     $composite_elements = $this->getInitializedCompositeElement($element);
     foreach (RenderElement::children($composite_elements) as $composite_key) {
       $composite_element = $composite_elements[$composite_key];
-      $composite_title = (isset($composite_element['#title']) && $format != 'raw') ? $composite_element['#title'] : $composite_key;
+      $composite_title = (isset($composite_element['#title']) && $format !== 'raw') ? $composite_element['#title'] : $composite_key;
       $composite_value = $this->formatCompositeHtml($element, $webform_submission, ['composite_key' => $composite_key] + $options);
       if ($composite_value !== '') {
         $items[$composite_key] = [
@@ -549,11 +582,11 @@ abstract class WebformCompositeBase extends WebformElementBase implements Webfor
     foreach (RenderElement::children($composite_elements) as $composite_key) {
       $composite_element = $composite_elements[$composite_key];
 
-      $composite_title = (isset($composite_element['#title']) && $format != 'raw') ? $composite_element['#title'] : $composite_key;
+      $composite_title = (isset($composite_element['#title']) && $format !== 'raw') ? $composite_element['#title'] : $composite_key;
 
       $composite_value = $this->formatCompositeText($element, $webform_submission, ['composite_key' => $composite_key] + $options);
       if (is_array($composite_value)) {
-        $composite_value = \Drupal::service('renderer')->renderPlain($composite_value);
+        $composite_value = $this->renderer->renderPlain($composite_value);
       }
 
       if ($composite_value !== '') {
@@ -737,7 +770,7 @@ abstract class WebformCompositeBase extends WebformElementBase implements Webfor
         continue;
       }
 
-      if ($options['header_format'] == 'label' && !empty($composite_element['#title'])) {
+      if ($options['header_format'] === 'label' && !empty($composite_element['#title'])) {
         $header[] = $composite_element['#title'];
       }
       else {
@@ -755,7 +788,7 @@ abstract class WebformCompositeBase extends WebformElementBase implements Webfor
     $value = $this->getValue($element, $webform_submission);
 
     if ($this->hasMultipleValues($element)) {
-      $element['#format'] = ($export_options['header_format'] == 'label') ? 'list' : 'raw';
+      $element['#format'] = ($export_options['header_format'] === 'label') ? 'list' : 'raw';
       $export_options['multiple_delimiter'] = PHP_EOL . '---' . PHP_EOL;
       return parent::buildExportRecord($element, $webform_submission, $export_options);
     }
@@ -768,7 +801,7 @@ abstract class WebformCompositeBase extends WebformElementBase implements Webfor
         continue;
       }
 
-      if ($export_options['composite_element_item_format'] == 'label' && $composite_element['#type'] != 'textfield' && !empty($composite_element['#options'])) {
+      if ($export_options['composite_element_item_format'] === 'label' && $composite_element['#type'] !== 'textfield' && !empty($composite_element['#options'])) {
         $record[] = WebformOptionsHelper::getOptionText($value[$composite_key], $composite_element['#options']);
       }
       else {
@@ -790,9 +823,6 @@ abstract class WebformCompositeBase extends WebformElementBase implements Webfor
       $this->initialize($element);
     }
 
-    /** @var \Drupal\webform\WebformSubmissionGenerateInterface $generate */
-    $generate = \Drupal::service('webform_submission.generate');
-
     $composite_elements = $this->getInitializedCompositeElement($element);
     $composite_elements = WebformElementHelper::getFlattened($composite_elements);
 
@@ -805,7 +835,7 @@ abstract class WebformCompositeBase extends WebformElementBase implements Webfor
 
       $value = [];
       foreach (RenderElement::children($composite_elements) as $composite_key) {
-        $value[$composite_key] = $generate->getTestValue($webform, $composite_key, $composite_elements[$composite_key], $options);
+        $value[$composite_key] = $this->generate->getTestValue($webform, $composite_key, $composite_elements[$composite_key], $options);
       }
       $values[] = $value;
     }
@@ -1101,7 +1131,7 @@ abstract class WebformCompositeBase extends WebformElementBase implements Webfor
         ];
       }
 
-      if ($type == 'tel') {
+      if ($type === 'tel') {
         $row['settings']['data'][$composite_key . '__type'] = [
           '#type' => 'select',
           '#title' => $this->t('@title type', $t_args),
@@ -1511,7 +1541,7 @@ abstract class WebformCompositeBase extends WebformElementBase implements Webfor
         'filemime' => $file->getMimeType(),
         // File URIs that are not supported return FALSE, when this happens
         // still use the file's URI as the file's path.
-        'filepath' => \Drupal::service('file_system')->realpath($file->getFileUri()) ?: $file->getFileUri(),
+        'filepath' => $this->fileSystem->realpath($file->getFileUri()) ?: $file->getFileUri(),
         // URI is used when debugging or resending messages.
         // @see \Drupal\webform\Plugin\WebformHandler\EmailWebformHandler::buildAttachments
         '_fileurl' => file_create_url($file->getFileUri()),

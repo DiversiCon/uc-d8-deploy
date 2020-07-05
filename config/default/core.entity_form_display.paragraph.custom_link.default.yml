@@ -16,7 +16,7 @@ bundle: custom_link
 mode: default
 content:
   field_headline_link:
-    weight: 2
+    weight: 1
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -32,7 +32,7 @@ content:
     type: link_attributes
     region: content
   field_headline_text:
-    weight: 1
+    weight: 0
     settings:
       size: 60
       placeholder: ''

@@ -9,6 +9,7 @@ use Drupal\Core\Render\Element\FormElement;
 use Drupal\Core\Url;
 use Drupal\webform\Entity\WebformOptions as WebformOptionsEntity;
 use Drupal\webform\Utility\WebformElementHelper;
+use Drupal\webform\Utility\WebformFormHelper;
 use Drupal\webform\Utility\WebformOptionsHelper;
 
 /**
@@ -92,7 +93,7 @@ class WebformElementOptions extends FormElement {
       '#type' => 'select',
       '#description' => t('Please select <a href=":href">predefined @type</a> or enter custom @type.', $t_args),
       '#options' => [
-        self::CUSTOM_OPTION => t('Custom @type…', $t_args),
+        static::CUSTOM_OPTION => t('Custom @type…', $t_args),
       ] + $options,
 
       '#attributes' => [
@@ -130,7 +131,7 @@ class WebformElementOptions extends FormElement {
     if ($has_options) {
       $element['custom']['#states'] = [
         'visible' => [
-          'select.js-' . $element['#id'] . '-options' => ['value' => self::CUSTOM_OPTION],
+          'select.js-' . $element['#id'] . '-options' => ['value' => static::CUSTOM_OPTION],
         ],
       ];
     }
@@ -140,7 +141,7 @@ class WebformElementOptions extends FormElement {
     array_unshift($element['#element_validate'], [get_called_class(), 'validateWebformElementOptions']);
 
     if (!empty($element['#states'])) {
-      webform_process_states($element, '#wrapper_attributes');
+      WebformFormHelper::processStates($element, '#wrapper_attributes');
     }
 
     return $element;
@@ -154,7 +155,7 @@ class WebformElementOptions extends FormElement {
     $custom_value = NestedArray::getValue($form_state->getValues(), $element['custom']['#parents']);
 
     $value = $options_value;
-    if ($options_value == self::CUSTOM_OPTION) {
+    if ($options_value === static::CUSTOM_OPTION) {
       try {
         $value = (is_string($custom_value)) ? Yaml::decode($custom_value) : $custom_value;
       }

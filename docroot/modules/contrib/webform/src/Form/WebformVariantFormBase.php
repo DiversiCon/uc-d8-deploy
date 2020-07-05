@@ -54,7 +54,7 @@ abstract class WebformVariantFormBase extends FormBase {
   }
 
   /**
-   * Constructs a WebformVariantFormBase.
+   * Constructs a WebformVariantFormBase object.
    *
    * @param \Drupal\webform\WebformTokenManagerInterface $token_manager
    *   The webform token manager.
@@ -189,7 +189,7 @@ abstract class WebformVariantFormBase extends FormBase {
       '#return_value' => TRUE,
       '#default_value' => $this->webformVariant->isEnabled(),
       // Disable broken plugins.
-      '#disabled' => ($this->webformVariant->getPluginId() == 'broken'),
+      '#disabled' => ($this->webformVariant->getPluginId() === 'broken'),
     ];
 
     $form['#parents'] = [];

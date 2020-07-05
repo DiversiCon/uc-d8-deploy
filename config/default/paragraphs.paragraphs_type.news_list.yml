@@ -5,5 +5,6 @@ dependencies: {  }
 id: news_list
 label: 'News List'
 icon_uuid: null
+icon_default: null
 description: 'List of news items with optional filters.'
 behavior_plugins: {  }

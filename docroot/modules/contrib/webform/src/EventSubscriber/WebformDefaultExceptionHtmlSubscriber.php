@@ -68,7 +68,7 @@ class WebformDefaultExceptionHtmlSubscriber extends DefaultExceptionHtmlSubscrib
   protected $messenger;
 
   /**
-   * Constructs a new WebformExceptionHtmlSubscriber.
+   * Constructs a WebformDefaultExceptionHtmlSubscriber object.
    *
    * @param \Symfony\Component\HttpKernel\HttpKernelInterface $http_kernel
    *   The HTTP kernel.
@@ -115,7 +115,7 @@ class WebformDefaultExceptionHtmlSubscriber extends DefaultExceptionHtmlSubscrib
    *   The event to process.
    */
   public function on403(ExceptionEvent $event) {
-    if ($event->getRequestType() != HttpKernelInterface::MASTER_REQUEST) {
+    if ($event->getRequestType() !== HttpKernelInterface::MASTER_REQUEST) {
       return;
     }
 

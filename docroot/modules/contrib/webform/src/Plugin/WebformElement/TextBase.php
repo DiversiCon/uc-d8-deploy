@@ -54,7 +54,7 @@ abstract class TextBase extends WebformElementBase {
       && $this->librariesManager->isIncluded('jquery.textcounter')) {
 
       // Apply character min/max to min/max length.
-      if ($element['#counter_type'] == 'character') {
+      if ($element['#counter_type'] === 'character') {
         if (!empty($element['#counter_minimum'])) {
           $element['#minlength'] = $element['#counter_minimum'];
         }
@@ -217,7 +217,7 @@ abstract class TextBase extends WebformElementBase {
     // Display error.
     // @see \Drupal\Core\Form\FormValidator::performRequiredValidation
     $t_args = [
-      '@type' => ($type == 'character') ? t('characters') : t('words'),
+      '@type' => ($type === 'character') ? t('characters') : t('words'),
       '@name' => $element['#title'],
       '%max' => $max,
       '%min' => $min,
@@ -417,13 +417,13 @@ abstract class TextBase extends WebformElementBase {
     ];
 
     // Get input masks.
-    $modules = \Drupal::moduleHandler()->getImplementations('webform_element_input_masks');
+    $modules = $this->moduleHandler->getImplementations('webform_element_input_masks');
     foreach ($modules as $module) {
-      $input_masks += \Drupal::moduleHandler()->invoke($module, 'webform_element_input_masks');
+      $input_masks += $this->moduleHandler->invoke($module, 'webform_element_input_masks');
     }
 
     // Alter input masks.
-    \Drupal::moduleHandler()->alter('webform_element_input_masks', $input_masks);
+    $this->moduleHandler->alter('webform_element_input_masks', $input_masks);
 
     return $input_masks;
   }

@@ -5,5 +5,6 @@ dependencies: {  }
 id: link_list
 label: 'Link List'
 icon_uuid: null
+icon_default: null
 description: 'Provides a list of links.'
 behavior_plugins: {  }

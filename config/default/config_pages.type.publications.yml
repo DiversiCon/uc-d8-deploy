@@ -11,6 +11,6 @@ context:
   fallback:
     language: ''
 menu:
-  path: /admin/config/publications
+  path: /admin/config/content/publications
   weight: -41
   description: Publications

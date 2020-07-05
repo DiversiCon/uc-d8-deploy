@@ -4,6 +4,6 @@ status: true
 dependencies:
   config:
     - eck.eck_entity_type.reusable
-name: 'Accordion Sidebar'
 type: accordion_sidebar
+name: 'Accordion Sidebar'
 description: 'Display an accordion in the sidebar.'

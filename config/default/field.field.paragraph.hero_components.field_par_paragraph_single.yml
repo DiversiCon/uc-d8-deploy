@@ -69,6 +69,18 @@ settings:
       components_lower:
         weight: 89
         enabled: false
+      contact_group:
+        weight: 95
+        enabled: false
+      contact_group_list:
+        weight: 96
+        enabled: false
+      contact_person_reference:
+        weight: 97
+        enabled: false
+      contact_single_person:
+        weight: 98
+        enabled: false
       cta_block:
         weight: 90
         enabled: false
@@ -84,26 +96,14 @@ settings:
       date:
         weight: 94
         enabled: false
-      contact_group:
-        weight: 95
-        enabled: false
       feature:
         weight: 95
         enabled: false
       feature_4_square_images:
         weight: 96
         enabled: false
-      contact_group_list:
-        weight: 96
-        enabled: false
-      contact_person_reference:
-        weight: 97
-        enabled: false
       feature_4sq_img_link:
         weight: 97
-        enabled: false
-      contact_single_person:
-        weight: 98
         enabled: false
       feature_components:
         weight: 98

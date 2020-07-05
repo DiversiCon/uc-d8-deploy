@@ -5,5 +5,6 @@ dependencies: {  }
 id: feature_components
 label: 'Feature components'
 icon_uuid: null
+icon_default: null
 description: 'Components available to the feature (intro) section of landing pages and feature component for lower-page and home-page inclusions.'
 behavior_plugins: {  }

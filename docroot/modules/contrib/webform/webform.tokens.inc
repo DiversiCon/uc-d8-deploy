@@ -72,12 +72,12 @@ function webform_token_info() {
     'description' => t('The URL the user submitted the webform submission.'),
     'type' => 'url',
   ];
-  $webform_submission['view-url'] = [
+  $webform_submission['token-view-url'] = [
     'name' => t('View (token) URL'),
     'description' => t('The URL that can used to view the webform submission. The webform must be configured to allow users to view a submission using a secure token.'),
     'type' => 'url',
   ];
-  $webform_submission['update-url'] = [
+  $webform_submission['token-update-url'] = [
     'name' => t('Update (token) URL'),
     'description' => t('The URL that can used to update the webform submission. The webform must be configured to allow users to update a submission using a secure token.'),
     'type' => 'url',
@@ -424,12 +424,12 @@ function webform_tokens($type, $tokens, array $data, array $options, BubbleableM
   }
 
   $replacements = [];
-  if ($type == 'webform_role' && !empty($data['webform_role'])) {
+  if ($type === 'webform_role' && !empty($data['webform_role'])) {
     $roles = $data['webform_role'];
     $any_role = in_array('authenticated', $roles) ? TRUE : FALSE;
     foreach ($tokens as $role_name => $original) {
       if ($any_role || in_array($role_name, $roles)) {
-        if ($role_name == 'authenticated') {
+        if ($role_name === 'authenticated') {
           // Get all active authenticated users.
           $query = \Drupal::database()->select('users_field_data', 'u');
           $query->fields('u', ['mail']);
@@ -455,7 +455,7 @@ function webform_tokens($type, $tokens, array $data, array $options, BubbleableM
     }
 
   }
-  elseif ($type == 'webform_submission' && !empty($data['webform_submission'])) {
+  elseif ($type === 'webform_submission' && !empty($data['webform_submission'])) {
     /** @var \Drupal\webform\Plugin\WebformElementManagerInterface $element_manager */
     $element_manager = \Drupal::service('plugin.manager.webform.element');
 
@@ -537,11 +537,11 @@ function webform_tokens($type, $tokens, array $data, array $options, BubbleableM
           $replacements[$original] = $webform_submission->getSourceUrl()->toString();
           break;
 
-        case 'view-url':
+        case 'token-view-url':
           $replacements[$original] = $webform_submission->getTokenUrl('view')->toString();
           break;
 
-        case 'update-url':
+        case 'token-update-url':
           $replacements[$original] = $webform_submission->getTokenUrl('update')->toString();
           break;
 
@@ -735,15 +735,15 @@ function webform_tokens($type, $tokens, array $data, array $options, BubbleableM
     if (($submitted_to_tokens = $token_service->findWithPrefix($tokens, 'submitted-to')) && ($submitted_to = $webform_submission->getSourceEntity(TRUE) ?: $webform_submission->getWebform())) {
       $replacements += $token_service->generate($submitted_to->getEntityTypeId(), $submitted_to_tokens, [$submitted_to->getEntityTypeId() => $submitted_to], $options, $bubbleable_metadata);
     }
-    foreach (['view-url', 'update-url', 'source-url'] as $token) {
+    foreach (['token-view-url', 'token-update-url', 'source-url'] as $token) {
       if ($url_tokens = $token_service->findWithPrefix($tokens, $token)) {
         $url = NULL;
         switch ($token) {
-          case 'view-url':
+          case 'token-view-url':
             $url = $webform_submission->getTokenUrl('view');
             break;
 
-          case 'update-url':
+          case 'token-update-url':
             $url = $webform_submission->getTokenUrl('update');
             break;
 
@@ -758,7 +758,7 @@ function webform_tokens($type, $tokens, array $data, array $options, BubbleableM
     }
 
   }
-  elseif ($type == 'webform' && !empty($data['webform'])) {
+  elseif ($type === 'webform' && !empty($data['webform'])) {
 
     /** @var \Drupal\webform\WebformInterface $webform */
     $webform = $data['webform'];
@@ -894,7 +894,7 @@ function _webform_token_get_submission_value($value_token, array $options, Webfo
   $element_key = array_shift($keys);
 
   // Build HTML values.
-  if ($element_key == 'html' && empty($keys)) {
+  if ($element_key === 'html' && empty($keys)) {
     $options['html'] = TRUE;
     return _webform_token_get_submission_values($options, $webform_submission);
   }
@@ -966,7 +966,7 @@ function _webform_token_get_submission_value($value_token, array $options, Webfo
   /****************************************************************************/
 
   // Set entity reference chaining.
-  if ($keys && $keys[0] == 'entity' && $element_plugin instanceof WebformElementEntityReferenceInterface) {
+  if ($keys && $keys[0] === 'entity' && $element_plugin instanceof WebformElementEntityReferenceInterface) {
     // Remove entity from keys.
     array_shift($keys);
 

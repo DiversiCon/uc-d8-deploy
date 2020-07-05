@@ -4,6 +4,6 @@ status: true
 dependencies:
   config:
     - eck.eck_entity_type.reusable
-name: Contacts
 type: contacts
+name: Contacts
 description: 'Re-usable contacts, used in story bylines for example'

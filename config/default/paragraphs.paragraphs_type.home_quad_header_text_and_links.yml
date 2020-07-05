@@ -5,5 +5,6 @@ dependencies: {  }
 id: home_quad_header_text_and_links
 label: 'Homepage Quadrant: Heading, Text and Links'
 icon_uuid: null
+icon_default: null
 description: 'Display a heading, text and links for a homepage quadrant.'
 behavior_plugins: {  }

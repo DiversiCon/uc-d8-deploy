@@ -79,11 +79,11 @@ settings:
       custom_link:
         weight: 74
         enabled: false
-      feature:
-        weight: 75
-        enabled: false
       date:
         weight: 76
+        enabled: false
+      feature:
+        weight: 75
         enabled: false
       feature_4_square_images:
         weight: 76

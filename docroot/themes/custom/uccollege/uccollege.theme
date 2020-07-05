@@ -216,56 +216,71 @@ function uccollege_preprocess_paragraph(&$vars) {
           $ref_par_obj = Paragraph::load($p_id);
           if ($ref_par_obj) {
             // Get the paragraph loaded.
-            $ref_p_id = $ref_par_obj->get('field_par_paragraph_single')->getValue()[0]['target_id'];
-            if ($ref_p_id) {
-              // Load referenced paragraph.
-              $ref_p_obj = Paragraph::load($ref_p_id);
-              $ref_p_type = $ref_p_obj->bundle();
-              if ($ref_p_type == 'tile') {
-                $ref_p_link_uri = $ref_p_obj->get('field_headline_link')->getValue()[0]['uri'];
-                $ref_p_link = URL::fromUri($ref_p_link_uri)->toString();
-                $ref_p_link_target = '';
-                if (isset($ref_p_obj->get('field_headline_link')->getValue()[0]['options']['attributes']['target'])) {
-                  $ref_p_link_target = $ref_p_obj->get('field_headline_link')->getValue()[0]['options']['attributes']['target'];
-                }
-                $ref_p_headline = $ref_p_obj->get('field_headline_text')->getValue()[0]['value'];
-                if (isset($ref_p_obj->get('field_image_main')->getValue()[0]['target_id'])) {
-                  $ref_p_media_id = $ref_p_obj->get('field_image_main')->getValue()[0]['target_id'];
-                }
-                $ref_p_img = NULL;
-                if (isset($ref_p_media_id) && $ref_p_media_id) {
-                  $media_obj = Media::load($ref_p_media_id);
-                  $img_id = $media_obj->get('field_media_image')->getValue()[0]['target_id'];
-                  $img_uri = File::load($img_id)->getFileUri();
-                  $ref_p_img = ImageStyle::load('medium')->buildUrl($img_uri);
-                }
-                $vars['home_teaser_1'] = [
-                  'link' => $ref_p_link,
-                  'link_tgt' => $ref_p_link_target,
-                  'text' => $ref_p_headline,
-                  'img' => $ref_p_img,
-                ];
-              }
-              elseif ($ref_p_type == 'tile_reference') {
-                $ref_p_node = $ref_p_obj->get('field_content_reference');
-                if ($ref_p_node->getValue()) {
-                  $ref_p_nid = $ref_p_node->getValue()[0]['target_id'];
-                  $ref_p_nobj = Node::load($ref_p_nid);
-                  $ref_p_path = Url::fromRoute('entity.node.canonical', ['node' => $ref_p_nid])->toString();
-                  $ref_p_title = $ref_p_nobj->get('field_headline_text')->getValue()[0]['value'];
-                  $ref_p_media_id = $ref_p_nobj->get('field_image_main')->getValue()[0]['target_id'];
-                  if ($ref_p_media_id) {
+            if ($ref_par_obj->get('field_par_paragraph_single')->getValue() &&
+                isset($ref_par_obj->get('field_par_paragraph_single')->getValue()[0]['target_id'])) {
+              $ref_p_id = $ref_par_obj->get('field_par_paragraph_single')->getValue()[0]['target_id'];
+              if ($ref_p_id) {
+                // Load referenced paragraph.
+                $ref_p_obj = Paragraph::load($ref_p_id);
+                $ref_p_type = $ref_p_obj->bundle();
+                if ($ref_p_type == 'tile') {
+                  $ref_p_link_uri = $ref_p_obj->get('field_headline_link')
+                    ->getValue()[0]['uri'];
+                  $ref_p_link = URL::fromUri($ref_p_link_uri)->toString();
+                  $ref_p_link_target = '';
+                  if (isset($ref_p_obj->get('field_headline_link')
+                      ->getValue()[0]['options']['attributes']['target'])) {
+                    $ref_p_link_target = $ref_p_obj->get('field_headline_link')
+                      ->getValue()[0]['options']['attributes']['target'];
+                  }
+                  $ref_p_headline = $ref_p_obj->get('field_headline_text')
+                    ->getValue()[0]['value'];
+                  if (isset($ref_p_obj->get('field_image_main')
+                      ->getValue()[0]['target_id'])) {
+                    $ref_p_media_id = $ref_p_obj->get('field_image_main')
+                      ->getValue()[0]['target_id'];
+                  }
+                  $ref_p_img = NULL;
+                  if (isset($ref_p_media_id) && $ref_p_media_id) {
                     $media_obj = Media::load($ref_p_media_id);
-                    $img_id = $media_obj->get('field_media_image')->getValue()[0]['target_id'];
+                    $img_id = $media_obj->get('field_media_image')
+                      ->getValue()[0]['target_id'];
                     $img_uri = File::load($img_id)->getFileUri();
                     $ref_p_img = ImageStyle::load('medium')->buildUrl($img_uri);
                   }
                   $vars['home_teaser_1'] = [
-                    'link' => $ref_p_path,
-                    'link_tgt' => '_self',
-                    'text' => $ref_p_title,
+                    'link' => $ref_p_link,
+                    'link_tgt' => $ref_p_link_target,
+                    'text' => $ref_p_headline,
                     'img' => $ref_p_img,
                   ];
+                }
+                elseif ($ref_p_type == 'tile_reference') {
+                  $ref_p_node = $ref_p_obj->get('field_content_reference');
+                  if ($ref_p_node->getValue()) {
+                    $ref_p_nid = $ref_p_node->getValue()[0]['target_id'];
+                    $ref_p_nobj = Node::load($ref_p_nid);
+                    $ref_p_path = Url::fromRoute('entity.node.canonical', ['node' => $ref_p_nid])
+                      ->toString();
+                    $ref_p_title = $ref_p_nobj->get('field_headline_text')
+                      ->getValue()[0]['value'];
+                    $ref_p_media_id = $ref_p_nobj->get('field_image_main')
+                      ->getValue()[0]['target_id'];
+                    if ($ref_p_media_id) {
+                      $media_obj = Media::load($ref_p_media_id);
+                      $img_id = $media_obj->get('field_media_image')
+                        ->getValue()[0]['target_id'];
+                      $img_uri = File::load($img_id)->getFileUri();
+                      $ref_p_img = ImageStyle::load('medium')
+                        ->buildUrl($img_uri);
+                    }
+                    $vars['home_teaser_1'] = [
+                      'link' => $ref_p_path,
+                      'link_tgt' => '_self',
+                      'text' => $ref_p_title,
+                      'img' => $ref_p_img,
+                    ];
+                  }
                 }
               }
             }
@@ -282,45 +297,32 @@ function uccollege_preprocess_paragraph(&$vars) {
           $ref_par_obj = Paragraph::load($p_id);
           if ($ref_par_obj) {
             // Get the paragraph loaded.
-            $ref_p_id = $ref_par_obj->get('field_par_paragraph_single')->getValue()[0]['target_id'];
-            if ($ref_p_id) {
-              // Load referenced paragraph.
-              $ref_p_obj = Paragraph::load($ref_p_id);
-              $ref_p_type = $ref_p_obj->bundle();
-              if ($ref_p_type == 'tile') {
-                $ref_p_link_uri = $ref_p_obj->get('field_headline_link')->getValue()[0]['uri'];
-                $ref_p_link = URL::fromUri($ref_p_link_uri)->toString();
-                $ref_p_link_target = '';
-                if (isset($ref_p_obj->get('field_headline_link')->getValue()[0]['options']['attributes']['target'])) {
-                  $ref_p_link_target = $ref_p_obj->get('field_headline_link')->getValue()[0]['options']['attributes']['target'];
-                }
-                $ref_p_headline = $ref_p_obj->get('field_headline_text')->getValue()[0]['value'];
-                if (isset($ref_p_obj->get('field_image_main')->getValue()[0]['target_id'])) {
-                  $ref_p_media_id = $ref_p_obj->get('field_image_main')->getValue()[0]['target_id'];
-                }
-                $ref_p_img = NULL;
-                if (isset($ref_p_media_id) && $ref_p_media_id) {
-                  $media_obj = Media::load($ref_p_media_id);
-                  $img_id = $media_obj->get('field_media_image')->getValue()[0]['target_id'];
-                  $img_uri = File::load($img_id)->getFileUri();
-                  $ref_p_img = ImageStyle::load('medium')->buildUrl($img_uri);
-                }
-                $vars['home_teaser_2'] = [
-                  'link' => $ref_p_link,
-                  'link_tgt' => $ref_p_link_target,
-                  'text' => $ref_p_headline,
-                  'img' => $ref_p_img,
-                ];
-              }
-              elseif ($ref_p_type == 'tile_reference') {
-                $ref_p_node = $ref_p_obj->get('field_content_reference');
-                if ($ref_p_node->getValue()) {
-                  $ref_p_nid = $ref_p_node->getValue()[0]['target_id'];
-                  $ref_p_nobj = Node::load($ref_p_nid);
-                  $ref_p_path = Url::fromRoute('entity.node.canonical', ['node' => $ref_p_nid])->toString();
-                  $ref_p_title = $ref_p_nobj->get('field_headline_text')->getValue()[0]['value'];
-                  $ref_p_media_id = $ref_p_nobj->get('field_image_main')->getValue()[0]['target_id'];
-                  if ($ref_p_media_id) {
+            if ($ref_par_obj->get('field_par_paragraph_single')->getValue() &&
+              isset($ref_par_obj->get('field_par_paragraph_single')->getValue()[0]['target_id'])) {
+              $ref_p_id = $ref_par_obj->get('field_par_paragraph_single')->getValue()[0]['target_id'];
+              if ($ref_p_id) {
+                // Load referenced paragraph.
+                $ref_p_obj = Paragraph::load($ref_p_id);
+                $ref_p_type = $ref_p_obj->bundle();
+                if ($ref_p_type == 'tile') {
+                  $ref_p_link_uri = $ref_p_obj->get('field_headline_link')
+                    ->getValue()[0]['uri'];
+                  $ref_p_link = URL::fromUri($ref_p_link_uri)->toString();
+                  $ref_p_link_target = '';
+                  if (isset($ref_p_obj->get('field_headline_link')
+                      ->getValue()[0]['options']['attributes']['target'])) {
+                    $ref_p_link_target = $ref_p_obj->get('field_headline_link')
+                      ->getValue()[0]['options']['attributes']['target'];
+                  }
+                  $ref_p_headline = $ref_p_obj->get('field_headline_text')
+                    ->getValue()[0]['value'];
+                  if (isset($ref_p_obj->get('field_image_main')
+                      ->getValue()[0]['target_id'])) {
+                    $ref_p_media_id = $ref_p_obj->get('field_image_main')
+                      ->getValue()[0]['target_id'];
+                  }
+                  $ref_p_img = NULL;
+                  if (isset($ref_p_media_id) && $ref_p_media_id) {
                     $media_obj = Media::load($ref_p_media_id);
                     $img_id = $media_obj->get('field_media_image')
                       ->getValue()[0]['target_id'];
@@ -328,11 +330,38 @@ function uccollege_preprocess_paragraph(&$vars) {
                     $ref_p_img = ImageStyle::load('medium')->buildUrl($img_uri);
                   }
                   $vars['home_teaser_2'] = [
-                    'link' => $ref_p_path,
-                    'link_tgt' => '_self',
-                    'text' => $ref_p_title,
+                    'link' => $ref_p_link,
+                    'link_tgt' => $ref_p_link_target,
+                    'text' => $ref_p_headline,
                     'img' => $ref_p_img,
                   ];
+                }
+                elseif ($ref_p_type == 'tile_reference') {
+                  $ref_p_node = $ref_p_obj->get('field_content_reference');
+                  if ($ref_p_node->getValue()) {
+                    $ref_p_nid = $ref_p_node->getValue()[0]['target_id'];
+                    $ref_p_nobj = Node::load($ref_p_nid);
+                    $ref_p_path = Url::fromRoute('entity.node.canonical', ['node' => $ref_p_nid])
+                      ->toString();
+                    $ref_p_title = $ref_p_nobj->get('field_headline_text')
+                      ->getValue()[0]['value'];
+                    $ref_p_media_id = $ref_p_nobj->get('field_image_main')
+                      ->getValue()[0]['target_id'];
+                    if ($ref_p_media_id) {
+                      $media_obj = Media::load($ref_p_media_id);
+                      $img_id = $media_obj->get('field_media_image')
+                        ->getValue()[0]['target_id'];
+                      $img_uri = File::load($img_id)->getFileUri();
+                      $ref_p_img = ImageStyle::load('medium')
+                        ->buildUrl($img_uri);
+                    }
+                    $vars['home_teaser_2'] = [
+                      'link' => $ref_p_path,
+                      'link_tgt' => '_self',
+                      'text' => $ref_p_title,
+                      'img' => $ref_p_img,
+                    ];
+                  }
                 }
               }
             }

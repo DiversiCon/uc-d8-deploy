@@ -5,5 +5,6 @@ dependencies: {  }
 id: photo_inset
 label: 'Photo Inset'
 icon_uuid: null
+icon_default: null
 description: 'Inset photo used in smartbody'
 behavior_plugins: {  }

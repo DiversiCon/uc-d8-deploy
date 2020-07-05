@@ -36,11 +36,23 @@ settings:
       accordion_item:
         weight: 90
         enabled: false
+      accordion_sidebar:
+        weight: 101
+        enabled: false
+      accordion_sidebar_group:
+        weight: 102
+        enabled: false
+      accordion_sidebar_item:
+        weight: 103
+        enabled: false
       avatar:
         enabled: true
         weight: 91
       callout:
         weight: 92
+        enabled: false
+      callout_grouped_content:
+        weight: 106
         enabled: false
       callout_insert:
         weight: 93
@@ -66,20 +78,11 @@ settings:
       card_grid_reference:
         weight: 100
         enabled: false
-      accordion_sidebar:
-        weight: 101
-        enabled: false
       components:
         weight: 101
         enabled: false
-      accordion_sidebar_group:
-        weight: 102
-        enabled: false
       components_lower:
         weight: 102
-        enabled: false
-      accordion_sidebar_item:
-        weight: 103
         enabled: false
       contact_group:
         weight: 103
@@ -93,8 +96,8 @@ settings:
       contact_single_person:
         weight: 106
         enabled: false
-      callout_grouped_content:
-        weight: 106
+      course_listing:
+        weight: 121
         enabled: false
       cta_block:
         weight: 107
@@ -110,6 +113,18 @@ settings:
         enabled: false
       date:
         weight: 111
+        enabled: false
+      events_callout_featured:
+        weight: 127
+        enabled: false
+      events_featured_grid:
+        weight: 128
+        enabled: false
+      events_list:
+        weight: 129
+        enabled: false
+      events_list_featured:
+        weight: 130
         enabled: false
       fact_block:
         weight: 112
@@ -138,9 +153,6 @@ settings:
       feature_reference:
         weight: 120
         enabled: false
-      course_listing:
-        weight: 121
-        enabled: false
       featured_ref_four:
         weight: 121
         enabled: false
@@ -162,23 +174,14 @@ settings:
       html_text:
         weight: 127
         enabled: false
-      events_callout_featured:
-        weight: 127
-        enabled: false
-      events_featured_grid:
-        weight: 128
-        enabled: false
+      html_text_two_column:
+        enabled: true
+        weight: 147
       infographic:
         weight: 128
         enabled: false
-      events_list:
-        weight: 129
-        enabled: false
       link_list:
         weight: 129
-        enabled: false
-      events_list_featured:
-        weight: 130
         enabled: false
       logo:
         weight: 130
@@ -231,9 +234,6 @@ settings:
       quick_links:
         weight: 146
         enabled: false
-      html_text_two_column:
-        enabled: true
-        weight: 147
       quick_links_two_column:
         weight: 147
         enabled: false

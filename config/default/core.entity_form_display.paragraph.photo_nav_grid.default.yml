@@ -12,6 +12,7 @@ dependencies:
   module:
     - allowed_formats
     - paragraphs
+    - paragraphs_features
     - text
 id: paragraph.photo_nav_grid.default
 targetEntityType: paragraph
@@ -19,55 +20,103 @@ bundle: photo_nav_grid
 mode: default
 content:
   field_feature_4sq_img_1:
-    weight: 102
+    weight: 2
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: photo_nav_grid_item
-    third_party_settings: {  }
-    type: entity_reference_paragraphs
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
+    type: paragraphs
     region: content
   field_feature_4sq_img_2:
-    weight: 103
+    weight: 3
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
-    type: entity_reference_paragraphs
+      default_paragraph_type: photo_nav_grid_item
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
+    type: paragraphs
     region: content
   field_feature_4sq_img_3:
-    weight: 104
+    weight: 4
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
-    type: entity_reference_paragraphs
+      default_paragraph_type: photo_nav_grid_item
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
+    type: paragraphs
     region: content
   field_feature_4sq_img_4:
-    weight: 105
+    weight: 5
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
-    type: entity_reference_paragraphs
+      default_paragraph_type: photo_nav_grid_item
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
+    type: paragraphs
     region: content
   field_headline_text:
-    weight: 101
+    weight: 0
     settings:
       size: 60
       placeholder: ''

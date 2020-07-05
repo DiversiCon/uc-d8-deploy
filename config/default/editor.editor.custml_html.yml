@@ -26,7 +26,7 @@ settings:
         -
           name: Links
           items:
-            - Linkit
+            - DrupalLink
             - DrupalUnlink
         -
           name: Lists
@@ -44,7 +44,8 @@ settings:
       styles: ''
     language:
       language_list: un
-    linkit:
+    drupallink:
+      linkit_enabled: true
       linkit_profile: default
 image_upload:
   status: false

@@ -1,9 +1,8 @@
 name: 'UChicago API'
 type: module
 description: 'University of Chicago API Functionality'
-core: 8.x
+core_version_requirement: ^8 || ^9
 package: 'UChicago'
 
 dependencies:
 - drupal:rest
-- drupal:search_api

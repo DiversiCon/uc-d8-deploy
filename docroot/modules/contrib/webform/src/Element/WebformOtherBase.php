@@ -7,6 +7,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Form\OptGroup;
 use Drupal\Core\Render\Element\FormElement;
 use Drupal\webform\Utility\WebformElementHelper;
+use Drupal\webform\Utility\WebformFormHelper;
 use Drupal\webform\Utility\WebformOptionsHelper;
 
 /**
@@ -150,7 +151,7 @@ abstract class WebformOtherBase extends FormElement {
     $element['other']['#wrapper_attributes']['class'][] = "js-webform-$type-other-input";
     $element['other']['#wrapper_attributes']['class'][] = "webform-$type-other-input";
 
-    if ($element['other']['#type'] == 'datetime') {
+    if ($element['other']['#type'] === 'datetime') {
       $element['other']['#prefix'] = '<div class="' . implode(' ', $element['other']['#wrapper_attributes']['class']) . '">';
       $element['other']['#suffix'] = '</div>';
       unset($element['other']['#wrapper_attributes']['class']);
@@ -198,7 +199,7 @@ abstract class WebformOtherBase extends FormElement {
     $element['#attached']['library'][] = 'webform/webform.element.other';
 
     // Process states.
-    webform_process_states($element, '#wrapper_attributes');
+    WebformFormHelper::processStates($element, '#wrapper_attributes');
 
     return $element;
   }
@@ -315,7 +316,7 @@ abstract class WebformOtherBase extends FormElement {
    *   TRUE if the webform element contains multiple values.
    */
   protected static function isMultiple(array $element) {
-    return (!empty($element['#multiple']) || static::$type == 'checkboxes') ? TRUE : FALSE;
+    return (!empty($element['#multiple']) || static::$type === 'checkboxes') ? TRUE : FALSE;
   }
 
   /**

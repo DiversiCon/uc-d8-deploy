@@ -4,6 +4,6 @@ status: true
 dependencies:
   config:
     - eck.eck_entity_type.reusable
-name: Feature
 type: feature
+name: Feature
 description: 'Re-usable "feature" content, used on the homepage for example'

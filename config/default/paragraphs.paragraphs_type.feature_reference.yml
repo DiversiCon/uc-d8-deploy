@@ -5,5 +5,6 @@ dependencies: {  }
 id: feature_reference
 label: 'Feature, Reference'
 icon_uuid: null
+icon_default: null
 description: 'Reference an existing feature from the ECK library'
 behavior_plugins: {  }

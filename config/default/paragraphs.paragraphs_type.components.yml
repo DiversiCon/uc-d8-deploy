@@ -5,5 +5,6 @@ dependencies: {  }
 id: components
 label: 'Components, Main Section'
 icon_uuid: null
+icon_default: null
 description: 'Wrapper paragraph to contain a common set of components to be used across content types.'
 behavior_plugins: {  }

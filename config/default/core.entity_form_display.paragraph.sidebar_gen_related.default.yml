@@ -8,15 +8,33 @@ dependencies:
     - paragraphs.paragraphs_type.sidebar_gen_related
   module:
     - allowed_formats
+    - field_group
     - paragraphs
+    - paragraphs_features
     - text
+third_party_settings:
+  field_group:
+    group_related_links:
+      children:
+        - field_par_paragraphs
+      parent_name: ''
+      weight: 1
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: true
+        required_fields: true
+      label: 'Related Links'
 id: paragraph.sidebar_gen_related.default
 targetEntityType: paragraph
 bundle: sidebar_gen_related
 mode: default
 content:
   field_headline_text:
-    weight: 101
+    weight: 0
     settings:
       size: 60
       placeholder: ''
@@ -27,16 +45,28 @@ content:
     type: text_textfield
     region: content
   field_par_paragraphs:
-    weight: 102
+    weight: 2
     settings:
       title: Paragraph
       title_plural: Paragraphs
       edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: custom_link
-    third_party_settings: {  }
-    type: entity_reference_paragraphs
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
+    type: paragraphs
     region: content
 hidden:
   created: true

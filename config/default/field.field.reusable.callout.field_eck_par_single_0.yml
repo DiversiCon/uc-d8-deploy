@@ -46,11 +46,11 @@ settings:
       feature:
         weight: 25
         enabled: false
-      feature_4sq_img_link:
-        weight: 26
-        enabled: false
       feature_4_square_images:
         weight: 27
+        enabled: false
+      feature_4sq_img_link:
+        weight: 26
         enabled: false
       feature_components:
         weight: 28

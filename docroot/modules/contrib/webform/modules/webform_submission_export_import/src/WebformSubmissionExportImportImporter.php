@@ -23,7 +23,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Yaml\Dumper;
 
 /**
- * Webform submission export import manager.
+ * Webform submission export importer.
  */
 class WebformSubmissionExportImportImporter implements WebformSubmissionExportImportImporterInterface {
 
@@ -416,7 +416,7 @@ class WebformSubmissionExportImportImporter implements WebformSubmissionExportIm
       // Get CSV values.
       $values = fgetcsv($handle);
       // Complete ignored empty rows.
-      if (empty($values) || $values == ['']) {
+      if (empty($values) || $values === ['']) {
         continue;
       }
       $index++;
@@ -766,7 +766,7 @@ class WebformSubmissionExportImportImporter implements WebformSubmissionExportIm
 
       // Check URL status code.
       $file_headers = @get_headers($new_file_uri);
-      if (!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') {
+      if (!$file_headers || $file_headers[0] === 'HTTP/1.1 404 Not Found') {
         $errors[] = $this->t('[@element_key] URL (@url) returns 404 file not found.', $t_args);
         continue;
       }

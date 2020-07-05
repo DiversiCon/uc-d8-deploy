@@ -38,6 +38,7 @@ dependencies:
     - field_group
     - link_attributes
     - paragraphs
+    - paragraphs_features
     - text
 third_party_settings:
   field_group:
@@ -254,8 +255,8 @@ third_party_settings:
     group_quote_rotator:
       children:
         - field_quotator_items
-      parent_name: group_secondary_section
-      weight: 9
+      parent_name: group_secondary_content
+      weight: 22
       format_type: details
       format_settings:
         id: ''
@@ -269,8 +270,8 @@ third_party_settings:
         - field_eck_reference
         - field_eck_reference_1
         - field_eck_reference_single
-      parent_name: group_secondary_section
-      weight: 10
+      parent_name: group_secondary_content
+      weight: 23
       format_type: details
       format_settings:
         id: ''
@@ -282,8 +283,8 @@ third_party_settings:
     group_cta_section:
       children:
         - field_single_paragraph_1
-      parent_name: group_secondary_section
-      weight: 12
+      parent_name: group_secondary_content
+      weight: 25
       format_type: details
       format_settings:
         id: ''
@@ -296,14 +297,15 @@ third_party_settings:
       children:
         - field_par_paragraph_single_3
       parent_name: group_lead_media
-      weight: 233
+      weight: 236
       format_type: details
       format_settings:
-        id: ''
-        classes: ''
+        description: ''
         open: true
         required_fields: true
-      label: Sub-headline
+        id: ''
+        classes: ''
+      label: Subheadline
       region: content
     group_mobile_only_sub_head:
       children:
@@ -312,11 +314,12 @@ third_party_settings:
       weight: 4
       format_type: details
       format_settings:
-        id: ''
-        classes: ''
+        description: ''
         open: true
         required_fields: true
-      label: 'Mobile-Only Sub-Head'
+        id: ''
+        classes: ''
+      label: 'Mobile-Only Subheadline'
       region: content
     group_accordion_left:
       children:
@@ -347,8 +350,8 @@ third_party_settings:
     group_sidebar_facts:
       children:
         - field_paragraph_single_0
-      parent_name: group_secondary_section
-      weight: 11
+      parent_name: group_secondary_content
+      weight: 24
       format_type: details
       format_settings:
         id: ''
@@ -359,19 +362,22 @@ third_party_settings:
       region: content
     group_secondary_section:
       children:
-        - field_layout
-        - group_quote_rotator
-        - group_stats_section
-        - group_sidebar_facts
-        - group_cta_section
+        - group_secondary_content
       parent_name: group_con
       weight: 11
-      format_type: fieldset
+      format_type: html_element
       format_settings:
         id: ''
         classes: content-sidebar-wrap
         description: ''
         required_fields: true
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        effect: none
+        speed: fast
+        attributes: ''
       label: 'Secondary Section'
       region: content
     group_bottom_left_accordion_cont:
@@ -435,15 +441,34 @@ third_party_settings:
         - field_headline_text
         - field_text_color
       parent_name: group_lead_media
-      weight: 232
-      format_type: fieldset
+      weight: 235
+      format_type: details
       format_settings:
+        description: ''
+        open: true
+        required_fields: true
         id: ''
         classes: ''
-        description: ''
-        required_fields: true
       label: 'Lead Headline and Options'
       region: content
+    group_secondary_content:
+      children:
+        - field_layout
+        - group_quote_rotator
+        - group_stats_section
+        - group_sidebar_facts
+        - group_cta_section
+      parent_name: group_secondary_section
+      weight: 20
+      format_type: details
+      region: content
+      format_settings:
+        description: ''
+        open: true
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Secondary Content'
 id: paragraph.home_page_grid.default
 targetEntityType: paragraph
 bundle: home_page_grid
@@ -510,154 +535,298 @@ content:
     type: text_textfield
     region: content
   field_layout:
-    weight: 7
+    weight: 21
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_par_paragraph_single:
-    weight: 231
+    weight: 234
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: _none
-    third_party_settings: {  }
-    type: entity_reference_paragraphs
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
+    type: paragraphs
     region: content
   field_par_paragraph_single_0:
-    type: entity_reference_paragraphs
+    type: paragraphs
     weight: 115
     settings:
       title: Paragraph
       title_plural: Paragraphs
       edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: custom_link
-    third_party_settings: {  }
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
     region: content
   field_par_paragraph_single_1:
-    type: entity_reference_paragraphs
+    type: paragraphs
     weight: 116
     settings:
       title: Paragraph
       title_plural: Paragraphs
       edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: teaser_insert
-    third_party_settings: {  }
+      default_paragraph_type: tile_insert
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
     region: content
   field_par_paragraph_single_2:
-    type: entity_reference_paragraphs
+    type: paragraphs
     weight: 117
     settings:
       title: Paragraph
       title_plural: Paragraphs
       edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: teaser_insert
-    third_party_settings: {  }
+      default_paragraph_type: tile_insert
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
     region: content
   field_par_paragraph_single_3:
-    type: entity_reference_paragraphs
+    type: paragraphs
     weight: 227
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: custom_link
-    third_party_settings: {  }
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
     region: content
   field_par_paragraph_single_4:
-    type: entity_reference_paragraphs
+    type: paragraphs
     weight: 3
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: closed
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: custom_link
-    third_party_settings: {  }
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
     region: content
   field_par_paragraph_single_5:
-    type: entity_reference_paragraphs
+    type: paragraphs
     weight: 126
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
+      default_paragraph_type: custom_link
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
     region: content
   field_par_paragraph_ultd_0:
-    type: entity_reference_paragraphs
+    type: paragraphs
     weight: 14
     settings:
       title: Paragraph
       title_plural: Paragraphs
       edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: custom_link
-    third_party_settings: {  }
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
     region: content
   field_par_paragraph_ultd_1:
-    type: entity_reference_paragraphs
+    type: paragraphs
     weight: 81
     settings:
       title: Paragraph
       title_plural: Paragraphs
       edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: custom_link
-    third_party_settings: {  }
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
     region: content
   field_par_paragraphs:
     weight: 7
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
-    type: entity_reference_paragraphs
+      default_paragraph_type: custom_link
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
+    type: paragraphs
     region: content
   field_paragraph_single:
-    type: entity_reference_paragraphs
+    type: paragraphs
     weight: 7
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
+      default_paragraph_type: custom_link
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
     region: content
   field_paragraph_single_0:
     weight: 13
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: fact_block
-    third_party_settings: {  }
-    type: entity_reference_paragraphs
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
+    type: paragraphs
     region: content
   field_paragraph_single_1:
     weight: 221
@@ -665,47 +834,95 @@ content:
       title: Paragraph
       title_plural: Paragraphs
       edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: _none
-    third_party_settings: {  }
-    type: entity_reference_paragraphs
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
+    type: paragraphs
     region: content
   field_paragraph_single_2:
-    type: entity_reference_paragraphs
+    type: paragraphs
     weight: 230
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
+      default_paragraph_type: custom_link
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
     region: content
   field_paragraphs_unlimited:
-    type: entity_reference_paragraphs
+    type: paragraphs
     weight: 229
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
+      default_paragraph_type: custom_link
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
     region: content
   field_quotator_items:
-    type: entity_reference_paragraphs
+    type: paragraphs
     weight: 122
     settings:
       title: Paragraph
       title_plural: Paragraphs
       edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: quotator_item
-    third_party_settings: {  }
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
     region: content
   field_single_link:
     weight: 15
@@ -724,16 +941,28 @@ content:
     type: link_attributes
     region: content
   field_single_paragraph_1:
-    type: entity_reference_paragraphs
+    type: paragraphs
     weight: 108
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: _none
-    third_party_settings: {  }
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
     region: content
   field_subheadline_text:
     weight: 227

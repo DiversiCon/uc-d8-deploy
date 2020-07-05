@@ -21,7 +21,7 @@ bundle: callout_item_unique
 mode: default
 content:
   field_headline_text:
-    weight: 3
+    weight: 0
     settings:
       size: 60
       placeholder: ''
@@ -32,7 +32,7 @@ content:
     type: text_textfield
     region: content
   field_image_link:
-    weight: 1
+    weight: 2
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -48,7 +48,7 @@ content:
     type: custom_link_with_attributes
     region: content
   field_image_main:
-    weight: 2
+    weight: 3
     settings:
       entity_browser: media_entity_browser
       field_widget_display: rendered_entity
@@ -63,7 +63,7 @@ content:
     type: entity_browser_entity_reference
     region: content
   field_par_html_single:
-    weight: 5
+    weight: 4
     settings:
       rows: 5
       placeholder: ''
@@ -71,7 +71,7 @@ content:
     type: text_textarea
     region: content
   field_subheadline_text:
-    weight: 4
+    weight: 1
     settings:
       size: 60
       placeholder: ''

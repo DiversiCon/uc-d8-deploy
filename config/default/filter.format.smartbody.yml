@@ -16,7 +16,7 @@ filters:
     status: true
     weight: -10
     settings:
-      allowed_html: '<em class> <strong class> <cite class> <blockquote cite class> <code class> <ul type class> <ol start type class> <li class> <dl class> <dt class> <dd class> <h2 id class> <h3 id class> <h4 id class> <h5 id class> <h6 id class> <img src alt data-entity-type data-entity-uuid class> <hr class> <it-smartbody class> <a href hreflang !href accesskey id rel target title class> <p class> <table class> <caption class> <tbody class> <thead class> <tfoot class> <th class> <td class> <tr class> <iframe title src frameborder width height class> <br>'
+      allowed_html: '<em class> <strong class> <cite class> <blockquote cite class> <code class> <ul type class> <ol start type class> <li class> <dl class> <dt class> <dd class> <h2 id class> <h3 id class> <h4 id class> <h5 id class> <h6 id class> <img src alt data-entity-type data-entity-uuid data-entity-substitution class> <hr class> <it-smartbody class> <a href hreflang !href accesskey id rel target title class data-entity-type data-entity-uuid data-entity-substitution> <p class> <table class> <caption class> <tbody class> <thead class> <tfoot class> <th class> <td class> <tr class> <iframe title src frameborder width height class> <br>'
       filter_html_help: true
       filter_html_nofollow: false
   filter_autop:
@@ -37,3 +37,10 @@ filters:
     status: true
     weight: 0
     settings: {  }
+  linkit:
+    id: linkit
+    provider: linkit
+    status: true
+    weight: -11
+    settings:
+      title: false

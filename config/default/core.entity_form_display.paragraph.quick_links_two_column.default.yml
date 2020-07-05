@@ -16,6 +16,7 @@ dependencies:
     - field_group
     - link_attributes
     - paragraphs
+    - paragraphs_features
     - text
 third_party_settings:
   field_group:
@@ -25,12 +26,19 @@ third_party_settings:
         - group_right_column
         - group_footer
       parent_name: ''
-      weight: 1
-      format_type: accordion
+      weight: 2
+      format_type: html_element
       format_settings:
         id: ''
         classes: ''
         effect: none
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        speed: fast
+        attributes: ''
+        required_fields: true
       label: 'Quick Links'
       region: content
     group_left_column:
@@ -40,13 +48,13 @@ third_party_settings:
         - group_left_list_footer_link
       parent_name: group_accordion_container
       weight: 8
-      format_type: accordion_item
+      format_type: details
       format_settings:
+        description: ''
+        open: true
+        required_fields: true
         id: ''
         classes: ''
-        formatter: closed
-        required_fields: true
-        description: ''
       label: 'Left Column'
       region: content
     group_right_column:
@@ -55,29 +63,29 @@ third_party_settings:
         - field_par_paragraph_ultd_1
         - group_right_list_footer_link
       parent_name: group_accordion_container
-      weight: 9
-      format_type: accordion_item
+      weight: 10
+      format_type: details
       format_settings:
+        description: ''
+        open: true
+        required_fields: true
         id: ''
         classes: ''
-        formatter: closed
-        required_fields: true
-        description: ''
       label: 'Right Column'
       region: content
     group_footer:
       children:
         - field_single_link
       parent_name: group_accordion_container
-      weight: 10
-      format_type: accordion_item
+      weight: 11
+      format_type: details
       format_settings:
+        description: ''
+        required_fields: true
         id: ''
         classes: ''
-        formatter: closed
-        required_fields: true
-        description: ''
-      label: Footer
+        open: false
+      label: 'Quick Links Footer'
       region: content
     group_left_list_footer_link:
       children:
@@ -86,11 +94,12 @@ third_party_settings:
       weight: 8
       format_type: details
       format_settings:
+        description: ''
+        required_fields: true
         id: ''
         classes: ''
         open: false
-        required_fields: true
-      label: 'Left List, Footer Link'
+      label: 'Left Footer'
       region: content
     group_right_list_footer_link:
       children:
@@ -99,12 +108,27 @@ third_party_settings:
       weight: 4
       format_type: details
       format_settings:
+        description: ''
+        required_fields: true
         id: ''
         classes: ''
         open: false
-        required_fields: true
-      label: 'Right List, Footer Link'
+      label: 'Right Footer'
       region: content
+    group_quick_links_options:
+      children:
+        - field_accordion_switch
+      parent_name: ''
+      weight: 1
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: true
+        required_fields: true
+      label: 'Quick Links Options'
 id: paragraph.quick_links_two_column.default
 targetEntityType: paragraph
 bundle: quick_links_two_column
@@ -117,52 +141,100 @@ content:
     type: options_select
     region: content
   field_par_paragraph_single_0:
-    type: entity_reference_paragraphs
+    type: paragraphs
     weight: 3
     region: content
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: custom_link
-    third_party_settings: {  }
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
   field_par_paragraph_single_5:
-    type: entity_reference_paragraphs
+    type: paragraphs
     weight: 21
     region: content
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
   field_par_paragraph_ultd_0:
     weight: 6
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
-    type: entity_reference_paragraphs
+      default_paragraph_type: custom_link
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
+    type: paragraphs
     region: content
   field_par_paragraph_ultd_1:
     weight: 2
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
-    type: entity_reference_paragraphs
+      default_paragraph_type: custom_link
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
+    type: paragraphs
     region: content
   field_single_link:
     weight: 7

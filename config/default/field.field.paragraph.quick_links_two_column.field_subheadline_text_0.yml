@@ -16,11 +16,12 @@ third_party_settings:
     smartbody: '0'
     raw_input: '0'
     plain_text: '0'
+    custml_html: '0'
 id: paragraph.quick_links_two_column.field_subheadline_text_0
 field_name: field_subheadline_text_0
 entity_type: paragraph
 bundle: quick_links_two_column
-label: 'Left List, Title'
+label: 'Left Title'
 description: ''
 required: false
 translatable: true

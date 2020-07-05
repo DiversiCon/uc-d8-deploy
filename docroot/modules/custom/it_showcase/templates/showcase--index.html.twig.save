@@ -1,0 +1,63 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a showcase item.
+ *
+ * Available variables:
+ *  content - array of content values.
+ *  showcase - array of showcase settings.
+ *    .category_index - categorized index of showcase items.
+ *    .type - index, page or component.
+ *    .template - based on path.
+ *    .template_path - path to template override
+ *
+ * <header>
+ *   <img src="/themes/custom/uccollege/it_showcase/images/masthead-temp.png" alt="If/Then Showcase">
+ * </header>
+ *
+ */
+#}
+
+<div class="showcase__wrap">
+  <!--
+  <header>
+    <h1>Showcase</h1>
+  </header>
+  -->
+
+  {# Render navigation elements. #}
+  {{ showcase.navigation|raw }}
+
+  {# Render based on sections in content array. #}
+  {% for section in content|keys %}
+
+    {# Only render sections that have content. #}
+    {% if content[section] %}
+      <h2>{{ section|capitalize }}</h2>
+      <br />
+
+      {# If we have a categorized array for this section render by category. #}
+      {% if showcase.category_index[section] %}
+
+        {# Use categorized array to get categories and items. #}
+        {% for category in showcase.category_index[section]|keys %}
+          <h3>{{ category }}</h3>
+          <ul>
+            {% for id in showcase.category_index[section][category] %}
+              <li><a href="{{ content[section][id].path }}">{{ content[section][id].title }}</a> - {{ content[section][id].description }}</li>
+            {% endfor %}
+          </ul>
+        {% endfor %}
+
+      {# If not categorized then we just need a simple list. #}
+      {% else %}
+        <ul>
+          {% for item in content[section] %}
+            <li><a href="{{ item.path }}">{{ item.title }}</a> - {{ item.description }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+    {% endif %}
+  {% endfor %}
+</div>

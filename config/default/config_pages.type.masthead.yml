@@ -3,12 +3,14 @@ langcode: en
 status: true
 dependencies: {  }
 id: masthead
-label: 'Masthead, Global Navigation'
+label: 'Global Header/Navigation'
 context:
   show_warning: true
   group:
     language: false
+  fallback:
+    language: ''
 menu:
-  path: /admin/config/masthead
+  path: /admin/config/navigation/masthead
   weight: -49
   description: 'Global nav'

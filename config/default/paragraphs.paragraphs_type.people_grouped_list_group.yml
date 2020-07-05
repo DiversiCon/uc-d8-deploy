@@ -5,5 +5,6 @@ dependencies: {  }
 id: people_grouped_list_group
 label: 'People, Grouped List - Group'
 icon_uuid: null
+icon_default: null
 description: 'Group of person content to be used by People, Grouped List component.'
 behavior_plugins: {  }

@@ -18,12 +18,13 @@ third_party_settings:
         - field_single_link
       parent_name: ''
       weight: 1
-      format_type: fieldset
+      format_type: details
       format_settings:
         id: ''
         classes: ''
         description: ''
         required_fields: true
+        open: false
       label: Link
       region: content
 id: paragraph.logo.default

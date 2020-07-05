@@ -4,6 +4,6 @@ status: true
 dependencies:
   config:
     - eck.eck_entity_type.reusable
-name: Stats
 type: stats
+name: Stats
 description: 'Re-usable "stats" content, used on the homepage and in features'

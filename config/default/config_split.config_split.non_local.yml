@@ -8,7 +8,6 @@ description: ''
 folder: ../config/envs/non_local
 module:
   autologout: 0
-  config_ignore: 0
   pantheon_advanced_page_cache: 0
   search_api_pantheon: 0
 theme: {  }

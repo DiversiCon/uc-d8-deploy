@@ -3,12 +3,14 @@ langcode: en
 status: true
 dependencies: {  }
 id: footer
-label: 'Footer, Global'
+label: 'Global Footer'
 context:
   show_warning: true
   group:
     language: false
+  fallback:
+    language: ''
 menu:
-  path: /admin/config/footer
+  path: /admin/config/navigation/footer
   weight: -40
   description: 'Global Footer'

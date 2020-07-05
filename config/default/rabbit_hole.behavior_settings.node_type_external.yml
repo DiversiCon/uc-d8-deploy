@@ -1,0 +1,11 @@
+uuid: 3b2752be-df10-458f-a842-82ab40fce670
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.external
+id: node_type_external
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

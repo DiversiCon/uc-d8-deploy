@@ -5,5 +5,6 @@ dependencies: {  }
 id: home_page_grid_b
 label: 'Home Page Grid, Feature and Bottom Quadrants'
 icon_uuid: null
+icon_default: null
 description: 'Displays a Feature component spanning the top two quadrants, along with the standard bottom two quadrants.'
 behavior_plugins: {  }

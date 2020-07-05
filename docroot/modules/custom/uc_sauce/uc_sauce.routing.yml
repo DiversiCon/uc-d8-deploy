@@ -19,3 +19,18 @@ uc_sauce.custom_link_autocomplete:
     _controller: '\Drupal\uc_sauce\Controller\CustomLinkAutocompleteController::handleAutocomplete'
   requirements:
     _access: 'TRUE'
+
+system.admin_config_navigation:
+  path: '/admin/config/navigation'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Navigation'
+  requirements:
+    _permission: 'access administration pages'
+system.admin_config_content:
+  path: '/admin/config/content'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Content'
+  requirements:
+    _permission: 'access administration pages'

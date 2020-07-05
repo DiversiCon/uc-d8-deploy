@@ -28,24 +28,6 @@ settings:
       accordion_block:
         weight: 8
         enabled: false
-      components:
-        weight: 9
-        enabled: false
-      feature:
-        enabled: true
-        weight: 10
-      feature_components:
-        weight: 11
-        enabled: false
-      html_text:
-        weight: 12
-        enabled: false
-      smartbody:
-        weight: 13
-        enabled: false
-      social_grid:
-        weight: 14
-        enabled: false
       accordion_item:
         weight: 20
         enabled: false
@@ -58,11 +40,20 @@ settings:
       callout_reference:
         weight: 23
         enabled: false
+      components:
+        weight: 9
+        enabled: false
+      feature:
+        enabled: true
+        weight: 10
+      feature_4_square_images:
+        weight: 27
+        enabled: false
       feature_4sq_img_link:
         weight: 26
         enabled: false
-      feature_4_square_images:
-        weight: 27
+      feature_components:
+        weight: 11
         enabled: false
       feature_image_link:
         weight: 29
@@ -73,10 +64,19 @@ settings:
       feature_reference:
         weight: 31
         enabled: false
+      html_text:
+        weight: 12
+        enabled: false
       pullquote:
         weight: 33
         enabled: false
+      smartbody:
+        weight: 13
+        enabled: false
       smartbody_image:
         weight: 35
+        enabled: false
+      social_grid:
+        weight: 14
         enabled: false
 field_type: entity_reference_revisions

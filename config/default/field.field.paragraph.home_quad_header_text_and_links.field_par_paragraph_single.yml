@@ -151,14 +151,11 @@ settings:
       feature:
         weight: 153
         enabled: false
-      featured_ref_four:
-        weight: 154
+      feature_4_square_images:
+        weight: 156
         enabled: false
       feature_4sq_img_link:
         weight: 155
-        enabled: false
-      feature_4_square_images:
-        weight: 156
         enabled: false
       feature_announcement:
         weight: 157
@@ -180,6 +177,9 @@ settings:
         enabled: false
       feature_reference:
         weight: 163
+        enabled: false
+      featured_ref_four:
+        weight: 154
         enabled: false
       flickr_gallery:
         weight: 164

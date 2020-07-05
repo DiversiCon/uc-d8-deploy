@@ -5,5 +5,6 @@ dependencies: {  }
 id: feature_announcement
 label: 'Feature, Announcement'
 icon_uuid: null
+icon_default: null
 description: 'Displays a unique Feature layout focused on new, important content.'
 behavior_plugins: {  }

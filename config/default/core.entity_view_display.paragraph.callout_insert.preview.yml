@@ -1,0 +1,26 @@
+uuid: 487d5fae-7f28-42fc-954f-5aaa1a1c1637
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.callout_insert.field_callout_theme
+    - field.field.paragraph.callout_insert.field_par_paragraph_single
+    - paragraphs.paragraphs_type.callout_insert
+  module:
+    - options
+id: paragraph.callout_insert.preview
+targetEntityType: paragraph
+bundle: callout_insert
+mode: preview
+content:
+  field_callout_theme:
+    weight: 0
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+hidden:
+  field_par_paragraph_single: true
+  search_api_excerpt: true

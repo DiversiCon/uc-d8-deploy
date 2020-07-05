@@ -5,5 +5,6 @@ dependencies: {  }
 id: infographic
 label: 'Infographic Component'
 icon_uuid: null
+icon_default: null
 description: 'Used to display a highly visual informational image with supporting text for accessibility.'
 behavior_plugins: {  }

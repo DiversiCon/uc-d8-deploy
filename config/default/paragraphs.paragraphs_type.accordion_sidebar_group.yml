@@ -5,5 +5,6 @@ dependencies: {  }
 id: accordion_sidebar_group
 label: 'Accordion Sidebar Group'
 icon_uuid: null
+icon_default: null
 description: 'A group of accordion items found in a sidebar.'
 behavior_plugins: {  }

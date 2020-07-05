@@ -5,5 +5,6 @@ dependencies: {  }
 id: feature_4_square_images
 label: 'Feature, 4-Square Images'
 icon_uuid: null
+icon_default: null
 description: 'Block of 4 images with optional links for the feature component '
 behavior_plugins: {  }

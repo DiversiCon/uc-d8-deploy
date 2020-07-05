@@ -31,6 +31,9 @@ settings:
       accordion_item:
         weight: 29
         enabled: false
+      avatar:
+        weight: 69
+        enabled: false
       callout:
         weight: 30
         enabled: false
@@ -46,11 +49,38 @@ settings:
       callout_reference:
         weight: 34
         enabled: false
+      card_grid:
+        weight: 75
+        enabled: false
+      card_grid_insert:
+        weight: 76
+        enabled: false
+      card_grid_item:
+        weight: 77
+        enabled: false
+      card_grid_reference:
+        weight: 78
+        enabled: false
       components:
         weight: 35
         enabled: false
+      components_lower:
+        weight: 46
+        enabled: false
+      cta_block:
+        enabled: true
+        weight: 47
+      cta_buttons:
+        weight: 48
+        enabled: false
+      cta_text_link:
+        weight: 49
+        enabled: false
       custom_link:
         weight: 36
+        enabled: false
+      date:
+        weight: 85
         enabled: false
       feature:
         weight: 37
@@ -73,81 +103,6 @@ settings:
       feature_reference:
         weight: 43
         enabled: false
-      home_page_grid:
-        weight: 44
-        enabled: false
-      html_text:
-        weight: 45
-        enabled: false
-      components_lower:
-        weight: 46
-        enabled: false
-      pullquote:
-        weight: 46
-        enabled: false
-      quick_links:
-        weight: 47
-        enabled: false
-      cta_block:
-        enabled: true
-        weight: 47
-      cta_buttons:
-        weight: 48
-        enabled: false
-      quotator_item:
-        weight: 49
-        enabled: false
-      cta_text_link:
-        weight: 49
-        enabled: false
-      smartbody:
-        weight: 50
-        enabled: false
-      smartbody_image:
-        weight: 51
-        enabled: false
-      social_grid:
-        weight: 52
-        enabled: false
-      video_html:
-        weight: 54
-        enabled: false
-      stats:
-        weight: 56
-        enabled: false
-      stats_reference:
-        weight: 58
-        enabled: false
-      switcher:
-        weight: 59
-        enabled: false
-      avatar:
-        weight: 69
-        enabled: false
-      teaser:
-        weight: 71
-        enabled: false
-      teaser_insert:
-        weight: 72
-        enabled: false
-      teaser_reference:
-        weight: 73
-        enabled: false
-      card_grid:
-        weight: 75
-        enabled: false
-      card_grid_insert:
-        weight: 76
-        enabled: false
-      card_grid_item:
-        weight: 77
-        enabled: false
-      card_grid_reference:
-        weight: 78
-        enabled: false
-      date:
-        weight: 85
-        enabled: false
       flickr_gallery:
         weight: 93
         enabled: false
@@ -156,6 +111,12 @@ settings:
         enabled: false
       generic_sidebar_item:
         weight: 95
+        enabled: false
+      home_page_grid:
+        weight: 44
+        enabled: false
+      html_text:
+        weight: 45
         enabled: false
       link_list:
         weight: 98
@@ -193,20 +154,56 @@ settings:
       program_selector:
         weight: 109
         enabled: false
+      pullquote:
+        weight: 46
+        enabled: false
+      quick_links:
+        weight: 47
+        enabled: false
+      quotator_item:
+        weight: 49
+        enabled: false
       sidebar_gen_related:
         weight: 113
         enabled: false
       sidebar_inquiries:
         weight: 114
         enabled: false
+      smartbody:
+        weight: 50
+        enabled: false
+      smartbody_image:
+        weight: 51
+        enabled: false
+      social_grid:
+        weight: 52
+        enabled: false
       staff_selector:
         weight: 118
+        enabled: false
+      stats:
+        weight: 56
+        enabled: false
+      stats_reference:
+        weight: 58
+        enabled: false
+      switcher:
+        weight: 59
         enabled: false
       switcher_cta:
         weight: 122
         enabled: false
       switcher_getting_started:
         weight: 123
+        enabled: false
+      teaser:
+        weight: 71
+        enabled: false
+      teaser_insert:
+        weight: 72
+        enabled: false
+      teaser_reference:
+        weight: 73
         enabled: false
       tile:
         weight: 127
@@ -216,6 +213,9 @@ settings:
         enabled: false
       tile_reference:
         weight: 129
+        enabled: false
+      video_html:
+        weight: 54
         enabled: false
       video_youtube:
         weight: 131

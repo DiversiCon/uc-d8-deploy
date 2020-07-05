@@ -2,7 +2,7 @@ name: University of Chicago, Anonymous
 type: theme
 base theme: uccollege
 description: 'Anonymous theme, subtheme of uccollege, strips system/base'
-core: 8.x
+core_version_requirement: ^8 || ^9
 
 libraries-override:
   system/base: false

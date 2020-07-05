@@ -5,5 +5,6 @@ dependencies: {  }
 id: video_html
 label: 'Video, HTML'
 icon_uuid: null
+icon_default: null
 description: 'Upload a video to display in native HTML5'
 behavior_plugins: {  }

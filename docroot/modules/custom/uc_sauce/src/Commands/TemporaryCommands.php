@@ -2,6 +2,7 @@
 
 namespace Drupal\uc_sauce\Commands;
 
+use Drupal;
 use Drush\Commands\DrushCommands;
 use Drupal\eck\Entity\EckEntity;
 use Drupal\redirect\Entity\Redirect;
@@ -226,7 +227,7 @@ class TemporaryCommands extends DrushCommands {
     $this->output()->writeln('Processing redirects from ' . $filename);
 
     // Add a redirect for every item in the CSV data.
-    $csv_data = $this->getCSVData($filename);
+    $csv_data = $this->getCsvData($filename);
     if ($csv_data) {
       foreach ($csv_data as $delta => $row) {
 
@@ -270,9 +271,11 @@ class TemporaryCommands extends DrushCommands {
   /**
    * Helper function to get Node ID by alias.
    *
-   * @param $alias
+   * @param string $alias
+   *   Node alias.
    *
    * @return bool|string
+   *   Node ID.
    */
   private function getNidByAlias($alias) {
     $nid = FALSE;
@@ -293,9 +296,11 @@ class TemporaryCommands extends DrushCommands {
   /**
    * Helper function to get Node ID by Legacy Node ID.
    *
-   * @param $legacy_nid
+   * @param string|int $legacy_nid
+   *   Legacy Node ID.
    *
    * @return bool|string
+   *   Current Node ID.
    */
   private function getNidByLegacyNid($legacy_nid) {
     $nid = FALSE;
@@ -320,8 +325,10 @@ class TemporaryCommands extends DrushCommands {
   /**
    * Helper function to create a redirect.
    *
-   * @param $nid
-   * @param $alias
+   * @param string|int $nid
+   *   Node ID.
+   * @param string $alias
+   *   Node alias.
    */
   private function createRedirect($nid, $alias) {
 
@@ -336,7 +343,10 @@ class TemporaryCommands extends DrushCommands {
         $redirect = 'internal:/node/' . $nid;
 
         // Make sure we don't already have this redirect.
-        $query = db_query("select * from redirect where redirect_source__path = '" . $alias . "'");
+        /* @var \Drupal\Core\Database\Connection $database */
+        $database = Drupal::service('database');
+
+        $query = $database->query("select * from redirect where redirect_source__path = '" . $alias . "'");
         $duplicate = $query->fetchAll();
         if (!$duplicate) {
 
@@ -348,7 +358,8 @@ class TemporaryCommands extends DrushCommands {
               'redirect_redirect' => $redirect,
               'status_code' => '301',
             ])->save();
-          } catch (\Exception $e) {
+          }
+          catch (\Exception $e) {
             $this->output()->writeln('Ooops!');
           }
         }
@@ -368,11 +379,13 @@ class TemporaryCommands extends DrushCommands {
   /**
    * Helper function to get CSV data.
    *
-   * @param $filename
+   * @param string $filename
+   *   File name to get.
    *
    * @return array
+   *   Array of CSV data.
    */
-  private function getCSVData($filename) {
+  private function getCsvData($filename) {
     $csv_data = [];
     $fields = [];
 
@@ -509,4 +522,5 @@ class TemporaryCommands extends DrushCommands {
 
     $this->output()->writeln('-OK-');
   }
+
 }

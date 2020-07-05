@@ -5,5 +5,6 @@ dependencies: {  }
 id: contact_single_person
 label: 'Contact Person, Unique'
 icon_uuid: null
+icon_default: null
 description: 'Contact information for a unique (non-shareable) person.'
 behavior_plugins: {  }

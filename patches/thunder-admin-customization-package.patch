@@ -1,0 +1,15 @@
+diff --git a/package.json b/package.json
+index 895b612..8b20f33 100644
+--- a/package.json
++++ b/package.json
+@@ -23,8 +23,8 @@
+     "watch:js": "onchange \"js\" -- npm run js",
+     "watch:images": "onchange \"images-originals\" -- npm run images",
+     "watch:all": "npm-run-all -p serve watch:styles watch:js watch:images",
+-    "dev": "npm run build && npm run watch:all",
+-    "postinstall": "npm run build"
++    "dev": "npm run build",
++    "production": "npm run build"
+   },
+   "repository": {
+     "type": "git",

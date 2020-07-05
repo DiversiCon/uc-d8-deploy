@@ -289,7 +289,7 @@ webform.tooltip:
   dependencies:
     - core/drupal
     - core/jquery.once
-    - core/jquery.ui.tooltip
+    - jquery_ui_tooltip/tooltip
 
 # Theme
 
@@ -372,7 +372,7 @@ webform.form.tabs:
   dependencies:
     - core/drupal
     - core/jquery.once
-    - core/jquery.ui.tabs
+    - jquery_ui_tabs/tabs
 
 webform.form.unsaved:
   version: VERSION
@@ -579,8 +579,10 @@ webform.element.date:
   js:
     js/webform.element.date.js: {}
   dependencies:
-    - core/drupal.date
     - core/drupalSettings
+    - core/modernizr
+    - core/jquery.once
+    - jquery_ui_datepicker/datepicker
 
 webform.element.datelist:
   version: VERSION
@@ -638,7 +640,7 @@ webform.element.help:
   dependencies:
     - core/drupal
     - core/jquery.once
-    - core/jquery.ui.tooltip
+    - jquery_ui_tooltip/tooltip
 
 webform.element.html_editor:
   version: VERSION
@@ -1203,16 +1205,16 @@ libraries.jquery.timepicker:
 
 libraries.progress-tracker:
   remote: https://github.com/NigelOToole/progress-tracker
-  version: '1.4.0'
+  version: '2.0.6'
   license:
     name: MIT
     url: https://github.com/NigelOToole/progress-tracker/blob/master/LICENSE
     gpl-compatible: true
   cdn:
-    /libraries/progress-tracker/: https://cdn.jsdelivr.net/gh/NigelOToole/progress-tracker@v1.4.0/
+    /libraries/progress-tracker/: https://cdn.jsdelivr.net/gh/NigelOToole/progress-tracker@v2.0.6/
   css:
     component:
-      /libraries/progress-tracker/app/styles/progress-tracker.css: {}
+      /libraries/progress-tracker/docs/styles/progress-tracker.css: {}
 
 libraries.signature_pad:
   remote: https://github.com/szimek/signature_pad

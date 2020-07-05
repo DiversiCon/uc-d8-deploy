@@ -213,9 +213,11 @@ class FrontendCommand extends BltTasks {
    */
   private function getThemeDir(array $sites) {
     // Define the themes/sites and their respective theme directories.
+    $repo_root = $this->getConfigValue('repo.root');
     $dirs = [
-      'uccollege' => $this->getConfigValue('repo.root') . '/docroot/themes/custom/uccollege',
-      'admin_uccollege' => $this->getConfigValue('repo.root') . '/docroot/themes/custom/admin_uccollege',
+      'uccollege' => $repo_root . '/docroot/themes/custom/uccollege',
+      'thunder_admin' => $repo_root . '/docroot/themes/contrib/thunder_admin',
+      'admin_uccollege' => $repo_root . '/docroot/themes/custom/admin_uccollege',
     ];
 
     $site_theme_dirs = [];

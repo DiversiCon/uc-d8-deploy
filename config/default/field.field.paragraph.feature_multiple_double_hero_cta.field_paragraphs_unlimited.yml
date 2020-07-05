@@ -25,9 +25,6 @@ settings:
     target_bundles:
       feature_double_hero_cta: feature_double_hero_cta
     target_bundles_drag_drop:
-      feature_multiple_double_hero_cta:
-        weight: 121
-        enabled: false
       academic_appointment:
         weight: 122
         enabled: false
@@ -186,6 +183,9 @@ settings:
         enabled: false
       feature_insert:
         weight: 174
+        enabled: false
+      feature_multiple_double_hero_cta:
+        weight: 121
         enabled: false
       feature_reference:
         weight: 175

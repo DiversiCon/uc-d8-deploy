@@ -1,0 +1,11 @@
+uuid: 16ea1e44-ce98-4d5e-9105-03f116343028
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.course
+id: node_type_course
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

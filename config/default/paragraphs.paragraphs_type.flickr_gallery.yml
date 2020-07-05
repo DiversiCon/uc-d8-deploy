@@ -5,5 +5,6 @@ dependencies: {  }
 id: flickr_gallery
 label: 'Flickr gallery'
 icon_uuid: null
+icon_default: null
 description: 'Flickr slideshow/gallery embed.'
 behavior_plugins: {  }

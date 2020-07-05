@@ -5,5 +5,6 @@ dependencies: {  }
 id: pullquote
 label: PullQuote
 icon_uuid: null
+icon_default: null
 description: 'Pull-quote insert into smartbody'
 behavior_plugins: {  }

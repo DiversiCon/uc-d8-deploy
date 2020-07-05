@@ -97,6 +97,12 @@ settings:
       date:
         weight: 108
         enabled: false
+      fact_block:
+        weight: 121
+        enabled: false
+      fact_item:
+        enabled: true
+        weight: 120
       feature:
         weight: 109
         enabled: false
@@ -129,12 +135,6 @@ settings:
         enabled: false
       hero_components:
         weight: 119
-        enabled: false
-      fact_item:
-        enabled: true
-        weight: 120
-      fact_block:
-        weight: 121
         enabled: false
       home_page_grid:
         weight: 122

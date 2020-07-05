@@ -5,5 +5,6 @@ dependencies: {  }
 id: home_page_grid
 label: 'Home Page Grid'
 icon_uuid: null
+icon_default: null
 description: 'Intro sections for the home page'
 behavior_plugins: {  }

@@ -3,12 +3,14 @@ langcode: en
 status: true
 dependencies: {  }
 id: photo_nav_grid
-label: 'Visual Nav'
+label: 'Visual Navigation'
 context:
   show_warning: true
   group:
     language: false
+  fallback:
+    language: ''
 menu:
-  path: /admin/config/visual_nav
+  path: /admin/config/navigation/visual_nav
   weight: -43
   description: 'Set Visual Navigation'

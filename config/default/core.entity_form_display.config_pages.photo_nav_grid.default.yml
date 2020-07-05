@@ -7,6 +7,7 @@ dependencies:
     - field.field.config_pages.photo_nav_grid.field_single_paragraph_1
   module:
     - paragraphs
+    - paragraphs_features
 id: config_pages.photo_nav_grid.default
 targetEntityType: config_pages
 bundle: photo_nav_grid
@@ -22,7 +23,12 @@ content:
       add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: photo_nav_grid
-    third_party_settings: {  }
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
     region: content
 hidden:
   label: true

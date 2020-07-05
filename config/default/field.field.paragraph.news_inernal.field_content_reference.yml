@@ -11,8 +11,8 @@ id: paragraph.news_inernal.field_content_reference
 field_name: field_content_reference
 entity_type: paragraph
 bundle: news_inernal
-label: 'Content Reference 1'
-description: 'Reference <a href="/admin/content" target="_blank">existing content (new window)</a>'
+label: 'Story 1'
+description: ''
 required: true
 translatable: true
 default_value: {  }

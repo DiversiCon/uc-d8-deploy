@@ -36,18 +36,18 @@ settings:
       feature:
         weight: -25
         enabled: false
+      feature_4_square_images:
+        enabled: true
+        weight: -21
       feature_components:
         weight: -24
-        enabled: false
-      feature_insert:
-        weight: -23
         enabled: false
       feature_image_link:
         enabled: true
         weight: -22
-      feature_4_square_images:
-        enabled: true
-        weight: -21
+      feature_insert:
+        weight: -23
+        enabled: false
       feature_reference:
         weight: -20
         enabled: false

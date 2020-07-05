@@ -5,5 +5,6 @@ dependencies: {  }
 id: news_external
 label: 'News, External'
 icon_uuid: null
+icon_default: null
 description: 'Reference an external feed of news items'
 behavior_plugins: {  }

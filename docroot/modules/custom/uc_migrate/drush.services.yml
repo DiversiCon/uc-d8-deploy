@@ -1,5 +1,0 @@
-services:
-  uc_migrate.commands:
-    class: \Drupal\uc_migrate\Commands\MigrateCommands
-    tags:
-    - { name: drush.command }

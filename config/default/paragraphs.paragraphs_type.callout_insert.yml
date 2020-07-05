@@ -7,5 +7,6 @@ dependencies:
 id: callout_insert
 label: 'Callout Insert'
 icon_uuid: null
+icon_default: null
 description: 'Insert callout content, which can either be an existing callout-reference, or a unique callout-item. Also contains theme wrappers.'
 behavior_plugins: {  }

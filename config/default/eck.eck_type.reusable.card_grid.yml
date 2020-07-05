@@ -4,6 +4,6 @@ status: true
 dependencies:
   config:
     - eck.eck_entity_type.reusable
-name: 'Card Grid'
 type: card_grid
+name: 'Card Grid'
 description: 'Grid of cards for linking to existing content as well as external content.'

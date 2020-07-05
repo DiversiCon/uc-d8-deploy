@@ -1,0 +1,23 @@
+diff --git a/sass-includes/variables.scss b/sass-includes/variables.scss
+index f905d0a..9eee8d1 100644
+--- a/sass-includes/variables.scss
++++ b/sass-includes/variables.scss
+@@ -12,8 +12,9 @@ $primary-color-darkest: rgb(0, 35, 55); /* #002337 */
+ $primary-color-light: #75caee; /* #75caee */
+ $primary-color-lighter-2: #b1d0ee;
+ $primary-color-lighter: rgb(212, 237, 252); /* #D4EDFC */
+-$primary-color-lightest: rgb(234, 246, 254); /* #EAF6FE */
++$primary-color-lightest: rgb(238, 250, 254); /* #EAF6FE */
+
++$gray-dark: rgb(64, 64, 64); /* #404040 */
+ $gray-medium: rgb(151, 151, 151); /* #979797 */
+ $gray-light: rgb(191, 191, 191); /* #BFBFBF */
+ $gray-lighter: rgb(218, 224, 227); /* #DAE0E3 */
+@@ -103,3 +104,7 @@ $base-border-radius: 4px;
+
+ /* toolbar */
+ $toolbar-vertical-width: 320px;
++
++/* Custom additions */
++$it_width_left: 45%;
++$it_padding: 1.5%;

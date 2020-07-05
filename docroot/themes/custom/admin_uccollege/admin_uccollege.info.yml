@@ -2,7 +2,7 @@ name: University of Chicago, College Admin
 type: theme
 base theme: adminimal_theme
 description: 'Admin theme, sub-theme of Adminimal'
-core: 8.x
+core_version_requirement: ^8 || ^9
 
 libraries:
 - admin_uccollege/theme_base

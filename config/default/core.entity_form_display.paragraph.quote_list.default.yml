@@ -9,15 +9,48 @@ dependencies:
     - paragraphs.paragraphs_type.quote_list
   module:
     - allowed_formats
+    - field_group
     - paragraphs
+    - paragraphs_features
     - text
+third_party_settings:
+  field_group:
+    group_headline:
+      children:
+        - field_headline_text
+        - field_subheadline_text
+      parent_name: ''
+      weight: 0
+      format_type: details
+      region: content
+      format_settings:
+        description: ''
+        open: true
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'List Headline'
+    group_quote_list:
+      children:
+        - field_paragraphs_unlimited
+      parent_name: ''
+      weight: 3
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: true
+        required_fields: true
+      label: 'Quote List'
 id: paragraph.quote_list.default
 targetEntityType: paragraph
 bundle: quote_list
 mode: default
 content:
   field_headline_text:
-    weight: 0
+    weight: 1
     settings:
       size: 60
       placeholder: ''
@@ -28,19 +61,31 @@ content:
     type: text_textfield
     region: content
   field_paragraphs_unlimited:
-    weight: 2
+    weight: 4
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: quote
-    third_party_settings: {  }
-    type: entity_reference_paragraphs
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings:
+      paragraphs_features:
+        delete_confirmation: true
+        add_in_between: false
+        split_text: false
+        show_drag_and_drop: false
+    type: paragraphs
     region: content
   field_subheadline_text:
-    weight: 1
+    weight: 2
     settings:
       size: 60
       placeholder: ''

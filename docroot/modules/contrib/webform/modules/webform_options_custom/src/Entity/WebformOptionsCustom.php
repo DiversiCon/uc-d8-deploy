@@ -44,12 +44,12 @@ use Drupal\webform_options_custom\WebformOptionsCustomInterface;
  *     "label" = "label",
  *   },
  *   links = {
- *     "add-form" = "/admin/structure/webform/config/options_custom/manage/add",
- *     "edit-form" = "/admin/structure/webform/config/options_custom/manage/{webform_options_custom}/edit",
- *     "source-form" = "/admin/structure/webform/config/options_custom/manage/{webform_options_custom}/source",
- *     "duplicate-form" = "/admin/structure/webform/config/options_custom/manage/{webform_options_custom}/duplicate",
- *     "delete-form" = "/admin/structure/webform/config/options_custom/manage/{webform_options_custom}/delete",
- *     "collection" = "/admin/structure/webform/config/options_custom/manage",
+ *     "add-form" = "/admin/structure/webform/options/custom/manage/add",
+ *     "edit-form" = "/admin/structure/webform/options/custom/manage/{webform_options_custom}/edit",
+ *     "source-form" = "/admin/structure/webform/options/custom/manage/{webform_options_custom}/source",
+ *     "duplicate-form" = "/admin/structure/webform/options/custom/manage/{webform_options_custom}/duplicate",
+ *     "delete-form" = "/admin/structure/webform/options/custom/manage/{webform_options_custom}/delete",
+ *     "collection" = "/admin/structure/webform/options/custom/manage",
  *   },
  *   config_export = {
  *     "id",
@@ -262,12 +262,12 @@ class WebformOptionsCustom extends ConfigEntityBase implements WebformOptionsCus
    */
   public function getTemplate() {
     switch ($this->type) {
-      case static::TYPE_URL:
+      case WebformOptionsCustomInterface::TYPE_URL:
         $url = $this->getUrl();
         return ($url) ? file_get_contents($url) : '';
 
       default:
-      case static::TYPE_TEMPLATE:
+      case WebformOptionsCustomInterface::TYPE_TEMPLATE:
         return $this->template;
     }
   }

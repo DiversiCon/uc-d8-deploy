@@ -1,7 +1,7 @@
 name: 'UC Central Data Repository Client'
 type: module
 description: 'Module facilitating client use of the UC CDR'
-core: 8.x
+core_version_requirement: ^8 || ^9
 package: 'Custom'
 
 # Dependencies

@@ -34,3 +34,78 @@ uc_sauce.settings.gmap:
   weight: 100
   menu_name: devel
   route_name: uc_sauce.settings.gmap
+
+# Extra configuration level links for custom settings.
+uc_sauce.config_navigation:
+  title: 'Navigation'
+  description: 'Navigation related configuration.'
+  parent: system.admin_config
+  route_name: system.admin_config_navigation
+  weight: -999
+  menu_name: admin
+uc_sauce.config_content:
+  title: 'Content Settings'
+  description: 'Content related configuration.'
+  parent: system.admin_config
+  route_name: system.admin_config_content
+  weight: -998
+  menu_name: admin
+
+# Manual effort required due to inadequacies of config_pages menu implementation.
+uc_sauce.config_navigation.masthead:
+  title: 'Global Header/Navigation'
+  description: 'Global Header and Navigation configuration settings.'
+  parent: uc_sauce.config_navigation
+  route_name: config_pages.masthead
+  weight: 10
+  menu_name: admin
+uc_sauce.config_navigation.alert:
+  title: 'Global Alert'
+  description: 'Global Alert configuration settings.'
+  parent: uc_sauce.config_navigation
+  route_name: config_pages.global_alert
+  weight: 20
+  menu_name: admin
+uc_sauce.config_navigation.footer:
+  title: 'Global Footer'
+  description: 'Global Footer configuration settings.'
+  parent: uc_sauce.config_navigation
+  route_name: config_pages.footer
+  weight: 30
+  menu_name: admin
+uc_sauce.config_navigation.visual_nav:
+  title: 'Visual Navigation'
+  description: 'Visual Navigation configuration settings.'
+  parent: uc_sauce.config_navigation
+  route_name: config_pages.photo_nav_grid
+  weight: 40
+  menu_name: admin
+
+uc_sauce.config_content.contact:
+  title: 'Contact Us'
+  description: 'Contact Us headline configuration settings.'
+  parent: uc_sauce.config_content
+  route_name: config_pages.webform_contact
+  weight: 10
+  menu_name: admin
+uc_sauce.config_content.events:
+  title: 'Events'
+  description: 'Events content configuration settings.'
+  parent: uc_sauce.config_content
+  route_name: config_pages.events
+  weight: 20
+  menu_name: admin
+uc_sauce.config_content.faculty:
+  title: 'Faculty'
+  description: 'Faculty content configuration settings.'
+  parent: uc_sauce.config_content
+  route_name: config_pages.faculty
+  weight: 30
+  menu_name: admin
+uc_sauce.config_content.publications:
+  title: 'Publications'
+  description: 'Publications content configuration settings.'
+  parent: uc_sauce.config_content
+  route_name: config_pages.publications
+  weight: 40
+  menu_name: admin

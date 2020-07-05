@@ -5,6 +5,7 @@
  * Contains uc_sauce.module.
  */
 
+use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Cache\Cache;
@@ -266,6 +267,20 @@ function uc_sauce_preprocess_node(&$variables) {
   // Extra group node cache tags.
   if ($node->bundle() == 'group') {
     $variables['elements']['#cache']['tags'][] = 'node_list';
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ *
+ * @param array $variables
+ *   An associative array containing paragraph summary variables.
+ */
+function uc_sauce_preprocess_paragraphs_summary(&$variables) {
+  if (isset($variables['content']) && $variables['content']) {
+    $content = [];
+    $content[] = $variables['content'][0];
+    $variables['content'] = $content;
   }
 }
 
@@ -544,4 +559,58 @@ function uc_sauce_lreplace($search, $replace, $subject){
     $subject = substr_replace($subject, $replace, $pos, strlen($search));
   }
   return $subject;
+}
+
+/*
+ * The following are included from thunder_profile to move the content
+ * moderation state field to the bottom actions bar of the thunder_admin
+ * theme during content editing.
+ */
+
+/**
+ * Implements hook_entity_base_field_info_alter().
+ *
+ * @param $fields
+ * @param \Drupal\Core\Entity\EntityTypeInterface $entity_type
+ */
+function uc_sauce_entity_base_field_info_alter(&$fields, EntityTypeInterface $entity_type) {
+  if (\Drupal::config('system.theme')->get('admin') == 'thunder_admin' && \Drupal::hasService('content_moderation.moderation_information')) {
+    /** @var \Drupal\content_moderation\ModerationInformationInterface $moderation_info */
+    $moderation_info = \Drupal::service('content_moderation.moderation_information');
+    if ($moderation_info->canModerateEntitiesOfEntityType($entity_type) && isset($fields['moderation_state'])) {
+      $fields['moderation_state']->setDisplayOptions('form', [
+        'type' => 'thunder_moderation_state_default',
+        'weight' => 100,
+        'settings' => [],
+      ]);
+    }
+  }
+}
+
+/**
+ * Implements hook_field_widget_info_alter().
+ *
+ * @param array $info
+ */
+function uc_sauce_field_widget_info_alter(array &$info) {
+  if (!\Drupal::moduleHandler()->moduleExists('content_moderation')) {
+    unset($info['thunder_moderation_state_default']);
+  }
+}
+
+
+/**
+ * Implements hook_field_widget_form_alter().
+ *
+ * @param $element
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param $context
+ */
+function uc_sauce_field_widget_form_alter(&$element, \Drupal\Core\Form\FormStateInterface $form_state, $context) {
+
+  // Change order of title in link widget.
+  $field_definition = $context['items']->getFieldDefinition();
+  if ($field_definition->getType() == 'link') {
+    $element['title']['#weight'] = -99;
+  }
 }

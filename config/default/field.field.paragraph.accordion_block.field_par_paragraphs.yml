@@ -28,42 +28,12 @@ settings:
       accordion_block:
         weight: 5
         enabled: false
-      components:
-        weight: 6
-        enabled: false
-      html_text:
-        weight: 7
-        enabled: false
-      smartbody:
-        weight: 8
-        enabled: false
-      accordion_item:
-        weight: 14
-        enabled: false
-      feature:
-        weight: 16
-        enabled: false
-      feature_components:
-        weight: 17
-        enabled: false
-      feature_insert:
-        weight: 18
-        enabled: false
-      feature_reference:
-        weight: 19
-        enabled: false
-      pullquote:
-        weight: 21
-        enabled: false
-      smartbody_image:
-        weight: 23
-        enabled: false
-      social_grid:
-        weight: 24
-        enabled: false
       accordion_group:
         enabled: true
         weight: 84
+      accordion_item:
+        weight: 14
+        enabled: false
       avatar:
         weight: 86
         enabled: false
@@ -93,6 +63,9 @@ settings:
         enabled: false
       card_grid_reference:
         weight: 95
+        enabled: false
+      components:
+        weight: 6
         enabled: false
       components_lower:
         weight: 97
@@ -124,14 +97,26 @@ settings:
       date:
         weight: 106
         enabled: false
+      feature:
+        weight: 16
+        enabled: false
       feature_4_square_images:
         weight: 108
         enabled: false
       feature_4sq_img_link:
         weight: 109
         enabled: false
+      feature_components:
+        weight: 17
+        enabled: false
       feature_image_link:
         weight: 111
+        enabled: false
+      feature_insert:
+        weight: 18
+        enabled: false
+      feature_reference:
+        weight: 19
         enabled: false
       flickr_gallery:
         weight: 114
@@ -147,6 +132,9 @@ settings:
         enabled: false
       home_page_grid:
         weight: 118
+        enabled: false
+      html_text:
+        weight: 7
         enabled: false
       infographic:
         weight: 120
@@ -196,6 +184,9 @@ settings:
       program_selector:
         weight: 135
         enabled: false
+      pullquote:
+        weight: 21
+        enabled: false
       quick_links:
         weight: 137
         enabled: false
@@ -222,6 +213,15 @@ settings:
         enabled: false
       sidebar_inquiries:
         weight: 145
+        enabled: false
+      smartbody:
+        weight: 8
+        enabled: false
+      smartbody_image:
+        weight: 23
+        enabled: false
+      social_grid:
+        weight: 24
         enabled: false
       social_platform_link:
         weight: 149

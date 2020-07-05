@@ -58,7 +58,7 @@ class WebformElementPluginDefinitionsTest extends WebformElementBrowserTestBase 
     $actual_definitions = $this->getActualElementDefinitions();
     $this->htmlOutput('<pre>' . htmlentities(Yaml::encode($actual_definitions)) . '</pre>');
     foreach ($actual_definitions as $key => $actual_definition) {
-      if ($expected_definitions[$key] != $actual_definition) {
+      if ($expected_definitions[$key] !== $actual_definition) {
         $this->htmlOutput('<pre>' . Yaml::encode([$key => $actual_definition]) . '</pre>');
       }
       $this->assertEquals($expected_definitions[$key], $actual_definition, "Expected and actual '$key' element definitions match.");
@@ -1790,7 +1790,7 @@ webform_toggle:
   composite: false
   states_wrapper: false
   deprecated: true
-  deprecated_message: 'The Toogles library is not being maintained and has major accessibility issues. It has been <a href="https://www.drupal.org/project/webform/issues/2890861">deprecated</a> and will be removed before Webform 8.x-5.0.'
+  deprecated_message: 'The Toggles library is not being maintained and has major accessibility issues. It has been <a href="https://www.drupal.org/project/webform/issues/2890861">deprecated</a> and will be removed before Webform 8.x-5.0.'
   id: webform_toggle
   label: Toggle
   class: Drupal\webform_toggles\Plugin\WebformElement\WebformToggle
@@ -1809,7 +1809,7 @@ webform_toggles:
   composite: false
   states_wrapper: false
   deprecated: true
-  deprecated_message: 'The Toogles library is not being maintained and has major accessibility issues. It has been <a href="https://www.drupal.org/project/webform/issues/2890861">deprecated</a> and will be removed before Webform 8.x-5.0.'
+  deprecated_message: 'The Toggles library is not being maintained and has major accessibility issues. It has been <a href="https://www.drupal.org/project/webform/issues/2890861">deprecated</a> and will be removed before Webform 8.x-5.0.'
   id: webform_toggles
   label: Toggles
   class: Drupal\webform_toggles\Plugin\WebformElement\WebformToggles

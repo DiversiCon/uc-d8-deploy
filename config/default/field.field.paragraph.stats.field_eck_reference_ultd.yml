@@ -10,7 +10,7 @@ id: paragraph.stats.field_eck_reference_ultd
 field_name: field_eck_reference_ultd
 entity_type: paragraph
 bundle: stats
-label: 'Stat Reference'
+label: Stats
 description: 'Reference <a href="/admin/content/stats" target="_blank">existing stats (new window)</a>.'
 required: true
 translatable: true

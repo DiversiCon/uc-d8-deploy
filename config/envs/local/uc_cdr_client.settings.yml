@@ -1,2 +1,2 @@
-api_url: '//pme.local'
-events_api_url: '//pme.local/api/node/event'
+api_url: '//cqe.local'
+events_api_url: '//cqe.local/api/node/event'
