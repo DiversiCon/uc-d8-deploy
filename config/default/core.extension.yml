@@ -18,7 +18,6 @@ module:
   config_pages: 0
   config_readonly: 0
   config_split: 0
-  config_suite: 0
   consumer_image_styles: 0
   consumers: 0
   content_moderation: 0
