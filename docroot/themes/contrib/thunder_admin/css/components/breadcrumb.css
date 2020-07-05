@@ -4,13 +4,13 @@
 }
 
 .breadcrumb li{
-  color:#bfbfbf;
+  color:#404040;
 }
 
 .breadcrumb a{
   color:inherit;
-  font-size:10px;
-  line-height:12px;
+  font-size:12px;
+  line-height:14px;
   position:relative;
   z-index:1;
 }

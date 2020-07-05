@@ -43,8 +43,8 @@ modules:
 
 command-hooks:
   post-deploy-build:
-    dir: '${deploy.dir}/docroot'
-    command: rm -rf .gitignore
+    dir: '${repo.root}'
+    command: ./scripts/deploy/post-deploy-build.sh
 
 disable-targets:
   blt:

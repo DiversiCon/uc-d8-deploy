@@ -307,7 +307,7 @@ final class Versions
   'symfony/phpunit-bridge' => 'v3.4.42@ac355e1e9ebde4cf6ef5187f5cf4b43001f9a29f',
   'textalk/websocket' => '1.3.1@fe348408a43cc646d08a3ae73e7877370441c7ee',
   'theseer/tokenizer' => '1.1.3@11336f6f84e16a720dae9d8e6ed5019efa85a0f9',
-  'ifthen/uccqe' => 'dev-master@dc78d424fb3f8c2604a4464cbe1ba15f2a18e6e8',
+  'ifthen/uccqe' => 'dev-master@0de4b4ac9c82084b0f3020f244dad31e638e4efb',
 );
 
     private function __construct()
