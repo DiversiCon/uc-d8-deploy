@@ -29,6 +29,11 @@ targetEntityType: node
 bundle: event
 mode: teaser
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   links:
     weight: 100
     settings: {  }
@@ -36,6 +41,7 @@ content:
     region: content
 hidden:
   field_all_day: true
+  field_bool_template: true
   field_contact: true
   field_department: true
   field_description: true

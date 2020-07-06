@@ -25,6 +25,11 @@ targetEntityType: node
 bundle: publication
 mode: teaser
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   links:
     weight: 100
     settings: {  }
@@ -33,6 +38,7 @@ content:
 hidden:
   field_associated_people: true
   field_author_list: true
+  field_bool_template: true
   field_citation: true
   field_label: true
   field_link_single: true

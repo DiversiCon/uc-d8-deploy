@@ -26,6 +26,11 @@ targetEntityType: node
 bundle: publication
 mode: default
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_associated_people:
     weight: 108
     label: above
@@ -138,4 +143,5 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_bool_template: true
   search_api_excerpt: true

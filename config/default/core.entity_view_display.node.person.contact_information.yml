@@ -87,6 +87,7 @@ content:
     region: content
 hidden:
   body: true
+  field_bool_template: true
   field_category_primary: true
   field_description: true
   field_hide_in_directory: true

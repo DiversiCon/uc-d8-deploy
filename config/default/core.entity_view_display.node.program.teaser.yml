@@ -38,6 +38,7 @@ content:
     weight: 100
     region: content
 hidden:
+  field_bool_template: true
   field_headline_text: true
   field_image_main: true
   field_links_ultd: true

@@ -12,6 +12,11 @@ targetEntityType: node
 bundle: faculty
 mode: teaser
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   links:
     weight: 100
     settings: {  }
@@ -21,6 +26,7 @@ hidden:
   field_academic_appointment: true
   field_administrative_title: true
   field_awards: true
+  field_bool_template: true
   field_clinical_interests: true
   field_degree: true
   field_description: true

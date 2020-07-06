@@ -191,6 +191,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_bool_template: true
   field_category_primary: true
   field_hide_in_directory: true
   field_name: true

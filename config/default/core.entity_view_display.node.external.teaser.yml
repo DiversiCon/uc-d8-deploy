@@ -20,6 +20,11 @@ targetEntityType: node
 bundle: external
 mode: teaser
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_headline_text:
     type: text_default
     weight: 0
@@ -56,6 +61,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_bool_template: true
   field_date_no_time: true
   field_organization: true
   links: true
