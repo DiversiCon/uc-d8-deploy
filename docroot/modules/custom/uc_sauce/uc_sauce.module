@@ -614,3 +614,13 @@ function uc_sauce_field_widget_form_alter(&$element, \Drupal\Core\Form\FormState
     $element['title']['#weight'] = -99;
   }
 }
+
+/**
+ * Thunder related body class to hide meta details sidebar on content forms.
+ *
+ * @param $variables
+ *   Variables array.
+ */
+function uc_sauce_preprocess_html(&$variables) {
+  $variables['attributes']['class'][] = 'advanced-sidebar-tray-toggled';
+}
