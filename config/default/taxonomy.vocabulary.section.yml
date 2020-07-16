@@ -5,4 +5,4 @@ dependencies: {  }
 name: Section
 vid: section
 description: 'Page sections, for site content'
-weight: 0
+weight: -10

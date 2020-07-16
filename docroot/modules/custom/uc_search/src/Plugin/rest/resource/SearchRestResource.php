@@ -223,10 +223,8 @@ class SearchRestResource extends ResourceBase {
 
     // Get section ID.
     $category = NULL;
-    if ($node->hasField('field_section') && $node->get('field_section')) {
-      if ($node->get('field_section')->target_id) {
-        $category = $node->get('field_section')->target_id;
-      }
+    if ($node->hasField('field_section') && !$node->get('field_section')->isEmpty()) {
+      $category = $node->get('field_section')->target_id;
     }
 
     // Get URL.

@@ -824,6 +824,57 @@ display:
           hierarchy: true
           error_message: true
           plugin_id: taxonomy_index_tid
+        field_organization_target_id:
+          id: field_organization_target_id
+          table: node__field_organization
+          field: field_organization_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_organization_target_id_op
+            label: Organization
+            description: ''
+            use_operator: false
+            operator: field_organization_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: organization
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_writer: '0'
+              template_editor: '0'
+              content_editor: '0'
+              content_manager: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: organization
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
         type:
           id: type
           table: node_field_data
@@ -963,57 +1014,6 @@ display:
           plugin_id: boolean
           entity_type: node
           entity_field: status
-        field_organization_target_id:
-          id: field_organization_target_id
-          table: node__field_organization
-          field: field_organization_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_organization_target_id_op
-            label: Organization
-            description: ''
-            use_operator: false
-            operator: field_organization_target_id_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: organization
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              content_writer: '0'
-              template_editor: '0'
-              content_editor: '0'
-              content_manager: '0'
-              administrator: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          type: select
-          limit: true
-          vid: organization
-          hierarchy: false
-          error_message: true
-          plugin_id: taxonomy_index_tid
       sorts: {  }
       title: Content
       empty:

@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 name: 'Faculty Sections'
 vid: faculty_sections
-description: ''
-weight: 0
+description: 'Faculty related Keywords, origin BSD, different from CMS section.'
+weight: 1

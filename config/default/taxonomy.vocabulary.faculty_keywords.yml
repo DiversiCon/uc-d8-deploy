@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 name: 'Faculty Keywords'
 vid: faculty_keywords
-description: ''
+description: 'Faculty related Keywords, origin BSD.'
 weight: 0

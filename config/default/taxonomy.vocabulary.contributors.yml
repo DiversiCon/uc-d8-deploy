@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 name: Contributors
 vid: contributors
-description: 'Story and photo credits/contributors'
-weight: 0
+description: 'Story and photo credits/contributors.'
+weight: -6

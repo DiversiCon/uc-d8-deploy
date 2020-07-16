@@ -6,6 +6,39 @@ dependencies:
     - field.field.taxonomy_term.section.field_section_landing_page
     - field.field.taxonomy_term.section.field_section_landing_page_query
     - taxonomy.vocabulary.section
+  module:
+    - field_group
+third_party_settings:
+  field_group:
+    group_name:
+      children:
+        - name
+      parent_name: ''
+      weight: 0
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: true
+        required_fields: true
+      label: Name
+    group_landing_page:
+      children:
+        - field_section_landing_page
+        - field_section_landing_page_query
+      parent_name: ''
+      weight: 1
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: true
+        required_fields: true
+      label: 'Landing page'
 id: taxonomy_term.section.default
 targetEntityType: taxonomy_term
 bundle: section
@@ -13,7 +46,7 @@ mode: default
 content:
   field_section_landing_page:
     type: entity_reference_autocomplete
-    weight: 1
+    weight: 3
     region: content
     settings:
       match_operator: CONTAINS
@@ -22,7 +55,7 @@ content:
       match_limit: 10
     third_party_settings: {  }
   field_section_landing_page_query:
-    weight: 3
+    weight: 4
     settings:
       size: 60
       placeholder: ''
@@ -31,7 +64,7 @@ content:
     region: content
   name:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60
@@ -39,10 +72,10 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
+    weight: 2
+    region: content
     settings:
       display_label: true
-    weight: 100
-    region: content
     third_party_settings: {  }
 hidden:
   description: true

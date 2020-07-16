@@ -1,0 +1,38 @@
+uuid: d5662aa4-e75c-4142-b800-74c85ae838b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.event_departments
+  module:
+    - text
+id: taxonomy_term.event_departments.default
+targetEntityType: taxonomy_term
+bundle: event_departments
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+      rows: 5
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 2
+    region: content
+    third_party_settings: {  }
+hidden:
+  path: true

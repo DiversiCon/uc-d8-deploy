@@ -11,7 +11,6 @@ dependencies:
     - taxonomy.vocabulary.contributors
   module:
     - entity_browser
-    - path
     - text
 id: taxonomy_term.contributors.default
 targetEntityType: taxonomy_term
@@ -62,18 +61,13 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  path:
-    type: path
-    weight: 5
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 100
+    weight: 5
     region: content
     third_party_settings: {  }
 hidden:
   description: true
+  path: true

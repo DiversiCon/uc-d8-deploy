@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 name: 'Faculty Clinical Interests'
 vid: faculty_clinical_interests
-description: ''
-weight: 0
+description: 'Faculty related Clinical Interests, origin BSD.'
+weight: -2

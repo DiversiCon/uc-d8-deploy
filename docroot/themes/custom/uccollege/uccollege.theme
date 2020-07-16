@@ -730,12 +730,13 @@ function uccollege_preprocess_paragraph(&$vars) {
         $hero_component_type = $hero_component->bundle();
 
         if ($hero_component_type === 'smartbody_image') {
+
           // Gallery/Hero image.
           // Generate the render array for the image gallery.
           $vars['component_gallery_images'] = $hero_component->get('field_images')->view('default');
 
           // Pass the gallery headline.
-          $vars['component_gallery_headline'] = $hero_component->get('field_headline_text')->getValue();
+          $vars['component_gallery_headline'] = $hero_component->get('field_headline_text')->value;
 
           // Define the extend/include paths.
           $vars['extend_path'] = "@uccollege/../components/gallery/templates/paragraph--smartbody-image.html.twig";

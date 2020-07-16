@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 name: 'Event Departments'
 vid: event_departments
-description: ''
-weight: 0
+description: 'Event related Departments, origin Bedeworks.'
+weight: -4

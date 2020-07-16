@@ -5,9 +5,10 @@ namespace Drupal\uc_api\Plugin\rest\resource;
 use Drupal\file\Entity\File;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\node\Entity\Node;
+// @codingStandardsIgnoreLine
+use Drupal\rest\Annotation\RestResource;
 use Drupal\rest\Plugin\ResourceBase;
 use Drupal\rest\ResourceResponse;
-use Drupal\taxonomy\Entity\Term;
 
 /**
  * Provides group data as a rest resource.
@@ -26,6 +27,7 @@ class GroupRestResource extends ResourceBase {
    * Returns a list of group data.
    *
    * @return \Drupal\rest\ResourceResponse
+   *   JSON response.
    *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
@@ -90,10 +92,20 @@ class GroupRestResource extends ResourceBase {
         // Get the section term.
         /* @var \Drupal\taxonomy\Entity\Term $section_term */
         $section_term = $group_node->get('field_section')->entity;
+        $section_term_id = NULL;
+        if ($section_term) {
+          $section_term_id = $section_term->id();
+        }
 
         // Setup types that need to be included.
+        // @todo This is a problem, replace with a settings file.
         $types = [];
-        $type_names = ['Student', 'Researcher', 'Junior Fellow', 'STAGE/IME Fellow'];
+        $type_names = [
+          'Student',
+          'Researcher',
+          'Junior Fellow',
+          'STAGE/IME Fellow',
+        ];
         foreach ($type_names as $term_name) {
           $types[] = $utility_service->getTermIdByName($term_name);
         }
@@ -102,7 +114,7 @@ class GroupRestResource extends ResourceBase {
         $person_ids = $node_storage->getQuery()
           ->condition('type', 'person')
           ->condition('status', TRUE)
-          ->condition('field_section.target_id', $section_term->id())
+          ->condition('field_section.target_id', $section_term_id)
           ->condition('field_person_type.target_id', $types, 'IN')
           ->execute();
 
@@ -118,7 +130,6 @@ class GroupRestResource extends ResourceBase {
       }
 
       // Make sure we have the correct URL.
-      $url = '';
       $url_target = '';
       if ($group_node->get('field_link_single')->getValue()) {
         $url = $group_node->get('field_link_single')->getValue()[0]['uri'];

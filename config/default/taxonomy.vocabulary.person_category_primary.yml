@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 name: 'Directory Categories'
 vid: person_category_primary
-description: 'List of college offices and staff roles'
-weight: 0
+description: 'List of college offices and staff roles.'
+weight: -5

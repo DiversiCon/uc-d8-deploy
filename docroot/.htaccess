@@ -137,6 +137,8 @@ AddEncoding gzip svgz
   # security, you can replace '!/' with '!^/'.
   # Allow access to PHP files in /core (like authorize.php or install.php):
   RewriteCond %{REQUEST_URI} !/core/[^/]*\.php$
+  # Allow access to MkDocs directory:
+  # RewriteCond %{REQUEST_URI} !/reference/index.html$
   # Allow access to test-specific PHP files:
   RewriteCond %{REQUEST_URI} !/core/modules/system/tests/https?.php
   # Allow access to Statistics module's custom front controller.

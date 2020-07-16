@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 name: Organization
 vid: organization
-description: 'Member Organizations/Institutions'
-weight: 0
+description: 'Member Organizations/Institutions.'
+weight: -9

@@ -5,4 +5,4 @@ dependencies: {  }
 name: Topic
 vid: topic
 description: 'A list of different topics across people, groups and content.'
-weight: 0
+weight: -8

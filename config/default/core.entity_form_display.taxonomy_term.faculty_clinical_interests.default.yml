@@ -1,0 +1,38 @@
+uuid: 9bf1fe3c-bc46-484d-bf57-79d290aaff0b
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.faculty_clinical_interests
+  module:
+    - text
+id: taxonomy_term.faculty_clinical_interests.default
+targetEntityType: taxonomy_term
+bundle: faculty_clinical_interests
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+      rows: 5
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 2
+    region: content
+    third_party_settings: {  }
+hidden:
+  path: true

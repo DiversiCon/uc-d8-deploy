@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 name: 'Program Type'
 vid: program_type
-description: ''
-weight: 0
+description: 'Program categorization by Type.'
+weight: 2

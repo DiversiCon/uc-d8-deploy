@@ -1,0 +1,38 @@
+uuid: 294ca65f-bb4e-43d0-81b0-58bcaf12a9cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.person_category_primary
+  module:
+    - text
+id: taxonomy_term.person_category_primary.default
+targetEntityType: taxonomy_term
+bundle: person_category_primary
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+      rows: 5
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 2
+    region: content
+    third_party_settings: {  }
+hidden:
+  path: true

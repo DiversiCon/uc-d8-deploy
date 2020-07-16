@@ -1,0 +1,38 @@
+uuid: 30cd4987-672d-42fb-9466-e2fdab65a1ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.faculty_departments
+  module:
+    - text
+id: taxonomy_term.faculty_departments.default
+targetEntityType: taxonomy_term
+bundle: faculty_departments
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+      rows: 5
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 2
+    region: content
+    third_party_settings: {  }
+hidden:
+  path: true

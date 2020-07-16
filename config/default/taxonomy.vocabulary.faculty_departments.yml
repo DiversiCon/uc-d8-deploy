@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 name: 'Faculty Departments'
 vid: faculty_departments
-description: ''
-weight: 0
+description: 'Faculty related Departments, origin BSD.'
+weight: -1
